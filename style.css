@@ -3,7 +3,7 @@ header {
   top: 0;
   left: 50%;
   transform: translate(-50%);
-  min-width: 1300px;
+  min-width: 1500px;
   height: 120px;
   background-color: #EBF4FF;
   z-index: 1000;
