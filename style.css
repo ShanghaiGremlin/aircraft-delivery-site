@@ -22,9 +22,12 @@ header {
 }
 
 .header-left {
-  flex: 0 0 auto;
+  flex: 1;
+  display: flex;
   justify-content: flex-start;
+  min-width: 200px;
 }
+
 
 .header-center {
   flex: 1 1 auto;
@@ -64,13 +67,11 @@ header {
 
 .nav {
   display: flex;
-  gap: 5px;
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  align-items: center;
-  justify-content: flex-start;
-  height: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
 }
+
 
 .nav a {
   text-decoration: none;
