@@ -2,28 +2,27 @@
   <div style="position: relative; max-width: 1325px; margin: 0 auto;">
 <img 
   src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/home1.png" 
-  alt="Aircraft Delivery M" 
+  alt="Aircraft Delivery" 
   style="width: 100%; height: auto; display: block;">
+  usemap="#homepage-map
+  >
 
 
-    <!-- Clickable hotspot 1 -->
-    <a href="/services.html" style="
-      position: absolute;
-      top: 30%;
-      left: 20%;
-      width: 10%;
-      height: 8%;
-      display: block;
-    " aria-label="View Services"></a>
-
-    <!-- Clickable hotspot 2 -->
-    <a href="/quote.html" style="
-      position: absolute;
-      top: 65%;
-      left: 40%;
-      width: 20%;
-      height: 10%;
-      display: block;
-    " aria-label="Get a Quote"></a>
+   <map name="homepage-map">
+      <area
+        shape="rect"
+        coords="836,565,1657,925"
+        href="/services"
+        alt="View Services"
+        aria-label="View Services"
+      >
+      <area
+        shape="rect"
+        coords="619,637,810,828"
+        href="/quote"
+        alt="Get a Quote"
+        aria-label="Get a Quote"
+      >
+    </map>
   </div>
 </main>
