@@ -81,7 +81,7 @@ header {
 .nav a {
   text-decoration: none;
   color: #333;
-  padding: 5px 5px;
+  padding: 0px 0px;
   transition: background-color 0.2s ease;
   border-bottom: 2px solid transparent;
   font-family: Arial, sans-serif;
