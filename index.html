@@ -1,81 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Aircraft Delivery</title>
-    <link rel="stylesheet" href="style.css" />
-    <script defer src="script.js"></script>
-    <style>
-      body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-      }
-      header {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 120px;
-        background-color: white;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 9999;
-        border-bottom: 1px solid #ccc;
-      }
-      .nav-links {
-        position: absolute;
-        left: 20px;
-        display: flex;
-        gap: 20px;
-        align-items: center;
-      }
-      .nav-links a {
-        text-decoration: none;
-        color: #333;
-        font-size: 16px;
-      }
-      .nav-links a:hover {
-        text-decoration: underline;
-      }
-      .logo {
-        height: 80px; /* Adjusted for larger logo */
-      }
-      main {
-        padding-top: 140px; /* Offset for fixed header */
-      }
-    </style>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aircraft Delivery</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      padding-top: 120px; /* prevent header overlap */
+    }
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #EBF4FF;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      z-index: 9999;
+      height: 120px;
+    }
+    nav {
+      flex: 1;
+    }
+    .nav-link {
+      margin-right: 20px;
+      text-decoration: none;
+      color: black;
+      position: relative;
+    }
+    .nav-link:hover {
+      text-decoration: underline;
+    }
+    .nav-link.active {
+      text-decoration: underline;
+      font-weight: bold;
+    }
+    .logo {
+      flex: 0 0 auto;
+    }
+    .logo img {
+      height: 100px;
+    }
+    .contact {
+      flex: 1;
+      text-align: right;
+      font-size: 14px;
+    }
+    .contact a {
+      text-decoration: none;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- Left Nav -->
+    <nav>
+      <a href="/services" class="nav-link">Services</a>
+      <a href="/quote" class="nav-link">Quote</a>
+      <a href="/past-deliveries" class="nav-link">Past Deliveries</a>
+      <a href="/pilot-directory" class="nav-link">Pilot Directory</a>
+      <a href="/pilot-hiring" class="nav-link">Pilot Hiring</a>
+    </nav>
 
-  <body>
-    <header>
-      <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/services">Services</a>
-        <a href="/quote">Quote</a>
-        <a href="/pilot-directory">Pilot Directory</a>
-        <a href="/past-deliveries">Past Deliveries</a>
-      </div>
-      <img
-        class="logo"
-        src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/side-by-side-logo.png"
-        alt="Aircraft Delivery Solutions Logo"
-      />
-    </header>
+    <!-- Center Logo -->
+    <a href="/" class="logo">
+      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/side-by-side-logo.png" alt="Logo">
+    </a>
 
-    <main>
-      <div style="position: relative; max-width: 1325px; margin: 0 auto;">
-        <img 
-          src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/home1.png" 
-          alt="Aircraft Delivery" 
-          style="width: 100%; height: auto; display: block;"
-          usemap="#homepage-map"
-        />
-        <map name="homepage-map">
-          <area shape="rect" coords="836,565,1657,925" href="/services" alt="View Services" aria-label="View Services" />
-          <area shape="rect" coords="619,637,810,828" href="/quote" alt="Get a Quote" aria-label="Get a Quote" />
-        </map>
-      </div>
-    </main>
-  </body>
+    <!-- Right Contact Info -->
+    <div class="contact">
+      <div><a href="tel:+15551234567">(555) 123-4567</a></div>
+      <div><a href="mailto:info@aircraft.delivery">info@aircraft.delivery</a></div>
+    </div>
+  </header>
+
+  <script>
+    const links = document.querySelectorAll('.nav-link');
+    const current = window.location.pathname;
+
+    links.forEach(link => {
+      if (link.getAttribute('href') === current) {
+        link.classList.add('active');
+      }
+    });
+  </script>
+</body>
 </html>
