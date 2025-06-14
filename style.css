@@ -24,8 +24,6 @@ header {
 .header-left {
   flex: 1;
   display: flex;
-  justify-content: flex-start;
-  min-width: 200px;
 }
 
 
