@@ -56,35 +56,59 @@
     }
   </style>
 </head>
-<body>
-  <header>
-    <!-- Left Nav -->
-    <nav>
-      <a href="/services" class="nav-link">Services</a>
-      <a href="/quote" class="nav-link">Quote</a>
-      <a href="/past-deliveries" class="nav-link">Past Deliveries</a>
-      <a href="/pilot-directory" class="nav-link">Pilot Directory</a>
-      <a href="/pilot-hiring" class="nav-link">Pilot Hiring</a>
+<body style="margin: 0; font-family: Arial, sans-serif;">
+  <header style="background-color: #EBF4FF; padding: 10px 20px; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: space-between;">
+    <nav style="flex: 1;">
+      <a href="/services.html" style="margin-right: 20px; text-decoration: none; color: #000;" class="nav-link">Services</a>
+      <a href="/quote.html" style="margin-right: 20px; text-decoration: none; color: #000;" class="nav-link">Quote</a>
+      <a href="/past-deliveries.html" style="margin-right: 20px; text-decoration: none; color: #000;" class="nav-link">Past Deliveries</a>
+      <a href="/pilot-directory.html" style="margin-right: 20px; text-decoration: none; color: #000;" class="nav-link">Pilot Directory</a>
+      <a href="/pilot-hiring.html" style="text-decoration: none; color: #000;" class="nav-link">Pilot Hiring</a>
     </nav>
 
-    <!-- Center Logo -->
-    <a href="/" class="logo">
-      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/side-by-side-logo.png" alt="Logo">
-    </a>
+    <div style="flex: 0 0 auto; text-align: center;">
+      <a href="/" aria-label="Home">
+        <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/side-by-side-logo.png" alt="Logo" style="height: 100px;">
+      </a>
+    </div>
 
-    <!-- Right Contact Info -->
-    <div class="contact">
-      <div><a href="tel:+15551234567">(555) 123-4567</a></div>
-      <div><a href="mailto:info@aircraft.delivery">info@aircraft.delivery</a></div>
+    <div style="flex: 1; text-align: right; font-size: 14px; line-height: 1.4; white-space: nowrap;">
+      <div>+1 (415) 845-8163</div>
+      <div>akahn28@gmail.com</div>
     </div>
   </header>
 
-  <script>
-    const links = document.querySelectorAll('.nav-link');
-    const current = window.location.pathname;
+  <main style="padding-top: 130px;"> <!-- Adjust for fixed header height -->
+    <div style="position: relative; max-width: 1325px; margin: 0 auto;">
+      <img 
+        src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/home1.png" 
+        alt="Aircraft Delivery" 
+        style="width: 100%; height: auto; display: block;"
+        usemap="#homepage-map"
+      >
 
+      <map name="homepage-map">
+        <area shape="rect" coords="836,565,1657,925" href="/services" alt="View Services" aria-label="View Services">
+        <area shape="rect" coords="619,637,810,828" href="/quote" alt="Get a Quote" aria-label="Get a Quote">
+      </map>
+    </div>
+  </main>
+
+  <style>
+    .nav-link:hover {
+      text-decoration: underline;
+    }
+    .nav-link.active {
+      text-decoration: underline;
+      font-weight: bold;
+    }
+  </style>
+
+  <script>
+    // Add underline to active page link
+    const links = document.querySelectorAll('.nav-link');
     links.forEach(link => {
-      if (link.getAttribute('href') === current) {
+      if (window.location.pathname.includes(link.getAttribute('href'))) {
         link.classList.add('active');
       }
     });
