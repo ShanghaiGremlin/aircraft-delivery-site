@@ -1,8 +1,8 @@
 header {
   background-color: #EBF4FF;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   box-sizing: border-box;
   padding: 5px 40px;
   position: fixed;
@@ -12,37 +12,42 @@ header {
   z-index: 1000;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   font-family: Arial, sans-serif;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.header-left,
+.header-center,
+.header-right {
+  display: flex;
+  align-items: center;
+  min-width: 0; /* allow flex children to shrink */
 }
 
 .header-left {
-  flex: 1;
-  display: flex;
-  align-items: center;
+  flex: 1 1 0;
   justify-content: flex-start;
 }
 
 .header-center {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
+  flex: 0 0 auto; /* fixed size */
   justify-content: center;
 }
 
+.header-center img {
+  height: 100px;
+  max-width: none;
+}
+
 .header-right {
-  flex: 1;
-  display: flex;
-  align-items: center;
+  flex: 1 1 0;
   justify-content: flex-end;
   gap: 12px;
   font-size: 14px;
-  flex-wrap: nowrap;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 100%;
 }
-
-
 
 
 .logo {
