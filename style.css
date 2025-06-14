@@ -94,6 +94,7 @@ header {
   border-bottom: 2px solid #333; /* underline active page */
 }
 
-html, body {
+body {
   min-width: 1300px;
 }
+
