@@ -22,7 +22,10 @@ header {
 }
 
 .header-left {
-  left: 40px;
+  position: absolute;
+  left: 10px; /* previously 20px or 40px */
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .header-center {
@@ -31,11 +34,10 @@ header {
 }
 
 .header-right {
-  right: 40px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-align: right;
-  font-size: 14px;
+  position: absolute;
+  right: 10px; /* previously 20px or 40px */
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .nav a {
