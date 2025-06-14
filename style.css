@@ -94,7 +94,9 @@ header {
   border-bottom: 2px solid #333; /* underline active page */
 }
 
-body {
+html, body {
   min-width: 1300px;
+  overflow-x: auto;
 }
+
 
