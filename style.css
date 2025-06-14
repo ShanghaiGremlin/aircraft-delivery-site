@@ -71,7 +71,7 @@ header {
 
 
 .nav {
-  gap: 8px;
+  gap: 0px;
   flex-wrap: nowrap;
   overflow: hidden;
   white-space: nowrap;
