@@ -13,9 +13,13 @@ header {
   font-family: Arial, sans-serif;
 }
 
-.logo img {
-  height: 100px;
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
+
 
 .nav {
   display: flex;
