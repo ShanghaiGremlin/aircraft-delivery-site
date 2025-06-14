@@ -1,8 +1,8 @@
 header {
   background-color: #EBF4FF;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   box-sizing: border-box;
   padding: 5px 40px;
   position: fixed;
@@ -14,26 +14,33 @@ header {
   font-family: Arial, sans-serif;
 }
 
-.header-left,
-.header-center,
-.header-right {
+.header-left {
+  flex: 1;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
 }
 
-.header-left,
+.header-center {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .header-right {
   flex: 1;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  font-size: 14px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.header-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 0 auto; /* <- this is key */
-}
 
 
 .logo {
