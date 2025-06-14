@@ -33,10 +33,12 @@ header {
   padding: 6px 10px;
   transition: background-color 0.2s ease;
   border-bottom: 2px solid transparent;
+  font-family: Arial, sans-serif;
 }
 
 .nav a:hover {
   background-color: #dcecff; /* soft blue hover highlight */
+  text-decoration: none;
 }
 
 .nav a.active {
