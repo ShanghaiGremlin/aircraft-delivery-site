@@ -5,158 +5,77 @@
     <title>Aircraft Delivery</title>
     <link rel="stylesheet" href="style.css" />
     <script defer src="script.js"></script>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 120px;
+        background-color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+        border-bottom: 1px solid #ccc;
+      }
+      .nav-links {
+        position: absolute;
+        left: 20px;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+      .nav-links a {
+        text-decoration: none;
+        color: #333;
+        font-size: 16px;
+      }
+      .nav-links a:hover {
+        text-decoration: underline;
+      }
+      .logo {
+        height: 80px; /* Adjusted for larger logo */
+      }
+      main {
+        padding-top: 140px; /* Offset for fixed header */
+      }
+    </style>
   </head>
 
-<body>
-<!-- Fixed Full-Width Header -->
-<header style="position: fixed; top: 0; left: 0; width: 100%; background: #e6f1fb; z-index: 9999; box-shadow: 0 1px 4px rgba(0,0,0,0.1);">
-  <div class="header-container">
-    <!-- Logo -->
-    <a href="/" class="logo">
-      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/side-by-side-logo.png" alt="Aircraft Delivery Logo">
-    </a>
+  <body>
+    <header>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/services">Services</a>
+        <a href="/quote">Quote</a>
+        <a href="/pilot-directory">Pilot Directory</a>
+        <a href="/past-deliveries">Past Deliveries</a>
+      </div>
+      <img
+        class="logo"
+        src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/side-by-side-logo.png"
+        alt="Aircraft Delivery Solutions Logo"
+      />
+    </header>
 
-    <!-- Hamburger Toggle -->
-    <button class="menu-toggle" aria-label="Toggle navigation">
-      &#9776;
-    </button>
-
-    <!-- Navigation -->
-    <nav class="nav-links">
-      <a href="/about.html">About</a>
-      <a href="/services.html">Services</a>
-      <a href="/quote.html">Quote</a>
-      <a href="/pilot-directory.html">Pilot Directory</a>
-      <a href="/pilot-hiring.html">Pilot Hiring</a>
-      <a href="/past-deliveries.html">Past Deliveries</a>
-    </nav>
-
-    <!-- Contact Info -->
-    <div class="contact-info">
-      <span>+1 (415) 845-8163</span>
-      <span>|</span>
-      <span><a href="mailto:akahn28@gmail.com">akahn28@gmail.com</a></span>
-    </div>
-  </div>
-</header>
-
-<!-- Push content down to avoid overlap -->
-<div style="height: 110px;"></div>
-
-<style>
-  .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    max-width: 100%;
-    flex-wrap: wrap;
-  }
-  .logo img {
-    height: 60px;
-  }
-  .nav-links {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-    flex: 1;
-  }
-  .nav-links a {
-    text-decoration: none;
-    color: #002a4e;
-    font-weight: bold;
-    position: relative;
-  }
-  .nav-links a:hover,
-  .nav-links a.active {
-    text-decoration: underline;
-  }
-  .contact-info {
-    font-size: 14px;
-    white-space: nowrap;
-  }
-
-  .menu-toggle {
-    display: none;
-    font-size: 28px;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-
-  @media (max-width: 768px) {
-    .nav-links {
-      display: none;
-      flex-direction: column;
-      width: 100%;
-      background: #e6f1fb;
-      margin-top: 10px;
-    }
-    .nav-links.show {
-      display: flex;
-    }
-    .menu-toggle {
-      display: block;
-    }
-    .contact-info {
-      display: none;
-    }
-  }
-</style>
-
-<script>
-  // Highlight active page
-  document.addEventListener("DOMContentLoaded", function () {
-    const links = document.querySelectorAll(".nav-links a");
-    links.forEach(link => {
-      if (window.location.pathname.includes(link.getAttribute("href"))) {
-        link.classList.add("active");
-      }
-    });
-
-    // Toggle menu on mobile
-    const toggle = document.querySelector(".menu-toggle");
-    const nav = document.querySelector(".nav-links");
-    toggle.addEventListener("click", () => {
-      nav.classList.toggle("show");
-    });
-  });
-</script>
-
-<main>
-  <div style="position: relative; max-width: 1325px; margin: 0 auto;">
-<img 
-  src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/home1.png" 
-  alt="Aircraft Delivery" 
-  style="width: 100%; height: auto; display: block;"
-  usemap="#homepage-map"
-  >
-
-
-   <map name="homepage-map">
-      <area
-        shape="rect"
-        coords="836,565,1657,925"
-        href="/services"
-        alt="View Services"
-        aria-label="View Services"
-      >
-      <area
-        shape="rect"
-        coords="619,637,810,828"
-        href="/quote"
-        alt="Get a Quote"
-        aria-label="Get a Quote"
-      >
-    </map>
-  </div>
-</main>
-</body>
-<!-- Responsive image map script -->
-<script src="https://cdn.jsdelivr.net/npm/image-map-resizer@1.0.10/js/imageMapResizer.min.js"></script>
-<script>
-  window.addEventListener('DOMContentLoaded', function () {
-    imageMapResize();
-  });
-</script>
+    <main>
+      <div style="position: relative; max-width: 1325px; margin: 0 auto;">
+        <img 
+          src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/home1.png" 
+          alt="Aircraft Delivery" 
+          style="width: 100%; height: auto; display: block;"
+          usemap="#homepage-map"
+        />
+        <map name="homepage-map">
+          <area shape="rect" coords="836,565,1657,925" href="/services" alt="View Services" aria-label="View Services" />
+          <area shape="rect" coords="619,637,810,828" href="/quote" alt="Get a Quote" aria-label="Get a Quote" />
+        </map>
+      </div>
+    </main>
+  </body>
+</html>
