@@ -40,6 +40,7 @@
         href="/services"
         alt="View Services"
         aria-label="View Services"
+        title="View Our Services"
       >
       <area
         shape="rect"
@@ -47,22 +48,10 @@
         href="/quote"
         alt="Get a Quote"
         aria-label="Get a Quote"
+        title="Get a Quote"
       >
     </map>
-    <p id="hoverLabel" style="text-align: center; font-size: 14px; margin-top: 8px; font-family: sans-serif; color: #333;"></p>
-
+    
 </main>
-<script>
-  const label = document.getElementById("hoverLabel");
-  document.querySelectorAll("area").forEach(area => {
-    area.addEventListener("mouseenter", () => {
-      label.textContent = area.alt;
-    });
-    area.addEventListener("mouseleave", () => {
-      label.textContent = "";
-    });
-  });
-</script>
-
 </body>
 </html>
