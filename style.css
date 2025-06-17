@@ -47,7 +47,7 @@ p {
   font-size: 0.9rem;
   color: #555;             /* Softer contrast than title */
   margin-top: -10px;       /* Pull it closer to the title */
-  margin-bottom: 30px;     /* Space below the tagline */
+  margin-bottom: 10px;     /* Space below the tagline */
   font-style: italic;      /* Optional: adds polish */
   letter-spacing: 0.3px;   /* Slight spacing for readability */
 }
