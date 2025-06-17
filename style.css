@@ -44,7 +44,7 @@ p {
 
 .page-tagline {
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   color: #555;             /* Softer contrast than title */
   margin-top: -10px;       /* Pull it closer to the title */
   margin-bottom: 30px;     /* Space below the tagline */
