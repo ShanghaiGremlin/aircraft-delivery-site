@@ -1,6 +1,8 @@
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 let slideTimer = null;
+let loopCount = 0;
+const maxLoops = 3;
 
 function showSlide(index) {
   slides.forEach((slide, i) => {
@@ -9,25 +11,28 @@ function showSlide(index) {
 }
 
 function changeSlide(direction = 1) {
+  const previousSlide = currentSlide;
   currentSlide = (currentSlide + direction + slides.length) % slides.length;
+
+  // Check if we've completed a full loop
+  if (currentSlide === 0 && previousSlide === slides.length - 1) {
+    loopCount++;
+    if (loopCount >= maxLoops) return; // Stop autoplay
+  }
+
   showSlide(currentSlide);
-  setNextSlideTimer(); // Restart timer on manual nav or autoplay
+  setNextSlideTimer();
 }
 
 function setNextSlideTimer() {
   if (slideTimer) clearTimeout(slideTimer);
 
-  let interval = 10000; // Default 10 seconds
-
-  // Set custom time for Slide #2 (index 1)
-  if (currentSlide === 1) {
-    interval = 15000; // 15 seconds
-  }
+  let interval = 10000;
+  if (currentSlide === 1) interval = 15000; // Custom interval for one slide
 
   slideTimer = setTimeout(() => changeSlide(1), interval);
 }
 
-// Initialize
 document.addEventListener('DOMContentLoaded', () => {
   showSlide(currentSlide);
   setNextSlideTimer();
