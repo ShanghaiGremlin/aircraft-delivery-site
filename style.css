@@ -51,3 +51,18 @@ p {
   font-style: italic;      /* Optional: adds polish */
   letter-spacing: 0.3px;   /* Slight spacing for readability */
 }
+
+.slideshow-container {
+  max-width: 680px;
+  width: 100%;
+  margin: 20px auto 0 auto;
+  position: relative;
+}
+
+.slideshow-container img {
+  width: 100%;
+  height: auto;
+  display: none;
+  border: 2px solid #ccc;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+}
