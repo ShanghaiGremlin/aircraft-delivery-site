@@ -72,9 +72,9 @@ p {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  background: transparent;
+  width: 100vw;                /* Force full bleed */
   z-index: 1000;
+  background-color: transparent;
   display: flex;
   justify-content: center;
 }
@@ -86,6 +86,7 @@ p {
   height: auto;
   display: block;
 }
+
 
 
 body {
