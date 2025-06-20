@@ -97,7 +97,71 @@
 <div style="border: 2px solid #999; border-radius: 12px; background-color: #f9f9f9; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 20px 20px 10px 20px; max-width: 650px; margin: 0 auto; text-align: center; font-weight: 600;">
   <p style="margin: 0; font-size: 22px;">
     This form is completely optional. Please fill out as much of it as you can, it will help me focus in on your project and give you an accurate initial quote</p>
-</td>
+<form action="/submit-quote" method="POST">
+  <!-- Name -->
+  <label>First Name:<br>
+    <input type="text" name="first_name">
+  </label><br>
+  <label>Last Name:<br>
+    <input type="text" name="last_name">
+  </label><br><br>
+
+  <!-- Email -->
+  <label>Email (required):<br>
+    <input type="email" name="email" required>
+  </label><br><br>
+
+  <!-- Phone -->
+  <label>Phone:<br>
+    <input type="tel" name="phone">
+  </label><br><br>
+
+  <!-- Aircraft Registration -->
+  <label>Aircraft Registration (if known):<br>
+    <input type="text" name="aircraft_registration">
+  </label><br><br>
+
+  <!-- Aircraft Make & Model -->
+  <label>Aircraft Make & Model:<br>
+    <input type="text" name="aircraft_model">
+  </label><br><br>
+
+  <!-- Registered Owner -->
+  <label>Registered Owner First Name:<br>
+    <input type="text" name="owner_first_name">
+  </label><br>
+  <label>Registered Owner Last Name:<br>
+    <input type="text" name="owner_last_name">
+  </label><br><br>
+
+  <!-- Type of Ownership -->
+  <label>Type of Ownership (if known):<br>
+    <input type="radio" name="ownership" value="Sole Owner"> Sole Owner<br>
+    <input type="radio" name="ownership" value="LLC or other business entity"> LLC or other business entity<br>
+    <input type="radio" name="ownership" value="Partnership"> Partnership<br>
+    <input type="radio" name="ownership" value="Other"> Other
+  </label><br><br>
+
+  <!-- Operator -->
+  <label>Operator (if known):<br>
+    <input type="text" name="operator">
+  </label><br><br>
+
+  <!-- Pickup Airport -->
+  <label>Pickup Airport:<br>
+    <input type="text" name="pickup_airport">
+  </label><br><br>
+
+  <!-- Delivery Airport -->
+  <label>Delivery Airport:<br>
+    <input type="text" name="delivery_airport">
+  </label><br><br>
+
+  <!-- More fields will follow in Part 2 -->
+</form>
+
+
+  </td>
 
     <!-- Right Col -->
     <td style="border-right: none; border-top: none; border-bottom: none; padding: 0px 20px; vertical-align: top;">
