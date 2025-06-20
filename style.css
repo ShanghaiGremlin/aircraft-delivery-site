@@ -73,15 +73,20 @@ p {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 9999;
+  z-index: 1000;
 }
 
 .fixed-header header {
-  width: 1365px;
-  min-width: 1365px;
   max-width: 1365px;
   margin: 0 auto;
 }
+
+.fixed-header img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 
 body {
   padding-top: 140px; /* Approximate height of your header image */
