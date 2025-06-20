@@ -82,6 +82,7 @@ p {
   max-width: 1365px;
   min-width: 1365px;
   margin: 0 auto;
+  display: block;
 }
 
 
