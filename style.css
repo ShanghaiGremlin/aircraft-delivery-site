@@ -72,7 +72,6 @@ p {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #ecf4ff; /* Solid blue bleed */
   z-index: 999;
 }
 
