@@ -92,10 +92,6 @@ p {
   z-index: 1;
 }
 
-
-
-
-
 body {
-  padding-top: 120px; /* Approximate height of your header image */
+  padding-top: 130px; /* Approximate height of your header image */
 }
