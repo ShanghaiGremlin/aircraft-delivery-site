@@ -77,10 +77,15 @@ p {
   background: transparent;
 }
 
+.header-container {
+  width: 100%;
+  min-width: 1365px;
+  max-width: 1365px;
+  margin: 0 auto;
+}
+
 .fixed-header header {
   width: 100%;
-  margin: 0;
-  padding: 0;
 }
 
 .fixed-header img {
@@ -88,6 +93,7 @@ p {
   height: auto;
   display: block;
 }
+
 
 
 
