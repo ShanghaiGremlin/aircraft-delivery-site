@@ -34,7 +34,9 @@ p {
   font-weight: 600;
   text-align: center;
   padding: 12px 25px;
-  margin: 0 auto;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
   display: block;
   width: fit-content;
   border-radius: 6px;             /* Optional: soften edges */
@@ -92,10 +94,6 @@ p {
   z-index: 1;
 }
 
-body {
-  padding-top: 450px; /* Approximate height of your header image */
-}
-
 main {
-  padding-top: 20px;
+  padding-top: 150px;
 }
