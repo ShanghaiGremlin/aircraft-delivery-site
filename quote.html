@@ -98,10 +98,12 @@
   <p style="margin: 0; font-size: 22px;">
     This form is completely optional. Please fill out as much of it as you can, it will help me focus in on your project and give you an accurate initial quote</p>
     </div>
-    <div style="text-align: left;"
+    <br>
+    <br>
+    <div style="text-align: left;">
 <form action="/submit-quote" method="POST">
   <!-- Name -->
-  <label>First Name:<input type="text" name="first_name"></label><label>Last Name:<input type="text" name="last_name"></label><br><br>
+  <label>Name:<input type="text" name="name"></label><br><br>
 
   <!-- Email -->
   <label>Email (required):
@@ -110,17 +112,17 @@
 
   <!-- Phone -->
   <label>Phone:
-    <input type="tel" name="phone">
+    <input type="tel" name="phone" size="25">
   </label><br><br>
 
   <!-- Aircraft Registration -->
-  <label>Aircraft Registration (if known):
-    <input type="text" name="aircraft_registration">
+  <label>Aircraft Registration  (if known):
+    <input type="text" name="aircraft_registration" placeholder="N12345; C-NMBR, etc" size="17">
   </label><br><br>
 
   <!-- Aircraft Make & Model -->
   <label>Aircraft Make & Model:
-    <input type="text" name="aircraft_model">
+    <input type="text" name="aircraft_model" size="30">
   </label><br><br>
 
   <!-- Registered Owner -->
@@ -184,11 +186,11 @@
 </fieldset>
 <br><br>
 <!-- Budget for Delivery -->
-<label for="budget">Budget for Delivery (optional)</label>
+<label for="budget">Budget for Delivery</label>
 <input type="text" id="budget" name="budget" placeholder="USD">
 <br><br>
 <!-- Supplemental Information -->
-<label for="supplemental_info">Supplemental Information (Any other information that would help me give you an accurate quote.)"></label>
+<label for="supplemental_info">Supplemental Information</label>
 <textarea id="supplemental_info" name="supplemental_info"></textarea>
 <br><br>
 <!-- Submit Button -->
