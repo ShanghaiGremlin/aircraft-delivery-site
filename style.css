@@ -72,20 +72,18 @@ p {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;                /* Force full bleed */
-  z-index: 1000;
-  background-color: transparent;
-  display: flex;
-  justify-content: center;
+  width: 100%;
+  background-color: #ecf4ff; /* Match the dominant header color */
+  z-index: 9999;
 }
 
-.fixed-header img {
-  width: 100%;
+.fixed-header header {
+  width: 1365px;
   max-width: 1365px;
   min-width: 1365px;
-  height: auto;
-  display: block;
+  margin: 0 auto;
 }
+
 
 
 
