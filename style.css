@@ -72,14 +72,24 @@ p {
   position: fixed;
   top: 0;
   width: 100%;
+  display: flex;
+  justify-content: center;
   z-index: 999;
 }
 
 .fixed-header header {
   width: 1365px;
-  max-width: 1365px;
   min-width: 1365px;
-  margin: 0 auto;
+  max-width: 1365px;
+  z-index: 2;
+}
+
+.header-bleed-left,
+.header-bleed-right {
+  flex: 1;
+  background-color: #ecf4ff; /* your desired bleed color */
+  height: auto;
+  z-index: 1;
 }
 
 
