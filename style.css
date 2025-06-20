@@ -73,28 +73,19 @@ p {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
   background: transparent;
-}
-
-.header-container {
-  width: 100%;
-  min-width: 1365px;
-  max-width: 1365px;
-  margin: 0 auto;
-}
-
-.fixed-header header {
-  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
 }
 
 .fixed-header img {
   width: 100%;
+  max-width: 1365px;
+  min-width: 1365px;
   height: auto;
   display: block;
 }
-
-
 
 
 body {
