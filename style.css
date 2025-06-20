@@ -71,22 +71,18 @@ p {
 .fixed-header {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;                         /* Full-bleed background */
-  background-color: #ecf4ff;           /* Same as your header image */
-  z-index: 9999;
+  width: 100%;
+  background-color: #ecf4ff; /* Solid blue bleed */
+  z-index: 999;
 }
 
-.header-inner {
+.fixed-header header {
   width: 1365px;
-  margin: 0 auto;                      /* Center this block */
+  max-width: 1365px;
+  min-width: 1365px;
+  margin: 0 auto;
 }
 
-.header-inner img {
-  display: block;
-  width: 100%;                         /* Fits the 1365px container */
-  height: auto;
-}
 
 
 
