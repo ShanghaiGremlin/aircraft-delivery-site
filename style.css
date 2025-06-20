@@ -34,7 +34,6 @@ p {
   font-weight: 600;
   text-align: center;
   padding: 12px 25px;
-  margin: 20px auto;
   display: block;
   width: fit-content;
   border-radius: 6px;             /* Optional: soften edges */
@@ -94,4 +93,8 @@ p {
 
 body {
   padding-top: 123px; /* Approximate height of your header image */
+}
+
+main {
+  padding-top: 20px;
 }
