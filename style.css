@@ -72,17 +72,20 @@ p {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  background-color: #ecf4ff; /* Match the dominant header color */
+  width: 100%;                         /* Full-bleed background */
+  background-color: #ecf4ff;           /* Same as your header image */
   z-index: 9999;
 }
 
-.fixed-header header {
+.header-inner {
   width: 1365px;
-  max-width: 1365px;
-  min-width: 1365px;
-  margin: 0 auto;
+  margin: 0 auto;                      /* Center this block */
+}
+
+.header-inner img {
   display: block;
+  width: 100%;                         /* Fits the 1365px container */
+  height: auto;
 }
 
 
