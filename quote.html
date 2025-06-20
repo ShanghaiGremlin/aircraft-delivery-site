@@ -97,6 +97,7 @@
 <div style="border: 2px solid #999; border-radius: 12px; background-color: #f9f9f9; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 20px 20px 10px 20px; max-width: 650px; margin: 0 auto; text-align: left;">
   <p style="margin: 0; font-size: 22px;">
     This form is completely optional. Please fill out as much of it as you can, it will help me focus in on your project and give you an accurate initial quote</p>
+    </div>
 <form action="/submit-quote" method="POST">
   <!-- Name -->
   <label>First Name:<input type="text" name="first_name"></label><label>Last Name:<input type="text" name="last_name"></label><br><br>
@@ -149,7 +150,48 @@
     <input type="text" name="delivery_airport">
   </label><br><br>
 
-  <!-- More fields will follow in Part 2 -->
+<!-- Client-Preferred Delivery Method -->
+<fieldset>
+  <legend>Client-Preferred Delivery Method</legend>
+  <label><input type="radio" name="delivery_method" value="Ferry Flight"> Ferry Flight</label>
+  <label><input type="radio" name="delivery_method" value="Container Shipping"> Container Shipping</label>
+  <label><input type="radio" name="delivery_method" value="Undecided"> Undecided</label>
+</fieldset>
+
+<!-- Desired Delivery Date -->
+<label for="delivery_date">Desired Delivery Date</label>
+<input type="date" id="delivery_date" name="delivery_date">
+
+<!-- Avionics Installed -->
+<label for="avionics">Avionics Installed (if known)</label>
+<input type="text" id="avionics" name="avionics" placeholder="G1000, Collins, etc.">
+
+<!-- Engine Description -->
+<label for="engine_description">Engine Description</label>
+<input type="text" id="engine_description" name="engine_description" placeholder="PT6, TIO-540, etc.">
+
+<!-- Ordinary Use of Aircraft -->
+<fieldset>
+  <legend>Ordinary Use of Aircraft (Check any that apply)</legend>
+  <label><input type="checkbox" name="aircraft_use[]" value="Personal"> Personal</label>
+  <label><input type="checkbox" name="aircraft_use[]" value="Flight School"> Flight School</label>
+  <label><input type="checkbox" name="aircraft_use[]" value="Charter"> Charter</label>
+  <label><input type="checkbox" name="aircraft_use[]" value="Corporate"> Corporate</label>
+  <label><input type="checkbox" name="aircraft_use[]" value="Freight"> Freight</label>
+  <label><input type="checkbox" name="aircraft_use[]" value="None - no regular flying"> None - no regular flying</label>
+  <label><input type="checkbox" name="aircraft_use[]" value="Unknown"> Unknown</label>
+</fieldset>
+
+<!-- Budget for Delivery -->
+<label for="budget">Budget for Delivery (optional)</label>
+<input type="text" id="budget" name="budget" placeholder="USD">
+
+<!-- Supplemental Information -->
+<label for="supplemental_info">Supplemental Information</label>
+<textarea id="supplemental_info" name="supplemental_info" placeholder="Any other information that would help me give you an accurate quote."></textarea>
+
+<!-- Submit Button -->
+<button type="submit">Submit</button>
 </form>
 
 
