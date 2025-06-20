@@ -74,11 +74,13 @@ p {
   left: 0;
   width: 100%;
   z-index: 1000;
+  background: transparent;
 }
 
 .fixed-header header {
-  max-width: 1365px;
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .fixed-header img {
@@ -86,6 +88,7 @@ p {
   height: auto;
   display: block;
 }
+
 
 
 body {
