@@ -40,14 +40,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-function openModal(content) {
-  const modal = document.getElementById("modal");
-  const modalContent = document.getElementById("modal-content");
+document.addEventListener("DOMContentLoaded", function () {
+  window.openModal = function (content) {
+    const modal = document.getElementById("custom-modal");
+    const body = document.getElementById("modal-body");
 
-  modalContent.innerHTML = content;
-  modal.style.display = "block";
-}
+    if (!modal || !body) {
+      console.error("Modal elements not found in DOM");
+      return;
+    }
 
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
-}
+    body.innerHTML = content;
+    modal.style.display = "flex";
+  };
+
+  window.closeModal = function () {
+    const modal = document.getElementById("custom-modal");
+    if (modal) modal.style.display = "none";
+  };
+});
