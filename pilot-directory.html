@@ -35,19 +35,21 @@
 <table style="width: 100%; border: 1px solid red; background: #ffeeee; border-collapse: collapse;">
   <tr>
     <td style="width: 50%; border: 1px solid red; background: #ffeeee; vertical-align: top; text-align:center;">
-<button onclick="openModal('This is sample modal content.')" style="
-  background-color: #007bff;
-  color: white;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 6px;
-  font-size: 1.5em;
-  cursor: pointer;">
+<!-- Trigger Button -->
+<button onclick="openModal(`\
+  <h2 style='text-align: center;'>Pilot Type Ratings</h2>\
+  <ul style='padding-left: 20px; font-size: 1.1em;'>\
+    <li>ATP — A320, B737, Citation</li>\
+    <li>Commercial — King Air, PC-12</li>\
+    <li>Private — SR22, M20</li>\
+  </ul>`)"
+  style="background-color: #007bff; color: white; padding: 12px 24px; border: none; border-radius: 6px; font-size: 1.5em; cursor: pointer;">
   See all the type ratings the pilots have
 </button>
+
   
     </td>
-    <td style="width: 50%; border: 1px solid red; background: #ffeeee; vertical-align: top;">
+    <td style="width: 50%; border: 1px solid red; background: #ffeeee; vertical-align: top; text-align: center;">
 <h1><u>Complete Crews</u></h1>
     </td>
   </tr>
