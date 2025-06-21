@@ -98,19 +98,30 @@ main {
   padding-top: 150px;
 }
 
-td.bullet-cell {
-  padding: 10px;
-  font-size: 18px;
-  vertical-align: top;
+.gallery-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
 }
 
-td.bullet-cell ul {
+.gallery-img-cell {
+  width: 25%;
+  vertical-align: top;
+  text-align: center;
+  padding: 10px;
+}
+
+.gallery-desc-cell {
+  width: 25%;
+  vertical-align: top;
+  padding: 10px;
+  word-wrap: break-word;
+}
+
+.gallery-desc-cell ul {
   margin: 0;
   padding-left: 20px;
-  list-style-type: disc; /* You can change to circle, square, or none */
+  line-height: 1.6;
 }
 
-td.bullet-cell ul li {
-  margin-bottom: 4px;
-  line-height: 1.6; /* 1.4–1.8 is common */
-}
+
