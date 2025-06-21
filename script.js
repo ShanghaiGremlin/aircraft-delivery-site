@@ -58,4 +58,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const modal = document.getElementById("custom-modal");
     if (modal) modal.style.display = "none";
   };
+
+  // ✅ Close on ESC key
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      closeModal();
+    }
+  });
+
+  // ✅ Close if clicking outside the modal box
+  modal.addEventListener("click", function (e) {
+    if (!modalContent.contains(e.target)) {
+      closeModal();
+    }
+  });
 });
