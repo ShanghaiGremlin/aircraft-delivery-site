@@ -97,3 +97,15 @@ p {
 main {
   padding-top: 150px;
 }
+
+td.bullet-cell {
+  padding: 10px;
+  font-size: 14px;
+  vertical-align: top;
+}
+
+td.bullet-cell ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style-type: disc; /* You can change to circle, square, or none */
+}
