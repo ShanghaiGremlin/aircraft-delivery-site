@@ -67,9 +67,11 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // ✅ Close if clicking outside the modal box
-  modal.addEventListener("click", function (e) {
-    if (!modalContent.contains(e.target)) {
-      closeModal();
-    }
-  });
+document.getElementById("custom-modal").addEventListener("click", function (e) {
+  const modalContent = document.getElementById("modal-content");
+  if (modalContent && !modalContent.contains(e.target)) {
+    closeModal();
+  }
+});
+
 });
