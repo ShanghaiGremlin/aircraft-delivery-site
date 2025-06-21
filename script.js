@@ -37,3 +37,17 @@ document.addEventListener('DOMContentLoaded', () => {
   showSlide(currentSlide);
   setNextSlideTimer();
 });
+
+
+
+function openModal(content) {
+  const modal = document.getElementById("modal");
+  const modalContent = document.getElementById("modal-content");
+
+  modalContent.innerHTML = content;
+  modal.style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
