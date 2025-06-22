@@ -72,4 +72,25 @@ document.getElementById("custom-modal").addEventListener("click", function () {
 
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.accordion-header').forEach(button => {
+    button.addEventListener('click', () => {
+      const content = button.nextElementSibling;
+      const isOpen = content.style.maxHeight;
+
+      // Optional: close all other accordion sections
+      document.querySelectorAll('.accordion-content').forEach(c => {
+        c.style.maxHeight = null;
+      });
+
+      // Toggle this section
+      if (!isOpen) {
+        content.style.maxHeight = content.scrollHeight + "px";
+      } else {
+        content.style.maxHeight = null;
+      }
+    });
+  });
+});
+
 

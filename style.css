@@ -132,3 +132,35 @@ main {
   text-align: center;
 }
 
+.accordion {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.accordion-header {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  padding: 16px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.accordion-header:hover {
+  background-color: #0056b3;
+}
+
+.accordion-content {
+  padding: 0 16px;
+  max-height: 0;
+  overflow: hidden;
+  background: #f9f9f9;
+  transition: max-height 0.3s ease;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
