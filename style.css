@@ -155,7 +155,8 @@ main {
 }
 
 .accordion-header .chevron {
-  font-size: 1.5em;
+  font-size: 2.0em;
+  font-weight: 900;
   transition: transform 0.3s ease;
 }
 
