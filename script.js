@@ -78,19 +78,19 @@ document.addEventListener('DOMContentLoaded', function () {
       const content = button.nextElementSibling;
       const isOpen = content.style.maxHeight;
 
-      // Optional: close all other accordion sections
+      // Optional: close other sections
       document.querySelectorAll('.accordion-content').forEach(c => {
         c.style.maxHeight = null;
+        c.previousElementSibling.classList.remove('active');
       });
 
-      // Toggle this section
       if (!isOpen) {
         content.style.maxHeight = content.scrollHeight + "px";
+        button.classList.add('active');
       } else {
         content.style.maxHeight = null;
+        button.classList.remove('active');
       }
     });
   });
 });
-
-

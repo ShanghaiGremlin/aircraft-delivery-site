@@ -139,16 +139,30 @@ main {
 }
 
 .accordion-header {
-  background-color: #007bff;
-  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.3em;
+  font-weight: bold;
+  padding: 15px 20px;
+  background-color: #f0f0f0;
   cursor: pointer;
-  padding: 16px;
-  width: 100%;
   border: none;
+  width: 100%;
   text-align: left;
-  font-size: 18px;
-  transition: background-color 0.3s ease;
+  border-bottom: 1px solid #ccc;
+  position: relative;
 }
+
+.accordion-header .chevron {
+  font-size: 1.5em;
+  transition: transform 0.3s ease;
+}
+
+.accordion-header.active .chevron {
+  transform: rotate(180deg);
+}
+
 
 .accordion-header:hover {
   background-color: #0056b3;
