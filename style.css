@@ -173,6 +173,7 @@ main {
   padding: 0 16px;
   max-height: 0;
   overflow: hidden;
+  font-size: 18px;
   background: #f9f9f9;
   transition: max-height 0.3s ease;
   border-left: 1px solid #ccc;
