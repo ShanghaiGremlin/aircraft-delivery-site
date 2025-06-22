@@ -114,7 +114,7 @@ main {
 .gallery-desc-cell {
   width: 25%;
   vertical-align: top;
-  padding: 10px 25px 10px 25px;
+  padding: 0px 25px 10px 25px;
   font-size: 18px;
   word-wrap: break-word;
 }
