@@ -109,6 +109,7 @@ main {
   vertical-align: bottom;
   text-align: center;
   padding: 10px;
+  border-top: 1px solid #000
 }
 
 .gallery-desc-cell {
