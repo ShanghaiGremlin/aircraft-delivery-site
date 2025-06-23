@@ -247,3 +247,13 @@ img-wrap {
 .img-wrap:hover .caption {
   opacity: 1;
 }
+
+.all-borders {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.all-borders th,
+.all-borders td {
+  border: 1px solid #000; /* or any color you prefer */
+}
