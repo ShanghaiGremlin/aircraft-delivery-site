@@ -175,3 +175,75 @@ main {
   border-right: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
 }
+
+img-wrap {
+  position: relative;
+  display: inline-block;
+  overflow: visible;
+  width: 100%;
+  text-align: center;
+}
+/* allow zoom and caption to extend */
+
+.img-wrap img.thumbnail {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+  transform-origin: center center;
+  z-index: 1;
+  position: relative;
+}
+
+.img-wrap:hover img.thumbnail {
+  transform: scale(2.5);
+  z-index: 2;
+}
+
+
+
+.img-wrap {
+  position: relative;
+  display: inline-block;
+  overflow: visible;
+  text-align: center;
+}
+
+/* Thumbnail image */
+.img-wrap img.thumbnail {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+  transform-origin: center center;
+  z-index: 1;
+  position: relative;
+}
+
+/* Zoom on hover */
+.img-wrap:hover img.thumbnail {
+  transform: scale(2.5);
+  z-index: 2;
+}
+
+/* Hover caption that appears under zoomed image */
+.img-wrap .caption {
+  position: absolute;
+  bottom: -1.8em;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  font-size: 11px;
+  padding: 4px 6px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Show caption on hover */
+.img-wrap:hover .caption {
+  opacity: 1;
+}
