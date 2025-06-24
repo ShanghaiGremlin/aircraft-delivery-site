@@ -251,6 +251,7 @@ img-wrap {
 .all-borders {
   border-collapse: collapse;
   width: 100%;
+  background-color: white;
 }
 
 .all-borders th,
