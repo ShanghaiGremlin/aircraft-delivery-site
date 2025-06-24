@@ -176,7 +176,7 @@ main {
   border-bottom: 1px solid #ccc;
 }
 
-img-wrap {
+.img-wrap {
   position: relative;
   display: inline-block;
   overflow: visible;
@@ -300,7 +300,3 @@ tbody td {
   padding: 8px;
 }
 
-main * {
-  overflow: visible !important;
-  max-height: none !important;
-}
