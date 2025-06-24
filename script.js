@@ -1,3 +1,4 @@
+// === SLIDESHOW LOGIC ===
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 let slideTimer = null;
@@ -14,7 +15,6 @@ function changeSlide(direction = 1) {
   const previousSlide = currentSlide;
   currentSlide = (currentSlide + direction + slides.length) % slides.length;
 
-  // Check if we've completed a full loop
   if (currentSlide === 0 && previousSlide === slides.length - 1) {
     loopCount++;
     if (loopCount >= maxLoops) return; // Stop autoplay
@@ -33,14 +33,16 @@ function setNextSlideTimer() {
   slideTimer = setTimeout(() => changeSlide(1), interval);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  showSlide(currentSlide);
-  setNextSlideTimer();
-});
+// === DOMContentLoaded Initialization ===
+document.addEventListener('DOMContentLoaded', function () {
 
+  // Initialize slideshow
+  if (slides.length > 0) {
+    showSlide(currentSlide);
+    setNextSlideTimer();
+  }
 
-
-document.addEventListener("DOMContentLoaded", function () {
+  // === Modal Logic ===
   window.openModal = function (content) {
     const modal = document.getElementById("custom-modal");
     const body = document.getElementById("modal-body");
@@ -59,26 +61,28 @@ document.addEventListener("DOMContentLoaded", function () {
     if (modal) modal.style.display = "none";
   };
 
-  // ✅ Close on ESC key
+  // Close modal on ESC
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") {
       closeModal();
     }
   });
 
-document.getElementById("custom-modal").addEventListener("click", function () {
-  closeModal();
-});
+  // Close modal on click
+  const modalElement = document.getElementById("custom-modal");
+  if (modalElement) {
+    modalElement.addEventListener("click", function () {
+      closeModal();
+    });
+  }
 
-});
-
-document.addEventListener('DOMContentLoaded', function () {
+  // === Accordion Logic ===
   document.querySelectorAll('.accordion-header').forEach(button => {
     button.addEventListener('click', () => {
       const content = button.nextElementSibling;
       const isOpen = content.style.maxHeight;
 
-      // Optional: close other sections
+      // Close other sections
       document.querySelectorAll('.accordion-content').forEach(c => {
         c.style.maxHeight = null;
         c.previousElementSibling.classList.remove('active');
@@ -90,6 +94,16 @@ document.addEventListener('DOMContentLoaded', function () {
       } else {
         content.style.maxHeight = null;
         button.classList.remove('active');
+      }
+    });
+  });
+
+  // === Testimonial Image Modal Logic ===
+  document.querySelectorAll('.testimonial-thumb').forEach(img => {
+    img.addEventListener('click', function () {
+      const fullImage = img.getAttribute('data-full');
+      if (fullImage) {
+        openModal(`<img src="${fullImage}" style="width:100%; height:auto;">`);
       }
     });
   });
