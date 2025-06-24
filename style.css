@@ -254,7 +254,7 @@ main {
   width: 96%;
   background-color: white;
   margin: 0 auto;
-}
+  margin-bottom: 40px;
 
 .all-borders th,
 .all-borders td {
