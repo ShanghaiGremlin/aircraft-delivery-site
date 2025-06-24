@@ -91,6 +91,8 @@ h3 {
 
 main {
   padding-top: 150px;
+  overflow-y: visible !important;
+  height: auto !important;
 }
 
 .gallery-table {
