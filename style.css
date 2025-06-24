@@ -288,3 +288,10 @@ img-wrap {
 .tooltip-custom:hover::after {
   opacity: 1;
 }
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
