@@ -301,3 +301,6 @@ tbody td {
   padding: 8px;
 }
 
+* {
+  outline: 1px solid red;
+}
