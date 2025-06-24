@@ -250,8 +250,9 @@ img-wrap {
 
 .all-borders {
   border-collapse: collapse;
-  width: 95%;
+  width: 96%;
   background-color: white;
+  margin: 0 auto;
 }
 
 .all-borders th,
