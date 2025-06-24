@@ -255,7 +255,7 @@ main {
   background-color: white;
   margin: 0 auto;
   margin-bottom: 40px;
-
+}
 .all-borders th,
 .all-borders td {
   border: 1px solid #000; /* or any color you prefer */
@@ -300,4 +300,4 @@ html, body {
 tbody td {
   padding: 8px;
 }
-}
+
