@@ -98,13 +98,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // === Testimonial Image Modal Logic ===
-  document.querySelectorAll('.testimonial-thumb').forEach(img => {
-    img.addEventListener('click', function () {
-      const fullImage = img.getAttribute('data-full');
-      if (fullImage) {
-        openModal(`<img src="${fullImage}" style="width:100%; height:auto;">`);
-      }
-    });
+// Inside DOMContentLoaded
+document.querySelectorAll('.testimonial-thumb').forEach(img => {
+  img.addEventListener('click', function () {
+    const fullImageUrl = this.getAttribute('data-full');
+    if (fullImageUrl) {
+      openModal(`<img src="${fullImageUrl}" style="width: 100%; height: auto;" alt="Full Testimonial Image">`);
+    }
   });
+});
 });
