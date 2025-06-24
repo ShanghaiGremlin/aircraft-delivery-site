@@ -299,3 +299,8 @@ html, body {
 tbody td {
   padding: 8px;
 }
+
+main * {
+  overflow: visible !important;
+  max-height: none !important;
+}
