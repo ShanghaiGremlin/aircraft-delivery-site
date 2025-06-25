@@ -98,18 +98,18 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-// Inside DOMContentLoaded
-document.querySelectorAll('.testimonial-thumb').forEach(img => {
-  img.addEventListener('click', function () {
-    const fullImageUrl = this.getAttribute('data-full');
-    if (fullImageUrl) {
-      openModal(`<img src="${fullImageUrl}" style="width: 100%; height: auto;" alt="Full Testimonial Image">`);
-    }
+  // === Testimonial Modal Trigger ===
+  document.querySelectorAll('.testimonial-thumb').forEach(img => {
+    img.addEventListener('click', function () {
+      const fullImageUrl = this.getAttribute('data-full');
+      if (fullImageUrl) {
+        openModal(`<img src="${fullImageUrl}" style="width: 100%; height: auto;" alt="Full Testimonial Image">`);
+      }
+    });
   });
-});
 
-document.addEventListener("DOMContentLoaded", function () {
-  const quoteForm = document.getElementById('quoteform');
+  // === Form Submission with Redirect ===
+  const quoteForm = document.getElementById('quoteForm');
 
   if (quoteForm) {
     quoteForm.addEventListener('submit', function (e) {
@@ -123,18 +123,19 @@ document.addEventListener("DOMContentLoaded", function () {
         headers: {
           'Accept': 'application/json'
         }
-      }).then(response => {
+      })
+      .then(response => {
         if (response.ok) {
           window.location.href = "https://aircraft.delivery/thank-you";
         } else {
           alert("Submission failed. Please try again.");
         }
-      }).catch(error => {
+      })
+      .catch(error => {
         console.error(error);
         alert("There was a network error.");
       });
     });
   }
-});
 
 });
