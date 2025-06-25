@@ -109,7 +109,7 @@ document.querySelectorAll('.testimonial-thumb').forEach(img => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  const quoteForm = document.getElementById('quote-form');
+  const quoteForm = document.getElementById('quoteform');
 
   if (quoteForm) {
     quoteForm.addEventListener('submit', function (e) {
