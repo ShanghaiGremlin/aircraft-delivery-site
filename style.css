@@ -84,7 +84,7 @@ h3 {
 .header-bleed-left,
 .header-bleed-right {
   flex: 1;
-  background-color: rgba(236, 244, 255, 0.8);  /* light blue, semi-transparent */
+  background-color: rgba(236, 244, 255, 0.9);  /* light blue, semi-transparent */
   backdrop-filter: blur(8px);                 /* blur effect */
   -webkit-backdrop-filter: blur(8px);         /* Safari support */
   height: auto;
