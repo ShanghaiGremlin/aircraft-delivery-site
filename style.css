@@ -135,7 +135,7 @@ main {
 .accordion {
   width: 100%;
   max-width: 800px;
-  margin: 25px auto 25px auto;
+  margin: 0 auto 50px auto;
 }
 
 .accordion-header {
