@@ -84,10 +84,13 @@ h3 {
 .header-bleed-left,
 .header-bleed-right {
   flex: 1;
-  background-color: rgba(236, 244, 255, 0.6);
+  background-color: rgba(236, 244, 255, 0.7);  /* light blue, semi-transparent */
+  backdrop-filter: blur(8px);                 /* blur effect */
+  -webkit-backdrop-filter: blur(8px);         /* Safari support */
   height: auto;
   z-index: 1;
 }
+
 
 main {
   padding-top: 150px;
