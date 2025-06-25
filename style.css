@@ -84,7 +84,7 @@ h3 {
 .header-bleed-left,
 .header-bleed-right {
   flex: 1;
-  background-color: #ecf4ff; /* your desired bleed color */
+  background-color: rgba(236, 244, 255, 0.6);
   height: auto;
   z-index: 1;
 }
