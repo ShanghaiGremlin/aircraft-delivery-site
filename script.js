@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
       })
       .then(response => {
         if (response.ok) {
-          window.location.href = "https://aircraft.delivery/thank-you";
+          window.location.href = "/thank-you";
         } else {
           alert("Submission failed. Please try again.");
         }
