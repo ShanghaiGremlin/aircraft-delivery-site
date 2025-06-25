@@ -107,4 +107,34 @@ document.querySelectorAll('.testimonial-thumb').forEach(img => {
     }
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const quoteForm = document.getElementById('quote-form');
+
+  if (quoteForm) {
+    quoteForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(quoteForm);
+
+      fetch('https://formspree.io/f/yourFormID', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          window.location.href = "https://aircraft.delivery/thank-you";
+        } else {
+          alert("Submission failed. Please try again.");
+        }
+      }).catch(error => {
+        console.error(error);
+        alert("There was a network error.");
+      });
+    });
+  }
+});
+
 });
