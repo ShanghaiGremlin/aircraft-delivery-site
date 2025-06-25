@@ -15,7 +15,7 @@
 <div class="fixed-header">
   <div class="header-bleed-left"></div>
   <header>
-    <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/static-header-v6-95.png" usemap="#image-map"
+    <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/static-header-v7-95.png" usemap="#image-map"
          style="width: 100%; height: auto; display: block;">
   </header>
   <div class="header-bleed-right"></div>
@@ -98,18 +98,17 @@
     <p style="font-size: 22px;">All the answers are optional and "if known", except the email address.</p>
     </div>
     <div style="text-align: left;">
-<form action="/submit-quote" method="POST">
+
+
+<form action="https://formspree.io/f/mnnvozvg" method="POST">
   <!-- Name -->
   <label>Name: <input type="text" name="name"></label><br><br>
 
   <!-- Email -->
-  <label>Email (required): <input type="email" name="email" required>
-  </label><br><br>
+  <label>Email (required): <input type="email" name="email" required></label><br><br>
 
   <!-- Phone -->
-  <label>Phone:
-    <input type="tel" name="phone" size="25">
-  </label><br><br>
+  <label>Phone: <input type="tel" name="phone" size="25"></label><br><br>
 
   <!-- Aircraft Registration -->
   <label>Aircraft Registration:
@@ -149,57 +148,61 @@
     <input type="text" name="delivery_airport">
   </label><br><br>
 
-<!-- Client-Preferred Delivery Method -->
+  <!-- Client-Preferred Delivery Method -->
   <legend>Client-Preferred Delivery Method:</legend>
   <label><input type="radio" name="delivery_method" value="Ferry Flight"> Ferry Flight </label>
   <label><input type="radio" name="delivery_method" value="Container Shipping"> Container Shipping </label>
-  <label><input type="radio" name="delivery_method" value="Undecided"> Undecided </label>
-<br>
-<br>
-<!-- Desired Delivery Date -->
-<label for="delivery_date">Desired Delivery Date: </label>
-<input type="date" id="delivery_date" name="delivery_date">
-<br><br>
-<!-- Avionics Installed -->
-<label for="avionics">Avionics Installed: </label>
-<input type="text" id="avionics" name="avionics" placeholder="G1000, Collins, etc.">
-<br><br>
-<!-- Engine Description -->
-<label for="engine_description">Engine Description: </label>
-<input type="text" id="engine_description" name="engine_description" placeholder="PT6, TIO-540, etc.">
-<br><br>
-<!-- Ordinary Use of Aircraft -->
-<fieldset style="border: none;">
-  <legend>Ordinary Use of Aircraft (Check any that apply):</legend>
-  <label><input type="checkbox" name="aircraft_use[]" value="Personal"> Personal</label><br>
-  <label><input type="checkbox" name="aircraft_use[]" value="Flight School"> Flight School</label><br>
-  <label><input type="checkbox" name="aircraft_use[]" value="Charter"> Charter</label><br>
-  <label><input type="checkbox" name="aircraft_use[]" value="Corporate"> Corporate</label><br>
-  <label><input type="checkbox" name="aircraft_use[]" value="Freight"> Freight</label><br>
-  <label><input type="checkbox" name="aircraft_use[]" value="None - no regular flying"> None - no regular flying</label><br>
-  <label><input type="checkbox" name="aircraft_use[]" value="Unknown"> Unknown</label>
-</fieldset>
-<br>
-<!-- Budget for Delivery -->
-<label for="budget">Budget for Delivery: </label>
-<input type="text" id="budget" name="budget" placeholder="USD">
-<br><br>
-<!-- Supplemental Information -->
-<label for="supplemental_info">Supplemental Information: </label>
-<textarea id="supplemental_info" name="supplemental_info"></textarea>
-<br><br>
-<!-- Submit Button -->
-<button type="submit" style="
-  background-color: #333;
-  color: white;
-  font-size: 1.1em;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;">Submit
-</button>
+  <label><input type="radio" name="delivery_method" value="Undecided"> Undecided </label><br><br>
 
+  <!-- Desired Delivery Date -->
+  <label for="delivery_date">Desired Delivery Date: </label>
+  <input type="date" id="delivery_date" name="delivery_date"><br><br>
+
+  <!-- Avionics Installed -->
+  <label for="avionics">Avionics Installed: </label>
+  <input type="text" id="avionics" name="avionics" placeholder="G1000, Collins, etc."><br><br>
+
+  <!-- Engine Description -->
+  <label for="engine_description">Engine Description: </label>
+  <input type="text" id="engine_description" name="engine_description" placeholder="PT6, TIO-540, etc."><br><br>
+
+  <!-- Ordinary Use of Aircraft -->
+  <fieldset style="border: none;">
+    <legend>Ordinary Use of Aircraft (Check any that apply):</legend>
+    <label><input type="checkbox" name="aircraft_use[]" value="Personal"> Personal</label><br>
+    <label><input type="checkbox" name="aircraft_use[]" value="Flight School"> Flight School</label><br>
+    <label><input type="checkbox" name="aircraft_use[]" value="Charter"> Charter</label><br>
+    <label><input type="checkbox" name="aircraft_use[]" value="Corporate"> Corporate</label><br>
+    <label><input type="checkbox" name="aircraft_use[]" value="Freight"> Freight</label><br>
+    <label><input type="checkbox" name="aircraft_use[]" value="None - no regular flying"> None - no regular flying</label><br>
+    <label><input type="checkbox" name="aircraft_use[]" value="Unknown"> Unknown</label>
+  </fieldset><br>
+
+  <!-- Budget for Delivery -->
+  <label for="budget">Budget for Delivery: </label>
+  <input type="text" id="budget" name="budget" placeholder="USD"><br><br>
+
+  <!-- Supplemental Information -->
+  <label for="supplemental_info">Supplemental Information: </label>
+  <textarea id="supplemental_info" name="supplemental_info" rows="4" cols="50"></textarea><br><br>
+
+  <!-- Redirect on success -->
+  <input type="hidden" name="_redirect" value="https://aircraft.delivery/thanks">
+
+  <!-- Submit Button -->
+  <button type="submit" style="
+    background-color: #333;
+    color: white;
+    font-size: 1.1em;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;">
+    Submit
+  </button>
 </form>
+
+
 </div>
   </td>
 
