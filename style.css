@@ -334,7 +334,7 @@ tbody td {
   }
 
   .mobile-header-inner > * {
-  flex: 1;
+  flex: 0 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
