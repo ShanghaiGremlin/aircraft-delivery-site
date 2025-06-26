@@ -365,6 +365,11 @@ tbody td {
     height: 70px;
   }
 
+  .mobile-logo-link {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
   .mobile-phone-icon {
     height: 36px;
     width: auto;
@@ -372,6 +377,7 @@ tbody td {
 
   .mobile-phone-link {
     display: flex;
+    flex-shrink: 0;
     align-items: center;
   }
 
