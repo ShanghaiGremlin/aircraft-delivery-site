@@ -311,19 +311,20 @@ tbody td {
   padding: 8px;
 }
 
-/* Hide mobile header by default, show desktop */
+/* DEFAULT: Show desktop, hide mobile */
 .mobile-header {
   display: none;
 }
 
-/* Show mobile header, hide desktop on small screens */
+/* MEDIA QUERY: Show mobile, hide desktop */
 @media screen and (max-width: 768px) {
-  .desktop-header {
-    display: none;
+  .fixed-header {
+    display: none !important;
   }
 
   .mobile-header {
-     position: fixed;
+    display: block;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -346,15 +347,15 @@ tbody td {
   }
 
   .hamburger {
-  width: 28px;
-  height: 22px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
+    width: 28px;
+    height: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
   }
 
   .hamburger span {
