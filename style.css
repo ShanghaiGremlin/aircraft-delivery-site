@@ -350,6 +350,11 @@ tbody td {
     padding: 0;
 
   }
+.mobile-hamburger-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
   .hamburger span {
     display: block;
