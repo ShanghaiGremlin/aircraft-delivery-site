@@ -324,10 +324,8 @@ tbody td {
     background: white;
     border-bottom: 1px solid #ccc;
     z-index: 9999;
-    padding: 10px 20px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  } /* ← You were missing this brace */
-
+  } 
   .mobile-header-inner {
     display: flex;
     justify-content: space-between;
