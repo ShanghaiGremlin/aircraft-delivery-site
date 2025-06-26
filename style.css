@@ -387,6 +387,27 @@ tbody td {
    .fixed-header {
     display: none;
   }
+
+  .mobile-menu {
+  display: none;
+  position: fixed;
+  top: 80px; /* below header */
+  left: 0;
+  width: 100%;
+  background: white;
+  z-index: 9998;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.mobile-menu.open {
+  display: block;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
 }
 
 @media screen and (min-width: 769px) {
@@ -400,3 +421,4 @@ tbody td {
     padding-top: 80px; /* or whatever matches the height of your mobile header */
   }
 }
+

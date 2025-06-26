@@ -139,3 +139,15 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const hamburger = document.querySelector('.hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', function () {
+      mobileMenu.classList.toggle('open');
+    });
+  }
+});
+
