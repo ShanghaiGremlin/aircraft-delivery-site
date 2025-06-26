@@ -464,8 +464,8 @@ tbody td {
 }
 
 .service-icon {
-  width: 48px;
-  height: 48px;
+  width: 100px;
+  height: 100px;
   flex-shrink: 0;
 }
 
