@@ -391,16 +391,15 @@ tbody td {
 @media screen and (max-width: 768px) {
   .mobile-menu {
     position: absolute;
-    top: 80px; /* adjust to match header height */
+    top: 80px; /* match header height */
     left: 0;
     width: 100%;
     background: white;
     border-top: 1px solid #ccc;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    padding: 15px 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    padding: 10px 0;
     display: none;
     flex-direction: column;
-    gap: 12px;
     z-index: 9998;
   }
 
@@ -408,8 +407,14 @@ tbody td {
     display: flex;
   }
 
+  .mobile-menu nav {
+    display: flex;
+    flex-direction: column;
+  }
+
   .mobile-menu a {
-    padding: 12px 20px;
+    display: block;
+    padding: 14px 20px;
     text-decoration: none;
     color: #222;
     font-size: 16px;
@@ -426,6 +431,7 @@ tbody td {
     background-color: #f4f4f4;
   }
 }
+
 
 
 

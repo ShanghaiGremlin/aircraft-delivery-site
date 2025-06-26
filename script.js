@@ -141,15 +141,9 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-  const hamburger = document.querySelector('.hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
-
-  if (hamburger && mobileMenu) {
-    hamburger.addEventListener('click', function () {
-      mobileMenu.classList.toggle('open');
-    });
-  } else {
-    console.warn('Hamburger or mobileMenu not found');
-  }
+  document.querySelector('.hamburger').addEventListener('click', function () {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  });
 });
+
 
