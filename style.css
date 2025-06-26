@@ -326,10 +326,11 @@ tbody td {
     z-index: 9999;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   } 
-  .mobile-header-inner {
-    display: flex;
-    align-items: center;
-    height: 100%;
+.mobile-header-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* Three equal parts */
+  align-items: center;
+  height: 100%;
   }
 
   .mobile-header-inner > * {
