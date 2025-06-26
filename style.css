@@ -368,6 +368,15 @@ tbody td {
 
 @media screen and (max-width: 768px) {
   main {
-    padding-top: 90px;
+    padding-top: 150px;
   }
+}
+
+.fixed-header {
+  background: lightblue; /* temporary debug color */
+  z-index: 9999;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: auto;
 }
