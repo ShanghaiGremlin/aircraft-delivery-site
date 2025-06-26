@@ -10,6 +10,17 @@
     cursor: pointer;
   }
 </style>
+  <style>
+    area {
+      cursor: pointer;
+    }
+    @media screen and (max-width: 768px) {
+      .mobile-header {
+        display: block !important;
+        background: yellow !important; /* visibility test */
+      }
+    }
+  </style>
   </head>
 <body>
 <div class="fixed-header">
@@ -75,11 +86,6 @@
         title="Get a Quote"
       >
     </map>
-    <style>.mobile-header {
-  display: block !important;
-  background: yellow; /* just to confirm visibility */
-}
-</style>
 </main>
 </body>
 </html>
