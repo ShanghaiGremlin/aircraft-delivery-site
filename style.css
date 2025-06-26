@@ -333,6 +333,12 @@ tbody td {
     min-height: 65px;
   }
 
+  .mobile-header-inner > * {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
   .hamburger {
     width: 35px;
     height: 30px;
