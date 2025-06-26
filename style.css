@@ -343,6 +343,7 @@ tbody td {
     border: none;
     cursor: pointer;
     padding: 0;
+    align-items: center;
   }
 
   .hamburger span {
