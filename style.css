@@ -414,22 +414,18 @@ tbody td {
 }
 
 
-  .mobile-menu nav {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    width: 100%;
-    align-items: center;
-  }
+.mobile-menu nav {
+  gap: 4px;
+}
 
-  .mobile-menu nav a {
-    color: #222;
-    font-size: 18px;
-    text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 6px;
-    transition: background-color 0.3s ease;
-  }
+.mobile-menu nav a {
+  background: rgba(255, 255, 255, 0.85);
+  margin: 0 16px;
+  width: calc(100% - 32px);
+  box-sizing: border-box;
+  border-radius: 6px;
+}
+
 
   .mobile-menu nav a:hover {
     background: rgba(0, 0, 0, 0.05);
