@@ -331,7 +331,7 @@ tbody td {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 16px;
+    height: 100%;
   }
 
   .hamburger {
@@ -357,6 +357,7 @@ tbody td {
   .mobile-logo {
     height: 42px;
     max-width: 100px;
+    width: auto;
   }
 
   .mobile-phone-icon {
