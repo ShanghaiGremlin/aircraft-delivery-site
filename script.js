@@ -148,6 +148,8 @@ document.addEventListener('DOMContentLoaded', function () {
     hamburger.addEventListener('click', function () {
       mobileMenu.classList.toggle('open');
     });
+  } else {
+    console.warn('Hamburger or mobileMenu not found');
   }
 });
 
