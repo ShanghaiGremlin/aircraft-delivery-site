@@ -325,19 +325,21 @@ tbody td {
     border-bottom: 1px solid #ccc;
     z-index: 9999;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  } 
-.mobile-header-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr; /* Three equal parts */
-  align-items: center;
-  height: 100%;
+  }
+
+  .mobile-header-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    height: 100%;
   }
 
   .mobile-header-inner > * {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .hamburger {
     width: 35px;
     height: 30px;
@@ -348,13 +350,13 @@ tbody td {
     border: none;
     cursor: pointer;
     padding: 0;
-
   }
-.mobile-hamburger-wrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
+  .mobile-hamburger-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   .hamburger span {
     display: block;
@@ -370,9 +372,10 @@ tbody td {
   }
 
   .mobile-logo-link {
-  display: flex; 
-  justify-content: center;
-}
+    display: flex;
+    justify-content: center;
+  }
+
   .mobile-phone-icon {
     height: 36px;
     width: auto;
@@ -384,52 +387,62 @@ tbody td {
     align-items: center;
   }
 
-   .fixed-header {
+  .fixed-header {
     display: none;
   }
 
-@media screen and (max-width: 768px) {
   .mobile-menu {
-  position: fixed;
-  top: 70px; /* adjust to match your header height */
-  left: 0;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.75);
-  align-items: center;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  display: none;
-  flex-direction: column;
-  padding: 20px 0;
-  z-index: 9998;
-  animation: slideDown 0.3s ease forwards;
-  border-radius: 0 0 12px 12px;
+    position: fixed;
+    top: 80px; /* match .mobile-header height */
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.75);
+    align-items: center;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    padding: 20px 0;
+    z-index: 9998;
+    animation: slideDown 0.3s ease forwards;
+    border-radius: 0 0 12px 12px;
+  }
+
+  .mobile-menu.show {
+    display: flex;
+  }
+
+  .mobile-menu nav {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .mobile-menu nav a {
+    color: #222;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+
+  .mobile-menu nav a:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  main {
+    padding-top: 80px;
+  }
 }
 
-.mobile-menu.show {
-  display: flex;
-}
-
-.mobile-menu nav {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  width: 100%;
-  align-items: center;
-}
-
-.mobile-menu nav a {
-  color: #222;
-  font-size: 18px;
-  text-decoration: none;
-  padding: 8px 16px;
-  border-radius: 6px;
-  transition: background-color 0.3s ease;
-}
-
-.mobile-menu nav a:hover {
-  background: rgba(0, 0, 0, 0.05);
+@media screen and (min-width: 769px) {
+  main {
+    padding-top: 150px;
+  }
 }
 
 @keyframes slideDown {
@@ -442,21 +455,3 @@ tbody td {
     transform: translateY(0);
   }
 }
-
-
-
-
-
-@media screen and (min-width: 769px) {
-  main {
-    padding-top: 150px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  main {
-    padding-top: 80px; /* or whatever matches the height of your mobile header */
-  }
-}
-
-}}
