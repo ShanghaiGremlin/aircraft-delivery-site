@@ -425,7 +425,7 @@ tbody td {
   text-decoration: none;
   padding: 8px 16px;
   border-radius: 6px;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .mobile-menu nav a:hover {
