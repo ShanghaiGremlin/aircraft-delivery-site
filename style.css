@@ -342,25 +342,25 @@ tbody td {
     max-width: 100%;
   }
 
-  .hamburger {
-    width: 28px;
-    height: 22px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-  }
-
-  .hamburger span {
-    display: block;
-    height: 3px;
-    background: #333;
-    border-radius: 2px;
-  }
+.hamburger {
+  width: 28px;
+  height: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  background: #333;
+  border-radius: 2px;
+}
+
 
 @media screen and (min-width: 769px) {
   main {
@@ -374,16 +374,4 @@ tbody td {
   }
 }
 
-.fixed-header {
-  background: lightblue; /* temporary debug color */
-  z-index: 9999;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: auto;
 }
-.mobile-header * {
-  border: 1px solid red;
-  background: rgba(255,0,0,0.1);
-}
-
