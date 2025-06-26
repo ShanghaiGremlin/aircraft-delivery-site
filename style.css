@@ -380,3 +380,7 @@ tbody td {
   width: 100%;
   height: auto;
 }
+.mobile-header * {
+  border: 1px solid red;
+  background: rgba(255,0,0,0.1);
+}
