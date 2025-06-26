@@ -390,47 +390,51 @@ tbody td {
 
 @media screen and (max-width: 768px) {
   .mobile-menu {
-    position: absolute;
-    top: 80px; /* match header height */
-    left: 0;
-    width: 100%;
-    background: white;
-    border-top: 1px solid #ccc;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    padding: 10px 0;
-    display: none;
-    flex-direction: column;
-    z-index: 9998;
-  }
+  position: absolute;
+  top: 80px; /* adjust to match your header height */
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  display: none;
+  flex-direction: column;
+  padding: 15px 0;
+  z-index: 9998;
+  animation: slideDown 0.3s ease forwards;
+  border-radius: 0 0 12px 12px;
+}
 
-  .mobile-menu.open {
-    display: flex;
-  }
+.mobile-menu.open {
+  display: flex;
+}
 
-  .mobile-menu nav {
-    display: flex;
-    flex-direction: column;
-  }
+.mobile-menu nav a {
+  padding: 12px 20px;
+  font-size: 18px;
+  color: #222;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
 
-  .mobile-menu a {
-    display: block;
-    padding: 14px 20px;
-    text-decoration: none;
-    color: #222;
-    font-size: 16px;
-    font-weight: 500;
-    border-bottom: 1px solid #eee;
-    transition: background-color 0.2s ease;
-  }
+.mobile-menu nav a:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: #0056b3;
+}
 
-  .mobile-menu a:last-child {
-    border-bottom: none;
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
   }
-
-  .mobile-menu a:hover {
-    background-color: #f4f4f4;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
+
 
 
 
