@@ -428,7 +428,12 @@ tbody td {
     padding: 12px 16px;
     border-radius: 6px;
     transition: background-color 0.3s ease;
+   border-bottom: 1px solid rgba(0,0,0,0.1); 
   }
+
+  .mobile-menu nav a:last-child {
+  border-bottom: none;
+}
 
   .mobile-menu nav a:hover {
     background: rgba(0, 0, 0, 0.05);
