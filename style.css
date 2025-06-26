@@ -92,6 +92,12 @@ h3 {
   border-bottom: 1px solid #2A4570; 
 }
 
+@media screen and (max-width: 768px) {
+  .header-bleed-left,
+  .header-bleed-right {
+    display: none !important;
+  }
+}
 
 main {
   padding-top: 150px;
@@ -327,7 +333,7 @@ tbody td {
     padding: 10px 20px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   }
-  
+
   .mobile-header-inner {
     display: flex;
     justify-content: space-between;
