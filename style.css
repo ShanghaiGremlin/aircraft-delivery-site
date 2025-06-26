@@ -459,7 +459,7 @@ tbody td {
   display: flex;
   align-items: center;
   gap: 12px; /* space between icon and text */
-  margin-bottom: 7px;
+  margin-bottom: 0;
 }
 
 .service-icon {
