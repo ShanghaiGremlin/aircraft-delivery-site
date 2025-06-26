@@ -388,28 +388,42 @@ tbody td {
     display: none;
   }
 
-  .mobile-menu {
+.mobile-menu {
   display: none;
   flex-direction: column;
-  background: white;
   position: fixed;
-  top: 80px; /* match header height */
+  top: 80px; /* match mobile header height */
   left: 0;
   width: 100%;
+  background-color: #ffffff;
+  padding: 20px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   z-index: 9998;
-  padding: 20px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: max-height 0.3s ease;
 }
 
 .mobile-menu.open {
   display: flex;
 }
 
-body.menu-open {
-  overflow: hidden;
+.mobile-menu a {
+  padding: 14px 25px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  text-decoration: none;
+  border-top: 1px solid #eee;
+  transition: background-color 0.2s ease;
 }
 
+.mobile-menu a:first-child {
+  border-top: none;
 }
+
+.mobile-menu a:hover {
+  background-color: #f0f4f8;
+}
+
 
 @media screen and (min-width: 769px) {
   main {
