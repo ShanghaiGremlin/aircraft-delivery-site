@@ -314,17 +314,17 @@ tbody td {
 
 @media screen and (max-width: 768px) {
   .mobile-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  box-sizing: border-box;
-  background: white;
-  border-bottom: 1px solid #ccc;
-  z-index: 9999;
-  padding: calc(env(safe-area-inset-top, 0px) + 10px) 20px 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    background: white;
+    border-bottom: 1px solid #ccc;
+    z-index: 9999;
+    padding: calc(env(safe-area-inset-top, 0px) + 10px) 20px 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  } /* ← You were missing this brace */
 
   .mobile-header-inner {
     display: flex;
@@ -369,8 +369,6 @@ tbody td {
   }
 }
 
-
-
 @media screen and (min-width: 769px) {
   main {
     padding-top: 150px;
@@ -382,4 +380,3 @@ tbody td {
     padding-top: 80px; /* or whatever matches the height of your mobile header */
   }
 }
-
