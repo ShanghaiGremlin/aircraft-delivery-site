@@ -415,8 +415,12 @@ tbody td {
 
 
 .mobile-menu nav {
+  display: flex;
+  flex-direction: column;
   gap: 4px;
+  align-items: center;
 }
+
 
 .mobile-menu nav a {
   background: rgba(255, 255, 255, 0.85);
