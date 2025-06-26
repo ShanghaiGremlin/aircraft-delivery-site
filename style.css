@@ -441,7 +441,6 @@ tbody td {
   .mobile-hero img {
     width: 100%;
     height: auto;
-    border-radius: 12px;
     display: block;
   }
 }
@@ -482,11 +481,11 @@ tbody td {
 
 .service-label {
   font-weight: bold;
-  font-size: 16px;
+  font-size: 40px;
 }
 
 .service-desc {
-  font-size: 14px;
+  font-size: 35px;
   color: #444;
 }
 
