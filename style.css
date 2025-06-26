@@ -99,7 +99,6 @@ h3 {
   }
 }
 
-
 .gallery-table {
   width: 100%;
   table-layout: fixed;
@@ -321,10 +320,12 @@ tbody td {
     display: block;
     width: 100%;
     box-sizing: border-box;
-    background: white;
+    background: rgba(255, 255, 255, 0.75); /* ← translucent white */
+    backdrop-filter: blur(8px); /* ← blur effect */
+    -webkit-backdrop-filter: blur(8px); /* ← Safari support */
     border-bottom: 1px solid #ccc;
     z-index: 9999;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
 
   .mobile-header-inner {
