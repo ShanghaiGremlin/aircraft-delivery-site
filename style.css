@@ -456,12 +456,39 @@ tbody td {
   background: rgba(0, 0, 0, 0.1);
 }
 
+.service-row {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* space between icon and text */
+  margin-bottom: 20px;
+}
+
 .service-icon {
   width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+}
+
+.service-icon img {
+  width: 100%;
   height: auto;
   display: block;
 }
 
+.service-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.service-label {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.service-desc {
+  font-size: 14px;
+  color: #444;
+}
 
   @keyframes slideDown {
     from {
