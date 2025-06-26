@@ -326,6 +326,7 @@ tbody td {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     box-sizing: border-box;
     height: 62px;
+    padding-top: env(safe-area-inset-top);
   }
 
   .mobile-header-inner {
