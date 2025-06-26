@@ -322,8 +322,9 @@ tbody td {
     background: white;
     border-bottom: 1px solid #ccc;
     z-index: 9999;
-    padding: 10px 0;
+    padding: 10px 20px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    height: 62px;
   }
 
   .mobile-header-inner {
@@ -354,7 +355,7 @@ tbody td {
   }
 
   .mobile-logo {
-    height: 36px;
+    height: 42px;
     max-width: 100px;
   }
 
