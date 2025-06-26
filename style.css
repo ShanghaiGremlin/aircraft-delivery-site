@@ -391,7 +391,7 @@ tbody td {
     display: none;
   }
 
- .mobile-menu {
+.mobile-menu {
   position: fixed;
   top: 80px;
   left: 0;
@@ -412,6 +412,7 @@ tbody td {
   display: flex;
   animation: slideDown 0.3s ease forwards;
 }
+
 
 
 .mobile-menu nav {
