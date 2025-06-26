@@ -317,7 +317,7 @@ tbody td {
     position: fixed;
     top: 0;
     left: 0;
-    min-height: 70px;
+    min-height: 80px;
     display: block;
     width: 100%;
     box-sizing: border-box;
