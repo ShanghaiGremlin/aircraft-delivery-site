@@ -317,12 +317,14 @@ tbody td {
     position: fixed;
     top: 0;
     left: 0;
+    min-height: 70px;
+    display: block;
     width: 100%;
     box-sizing: border-box;
     background: white;
     border-bottom: 1px solid #ccc;
     z-index: 9999;
-    padding: calc(env(safe-area-inset-top, 0px) + 10px) 20px 10px;
+    padding: 10px 20px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   } /* ← You were missing this brace */
 
@@ -330,7 +332,7 @@ tbody td {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100%;
+    min-height: 50px;
   }
 
   .hamburger {
@@ -366,6 +368,10 @@ tbody td {
   .mobile-phone-link {
     display: flex;
     align-items: center;
+  }
+
+   .fixed-header {
+    display: none;
   }
 }
 
