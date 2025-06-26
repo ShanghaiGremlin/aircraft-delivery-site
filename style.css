@@ -312,12 +312,7 @@ tbody td {
   display: none;
 }
 
-/* MEDIA QUERY: Show mobile, hide desktop */
 @media screen and (max-width: 768px) {
-  .fixed-header {
-    display: none !important;
-  }
-
   .mobile-header {
     display: block;
     position: fixed;
@@ -327,7 +322,7 @@ tbody td {
     background: white;
     border-bottom: 1px solid #ccc;
     z-index: 9999;
-    padding: 10px 20px;
+    padding: 10px 0;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   }
 
@@ -335,35 +330,45 @@ tbody td {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 16px; /* ← Add horizontal padding */
+    padding: 0 16px;
+  }
+
+  .hamburger {
+    width: 28px;
+    height: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: #333;
+    border-radius: 2px;
   }
 
   .mobile-logo {
     height: 36px;
-    max-width: 150px;
-    object-fit: contain;
+    max-width: 100px;
   }
 
-.hamburger {
-  width: 28px;
-  height: 22px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  box-sizing: border-box;
+  .mobile-phone-icon {
+    height: 24px;
+    width: auto;
+  }
+
+  .mobile-phone-link {
+    display: flex;
+    align-items: center;
+  }
 }
 
-.hamburger span {
-  display: block;
-  width: 100%;
-  height: 3px;
-  background-color: #333;
-  border-radius: 2px;
-}
 
 
 @media screen and (min-width: 769px) {
