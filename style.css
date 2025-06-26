@@ -430,14 +430,32 @@ tbody td {
     transition: background-color 0.3s ease;
    border-bottom: 1px solid rgba(0,0,0,0.1); 
   }
+  .mobile-index {
+    padding: 20px;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
 
-  .mobile-menu nav a:last-child {
-  border-bottom: none;
+  .mobile-hero img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+  }
 }
 
+@media (hover: hover) {
   .mobile-menu nav a:hover {
     background: rgba(0, 0, 0, 0.05);
   }
+}
+
+.mobile-menu nav a:active {
+  background: rgba(0, 0, 0, 0.1);
+}
+
 
   @keyframes slideDown {
     from {

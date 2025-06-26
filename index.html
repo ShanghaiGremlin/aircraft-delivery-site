@@ -71,30 +71,31 @@
     </nav>
   </div>
 </header>
-<main style="width:1365px; min-width:1365px; max-width:1365px; margin:0 auto;">
-  <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/home2.png"
-       style="width:100%; height:auto; display:block;"
-      usemap="#homepage-map"
-    >
+<main>
+  <section class="mobile-index">
+  <!-- Hero -->
+  <div class="mobile-hero">
+    <img src="/path/to/your/hero-mobile.jpg" alt="Aircraft in flight">
+  </div>
 
-    <map name="homepage-map">
-      <area
-        shape="rect"
-        coords="586,399,1364,644"
-        href="/services"
-        alt="View Services"
-        aria-label="View Services"
-        title="View Services"
-      >
-      <area
-        shape="rect"
-        coords="433,444,570,580"
-        href="/quote"
-        alt="Get a Quote"
-        aria-label="Get a Quote"
-        title="Get a Quote"
-      >
-    </map>
+  <!-- Services -->
+  <div class="mobile-service">
+    <div class="service-label">Ferry Flights</div>
+    <div class="service-desc">Nearly any aircraft</div>
+  </div>
+
+  <div class="mobile-service">
+    <div class="service-label">Container Shipping</div>
+    <div class="service-desc">For light aircraft, safe + low cost</div>
+  </div>
+
+  <!-- Quote Button -->
+  <div class="mobile-quote">
+    <a href="/quote" class="quote-btn">Get a Quote</a>
+  </div>
+</section>
+
+</main>
 </main>
 <script src="script.js" defer></script>
 </body>
