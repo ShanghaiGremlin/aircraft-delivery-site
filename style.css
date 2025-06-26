@@ -99,10 +99,6 @@ h3 {
   }
 }
 
-main {
-  padding-top: 150px;
-    
-}
 
 .gallery-table {
   width: 100%;
@@ -366,9 +362,15 @@ tbody td {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 769px) {
   main {
     padding-top: 150px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    padding-top: 80px; /* or whatever matches the height of your mobile header */
   }
 }
 
@@ -384,3 +386,4 @@ tbody td {
   border: 1px solid red;
   background: rgba(255,0,0,0.1);
 }
+
