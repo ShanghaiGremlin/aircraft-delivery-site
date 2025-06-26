@@ -355,7 +355,8 @@ tbody td {
   }
 
   .mobile-logo {
-    width: 100px;
+    width: auto;
+    height: 60px;
 
   .mobile-phone-icon {
     height: 24px;
