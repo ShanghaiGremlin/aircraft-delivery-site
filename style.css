@@ -490,6 +490,12 @@ tbody td {
   color: #444;
 }
 
+.mobile-quote-button {
+  width: 200px;
+  margin: 0 auto;
+  display: block;
+}
+
   @keyframes slideDown {
     from {
       opacity: 0;
