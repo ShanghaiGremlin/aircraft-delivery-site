@@ -391,69 +391,58 @@ tbody td {
     display: none;
   }
 
-.mobile-menu {
-  position: fixed;
-  top: 80px;
-  left: 0;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.75);
-  align-items: center;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  display: none;
-  flex-direction: column;
-  padding: 20px 0;
-  z-index: 9998;
-  border-radius: 0 0 12px 12px;
-}
+@media screen and (max-width: 768px) {
+  .mobile-menu {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    padding: 20px 0;
+    z-index: 9998;
+    border-radius: 0 0 12px 12px;
+  }
 
-.mobile-menu.show {
-  display: flex;
-  animation: slideDown 0.3s ease forwards;
-}
+  .mobile-menu.show {
+    display: flex;
+    animation: slideDown 0.3s ease forwards;
+  }
 
+  .mobile-menu nav {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    align-items: center;
+  }
 
-
-.mobile-menu nav {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  align-items: center;
-}
-
-
-.mobile-menu nav a {
-  background: rgba(255, 255, 255, 0.85);
-  margin: 0 16px;
-  width: calc(100% - 32px);
-  box-sizing: border-box;
-  border-radius: 6px;
-}
-
+  .mobile-menu nav a {
+    color: #222;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 12px 16px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
 
   .mobile-menu nav a:hover {
     background: rgba(0, 0, 0, 0.05);
   }
 
-  main {
-    padding-top: 80px;
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
-
-@media screen and (min-width: 769px) {
-  main {
-    padding-top: 150px;
-  }
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
