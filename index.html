@@ -15,30 +15,32 @@
 <div class="fixed-header">
   <div class="header-bleed-left"></div>
 
-<!-- DESKTOP HEADER -->
-<div class="fixed-header">
-  <header>
-    <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/static-header-v7-95.png" usemap="#image-map"
+  <!-- DESKTOP HEADER -->
+  <header class="desktop-header">
+    <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/static-header-v7-95.png"
+         usemap="#image-map"
          style="width: 100%; height: auto; display: block;">
   </header>
+
+  <!-- MOBILE HEADER -->
+  <header class="mobile-header">
+    <div class="mobile-header-inner">
+      <a href="/" class="mobile-logo-link">
+        <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/mobile/mobile-logo.png"
+             alt="Aircraft Delivery Solutions"
+             class="mobile-logo">
+      </a>
+      <button class="hamburger" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="header-bleed-right"></div>
 </div>
 
-<!-- MOBILE HEADER -->
-<header class="mobile-header">
-  <div class="mobile-header-inner">
-    <a href="/" class="mobile-logo-link">
-      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/mobile/mobile-logo.png" alt="Aircraft Delivery Solutions" class="mobile-logo">
-    </a>
-    <button class="hamburger" aria-label="Open menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </div>
-</header>
-
-<div class="header-bleed-right"></div>
-</div>
   <map name="image-map">
     <area target="" alt="" href="/services" coords="64,21,147,46" shape="rect" title="Services">
     <area target="" alt="" href="/quote" coords="160,19,217,46" shape="rect" title="Get a Quote">
