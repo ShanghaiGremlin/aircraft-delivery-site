@@ -11,9 +11,13 @@ function showSlide(index) {
   });
 }
 
-function changeSlide(direction = 1) {
-  const previousSlide = currentSlide;
-  currentSlide = (currentSlide + direction + slides.length) % slides.length;
+let slideIndex = 0;
+
+function changeSlide(n) {
+  slideIndex = (slideIndex + n + slides.length) % slides.length;
+  showSlide(slideIndex);
+}
+
 
   if (currentSlide === 0 && previousSlide === slides.length - 1) {
     loopCount++;
@@ -22,7 +26,7 @@ function changeSlide(direction = 1) {
 
   showSlide(currentSlide);
   setNextSlideTimer();
-}
+
 
 function setNextSlideTimer() {
   if (slideTimer) clearTimeout(slideTimer);
