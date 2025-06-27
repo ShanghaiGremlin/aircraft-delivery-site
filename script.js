@@ -153,3 +153,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  const el = document.querySelector(".mobile-menu");
+  if (el) {
+    el.style.display = "none";
+    void el.offsetHeight; // Force reflow
+    el.style.display = "flex"; // Or whatever your intended value is
+  }
+});
