@@ -15,42 +15,63 @@
 <div class="fixed-header">
   <div class="header-bleed-left"></div>
 
-  <!-- Desktop Header -->
-  <header class="desktop-header">
-    <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/static-header-v7-95.png"
-         usemap="#image-map"
+<div class="fixed-header">
+  <div class="header-bleed-left"></div>
+  <header>
+    <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/static-header-v7-95.png" usemap="#image-map"
          style="width: 100%; height: auto; display: block;">
   </header>
-
   <div class="header-bleed-right"></div>
+</div>
+ <header class="mobile-header">
+  <div class="mobile-header-inner">
+    <!-- Hamburger -->
+     <div class="mobile-hamburger-wrap">
+    <button class="hamburger" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button></div>
 
-  <!-- Mobile Header -->
-  <header class="mobile-header">
-    <div class="mobile-header-inner">
-      <!-- Hamburger -->
-      <div class="mobile-hamburger-wrap">
-        <button class="hamburger" aria-label="Open menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
+    <!-- Logo -->
+    <a href="/" class="mobile-logo-link">
+      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/mobile/mobile-logo.png"
+           alt="Aircraft Delivery Solutions"
+           class="mobile-logo">
+    </a>
 
-      <!-- Logo -->
-      <a href="/" class="mobile-logo-link">
-        <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/mobile/mobile-logo.png"
-             alt="Aircraft Delivery Solutions"
-             class="mobile-logo">
-      </a>
+    <!-- Phone Icon -->
+    <a href="tel:14158458163" class="mobile-phone-link">
+      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/mobile/phone.png"
+           alt="Call"
+           class="mobile-phone-icon">
+    </a>
+  </div>
 
-      <!-- Phone Icon -->
-      <a href="tel:14158458163" class="mobile-phone-link">
-        <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/mobile/phone.png"
-             alt="Call"
-             class="mobile-phone-icon">
-      </a>
-    </div>
-  </header>
+
+  <!--div class="header-bleed-right"></div> -->
+
+  <map name="image-map">
+    <area target="" alt="" href="/services" coords="64,21,147,46" shape="rect" title="Services">
+    <area target="" alt="" href="/quote" coords="160,19,217,46" shape="rect" title="Get a Quote">
+    <area target="" alt="" href="/pilot-directory" coords="17,63,149,90" shape="rect" title="Pilot Directory">
+    <area target="" alt="" href="/pilot-hiring" coords="162,62,264,90" shape="rect" title="Pilot Hiring">
+    <area target="" alt="" href="/about" coords="38,106,98,133" shape="rect" title="About">
+    <area target="" alt="" href="/past-deliveries" coords="108,106,246,133" shape="rect" title="Past Deliveries">
+    <area target="" alt="" href="/" coords="278,6,1076,143" shape="rect" title="Aircraft Delivery Solutions">
+  </map>
+
+      <div class="mobile-menu" id="mobileMenu">
+    <nav>
+      <a href="/services">Services</a>
+      <a href="/quote">Get a Quote</a>
+      <a href="/pilot-directory">Pilot Directory</a>
+      <a href="/pilot-hiring">Pilot Hiring</a>
+      <a href="/about">About</a>
+      <a href="/past-deliveries">Past Deliveries</a>
+    </nav>
+  </div>
+</header>
 </div>
 
 
