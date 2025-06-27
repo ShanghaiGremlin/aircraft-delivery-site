@@ -517,4 +517,10 @@ display: none !important;
   main {
     background: rgba(245, 245, 245, 1.0);
   }
+
+  body:not(#index-page) main {
+    margin-top: 80px;
+  }
 }
+
+
