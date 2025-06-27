@@ -312,10 +312,6 @@ tbody td {
 }
 
 @media screen and (max-width: 768px) {
- .fixed-header {
-display: none;
- }
-  
   .mobile-header {
     position: fixed;
     top: 0;
@@ -392,12 +388,14 @@ display: none;
     align-items: center;
   }
 
-  .fixed-header {
-    display: none;
-  }
+@media screen and (max-width: 768px) {
+   .fixed-header {
+display: none;
+ }
+}
 
 @media screen and (max-width: 768px) {
-  .mobile-menu {
+   .mobile-menu {
     position: fixed;
     top: 80px;
     left: 0;
