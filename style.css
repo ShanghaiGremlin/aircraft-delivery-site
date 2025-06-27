@@ -428,7 +428,7 @@ tbody td {
     text-decoration: none;
     padding: 12px 16px;
     transition: background-color 0.3s ease;
-   border-bottom: 1px solid rgba(0,0,0,0.5); 
+   border-bottom: 1px solid rgba(0,0,0,0.3); 
   }
   .mobile-index {
     padding: 80px 20px 20px 20px;
