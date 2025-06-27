@@ -320,7 +320,7 @@ tbody td {
     display: block;
     width: 100%;
     box-sizing: border-box;
-    background: rgba(255, 255, 255, 0.75); /* ← translucent white */
+    background: rgba(236, 244, 255, 0.75); /* ← translucent white */
     backdrop-filter: blur(8px); /* ← blur effect */
     -webkit-backdrop-filter: blur(8px); /* ← Safari support */
     border-bottom: 1px solid #ccc;
