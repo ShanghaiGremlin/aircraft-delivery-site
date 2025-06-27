@@ -153,10 +153,17 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
+window.addEventListener('pageshow', function (event) {
   const mobileMenu = document.querySelector('.mobile-menu');
+  const hamburger = document.querySelector('.hamburger');
+
   if (mobileMenu && mobileMenu.classList.contains('show')) {
     mobileMenu.classList.remove('show');
   }
+
+  if (hamburger && hamburger.classList.contains('open')) {
+    hamburger.classList.remove('open');
+  }
 });
+
 
