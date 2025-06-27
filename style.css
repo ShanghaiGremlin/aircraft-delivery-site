@@ -529,15 +529,6 @@ display: none !important;
     background: rgba(245, 245, 245, 1.0);
   }
 
-  main.px77-offset {
-    padding-top: 77px !important;
-  }
-
-  main.px77-offset {
-  padding-top: 77px !important;
-  background-color: red !important;
-}
-
   .page-title-brick {
     font-size: 1.4rem;
     border-radius: 4px;
