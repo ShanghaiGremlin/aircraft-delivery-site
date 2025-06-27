@@ -1,50 +1,27 @@
-// === SLIDESHOW LOGIC ===
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slide');
-let slideTimer = null;
-let loopCount = 0;
-const maxLoops = 3;
-
-function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.style.display = i === index ? 'block' : 'none';
-  });
-}
-
-let slideIndex = 0;
-
-function changeSlide(n) {
-  slideIndex = (slideIndex + n + slides.length) % slides.length;
-  showSlide(slideIndex);
-}
-
-
-  if (currentSlide === 0 && previousSlide === slides.length - 1) {
-    loopCount++;
-    if (loopCount >= maxLoops) return; // Stop autoplay
-  }
-
-  showSlide(currentSlide);
-  setNextSlideTimer();
-
-
-function setNextSlideTimer() {
-  if (slideTimer) clearTimeout(slideTimer);
-
-  let interval = 10000;
-  if (currentSlide === 1) interval = 15000; // Custom interval for one slide
-
-  slideTimer = setTimeout(() => changeSlide(1), interval);
-}
-
-// === DOMContentLoaded Initialization ===
 document.addEventListener('DOMContentLoaded', function () {
+  const slides = document.querySelectorAll('.slide');
+  let slideIndex = 0;
 
-  // Initialize slideshow
-  if (slides.length > 0) {
-    showSlide(currentSlide);
-    setNextSlideTimer();
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.style.display = i === index ? 'block' : 'none';
+    });
   }
+
+  function changeSlide(n) {
+    slideIndex = (slideIndex + n + slides.length) % slides.length;
+    showSlide(slideIndex);
+  }
+
+  // Optional: Set initial slide
+  showSlide(slideIndex);
+
+  // Make changeSlide accessible if buttons call it inline
+  window.changeSlide = changeSlide;
+});
+
+
+
 
   // === Modal Logic ===
   window.openModal = function (content) {
