@@ -17,6 +17,10 @@ window.onload = function () {
   window.changeSlide = changeSlide;
 };
 
+console.log('Slides found:', slides.length);
+
+
+
 
 
 
