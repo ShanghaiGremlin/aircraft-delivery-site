@@ -16,14 +16,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (desktopSlides.length > 0) {
     showDesktopSlide(desktopIndex);
-    window.changeDesktopSlide = changeDesktopSlide; // use unique name
+    window.changeDesktopSlide = changeDesktopSlide; // ✅ Unique name
     setInterval(() => {
       changeDesktopSlide(1);
     }, 5000);
   }
 
   // MOBILE SLIDESHOW
-  const mobileSlides = document.querySelectorAll('.mobile-slideshow .slide');
+  const mobileSlides = document.querySelectorAll('#mobile-slideshow .slide'); // ✅ Targets only mobile slideshow
   let mobileIndex = 0;
 
   function showMobileSlide(index) {
@@ -39,12 +39,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (mobileSlides.length > 0) {
     showMobileSlide(mobileIndex);
-    window.changeMobileSlide = changeMobileSlide; // also unique
+    window.changeMobileSlide = changeMobileSlide; // ✅ Unique name
     setInterval(() => {
       changeMobileSlide(1);
     }, 8000);
   }
 });
+
 
 
 
