@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // DESKTOP SLIDESHOW
+  // === DESKTOP SLIDESHOW ===
   const desktopSlides = document.querySelectorAll('#desktop-slideshow .slide');
   let desktopIndex = 0;
+  let desktopCycleCount = 0;
+  const desktopMaxCycles = 3;
 
   function showDesktopSlide(index) {
     desktopSlides.forEach((slide, i) => {
@@ -10,21 +12,33 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function changeDesktopSlide(n) {
+    const previousIndex = desktopIndex;
     desktopIndex = (desktopIndex + n + desktopSlides.length) % desktopSlides.length;
     showDesktopSlide(desktopIndex);
+
+    if (previousIndex === desktopSlides.length - 1 && desktopIndex === 0) {
+      desktopCycleCount++;
+      if (desktopCycleCount >= desktopMaxCycles) {
+        clearInterval(desktopAutoplay);
+        desktopIndex = 0;
+        showDesktopSlide(desktopIndex);
+      }
+    }
   }
 
   if (desktopSlides.length > 0) {
     showDesktopSlide(desktopIndex);
-    window.changeDesktopSlide = changeDesktopSlide; // ✅ Unique name
-    setInterval(() => {
+    window.changeSlide = changeDesktopSlide; // for desktop buttons
+    var desktopAutoplay = setInterval(() => {
       changeDesktopSlide(1);
     }, 5000);
   }
 
-  // MOBILE SLIDESHOW
-  const mobileSlides = document.querySelectorAll('#mobile-slideshow .slide'); // ✅ Targets only mobile slideshow
+  // === MOBILE SLIDESHOW ===
+  const mobileSlides = document.querySelectorAll('#mobile-slideshow .slide');
   let mobileIndex = 0;
+  let mobileCycleCount = 0;
+  const mobileMaxCycles = 3;
 
   function showMobileSlide(index) {
     mobileSlides.forEach((slide, i) => {
@@ -33,18 +47,29 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function changeMobileSlide(n) {
+    const previousIndex = mobileIndex;
     mobileIndex = (mobileIndex + n + mobileSlides.length) % mobileSlides.length;
     showMobileSlide(mobileIndex);
+
+    if (previousIndex === mobileSlides.length - 1 && mobileIndex === 0) {
+      mobileCycleCount++;
+      if (mobileCycleCount >= mobileMaxCycles) {
+        clearInterval(mobileAutoplay);
+        mobileIndex = 0;
+        showMobileSlide(mobileIndex);
+      }
+    }
   }
 
   if (mobileSlides.length > 0) {
     showMobileSlide(mobileIndex);
-    window.changeMobileSlide = changeMobileSlide; // ✅ Unique name
-    setInterval(() => {
+    window.changeSlide = changeMobileSlide; // for mobile buttons
+    var mobileAutoplay = setInterval(() => {
       changeMobileSlide(1);
     }, 8000);
   }
 });
+
 
 
 
