@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // === DESKTOP SLIDESHOW ===
   const desktopSlides = document.querySelectorAll('#desktop-slideshow .slide');
   let desktopIndex = 0;
-  let desktopCycleCount = 0;
+  let desktopCycles = 0;
   const desktopMaxCycles = 3;
 
   function showDesktopSlide(index) {
@@ -12,32 +12,31 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function changeDesktopSlide(n) {
-    const previousIndex = desktopIndex;
     desktopIndex = (desktopIndex + n + desktopSlides.length) % desktopSlides.length;
     showDesktopSlide(desktopIndex);
-
-    if (previousIndex === desktopSlides.length - 1 && desktopIndex === 0) {
-      desktopCycleCount++;
-      if (desktopCycleCount >= desktopMaxCycles) {
-        clearInterval(desktopAutoplay);
-        desktopIndex = 0;
-        showDesktopSlide(desktopIndex);
-      }
-    }
   }
 
   if (desktopSlides.length > 0) {
     showDesktopSlide(desktopIndex);
-    window.changeSlide = changeDesktopSlide; // for desktop buttons
-    var desktopAutoplay = setInterval(() => {
-      changeDesktopSlide(1);
+    window.changeSlide = changeDesktopSlide;
+
+    const desktopInterval = setInterval(() => {
+      desktopIndex = (desktopIndex + 1) % desktopSlides.length;
+      showDesktopSlide(desktopIndex);
+
+      if (desktopIndex === 0) {
+        desktopCycles++;
+        if (desktopCycles >= desktopMaxCycles) {
+          clearInterval(desktopInterval); // stop autoplay, buttons still work
+        }
+      }
     }, 5000);
   }
 
   // === MOBILE SLIDESHOW ===
   const mobileSlides = document.querySelectorAll('#mobile-slideshow .slide');
   let mobileIndex = 0;
-  let mobileCycleCount = 0;
+  let mobileCycles = 0;
   const mobileMaxCycles = 3;
 
   function showMobileSlide(index) {
@@ -47,40 +46,27 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function changeMobileSlide(n) {
-    const previousIndex = mobileIndex;
     mobileIndex = (mobileIndex + n + mobileSlides.length) % mobileSlides.length;
     showMobileSlide(mobileIndex);
-
-    if (previousIndex === mobileSlides.length - 1 && mobileIndex === 0) {
-      mobileCycleCount++;
-      if (mobileCycleCount >= mobileMaxCycles) {
-        clearInterval(mobileAutoplay);
-        mobileIndex = 0;
-        showMobileSlide(mobileIndex);
-      }
-    }
   }
 
   if (mobileSlides.length > 0) {
     showMobileSlide(mobileIndex);
-    window.changeSlide = changeMobileSlide; // for mobile buttons
-    var mobileAutoplay = setInterval(() => {
-      changeMobileSlide(1);
+    window.changeSlide = changeMobileSlide;
+
+    const mobileInterval = setInterval(() => {
+      mobileIndex = (mobileIndex + 1) % mobileSlides.length;
+      showMobileSlide(mobileIndex);
+
+      if (mobileIndex === 0) {
+        mobileCycles++;
+        if (mobileCycles >= mobileMaxCycles) {
+          clearInterval(mobileInterval); // stop autoplay, buttons still work
+        }
+      }
     }, 8000);
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   // === Modal Logic ===
