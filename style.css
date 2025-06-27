@@ -533,6 +533,10 @@ display: none !important;
     padding-top: 77px;
   }
 
+  body.px77-offset * {
+  outline: 2px solid red !important;
+}
+
   .page-title-brick {
     font-size: 1.4rem;
     border-radius: 4px;
