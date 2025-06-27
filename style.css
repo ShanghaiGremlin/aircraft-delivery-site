@@ -513,12 +513,13 @@ display: none !important;
     }
   }
 }
+
 @media screen and (max-width: 768px) {
   main {
     background: rgba(245, 245, 245, 1.0);
   }
 
-  main:not(#index-page) main {
+  body:not(#index-page) main {
     margin-top: 80px;
   }
 }
