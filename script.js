@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+window.onload = function () {
   const slides = document.querySelectorAll('.slide');
   let slideIndex = 0;
 
@@ -12,9 +12,11 @@ document.addEventListener('DOMContentLoaded', function () {
     slideIndex = (slideIndex + n + slides.length) % slides.length;
     showSlide(slideIndex);
   }
-  // Make changeSlide accessible if buttons call it inline
+
+  showSlide(slideIndex);
   window.changeSlide = changeSlide;
-});
+};
+
 
 
 
