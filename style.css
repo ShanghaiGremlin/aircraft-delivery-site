@@ -312,6 +312,10 @@ tbody td {
 }
 
 @media screen and (max-width: 768px) {
+ .fixed-header {
+display: none;
+ }
+  
   .mobile-header {
     position: fixed;
     top: 0;
