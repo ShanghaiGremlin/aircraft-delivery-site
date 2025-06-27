@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (desktopSlides.length > 0) {
     showDesktopSlide(desktopIndex);
-    window.changeSlide = changeDesktopSlide; // Allow manual nav buttons
+    window.changeDesktopSlide = changeDesktopSlide; // use unique name
     setInterval(() => {
       changeDesktopSlide(1);
-    }, 5000); // change every 5 seconds
+    }, 5000);
   }
 
   // MOBILE SLIDESHOW
@@ -39,12 +39,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (mobileSlides.length > 0) {
     showMobileSlide(mobileIndex);
-    window.changeSlide = changeMobileSlide; // Allow manual nav buttons
+    window.changeMobileSlide = changeMobileSlide; // also unique
     setInterval(() => {
       changeMobileSlide(1);
-    }, 8000); // change every 8 seconds
+    }, 8000);
   }
 });
+
 
 
 
