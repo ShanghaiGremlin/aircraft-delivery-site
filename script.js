@@ -153,4 +153,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  const mobileMenu = document.querySelector('.mobile-menu');
+  if (mobileMenu && mobileMenu.classList.contains('show')) {
+    mobileMenu.classList.remove('show');
+  }
+});
 
