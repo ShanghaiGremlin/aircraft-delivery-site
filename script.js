@@ -1,6 +1,7 @@
-window.onload = function () {
-  const slides = document.querySelectorAll('.slide');
-  let slideIndex = 0;
+document.addEventListener('DOMContentLoaded', function () {
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  let currentIndex = 0;
+  let autoInterval = null;
 
   function showSlide(index) {
     slides.forEach((slide, i) => {
@@ -8,16 +9,39 @@ window.onload = function () {
     });
   }
 
-  function changeSlide(n) {
-    slideIndex = (slideIndex + n + slides.length) % slides.length;
-    showSlide(slideIndex);
+  function goToSlide(n) {
+    currentIndex = (n + slides.length) % slides.length;
+    showSlide(currentIndex);
   }
 
-  showSlide(slideIndex);
-  window.changeSlide = changeSlide;
-};
+  function changeSlide(n) {
+    stopAutoplay();
+    goToSlide(currentIndex + n);
+    startAutoplay();
+  }
 
-console.log('Slides found:', slides.length);
+  function startAutoplay() {
+    stopAutoplay(); // Prevent stacking intervals
+    autoInterval = setInterval(() => {
+      goToSlide(currentIndex + 1);
+    }, 5000); // 5 seconds per slide
+  }
+
+  function stopAutoplay() {
+    if (autoInterval) {
+      clearInterval(autoInterval);
+      autoInterval = null;
+    }
+  }
+
+  // Expose for inline HTML buttons
+  window.changeSlide = changeSlide;
+
+  // Initialize slideshow
+  showSlide(currentIndex);
+  startAutoplay();
+});
+
 
 
 
