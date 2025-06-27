@@ -310,7 +310,7 @@ tbody td {
 }
 
 @media screen and (max-width: 768px) {
-   .desktop-header {
+   .fixed-header {
 display: none !important;
  }
 
