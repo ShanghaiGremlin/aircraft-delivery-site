@@ -496,6 +496,12 @@ tbody td {
   display: block;
 }
 
+.mobile-index-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
   @keyframes slideDown {
     from {
       opacity: 0;
