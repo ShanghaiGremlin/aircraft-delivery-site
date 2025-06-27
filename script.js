@@ -1,46 +1,41 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const slides = Array.from(document.querySelectorAll('.slide'));
-  let currentIndex = 0;
-  let autoInterval = null;
+  initSlideshow('#desktop-slideshow');
+  initSlideshow('#mobile-slideshow');
 
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.style.display = i === index ? 'block' : 'none';
-    });
-  }
+  function initSlideshow(containerSelector) {
+    const container = document.querySelector(containerSelector);
+    if (!container) return;
 
-  function goToSlide(n) {
-    currentIndex = (n + slides.length) % slides.length;
-    showSlide(currentIndex);
-  }
+    const slides = container.querySelectorAll('.slide');
+    if (slides.length === 0) return;
 
-  function changeSlide(n) {
-    stopAutoplay();
-    goToSlide(currentIndex + n);
-    startAutoplay();
-  }
+    let index = 0;
 
-  function startAutoplay() {
-    stopAutoplay(); // Prevent stacking intervals
-    autoInterval = setInterval(() => {
-      goToSlide(currentIndex + 1);
-    }, 5000); // 5 seconds per slide
-  }
-
-  function stopAutoplay() {
-    if (autoInterval) {
-      clearInterval(autoInterval);
-      autoInterval = null;
+    function showSlide(i) {
+      slides.forEach((slide, j) => {
+        slide.style.display = j === i ? 'block' : 'none';
+      });
     }
+
+    function changeSlide(n) {
+      index = (index + n + slides.length) % slides.length;
+      showSlide(index);
+    }
+
+    // Initialize slideshow
+    showSlide(index);
+
+    // Optional: autoplay
+    // setInterval(() => changeSlide(1), 5000);
+
+    // Hook up buttons inside this container
+    const prevBtn = container.querySelector('.prev');
+    const nextBtn = container.querySelector('.next');
+    if (prevBtn) prevBtn.addEventListener('click', () => changeSlide(-1));
+    if (nextBtn) nextBtn.addEventListener('click', () => changeSlide(1));
   }
-
-  // Expose for inline HTML buttons
-  window.changeSlide = changeSlide;
-
-  // Initialize slideshow
-  showSlide(currentIndex);
-  startAutoplay();
 });
+
 
 
 
