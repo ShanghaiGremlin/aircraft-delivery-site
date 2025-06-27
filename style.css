@@ -525,9 +525,8 @@ display: none !important;
 
   .page-title-brick {
     font-size: 1.4rem;
-    padding: 15px;
     border-radius: 4px;
-    margin-top: 12px;
+    margin-top: 20px;
     letter-spacing: 0.3px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   }
