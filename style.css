@@ -530,8 +530,13 @@ display: none !important;
   }
 
   main.px77-offset {
-    padding-top: 77px;
+    padding-top: 77px !important;
   }
+
+  main.px77-offset {
+  padding-top: 77px !important;
+  background-color: red !important;
+}
 
   .page-title-brick {
     font-size: 1.4rem;
