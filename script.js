@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
     window.changeSlide = changeMobileSlide; // Allow manual nav buttons
     setInterval(() => {
       changeMobileSlide(1);
-    }, 5000); // change every 5 seconds
+    }, 8000); // change every 8 seconds
   }
 });
 
