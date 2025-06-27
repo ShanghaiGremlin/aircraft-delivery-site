@@ -12,10 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
     slideIndex = (slideIndex + n + slides.length) % slides.length;
     showSlide(slideIndex);
   }
-
-  // Optional: Set initial slide
-  showSlide(slideIndex);
-
   // Make changeSlide accessible if buttons call it inline
   window.changeSlide = changeSlide;
 });
