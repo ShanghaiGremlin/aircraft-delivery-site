@@ -529,7 +529,7 @@ display: none !important;
     background: rgba(245, 245, 245, 1.0);
   }
 
-  body:not(#index-page) main {
+  body:not(.index-page) main {
     padding-top: 77px;
   }
 
