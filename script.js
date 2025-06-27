@@ -1,40 +1,45 @@
 document.addEventListener('DOMContentLoaded', function () {
-  initSlideshow('#desktop-slideshow');
-  initSlideshow('#mobile-slideshow');
+  // DESKTOP SLIDESHOW
+  const desktopSlides = document.querySelectorAll('#desktop-slideshow .slide');
+  let desktopIndex = 0;
 
-  function initSlideshow(containerSelector) {
-    const container = document.querySelector(containerSelector);
-    if (!container) return;
+  function showDesktopSlide(index) {
+    desktopSlides.forEach((slide, i) => {
+      slide.style.display = i === index ? 'block' : 'none';
+    });
+  }
 
-    const slides = container.querySelectorAll('.slide');
-    if (slides.length === 0) return;
+  function changeDesktopSlide(n) {
+    desktopIndex = (desktopIndex + n + desktopSlides.length) % desktopSlides.length;
+    showDesktopSlide(desktopIndex);
+  }
 
-    let index = 0;
+  if (desktopSlides.length > 0) {
+    showDesktopSlide(desktopIndex);
+    window.changeSlide = changeDesktopSlide; // Required if using inline onclick
+  }
 
-    function showSlide(i) {
-      slides.forEach((slide, j) => {
-        slide.style.display = j === i ? 'block' : 'none';
-      });
-    }
+  // MOBILE SLIDESHOW
+  const mobileSlides = document.querySelectorAll('.mobile-slideshow .slide');
+  let mobileIndex = 0;
 
-    function changeSlide(n) {
-      index = (index + n + slides.length) % slides.length;
-      showSlide(index);
-    }
+  function showMobileSlide(index) {
+    mobileSlides.forEach((slide, i) => {
+      slide.style.display = i === index ? 'block' : 'none';
+    });
+  }
 
-    // Initialize slideshow
-    showSlide(index);
+  function changeMobileSlide(n) {
+    mobileIndex = (mobileIndex + n + mobileSlides.length) % mobileSlides.length;
+    showMobileSlide(mobileIndex);
+  }
 
-    // Optional: autoplay
-    // setInterval(() => changeSlide(1), 5000);
-
-    // Hook up buttons inside this container
-    const prevBtn = container.querySelector('.prev');
-    const nextBtn = container.querySelector('.next');
-    if (prevBtn) prevBtn.addEventListener('click', () => changeSlide(-1));
-    if (nextBtn) nextBtn.addEventListener('click', () => changeSlide(1));
+  if (mobileSlides.length > 0) {
+    showMobileSlide(mobileIndex);
+    window.changeSlide = changeMobileSlide; // Override only on mobile
   }
 });
+
 
 
 
