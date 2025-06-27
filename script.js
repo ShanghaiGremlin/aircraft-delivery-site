@@ -16,7 +16,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (desktopSlides.length > 0) {
     showDesktopSlide(desktopIndex);
-    window.changeSlide = changeDesktopSlide; // Required if using inline onclick
+    window.changeSlide = changeDesktopSlide; // Allow manual nav buttons
+    setInterval(() => {
+      changeDesktopSlide(1);
+    }, 5000); // change every 5 seconds
   }
 
   // MOBILE SLIDESHOW
@@ -36,9 +39,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (mobileSlides.length > 0) {
     showMobileSlide(mobileIndex);
-    window.changeSlide = changeMobileSlide; // Override only on mobile
+    window.changeSlide = changeMobileSlide; // Allow manual nav buttons
+    setInterval(() => {
+      changeMobileSlide(1);
+    }, 5000); // change every 5 seconds
   }
 });
+
 
 
 
