@@ -398,7 +398,7 @@ tbody td {
     top: 80px;
     left: 0;
     width: 100%;
-    background: rgba(220, 220, 220, 0.98);
+    background: rgba(210, 210, 210, 0.97);
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -427,7 +427,6 @@ tbody td {
     font-size: 18px;
     text-decoration: none;
     padding: 12px 16px;
-    border-radius: 6px;
     transition: background-color 0.3s ease;
    border-bottom: 1px solid rgba(0,0,0,0.5); 
   }
