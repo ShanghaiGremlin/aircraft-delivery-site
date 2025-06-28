@@ -41,8 +41,7 @@ h3 {
   text-align: center;
   font-size: 0.8rem;
   color: #555;             /* Softer contrast than title */
-  margin-top: -10px;       /* Pull it closer to the title */
-  margin-bottom: 10px;     /* Space below the tagline */
+  margin: -10px 20px 10px 20px;
   font-style: italic;      /* Optional: adds polish */
   letter-spacing: 0.3px;   /* Slight spacing for readability */
 }
