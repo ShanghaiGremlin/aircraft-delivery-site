@@ -39,7 +39,7 @@ h3 {
 
 .page-tagline {
   text-align: center;
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   color: #555;             /* Softer contrast than title */
   margin-top: -10px;       /* Pull it closer to the title */
   margin-bottom: 10px;     /* Space below the tagline */
