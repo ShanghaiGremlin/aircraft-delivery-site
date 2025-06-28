@@ -5,8 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aircraft Delivery Solutions</title>
-  <style>
-  area {
+  <style> area {
     cursor: pointer;
   }
 </style>
@@ -29,12 +28,13 @@
  <header class="mobile-header">
   <div class="mobile-header-inner">
     <!-- Hamburger -->
-     <div class="mobile-hamburger-wrap">
-    <button class="hamburger" aria-label="Open menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button></div>
+    <div class="mobile-hamburger-wrap">
+      <button class="hamburger" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
 
     <!-- Logo -->
     <a href="/" class="mobile-logo-link">
@@ -50,9 +50,9 @@
            class="mobile-phone-icon">
     </a>
   </div>
-</div>
+  <!-- Optional bleed-right element -->
+  <!-- <div class="header-bleed-right"></div> -->
 
-  <!--div class="header-bleed-right"></div> -->
 
   <map name="image-map">
     <area target="" alt="" href="/services" coords="64,21,147,46" shape="rect" title="Services">
@@ -64,7 +64,7 @@
     <area target="" alt="" href="/" coords="278,6,1076,143" shape="rect" title="Aircraft Delivery Solutions">
   </map>
 
-      <div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu" id="mobileMenu">
     <nav>
       <a href="/services">Services</a>
       <a href="/quote">Get a Quote</a>
@@ -74,7 +74,9 @@
       <a href="/past-deliveries">Past Deliveries</a>
     </nav>
   </div>
+</div>
 </header>
+
 
 <main style="background-color: #f5f5f5;">
 <div class="desktop-only">
@@ -112,7 +114,7 @@
     <li>Please leave a voicemail if I don't answer</li>
   </ul>
 </div>
-
+</div>
 
 
   <!-- Right: Stacked Text and Email (35%) -->
@@ -148,7 +150,7 @@
     <div style="text-align: left;">
 
 
-<form id="quoteForm">
+<form id="quote-form-desktop">
 
   <!-- Name -->
   <label>Name: <input type="text" name="name"></label><br><br>
@@ -266,7 +268,6 @@
   <tr>
     <td style="border: 1px solid #333; text-align: center;"><b>Scenario</b></td>
     <td style="border: 1px solid #333; text-align: center;"><b>Pay</b></td>
-    </td>
   </tr>
   <tr>
     <td style="border: 1px solid #333;">Domestic ferry of a small trainer aircraft</td>
@@ -284,15 +285,18 @@
     <td style="border: 1px solid #333;">Helicopters</td>
     <td style="border: 1px solid #333;">$700 and up daily rate</td>
   </tr>
-<td style="border: 1px solid #333;">
-  Co-pilot Pay <span style="font-size: 14px;">(when required or requested)</span>
-</td>
-  <td style="border: 1px solid #333;">About 60% of Pilot-In-Command Pay</td>
-</tr>
+  <tr>
+    <td style="border: 1px solid #333;">
+      Co-pilot Pay <span style="font-size: 14px;">(when required or requested)</span>
+    </td>
+    <td style="border: 1px solid #333;">About 60% of Pilot-In-Command Pay</td>
   </tr>
+  <tr>
     <td style="border: 1px solid #333;"><i>Domestic U.S. per diem</i></td>
     <td style="border: 1px solid #333;"><i>$75 per day (higher outside U.S.)</i></td>
+  </tr>
 </table>
+
 <h3 style="text-align:center;"><u>Pilot Expenses (reimbursed)</u></h3>
 <p><b>There are usual expenses related to what it costs to have pilot(s) on duty away from their home:</b></p>
 <p>• Travel. Will almost always include last-minute airline travel. Often includes taxi/Uber. Sometimes involves rental car(s). Some pilots require Business class or higher for overseas air travel.</p>
@@ -311,9 +315,10 @@
 <p>• On-call flighcrew support. I'm available 24 hours a day while ferry flights are in progress.</p>
 <p>• Flight planning assistance. I augment the flighcrew's flight planning activities and products.</p>
 <p>• Weather analysis. I monitor weather reporting and forecasts in augmentation of flightcrew weather collection.</p>
-<p>• Travel support. I assist flightcrews in obtaining travel, lodging and meals.</td>
+<p>• Travel support. I assist flightcrews in obtaining travel, lodging and meals.</p></td>
 </tr>
 </table>
+</div>
 
 <div class="mobile-only">
 
@@ -369,7 +374,6 @@
       <h1 style="margin: 3px 0 5px 0;">✉️ Email</h1>
       <h2 style="margin: 0 15px 18px 0;"><a href="mailto:akahn28@gmail.com">akahn28@gmail.com</a></h2>
     </div>
-
   </div>
 </div>
 
@@ -386,7 +390,7 @@
     <div style="text-align: left;">
 
 
-<form id="quoteForm">
+<form id="quote-form-mobile">
 
   <!-- Name -->
   <label>Name: <input type="text" name="name"></label><br><br>
@@ -443,15 +447,15 @@
 
   <!-- Desired Delivery Date -->
   <label for="delivery_date">Desired Delivery Date: </label>
-  <input type="date" id="delivery_date" name="delivery_date"><br><br>
+  <input type="date" id="mobile-delivery-date" name="delivery_date"><br><br>
 
   <!-- Avionics Installed -->
   <label for="avionics">Avionics Installed: </label>
-  <input type="text" id="avionics" name="avionics" placeholder="G1000, Collins, etc."><br><br>
+  <input type="text" id="mobile-avionics" name="avionics" placeholder="G1000, Collins, etc."><br><br>
 
   <!-- Engine Description -->
   <label for="engine_description">Engine Description: </label>
-  <input type="text" id="engine_description" name="engine_description" placeholder="PT6, TIO-540, etc."><br><br>
+  <input type="text" id="mobile-engine-description" name="engine_description" placeholder="PT6, TIO-540, etc."><br><br>
 
   <!-- Ordinary Use of Aircraft -->
   <fieldset style="border: none;">
@@ -467,11 +471,11 @@
 
   <!-- Budget for Delivery -->
   <label for="budget">Budget for Delivery: </label>
-  <input type="text" id="budget" name="budget" placeholder="USD"><br><br>
+  <input type="text" id="mobile-budget" name="budget" placeholder="USD"><br><br>
 
   <!-- Supplemental Information -->
   <label for="supplemental_info">Supplemental Information: </label>
-  <textarea id="supplemental_info" name="supplemental_info" rows="4" cols="50"></textarea><br><br>
+  <textarea id="mobile-supplemental-info" name="supplemental_info" rows="4" cols="50"></textarea><br><br>
 
   <!-- Redirect on success -->
   <input type="hidden" name="_redirect" value="https://aircraft.delivery/thanks">
@@ -500,11 +504,11 @@
       <h2 style="text-align:center;">Ferry Flights</h2>
       <h3 style="text-align:center;"><u>Pilot Pay (contracted)</u></h3>
       <p><b>Highly dependent on many factors. Also, there are variations in the mode of billing; pilots can bill by the day, by the flight hour, by the duty hour, or bill a flat fee for the project. </b></p>
-        <table style="width: 100%; border-collapse: collapse; border: 1px solid #333; font-size: 18px; background-color: #fcfcfc;">
+
+      <table style="width: 100%; border-collapse: collapse; border: 1px solid #333; font-size: 18px; background-color: #fcfcfc;">
   <tr>
     <td style="border: 1px solid #333; text-align: center;"><b>Scenario</b></td>
     <td style="border: 1px solid #333; text-align: center;"><b>Pay</b></td>
-    </td>
   </tr>
   <tr>
     <td style="border: 1px solid #333;">Domestic ferry of a small trainer aircraft</td>
@@ -522,15 +526,19 @@
     <td style="border: 1px solid #333;">Helicopters</td>
     <td style="border: 1px solid #333;">$700 and up daily rate</td>
   </tr>
-<td style="border: 1px solid #333;">
-  Co-pilot Pay <span style="font-size: 14px;">(when required or requested)</span>
-</td>
-  <td style="border: 1px solid #333;">About 60% of Pilot-In-Command Pay</td>
-</tr>
+  <tr>
+    <td style="border: 1px solid #333;">
+      Co-pilot Pay <span style="font-size: 14px;">(when required or requested)</span>
+    </td>
+    <td style="border: 1px solid #333;">About 60% of Pilot-In-Command Pay</td>
   </tr>
+  <tr>
     <td style="border: 1px solid #333;"><i>Domestic U.S. per diem</i></td>
     <td style="border: 1px solid #333;"><i>$75 per day (higher outside U.S.)</i></td>
+  </tr>
 </table>
+
+
 <h3 style="text-align:center;"><u>Pilot Expenses (reimbursed)</u></h3>
 <p><b>There are usual expenses related to what it costs to have pilot(s) on duty away from their home:</b></p>
 <p>• Travel. Will almost always include last-minute airline travel. Often includes taxi/Uber. Sometimes involves rental car(s). Some pilots require Business class or higher for overseas air travel.</p>
@@ -542,6 +550,7 @@
 <p>• Ramp services: If an aircraft requires services like lavatory cleaning or crew meals.</p>
 <p>• Un-planned maintenance. Unfortunately, the shop has the upper hand when naming their price(s).</p>
 <p>• Fluids. Typically engine oil and less commonly hydraulic fluid.</p>
+
 <h3 style="text-align:center;"><u>Support Fee (contracted)</u></h3>
 <p><b>I charge a fee for my time, effort and expertise, which in general covers:</b></p>
 <p>• Flight release. I supplement the flightcrew's decision-making including go/no-go determination.</p>
@@ -549,9 +558,8 @@
 <p>• On-call flighcrew support. I'm available 24 hours a day while ferry flights are in progress.</p>
 <p>• Flight planning assistance. I augment the flighcrew's flight planning activities and products.</p>
 <p>• Weather analysis. I monitor weather reporting and forecasts in augmentation of flightcrew weather collection.</p>
-<p>• Travel support. I assist flightcrews in obtaining travel, lodging and meals.</td>
-</tr>
-</table>
+<p>• Travel support. I assist flightcrews in obtaining travel, lodging and meals.</p>
+
 </div>
 </div>
 </main>

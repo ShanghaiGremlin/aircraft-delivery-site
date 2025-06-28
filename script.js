@@ -135,35 +135,35 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // === Form Submission with Redirect ===
-  const quoteForm = document.getElementById('quoteForm');
+  document.addEventListener("DOMContentLoaded", function () {
+  const desktopForm = document.getElementById("quote-form-desktop");
+  const mobileForm = document.getElementById("quote-form-mobile");
 
-  if (quoteForm) {
-    quoteForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      const formData = new FormData(quoteForm);
-
-      fetch('https://formspree.io/f/mnnvozvg', {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      })
-      .then(response => {
-        if (response.ok) {
-          window.location.href = "/thank-you";
-        } else {
-          alert("Submission failed. Please try again.");
-        }
-      })
-      .catch(error => {
-        console.error(error);
-        alert("There was a network error.");
-      });
-    });
+  function isVisible(elem) {
+    return elem && elem.offsetParent !== null;
   }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    
+    const form = event.target;
+    const formData = new FormData(form);
+    
+    // You can replace this with your real submission logic
+    console.log("Form submitted:", Object.fromEntries(formData.entries()));
+
+    // Optionally show a confirmation message
+    alert("Your quote request has been submitted!");
+  }
+
+  if (isVisible(desktopForm)) {
+    desktopForm.addEventListener("submit", handleSubmit);
+  }
+
+  if (isVisible(mobileForm)) {
+    mobileForm.addEventListener("submit", handleSubmit);
+  }
+});
 
 
 
