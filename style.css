@@ -540,6 +540,11 @@ display: none !important;
     .mobile-only {
     padding-top: 35px;
   }
+
+    .quote-flex-row {
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
  }
 
 
