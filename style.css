@@ -633,15 +633,15 @@ input[type="date"] {
   display: flex;
   justify-content: center; /* centers horizontally */
   align-items: center;     /* centers vertically */
-  padding: 1rem;
+  padding: 0.5rem;
   box-sizing: border-box;
 }
 
 .mobile-modal-box {
   background: #fff;
-  padding: 1.25rem;
+  padding: 1rem 1.25rem;
   border-radius: 12px;
-  max-width: 480px;      /* Set max width here */
+  max-width: 400px;      /* Set max width here */
   width: 100%;           /* So it scales responsively */
   max-height: 90vh;
   overflow-y: auto;
