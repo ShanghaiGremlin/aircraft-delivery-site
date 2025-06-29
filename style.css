@@ -659,7 +659,12 @@ input[type="date"] {
   cursor: pointer;
  }
 
-  .mobile-modal-overlay {
-    display: none; /* JS changes this to flex */
- }
+ .mobile-modal-box p {
+  text-align: center;
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
 }

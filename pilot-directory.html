@@ -459,40 +459,36 @@
 </div>
 
 <!-- 'see all' Button block -->
-<div style="flex: 1 1 300px; display: flex; flex-direction: column; align-items: center; padding: 10px 0 20px 0;">
-  <button onclick="
-    const html = `
-      <p style='text-align: center; font-size: 1.25rem; width: 60%;'><u>Aircraft Delivery Solutions pilot type ratings</u></p> 
-      <ul style='padding-left: 20px; font-size: 0.75rem; line-height: 1.6;'> 
-        <li><b>BEECHCRAFT:</b> BE300 (King Air 350)</li> 
-        <li><b>BOEING:</b> B747-200, B747-400/8, DC-9</li> 
-        <li><b>BOMBARDIER:</b> CL-65, DHC-8, LR-JET</li> 
-        <li><b>CESSNA:</b> CE-750 (Citation X)</li> 
-        <li><b>DASSAULT:</b> FA-20, FA-50 [SIC]</li> 
-        <li><b>EMBRAER:</b> EMB-120, EMB-170–195, EMB-550</li> 
-        <li><b>FAIRCHILD:</b> SA-227</li> 
-        <li><b>GULFSTREAM:</b> IAI-1125 (G100), Gulfstream IV [SIC]</li> 
-        <li><b>LOCKHEED:</b> L-300 (C141)</li> 
-        <li><b>SIKORSKY:</b> S-70 (UH-60)</li> 
-      </ul>`;
+<button class="modal-trigger-btn" onclick="
+  const html = `
+    <p><u>Aircraft Delivery Solutions pilot type ratings</u></p> 
+    <ul>
+      <li><b>BEECHCRAFT:</b> BE300 (King Air 350)</li> 
+      <li><b>BOEING:</b> B747-200, B747-400/8, DC-9</li> 
+      <li><b>BOMBARDIER:</b> CL-65, DHC-8, LR-JET</li> 
+      <li><b>CESSNA:</b> CE-750 (Citation X)</li> 
+      <li><b>DASSAULT:</b> FA-20, FA-50 [SIC]</li> 
+      <li><b>EMBRAER:</b> EMB-120, EMB-170–195, EMB-550</li> 
+      <li><b>FAIRCHILD:</b> SA-227</li> 
+      <li><b>GULFSTREAM:</b> IAI-1125 (G100), Gulfstream IV [SIC]</li> 
+      <li><b>LOCKHEED:</b> L-300 (C141)</li> 
+      <li><b>SIKORSKY:</b> S-70 (UH-60)</li> 
+    </ul>`;
+  if (window.innerWidth <= 768) {
+    document.getElementById('mobile-modal-body').innerHTML = html;
+    openMobileModal();
+  } else {
+    openModal(html);
+  }
+">
+  See all the pilots' type ratings
+</button>
 
-    if (window.innerWidth <= 768) {
-      document.getElementById('mobile-modal-body').innerHTML = html;
-      openMobileModal();
-    } else {
-      openModal(html);
-    }
-  "
-  style="background-color: #007bff; color: white; padding: 8px; border: none; border-radius: 6px; font-size: 1rem; cursor: pointer; box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25); width: auto;">
-    See all the pilots' type ratings
-  </button>
+  <a href="/pilot-hiring" style="margin-top: 14px; background-color: #007bff; color: white; padding: 8px; border: none; border-radius: 6px; font-size: 1rem; cursor: pointer; box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25); text-decoration: none; display: inline-block;">
+    Pilot Hiring
+  </a>
 </div>
 
-
-    <a href="/pilot-hiring" style="margin-top: 14px; background-color: #007bff; color: white; padding: 8px; border: none; border-radius: 6px; font-size: 1rem; cursor: pointer; box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25); text-decoration: none; display: inline-block;">
-      Pilot Hiring
-    </a>
-  </div>
 
 <table class="gallery-table"><tr><td class="gallery-img-cell">
 <div style="text-align: center">
