@@ -591,5 +591,14 @@ select {
   border-radius: 50%; /* or 0 for checkbox */
 }
 
+.mob-button-align {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
 
 }
