@@ -564,6 +564,24 @@ select {
   margin-bottom: 15px;
 }
 
+input[type="date"] {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  font-size: 1em;
+  padding: 6px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #000;
+    background-image: url('https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/calendar-icon.svg');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 20px 20px;
+  padding-right: 36px; /* Room for the icon */
+}
+
 .mob-button-align input[type="checkbox"],
 .mob-button-align input[type="radio"] {
   margin: 0;
