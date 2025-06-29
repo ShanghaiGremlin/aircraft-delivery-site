@@ -387,97 +387,65 @@ box-sizing: border-box;">
   <p style="text-align: center; font-size: 26px"><b><u>Optional Quote Form</u></b></p>
   
   <div style="border: 2px solid #999; border-radius: 12px; background-color: #ffffff; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 0 10px 0 10px; text-align: left; margin: -17px 0 0 0;">
-    <p style="font-size: 12px;">While not necessary to get a quote, filling out this form will help me focus in on your project and give you a more accurate initial quote.</p>
-    <p style="font-size: 12px;">All the answers are optional and "if known", except the email address.</p>
+    <p style="font-size: 14px;">While not necessary to get a quote, filling out this form will help me focus in on your project and give you a more accurate initial quote.</p>
+    <p style="font-size: 14px;">All the answers are optional and "if known", except the email address.</p>
   </div>
 
   <div style="margin-top: 20px;">
 <form id="quote-form-mobile">
 
-  <!-- Name -->
-  <label>Name: <input type="text" name="name"></label>
+  <label class="mobile-form-one-line-text" for="mob-name">Name: </label><input type="text" name="name" id="mob-name">
 
-  <!-- Email -->
-  <label>Email (required): <input type="email" name="email" required></label>
+  <label class="mobile-form-one-line-text" for="mob-email">Email (required): </label><input type="email" name="email" id="mob-email" required>
 
-  <!-- Phone -->
-  <label>Phone: <input type="tel" name="phone" size="20"></label>
+  <label class="mobile-form-one-line-text" for="mob-phone">Phone: </label><input type="tel" name="phone" id="mob-phone">
 
-  <!-- Aircraft Registration -->
-  <label>Aircraft Registration:
-    <input type="text" name="aircraft_registration" placeholder="N12345; C-NMBR, etc" size="17">
-  </label><br><br>
+  <label class="mobile-form-one-line-text" for="mob-reg">Aircraft Registration: </label><input type="text" name="aircraft_registration" id="mob-reg" placeholder="N12345; C-NMBR, etc">
 
-  <!-- Aircraft Make & Model -->
-  <label>Aircraft Make & Model:
-    <input type="text" name="aircraft_model" size="30">
-  </label><br><br>
+  <label class="mobile-form-one-line-text" for="mob-model">Aircraft Make & Model: </label><input type="text" name="aircraft_model" id="mob-model" placeholder="Airbus A320neo; Cessna 152, etc">
 
-  <!-- Registered Owner -->
-  <label>Registered Owner Name(s):
-    <input type="text" name="owner_name">
-  </label><br><br>
+  <label class="mobile-form-one-line-text" for="mob-owner">Registered Owner Name(s): </label><input type="text" name="owner_name" id="mob-owner">
 
-  <!-- Type of Ownership -->
-  <label>Type of Ownership (if known):<br>
-    <input type="radio" name="ownership" value="Sole Owner"> Sole Owner<br>
-    <input type="radio" name="ownership" value="LLC or other business entity"> LLC or other business entity<br>
-    <input type="radio" name="ownership" value="Partnership"> Partnership<br>
-    <input type="radio" name="ownership" value="Other"> Other
-  </label><br><br>
+   <fieldset style="border: none;">
+    <legend>Type of Ownership (choose one):</legend>
+    <label for="mob-sole-owner"><input type="radio" name="ownership" id="mob-sole-owner" value="Sole Owner"> Sole Owner</label><br>
+    <label for="mob-biz-entity"><input type="radio" name="ownership" id="mob-biz-entity" value="LLC or other business entity"> LLC or other business entity</label><br>
+    <label for="mob-partner"><input type="radio" name="ownership" id="mob-partner" value="Partnership"> Partnership</label><br>
+    <label for="mob-owner-other"><input type="radio" name="ownership" id="mob-owner-other" value="Other"> Other</label></fieldset>
 
-  <!-- Operator -->
-  <label>Operator:
-    <input type="text" name="operator">
-  </label><br><br>
+  <label class="mobile-form-one-line-text" for="mob-operator">Operator: </label><input type="text" name="operator" id="mob-operator">
 
-  <!-- Pickup Airport -->
-  <label>Pickup Airport:
-    <input type="text" name="pickup_airport">
-  </label><br><br>
+  <label class="mobile-form-one-line-text" for="mob-pickup">Pickup Airport: </label><input type="text" name="pickup_airport" id="mob-pickup">
 
-  <!-- Delivery Airport -->
-  <label>Delivery Airport:
-    <input type="text" name="delivery_airport">
-  </label><br><br>
+  <label class="mobile-form-one-line-text" for="mob-delivery">Delivery Airport: </label><input type="text" name="delivery_airport" id="mob-delivery">
 
-  <!-- Client-Preferred Delivery Method -->
-  <legend>Client-Preferred Delivery Method:</legend>
-  <label><input type="radio" name="delivery_method" value="Ferry Flight"> Ferry Flight </label>
-  <label><input type="radio" name="delivery_method" value="Container Shipping"> Container Shipping </label>
-  <label><input type="radio" name="delivery_method" value="Undecided"> Undecided </label><br><br>
-
-  <!-- Desired Delivery Date -->
-  <label for="delivery_date">Desired Delivery Date: </label>
-  <input type="date" id="delivery_date" name="delivery_date"><br><br>
-
-  <!-- Avionics Installed -->
-  <label for="avionics">Avionics Installed: </label>
-  <input type="text" id="avionics" name="avionics" placeholder="G1000, Collins, etc."><br><br>
-
-  <!-- Engine Description -->
-  <label for="engine_description">Engine Description: </label>
-  <input type="text" id="engine_description" name="engine_description" placeholder="PT6, TIO-540, etc."><br><br>
-
-  <!-- Ordinary Use of Aircraft -->
   <fieldset style="border: none;">
+    <legend>Client-Preferred Method of Delivery:</legend>
+  <label for="mob-method-ferry"><input type="radio" name="delivery_method" id="mob-method-ferry" value="Ferry Flight"> Ferry Flight</label><br>
+  <label for="mob-method-container"><input type="radio" name="delivery_method" id="mob-method-container" value="Container Shipping">Container Shipping</label><br>
+  <label for="mob-method-undecided"><input type="radio" name="delivery_method" id="mob-method-undecided" value="Undecided"> Undecided</label></fieldset>
+
+  <label class="mobile-form-one-line-text" for="mob-deliv-date">Desired Delivery Date:</label><input type="date" name="delivery_date" id="mob-deliv-date">
+
+  <label class="mobile-form-one-line-text" for="mob-avionics">Avionics Installed:</label><input type="text" name="avionics" id="mob-avionics" placeholder="G1000, Collins, etc.">
+
+  <label class="mobile-form-one-line-text" for="mob-engine-descr">Engine Description:</label><input type="text" name="engine_description" id="mob-engine-descr" placeholder="PT6, TIO-540, etc.">
+
+   <fieldset style="border: none;">
     <legend>Ordinary Use of Aircraft (Check any that apply):</legend>
-    <label><input type="checkbox" name="aircraft_use[]" value="Personal"> Personal</label><br>
-    <label><input type="checkbox" name="aircraft_use[]" value="Flight School"> Flight School</label><br>
-    <label><input type="checkbox" name="aircraft_use[]" value="Charter"> Charter</label><br>
-    <label><input type="checkbox" name="aircraft_use[]" value="Corporate"> Corporate</label><br>
-    <label><input type="checkbox" name="aircraft_use[]" value="Freight"> Freight</label><br>
-    <label><input type="checkbox" name="aircraft_use[]" value="None - no regular flying"> None - no regular flying</label><br>
-    <label><input type="checkbox" name="aircraft_use[]" value="Unknown"> Unknown</label>
-  </fieldset><br>
+    <label for="mob-use-personal"><input type="checkbox" id="mob-use-personal" name="aircraft_use[]" value="Personal"> Personal</label><br>
+    <label for="mob-use-fltschool"><input type="checkbox" id="mob-use-fltschool" name="aircraft_use[]" value="Flight School"> Flight School</label><br>
+    <label for="mob-use-charter"><input type="checkbox" id="mob-use-charter" name="aircraft_use[]" value="Charter"> Charter</label><br>
+    <label for="mob-use-corporate"><input type="checkbox" id="mob-use-corporate" name="aircraft_use[]" value="Corporate"> Corporate</label><br>
+    <label for="mob-use-freight"><input type="checkbox" id="mob-use-freight" name="aircraft_use[]" value="Freight"> Freight</label><br>
+    <label for="mob-use-none"><input type="checkbox" id="mob-use-none" name="aircraft_use[]" value="None - no regular flying"> None - no regular flying</label><br>
+    <label for="mob-use-unknown"><input type="checkbox" id="mob-use-unknown" name="aircraft_use[]" value="Unknown"> Unknown</label></fieldset>
 
   <!-- Budget for Delivery -->
-  <label for="budget">Budget for Delivery: </label>
-  <input type="text" id="budget" name="budget" placeholder="USD"><br><br>
+  <label class="mobile-form-one-line-text" for="mob-budget">Budget for Delivery:</label><input type="text" name="budget" id="mob-budget" placeholder="USD">
 
   <!-- Supplemental Information -->
-  <label for="supplemental_info">Supplemental Information: </label>
-  <textarea id="supplemental_info" name="supplemental_info" rows="4" cols="50"></textarea><br><br>
+  <label class="mobile-form-multirow-text" for="mob-supplemental-info">Supplemental Information:</label><textarea name="supplemental_info" id="mob-supplemental-info" rows="4" cols="50"></textarea>
 
   <!-- Redirect on success -->
   <input type="hidden" name="_redirect" value="https://aircraft.delivery/thanks">

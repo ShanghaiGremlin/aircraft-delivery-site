@@ -542,8 +542,28 @@ display: none !important;
     flex-direction: column !important;
     gap: 20px !important;
   }
+
+  .mobile-form-one-line-text {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .mobile-form-multirow-text {
+    display: block;
+    margin-bottom: 10px;
+  }
  }
 
+input,
+textarea,
+select {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  font-size: 1em;
+  padding: 6px;
+  margin-top: 4px;
+}
 
 
 
