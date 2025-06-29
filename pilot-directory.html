@@ -85,24 +85,27 @@
 <td style="width: 30%; text-align: center; padding: 4px;">
       <div style="height: 100%; display: flex; flex-direction: column; align-items: center; padding: 5px 0 20px 0;">
         <!-- Trigger Button -->
-        <button onclick="openModal(`
-          <p style='text-align: center; font-size: 1.75rem;'><u>Aircraft Delivery Solutions pilot type ratings</u></p>
-          <ul style='padding-left: 20px; font-size: 1rem; line-height: 1.6;'>
-            <li><b>BEECHCRAFT:</b> BE300 (King Air 350)</li>
-            <li><b>BOEING:</b> B747-200, B747-400/8, DC-9</li>  
-            <li><b>BOMBARDIER:</b> CL-65, DHC-8, LR-JET</li>
-            <li><b>CESSNA:</b> CE-750 (Citation X)</li>
-            <li><b>DASSAULT:</b> FA-20, FA-50 [SIC]</li>
-            <li><b>EMBRAER:</b> EMB-120, EMB-170–195, EMB-550</li>
-            <li><b>FAIRCHILD:</b> SA-227</li>
-            <li><b>GULFSTREAM:</b> IAI-1125 (G100), Gulfstream IV [SIC]</li>
-            <li><b>LOCKHEED:</b> L-300 (C141)</li>
-            <li><b>SIKORSKY:</b> S-70 (UH-60)</li>
-          </ul>
-        `)"
-        style="margin-top: 15px; background-color: #007bff; color: white; padding: 12px 24px; border: none; border-radius: 6px; font-size: 1.25rem; cursor: pointer; box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25); width: auto; display: inline-block;">
-          See all the pilots' type ratings
-        </button>
+<div
+  onclick="openMobileModal()"
+  style="margin-top: 15px; background-color: #007bff; color: white; padding: 12px 24px; border: none; border-radius: 6px; font-size: 1.25rem; cursor: pointer; box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25); width: auto; display: inline-block;">
+  
+  <div style="text-align: left;">
+    <p style="font-size: 1.25rem; text-align: center; margin-top: 0;"><u>Aircraft Delivery Solutions pilot type ratings</u></p>
+    <ul style="padding-left: 20px; font-size: 1rem; line-height: 1.6; text-align: left; margin-bottom: 0;">
+      <li><b>BEECHCRAFT:</b> BE300 (King Air 350)</li>
+      <li><b>BOEING:</b> B747-200, B747-400/8, DC-9</li>  
+      <li><b>BOMBARDIER:</b> CL-65, DHC-8, LR-JET</li>
+      <li><b>CESSNA:</b> CE-750 (Citation X)</li>
+      <li><b>DASSAULT:</b> FA-20, FA-50 [SIC]</li>
+      <li><b>EMBRAER:</b> EMB-120, EMB-170–195, EMB-550</li>
+      <li><b>FAIRCHILD:</b> SA-227</li>
+      <li><b>GULFSTREAM:</b> IAI-1125 (G100), Gulfstream IV [SIC]</li>
+      <li><b>LOCKHEED:</b> L-300 (C141)</li>
+      <li><b>SIKORSKY:</b> S-70 (UH-60)</li>
+    </ul>
+  </div>
+</div>
+
 
         <button style="margin-top: 40px; background-color: #007bff; color: white; padding: 12px 24px; border: none; border-radius: 6px; font-size: 1.25rem; cursor: pointer; box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25); width: auto; display: inline-block;">
           <a href="/pilot-hiring" style="color: inherit; text-decoration: none;">Pilot Hiring</a>
