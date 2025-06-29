@@ -552,7 +552,6 @@ display: none !important;
     display: block;
     margin-bottom: 4px;
   }
- }
 
 input,
 textarea,
@@ -565,6 +564,10 @@ select {
   margin-bottom: 15px;
 }
 
+.mob-button-align {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
-
-
+}
