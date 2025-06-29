@@ -576,6 +576,7 @@ select {
   border: 2px solid #555;
   display: inline-block;
   position: relative;
+  background-color: #fff
 }
 
 /* ROUND dot for radio */
