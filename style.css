@@ -564,8 +564,8 @@ select {
   margin-bottom: 15px;
 }
 
-.mob-button-align input[type="radio"],
-.mob-button-align input[type="checkbox"] {
+.mob-button-align input[type="checkbox"],
+.mob-button-align input[type="radio"] {
   margin: 0;
   padding: 0;
   appearance: none;
@@ -574,13 +574,15 @@ select {
   width: 16px;
   height: 16px;
   border: 2px solid #555;
-  border-radius: 50%; /* use 0 for checkbox, 50% for radio */
   display: inline-block;
   position: relative;
 }
 
-.mob-button-align input[type="radio"]:checked::before,
-.mob-button-align input[type="checkbox"]:checked::before {
+/* ROUND dot for radio */
+.mob-button-align input[type="radio"] {
+  border-radius: 50%;
+}
+.mob-button-align input[type="radio"]:checked::before {
   content: "";
   position: absolute;
   top: 3px;
@@ -588,17 +590,22 @@ select {
   width: 8px;
   height: 8px;
   background-color: #333;
-  border-radius: 50%; /* or 0 for checkbox */
+  border-radius: 50%;
 }
 
-.mob-button-align {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: -13px;
-  font-size: 16px;
-  line-height: 0;
+/* SQUARE check for checkbox */
+.mob-button-align input[type="checkbox"] {
+  border-radius: 3px;
 }
-
-
+.mob-button-align input[type="checkbox"]:checked::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  width: 3px;
+  height: 8px;
+  border: solid #333;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
 }
