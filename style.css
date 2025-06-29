@@ -610,4 +610,12 @@ select {
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
 }
+input[type="date"] {
+  background: url('https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/mobile/calendar-icon.png') 
+              no-repeat right 10px center;
+  background-size: 20px 20px;
+  padding-right: 36px; /* Prevents text overlapping the icon */
+  cursor: pointer;
+}
+
 }
