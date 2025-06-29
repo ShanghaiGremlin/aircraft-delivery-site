@@ -567,7 +567,12 @@ select {
 .mob-button-align {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
+}
+
+.mobile-form-option input[type="radio"],
+.mobile-form-option input[type="checkbox"] {
+  margin: 0; /* Remove default browser spacing */
 }
 
 }
