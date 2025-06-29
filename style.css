@@ -573,9 +573,9 @@ input[type="date"] {
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  background-color: #fff;
+  background-color: #fff !important;
   color: #000;
-    background-image: url('https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/calendar-icon.svg');
+    background-image: url('https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/mobile/calendar-icon.png');
   background-repeat: no-repeat;
   background-position: right 10px center;
   background-size: 20px 20px;
