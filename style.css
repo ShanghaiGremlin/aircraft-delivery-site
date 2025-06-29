@@ -567,7 +567,7 @@ select {
 .mob-button-align {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 0px;
 }
 
 .mobile-form-option input[type="radio"],
