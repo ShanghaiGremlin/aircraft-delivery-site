@@ -5,13 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aircraft Delivery Solutions</title>
-  <style>
-  area {
+  <style> area {
     cursor: pointer;
   }
 </style>
+
   </head>
 <body>
+
+  <!-- DESKTOP HEADER WRAPPER -->
+   <div class="desktop-only">
 <div class="fixed-header">
   <div class="header-bleed-left"></div>
   <header>
@@ -19,7 +22,38 @@
          style="width: 100%; height: auto; display: block;">
   </header>
   <div class="header-bleed-right"></div>
-</div>
+</div></div>
+
+<div class="mobile-only">
+ <header class="mobile-header">
+  <div class="mobile-header-inner">
+    <!-- Hamburger -->
+    <div class="mobile-hamburger-wrap">
+      <button class="hamburger" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Logo -->
+    <a href="/" class="mobile-logo-link">
+      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/mobile/mobile-logo.png"
+           alt="Aircraft Delivery Solutions"
+           class="mobile-logo">
+    </a>
+
+    <!-- Phone Icon -->
+    <a href="tel:14158458163" class="mobile-phone-link">
+      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/mobile/phone.png"
+           alt="Call"
+           class="mobile-phone-icon">
+    </a>
+  </div>
+  <!-- Optional bleed-right element -->
+  <!-- <div class="header-bleed-right"></div> -->
+</header>
+
   <map name="image-map">
     <area target="" alt="" href="/services" coords="64,21,147,46" shape="rect" title="Services">
     <area target="" alt="" href="/quote" coords="160,19,217,46" shape="rect" title="Get a Quote">
@@ -29,6 +63,18 @@
     <area target="" alt="" href="/past-deliveries" coords="108,106,246,133" shape="rect" title="Past Deliveries">
     <area target="" alt="" href="/" coords="278,6,1076,143" shape="rect" title="Aircraft Delivery Solutions">
   </map>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <nav>
+      <a href="/services">Services</a>
+      <a href="/quote">Get a Quote</a>
+      <a href="/pilot-directory">Pilot Directory</a>
+      <a href="/pilot-hiring">Pilot Hiring</a>
+      <a href="/about">About</a>
+      <a href="/past-deliveries">Past Deliveries</a>
+    </nav>
+  </div>
+</div>
 
 <main style="background-color: #f5f5f5;">
 <h1 class="page-title-brick">FERRY PILOT DIRECTORY</h1>
@@ -82,7 +128,7 @@
       <h1 style="margin-bottom: 5px;"><u>Complete Crews</u></h1>
       <p style="font-size: 22px; margin-top: 5px;">
         I have at least 1 (or 2 when required) pilots that have type-ratings in these types:
-      </p>
+      </p></td>
 <table style="width: 100%; border-collapse: collapse; table-layout: fixed;">
     <tr>
       <td style="width: 25%; text-align: center; padding: 8px;">
@@ -98,8 +144,9 @@
         <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/LR35.png" style="width: 200px; height: auto;">
       </td>
     </tr>
+  
   </table>
-</td>
+</tr>
 
 <table class="gallery-table">
   <tr><td colspan="4" style="height: 25px;"></td></tr>
@@ -374,6 +421,7 @@
 </td>  
 </tr>
 
+<tr>
   <td class="gallery-desc-cell">
   <ul>
     <li>Pilot Certificate: FAA Commercial Pilot</li>
@@ -389,14 +437,12 @@
   </ul>
 </td>
 <td class="gallery-desc-cell">
-<p>I’m always looking to hire pilots. <a href=/pilot-hiring>Click here for the Pilot Hiring page</a>. All it takes is a phone call or message to get started.
+<p>I’m always looking to hire pilots. <a href="/pilot-hiring">Click here for the Pilot Hiring page</a>. All it takes is a phone call or message to get started.</p>
 </td>
 <td>&nbsp;</td>
 </tr>
 </table>
-
-
-
+</table>
 </main>
 
 <!-- Modal container -->
