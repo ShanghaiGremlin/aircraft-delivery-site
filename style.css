@@ -564,15 +564,32 @@ select {
   margin-bottom: 15px;
 }
 
-.mob-button-align {
-  display: flex;
-  align-items: center;
-  gap: 0px;
-}
-
 .mob-button-align input[type="radio"],
 .mob-button-align input[type="checkbox"] {
-  margin: 0; /* Remove default browser spacing */
+  margin: 0;
+  padding: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #555;
+  border-radius: 50%; /* use 0 for checkbox, 50% for radio */
+  display: inline-block;
+  position: relative;
 }
+
+.mob-button-align input[type="radio"]:checked::before,
+.mob-button-align input[type="checkbox"]:checked::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 8px;
+  height: 8px;
+  background-color: #333;
+  border-radius: 50%; /* or 0 for checkbox */
+}
+
 
 }
