@@ -79,41 +79,37 @@ html {
   .header-bleed-right {
     display: none !important;
   }
-}
 
-.gallery-table {
-  width: 100%;
-  table-layout: fixed;
-  border-collapse: collapse;
-}
+  .gallery-wrapper {
+    padding: 0.5rem;
+  }
+ .gallery-table {
+    display: block; /* breaks out of table layout for stacking */
+  }
 
-.gallery-img-cell {
-  width: 25%;
-  vertical-align: bottom;
-  text-align: center;
-  padding: 10px;
-  border-top: 1px solid #000
-}
+  .gallery-table tr {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
 
-.gallery-desc-cell {
-  width: 25%;
-  vertical-align: top;
-  padding: 0px 25px 10px 25px;
-  font-size: 1.125rem;
-  word-wrap: break-word;
-}
+  .gallery-img-cell,
+  .gallery-desc-cell {
+    width: 100%;
+    display: block;
+    padding: 10px 16px;
+  }
 
-.gallery-desc-cell ul {
-  margin: 0;
-  padding-left: 20px;
-  line-height: 1.6;
-}
+  .gallery-desc-cell {
+    font-size: 1rem;
+  }
 
-.pilot-name {
-  font-size: 1rem;
-  margin-top: 6px;
-  text-align: center;
-}
+  .pilot-name {
+    font-size: 0.95rem;
+  }
+
+
+
 
 .accordion {
   width: 100%;
@@ -694,6 +690,5 @@ input[type="date"] {
   text-align: center;
 }
 
-
-
+}
 }
