@@ -570,8 +570,8 @@ select {
   gap: 0px;
 }
 
-.mobile-form-option input[type="radio"],
-.mobile-form-option input[type="checkbox"] {
+.mob-button-align input[type="radio"],
+.mob-button-align input[type="checkbox"] {
   margin: 0; /* Remove default browser spacing */
 }
 
