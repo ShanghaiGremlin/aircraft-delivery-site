@@ -621,50 +621,63 @@ input[type="date"] {
   cursor: pointer;
 }
 
-#mobile-modal {
-  display: none; /* JS will set to 'flex' */
+/* === Modal Overlay === */
+#unified-modal {
+  display: none; /* hidden by default */
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.65);
   z-index: 1000;
   display: flex;
-  justify-content: center; /* centers horizontally */
-  align-items: center;     /* centers vertically */
-  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
   box-sizing: border-box;
 }
 
-.mobile-modal-box {
+/* === Modal Box === */
+.modal-box {
   background: #fff;
-  padding: 1rem 1.25rem;
+  padding: 1.25rem;
   border-radius: 12px;
-  max-width: 400px;      /* Set max width here */
-  width: 100%;           /* So it scales responsively */
+  max-width: 400px;
+  width: 100%;
   max-height: 90vh;
   overflow-y: auto;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
   position: relative;
 }
 
-
- .mobile-modal-close {
+/* === Close Button === */
+.modal-close {
   position: absolute;
-  top: 10px; right: 14px;
+  top: 10px;
+  right: 14px;
   background: none;
   border: none;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   cursor: pointer;
- }
+  line-height: 1;
+  color: #333;
+}
 
- .mobile-modal-box p {
+/* === Modal Content Styling === */
+.modal-box p {
   text-align: center;
   font-size: 1.125rem;
   font-weight: 600;
   margin-top: 0;
   margin-bottom: 1rem;
 }
+
+.modal-box ul {
+  padding-left: 20px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
 
 }

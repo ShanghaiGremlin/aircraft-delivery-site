@@ -104,46 +104,51 @@ if (modalElement) {
   });
 }
 
-// === Mobile Modal Logic ===
-window.openMobileModal = function () {
-  const modal = document.getElementById("mobile-modal");
-  if (modal) modal.style.display = "flex";
-};
+document.addEventListener("DOMContentLoaded", function () {
+  const modal = document.getElementById("unified-modal");
+  const modalBody = document.getElementById("unified-modal-body");
+  const openBtn = document.getElementById("pilotRatingsBtn");
 
-window.closeMobileModal = function () {
-  const modal = document.getElementById("mobile-modal");
-  if (modal) modal.style.display = "none";
-};
-
-// Close mobile modal on backdrop click
-const mobileModalElement = document.getElementById("mobile-modal");
-if (mobileModalElement) {
-  mobileModalElement.addEventListener("click", function () {
-    closeMobileModal();
-  });
-}
-
-// === Accordion Logic ===
-document.querySelectorAll('.accordion-header').forEach(button => {
-  button.addEventListener('click', () => {
-    const content = button.nextElementSibling;
-    const isOpen = content.style.maxHeight;
-
-    // Close other sections
-    document.querySelectorAll('.accordion-content').forEach(c => {
-      c.style.maxHeight = null;
-      c.previousElementSibling.classList.remove('active');
+  if (openBtn) {
+    openBtn.addEventListener("click", () => {
+      const html = `
+        <p><u>Aircraft Delivery Solutions pilot type ratings</u></p> 
+        <ul>
+          <li><b>BEECHCRAFT:</b> BE300 (King Air 350)</li> 
+          <li><b>BOEING:</b> B747-200, B747-400/8, DC-9</li> 
+          <li><b>BOMBARDIER:</b> CL-65, DHC-8, LR-JET</li> 
+          <li><b>CESSNA:</b> CE-750 (Citation X)</li> 
+          <li><b>DASSAULT:</b> FA-20, FA-50 [SIC]</li> 
+          <li><b>EMBRAER:</b> EMB-120, EMB-170–195, EMB-550</li> 
+          <li><b>FAIRCHILD:</b> SA-227</li> 
+          <li><b>GULFSTREAM:</b> IAI-1125 (G100), Gulfstream IV [SIC]</li> 
+          <li><b>LOCKHEED:</b> L-300 (C141)</li> 
+          <li><b>SIKORSKY:</b> S-70 (UH-60)</li> 
+        </ul>`;
+      modalBody.innerHTML = html;
+      modal.style.display = "flex";
     });
+  }
 
-    if (!isOpen) {
-      content.style.maxHeight = content.scrollHeight + "px";
-      button.classList.add('active');
-    } else {
-      content.style.maxHeight = null;
-      button.classList.remove('active');
+  window.closeUnifiedModal = function () {
+    modal.style.display = "none";
+  };
+
+  // Close modal with Escape key
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      closeUnifiedModal();
+    }
+  });
+
+  // Close modal when clicking outside the box
+  modal.addEventListener("click", function (e) {
+    if (e.target === modal) {
+      closeUnifiedModal();
     }
   });
 });
+
 
   // === Accordion Logic ===
   document.querySelectorAll('.accordion-header').forEach(button => {
