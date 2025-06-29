@@ -648,4 +648,7 @@ input[type="date"] {
   cursor: pointer;
 }
 
+  .mobile-modal-overlay {
+    display: none; /* JS changes this to flex */
+}
 }

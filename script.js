@@ -69,39 +69,81 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-  // === Modal Logic ===
-  window.openModal = function (content) {
-    const modal = document.getElementById("custom-modal");
-    const body = document.getElementById("modal-body");
+  // === Desktop Modal Logic ===
+window.openModal = function (content) {
+  const modal = document.getElementById("custom-modal");
+  const body = document.getElementById("modal-body");
 
-    if (!modal || !body) {
-      console.error("Modal elements not found in DOM");
-      return;
-    }
+  if (!modal || !body) {
+    console.error("Modal elements not found in DOM");
+    return;
+  }
 
-    body.innerHTML = content;
-    modal.style.display = "flex";
-  };
+  body.innerHTML = content;
+  modal.style.display = "flex";
+};
 
-  window.closeModal = function () {
-    const modal = document.getElementById("custom-modal");
-    if (modal) modal.style.display = "none";
-  };
+window.closeModal = function () {
+  const modal = document.getElementById("custom-modal");
+  if (modal) modal.style.display = "none";
+};
 
-  // Close modal on ESC
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") {
-      closeModal();
+// Close desktop modal on ESC
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") {
+    closeModal();
+    closeMobileModal(); // Also close mobile if it's open
+  }
+});
+
+// Close desktop modal on click
+const modalElement = document.getElementById("custom-modal");
+if (modalElement) {
+  modalElement.addEventListener("click", function () {
+    closeModal();
+  });
+}
+
+// === Mobile Modal Logic ===
+window.openMobileModal = function () {
+  const modal = document.getElementById("mobile-modal");
+  if (modal) modal.style.display = "flex";
+};
+
+window.closeMobileModal = function () {
+  const modal = document.getElementById("mobile-modal");
+  if (modal) modal.style.display = "none";
+};
+
+// Close mobile modal on backdrop click
+const mobileModalElement = document.getElementById("mobile-modal");
+if (mobileModalElement) {
+  mobileModalElement.addEventListener("click", function () {
+    closeMobileModal();
+  });
+}
+
+// === Accordion Logic ===
+document.querySelectorAll('.accordion-header').forEach(button => {
+  button.addEventListener('click', () => {
+    const content = button.nextElementSibling;
+    const isOpen = content.style.maxHeight;
+
+    // Close other sections
+    document.querySelectorAll('.accordion-content').forEach(c => {
+      c.style.maxHeight = null;
+      c.previousElementSibling.classList.remove('active');
+    });
+
+    if (!isOpen) {
+      content.style.maxHeight = content.scrollHeight + "px";
+      button.classList.add('active');
+    } else {
+      content.style.maxHeight = null;
+      button.classList.remove('active');
     }
   });
-
-  // Close modal on click
-  const modalElement = document.getElementById("custom-modal");
-  if (modalElement) {
-    modalElement.addEventListener("click", function () {
-      closeModal();
-    });
-  }
+});
 
   // === Accordion Logic ===
   document.querySelectorAll('.accordion-header').forEach(button => {
