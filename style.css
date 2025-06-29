@@ -3,23 +3,8 @@ body {
   font-family: Arial, sans-serif;  
 }
 
-/* STANDARD FONT-SIZING */
-h1 {
-  font-size: 36px;
-  font-weight: bold;
-  margin-bottom: 0.5em;
-}
-
-h2 {
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 0.5em;
-}
-
-h3 {
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 0.5em;
+html {
+  font-size: 16px;
 }
 
 .page-title-brick {
@@ -114,7 +99,7 @@ h3 {
   width: 25%;
   vertical-align: top;
   padding: 0px 25px 10px 25px;
-  font-size: 18px;
+  font-size: 1.125rem;
   word-wrap: break-word;
 }
 
@@ -125,7 +110,7 @@ h3 {
 }
 
 .pilot-name {
-  font-size: 1em;
+  font-size: 1rem;
   margin-top: 6px;
   text-align: center;
 }
@@ -140,7 +125,7 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 1.3em;
+  font-size: 1.25rem;
   font-weight: bold;
   padding: 15px 20px;
   background-color: #f0f0f0;
@@ -153,7 +138,7 @@ h3 {
 }
 
 .accordion-header .chevron {
-  font-size: 2.0em;
+  font-size: 2.0rem;
   font-weight: 900;
   transition: transform 0.3s ease;
 }
@@ -171,7 +156,7 @@ h3 {
   padding: 0 16px;
   max-height: 0;
   overflow: hidden;
-  font-size: 18px;
+  font-size: 1.125rem;
   background: #f9f9f9;
   transition: max-height 0.3s ease;
   border-left: 1px solid #ccc;
@@ -235,7 +220,7 @@ h3 {
   transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.75);
   color: white;
-  font-size: 11px;
+  font-size: 0.69rem;
   padding: 4px 6px;
   white-space: nowrap;
   opacity: 0;
@@ -283,7 +268,7 @@ h3 {
   pointer-events: none;
   transition: opacity 0.2s ease-in-out;
   z-index: 1000;
-  font-size: 14px;
+  font-size: 0.852rem;
 }
 
 .tooltip-custom:hover::after {
@@ -422,7 +407,7 @@ display: none !important;
 
   .mobile-menu nav a {
     color: #222;
-    font-size: 18px;
+    font-size: 1.125rem;
     text-decoration: none;
     padding: 12px 16px;
     transition: background-color 0.3s ease;
@@ -479,11 +464,11 @@ display: none !important;
 
 .service-label {
   font-weight: bold;
-  font-size: 35px;
+  font-size: 2.19rem;
 }
 
 .service-desc {
-  font-size: 25px;
+  font-size: 1.56rem;
   color: #444;
 }
 
@@ -559,7 +544,7 @@ select {
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
-  font-size: 1em;
+  font-size: 1rem;
   padding: 6px;
   margin-bottom: 15px;
 }
@@ -568,7 +553,7 @@ input[type="date"] {
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
-  font-size: 1em;
+  font-size: 1rem;
   padding: 6px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
