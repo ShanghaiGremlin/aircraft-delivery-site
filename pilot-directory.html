@@ -716,11 +716,10 @@
 </main>
 
 <!-- Modal container -->
-<div id="custom-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-     background-color: rgba(0,0,0,0.6); z-index: 1000; justify-content: center; align-items: center;">
-  <div id="modal-content" style="background-color: white; padding: 30px; border-radius: 10px; width: 700px;">
-    <button onclick="closeModal()" style="float: right; font-size: 1.2rem;">&times;</button>
-    <div id="modal-body"></div>
+<div id="mobile-modal" class="mobile-modal-overlay">
+  <div class="mobile-modal-box">
+    <button onclick="closeMobileModal()" class="mobile-modal-close">&times;</button>
+    <div id="mobile-modal-body"></div>
   </div>
 </div>
 

@@ -621,4 +621,31 @@ input[type="date"] {
   cursor: pointer;
 }
 
+.mobile-modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+.mobile-modal-box {
+  background: #fff;
+  padding: 1.25rem;
+  border-radius: 12px;
+  width: 95%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+.mobile-modal-close {
+  position: absolute;
+  top: 10px; right: 14px;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
 }

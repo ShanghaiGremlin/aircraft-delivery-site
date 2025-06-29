@@ -125,6 +125,17 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  function openMobileModal() {
+  const modal = document.getElementById('mobile-modal');
+  if (modal) modal.style.display = 'flex';
+}
+
+function closeMobileModal() {
+  const modal = document.getElementById('mobile-modal');
+  if (modal) modal.style.display = 'none';
+}
+
+
   // === Testimonial Modal Trigger ===
   document.querySelectorAll('.testimonial-thumb').forEach(img => {
     img.addEventListener('click', function () {
