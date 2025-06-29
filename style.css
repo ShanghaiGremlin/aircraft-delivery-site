@@ -679,5 +679,9 @@ input[type="date"] {
   margin: 0;
 }
 
+.modal-box {
+  border: 2px solid red;
+}
+
 
 }
