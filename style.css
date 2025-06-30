@@ -85,10 +85,9 @@ html {
   }
 
   .gallery-img-cell {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;  /* Optional: center image horizontally */
-  height: 100%;
+  position: relative;
+  min-height: 200px; /* or auto + min-height if dynamic */
+  vertical-align: bottom;
   padding: 10px;
   box-sizing: border-box;
 
@@ -99,8 +98,12 @@ html {
   }
 
   .gallery-img-cell img {
-    width: 100px;
-    height: auto;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  display: block;
   }
   
   .gallery-desc-cell {
