@@ -690,5 +690,14 @@ input[type="date"] {
   text-align: center;
 }
 
+    table.gallery-table {
+      table-layout: fixed;
+      width: 100%;
+    }
+
+    table.gallery-table td {
+      width: 50%;
+      vertical-align: top;
+    }
 }
 }
