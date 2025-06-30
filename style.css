@@ -143,8 +143,7 @@ html {
 .gallery-desc-cell.pilot-name {
   font-size: 1rem;
   line-height: 1;
-  padding: 0;
-  margin-top: 5px;
+  padding-top: 3px;
   text-align: center;
   vertical-align: bottom;
   height: auto;
