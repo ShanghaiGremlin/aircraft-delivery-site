@@ -83,20 +83,9 @@ html {
   .gallery-wrapper {
     padding: 0.5rem;
   }
- .gallery-table {
-    display: block; /* breaks out of table layout for stacking */
-  }
-
-  .gallery-table tr {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-  }
 
   .gallery-img-cell,
   .gallery-desc-cell {
-    width: 100%;
-    display: block;
     padding: 10px 16px;
   }
 
@@ -110,6 +99,17 @@ html {
     font-size: 1rem;
   }
 
+  table.gallery-table {
+      table-layout: fixed;
+      width: 100%;
+    }
+
+  table.gallery-table td {
+      width: 50%;
+      vertical-align: top;
+      padding: 10px;
+      box-sizing: border-box;
+    }
   .pilot-name {
     font-size: 0.95rem;
   }
@@ -696,16 +696,6 @@ input[type="date"] {
   text-align: center;
 }
 
-    table.gallery-table {
-      table-layout: fixed;
-      width: 100%;
-    }
 
-    table.gallery-table td {
-      width: 50%;
-      vertical-align: top;
-      padding: 10px;
-      box-sizing: border-box;
-    }
 }
 }
