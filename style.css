@@ -114,13 +114,20 @@ html {
   table.gallery-table {
       table-layout: fixed;
       width: 100%;
+      border: 1px solid red;
     }
 
   table.gallery-table td {
       width: 50%;
       padding: 10px;
       box-sizing: border-box;
+      border: 1px solid red;
+  }
+
+    table.gallery-table tr {
+      border: 1px solid red;
     }
+    
   .pilot-name {
     font-size: 0.95rem;
   }
