@@ -87,10 +87,12 @@ html {
   .gallery-img-cell {
   position: relative;
   min-height: 200px; /* or auto + min-height if dynamic */
-  vertical-align: bottom;
-  padding: 10px;
-  box-sizing: border-box;
+  }
 
+  .gallery-img-cell::before {
+  content: '';
+  display: block;
+  padding-top: 100%;  /* or adjust to reserve space */
   }
   
   .gallery-desc-cell {
@@ -127,7 +129,7 @@ html {
     table.gallery-table tr {
       border: 1px solid red;
     }
-    
+
   .pilot-name {
     font-size: 0.95rem;
   }
