@@ -85,12 +85,12 @@ html {
   }
 
   .gallery-img-cell {
-  position: relative;
-  min-height: 200px;
   padding: 0;
   box-sizing: border-box;
-  vertical-align: bottom; /* reintroduce if you had removed it */
+  text-align: center;
+  vertical-align: bottom;
 }
+
   
   .gallery-desc-cell {
     padding: 10px 16px;
