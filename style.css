@@ -85,14 +85,12 @@ html {
   }
 
   .gallery-img-cell {
-  position: relative;
-  min-height: 200px; /* or auto + min-height if dynamic */
-  }
-
-  .gallery-img-cell::before {
-  content: '';
-  display: block;
-  padding-top: 100%;  /* or adjust to reserve space */
+  display: flex;
+  align-items: flex-end;    /* ⬅ push image to bottom */
+  justify-content: center;  /* ⬅ center horizontally */
+  padding: 10px;
+  box-sizing: border-box;
+  min-height: 200px;        /* ⬅ ensures room for image */
   }
   
   .gallery-desc-cell {
@@ -100,13 +98,9 @@ html {
   }
 
   .gallery-img-cell img {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 60%; /*==*/
-  height: auto;
   display: block;
   max-width: 100%;
+  height: auto;
   }
   
   .gallery-desc-cell {
