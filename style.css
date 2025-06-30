@@ -130,6 +130,9 @@ table.gallery-table {
   font-size: 0.9rem;
 }
 
+.gallery-table td {
+  border: 1px solid red; /* optional for debugging layout */
+}
 
 .accordion {
   width: 100%;
