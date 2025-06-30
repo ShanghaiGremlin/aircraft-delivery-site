@@ -100,6 +100,12 @@ html {
     padding: 10px 16px;
   }
 
+  .gallery-img-cell img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
   .gallery-desc-cell {
     font-size: 1rem;
   }
@@ -698,6 +704,8 @@ input[type="date"] {
     table.gallery-table td {
       width: 50%;
       vertical-align: top;
+      padding: 10px;
+      box-sizing: border-box;
     }
 }
 }
