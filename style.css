@@ -133,7 +133,7 @@ table.gallery-table {
 }
 
 .gallery-table td {
-  border: 1px solid red; /* optional for debugging layout */
+  border: 1px solid grey; 
 }
 
 .accordion {
