@@ -105,7 +105,13 @@ html {
   height: auto;
   display: block;
 }
-  
+ 
+.gallery-img-cell::before {
+  content: '';
+  display: block;
+  padding-top: 70%;  /* or tweak until the cell is tall enough */
+}
+
   .gallery-desc-cell {
     font-size: 1rem;
   }
