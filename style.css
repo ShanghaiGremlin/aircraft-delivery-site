@@ -80,7 +80,9 @@ html {
     display: none !important;
   }
 
- /* === Gallery Table: Shared (desktop + mobile) === */
+.gallery-wrapper {
+  margin-top: 30px; /* ← increase this to add space above */
+}
 
 table.gallery-table {
   width: 100%;
