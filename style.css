@@ -85,23 +85,26 @@ html {
   }
 
   .gallery-img-cell {
-  display: flex;
-  align-items: flex-end;    /* ⬅ push image to bottom */
-  justify-content: center;  /* ⬅ center horizontally */
+  position: relative;
+  min-height: 200px;
   padding: 10px;
   box-sizing: border-box;
-  min-height: 200px;        /* ⬅ ensures room for image */
-  }
+  vertical-align: bottom; /* reintroduce if you had removed it */
+}
   
   .gallery-desc-cell {
     padding: 10px 16px;
   }
 
   .gallery-img-cell img {
-  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
   max-width: 100%;
   height: auto;
-  }
+  display: block;
+}
   
   .gallery-desc-cell {
     font-size: 1rem;
