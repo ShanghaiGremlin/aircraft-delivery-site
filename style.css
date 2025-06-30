@@ -97,13 +97,17 @@ html {
   }
 
   .gallery-img-cell img {
-  position: absolute;
+   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   max-width: 100%;
   height: auto;
   display: block;
+  margin: 0;
+  padding: 0;
+  line-height: 0; /* ✅ removes accidental line spacing */
+  border: none;
 }
  
 .gallery-img-cell::before {
@@ -120,6 +124,8 @@ html {
       table-layout: fixed;
       width: 100%;
       border: 1px solid red;
+        border-collapse: collapse; /* ✅ eliminates spacing between cells */
+  border-spacing: 0;          /* ✅ extra safety */
     }
 
   table.gallery-table td {
@@ -133,13 +139,17 @@ html {
       border: 1px solid red;
     }
 
-  .pilot-name {
-    font-size: 0.95rem;
-    margin-top: 8px;
-    text-align: center;
-  }
 
-
+.gallery-desc-cell.pilot-name {
+  font-size: 0.85rem;
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  vertical-align: top;
+  height: auto;
+  border: none;
+}
 
 
 .accordion {
