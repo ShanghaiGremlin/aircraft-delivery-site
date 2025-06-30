@@ -85,8 +85,12 @@ html {
   }
 
   .gallery-img-cell {
-     vertical-align: bottom;
-     display: table-cell;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;  /* Optional: center image horizontally */
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
 
   }
   
@@ -97,7 +101,6 @@ html {
   .gallery-img-cell img {
     width: 100px;
     height: auto;
-    display: block;
   }
   
   .gallery-desc-cell {
