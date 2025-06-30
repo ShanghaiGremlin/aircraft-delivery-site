@@ -80,88 +80,56 @@ html {
     display: none !important;
   }
 
-  .gallery-wrapper {
-    padding: 0.5rem;
-  }
+ /* === Gallery Table: Shared (desktop + mobile) === */
 
-  .gallery-img-cell {
+table.gallery-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.gallery-img-cell {
   padding: 0;
   box-sizing: border-box;
-  text-align: center;
   vertical-align: bottom;
-}
-
-  
-  .gallery-desc-cell {
-    padding: 10px 16px;
-  }
-
-  .gallery-img-cell img {
-   position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0;
-  padding: 0;
-  line-height: 0; /* ✅ removes accidental line spacing */
-  border: none;
-}
- 
-.gallery-img-cell::before {
-  content: '';
-  display: block;
-  padding-top: 70%;  /* or tweak until the cell is tall enough */
-}
-
-  .gallery-desc-cell {
-    font-size: 1rem;
-  }
-
-  table.gallery-table {
-      table-layout: fixed;
-      width: 100%;
-      border: 1px solid red;
-        border-collapse: collapse; /* ✅ eliminates spacing between cells */
-  border-spacing: 0;          /* ✅ extra safety */
-    }
-
-  table.gallery-table td {
-      width: 50%;
-      padding: 10px;
-      box-sizing: border-box;
-      border: 1px solid red;
-  }
-
-    table.gallery-table tr {
-      border: 1px solid red;
-    }
-
-
-.gallery-desc-cell.pilot-name {
-  font-size: 1rem;
-  line-height: 1;
-  padding: 6px 0 0 0;
   text-align: center;
-  height: auto;
-  border: none;
 }
 
 .img-aligner {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  height: 100%;
+  display: block; /* do NOT use flex here */
 }
 
 .img-aligner img {
   display: block;
   max-width: 100%;
   height: auto;
+  margin: 0 auto;
 }
+
+.gallery-desc-cell {
+  padding: 4px 10px;
+  box-sizing: border-box;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  text-align: center;
+  vertical-align: top;
+}
+
+.gallery-desc-cell ul {
+  padding-left: 16px;
+  margin: 8px 0;
+  text-align: left;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.pilot-name {
+  font-weight: bold;
+  padding-top: 4px;
+  font-size: 0.9rem;
+}
+
 
 .accordion {
   width: 100%;
