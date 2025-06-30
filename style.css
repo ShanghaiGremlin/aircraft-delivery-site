@@ -100,10 +100,11 @@ html {
   .gallery-img-cell img {
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 50%;
   width: 60%; /*==*/
   height: auto;
   display: block;
+  max-width: 100%;
   }
   
   .gallery-desc-cell {
