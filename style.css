@@ -87,6 +87,7 @@ html {
   .gallery-img-cell {
      padding: 10px 16px;
      vertical-align: bottom;
+     height: 100%;
   }
   
   .gallery-desc-cell {
