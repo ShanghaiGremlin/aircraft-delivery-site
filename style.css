@@ -135,6 +135,8 @@ html {
 
   .pilot-name {
     font-size: 0.95rem;
+    margin-top: 8px;
+    text-align: center;
   }
 
 
