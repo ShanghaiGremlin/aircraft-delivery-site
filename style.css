@@ -84,7 +84,11 @@ html {
     padding: 0.5rem;
   }
 
-  .gallery-img-cell,
+  .gallery-img-cell {
+     padding: 10px 16px;
+     vertical-align: bottom;
+  }
+  
   .gallery-desc-cell {
     padding: 10px 16px;
   }
