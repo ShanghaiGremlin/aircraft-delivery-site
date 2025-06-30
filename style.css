@@ -87,7 +87,7 @@ html {
   .gallery-img-cell {
   position: relative;
   min-height: 200px;
-  padding: 10px;
+  padding: 0;
   box-sizing: border-box;
   vertical-align: bottom; /* reintroduce if you had removed it */
 }
@@ -149,6 +149,19 @@ html {
   border: none;
 }
 
+.img-aligner {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+}
+
+.img-aligner img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 
 .accordion {
   width: 100%;
