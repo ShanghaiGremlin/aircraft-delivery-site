@@ -728,7 +728,7 @@ input[type="date"] {
 .mobile-newspaper-img-left img {
   float: left;
   width: auto;
-  max-width: 200px;
+  max-width: 150px;
   height: auto;
   margin: 0 20px 10px 0;
   display: block;
