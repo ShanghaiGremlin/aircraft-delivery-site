@@ -162,17 +162,18 @@ document.addEventListener('DOMContentLoaded', () => {
       header.classList.toggle('active');
       content.style.maxHeight = isOpen ? null : content.scrollHeight + 'px';
 
-      // Wait for height to change before scrolling
+      // Wait for layout update
       setTimeout(() => {
-        const headerOffset = 80; // match your fixed header height
-        const elementPosition = header.getBoundingClientRect().top + window.pageYOffset;
-        const offsetPosition = elementPosition - headerOffset;
+        const fixedHeaderHeight = 120; // ⬅️ TRY INCREASING THIS
+        const elementTop = header.getBoundingClientRect().top + window.scrollY;
+        const scrollTarget = elementTop - fixedHeaderHeight;
 
+        console.log('Scrolling to:', scrollTarget);
         window.scrollTo({
-          top: offsetPosition,
+          top: scrollTarget,
           behavior: 'smooth'
         });
-      }, 10); // small delay to ensure DOM updates first
+      }, 200); // allow enough time for layout shift
     });
   });
 });
