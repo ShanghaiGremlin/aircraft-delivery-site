@@ -148,7 +148,8 @@ table.gallery-table {
   font-size: 1.25rem;
   font-weight: bold;
   padding: 15px 20px;
-  background-color: #f0f0f0;
+  color: white;
+  background-color: blue;
   cursor: pointer;
   border: none;
   width: 100%;
