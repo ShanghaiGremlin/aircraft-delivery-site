@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Wait for layout update
       setTimeout(() => {
-        const fixedHeaderHeight = 120; // ⬅️ TRY INCREASING THIS
+        const fixedHeaderHeight = 135; // ⬅️ TRY INCREASING THIS
         const elementTop = header.getBoundingClientRect().top + window.scrollY;
         const scrollTarget = elementTop - fixedHeaderHeight;
 
