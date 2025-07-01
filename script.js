@@ -156,27 +156,27 @@ document.addEventListener('DOMContentLoaded', () => {
   headers.forEach(header => {
     header.addEventListener('click', () => {
       const content = header.nextElementSibling;
+      const isOpen = content.style.maxHeight;
 
-      // Toggle active class
+      // Toggle accordion
       header.classList.toggle('active');
+      content.style.maxHeight = isOpen ? null : content.scrollHeight + 'px';
 
-      // Expand or collapse the content
-      if (content.style.maxHeight) {
-        content.style.maxHeight = null;
-      } else {
-        content.style.maxHeight = content.scrollHeight + "px";
-      }
-
-      // Scroll into view with fixed-header offset
-      header.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-      // Offset scroll by header height (e.g. 80px)
+      // Wait for height to change before scrolling
       setTimeout(() => {
-        window.scrollBy(0, -80); // Change -80 if your header height is different
-      }, 300); // matches smooth scroll timing
+        const headerOffset = 80; // match your fixed header height
+        const elementPosition = header.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }, 10); // small delay to ensure DOM updates first
     });
   });
 });
+
 
   function openMobileModal() {
   const modal = document.getElementById('mobile-modal');
