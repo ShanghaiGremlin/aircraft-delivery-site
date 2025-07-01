@@ -732,6 +732,28 @@ input[type="date"] {
   height: auto;
   margin: 0 20px 10px 0;
   display: block;
+
+  
+.mobile-newspaper-img-left {
+  max-width: 100%;
+  overflow: hidden;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.mobile-newspaper-img-left img {
+  float: left;
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  margin: 0 20px 10px 0;
+  display: block;
+}
+
+.mobile-newspaper-img-left p:first-of-type {
+  margin-top: 0; /* ✅ removes top margin from first paragraph */
+}
+
 }
 
 
