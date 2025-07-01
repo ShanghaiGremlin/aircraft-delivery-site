@@ -718,5 +718,29 @@ input[type="date"] {
   text-align: center;
 }
 
+.mobile-newspaper-img-left {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  max-width: 100%;
+  gap: 20px;
+}
+
+.mobile-newspaper-img-left .image-block {
+  flex: 0 0 auto;
+}
+
+.mobile-newspaper-img-left .image-block img {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.mobile-newspaper-img-left .text-block {
+  flex: 1 1 0;
+  font-size: 1.25rem;
+}
+
 }
 }
