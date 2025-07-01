@@ -172,7 +172,7 @@ table.gallery-table {
   padding: 0 16px;
   max-height: 0;
   overflow: hidden;
-  font-size: 1.125rem;
+  font-size: 1rem;
   background: #f9f9f9;
   transition: max-height 0.3s ease;
   border-left: 1px solid #ccc;
