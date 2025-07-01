@@ -139,6 +139,7 @@ table.gallery-table {
 .accordion {
   width: 90%;
   margin: 0 auto;
+  background: #eaf0ff;
 }
 
 .accordion-header {
