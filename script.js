@@ -150,27 +150,33 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-  // === Accordion Logic ===
-  document.querySelectorAll('.accordion-header').forEach(button => {
-    button.addEventListener('click', () => {
-      const content = button.nextElementSibling;
-      const isOpen = content.style.maxHeight;
+document.addEventListener('DOMContentLoaded', () => {
+  const headers = document.querySelectorAll('.accordion-header');
 
-      // Close other sections
-      document.querySelectorAll('.accordion-content').forEach(c => {
-        c.style.maxHeight = null;
-        c.previousElementSibling.classList.remove('active');
-      });
+  headers.forEach(header => {
+    header.addEventListener('click', () => {
+      const content = header.nextElementSibling;
 
-      if (!isOpen) {
-        content.style.maxHeight = content.scrollHeight + "px";
-        button.classList.add('active');
-      } else {
+      // Toggle active class
+      header.classList.toggle('active');
+
+      // Expand or collapse the content
+      if (content.style.maxHeight) {
         content.style.maxHeight = null;
-        button.classList.remove('active');
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
       }
+
+      // Scroll into view with fixed-header offset
+      header.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      // Offset scroll by header height (e.g. 80px)
+      setTimeout(() => {
+        window.scrollBy(0, -80); // Change -80 if your header height is different
+      }, 300); // matches smooth scroll timing
     });
   });
+});
 
   function openMobileModal() {
   const modal = document.getElementById('mobile-modal');
