@@ -721,8 +721,8 @@ input[type="date"] {
 .mobile-newspaper-img-left {
   max-width: 100%;
   overflow: hidden;
-  font-size: 1.25rem;
-  line-height: 1.5;
+  font-size: 1rem;
+  line-height: 1.2;
 }
 
 .mobile-newspaper-img-left img {
