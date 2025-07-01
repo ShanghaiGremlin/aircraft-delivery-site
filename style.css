@@ -182,9 +182,9 @@ table.gallery-table {
   background: #eaf0ff; 
 }
 
-
-
-
+.accordion-content p:last-child {
+  margin-bottom: 0;
+}
 
 .img-wrap {
   position: relative;
