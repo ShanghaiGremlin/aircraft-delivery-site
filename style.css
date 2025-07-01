@@ -719,15 +719,10 @@ input[type="date"] {
 }
 
 .mobile-newspaper-img-left {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  max-width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr;
   gap: 20px;
-}
-
-.mobile-newspaper-img-left .image-block {
-  flex: 0 0 auto;
+  align-items: start;
 }
 
 .mobile-newspaper-img-left .image-block img {
@@ -738,9 +733,16 @@ input[type="date"] {
 }
 
 .mobile-newspaper-img-left .text-block {
-  flex: 1 1 0;
   font-size: 1.25rem;
 }
+
+/* Make text take full width once it drops below the image */
+@media screen and (max-width: 600px) {
+  .mobile-newspaper-img-left {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 }
 }
