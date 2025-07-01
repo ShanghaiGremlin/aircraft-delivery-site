@@ -169,7 +169,8 @@ table.gallery-table {
 }
 
 .accordion-content {
-  padding: 0 16px;
+  padding: 0 16px; /* horizontal only */
+  margin: 0;
   max-height: 0;
   overflow: hidden;
   font-size: 1rem;
@@ -178,6 +179,8 @@ table.gallery-table {
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
+}
+
 }
 
 .img-wrap {
