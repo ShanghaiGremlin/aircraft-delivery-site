@@ -6,6 +6,9 @@ const tooltips = document.querySelectorAll(".tappable-mob-tooltip");
 console.log("Found", tooltips.length, "tooltip(s)");
 
 
+
+
+
 // === DESKTOP SLIDESHOW ===
 document.addEventListener('DOMContentLoaded', function () {
   const desktopSlides = document.querySelectorAll('#desktop-slideshow .slide');
@@ -253,7 +256,7 @@ function openModal(content) {
 
 document.addEventListener("DOMContentLoaded", function () {
   console.log("DOM fully loaded");
-
+console.log("Tooltip script loaded");
   const tooltips = document.querySelectorAll(".tappable-mob-tooltip");
   console.log("Found", tooltips.length, "tooltip(s)");
 
