@@ -1,5 +1,5 @@
+// === DESKTOP SLIDESHOW ===
 document.addEventListener('DOMContentLoaded', function () {
-  // === DESKTOP SLIDESHOW ===
   const desktopSlides = document.querySelectorAll('#desktop-slideshow .slide');
   let desktopIndex = 0;
   let desktopCycles = 0;
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (desktopIndex === 0) {
         desktopCycles++;
         if (desktopCycles >= desktopMaxCycles) {
-          clearInterval(desktopInterval); // stop autoplay, buttons still work
+          clearInterval(desktopInterval);
         }
       }
     }, 5000);
@@ -61,57 +61,63 @@ document.addEventListener('DOMContentLoaded', function () {
       if (mobileIndex === 0) {
         mobileCycles++;
         if (mobileCycles >= mobileMaxCycles) {
-          clearInterval(mobileInterval); // stop autoplay, buttons still work
+          clearInterval(mobileInterval);
         }
       }
     }, 8000);
   }
-});
 
+  // === Accordion Scroll + Toggle ===
+  document.querySelectorAll('.accordion-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const content = header.nextElementSibling;
+      const isOpen = content.style.maxHeight;
+      header.classList.toggle('active');
+      content.style.maxHeight = isOpen ? null : content.scrollHeight + 'px';
 
-  // === Desktop Modal Logic ===
-window.openModal = function (content) {
-  const modal = document.getElementById("custom-modal");
-  const body = document.getElementById("modal-body");
+      setTimeout(() => {
+        const fixedHeaderHeight = 105;
+        const elementTop = header.getBoundingClientRect().top + window.scrollY;
+        const scrollTarget = elementTop - fixedHeaderHeight;
 
-  if (!modal || !body) {
-    console.error("Modal elements not found in DOM");
-    return;
-  }
-
-  body.innerHTML = content;
-  modal.style.display = "flex";
-};
-
-window.closeModal = function () {
-  const modal = document.getElementById("custom-modal");
-  if (modal) modal.style.display = "none";
-};
-
-// Close desktop modal on ESC
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape") {
-    closeModal();
-    closeMobileModal(); // Also close mobile if it's open
-  }
-});
-
-// Close desktop modal on click
-const modalElement = document.getElementById("custom-modal");
-if (modalElement) {
-  modalElement.addEventListener("click", function () {
-    closeModal();
+        window.scrollTo({
+          top: scrollTarget,
+          behavior: 'smooth'
+        });
+      }, 200);
+    });
   });
-}
 
-document.addEventListener("DOMContentLoaded", function () {
-  const modal = document.getElementById("unified-modal");
-  const modalBody = document.getElementById("unified-modal-body");
-  const openBtn = document.getElementById("pilotRatingsBtn");
+  // === Image Modal for Mobile About ===
+  const imgModal = document.getElementById("imgModal");
+  const modalImg = document.getElementById("modalImg");
+  const modalCaption = document.getElementById("modalCaption");
+  const modalClose = document.getElementById("modalClose");
 
-  if (openBtn) {
-    openBtn.addEventListener("click", () => {
-      const html = `
+  if (imgModal && modalImg && modalCaption && modalClose) {
+    document.querySelectorAll(".mobile-newspaper-img-left img").forEach(function (img) {
+      img.style.cursor = "pointer";
+      img.addEventListener("click", function () {
+        modalImg.src = this.src;
+        const caption = this.closest(".mobile-newspaper-img-left")?.querySelector(".mob-about-img-caption");
+        modalCaption.textContent = caption ? caption.textContent : "";
+        imgModal.style.display = "flex";
+      });
+    });
+
+    modalClose.addEventListener("click", function () {
+      imgModal.style.display = "none";
+    });
+  }
+
+  // === Unified Modal ===
+  const unifiedModal = document.getElementById("unified-modal");
+  const unifiedBody = document.getElementById("unified-modal-body");
+  const pilotRatingsBtn = document.getElementById("pilotRatingsBtn");
+
+  if (unifiedModal && unifiedBody && pilotRatingsBtn) {
+    pilotRatingsBtn.addEventListener("click", () => {
+      unifiedBody.innerHTML = `
         <p><u>Aircraft Delivery Solutions pilot type ratings</u></p> 
         <ul>
           <li><b>BEECHCRAFT:</b> BE300 (King Air 350)</li> 
@@ -125,107 +131,21 @@ document.addEventListener("DOMContentLoaded", function () {
           <li><b>LOCKHEED:</b> L-300 (C141)</li> 
           <li><b>SIKORSKY:</b> S-70 (UH-60)</li> 
         </ul>`;
-      modalBody.innerHTML = html;
-      modal.style.display = "flex";
+      unifiedModal.style.display = "flex";
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        unifiedModal.style.display = "none";
+      }
+    });
+
+    unifiedModal.addEventListener("click", function (e) {
+      if (e.target === unifiedModal) {
+        unifiedModal.style.display = "none";
+      }
     });
   }
-
-  window.closeUnifiedModal = function () {
-    modal.style.display = "none";
-  };
-
-  // Close modal with Escape key
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") {
-      closeUnifiedModal();
-    }
-  });
-
-  // Close modal when clicking outside the box
-  modal.addEventListener("click", function (e) {
-    if (e.target === modal) {
-      closeUnifiedModal();
-    }
-  });
-});
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const headers = document.querySelectorAll('.accordion-header');
-
-  headers.forEach(header => {
-    header.addEventListener('click', () => {
-      const content = header.nextElementSibling;
-      const isOpen = content.style.maxHeight;
-
-      // Toggle accordion
-      header.classList.toggle('active');
-      content.style.maxHeight = isOpen ? null : content.scrollHeight + 'px';
-
-      // Wait for layout update
-      setTimeout(() => {
-        const fixedHeaderHeight = 105; // ⬅️ TRY INCREASING THIS
-        const elementTop = header.getBoundingClientRect().top + window.scrollY;
-        const scrollTarget = elementTop - fixedHeaderHeight;
-
-        console.log('Scrolling to:', scrollTarget);
-        window.scrollTo({
-          top: scrollTarget,
-          behavior: 'smooth'
-        });
-      }, 200); // allow enough time for layout shift
-    });
-  });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  const modal = document.getElementById("imgModal");
-  const modalImg = document.getElementById("modalImg");
-  const modalCaption = document.getElementById("modalCaption");
-  const modalClose = document.getElementById("modalClose");
-
-  // Only add this ONCE
-  modalClose.addEventListener("click", function () {
-    modal.style.display = "none";
-  });
-
-  document.querySelectorAll(".mobile-newspaper-img-left img").forEach(function (img) {
-    img.style.cursor = "pointer";
-    img.addEventListener("click", function () {
-      modalImg.src = this.src;
-
-      const caption = this.closest(".mobile-newspaper-img-left")?.querySelector(".mob-about-img-caption");
-      modalCaption.textContent = caption ? caption.textContent : "";
-
-      modal.style.display = "flex";
-    });
-  });
-});
-
-      document.getElementById("modalClose").addEventListener("click", function () {
-  document.getElementById("imgModal").style.display = "none";
-});
-
-function closeModal() {
-  document.getElementById("imgModal").style.display = "none";
-}
-
-
-function closeModal() {
-  document.getElementById("imgModal").style.display = "none";
-}
-
-
-  function openMobileModal() {
-  const modal = document.getElementById('mobile-modal');
-  if (modal) modal.style.display = 'flex';
-}
-
-function closeMobileModal() {
-  const modal = document.getElementById('mobile-modal');
-  if (modal) modal.style.display = 'none';
-}
-
 
   // === Testimonial Modal Trigger ===
   document.querySelectorAll('.testimonial-thumb').forEach(img => {
@@ -237,7 +157,7 @@ function closeMobileModal() {
     });
   });
 
-  document.addEventListener("DOMContentLoaded", function () {
+  // === Quote Form Submission ===
   const desktopForm = document.getElementById("quote-form-desktop");
   const mobileForm = document.getElementById("quote-form-mobile");
 
@@ -247,29 +167,20 @@ function closeMobileModal() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    
     const form = event.target;
     const formData = new FormData(form);
-    
-    // You can replace this with your real submission logic
     console.log("Form submitted:", Object.fromEntries(formData.entries()));
-
-    // Optionally show a confirmation message
     alert("Your quote request has been submitted!");
   }
 
   if (isVisible(desktopForm)) {
     desktopForm.addEventListener("submit", handleSubmit);
   }
-
   if (isVisible(mobileForm)) {
     mobileForm.addEventListener("submit", handleSubmit);
   }
-});
 
-
-
-document.addEventListener("DOMContentLoaded", function () {
+  // === Hamburger Mobile Menu ===
   const hamburger = document.querySelector(".hamburger");
   const mobileMenu = document.getElementById("mobileMenu");
 
@@ -277,22 +188,39 @@ document.addEventListener("DOMContentLoaded", function () {
     hamburger.addEventListener("click", function () {
       mobileMenu.classList.toggle("show");
     });
-  } else {
-    console.warn("Missing .hamburger or #mobileMenu element");
   }
+
+  window.addEventListener('pageshow', function () {
+    if (mobileMenu && mobileMenu.classList.contains('show')) {
+      mobileMenu.classList.remove('show');
+    }
+    if (hamburger && hamburger.classList.contains('open')) {
+      hamburger.classList.remove('open');
+    }
+  });
 });
 
-window.addEventListener('pageshow', function (event) {
-  const mobileMenu = document.querySelector('.mobile-menu');
-  const hamburger = document.querySelector('.hamburger');
+// === Global Modal Fallbacks ===
+function closeModal() {
+  const modal = document.getElementById("imgModal");
+  if (modal) modal.style.display = "none";
+}
 
-  if (mobileMenu && mobileMenu.classList.contains('show')) {
-    mobileMenu.classList.remove('show');
+function openMobileModal() {
+  const modal = document.getElementById('mobile-modal');
+  if (modal) modal.style.display = 'flex';
+}
+
+function closeMobileModal() {
+  const modal = document.getElementById('mobile-modal');
+  if (modal) modal.style.display = 'none';
+}
+
+function openModal(content) {
+  const modal = document.getElementById("custom-modal");
+  const body = document.getElementById("modal-body");
+  if (modal && body) {
+    body.innerHTML = content;
+    modal.style.display = "flex";
   }
-
-  if (hamburger && hamburger.classList.contains('open')) {
-    hamburger.classList.remove('open');
-  }
-});
-
-
+}
