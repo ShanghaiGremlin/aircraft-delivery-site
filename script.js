@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', function () {
       hamburger.classList.remove('open');
     }
   });
-});
+
 
 // === Global Modal Fallbacks ===
 function closeModal() {
