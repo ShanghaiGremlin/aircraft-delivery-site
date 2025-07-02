@@ -109,7 +109,15 @@ document.addEventListener('DOMContentLoaded', function () {
     modalClose.addEventListener("click", function () {
       imgModal.style.display = "none";
     });
+
+        imgModal.addEventListener("click", function (e) {
+      if (e.target === imgModal) {
+        imgModal.style.display = "none";
+      }
+    });
   }
+});
+  
 
   // === Unified Modal ===
   const unifiedModal = document.getElementById("unified-modal");
