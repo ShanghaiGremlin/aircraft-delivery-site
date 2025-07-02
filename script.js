@@ -1,16 +1,8 @@
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("DOM fully loaded");
-});
-
-const tooltips = document.querySelectorAll(".tappable-mob-tooltip");
-console.log("Found", tooltips.length, "tooltip(s)");
-
-
-
-
-
-// === DESKTOP SLIDESHOW ===
+// === DESKTOP & MOBILE SLIDESHOW ===
 document.addEventListener('DOMContentLoaded', function () {
+  console.log("DOM fully loaded");
+
+  // === DESKTOP SLIDESHOW ===
   const desktopSlides = document.querySelectorAll('#desktop-slideshow .slide');
   let desktopIndex = 0;
   let desktopCycles = 0;
@@ -100,44 +92,32 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // === MOBILE ABOUT IMAGE MODAL ===
-  console.log("DOMContentLoaded fired");
+  const imgModal = document.getElementById("imgModal");
+  const modalImg = document.getElementById("modalImg");
+  const modalCaption = document.getElementById("modalCaption");
+  const modalClose = document.getElementById("modalClose");
 
-// === MOBILE ABOUT IMAGE MODAL ===
-const imgModal = document.getElementById("imgModal");
-const modalImg = document.getElementById("modalImg");
-const modalCaption = document.getElementById("modalCaption");
-const modalClose = document.getElementById("modalClose");
-
-if (imgModal && modalImg && modalCaption && modalClose) {
-  document.querySelectorAll(".mobile-newspaper-img-left img").forEach(function (img) {
-    img.style.cursor = "pointer";
-
-    img.addEventListener("click", function () {
-      modalImg.src = this.src;
-
-      const caption = this.closest(".mobile-newspaper-img-left")?.querySelector(".mob-about-img-caption");
-      modalCaption.textContent = caption ? caption.textContent : "";
-
-      imgModal.style.display = "flex";
+  if (imgModal && modalImg && modalCaption && modalClose) {
+    document.querySelectorAll(".mobile-newspaper-img-left img").forEach(function (img) {
+      img.style.cursor = "pointer";
+      img.addEventListener("click", function () {
+        modalImg.src = this.src;
+        const caption = this.closest(".mobile-newspaper-img-left")?.querySelector(".mob-about-img-caption");
+        modalCaption.textContent = caption ? caption.textContent : "";
+        imgModal.style.display = "flex";
+      });
     });
-  });
 
-  modalClose.addEventListener("click", function () {
-    imgModal.style.display = "none";
-  });
-
-  imgModal.addEventListener("click", function (e) {
-    if (e.target === imgModal) {
+    modalClose.addEventListener("click", function () {
       imgModal.style.display = "none";
-    }
-  });
-}
+    });
 
-
-
-
-
-  
+    imgModal.addEventListener("click", function (e) {
+      if (e.target === imgModal) {
+        imgModal.style.display = "none";
+      }
+    });
+  }
 
   // === Unified Modal ===
   const unifiedModal = document.getElementById("unified-modal");
@@ -228,6 +208,27 @@ if (imgModal && modalImg && modalCaption && modalClose) {
     }
   });
 
+  // === Tooltip Support (Mobile) ===
+  const tooltips = document.querySelectorAll(".tappable-mob-tooltip");
+  console.log("Found", tooltips.length, "tooltip(s)");
+
+  tooltips.forEach(function (el) {
+    el.addEventListener("click", function (e) {
+      e.stopPropagation();
+      tooltips.forEach(function (other) {
+        other.classList.remove("active");
+      });
+      this.classList.toggle("active");
+      console.log("Tapped tooltip: ", this.textContent);
+    });
+  });
+
+  document.addEventListener("click", function () {
+    tooltips.forEach(function (el) {
+      el.classList.remove("active");
+    });
+  });
+});
 
 // === Global Modal Fallbacks ===
 function closeModal() {
@@ -253,34 +254,3 @@ function openModal(content) {
     modal.style.display = "flex";
   }
 }
-
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("DOM fully loaded");
-  console.log("Tooltip script loaded");
-
-  const tooltips = document.querySelectorAll(".tappable-mob-tooltip");
-  console.log("Found", tooltips.length, "tooltip(s)");
-
-  tooltips.forEach(function (el) {
-    el.addEventListener("click", function (e) {
-      e.stopPropagation();
-
-      // Remove 'active' from all other tooltips first
-      tooltips.forEach(function (other) {
-        other.classList.remove("active");
-      });
-
-      // Then toggle on the one that was tapped
-      this.classList.toggle("active");
-      console.log("Tapped tooltip: ", this.textContent);
-    });
-  });
-
-  // Dismiss tooltips when tapping anywhere else
-  document.addEventListener("click", function () {
-    tooltips.forEach(function (el) {
-      el.classList.remove("active");
-    });
-  });
-});
-})
