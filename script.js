@@ -209,48 +209,35 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // === Mobile Tooltip ===
-  console.log("Tooltip script loaded");
-  const tooltips = document.querySelectorAll(".tappable-mob-tooltip");
-  console.log("Found", tooltips.length, "tooltip(s)");
+el.addEventListener("click", function (e) {
+  e.stopPropagation();
+  const isActive = this.classList.contains("active");
+  tooltips.forEach(t => t.classList.remove("active"));
 
-  document.addEventListener("click", function () {
-    tooltips.forEach(el => el.classList.remove("active"));
-  });
+  if (!isActive) {
+    this.classList.add("active");
 
-  tooltips.forEach(function (el) {
-  el.addEventListener("click", function (e) {
-    e.stopPropagation();
-    const isActive = this.classList.contains("active");
-    tooltips.forEach(t => t.classList.remove("active"));
+    // Wait for DOM to update so tooltip is rendered
+    setTimeout(() => {
+      const tooltip = this.querySelector(".tooltip"); // adjust if your tooltip is in a different sub-element
+      if (!tooltip) return;
 
-    if (!isActive) {
-      this.classList.add("active");
+      const tooltipRect = tooltip.getBoundingClientRect();
+      const spaceLeft = tooltipRect.left;
+      const spaceRight = window.innerWidth - tooltipRect.right;
 
-      const tooltipText = this.getAttribute("data-tooltip");
-      const tempSpan = document.createElement("span");
-      tempSpan.style.visibility = "hidden";
-      tempSpan.style.position = "absolute";
-      tempSpan.style.whiteSpace = "nowrap";
-      tempSpan.textContent = tooltipText;
-      document.body.appendChild(tempSpan);
-
-      const tooltipWidth = tempSpan.offsetWidth;
-      const elRect = this.getBoundingClientRect();
-      const spaceLeft = elRect.left;
-      const spaceRight = window.innerWidth - elRect.right;
-
-      if (tooltipWidth / 2 > spaceLeft) {
-        this.style.setProperty('--tooltip-shift', `${tooltipWidth / 2 - spaceLeft + 8}px`);
-      } else if (tooltipWidth / 2 > spaceRight) {
-        this.style.setProperty('--tooltip-shift', `-${tooltipWidth / 2 - spaceRight + 8}px`);
-      } else {
-        this.style.setProperty('--tooltip-shift', `0px`);
+      let shift = 0;
+      if (spaceLeft < 8) {
+        shift = 8 - spaceLeft;
+      } else if (spaceRight < 8) {
+        shift = -(8 - spaceRight);
       }
 
-      document.body.removeChild(tempSpan);
-    }
-  });
+      this.style.setProperty('--tooltip-shift', `${shift}px`);
+    }, 0);
+  }
 });
+
 
 
   // === Global Modal Fallbacks ===
