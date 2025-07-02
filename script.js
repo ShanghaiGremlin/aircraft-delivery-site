@@ -208,35 +208,56 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // === Mobile Tooltip ===
-el.addEventListener("click", function (e) {
-  e.stopPropagation();
-  const isActive = this.classList.contains("active");
-  tooltips.forEach(t => t.classList.remove("active"));
+// === Mobile Tooltip ===
+console.log("Tooltip script loaded");
 
-  if (!isActive) {
-    this.classList.add("active");
+document.addEventListener("DOMContentLoaded", function () {
+  const tooltips = document.querySelectorAll(".tappable-mob-tooltip");
+  console.log("Found", tooltips.length, "tooltip(s)");
 
-    // Wait for DOM to update so tooltip is rendered
-    setTimeout(() => {
-      const tooltip = this.querySelector(".tooltip"); // adjust if your tooltip is in a different sub-element
-      if (!tooltip) return;
+  // Close tooltips on any click
+  document.addEventListener("click", function () {
+    tooltips.forEach(el => el.classList.remove("active"));
+  });
 
-      const tooltipRect = tooltip.getBoundingClientRect();
-      const spaceLeft = tooltipRect.left;
-      const spaceRight = window.innerWidth - tooltipRect.right;
+  tooltips.forEach(function (el) {
+    el.addEventListener("click", function (e) {
+      e.stopPropagation(); // Prevent immediate close
 
-      let shift = 0;
-      if (spaceLeft < 8) {
-        shift = 8 - spaceLeft;
-      } else if (spaceRight < 8) {
-        shift = -(8 - spaceRight);
+      const wasActive = this.classList.contains("active");
+      tooltips.forEach(t => t.classList.remove("active"));
+
+      if (!wasActive) {
+        this.classList.add("active");
+
+        // Calculate shift to keep tooltip in viewport
+        const tooltipText = this.getAttribute("data-tooltip");
+        const temp = document.createElement("span");
+        temp.style.visibility = "hidden";
+        temp.style.position = "absolute";
+        temp.style.whiteSpace = "nowrap";
+        temp.textContent = tooltipText;
+        document.body.appendChild(temp);
+
+        const tooltipWidth = temp.offsetWidth;
+        const rect = this.getBoundingClientRect();
+        const spaceLeft = rect.left;
+        const spaceRight = window.innerWidth - rect.right;
+        let shift = 0;
+
+        if (tooltipWidth / 2 > spaceLeft) {
+          shift = tooltipWidth / 2 - spaceLeft + 8;
+        } else if (tooltipWidth / 2 > spaceRight) {
+          shift = -(tooltipWidth / 2 - spaceRight + 8);
+        }
+
+        this.style.setProperty('--tooltip-shift', `${shift}px`);
+        document.body.removeChild(temp);
       }
-
-      this.style.setProperty('--tooltip-shift', `${shift}px`);
-    }, 0);
-  }
+    });
+  });
 });
+
 
 
 

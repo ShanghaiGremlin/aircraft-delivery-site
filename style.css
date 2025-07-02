@@ -829,6 +829,26 @@ input[type="date"] {
   opacity: 1;
 }
 
+.tappable-mob-tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 125%; /* or however you're positioning it */
+  left: 50%;
+  transform: translateX(-50%) translateX(var(--tooltip-shift, 0px));
+  white-space: nowrap;
+  z-index: 999;
+  background: #333;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  display: none;
+}
+
+.tappable-mob-tooltip.active::after {
+  display: block;
+}
+
 
 }
 
