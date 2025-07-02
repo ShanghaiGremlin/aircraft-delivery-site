@@ -741,7 +741,7 @@ input[type="date"] {
 }
 
 #imgModal {
-  display: flex; /* Hide on load */
+  display: none; /* Hide on load */
   position: fixed;
   top: 0;
   left: 0;
@@ -749,13 +749,11 @@ input[type="date"] {
   height: 100vh;
   background-color: rgba(0,0,0,0.85);
   justify-content: center;
-  align-items: center;
+  text-align: center;
   flex-direction: column;
   padding: 20px;
   z-index: 9999;
 }
-
-
 
 #modalImg {
   max-width: 90vw;
