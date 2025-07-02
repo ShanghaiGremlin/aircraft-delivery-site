@@ -259,5 +259,10 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+el.addEventListener("click", function (e) {
+  console.log("Tapped tooltip: ", el.textContent);
+  el.classList.toggle("active");
+});
+
 }
 )
