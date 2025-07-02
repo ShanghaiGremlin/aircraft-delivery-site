@@ -709,6 +709,7 @@ input[type="date"] {
   font-size: 1rem;
   line-height: 1.2;
   padding: 0 10px;
+  margin-bottom: 15px;
 }
 
 .mobile-newspaper-img-left img {
