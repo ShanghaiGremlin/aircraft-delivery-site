@@ -835,7 +835,7 @@ input[type="date"] {
   bottom: 125%; /* or however you're positioning it */
   left: 50%;
   transform: translateX(-50%) translateX(var(--tooltip-shift, 0px));
-  white-space: nowrap;
+  white-space: normal;
   z-index: 999;
   background: #333;
   color: #fff;
