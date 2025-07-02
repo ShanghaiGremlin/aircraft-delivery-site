@@ -745,6 +745,15 @@ input[type="date"] {
   clear: both;
 }
 
+.mob-about-img-caption {
+  text-align: center;
+  font-size: 1.13rem;
+  line-height: 1.2;
+  margin: 0;
+  padding: 6px 0 0;
+  color: #333;
+}
+
 
 }
 
