@@ -2,6 +2,9 @@ document.addEventListener("DOMContentLoaded", function () {
   console.log("DOM fully loaded");
 });
 
+const tooltips = document.querySelectorAll(".tappable-mob-tooltip");
+console.log("Found", tooltips.length, "tooltip(s)");
+
 
 // === DESKTOP SLIDESHOW ===
 document.addEventListener('DOMContentLoaded', function () {
