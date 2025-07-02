@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Close when clicking X
   modalClose.addEventListener("click", function () {
-    imgModal.style.display = "none";
+    imgModal.style.display = "flex";
   });
 
   // Close when clicking the background
