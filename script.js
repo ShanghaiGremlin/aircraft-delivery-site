@@ -252,25 +252,31 @@ function openModal(content) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".tappable-mob-tooltip").forEach(function (el) {
+  console.log("DOM fully loaded");
+
+  const tooltips = document.querySelectorAll(".tappable-mob-tooltip");
+  console.log("Found", tooltips.length, "tooltip(s)");
+
+  tooltips.forEach(function (el) {
     el.addEventListener("click", function (e) {
-      e.stopPropagation(); // Prevent event bubbling
-      el.classList.toggle("active");
+      e.stopPropagation();
+      
+      // Remove 'active' from all other tooltips first
+      tooltips.forEach(function (other) {
+        other.classList.remove("active");
+      });
+
+      // Then toggle on the one that was tapped
+      this.classList.toggle("active");
+      console.log("Tapped tooltip: ", this.textContent);
     });
   });
 
-  // Close all if clicking elsewhere
+  // Dismiss tooltips when tapping anywhere else
   document.addEventListener("click", function () {
-    document.querySelectorAll(".tappable-mob-tooltip").forEach(function (el) {
+    tooltips.forEach(function (el) {
       el.classList.remove("active");
     });
   });
 });
-
-el.addEventListener("click", function (e) {
-  console.log("Tapped tooltip: ", el.textContent);
-  el.classList.toggle("active");
-});
-
 }
-)
