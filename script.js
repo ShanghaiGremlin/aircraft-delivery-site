@@ -88,35 +88,46 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // === Image Modal for Mobile About ===
+  // === MOBILE ABOUT IMAGE MODAL ===
+document.addEventListener("DOMContentLoaded", function () {
   const imgModal = document.getElementById("imgModal");
   const modalImg = document.getElementById("modalImg");
   const modalCaption = document.getElementById("modalCaption");
   const modalClose = document.getElementById("modalClose");
 
-  if (imgModal && modalImg && modalCaption && modalClose) {
-    document.querySelectorAll(".mobile-newspaper-img-left img").forEach(function (img) {
-      img.style.cursor = "pointer";
-      img.addEventListener("click", function () {
-        console.log("Image clicked!");
-        modalImg.src = this.src;
-        const caption = this.closest(".mobile-newspaper-img-left")?.querySelector(".mob-about-img-caption");
-        modalCaption.textContent = caption ? caption.textContent : "";
-        imgModal.style.display = "flex";
-      });
-    });
+  // Verify modal components exist before binding events
+  if (!imgModal || !modalImg || !modalCaption || !modalClose) return;
 
-    modalClose.addEventListener("click", function () {
+  // Add click listeners to each image in the about section
+  document.querySelectorAll(".mobile-newspaper-img-left img").forEach(function (img) {
+    img.style.cursor = "pointer";
+
+    img.addEventListener("click", function () {
+      // Set image source
+      modalImg.src = this.src;
+
+      // Get caption text if available
+      const caption = this.closest(".mobile-newspaper-img-left")?.querySelector(".mob-about-img-caption");
+      modalCaption.textContent = caption ? caption.textContent : "";
+
+      // Show modal
+      imgModal.style.display = "flex";
+    });
+  });
+
+  // Close modal on click of close button
+  modalClose.addEventListener("click", function () {
+    imgModal.style.display = "none";
+  });
+
+  // Also close modal if clicking outside the image (on backdrop)
+  imgModal.addEventListener("click", function (e) {
+    if (e.target === imgModal) {
       imgModal.style.display = "none";
-    });
-
-        imgModal.addEventListener("click", function (e) {
-      if (e.target === imgModal) {
-        imgModal.style.display = "none";
-      }
-    });
-  }
+    }
+  });
 });
+
   
 
   // === Unified Modal ===
@@ -233,3 +244,5 @@ function openModal(content) {
     modal.style.display = "flex";
   }
 }
+}
+)
