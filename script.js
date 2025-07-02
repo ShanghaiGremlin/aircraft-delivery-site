@@ -1,3 +1,8 @@
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("DOM fully loaded");
+});
+
+
 // === DESKTOP SLIDESHOW ===
 document.addEventListener('DOMContentLoaded', function () {
   const desktopSlides = document.querySelectorAll('#desktop-slideshow .slide');
