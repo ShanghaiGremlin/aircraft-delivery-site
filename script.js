@@ -208,8 +208,8 @@
       }
     });
 
-    // === Mobile Tooltip ===
-    console.log("Tooltip script loaded");
+// === Mobile Tooltip ===
+console.log("Tooltip script loaded");
     const tooltips = document.querySelectorAll(".tappable-mob-tooltip");
     console.log("Found", tooltips.length, "tooltip(s)");
 
@@ -225,10 +225,42 @@
         if (!isActive) {
           this.classList.add("active");
           console.log("Tapped tooltip: ", this.textContent);
+
+          if (!isActive) {
+  this.classList.add("active");
+  console.log("Tapped tooltip: ", this.textContent);
+
+  // --- Shift tooltip if it's too close to edge ---
+  const tooltipText = this.getAttribute("data-tooltip");
+  const tempSpan = document.createElement("span");
+  tempSpan.style.visibility = "hidden";
+  tempSpan.style.position = "absolute";
+  tempSpan.style.whiteSpace = "nowrap";
+  tempSpan.style.fontSize = "14px";
+  tempSpan.textContent = tooltipText;
+  document.body.appendChild(tempSpan);
+
+  const tooltipWidth = tempSpan.offsetWidth;
+  const elRect = this.getBoundingClientRect();
+  const spaceLeft = elRect.left;
+  const spaceRight = window.innerWidth - elRect.right;
+
+  if (tooltipWidth / 2 > spaceLeft) {
+    this.style.setProperty('--tooltip-shift', `${tooltipWidth / 2 - spaceLeft + 8}px`);
+  } else if (tooltipWidth / 2 > spaceRight) {
+    this.style.setProperty('--tooltip-shift', `-${tooltipWidth / 2 - spaceRight + 8}px`);
+  } else {
+    this.style.setProperty('--tooltip-shift', `0px`);
+  }
+
+  document.body.removeChild(tempSpan);
+}
+
         }
       });
     });
   });
+
 
   // === Global Modal Fallbacks ===
   function closeModal() {
