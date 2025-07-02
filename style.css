@@ -833,7 +833,7 @@ input[type="date"] {
   content: attr(data-tooltip);
   position: absolute;
   bottom: 125%; /* or however you're positioning it */
-  left: 50%;
+  left: max(10px, 50%);
   transform: translateX(-50%) translateX(var(--tooltip-shift, 0px));
   white-space: normal;
   z-index: 999;
