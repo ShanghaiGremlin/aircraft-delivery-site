@@ -755,14 +755,21 @@ input[type="date"] {
   display: none;
 }
 
-#modalImg {
-  max-width: 90vw;
-  max-height: 80vh;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-  display: block;
-  margin: 0 auto;
+#imgModal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 20px;
 }
+
 
 }
 
