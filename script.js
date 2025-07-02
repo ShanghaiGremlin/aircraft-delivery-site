@@ -278,5 +278,4 @@ document.addEventListener("DOMContentLoaded", function () {
       el.classList.remove("active");
     });
   });
-});
-}
+})})
