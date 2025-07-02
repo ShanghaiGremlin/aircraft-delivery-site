@@ -756,19 +756,20 @@ input[type="date"] {
 }
 
 #imgModal {
-  display: none;
   position: fixed;
   z-index: 9999;
-  left: 0;
   top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.85);
+  display: none; /* ← Correct: modal is hidden until JS sets it to flex */
   justify-content: center;
   align-items: center;
   flex-direction: column;
   padding: 20px;
 }
+
 
 #modalImg {
   max-width: 90vw;
