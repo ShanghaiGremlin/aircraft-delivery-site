@@ -855,13 +855,18 @@ input[type="date"] {
   text-decoration: underline dashed;
   cursor: pointer;
 }
-
+.info-icon {
+  font-size: 0.7em;
+  margin-left: 4px;
+  color: #888;
 }
 
 }
 
-
 }
+
+
+
 
 
 
