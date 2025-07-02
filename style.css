@@ -852,6 +852,10 @@ input[type="date"] {
 .tappable-mob-tooltip {
   position: relative;
   cursor: pointer;
+  text-decoration: underline dashed;
+  cursor: pointer;
+}
+
 }
 
 }
