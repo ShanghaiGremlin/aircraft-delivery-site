@@ -782,6 +782,32 @@ input[type="date"] {
   cursor: pointer;
 }
 
+.mob-tooltip {
+  position: relative;
+  cursor: help;
+  text-decoration: underline dotted;
+}
+
+.mob-tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  background: #333;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  display: none;
+  z-index: 10;
+}
+
+.mob-tooltip.active::after,
+.mob-tooltip:hover::after {
+  display: block;
+}
 
 
 

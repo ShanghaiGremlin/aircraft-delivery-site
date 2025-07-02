@@ -242,5 +242,22 @@ function openModal(content) {
     modal.style.display = "flex";
   }
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".tappable-mob-tooltip").forEach(function (el) {
+    el.addEventListener("click", function (e) {
+      e.stopPropagation(); // Prevent event bubbling
+      el.classList.toggle("active");
+    });
+  });
+
+  // Close all if clicking elsewhere
+  document.addEventListener("click", function () {
+    document.querySelectorAll(".tappable-mob-tooltip").forEach(function (el) {
+      el.classList.remove("active");
+    });
+  });
+});
+
 }
 )
