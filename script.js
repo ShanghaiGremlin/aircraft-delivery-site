@@ -95,10 +95,18 @@ document.addEventListener("DOMContentLoaded", function () {
   const modalCaption = document.getElementById("modalCaption");
   const modalClose = document.getElementById("modalClose");
 
-  if (!imgModal || !modalImg || !modalCaption || !modalClose) return;
+  if (!imgModal || !modalImg || !modalCaption || !modalClose) {
+    console.error("Modal elements not found in DOM");
+    return;
+  }
 
-  document.querySelectorAll(".mobile-newspaper-img-left img").forEach(function (img) {
-    img.style.cursor = "pointer";
+  // Enable all zoomable images (recommended: give them class="zoomable")
+  const zoomImages = document.querySelectorAll(".mobile-newspaper-img-left img.zoomable");
+
+  console.log("Zoomable images found:", zoomImages.length); // Debug
+
+  zoomImages.forEach(function (img) {
+    img.style.cursor = "zoom-in";
 
     img.addEventListener("click", function () {
       modalImg.src = this.src;
@@ -110,10 +118,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // Close when clicking X
   modalClose.addEventListener("click", function () {
     imgModal.style.display = "none";
   });
 
+  // Close when clicking the background
   imgModal.addEventListener("click", function (e) {
     if (e.target === imgModal) {
       imgModal.style.display = "none";
