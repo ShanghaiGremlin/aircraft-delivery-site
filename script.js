@@ -178,6 +178,43 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  const modal = document.getElementById("imgModal");
+  const modalImg = document.getElementById("modalImg");
+  const modalCaption = document.getElementById("modalCaption");
+  const modalClose = document.getElementById("modalClose");
+
+  // Only add this ONCE
+  modalClose.addEventListener("click", function () {
+    modal.style.display = "none";
+  });
+
+  document.querySelectorAll(".mobile-newspaper-img-left img").forEach(function (img) {
+    img.style.cursor = "pointer";
+    img.addEventListener("click", function () {
+      modalImg.src = this.src;
+
+      const caption = this.closest(".mobile-newspaper-img-left")?.querySelector(".mob-about-img-caption");
+      modalCaption.textContent = caption ? caption.textContent : "";
+
+      modal.style.display = "flex";
+    });
+  });
+});
+
+      document.getElementById("modalClose").addEventListener("click", function () {
+  document.getElementById("imgModal").style.display = "none";
+});
+
+function closeModal() {
+  document.getElementById("imgModal").style.display = "none";
+}
+
+
+function closeModal() {
+  document.getElementById("imgModal").style.display = "none";
+}
+
 
   function openMobileModal() {
   const modal = document.getElementById('mobile-modal');
