@@ -756,7 +756,6 @@ input[type="date"] {
 }
 
 #imgModal {
-#imgModal {
   display: none; /* Hide on load */
   position: fixed;
   top: 0;
