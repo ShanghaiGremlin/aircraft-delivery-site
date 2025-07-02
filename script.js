@@ -212,25 +212,26 @@ document.addEventListener('DOMContentLoaded', function () {
 console.log("Tooltip script loaded");
 
 document.addEventListener("DOMContentLoaded", function () {
+  console.log("Tooltip script loaded");
+
   const tooltips = document.querySelectorAll(".tappable-mob-tooltip");
   console.log("Found", tooltips.length, "tooltip(s)");
 
-  // Close tooltips on any click
-  document.addEventListener("click", function () {
-    tooltips.forEach(el => el.classList.remove("active"));
+  // Close all tooltips on any outside click
+  document.addEventListener("click", () => {
+    tooltips.forEach(t => t.classList.remove("active"));
   });
 
-  tooltips.forEach(function (el) {
+  tooltips.forEach(el => {
     el.addEventListener("click", function (e) {
-      e.stopPropagation(); // Prevent immediate close
+      e.stopPropagation();
 
       const wasActive = this.classList.contains("active");
       tooltips.forEach(t => t.classList.remove("active"));
-
       if (!wasActive) {
         this.classList.add("active");
 
-        // Calculate shift to keep tooltip in viewport
+        // Optional: tooltip boundary shift
         const tooltipText = this.getAttribute("data-tooltip");
         const temp = document.createElement("span");
         temp.style.visibility = "hidden";
@@ -257,6 +258,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
 
 
 
