@@ -756,7 +756,7 @@ input[type="date"] {
 }
 
 #imgModal {
-  display: none; /* Important: stays hidden initially */
+  display: none;
   position: fixed;
   z-index: 9999;
   top: 0;
@@ -764,26 +764,22 @@ input[type="date"] {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.85);
-
-  /* This flex layout applies ONLY when shown via JS */
-  flex-direction: column;
+  display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   padding: 20px;
 }
 
-
 #modalImg {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   max-width: 90vw;
   max-height: 70vh;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
   margin-bottom: 15px;
 }
-
 
 #modalCaption {
   color: white;

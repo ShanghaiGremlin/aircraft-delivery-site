@@ -95,38 +95,45 @@ document.addEventListener("DOMContentLoaded", function () {
   const modalCaption = document.getElementById("modalCaption");
   const modalClose = document.getElementById("modalClose");
 
-  // Verify modal components exist before binding events
-  if (!imgModal || !modalImg || !modalCaption || !modalClose) return;
+  if (!imgModal || !modalImg || !modalCaption || !modalClose) {
+    console.warn("Modal components not found");
+    return;
+  }
 
-  // Add click listeners to each image in the about section
+  // Clickable images
   document.querySelectorAll(".mobile-newspaper-img-left img").forEach(function (img) {
     img.style.cursor = "pointer";
 
     img.addEventListener("click", function () {
-      // Set image source
       modalImg.src = this.src;
 
-      // Get caption text if available
       const caption = this.closest(".mobile-newspaper-img-left")?.querySelector(".mob-about-img-caption");
       modalCaption.textContent = caption ? caption.textContent : "";
 
-      // Show modal
       imgModal.style.display = "flex";
     });
   });
 
-  // Close modal on click of close button
+  // Close modal with X
   modalClose.addEventListener("click", function () {
     imgModal.style.display = "none";
   });
 
-  // Also close modal if clicking outside the image (on backdrop)
+  // Close modal by clicking background
   imgModal.addEventListener("click", function (e) {
     if (e.target === imgModal) {
       imgModal.style.display = "none";
     }
   });
+
+  // Close modal with Escape key
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      imgModal.style.display = "none";
+    }
+  });
 });
+
 
   
 
