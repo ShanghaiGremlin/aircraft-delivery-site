@@ -206,11 +206,6 @@ table.gallery-table {
   position: relative;
 }
 
-.img-wrap:hover img.thumbnail {
-  transform: scale(2.5);
-  z-index: 2;
-}
-
 .img-wrap {
   position: relative;
   display: inline-block;
@@ -227,12 +222,6 @@ table.gallery-table {
   transform-origin: center center;
   z-index: 1;
   position: relative;
-}
-
-/* Zoom on hover */
-.img-wrap:hover img.thumbnail {
-  transform: scale(2.5);
-  z-index: 2;
 }
 
 /* Hover caption that appears under zoomed image */
