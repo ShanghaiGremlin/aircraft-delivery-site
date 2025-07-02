@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', function () {
       tooltips.forEach(function (other) {
         other.classList.remove("active");
       });
-      this.classList.toggle("active");
+      this.classList.add("active");
       console.log("Tapped tooltip: ", this.textContent);
     });
   });
