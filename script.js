@@ -89,50 +89,58 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // === MOBILE ABOUT IMAGE MODAL ===
+// === MOBILE ABOUT IMAGE MODAL ===
 document.addEventListener("DOMContentLoaded", function () {
   const imgModal = document.getElementById("imgModal");
   const modalImg = document.getElementById("modalImg");
   const modalCaption = document.getElementById("modalCaption");
   const modalClose = document.getElementById("modalClose");
 
+  // SAFETY: Stop if any of the modal parts are missing
   if (!imgModal || !modalImg || !modalCaption || !modalClose) {
-    console.warn("Modal components not found");
+    console.warn("Modal elements not found in DOM.");
     return;
   }
 
-  // Clickable images
+  // Make sure the modal starts hidden
+  imgModal.style.display = "none";
+
+  // Set up image click triggers
   document.querySelectorAll(".mobile-newspaper-img-left img").forEach(function (img) {
     img.style.cursor = "pointer";
-
     img.addEventListener("click", function () {
+      // Set modal image source
       modalImg.src = this.src;
 
+      // Look for caption inside same .mobile-newspaper-img-left block
       const caption = this.closest(".mobile-newspaper-img-left")?.querySelector(".mob-about-img-caption");
       modalCaption.textContent = caption ? caption.textContent : "";
 
+      // Show the modal
       imgModal.style.display = "flex";
     });
   });
 
-  // Close modal with X
+  // Close modal when clicking the × button
   modalClose.addEventListener("click", function () {
     imgModal.style.display = "none";
   });
 
-  // Close modal by clicking background
+  // Close modal if clicking outside the image/caption area
   imgModal.addEventListener("click", function (e) {
     if (e.target === imgModal) {
       imgModal.style.display = "none";
     }
   });
 
-  // Close modal with Escape key
+  // Optional: ESC key closes modal
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") {
       imgModal.style.display = "none";
     }
   });
 });
+
 
 
   

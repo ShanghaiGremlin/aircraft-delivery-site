@@ -756,7 +756,10 @@ input[type="date"] {
 }
 
 #imgModal {
+  /* ✅ Show nothing by default */
   display: none;
+
+  /* 💡 Move flex layout to JS when opening */
   position: fixed;
   z-index: 9999;
   top: 0;
@@ -764,12 +767,12 @@ input[type="date"] {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.85);
-  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   padding: 20px;
 }
+
 
 #modalImg {
   display: block;
