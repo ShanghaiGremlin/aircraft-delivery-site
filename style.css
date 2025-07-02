@@ -832,7 +832,7 @@ input[type="date"] {
 .tappable-mob-tooltip::after {
   content: attr(data-tooltip);
   position: absolute;
-  top: 125%; /* or however you're positioning it */
+  bottom: 125%; /* or however you're positioning it */
   left: 50%;
   transform: translateX(-50%) translateX(var(--tooltip-shift, 0px));
   white-space: nowrap;
