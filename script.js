@@ -256,14 +256,15 @@ function openModal(content) {
 
 document.addEventListener("DOMContentLoaded", function () {
   console.log("DOM fully loaded");
-console.log("Tooltip script loaded");
+  console.log("Tooltip script loaded");
+
   const tooltips = document.querySelectorAll(".tappable-mob-tooltip");
   console.log("Found", tooltips.length, "tooltip(s)");
 
   tooltips.forEach(function (el) {
     el.addEventListener("click", function (e) {
       e.stopPropagation();
-      
+
       // Remove 'active' from all other tooltips first
       tooltips.forEach(function (other) {
         other.classList.remove("active");
@@ -281,4 +282,5 @@ console.log("Tooltip script loaded");
       el.classList.remove("active");
     });
   });
-})})
+});
+})
