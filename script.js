@@ -218,14 +218,40 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   tooltips.forEach(function (el) {
-    el.addEventListener("click", function (e) {
-      e.stopPropagation();
-      const isActive = this.classList.contains("active");
-      tooltips.forEach(el => el.classList.remove("active"));
-      if (!isActive) this.classList.add("active");
-      console.log("Tapped tooltip: ", this.textContent);
-    });
+  el.addEventListener("click", function (e) {
+    e.stopPropagation();
+    const isActive = this.classList.contains("active");
+    tooltips.forEach(t => t.classList.remove("active"));
+
+    if (!isActive) {
+      this.classList.add("active");
+
+      const tooltipText = this.getAttribute("data-tooltip");
+      const tempSpan = document.createElement("span");
+      tempSpan.style.visibility = "hidden";
+      tempSpan.style.position = "absolute";
+      tempSpan.style.whiteSpace = "nowrap";
+      tempSpan.textContent = tooltipText;
+      document.body.appendChild(tempSpan);
+
+      const tooltipWidth = tempSpan.offsetWidth;
+      const elRect = this.getBoundingClientRect();
+      const spaceLeft = elRect.left;
+      const spaceRight = window.innerWidth - elRect.right;
+
+      if (tooltipWidth / 2 > spaceLeft) {
+        this.style.setProperty('--tooltip-shift', `${tooltipWidth / 2 - spaceLeft + 8}px`);
+      } else if (tooltipWidth / 2 > spaceRight) {
+        this.style.setProperty('--tooltip-shift', `-${tooltipWidth / 2 - spaceRight + 8}px`);
+      } else {
+        this.style.setProperty('--tooltip-shift', `0px`);
+      }
+
+      document.body.removeChild(tempSpan);
+    }
   });
+});
+
 
   // === Global Modal Fallbacks ===
   function closeModal() {
