@@ -723,6 +723,7 @@ input[type="date"] {
   overflow: hidden;
   font-size: 1rem;
   line-height: 1.2;
+  padding: 0 16px;
 }
 
 .mobile-newspaper-img-left img {
@@ -730,7 +731,7 @@ input[type="date"] {
   max-width: 150px;
   width: 100%;
   height: auto;
-  margin: 0 20px 10px 0;
+  margin: 0 20px 5px 0;
   display: block;
 }
 
