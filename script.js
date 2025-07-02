@@ -208,49 +208,49 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // === Tooltip Support (Mobile) ===
+  // === Mobile Tooltip ===
+  console.log("Tooltip script loaded");
   const tooltips = document.querySelectorAll(".tappable-mob-tooltip");
   console.log("Found", tooltips.length, "tooltip(s)");
+
+  document.addEventListener("click", function () {
+    tooltips.forEach(el => el.classList.remove("active"));
+  });
 
   tooltips.forEach(function (el) {
     el.addEventListener("click", function (e) {
       e.stopPropagation();
-      tooltips.forEach(function (other) {
-        other.classList.remove("active");
-      });
-      this.classList.add("active");
+      const isActive = this.classList.contains("active");
+      tooltips.forEach(el => el.classList.remove("active"));
+      if (!isActive) this.classList.add("active");
       console.log("Tapped tooltip: ", this.textContent);
     });
   });
 
-  document.addEventListener("click", function () {
-    tooltips.forEach(function (el) {
-      el.classList.remove("active");
-    });
-  });
+  // === Global Modal Fallbacks ===
+  function closeModal() {
+    const modal = document.getElementById("imgModal");
+    if (modal) modal.style.display = "none";
+  }
+
+  function openMobileModal() {
+    const modal = document.getElementById('mobile-modal');
+    if (modal) modal.style.display = 'flex';
+  }
+
+  function closeMobileModal() {
+    const modal = document.getElementById('mobile-modal');
+    if (modal) modal.style.display = 'none';
+  }
+
+  function openModal(content) {
+    const modal = document.getElementById("custom-modal");
+    const body = document.getElementById("modal-body");
+    if (modal && body) {
+      body.innerHTML = content;
+      modal.style.display = "flex";
+    }
+  }
+
 });
 
-// === Global Modal Fallbacks ===
-function closeModal() {
-  const modal = document.getElementById("imgModal");
-  if (modal) modal.style.display = "none";
-}
-
-function openMobileModal() {
-  const modal = document.getElementById('mobile-modal');
-  if (modal) modal.style.display = 'flex';
-}
-
-function closeMobileModal() {
-  const modal = document.getElementById('mobile-modal');
-  if (modal) modal.style.display = 'none';
-}
-
-function openModal(content) {
-  const modal = document.getElementById("custom-modal");
-  const body = document.getElementById("modal-body");
-  if (modal && body) {
-    body.innerHTML = content;
-    modal.style.display = "flex";
-  }
-}
