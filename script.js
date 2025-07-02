@@ -98,6 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll(".mobile-newspaper-img-left img").forEach(function (img) {
       img.style.cursor = "pointer";
       img.addEventListener("click", function () {
+        console.log("Image clicked!");
         modalImg.src = this.src;
         const caption = this.closest(".mobile-newspaper-img-left")?.querySelector(".mob-about-img-caption");
         modalCaption.textContent = caption ? caption.textContent : "";
