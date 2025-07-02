@@ -755,6 +755,14 @@ input[type="date"] {
   display: none;
 }
 
+#modalImg {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  display: block;
+  margin: 0 auto;
+}
 
 }
 
