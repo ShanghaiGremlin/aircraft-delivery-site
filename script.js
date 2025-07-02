@@ -89,6 +89,8 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // === MOBILE ABOUT IMAGE MODAL ===
+  console.log("DOMContentLoaded fired");
+
 document.addEventListener("DOMContentLoaded", function () {
   const imgModal = document.getElementById("imgModal");
   const modalImg = document.getElementById("modalImg");
