@@ -761,8 +761,8 @@ input[type="date"] {
   max-height: 70vh;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  margin: 0 auto 15px auto; /* top: 0, right: auto, bottom: 15px, left: auto */
-  display: block;
+  margin: 0 auto 15px auto !important; 
+  display: block !important;
 }
 
 #modalCaption {
