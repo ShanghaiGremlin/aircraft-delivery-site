@@ -879,10 +879,6 @@ input[type="date"] {
   transition: transform 0.2s ease;
 }
 
-.mob-past-deliv-thumb:hover {
-  transform: scale(1.02);
-}
-
 .mob-past-deliv-caption {
   font-size: 14px;
   color: #444;

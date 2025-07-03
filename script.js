@@ -301,16 +301,24 @@ console.log("Tooltip script loaded");
   });
 });
 
-document.querySelectorAll('.mob-past-deliv-img').forEach(div => {
-  const img = div.querySelector('.mob-past-deliv-thumb');
-  const fullImg = div.getAttribute('data-full') || img.src;
-  const caption = div.querySelector('.mob-past-deliv-caption')?.textContent || "";
+document.querySelectorAll('.mob-past-deliv-thumb').forEach(function (img) {
+  img.style.cursor = "pointer";
+  img.addEventListener("click", function () {
+    const src = this.src;
+    const captionEl = this.closest(".mob-past-deliv-img")?.querySelector(".mob-past-deliv-caption");
+    const caption = captionEl ? captionEl.textContent : "";
 
-  div.style.cursor = 'pointer';
-  div.addEventListener('click', () => {
-    openModal(`
-      <img src="${fullImg}" alt="" style="width: 100%; height: auto; margin-bottom: 12px;">
-      <div style="text-align: center; font-size: 14px; color: #444;">${caption}</div>
-    `);
+    const modal = document.getElementById("imgModal");
+    const modalImg = document.getElementById("modalImg");
+    const modalCaption = document.getElementById("modalCaption");
+
+    if (modal && modalImg && modalCaption) {
+      modalImg.src = src;
+      modalCaption.textContent = caption;
+      modal.style.display = "flex";
+    } else {
+      console.log("Modal elements not found");
+    }
   });
 });
+

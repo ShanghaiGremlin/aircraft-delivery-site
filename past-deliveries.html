@@ -925,11 +925,15 @@
 </div>
 </main>
 <!-- Global modal that stays hidden until triggered -->
-<div id="imgModal" style="display: none;">
-  <span id="modalClose">×</span>
-  <img id="modalImg" src="" alt="">
-  <div id="modalCaption"></div>
+<!-- Shared Image Modal -->
+<div id="imgModal" style="display: none; justify-content: center; align-items: center; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.75); z-index: 9999;">
+  <div style="text-align: center; max-width: 90%; max-height: 90%;">
+    <img id="modalImg" src="" alt="Full image" style="max-width: 100%; max-height: 80vh; margin-bottom: 10px;" />
+    <p id="modalCaption" style="color: white; font-size: 16px;"></p>
+    <button id="modalClose" style="margin-top: 10px;">Close</button>
+  </div>
 </div>
+
 
   <script src="script.js"></script>
 </body>
