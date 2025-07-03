@@ -322,3 +322,7 @@ document.querySelectorAll('.mob-past-deliv-thumb').forEach(function (img) {
   });
 });
 
+// === CLOSE MODAL ON ANY TAP INSIDE ===
+document.getElementById("imgModal").addEventListener("click", function () {
+  this.style.display = "none";
+});
