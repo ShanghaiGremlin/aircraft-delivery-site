@@ -286,3 +286,31 @@ console.log("Tooltip script loaded");
       modal.style.display = "flex";
     }
   }
+
+  document.querySelectorAll('.past-delivery-img').forEach(div => {
+  const img = div.querySelector('img');
+  const fullImg = div.getAttribute('data-full') || img.src;
+  const caption = div.querySelector('.past-delivery-caption')?.textContent || "";
+
+  div.style.cursor = 'pointer';
+  div.addEventListener('click', () => {
+    openModal(`
+      <img src="${fullImg}" alt="" style="width: 100%; height: auto; margin-bottom: 12px;">
+      <div style="text-align: center; font-size: 14px; color: #444;">${caption}</div>
+    `);
+  });
+});
+
+document.querySelectorAll('.mob-past-deliv-img').forEach(div => {
+  const img = div.querySelector('.mob-past-deliv-thumb');
+  const fullImg = div.getAttribute('data-full') || img.src;
+  const caption = div.querySelector('.mob-past-deliv-caption')?.textContent || "";
+
+  div.style.cursor = 'pointer';
+  div.addEventListener('click', () => {
+    openModal(`
+      <img src="${fullImg}" alt="" style="width: 100%; height: auto; margin-bottom: 12px;">
+      <div style="text-align: center; font-size: 14px; color: #444;">${caption}</div>
+    `);
+  });
+});
