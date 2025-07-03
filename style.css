@@ -742,40 +742,40 @@ input[type="date"] {
 }
 
 #imgModal {
-  display: none; /* will be set to flex in JS */
+ display: none;
   justify-content: center;
   align-items: center;
-  text-align: center;
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
   z-index: 9999;
-  flex-direction: column;
-  padding: 20px;
 }
 
 #modalImg {
   max-width: 100%;
-  height: auto;
-  margin: 0 auto;
-  display: block;
+  max-height: 80vh;
+  margin-bottom: 10px;
 }
 
-
+#imgModal .modal-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 90%;
+  max-height: 90%;
+  text-align: center;
+  margin: 0 auto;
+}
 #modalCaption {
   color: white;
-  text-align: center;
   font-size: 1rem;
-  max-width: 90vw;
 }
 
 #modalClose {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 2rem;
-  color: white;
-  cursor: pointer;
+margin-top: 10px;
 }
 
 .mob-tooltip {
