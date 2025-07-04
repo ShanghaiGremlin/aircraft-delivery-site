@@ -899,6 +899,10 @@ margin-top: 10px;
   line-height: 1.6;
 }
 
+section[id^="t"] {
+  scroll-margin-top: 80px; /* or adjust to your fixed header height */
+}
+
 }
 
 }
