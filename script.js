@@ -343,19 +343,23 @@ document.querySelectorAll(".mob-past-deliv-thumb").forEach(img => {
   });
 });
 
-// === Remember scroll position on /past-deliveries, restore when returning from /testimonials ===
+// === Restore scroll position on load ===
 if (window.location.pathname === "/past-deliveries") {
-  // Save scroll position before leaving the page
-  window.addEventListener("beforeunload", function () {
-    localStorage.setItem("scrollPosition", window.scrollY);
-  });
-
-  // Restore scroll position on page load
   const savedScroll = localStorage.getItem("scrollPosition");
   if (savedScroll !== null) {
-    window.scrollTo(0, parseInt(savedScroll));
-    localStorage.removeItem("scrollPosition");
+    setTimeout(() => {
+      window.scrollTo(0, parseInt(savedScroll, 10));
+      localStorage.removeItem("scrollPosition");
+    }, 100); // slight delay helps layout settle
   }
+
+  // === Save scroll position before navigating away
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function () {
+      localStorage.setItem("scrollPosition", window.scrollY);
+    });
+  });
 }
+
 
 
