@@ -343,18 +343,19 @@ document.querySelectorAll(".mob-past-deliv-thumb").forEach(img => {
   });
 });
 
-// === Scroll Position Saver for "Back to Past Deliveries" ===
-if (location.pathname === "/past-deliveries") {
-  const savedScrollY = sessionStorage.getItem("scrollY");
-  if (savedScrollY !== null) {
-    window.scrollTo({ top: parseInt(savedScrollY, 10), behavior: "auto" });
-    sessionStorage.removeItem("scrollY"); // optional: clear it after use
+// === Remember scroll position on /past-deliveries, restore when returning from /testimonials ===
+if (window.location.pathname === "/past-deliveries") {
+  // Save scroll position before leaving the page
+  window.addEventListener("beforeunload", function () {
+    localStorage.setItem("scrollPosition", window.scrollY);
+  });
+
+  // Restore scroll position on page load
+  const savedScroll = localStorage.getItem("scrollPosition");
+  if (savedScroll !== null) {
+    window.scrollTo(0, parseInt(savedScroll));
+    localStorage.removeItem("scrollPosition");
   }
 }
 
-document.querySelectorAll(".back-to-past-deliveries").forEach((link) => {
-  link.addEventListener("click", () => {
-    sessionStorage.setItem("scrollY", window.scrollY);
-  });
-});
 
