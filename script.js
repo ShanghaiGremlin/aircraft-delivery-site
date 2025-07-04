@@ -304,8 +304,14 @@ console.log("Tooltip script loaded");
 document.querySelectorAll('.mob-past-deliv-thumb').forEach(function (img) {
   img.style.cursor = "pointer";
   img.addEventListener("click", function () {
-    const src = this.src;
-    const captionEl = this.closest(".mob-past-deliv-img")?.querySelector(".mob-past-deliv-caption");
+    const wrapper = this.closest(".mob-past-deliv-img");
+    if (!wrapper) {
+      console.log("Wrapper not found for thumbnail.");
+      return;
+    }
+
+    const fullImageUrl = wrapper.getAttribute("data-full") || this.src;
+    const captionEl = wrapper.querySelector(".mob-past-deliv-caption");
     const caption = captionEl ? captionEl.textContent : "";
 
     const modal = document.getElementById("imgModal");
@@ -313,7 +319,7 @@ document.querySelectorAll('.mob-past-deliv-thumb').forEach(function (img) {
     const modalCaption = document.getElementById("modalCaption");
 
     if (modal && modalImg && modalCaption) {
-      modalImg.src = src;
+      modalImg.src = fullImageUrl;
       modalCaption.textContent = caption;
       modal.style.display = "flex";
     } else {
@@ -321,6 +327,7 @@ document.querySelectorAll('.mob-past-deliv-thumb').forEach(function (img) {
     }
   });
 });
+
 
 // === CLOSE MODAL ON ANY TAP INSIDE ===
 document.getElementById("imgModal").addEventListener("click", function () {
