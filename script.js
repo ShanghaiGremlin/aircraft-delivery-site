@@ -334,9 +334,12 @@ document.getElementById("imgModal").addEventListener("click", function () {
   this.style.display = "none";
 });
 
-document.querySelectorAll(".mob-past-deliv-panel .mob-past-deliv-testim-thumb").forEach(img => {
+document.querySelectorAll(".mob-past-deliv-thumb").forEach(img => {
   img.addEventListener("click", function () {
-    const panel = this.closest(".mob-past-deliv-panel");
-    panel.classList.toggle("open");
+    const textRow = this.closest("tr").nextElementSibling;
+    if (textRow && textRow.classList.contains("mob-past-deliv-text-row")) {
+      textRow.classList.toggle("open");
+    }
   });
 });
+

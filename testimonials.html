@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aircraft Delivery Solutions</title>
+  <style> area {
+    cursor: pointer;
+  }
+</style>
+
+  </head>
+<body>
+
+  <!-- DESKTOP HEADER WRAPPER -->
+<div class="desktop-only">
+<div class="fixed-header">
+  <div class="header-bleed-left"></div>
+  <header>
+    <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/static-header-v7-95.png" usemap="#image-map"
+         style="width: 100%; height: auto; display: block;">
+  </header>
+  <div class="header-bleed-right"></div>
+</div></div>
+
+<div class="mobile-only">
+ <header class="mobile-header">
+  <div class="mobile-header-inner">
+    <!-- Hamburger -->
+    <div class="mobile-hamburger-wrap">
+      <button class="hamburger" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Logo -->
+    <a href="/" class="mobile-logo-link">
+      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/mobile/mobile-logo.png"
+           alt="Aircraft Delivery Solutions"
+           class="mobile-logo">
+    </a>
+
+    <!-- Phone Icon -->
+    <a href="tel:14158458163" class="mobile-phone-link">
+      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/mobile/phone.png"
+           alt="Call"
+           class="mobile-phone-icon">
+    </a>
+  </div>
+  <!-- Optional bleed-right element -->
+  <!-- <div class="header-bleed-right"></div> -->
+</header>
+
+  <map name="image-map">
+    <area target="" alt="" href="/services" coords="64,21,147,46" shape="rect" title="Services">
+    <area target="" alt="" href="/quote" coords="160,19,217,46" shape="rect" title="Get a Quote">
+    <area target="" alt="" href="/pilot-directory" coords="17,63,149,90" shape="rect" title="Pilot Directory">
+    <area target="" alt="" href="/pilot-hiring" coords="162,62,264,90" shape="rect" title="Pilot Hiring">
+    <area target="" alt="" href="/about" coords="38,106,98,133" shape="rect" title="About">
+    <area target="" alt="" href="/past-deliveries" coords="108,106,246,133" shape="rect" title="Past Deliveries">
+    <area target="" alt="" href="/" coords="278,6,1076,143" shape="rect" title="Aircraft Delivery Solutions">
+  </map>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <nav>
+      <a href="/services">Services</a>
+      <a href="/quote">Get a Quote</a>
+      <a href="/pilot-directory">Pilot Directory</a>
+      <a href="/pilot-hiring">Pilot Hiring</a>
+      <a href="/about">About</a>
+      <a href="/past-deliveries">Past Deliveries</a>
+    </nav>
+  </div>
+</div>
+
+<main style="padding: 20px; max-width: 800px; margin: 0 auto;">
+  
+  <!-- Testimonial 1 -->
+  <section id="testimonial1" class="testimonial-block" style="margin-bottom: 40px;">
+    <h2 style="font-size: 1.25rem; margin-bottom: 10px;">Testimonial #1</h2>
+    <p style="font-size: 1rem; line-height: 1.5;">
+      “This aircraft flew beautifully across the Rockies and made its final delivery on time. The pilot handled unexpected weather like a pro.”
+    </p>
+    <p style="font-size: 1rem; font-style: italic; margin-top: 10px;">
+      — Happy Customer, N4352X
+    </p>
+  </section>
+
+  <!-- Testimonial 2 -->
+  <section id="testimonial2" class="testimonial-block" style="margin-bottom: 40px;">
+    <h2 style="font-size: 1.25rem; margin-bottom: 10px;">Testimonial #2</h2>
+    <p style="font-size: 1rem; line-height: 1.5;">
+      “Aircraft Delivery Solutions was efficient, communicative, and professional throughout the entire process.”
+    </p>
+    <p style="font-size: 1rem; font-style: italic; margin-top: 10px;">
+      — Client, Cessna 172, Florida
+    </p>
+  </section>
+
+  <!-- Testimonial 3 -->
+  <section id="testimonial3" class="testimonial-block" style="margin-bottom: 40px;">
+    <h2 style="font-size: 1.25rem; margin-bottom: 10px;">Testimonial #3</h2>
+    <p style="font-size: 1rem; line-height: 1.5;">
+      “From preflight logistics to final handoff, everything was handled professionally and smoothly.”
+    </p>
+    <p style="font-size: 1rem; font-style: italic; margin-top: 10px;">
+      — Buyer, King Air 350, Texas
+    </p>
+  </section>
+
+</main>
+
+
+<!-- Global modal that stays hidden until triggered -->
+<!-- Shared Image Modal -->
+<div id="imgModal">
+  <div class="modal-inner">
+    <img id="modalImg"
+      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+      alt="Full image" />
+    <p id="modalCaption"></p>
+    <button id="modalClose">Close</button>
+  </div>
+</div>
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>
