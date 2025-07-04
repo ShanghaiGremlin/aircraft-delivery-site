@@ -343,3 +343,21 @@ document.querySelectorAll(".mob-past-deliv-thumb").forEach(img => {
   });
 });
 
+// === Remember scroll position before leaving /testimonials ===
+document.querySelectorAll(".back-to-past-deliveries").forEach((link) => {
+  link.addEventListener("click", function () {
+    sessionStorage.setItem("pastDeliveriesScrollY", window.scrollY);
+  });
+});
+
+// === Restore scroll position when returning to /past-deliveries ===
+document.addEventListener("DOMContentLoaded", function () {
+  const path = window.location.pathname;
+  if (path === "/past-deliveries") {
+    const savedScrollY = sessionStorage.getItem("pastDeliveriesScrollY");
+    if (savedScrollY !== null) {
+      window.scrollTo(0, parseInt(savedScrollY));
+      sessionStorage.removeItem("pastDeliveriesScrollY");
+    }
+  }
+});
