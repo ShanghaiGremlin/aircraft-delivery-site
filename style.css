@@ -884,6 +884,30 @@ margin-top: 10px;
   display: none; /* hides the caption in thumbnail view */
 }
 
+.mob-past-deliv-text {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  font-size: 16px;
+  padding: 0 10px;
+  margin-top: 6px;
+}
+
+.mob-past-deliv-panel.open .mob-past-deliv-text {
+  max-height: 300px; /* adjust as needed */
+  padding-top: 10px;
+}
+
+.mob-past-deliv-testim-thumb {
+  transition: transform 0.2s ease;
+}
+
+.mob-past-deliv-testim-caption {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 6px;
+}
+
 }
 
 }
