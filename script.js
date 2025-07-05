@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let desktopIndex = 0;
   let desktopCycles = 0;
   const desktopMaxCycles = 3;
+  let desktopInterval; // store the current interval
 
   function showDesktopSlide(index) {
     desktopSlides.forEach((slide, i) => {
@@ -10,28 +11,37 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  function changeDesktopSlide(n) {
-    desktopIndex = (desktopIndex + n + desktopSlides.length) % desktopSlides.length;
-    showDesktopSlide(desktopIndex);
-  }
+  function scheduleNextSlide() {
+    // Set delay: 15000ms for slide 1, otherwise 5000ms
+    const delay = (desktopIndex === 1) ? 15000 : 5000;
 
-  if (desktopSlides.length > 0) {
-    showDesktopSlide(desktopIndex);
-    window.changeSlide = changeDesktopSlide;
-
-    const desktopInterval = setInterval(() => {
+    desktopInterval = setTimeout(() => {
       desktopIndex = (desktopIndex + 1) % desktopSlides.length;
       showDesktopSlide(desktopIndex);
 
       if (desktopIndex === 0) {
         desktopCycles++;
         if (desktopCycles >= desktopMaxCycles) {
-          clearInterval(desktopInterval);
+          return; // Stop autoplay
         }
       }
-    }, 5000);
 
-    // Optional: allow manual prev/next if IDs exist
+      scheduleNextSlide(); // Recursive schedule
+    }, delay);
+  }
+
+  function changeDesktopSlide(n) {
+    clearTimeout(desktopInterval);
+    desktopIndex = (desktopIndex + n + desktopSlides.length) % desktopSlides.length;
+    showDesktopSlide(desktopIndex);
+    scheduleNextSlide(); // Restart after manual change
+  }
+
+  if (desktopSlides.length > 0) {
+    showDesktopSlide(desktopIndex);
+    scheduleNextSlide();
+
+    // Hook up Prev / Next buttons if present
     const prevBtn = document.getElementById("prevSlide");
     const nextBtn = document.getElementById("nextSlide");
 
@@ -39,8 +49,12 @@ document.addEventListener("DOMContentLoaded", function () {
       prevBtn.addEventListener("click", () => changeDesktopSlide(-1));
       nextBtn.addEventListener("click", () => changeDesktopSlide(1));
     }
+
+    // Expose function for inline HTML buttons if needed
+    window.changeSlide = changeDesktopSlide;
   }
 });
+
 
 
 
