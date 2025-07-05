@@ -15,29 +15,33 @@ document.addEventListener("DOMContentLoaded", function () {
     showDesktopSlide(desktopIndex);
   }
 
-  function startSlideshow() {
+  if (desktopSlides.length > 0) {
     showDesktopSlide(desktopIndex);
+    window.changeSlide = changeDesktopSlide;
 
-    const delay = (desktopIndex === 1) ? 15000 : 5000;
-
-    setTimeout(() => {
+    const desktopInterval = setInterval(() => {
       desktopIndex = (desktopIndex + 1) % desktopSlides.length;
+      showDesktopSlide(desktopIndex);
+
       if (desktopIndex === 0) {
         desktopCycles++;
-        if (desktopCycles >= desktopMaxCycles) return;
+        if (desktopCycles >= desktopMaxCycles) {
+          clearInterval(desktopInterval);
+        }
       }
-      startSlideshow();
-    }, delay);
-  }
+    }, 5000);
 
-  if (desktopSlides.length > 0) {
-    startSlideshow();
+    // Optional: allow manual prev/next if IDs exist
+    const prevBtn = document.getElementById("prevSlide");
+    const nextBtn = document.getElementById("nextSlide");
 
-    // Enable buttons
-    document.getElementById("prevSlide")?.addEventListener("click", () => changeDesktopSlide(-1));
-    document.getElementById("nextSlide")?.addEventListener("click", () => changeDesktopSlide(1));
+    if (prevBtn && nextBtn) {
+      prevBtn.addEventListener("click", () => changeDesktopSlide(-1));
+      nextBtn.addEventListener("click", () => changeDesktopSlide(1));
+    }
   }
 });
+
 
 
       // === MOBILE SLIDESHOW ===
