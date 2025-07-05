@@ -1,54 +1,44 @@
-// === DESKTOP & MOBILE SLIDESHOW ===
-  document.addEventListener("DOMContentLoaded", function () {
-    console.log("DOM fully loaded");
+document.addEventListener("DOMContentLoaded", function () {
+  const desktopSlides = document.querySelectorAll("#desktop-slideshow .slide");
+  let desktopIndex = 0;
+  let desktopCycles = 0;
+  const desktopMaxCycles = 3;
 
-    // === DESKTOP SLIDESHOW ===
-    const desktopSlides = document.querySelectorAll("#desktop-slideshow .slide");
-    let desktopIndex = 0;
-    let desktopCycles = 0;
-    const desktopMaxCycles = 3;
-
-    function showDesktopSlide(index) {
-      desktopSlides.forEach((slide, i) => {
-        slide.style.display = i === index ? "block" : "none";
-      });
-    }
-
-    function changeDesktopSlide(n) {
-      desktopIndex = (desktopIndex + n + desktopSlides.length) % desktopSlides.length;
-      showDesktopSlide(desktopIndex);
-    }
-
-    if (desktopSlides.length > 0) {
-      showDesktopSlide(desktopIndex);
-      window.changeSlide = changeDesktopSlide;
-
-      const desktopInterval = setInterval(() => {
-  desktopIndex = (desktopIndex + 1) % desktopSlides.length;
-  showDesktopSlide(desktopIndex);
-
-  if (desktopIndex === 0) {
-    desktopCycles++;
-    if (desktopCycles >= desktopMaxCycles) {
-      clearInterval(desktopInterval);
-    }
+  function showDesktopSlide(index) {
+    desktopSlides.forEach((slide, i) => {
+      slide.style.display = i === index ? "block" : "none";
+    });
   }
 
-  // Adjust timing if next slide is index 1 (i.e., Slide 2)
-  clearInterval(desktopInterval);
-  const nextDelay = (desktopIndex === 1) ? 15000 : 5000;
-  setTimeout(() => {
-    desktopIndex = (desktopIndex + 1) % desktopSlides.length;
+  function changeDesktopSlide(n) {
+    desktopIndex = (desktopIndex + n + desktopSlides.length) % desktopSlides.length;
     showDesktopSlide(desktopIndex);
-  }, nextDelay);
-}, 5000); // Initial default delay
+  }
 
+  function startSlideshow() {
+    showDesktopSlide(desktopIndex);
 
-      document.getElementById("prevSlide").addEventListener("click", () => changeDesktopSlide(-1));
-document.getElementById("nextSlide").addEventListener("click", () => changeDesktopSlide(1));
+    const delay = (desktopIndex === 1) ? 15000 : 5000;
 
-    }
-  });
+    setTimeout(() => {
+      desktopIndex = (desktopIndex + 1) % desktopSlides.length;
+      if (desktopIndex === 0) {
+        desktopCycles++;
+        if (desktopCycles >= desktopMaxCycles) return;
+      }
+      startSlideshow();
+    }, delay);
+  }
+
+  if (desktopSlides.length > 0) {
+    startSlideshow();
+
+    // Enable buttons
+    document.getElementById("prevSlide")?.addEventListener("click", () => changeDesktopSlide(-1));
+    document.getElementById("nextSlide")?.addEventListener("click", () => changeDesktopSlide(1));
+  }
+});
+
 
       // === MOBILE SLIDESHOW ===
     const mobileSlides = document.querySelectorAll("#mobile-slideshow .slide");
