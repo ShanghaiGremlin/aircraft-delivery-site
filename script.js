@@ -34,9 +34,14 @@
           }
         }
       }, 5000);
-    }
 
-    // === MOBILE SLIDESHOW ===
+      document.getElementById("prevSlide").addEventListener("click", () => changeDesktopSlide(-1));
+document.getElementById("nextSlide").addEventListener("click", () => changeDesktopSlide(1));
+
+    }
+  });
+
+      // === MOBILE SLIDESHOW ===
     const mobileSlides = document.querySelectorAll("#mobile-slideshow .slide");
     let mobileIndex = 0;
     let mobileCycles = 0;
@@ -259,7 +264,7 @@ console.log("Tooltip script loaded");
         }
       });
     });
-  });
+
 
 
   // === Global Modal Fallbacks ===
