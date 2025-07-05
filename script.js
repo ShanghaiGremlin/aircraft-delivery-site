@@ -24,16 +24,25 @@
       window.changeSlide = changeDesktopSlide;
 
       const desktopInterval = setInterval(() => {
-        desktopIndex = (desktopIndex + 1) % desktopSlides.length;
-        showDesktopSlide(desktopIndex);
+  desktopIndex = (desktopIndex + 1) % desktopSlides.length;
+  showDesktopSlide(desktopIndex);
 
-        if (desktopIndex === 0) {
-          desktopCycles++;
-          if (desktopCycles >= desktopMaxCycles) {
-            clearInterval(desktopInterval);
-          }
-        }
-      }, 5000);
+  if (desktopIndex === 0) {
+    desktopCycles++;
+    if (desktopCycles >= desktopMaxCycles) {
+      clearInterval(desktopInterval);
+    }
+  }
+
+  // Adjust timing if next slide is index 1 (i.e., Slide 2)
+  clearInterval(desktopInterval);
+  const nextDelay = (desktopIndex === 1) ? 15000 : 5000;
+  setTimeout(() => {
+    desktopIndex = (desktopIndex + 1) % desktopSlides.length;
+    showDesktopSlide(desktopIndex);
+  }, nextDelay);
+}, 5000); // Initial default delay
+
 
       document.getElementById("prevSlide").addEventListener("click", () => changeDesktopSlide(-1));
 document.getElementById("nextSlide").addEventListener("click", () => changeDesktopSlide(1));
