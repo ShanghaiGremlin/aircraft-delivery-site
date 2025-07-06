@@ -22,10 +22,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-
-    });
-  }
-
   
   const desktopSlides = document.querySelectorAll("#desktop-slideshow .slide");
   let desktopIndex = 0;
@@ -81,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Expose function for inline HTML buttons if needed
     window.changeSlide = changeDesktopSlide;
   }
-});
+
 
 
 
