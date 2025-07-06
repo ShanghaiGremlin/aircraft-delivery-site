@@ -22,7 +22,7 @@ tbody td {
   width: 98%;
   margin: 0 auto;
   border-collapse: collapse;
-  table-layout: fixed;
+  table-layout: auto;
   background-color: #fff;
   font-family: Arial, sans-serif;
   font-size: 1.05rem;
