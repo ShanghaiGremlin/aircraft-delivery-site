@@ -78,6 +78,11 @@ tbody td {
   vertical-align: bottom;
 }
 
+.gallery-desc-cell {
+  vertical-align: top;
+}
+
+
 /* === DESKTOP-HIDE / MOBILE-SHOW === */
 .mobile-header {
   display: none;
