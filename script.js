@@ -1,4 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const pilotRatingsBtn = document.getElementById("pilot-ratings-btn");
+  const customModal = document.getElementById("custom-modal");
+  const modalClose = document.getElementById("custom-modal-close");
+
+  if (pilotRatingsBtn && customModal && modalClose) {
+    pilotRatingsBtn.addEventListener("click", function () {
+      customModal.style.display = "flex";
+    });
+
+    modalClose.addEventListener("click", function () {
+      customModal.style.display = "none";
+    });
+  }
+
+  
   const desktopSlides = document.querySelectorAll("#desktop-slideshow .slide");
   let desktopIndex = 0;
   let desktopCycles = 0;
@@ -381,24 +396,6 @@ if (window.location.pathname === "/past-deliveries") {
       localStorage.setItem("scrollPosition", window.scrollY);
     });
   });
-
-document.addEventListener("DOMContentLoaded", function () {
-  const pilotRatingsBtn = document.getElementById("pilot-ratings-btn");
-  const customModal = document.getElementById("custom-modal");
-  const modalClose = document.getElementById("custom-modal-close");
-
-  if (pilotRatingsBtn && customModal && modalClose) {
-    pilotRatingsBtn.addEventListener("click", function () {
-      customModal.style.display = "flex";
-    });
-
-    modalClose.addEventListener("click", function () {
-      customModal.style.display = "none";
-    });
-  }
-});
-
-
 
 }
 
