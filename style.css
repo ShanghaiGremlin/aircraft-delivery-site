@@ -137,6 +137,41 @@ tbody td {
   transform: rotate(180deg);
 }
 
+/* === DESKTOP-PILOT HIRING === */
+.newspaper-section {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  display: flow-root; /* ensures float doesn't collapse container */
+  margin: 20px auto;
+  max-width: 1000px;
+  padding: 0 20px;
+  text-align: left;
+}
+
+.newspaper-img {
+  float: right;
+  width: 300px;
+  max-width: 40%;
+  height: auto;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+
+.newspaper-section ul,
+.newspaper-section ol {
+  padding-left: 40px;
+  margin-top: 0;
+}
+
+.newspaper-section p {
+  font-size: 1.5rem;
+  margin-top: 1.2em;
+}
+
+
 /* === DESKTOP-HIDE / MOBILE-SHOW === */
 .mobile-header {
   display: none;
