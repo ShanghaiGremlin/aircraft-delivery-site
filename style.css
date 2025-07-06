@@ -59,6 +59,14 @@ tbody td {
   opacity: 1;
 }
 
+.all-borders th,
+.all-borders td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+  vertical-align: middle;
+  word-wrap: break-word;
+}
 
 /* === PAGE TITLE & TAGLINE === */
 .page-title-brick {
