@@ -24,6 +24,7 @@ tbody td {
   overflow: visible;
   text-align: center;
   width: 100%;
+  z-index: 1; /* default stacking */
 }
 
 .img-wrap a {
@@ -55,6 +56,9 @@ tbody td {
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
+}
+.img-wrap:hover {
+  z-index: 10;
 }
 
 .img-wrap:hover .thumbnail {
