@@ -10,6 +10,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     modalClose.addEventListener("click", function () {
       customModal.style.display = "none";
+
+      customModal.addEventListener("click", () => customModal.style.display = "none");
+
+
     });
   }
 
