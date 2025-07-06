@@ -65,6 +65,10 @@ tbody td {
   opacity: 1;
 }
 
+.img-wrap:hover .thumbnail {
+  transform: scale(1.1);
+  border: 2px solid red;
+}
 
 
 
