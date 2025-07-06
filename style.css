@@ -34,6 +34,8 @@ tbody td {
   margin-bottom: 5px;
   transition: transform 0.3s ease;
   display: block;
+  transform-origin: center center;
+  transition: transform 0.3s ease;
 }
 
 .caption {
@@ -52,11 +54,16 @@ tbody td {
 }
 
 .img-wrap:hover .thumbnail {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .img-wrap:hover .caption {
   opacity: 1;
+}
+
+.img-wrap a {
+  display: block;
+  overflow: visible;
 }
 
 .all-borders th,
