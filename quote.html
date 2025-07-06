@@ -77,7 +77,7 @@
 
 <main>
 
-<div class="desktop-only" style="padding-top: 145px;">
+<div class="desktop-only" style="padding-top: 145px; background-color: #eaeaf6">
 <h1 class="page-title-brick">GET A QUOTE</h1>
 
 <table style="width: 100%; border-collapse: collapse; table-layout: fixed;">
@@ -223,12 +223,14 @@
   </label><br><br>
 
   <!-- Client-Preferred Delivery Method -->
-   <fieldset>
-  <legend>Client-Preferred Delivery Method:</legend>
-  <label><input type="radio" name="delivery_method" value="Ferry Flight"> Ferry Flight </label>
-  <label><input type="radio" name="delivery_method" value="Container Shipping"> Container Shipping </label>
-  <label><input type="radio" name="delivery_method" value="Undecided"> Undecided </label><br><br>
+<fieldset style="display: inline-block; border: 1px solid #ccc; padding: 10px 15px; border-radius: 8px;">
+  <legend style="font-weight: bold;">Client-Preferred Delivery Method:</legend>
+  <label><input type="radio" name="delivery_method" value="Ferry Flight"> Ferry Flight </label><br>
+  <label><input type="radio" name="delivery_method" value="Container Shipping"> Container Shipping </label><br>
+  <label><input type="radio" name="delivery_method" value="Undecided"> Undecided </label>
 </fieldset>
+
+
   <!-- Desired Delivery Date -->
   <label for="delivery_date">Desired Delivery Date: </label>
   <input type="date" id="delivery_date" name="delivery_date"><br><br>
