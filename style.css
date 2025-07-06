@@ -20,9 +20,15 @@ tbody td {
 
 .img-wrap {
   position: relative;
-  display: inline-block;
+  display: block;
   overflow: hidden;
   text-align: center;
+  width: 100%;
+}
+
+.img-wrap a {
+  display: block;
+  overflow: visible;
 }
 
 .thumbnail {
@@ -33,9 +39,7 @@ tbody td {
   box-shadow: 0 1px 4px rgba(0,0,0,0.2);
   margin-bottom: 5px;
   transition: transform 0.3s ease;
-  display: block;
   transform-origin: center center;
-  transition: transform 0.3s ease;
 }
 
 .caption {
@@ -61,10 +65,8 @@ tbody td {
   opacity: 1;
 }
 
-.img-wrap a {
-  display: block;
-  overflow: visible;
-}
+
+
 
 .all-borders th,
 .all-borders td {
