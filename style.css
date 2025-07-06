@@ -75,11 +75,11 @@ tbody td {
 }
 
 .gallery-img-cell {
-  vertical-align: bottom; border: 1px solid red;
+  vertical-align: bottom; border: 1px solid gray; border-bottom: none;
 }
 
 .gallery-desc-cell {
-  vertical-align: top; border: 1px solid red;
+  vertical-align: top; border: 1px solid gray; border-top: none;
 }
 
 .gallery-table {
