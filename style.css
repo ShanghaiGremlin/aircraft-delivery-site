@@ -140,7 +140,6 @@ tbody td {
 /* === DESKTOP-PILOT HIRING === */
 .newspaper-section {
   width: 90vw; /* 90% of viewport width */
-  max-width: 1000px; /* optional cap */
   margin: 0 auto;    /* center horizontally */
   text-align: left;
 }
