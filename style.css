@@ -102,7 +102,7 @@ tbody td {
   overflow: hidden;
   transition: max-height 0.3s ease;
   font-size: 1.2rem;
-  padding-left: 0 40px 0 30px;
+  padding: 0 40px 15px 30px;
 }
 
 .accordion-header {
