@@ -21,7 +21,7 @@ tbody td {
 .img-wrap {
   position: relative;
   display: block;
-  overflow: hidden;
+  overflow: visible;
   text-align: center;
   width: 100%;
 }
