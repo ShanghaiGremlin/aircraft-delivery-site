@@ -109,15 +109,16 @@ tbody td {
   padding: 12px 20px;
   border: none;
   border-radius: 6px;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   cursor: pointer;
   width: 60%;
-  text-align: left;
+  text-align: center;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: space-between;
   align-items: center;
   transition: background-color 0.3s ease;
+  margin: 0 auto;
 }
 
 .accordion-header:hover {
