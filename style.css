@@ -107,6 +107,11 @@ tbody td {
   transform: rotate(180deg);
 }
 
+.accordion-header {
+  font-size: 1.25rem;
+  background-color: blue;
+  color: white
+}
 
 /* === DESKTOP-HIDE / MOBILE-SHOW === */
 .mobile-header {
