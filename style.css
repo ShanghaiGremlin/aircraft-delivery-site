@@ -68,6 +68,12 @@ tbody td {
   border-bottom: 1px solid #2A4570;
 }
 
+/* === DESKTOP PILOT DIRECTORY === */
+
+.pilot-name {
+  font-size: 0.8rem
+}
+
 /* === DESKTOP-HIDE / MOBILE-SHOW === */
 .mobile-header {
   display: none;
