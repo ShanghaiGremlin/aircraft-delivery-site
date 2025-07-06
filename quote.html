@@ -63,7 +63,7 @@
   </div>
   <!-- Optional bleed-right element -->
   <!-- <div class="header-bleed-right"></div> -->
-</header>
+
 
 
   <div class="mobile-menu" id="mobileMenu">
@@ -76,7 +76,9 @@
       <a href="/past-deliveries">Past Deliveries</a>
     </nav>
   </div>
-</div>
+</header>
+
+
 
 <main style="background-color: #f5f5f5;">
 <div class="desktop-only" style="padding-top: 145px;">
@@ -225,11 +227,12 @@
   </label><br><br>
 
   <!-- Client-Preferred Delivery Method -->
+   <fieldset>
   <legend>Client-Preferred Delivery Method:</legend>
   <label><input type="radio" name="delivery_method" value="Ferry Flight"> Ferry Flight </label>
   <label><input type="radio" name="delivery_method" value="Container Shipping"> Container Shipping </label>
   <label><input type="radio" name="delivery_method" value="Undecided"> Undecided </label><br><br>
-
+</fieldset>
   <!-- Desired Delivery Date -->
   <label for="delivery_date">Desired Delivery Date: </label>
   <input type="date" id="delivery_date" name="delivery_date"><br><br>
@@ -277,12 +280,11 @@
     Submit
   </button>
 </form>
-
-
 </div>
   </td>
-
-    <!-- Right Col -->
+</tr>
+<tr>
+  <!-- Right Col -->
     <td style="border-right: none; border-top: none; border-bottom: none; padding: 0px 20px; vertical-align: top; text-align:left;">
       <h1 style="margin-top: 10; text-align: center;"><u>Prices</u></h1>
       <h3>Provided to answer common questions and allow you to get oriented to what your proposed project might cost.</h3>
@@ -340,7 +342,8 @@
 <p>• On-call flighcrew support. I'm available 24 hours a day while ferry flights are in progress.</p>
 <p>• Flight planning assistance. I augment the flighcrew's flight planning activities and products.</p>
 <p>• Weather analysis. I monitor weather reporting and forecasts in augmentation of flightcrew weather collection.</p>
-<p>• Travel support. I assist flightcrews in obtaining travel, lodging and meals.</p></td>
+<p>• Travel support. I assist flightcrews in obtaining travel, lodging and meals.</p>
+</td>
 </tr>
 </table>
 
@@ -541,7 +544,7 @@ box-sizing: border-box;">
 <li style="font-size: 0.875rem; margin-bottom: 6px;"><b> Weather analysis.</b> I monitor weather reporting and forecasts in augmentation of flightcrew weather collection.</li>
 <li style="font-size: 0.875rem;"><b>Travel support.</b> I assist flightcrews in obtaining travel, lodging and meals.</li></ul>
 </div></div>
-</div>
+</div></div>
 
 </main>
 <script src="script.js"></script>
