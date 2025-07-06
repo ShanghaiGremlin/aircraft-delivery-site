@@ -82,6 +82,17 @@ tbody td {
   vertical-align: top; border: 1px solid red;
 }
 
+.gallery-table {
+  width: 96%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.gallery-table td,
+.gallery-table th {
+  width: 25%;
+}
+
 
 /* === DESKTOP-HIDE / MOBILE-SHOW === */
 .mobile-header {
