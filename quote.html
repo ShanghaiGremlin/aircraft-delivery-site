@@ -195,19 +195,19 @@
 
 
   <!-- Aircraft Registration -->
-   <div style="margin-bottom: 12px;"></div>
+   <div style="margin-bottom: 12px;">
   <label for="Aircraft Registration" style="display: inline-block; width: 290px;">Aircraft Registration:</label>
-    <input type="text" name="aircraft_registration" id="aircraft_registration" placeholder="N12345; C-NMBR, etc" size="25" style="width: 250px;"><br><br>
+    <input type="text" name="aircraft_registration" id="aircraft_registration" placeholder="N12345; C-NMBR, etc" size="25" style="width: 250px;"></div>
 
   <!-- Aircraft Make & Model -->
-   <div style="margin-bottom: 12px;"></div>
+   <div style="margin-bottom: 12px;">
   <label for="Aircraft Make & Model" style="display: inline-block; width: 290px;">Aircraft Make & Model:</label>
-    <input type="text" name="aircraft_model" id="aircraft_model" size="25" style="width: 250px;"><br><br>
+    <input type="text" name="aircraft_model" id="aircraft_model" size="25" style="width: 250px;"></div>
 
   <!-- Registered Owner -->
-  <label>Registered Owner Name(s):
-    <input type="text" name="owner_name">
-  </label><br><br>
+   <div style="margin-bottom: 12px;">
+  <label for="Registered Owner Name(s)" style="display: inline-block; width: 290px;">Register Owner Name(s):</label>
+    <input type="text" name="owner_name" id="owner_name" size="25" style="width: 250px;"></div>
 
   <!-- Type of Ownership -->
    <fieldset style="border: none; padding: 0; margin: 0;">
@@ -219,19 +219,19 @@
   </label></fieldset><br><br>
 
   <!-- Operator -->
-  <label>Operator:
-    <input type="text" name="operator">
-  </label><br><br>
+   <div style="margin-bottom: 12px;">
+  <label for="Operator" style="display: inline-block; width: 290px;">Operator:</label>
+    <input type="text" name="operator" id="operator" size="25" style="width: 250px;"></div>
 
   <!-- Pickup Airport -->
-  <label>Pickup Airport:
-    <input type="text" name="pickup_airport">
-  </label><br><br>
+   <div style="margin-bottom: 12px;">
+  <label for="Pickup Airport" style="display: inline-block; width: 290px;">Pickup Airport:</label>
+    <input type="text" name="pickup_airport" id="pickup_airport" size="25" style="width: 250px;"></div>
 
   <!-- Delivery Airport -->
-  <label>Delivery Airport:
-    <input type="text" name="delivery_airport">
-  </label><br><br>
+   <div style="margin-bottom: 12px;">
+  <label for="Delivery Airport" style="display: inline-block; width: 290px;">Delivery Airport:</label>
+    <input type="text" name="delivery_airport" id="delivery_airport" size="25" style="width: 250px;"></div>
 
   <!-- Client-Preferred Delivery Method -->
   <fieldset style="border: none; padding: 0; margin: 0;">
@@ -243,16 +243,19 @@
 
 
   <!-- Desired Delivery Date -->
-  <label for="delivery_date">Desired Delivery Date: </label>
-  <input type="date" id="delivery_date" name="delivery_date"><br><br>
+   <div style="margin-bottom: 12px;">
+  <label for="Desired Delivery Date" style="display: inline-block; width: 290px;">Desired Delivery Date:</label>
+    <input type="text" name="delivery_date" id="delivery_date" size="25" style="width: 250px;"></div>
 
   <!-- Avionics Installed -->
-  <label for="avionics">Avionics Installed: </label>
-  <input type="text" id="avionics" name="avionics" placeholder="G1000, Collins, etc."><br><br>
+   <div style="margin-bottom: 12px;">
+  <label for="Avionics Installed" style="display: inline-block; width: 290px;">Avionics Installed:</label>
+    <input type="text" name="avionics" id="avionics" placeholder="G1000, Collins, etc" size="25" style="width: 250px;"></div>
 
   <!-- Engine Description -->
-  <label for="engine_description">Engine Description: </label>
-  <input type="text" id="engine_description" name="engine_description" placeholder="PT6, TIO-540, etc."><br><br>
+   <div style="margin-bottom: 12px;">
+  <label for="Engine Description" style="display: inline-block; width: 290px;">Engine Description:</label>
+    <input type="text" name="engine_description" id="engine_description" placeholder="PT-6, TIO-540, etc" size="25" style="width: 250px;"></div>
 
   <!-- Ordinary Use of Aircraft -->
   <fieldset style="border: none; padding: 0; margin: 0;">
@@ -268,12 +271,14 @@
   </fieldset><br>
 
   <!-- Budget for Delivery -->
-  <label for="budget">Budget for Delivery: </label>
-  <input type="text" id="budget" name="budget" placeholder="USD"><br><br>
+    <div style="margin-bottom: 12px;">
+  <label for="Budget for Delivery" style="display: inline-block; width: 290px;">Budget for Delivery:</label>
+    <input type="text" name="budget" id="budget" placeholder="USD" size="25" style="width: 250px;"></div>
 
   <!-- Supplemental Information -->
-  <label for="supplemental_info">Supplemental Information: </label>
-  <textarea id="supplemental_info" name="supplemental_info" rows="4" cols="50"></textarea><br><br>
+   <div style="margin-bottom: 12px;">
+  <label for="supplemental_info" style="display: inline-block; width: 290px;">Supplemental Information: </label>
+  <textarea id="supplemental_info" name="supplemental_info" rows="4" cols="50"></textarea></div>
 
   <!-- Redirect on success -->
   <input type="hidden" name="_redirect" value="https://aircraft.delivery/thanks">
