@@ -3,6 +3,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const customModal = document.getElementById("custom-modal");
   const modalClose = document.getElementById("custom-modal-close");
 
+  // ✅ Close modal on any click (first thing)
+  if (customModal) {
+    customModal.addEventListener("click", function () {
+      this.style.display = "none";
+    });
+  }
+
+  // ✅ Button opens modal
   if (pilotRatingsBtn && customModal && modalClose) {
     pilotRatingsBtn.addEventListener("click", function () {
       customModal.style.display = "flex";
@@ -10,8 +18,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     modalClose.addEventListener("click", function () {
       customModal.style.display = "none";
-
-      customModal.addEventListener("click", () => customModal.style.display = "none");
+    });
+  }
+});
 
 
     });
