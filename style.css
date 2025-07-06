@@ -87,6 +87,7 @@ tbody td {
   table-layout: fixed;
   border-collapse: collapse;
   margin: 0 auto;
+  background-color: #f7f7f7;
 }
 
 .gallery-table td,
