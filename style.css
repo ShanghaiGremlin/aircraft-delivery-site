@@ -58,17 +58,13 @@ tbody td {
 }
 
 .img-wrap:hover .thumbnail {
-  transform: scale(1.03);
+  transform: scale(1.10);
 }
 
 .img-wrap:hover .caption {
   opacity: 1;
 }
 
-.img-wrap:hover .thumbnail {
-  transform: scale(1.1);
-  border: 2px solid red;
-}
 
 
 
