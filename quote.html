@@ -175,14 +175,24 @@
 <div style="text-align: left;">
 <form id="quote-form-desktop">
 
-  <!-- Name -->
-  <label>Name: <input type="text" name="name"></label><br><br>
+<!-- Name -->
+<div style="margin-bottom: 12px;">
+  <label for="name" style="display: inline-block; width: 160px;">Name:</label>
+  <input type="text" name="name" id="name" style="width: 250px;">
+</div>
 
-  <!-- Email -->
-  <label>Email (required): <input type="email" name="email" required></label><br><br>
+<!-- Email -->
+<div style="margin-bottom: 12px;">
+  <label for="email" style="display: inline-block; width: 160px;">Email (required):</label>
+  <input type="email" name="email" id="email" required style="width: 250px;">
+</div>
 
-  <!-- Phone -->
-  <label>Phone: <input type="tel" name="phone" size="25"></label><br><br>
+<!-- Phone -->
+<div style="margin-bottom: 12px;">
+  <label for="phone" style="display: inline-block; width: 160px;">Phone:</label>
+  <input type="tel" name="phone" id="phone" size="25" style="width: 250px;">
+</div>
+
 
   <!-- Aircraft Registration -->
   <label>Aircraft Registration:
@@ -224,7 +234,7 @@
 
   <!-- Client-Preferred Delivery Method -->
   <fieldset style="border: none;">
-  <legend>Client-Preferred Delivery Method:</legend>
+  <legend><u>Client-Preferred Delivery Method:</u></legend>
   <label><input type="radio" name="delivery_method" value="Ferry Flight"> Ferry Flight </label><br>
   <label><input type="radio" name="delivery_method" value="Container Shipping"> Container Shipping </label><br>
   <label><input type="radio" name="delivery_method" value="Undecided"> Undecided </label>
@@ -245,7 +255,7 @@
 
   <!-- Ordinary Use of Aircraft -->
   <fieldset style="border: none;">
-    <legend>Ordinary Use of Aircraft (Check any that apply):</legend>
+    <legend><u>Ordinary Use of Aircraft (Check any that apply):</u></legend>
     <label><input type="checkbox" name="aircraft_use[]" value="Personal"> Personal</label><br>
     <label><input type="checkbox" name="aircraft_use[]" value="Flight School"> Flight School</label><br>
     <label><input type="checkbox" name="aircraft_use[]" value="Charter"> Charter</label><br>
