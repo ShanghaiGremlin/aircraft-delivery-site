@@ -87,6 +87,37 @@ tbody td {
   padding-left: 10px;  /* optional: adds breathing room */
 }
 
+/* === DESKTOP TOOLTIPS === */
+
+.tooltip-custom {
+  position: relative;
+  border-bottom: 1px dashed #666;
+  cursor: help;
+}
+
+.tooltip-custom::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 125%; /* position above the text */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 6px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-size: 0.85rem;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.tooltip-custom:hover::after {
+  opacity: 1;
+}
+
 /* === PAGE TITLE & TAGLINE === */
 .page-title-brick {
   background-color: #2c2c2c;
@@ -256,6 +287,10 @@ tbody td {
 
   .fixed-header {
     display: none !important;
+  }
+
+    .tooltip-custom::after {
+    display: none;
   }
 
   .mobile-header {
