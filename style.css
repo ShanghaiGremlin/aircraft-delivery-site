@@ -96,6 +96,18 @@ tbody td {
 }
 
 
+/* === DESKTOP ACCORDION === */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.accordion-header.active .chevron {
+  transform: rotate(180deg);
+}
+
+
 /* === DESKTOP-HIDE / MOBILE-SHOW === */
 .mobile-header {
   display: none;
