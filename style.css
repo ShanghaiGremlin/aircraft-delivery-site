@@ -111,7 +111,7 @@ tbody td {
   border-radius: 6px;
   font-size: 1.1rem;
   cursor: pointer;
-  width: 100%;
+  width: 60%;
   text-align: left;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
   display: flex;
