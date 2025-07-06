@@ -103,14 +103,35 @@ tbody td {
   transition: max-height 0.3s ease;
 }
 
-.accordion-header.active .chevron {
-  transform: rotate(180deg);
+.accordion-header {
+  background-color: #007bff; /* Bootstrap blue */
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
 }
 
-.accordion-header {
-  font-size: 1.5rem;
-  background-color: blue;
-  color: white
+.accordion-header:hover {
+  background-color: #0056b3;
+}
+
+.accordion-header .chevron {
+  font-size: 1.2rem;
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+}
+
+.accordion-header.active .chevron {
+  transform: rotate(180deg);
 }
 
 /* === DESKTOP-HIDE / MOBILE-SHOW === */
