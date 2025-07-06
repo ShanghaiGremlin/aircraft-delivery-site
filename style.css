@@ -18,40 +18,11 @@ tbody td {
 
 /* === DESKTOP PAST DELIVERIES === */
 
-.all-borders {
-  width: 98%;
-  margin: 0 auto;
-  border-collapse: collapse;
-  table-layout: auto;
-  background-color: #fff;
-  font-family: Arial, sans-serif;
-  font-size: 1.05rem;
-  line-height: 1.4;
-  box-sizing: border-box;
-}
-
-.all-borders th,
-.all-borders td {
-  border: 1px solid #ccc;
-  padding: 8px;
-  text-align: center;
-  vertical-align: middle;
-  word-wrap: break-word;
-}
-
-.all-borders th {
-  background-color: #f5f5f5;
-  font-weight: bold;
-  position: sticky;
-  top: 0;
-  z-index: 2;
-}
-
 .img-wrap {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .thumbnail {
@@ -61,14 +32,33 @@ tbody td {
   border-radius: 4px;
   box-shadow: 0 1px 4px rgba(0,0,0,0.2);
   margin-bottom: 5px;
+  transition: transform 0.3s ease;
+  display: block;
 }
 
 .caption {
-  font-size: 0.85rem;
-  color: #555;
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  padding: 6px 8px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 0.8rem;
   text-align: center;
-  padding: 4px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
 }
+
+.img-wrap:hover .thumbnail {
+  transform: scale(1.05);
+}
+
+.img-wrap:hover .caption {
+  opacity: 1;
+}
+
 
 /* === PAGE TITLE & TAGLINE === */
 .page-title-brick {
