@@ -349,11 +349,9 @@ tbody td {
   }
 
   .mobile-logo {
-  height: 70px;
+  height: 60px;
   width: auto;
   display: block;              /* avoids inline baseline issues */
-  margin: 0 auto;              /* optional: centers horizontally if not using grid */
-  object-fit: contain;         /* ensures clean scaling if needed */
 }
 
   /* === MOBILE MENU === */
