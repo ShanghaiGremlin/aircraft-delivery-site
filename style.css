@@ -318,7 +318,6 @@ tbody td {
   .mobile-header-inner {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
     height: 100%;
   }
 
@@ -354,6 +353,12 @@ tbody td {
   display: block;              /* avoids inline baseline issues */
 }
 
+.mobile-logo-wrap {
+  display: flex;
+  justify-content: center; /* Horizontally center the logo */
+  align-items: center;     /* Vertically center the logo */
+  height: 100%;            /* Ensure it occupies the full height of the header */
+}
   /* === MOBILE MENU === */
   .mobile-menu {
     position: fixed;
