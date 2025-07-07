@@ -271,15 +271,6 @@
   <label for="Registered Owner Name(s)" style="display: inline-block; width: 290px;">Register Owner Name(s):</label>
     <input type="text" name="owner_name" id="owner_name" size="25" style="width: 250px;"></div>
 
-  <!-- Type of Ownership -->
-   <fieldset style="border: none; padding: 0; margin: 0;">
-  <label><u>Type of Ownership (if known):</u><br>
-    <input type="radio" name="ownership" value="Sole Owner"> Sole Owner<br>
-    <input type="radio" name="ownership" value="LLC or other business entity"> LLC or other business entity<br>
-    <input type="radio" name="ownership" value="Partnership"> Partnership<br>
-    <input type="radio" name="ownership" value="Other"> Other
-  </label></fieldset><br><br>
-
   <!-- Operator -->
    <div style="margin-bottom: 12px;">
   <label for="Operator" style="display: inline-block; width: 290px;">Operator:</label>
@@ -294,15 +285,6 @@
    <div style="margin-bottom: 12px;">
   <label for="Delivery Airport" style="display: inline-block; width: 290px;">Delivery Airport:</label>
     <input type="text" name="delivery_airport" id="delivery_airport" size="25" style="width: 250px;"></div>
-
-  <!-- Client-Preferred Delivery Method -->
-  <fieldset style="border: none; padding: 0; margin: 0;">
-  <legend><u>Client-Preferred Delivery Method:</u></legend>
-  <label><input type="radio" name="delivery_method" value="Ferry Flight"> Ferry Flight </label><br>
-  <label><input type="radio" name="delivery_method" value="Container Shipping"> Container Shipping </label><br>
-  <label><input type="radio" name="delivery_method" value="Undecided"> Undecided </label>
-</fieldset><br>
-
 
   <!-- Desired Delivery Date -->
    <div style="margin-bottom: 12px;">
@@ -345,6 +327,14 @@
   </button>
 </td>
 <td>
+    <!-- Type of Ownership -->
+   <fieldset style="border: none; padding: 0; margin: 0;">
+  <label><u>Type of Ownership (if known):</u><br>
+    <input type="radio" name="ownership" value="Sole Owner"> Sole Owner<br>
+    <input type="radio" name="ownership" value="LLC or other business entity"> LLC or other business entity<br>
+    <input type="radio" name="ownership" value="Partnership"> Partnership<br>
+    <input type="radio" name="ownership" value="Other"> Other
+  </label></fieldset><br><br>
   <fieldset style="border: none; padding: 0; margin: 0;">
     <legend><u>Ordinary Use of Aircraft<br>
      (Check any that apply):</u></legend>
@@ -356,6 +346,13 @@
     <label><input type="checkbox" name="aircraft_use[]" value="None - no regular flying"> None - no regular flying</label><br>
     <label><input type="checkbox" name="aircraft_use[]" value="Unknown"> Unknown</label>
   </fieldset><br>
+    <!-- Client-Preferred Delivery Method -->
+  <fieldset style="border: none; padding: 0; margin: 0;">
+  <legend><u>Client-Preferred Delivery Method:</u></legend>
+  <label><input type="radio" name="delivery_method" value="Ferry Flight"> Ferry Flight </label><br>
+  <label><input type="radio" name="delivery_method" value="Container Shipping"> Container Shipping </label><br>
+  <label><input type="radio" name="delivery_method" value="Undecided"> Undecided </label>
+</fieldset><br>
 </td>
 </tr>
 </table>
