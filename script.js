@@ -464,3 +464,14 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+document.addEventListener("DOMContentLoaded", function () {
+  const testBtn = document.getElementById("testBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  if (testBtn && mobileMenu) {
+    testBtn.addEventListener("click", function () {
+      console.log("Test button clicked");
+      mobileMenu.classList.toggle("show");
+    });
+  }
+});
