@@ -1,233 +1,429 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="style.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aircraft Delivery Solutions</title>
+  <style> area {
+    cursor: pointer;
+  }
+</style>
 
-  <style>
-    /* Mobile Header Styling */
-    .mobile-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 80px;
-      background: rgba(255, 255, 255, 0.75);
-      z-index: 9999;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-bottom: 1px solid #ccc;
-    }
-
-    .mobile-header-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 100%;
-      padding: 0 15px;
-    }
-
-    .mobile-header-inner > div {
-      width: 33%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .hamburger {
-      width: 35px;
-      height: 30px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-    }
-
-    .hamburger span {
-      display: block;
-      height: 3px;
-      width: 100%;
-      background: #333;
-      border-radius: 2px;
-    }
-
-    .mobile-logo {
-      height: 60px;
-      width: auto;
-    }
-
-    .mobile-phone-icon {
-      height: 28px;
-      width: auto;
-    }
-
-    /* Mobile Menu Styling */
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      top: 80px;
-      left: 0;
-      width: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
-      color: white;
-      padding: 10px;
-      z-index: 9999;
-    }
-
-    .mobile-menu.show {
-      display: block;
-    }
-
-    .mobile-menu a {
-      color: white;
-      text-decoration: none;
-      display: block;
-      padding: 5px 0;
-    }
-
-    /* Main Content Styling */
-    main {
-      margin-top: 100px; /* Push content below the fixed header */
-      padding: 20px;
-    }
-
-    .content-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      margin-bottom: 20px;
-    }
-
-    .content-row div {
-      width: 48%;  /* Ensure two columns per row */
-      margin-bottom: 20px;
-    }
-
-    /* Mobile and Desktop Styling */
-    @media screen and (max-width: 768px) {
-      .desktop-header {
-        display: none;
-      }
-
-      .hamburger {
-        display: block;
-      }
-    }
-
-    .desktop-header {
-      background-color: #2c3e50;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .desktop-menu {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-    }
-
-    .desktop-menu a {
-      color: white;
-      text-decoration: none;
-      padding: 10px;
-    }
-
-    .desktop-menu a:hover {
-      background: #34495e;
-    }
-
-  </style>
-</head>
+  </head>
 <body>
 
-<!-- Mobile Header -->
-<div class="mobile-header">
+  <!-- DESKTOP HEADER WRAPPER -->
+   <div class="desktop-only">
+<div class="fixed-header">
+  <div class="header-bleed-left"></div>
+  <header>
+    <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/static-header-v7-95.png" usemap="#image-map"
+         style="width: 100%; height: auto; display: block;">
+           <map name="image-map">
+    <area target="" alt="" href="/services" coords="64,21,147,46" shape="rect" title="Services">
+    <area target="" alt="" href="/quote" coords="160,19,217,46" shape="rect" title="Get a Quote">
+    <area target="" alt="" href="/pilot-directory" coords="17,63,149,90" shape="rect" title="Pilot Directory">
+    <area target="" alt="" href="/pilot-hiring" coords="162,62,264,90" shape="rect" title="Pilot Hiring">
+    <area target="" alt="" href="/about" coords="38,106,98,133" shape="rect" title="About">
+    <area target="" alt="" href="/past-deliveries" coords="108,106,246,133" shape="rect" title="Past Deliveries">
+    <area target="" alt="" href="/" coords="278,6,1076,143" shape="rect" title="Aircraft Delivery Solutions">
+    <area target="" alt="" href="mailto:akahn28@gmail.com" coords="1115,83,1325,119" shape="rect" title="Email me">
+  </map>
+
+  </header>
+  <div class="header-bleed-right"></div>
+</div></div>
+
+
+<div class="mobile-only">
+ <header class="mobile-header">
   <div class="mobile-header-inner">
-    <!-- Hamburger Button -->
+    <!-- Hamburger -->
     <div class="mobile-hamburger-wrap">
-      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+      <button class="hamburger" aria-label="Open menu">
         <span></span>
         <span></span>
         <span></span>
       </button>
     </div>
-    
+
     <!-- Logo -->
-    <div class="mobile-logo-wrap">
+    <a href="/" class="mobile-logo-link">
       <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/mobile/mobile-logo.png"
            alt="Aircraft Delivery Solutions"
            class="mobile-logo">
-    </div>
+    </a>
 
     <!-- Phone Icon -->
-    <div class="mobile-phone-wrap">
-      <a href="tel:14158458163">
-        <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/mobile/phone.png"
-             alt="Call"
-             class="mobile-phone-icon">
-      </a>
-    </div>
+    <a href="tel:14158458163" class="mobile-phone-link">
+      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/mobile/phone.png"
+           alt="Call"
+           class="mobile-phone-icon">
+    </a>
+  </div>
+  <!-- Optional bleed-right element -->
+  <!-- <div class="header-bleed-right"></div> -->
+</header>
+
+  <map name="image-map">
+    <area target="" alt="" href="/services" coords="64,21,147,46" shape="rect" title="Services">
+    <area target="" alt="" href="/quote" coords="160,19,217,46" shape="rect" title="Get a Quote">
+    <area target="" alt="" href="/pilot-directory" coords="17,63,149,90" shape="rect" title="Pilot Directory">
+    <area target="" alt="" href="/pilot-hiring" coords="162,62,264,90" shape="rect" title="Pilot Hiring">
+    <area target="" alt="" href="/about" coords="38,106,98,133" shape="rect" title="About">
+    <area target="" alt="" href="/past-deliveries" coords="108,106,246,133" shape="rect" title="Past Deliveries">
+    <area target="" alt="" href="/" coords="278,6,1076,143" shape="rect" title="Aircraft Delivery Solutions">
+  </map>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <nav>
+      <a href="/services">Services</a>
+      <a href="/quote">Get a Quote</a>
+      <a href="/pilot-directory">Pilot Directory</a>
+      <a href="/pilot-hiring">Pilot Hiring</a>
+      <a href="/about">About</a>
+      <a href="/past-deliveries">Past Deliveries</a>
+    </nav>
   </div>
 </div>
 
-<!-- Mobile Menu -->
-<div class="mobile-menu" id="mobileMenu">
-  <nav>
-    <a href="/services">Services</a>
-    <a href="/quote">Get a Quote</a>
-    <a href="/pilot-directory">Pilot Directory</a>
-    <a href="/pilot-hiring">Pilot Hiring</a>
-    <a href="/about">About</a>
-    <a href="/past-deliveries">Past Deliveries</a>
-  </nav>
+<main>
+
+<div class="desktop-only">
+
+
 </div>
 
-<!-- Main Content -->
-<main>
-  <section class="content-row">
-    <div>
-      <h2>Ferry Flights</h2>
-      <p>We offer ferry flights for nearly any aircraft, delivering to your location swiftly and safely.</p>
-    </div>
-    <div>
-      <h2>Container Shipping</h2>
-      <p>We provide container shipping for light aircraft, ensuring safety and cost-effectiveness.</p>
-    </div>
-  </section>
 
-  <section class="content-row">
-    <div>
-      <h2>About Us</h2>
-      <p>Learn about our history, mission, and the trusted professionals behind Aircraft Delivery Solutions.</p>
-    </div>
-    <div>
-      <h2>Contact</h2>
-      <p>Get in touch with us for a quote, schedule a consultation, or ask questions about our services.</p>
-    </div>
-  </section>
+    <!-- DIVIDER BETWEEN DESKTOP AND MOBILE DIVS -->
+         <!-- DIVIDER BETWEEN DESKTOP AND MOBILE DIVS -->
+              <!-- DIVIDER BETWEEN DESKTOP AND MOBILE DIVS -->
+
+              
+<div class="mobile-only">
+  <h1 class="page-title-brick">FERRY PILOT DIRECTORY</h1>
+
+    <div style="width: 95%; margin: 0 auto; background-color: #fdfdfd; border: 1px solid #aaa; padding: 10px 10px 5px 10px; border-radius: 8px; box-sizing: border-box; text-align: center;">
+    <p style="font-size: 1.625rem; margin: 0 auto;"><u>Complete Crews</u></p>
+    <p style="font-size: 1.125rem; margin: 0 auto;">I have at least 1 (or 2 when required) pilots that have ratings in these types:</p>
+
+    <table style="width: 100%; border-collapse: collapse; border: none;">
+  <tr>
+    <td style="border: none;"><img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/citationxbust2.png" width="150px;"></td>
+    <td style="border: none;"><img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/E175.png" width="150px;"></td>
+  </tr>
+  <tr>
+    <td style="border: none;"><img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/KA-350.png" width="150px;"></td>
+    <td style="border: none;"><img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/LR35.png" width="150px;"></td>
+  </tr>
+</table>
+</div>
+
+<!-- 'see all' Button block -->
+<div style="text-align: center;">
+<button id="pilotRatingsBtn" class="modal-trigger-btn btn-primary" style="margin-right: 20px;">
+  See all the pilots' type ratings
+</button>
+<a href="/pilot-hiring" class="btn-primary" style="margin-top: 14px;">
+  Pilot Hiring
+</a></div>
+
+<div class="gallery-wrapper"><table class="gallery-table">
+  <tr>
+    <td class="gallery-img-cell" style="border-bottom: none;">
+      <img alt="Image 1" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/bob-flag.jpg"/>
+<div class="pilot-name">Bob N.</div>
+</td>
+<td class="gallery-img-cell" style="border-bottom: none;">
+<img alt="Image 2" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/victor-flag.jpg"/>
+<div class="pilot-name">V.P. M.</div>
+</td>
+</tr>
+
+<tr><td class="gallery-desc-cell" style="border-top: none;">
+<ul>
+<li>Pilot Certificate: FAA Airline Transport Pilot</li>
+<li>Type ratings: L-300 (C141), DC-9, B-747-200, B-747-400/-8</li>
+<li>Total time: 20,000</li>
+</ul>
+</td><td class="gallery-desc-cell" style="border-top: none;">
+<ul>
+<li>Current Employment: USA Part 121 E175 Captain</li>
+<li>Pilot Certificate: FAA Airline Transport Pilot</li>
+<li>FAA Flight Instructor certificate</li>
+<li>Type ratings: EMB-170/175/190/195, CL65 (CRJ), EMB-120 (Brasilia)</li>
+<li>Total time: 13,500</li>
+</ul>
+</td></tr>
+
+<tr><td class="gallery-img-cell" style="border-bottom: none;">
+<img alt="Image 3" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/mike-bach.jpg"/>
+<div class="pilot-name">Mike B.</div>
+</td><td class="gallery-img-cell" style="border-bottom: none;">
+<img alt="Image 4" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/erick.jpg"/>
+<div class="pilot-name">Erick G.</div>
+</td></tr>
+
+<tr>
+  <td class="gallery-desc-cell" style="border-top: none;">
+<ul>
+<li>Current Employment: Central Africa contract King Air 350 Captain</li>
+<li>Pilot Certificate: FAA Airline Transport Pilot</li>
+<li>FAA Flight Instructor certificate</li>
+<li>Type ratings: BE-300 (King Air 300/350), LR-JET (Lear 31/35/55), SA-227 (Metroliner)</li>
+<li>Total time: 9,400</li>
+</ul>
+</td><td class="gallery-desc-cell" style="border-top: none;">
+<ul>
+<li>Pilot Certificate: FAA Commercial Pilot</li>
+<li>FAA Flight Instructor certificate</li>
+<li>Type ratings: LR-JET [SIC]</li>
+<li>Total time: 5,000</li>
+<li>Language: Fluent in Spanish</li>
+</ul>
+</td></tr>
+<tr>
+  <td class="gallery-img-cell" style="border-bottom: none;">
+<img alt="Image 1" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/nick.jpg"/>
+<div class="pilot-name">Nick M.</div></td>
+<td class="gallery-img-cell" style="border-bottom: none;">
+<img alt="Image 2" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/sheldon.jpg"/>
+<div class="pilot-name">Sheldon L.</div>
+</td>
+</tr>
+<tr>
+  <td class="gallery-desc-cell" style="border-top: none;">
+<ul>
+<li>Current Employment: USA Part 91(K) Fractional EMB-550 (Praetor) First Officer</li>
+<li>Pilot Certificate: FAA Airline Transport Pilot</li>
+<li>Type Ratings: EMB-550 (Praetor), FA-20 (Falcon), FA-50 [SIC], LRJET [SIC]</li>
+<li>Total time: 5,000</li>
+</ul>
+</td><td class="gallery-desc-cell" style="border-top: none;">
+<ul><li>Pilot Certificate: FAA Airline Transport Pilot</li>
+<li>FAA Flight Instructor certificate</li>
+<li>Ratings: Airplane Single Engine Sea</li>
+<li>Total time: 4,000</li></ul>
+</td>
+</tr>
+<tr>
+<td class="gallery-img-cell" style="border-bottom: none;">
+<img alt="Image 3" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/Brandon-W.jpg"/>
+<div class="pilot-name">Brandon W.</div>
+</td>
+<td class="gallery-img-cell" style="border-bottom: none;">
+<img alt="Image 4" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/wolfie.jpg"/>
+<div class="pilot-name">Wolfe C.</div>
+</td>
+</tr>
+<tr>
+  <td class="gallery-desc-cell" style="border-top: none;">
+<ul>
+<li>Current Employment: USA Part 135 CE-208 Captain, Alaska-based</li>
+<li>Pilot Certificate: FAA Commercial Pilot</li>
+<li>FAA Flight Instructor certificate</li>
+<li>Familiar with Quest Kodiak, DHC Beaver, and Garrett Caravan</li>
+<li>United States Marine veteran</li>
+<li>Total time: 3,600</li>
+</ul>
+</td>
+<td class="gallery-desc-cell" style="border-top: none;">
+<ul>
+<li>Current Employment: USA Part 135 CE-750 First Officer</li>
+<li>Pilot Certificate: FAA Airline Transport Pilot (R): age</li>
+<li>FAA Flight Instructor certificate</li>
+<li>Type ratings: IA-1125 (G100), CE-500, CE-750 (Citation X), Gulfstream IV [SIC]</li>
+<li>Endorsements: Tailwheel</li>
+<li>Total time: 3,400</li>
+<li>Language: Fluent in French</li>
+</ul>
+</td>
+</tr>
+<tr>
+  <td class="gallery-img-cell" style="border-bottom: none;">
+<img alt="Image 1" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/doug.jpg"/>
+<div class="pilot-name">Doug C.</div>
+</td><td class="gallery-img-cell" style="border-bottom: none;">
+<img alt="Image 2" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/andrew-e.jpg"/>
+<div class="pilot-name">Andrew E.</div>
+</td>
+</tr>
+<tr>
+  <td class="gallery-desc-cell" style="border-top: none;">
+<ul>
+<li>Current Employment: USA Part 121 E175 Captain</li>
+<li>Pilot Certificate: FAA Airline Transport Pilot</li>
+<li>FAA Flight Instructor certificate</li>
+<li>Type Ratings: DHC-8, EMB-170/175/190/195</li>
+<li>Total time: 3,000</li>
+</ul>
+</td><td class="gallery-desc-cell" style="border-top: none;">
+<ul>
+<li>Current Employment: USA Part 135 Citation X First Officer</li>
+<li>Pilot Certificate: FAA Airline Transport Pilot</li>
+<li>FAA Flight Instructor certificate</li>
+<li>Type Ratings: CE-750 (Citation X)</li>
+<li>Endorsements: Tailwheel</li>
+<li>Total time: 1,600</li>
+</ul>
+</td>
+</tr>
+<tr>
+  <td class="gallery-img-cell" style="border-bottom: none;">
+<img alt="Image 3" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/justin-1.jpg"/>
+<div class="pilot-name">Justin A.</div>
+</td>
+<td class="gallery-img-cell" style="border-bottom: none;">
+<img alt="Image 4" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/will-k.jpg"/>
+<div class="pilot-name">Will K.</div>
+</td>
+</tr>
+<tr>
+  <td class="gallery-desc-cell" style="border-top: none;">
+<ul>
+<li>Pilot Certificate: FAA Commercial Pilot</li>
+<li>FAA Dispatcher certificate</li>
+<li>Mooney M20 owner</li>
+<li>27-year airline employee</li>
+<li>Total time: 1,400</li>
+</ul>
+</td><td class="gallery-desc-cell" style="border-top: none;">
+<ul>
+<li>Current Employment: FAA Part 141 Flight School Senior Lead Instructor &amp; 141 Check Airman</li>
+<li>Pilot Certificate: FAA Commercial Pilot (R): age</li>
+<li>FAA Flight Instructor certificate</li>
+<li>CE-650 SIC (61.55) endorsement</li>
+<li>US Navy veteran</li>
+<li>Total time: 1,200</li>
+</ul>
+</td>
+</tr>
+<tr>
+  <td class="gallery-img-cell" style="border-bottom: none;">
+<img alt="Image 1" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/don.jpg"/>
+<div class="pilot-name">Don H.</div></td>
+  <td class="gallery-img-cell" style="border-bottom: none;">
+<img alt="Image 2" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/Harry-y-flag.jpg"/>
+<div class="pilot-name">Harry Y.</div>
+</td>
+</tr>
+<tr>
+  <td class="gallery-desc-cell" style="border-top: none;">
+<ul>
+<li>Pilot Certificate: FAA Commercial Pilot</li>
+<li>FAA Flight Instructor certificate</li>
+<li>Ratings: Glider, Sport Pilot Glider Instructor Endorsement</li>
+<li>Practicing attorney in California</li>
+<li>Cirrus SR-22 owner</li>
+<li>Total time: 1,200</li>
+</ul>
+</td>
+<td class="gallery-desc-cell" style="border-top: none;">
+<ul>
+<li>Current Employment: Army National Guard UH-60 Aircraft Commander</li>
+<li>Pilot Certificate: FAA Commercial Pilot</li>
+<li>Ratings: Rotorcraft Helicopter; Instrument Helicopter</li>
+<li>Type ratings: S-70 (UH-60 helicopter)</li>
+<li>Total time: 900</li>
+</ul>
+</td>
+</tr>
+<tr><td class="gallery-img-cell" style="border-bottom: none;">
+<img alt="Image 3" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/brian-d.png"/>
+<div class="pilot-name">Brian D.</div>
+</td><td class="gallery-img-cell" style="border-bottom: none;">
+<img alt="Image 4" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/joseph-1.jpg"/>
+<div class="pilot-name">Joseph W.</div>
+</td>
+</tr>
+<tr><td class="gallery-desc-cell" style="border-top: none;">
+<ul>
+<li>Pilot Certificate: FAA Commercial Pilot</li>
+<li>Cessna 172 owner</li>
+<li>Total time: 800</li>
+</ul>
+</td><td class="gallery-desc-cell" style="border-top: none;">
+<ul>
+<li>Pilot Certificate: FAA Commercial Pilot</li>
+<li>FAA Flight Instructor certificate</li>
+<li>Total time: 600</li>
+</ul>
+</td>
+</tr>
+<tr>
+  <td class="gallery-img-cell" style="border-bottom: none;">
+<img alt="Image 1" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/mike-m-flag.jpg"/>
+<div class="pilot-name">Mike M.</div>
+</td><td class="gallery-img-cell" style="border-bottom: none;">
+<img alt="Image 2" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/ben-b.jpg"/>
+<div class="pilot-name">Ben B.</div>
+</td>
+</tr>
+<tr>
+  <td class="gallery-desc-cell" style="border-top: none;">
+<ul>
+<li>Pilot Certificate: FAA Commercial Pilot</li>
+<li>United States Marine with 12 years' service</li>
+<li>Total time: 600</li>
+</ul>
+</td><td class="gallery-desc-cell" style="border-top: none;">
+<ul>
+<li>Pilot Certificate: FAA Commercial Pilot</li>
+<li>FAA Flight Instructor certificate</li>
+<li>Total time: 300</li>
+</ul>
+</td>
+</tr>
+<tr>
+  <td class="gallery-img-cell" style="border-bottom: none;">
+<img alt="Image 3" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/125-generic-pilot.jpg"/>
+<div class="pilot-name">You?</div>
+</td>
+<td style="text-align: center; font-size: 1.125rem; border-bottom: none;"><img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/amflag.jpg" style="width: 125px;"/>
+<br/>denotes United States military, currently serving or veteran
+  <br/><img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/blue-star-blank.png" style="width: 125px;"/>
+<br/>denotes number of completed A.D.S. ferry flights
+</td>
+</tr>
+<tr>
+  <td class="gallery-desc-cell" style="border-top: none;">
+<p>I’m always looking to hire pilots. <a href="/pilot-hiring">Click here for the Pilot Hiring page</a>. All it takes is a phone call or message to get started.</p>
+</td><td> </td></tr></table></div></div>
+
+
 </main>
 
-<script>
-  // JavaScript to toggle the mobile menu
-  document.addEventListener('DOMContentLoaded', function() {
-    const hamburgerBtn = document.getElementById("hamburgerBtn");
-    const mobileMenu = document.getElementById("mobileMenu");
+<!-- Mobile Modal Container -->
+<div id="unified-modal" style="display: none;">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeUnifiedModal()">&times;</button>
+    <div id="unified-modal-body"></div>
+  </div>
+</div>
 
-    if (hamburgerBtn && mobileMenu) {
-      // Toggle the mobile menu visibility when hamburger is clicked
-      hamburgerBtn.addEventListener("click", function() {
-        mobileMenu.classList.toggle("show");
-      });
-    } else {
-      console.error("Elements not found.");
-    }
-  });
-</script>
+<!-- Desktop Modal Container -->
+<div id="custom-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); justify-content: center; align-items: center; z-index: 9999;">
+  <div id="modal-body" style="background: white; padding: 30px 20px; border-radius: 10px; max-width: 90%; max-height: 85vh; overflow-y: auto; position: relative; text-align: left;">
+    <button id="custom-modal-close" style="position: absolute; top: 10px; right: 12px; background: transparent; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
+    
+    <!-- Pilot Ratings Content -->
+    <h2 style="text-align: center;"><u>Aircraft Delivery Solutions Pilot Type Ratings</u></h2>
+    <ul style="padding-left: 20px; font-size: 1.2rem; line-height: 1.6; text-align: left;">
+      <li><b>BEECHCRAFT:</b> BE300 (King Air 350)</li>
+      <li><b>BOEING:</b> B747-200, B747-400/8, DC-9</li>
+      <li><b>BOMBARDIER:</b> CL-65, DHC-8, LR-JET</li>
+      <li><b>CESSNA:</b> CE-750 (Citation X)</li>
+      <li><b>DASSAULT:</b> FA-20, FA-50 [SIC]</li>
+      <li><b>EMBRAER:</b> EMB-120, EMB-170–195, EMB-550</li>
+      <li><b>FAIRCHILD:</b> SA-227</li>
+      <li><b>GULFSTREAM:</b> IAI-1125 (G100), Gulfstream IV [SIC]</li>
+      <li><b>LOCKHEED:</b> L-300 (C141)</li>
+      <li><b>SIKORSKY:</b> S-70 (UH-60)</li>
+    </ul>
+  </div>
+</div>
 
+<script src="script.js"></script>
 </body>
 </html>
