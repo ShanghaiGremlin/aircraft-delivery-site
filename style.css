@@ -298,7 +298,7 @@ tbody td {
     .tooltip-custom::after {
     display: none;
   }
-
+/* === MOBILE HEADER === */
   .mobile-header {
     position: fixed;
     top: 0;
@@ -322,11 +322,11 @@ tbody td {
     height: 100%;
   }
 
-  .mobile-header-inner > * {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  .mobile-header-inner > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
   .hamburger {
     width: 35px;
@@ -349,9 +349,12 @@ tbody td {
   }
 
   .mobile-logo {
-    width: auto;
-    height: 70px;
-  }
+  height: 70px;
+  width: auto;
+  display: block;              /* avoids inline baseline issues */
+  margin: 0 auto;              /* optional: centers horizontally if not using grid */
+  object-fit: contain;         /* ensures clean scaling if needed */
+}
 
   /* === MOBILE MENU === */
   .mobile-menu {
