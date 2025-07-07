@@ -1,3 +1,15 @@
+#mobileMenu {
+  display: block !important;
+  background: red !important;
+  height: auto !important;
+  min-height: 200px !important;
+  position: relative !important;
+  z-index: 99999 !important;
+}
+
+
+
+
 /* === BASE TYPOGRAPHY === */
 html {
   font-size: 16px;
