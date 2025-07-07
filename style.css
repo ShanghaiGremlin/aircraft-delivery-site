@@ -3,6 +3,12 @@ html {
   font-size: 16px;
 }
 
+html, body {
+  position: relative;
+  z-index: 0;
+}
+
+
 body {
   font-family: Arial, sans-serif;
   width: 100%;
@@ -347,6 +353,7 @@ tbody td {
     height: 70px;
   }
 
+  /* === MOBILE MENU === */
   .mobile-menu {
     position: fixed;
     top: 80px;
@@ -414,7 +421,7 @@ tbody td {
 
   .mobile-only {
     display: block;
-    padding-top: 35px;
+    padding-top: 80px;
   }
 
   main {
