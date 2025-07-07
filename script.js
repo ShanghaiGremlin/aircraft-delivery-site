@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   console.log("JavaScript is running");
 
-  const hamburger = document.getElementById("hamburgerBtn");
+  const hamburger = document.querySelector("hamburgerBtn");
 const mobileMenu = document.getElementById("mobileMenu");
 
 console.log("hamburger button:", hamburger);
@@ -443,5 +443,24 @@ if (testButton) {
 
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+  const hamburger = document.querySelector(".hamburgerBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  if (!hamburger) {
+    console.log("No hamburger button found.");
+    return;
+  }
+
+  if (!mobileMenu) {
+    console.log("No mobile menu found.");
+    return;
+  }
+
+  hamburger.addEventListener("click", function () {
+    alert("Button was clicked!");
+    mobileMenu.classList.toggle("show");
+  });
+});
 
 
