@@ -1,94 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mobile Menu Test</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Page with Mobile Menu</title>
   <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-    }
-
-    .mobile-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 80px;
-      padding: 0 20px;
-      background: #ddd;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-    }
-
-    .hamburger {
-      width: 30px;
-      height: 22px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-    }
-
-    .hamburger span {
-      display: block;
-      height: 3px;
-      width: 100%;
-      background: #333;
-    }
-
+    /* Simple mobile menu styling */
     .mobile-menu {
-      display: none;
+      display: none; /* Start with menu hidden */
       position: fixed;
       top: 80px;
       left: 0;
       width: 100%;
-      background: #f5f5f5;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      z-index: 999;
-      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 10px;
+      z-index: 9999;
     }
 
     .mobile-menu.show {
+      display: block; /* Show when class "show" is added */
+    }
+
+    .hamburger {
+      width: 50px;
+      height: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #333;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+      margin: 20px;
+    }
+
+    .hamburger span {
       display: block;
+      height: 6px;
+      width: 100%;
+      background: white;
+      border-radius: 3px;
     }
   </style>
 </head>
 <body>
 
-  <header class="mobile-header">
-    <button class="hamburger" id="hamburgerBtn">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <strong>LOGO</strong>
-  </header>
+<!-- Mobile Header with Hamburger Button -->
+<header>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</header>
 
-  <div class="mobile-menu" id="mobileMenu">
-    <nav>
-      <a href="#">Home</a><br>
-      <a href="#">About</a><br>
-      <a href="#">Contact</a>
-    </nav>
-  </div>
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <nav>
+    <a href="/services" style="color:white;">Services</a><br>
+    <a href="/quote" style="color:white;">Get a Quote</a><br>
+    <a href="/pilot-directory" style="color:white;">Pilot Directory</a><br>
+    <a href="/pilot-hiring" style="color:white;">Pilot Hiring</a><br>
+    <a href="/about" style="color:white;">About</a><br>
+    <a href="/past-deliveries" style="color:white;">Past Deliveries</a>
+  </nav>
+</div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const hamburger = document.getElementById("hamburgerBtn");
-      const mobileMenu = document.getElementById("mobileMenu");
+<script>
+  // Confirm if JavaScript is working and the elements are available
+  document.addEventListener('DOMContentLoaded', function() {
+    alert("JavaScript is loaded!"); // Show alert after the page is loaded
 
-      hamburger.addEventListener("click", function () {
-        mobileMenu.classList.toggle("show");
+    const hamburgerBtn = document.getElementById("hamburgerBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    if (hamburgerBtn && mobileMenu) {
+      console.log("Elements found!");  // Log to confirm the elements are found
+
+      hamburgerBtn.addEventListener("click", function() {
+        console.log("Hamburger clicked!");  // Confirm the button click
+        mobileMenu.classList.toggle("show"); // Toggle the menu visibility
       });
-    });
-  </script>
+    } else {
+      console.error("Elements not found.");
+    }
+  });
+</script>
 
 </body>
 </html>

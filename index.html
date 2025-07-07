@@ -4,110 +4,68 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aircraft Delivery Solutions</title>
+
   <style>
-  area {
-    cursor: pointer;
-  }
-</style>
-<style>
-@media screen and (max-width: 768px) {
-  .mobile-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 80px;
-    width: 100%;
-    display: block;
-    background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid #ccc;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 9999;
-  }
+    /* Inline styling for the mobile menu */
+    .mobile-menu {
+      display: none; /* Start with menu hidden */
+      position: fixed;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 10px;
+      z-index: 9999;
+    }
 
-  .mobile-header-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
-    height: 100%;
-  }
+    .mobile-menu.show {
+      display: block; /* Show when "show" class is added */
+    }
 
-  .mobile-header-inner > * {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+    /* Styling for the hamburger button */
+    .hamburger {
+      width: 50px;
+      height: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #333;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+      margin: 20px;
+    }
 
-  .mobile-logo {
-    height: 60px;
-    width: auto;
-  }
+    .hamburger span {
+      display: block;
+      height: 6px;
+      width: 100%;
+      background: white;
+      border-radius: 3px;
+    }
 
-  .hamburger {
-    width: 28px;
-    height: 22px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-  }
-
-  .hamburger span {
-    display: block;
-    height: 3px;
-    width: 100%;
-    background: #333;
-    border-radius: 2px;
-  }
-
-  .mobile-phone-icon {
-    height: 28px;
-    width: auto;
-  }
-}
-</style>
+    /* Styling for the menu links */
+    .mobile-menu a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      padding: 5px 0;
+    }
+  </style>
 </head>
 <body>
 
-<!-- MOBILE HEADER SECTION -->
-<div class="mobile-only">
-  <header class="mobile-header">
-    <div class="mobile-header-inner">
+<!-- Mobile Header with Hamburger Button -->
+<header>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</header>
 
-      <!-- Hamburger (left) -->
-      <div class="mobile-hamburger-wrap">
-        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-
-      <!-- Logo (center) -->
-      <div class="mobile-logo-wrap">
-        <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/mobile/mobile-logo.png"
-             alt="Aircraft Delivery Solutions"
-             class="mobile-logo">
-      </div>
-
-      <!-- Phone Icon (right) -->
-      <div class="mobile-phone-wrap">
-        <a href="tel:14158458163">
-          <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/mobile/phone.png"
-               alt="Call"
-               class="mobile-phone-icon">
-        </a>
-      </div>
-
-    </div>
-  </header>
-</div> <!-- Close .mobile-only -->
-
-<!-- Mobile Menu Container (now outside .mobile-only) -->
+<!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
   <nav>
     <a href="/services">Services</a>
@@ -119,69 +77,27 @@
   </nav>
 </div>
 
-<main>
+<script>
+  // Wait for the DOM to be fully loaded
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log("JavaScript is loaded and ready.");
 
+    const hamburgerBtn = document.getElementById("hamburgerBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
 
-  <div class="desktop-only">
-      <div style="
-    width: 100%;
-    text-align: center;
-    margin: 0 auto;
-    padding-top: 151px;">
-    <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/home2.png"
-    usemap="#desktop-main-map"  
-    alt="Aircraft Delivery Solutions Desktop Index">
+    if (hamburgerBtn && mobileMenu) {
+      console.log("Elements found!");
 
-  <map name="desktop-main-map">
-    <area shape="rect" coords="434,445,569,576" href="/quote" alt="Get a Quote" title="Get a Quote">
-    <area shape="rect" coords="586,400,1358,646" href="/services" alt="Services" title="Services">
-  </map>
-</div>
-</div>
-
-
-  <div class="mobile-only">
-<a href="/services" class="mobile-index-link">
-  <section class="mobile-index" href="/services">
-  <!-- Hero -->
-  <div class="mobile-hero">
-    <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/mobile/mobile-hero.jpg" alt="Delivery Solutions">
-  </div>
-
-    <!-- Ferry Flights -->
-     <div class="service-row">
-  <div class="service-icon">
-    <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/mobile/plane-icon.png" alt="" class="service-icon"></div>
-    <div class="service-text">
-      <div class="service-label">Ferry Flights</div>
-      <div class="service-desc">Nearly any aircraft</div>
-    </div>
-  </div>
-
-
-  <!-- Container Shipping -->
-     <div class="service-row">
-  <div class="service-icon">
-    <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/mobile/container-icon.png" alt="" class="service-icon"></div>
-    <div class="service-text">
-      <div class="service-label">Container Shipping</div>
-      <div class="service-desc">For light aircraft, safe & low cost</div>
-    </div>
-</div>
-</section></a>
-
-<!-- Quote Button -->
-<div class="mobile-quote-button">
-  <a href="/quote">
-    <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/quote-button-transp.png" alt="Get a Quote" style="width: 100%; height: auto;">
-  </a>
-</div>
-</div>
-
-</main>
-<script src="script.js"></script>
-
-<button id="testBtn">Test Toggle</button>
+      // Add click event to the hamburger button
+      hamburgerBtn.addEventListener("click", function() {
+        console.log("Hamburger clicked!");
+        mobileMenu.classList.toggle("show"); // Toggle the visibility of the menu
+      });
+    } else {
+      console.error("Hamburger button or mobile menu not found.");
+    }
+  });
+</script>
 
 </body>
 </html>
