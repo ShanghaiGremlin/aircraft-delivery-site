@@ -161,16 +161,78 @@
 
 
 <table style="width: 98%; border-collapse: collapse; table-layout: fixed; margin: 0 auto;">
-  <tr style="text-align: center;">
-    <!-- Left Column -->
-    <td style="border-left: none; border-top: none; border-bottom: none; border-right: 1px solid #ccc; padding: 0px 20px; vertical-align: top;">
+  <tr>
+    
+    <td colspan="2" style="border-left: none; border-top: none; border-bottom: none; border-right: 1px solid #ccc; padding: 0px 20px; vertical-align: top; width: 30%">
       <h1 style="margin-top: 10;"><u>Optional Quote Form</u></h1>
 <div style="border: 2px solid #999; border-radius: 12px; background-color: #ffffff; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 20px 20px 0px 20px; max-width: 650px; margin: 0 auto 25px auto; text-align: left;">
   <p style="margin: 0; font-size: 1.375rem;">
     While not necessary to get a quote, filling out this form will help me focus in on your project and give you a more accurate initial quote. </p>
     <p style="font-size: 1.375rem;">All the answers are optional and "if known", except the email address.</p>
-    </div>
+    </div></td>
+<td rowspan="2" style="border-right: none; border-top: none; border-bottom: none; padding: 0px 20px; vertical-align: top; text-align:left; width: 50%">
+      <h1 style="margin-top: 10; text-align: center;"><u>Prices</u></h1>
+      <h3>Provided to answer common questions and allow you to get oriented to what your proposed project might cost.</h3>
+      <h2 style="text-align:center;">Ferry Flights</h2>
+      <h3 style="text-align:center;"><u>Pilot Pay (contracted)</u></h3>
+      <p><b>Highly dependent on many factors. Also, there are variations in the mode of billing; pilots can bill by the day, by the flight hour, by the duty hour, or bill a flat fee for the project. </b></p>
+        
+      
+      <table style="width: 100%; border-collapse: collapse; border: 1px solid #333; font-size: 1.125rem; background-color: #fcfcfc;">
+  <tr>
+    <td style="border: 1px solid #333; border-right: 1px solid white; text-align: center; background-color: #382d4b; color:#ffffff;"><b>Scenario</b></td>
+    <td style="border: 1px solid #333; text-align: center; background-color: #382d4b; color: #ffffff;"><b>Pay</b></td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #333;">Domestic ferry of a small trainer aircraft</td>
+    <td style="border: 1px solid #333;">$400 - $600 daily rate</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #333;">A light turboprop such as a King Air 90</td>
+    <td style="border: 1px solid #333;">$700 - $1,000 daily rate</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #333;">Any turbojet</td>
+    <td style="border: 1px solid #333;">$1,200 - $2,500 daily rate</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #333;">Helicopters</td>
+    <td style="border: 1px solid #333;">$700 and up daily rate</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #333;">
+      Co-pilot Pay <span style="font-size: 0.875rem;">(when required or requested)</span>
+    </td>
+    <td style="border: 1px solid #333;">About 60% of Pilot-In-Command Pay</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #333;"><i>Domestic U.S. per diem</i></td>
+    <td style="border: 1px solid #333;"><i>$75 per day (higher outside U.S.)</i></td>
+  </tr>
+</table>
 
+<h3 style="text-align:center;"><u>Pilot Expenses (reimbursed)</u></h3>
+<p><b>There are usual expenses related to what it costs to have pilot(s) on duty away from their home:</b></p>
+<p>• Travel. Will almost always include last-minute airline travel. Often includes taxi/Uber. Sometimes involves rental car(s). Some pilots require Business class or higher for overseas air travel.</p>
+<p>• Lodging. $150 - $250 per night for US domestic hotels, with prices higher outside the US and/or during peak travel times.</p>
+
+<h3 style="text-align:center;"><u>Aircraft Expenses (reimbursed)</u></h3>
+<p><b>Every aircraft has a fuel expense. Here are some other common aircraft expenses:</b></p>
+<p>• Ramp/Hangar fees. Ramp fees are usually minor for small aircraft. If a hangar is requested or required, they start at about $100/day for the smallest aircraft.</p>
+<p>• Ramp services: If an aircraft requires services like lavatory cleaning or crew meals.</p>
+<p>• Un-planned maintenance. Unfortunately, the shop has the upper hand when naming their price(s).</p>
+<p>• Fluids. Typically engine oil and less commonly hydraulic fluid.</p>
+<h3 style="text-align:center;"><u>Support Fee (contracted)</u></h3>
+<p><b>I charge a fee for my time, effort and expertise, which in general covers:</b></p>
+<p>• Flight release. I supplement the flightcrew's decision-making including go/no-go determination.</p>
+<p>• Flight following. I monitor flight progress and take appropriate action as warranted.</p>
+<p>• On-call flighcrew support. I'm available 24 hours a day while ferry flights are in progress.</p>
+<p>• Flight planning assistance. I augment the flighcrew's flight planning activities and products.</p>
+<p>• Weather analysis. I monitor weather reporting and forecasts in augmentation of flightcrew weather collection.</p>
+<p>• Travel support. I assist flightcrews in obtaining travel, lodging and meals.</p>
+</td></tr>
+<tr>
+  <td>
 
 <div style="text-align: left;">
 <form id="quote-form-desktop" action="https://formspree.io/f/mnnvozvg" method="POST">
@@ -257,19 +319,6 @@
   <label for="Engine Description" style="display: inline-block; width: 290px;">Engine Description:</label>
     <input type="text" name="engine_description" id="engine_description" placeholder="PT-6, TIO-540, etc" size="25" style="width: 250px;"></div>
 
-  <!-- Ordinary Use of Aircraft -->
-  <fieldset style="border: none; padding: 0; margin: 0;">
-    <legend><u>Ordinary Use of Aircraft<br>
-     (Check any that apply):</u></legend>
-    <label><input type="checkbox" name="aircraft_use[]" value="Personal"> Personal</label><br>
-    <label><input type="checkbox" name="aircraft_use[]" value="Flight School"> Flight School</label><br>
-    <label><input type="checkbox" name="aircraft_use[]" value="Charter"> Charter</label><br>
-    <label><input type="checkbox" name="aircraft_use[]" value="Corporate"> Corporate</label><br>
-    <label><input type="checkbox" name="aircraft_use[]" value="Freight"> Freight</label><br>
-    <label><input type="checkbox" name="aircraft_use[]" value="None - no regular flying"> None - no regular flying</label><br>
-    <label><input type="checkbox" name="aircraft_use[]" value="Unknown"> Unknown</label>
-  </fieldset><br>
-
   <!-- Budget for Delivery -->
     <div style="margin-bottom: 12px;">
   <label for="Budget for Delivery" style="display: inline-block; width: 290px;">Budget for Delivery:</label>
@@ -294,75 +343,27 @@
     cursor: pointer;">
     Submit
   </button>
-</form>
-</div>
 </td>
-
-  <!-- Right Col -->
-    <td style="border-right: none; border-top: none; border-bottom: none; padding: 0px 20px; vertical-align: top; text-align:left;">
-      <h1 style="margin-top: 10; text-align: center;"><u>Prices</u></h1>
-      <h3>Provided to answer common questions and allow you to get oriented to what your proposed project might cost.</h3>
-      <h2 style="text-align:center;">Ferry Flights</h2>
-      <h3 style="text-align:center;"><u>Pilot Pay (contracted)</u></h3>
-      <p><b>Highly dependent on many factors. Also, there are variations in the mode of billing; pilots can bill by the day, by the flight hour, by the duty hour, or bill a flat fee for the project. </b></p>
-        
-      
-      <table style="width: 100%; border-collapse: collapse; border: 1px solid #333; font-size: 1.125rem; background-color: #fcfcfc;">
-  <tr>
-    <td style="border: 1px solid #333; border-right: 1px solid white; text-align: center; background-color: #382d4b; color:#ffffff;"><b>Scenario</b></td>
-    <td style="border: 1px solid #333; text-align: center; background-color: #382d4b; color: #ffffff;"><b>Pay</b></td>
-  </tr>
-  <tr>
-    <td style="border: 1px solid #333;">Domestic ferry of a small trainer aircraft</td>
-    <td style="border: 1px solid #333;">$400 - $600 daily rate</td>
-  </tr>
-  <tr>
-    <td style="border: 1px solid #333;">A light turboprop such as a King Air 90</td>
-    <td style="border: 1px solid #333;">$700 - $1,000 daily rate</td>
-  </tr>
-  <tr>
-    <td style="border: 1px solid #333;">Any turbojet</td>
-    <td style="border: 1px solid #333;">$1,200 - $2,500 daily rate</td>
-  </tr>
-  <tr>
-    <td style="border: 1px solid #333;">Helicopters</td>
-    <td style="border: 1px solid #333;">$700 and up daily rate</td>
-  </tr>
-  <tr>
-    <td style="border: 1px solid #333;">
-      Co-pilot Pay <span style="font-size: 0.875rem;">(when required or requested)</span>
-    </td>
-    <td style="border: 1px solid #333;">About 60% of Pilot-In-Command Pay</td>
-  </tr>
-  <tr>
-    <td style="border: 1px solid #333;"><i>Domestic U.S. per diem</i></td>
-    <td style="border: 1px solid #333;"><i>$75 per day (higher outside U.S.)</i></td>
-  </tr>
-</table>
-
-<h3 style="text-align:center;"><u>Pilot Expenses (reimbursed)</u></h3>
-<p><b>There are usual expenses related to what it costs to have pilot(s) on duty away from their home:</b></p>
-<p>• Travel. Will almost always include last-minute airline travel. Often includes taxi/Uber. Sometimes involves rental car(s). Some pilots require Business class or higher for overseas air travel.</p>
-<p>• Lodging. $150 - $250 per night for US domestic hotels, with prices higher outside the US and/or during peak travel times.</p>
-
-<h3 style="text-align:center;"><u>Aircraft Expenses (reimbursed)</u></h3>
-<p><b>Every aircraft has a fuel expense. Here are some other common aircraft expenses:</b></p>
-<p>• Ramp/Hangar fees. Ramp fees are usually minor for small aircraft. If a hangar is requested or required, they start at about $100/day for the smallest aircraft.</p>
-<p>• Ramp services: If an aircraft requires services like lavatory cleaning or crew meals.</p>
-<p>• Un-planned maintenance. Unfortunately, the shop has the upper hand when naming their price(s).</p>
-<p>• Fluids. Typically engine oil and less commonly hydraulic fluid.</p>
-<h3 style="text-align:center;"><u>Support Fee (contracted)</u></h3>
-<p><b>I charge a fee for my time, effort and expertise, which in general covers:</b></p>
-<p>• Flight release. I supplement the flightcrew's decision-making including go/no-go determination.</p>
-<p>• Flight following. I monitor flight progress and take appropriate action as warranted.</p>
-<p>• On-call flighcrew support. I'm available 24 hours a day while ferry flights are in progress.</p>
-<p>• Flight planning assistance. I augment the flighcrew's flight planning activities and products.</p>
-<p>• Weather analysis. I monitor weather reporting and forecasts in augmentation of flightcrew weather collection.</p>
-<p>• Travel support. I assist flightcrews in obtaining travel, lodging and meals.</p>
+<td>
+  <fieldset style="border: none; padding: 0; margin: 0;">
+    <legend><u>Ordinary Use of Aircraft<br>
+     (Check any that apply):</u></legend>
+    <label><input type="checkbox" name="aircraft_use[]" value="Personal"> Personal</label><br>
+    <label><input type="checkbox" name="aircraft_use[]" value="Flight School"> Flight School</label><br>
+    <label><input type="checkbox" name="aircraft_use[]" value="Charter"> Charter</label><br>
+    <label><input type="checkbox" name="aircraft_use[]" value="Corporate"> Corporate</label><br>
+    <label><input type="checkbox" name="aircraft_use[]" value="Freight"> Freight</label><br>
+    <label><input type="checkbox" name="aircraft_use[]" value="None - no regular flying"> None - no regular flying</label><br>
+    <label><input type="checkbox" name="aircraft_use[]" value="Unknown"> Unknown</label>
+  </fieldset><br>
 </td>
 </tr>
 </table>
 </div>
+
+<!-- DIVISION BETWEEN DESKTOP AND MOBILE MAIN -->
+<!-- DIVISION BETWEEN DESKTOP AND MOBILE MAIN -->
+ <!-- DIVISION BETWEEN DESKTOP AND MOBILE MAIN -->
 
 <div class="mobile-only">
 
