@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const customModal = document.getElementById("custom-modal");
   const modalClose = document.getElementById("custom-modal-close");
 
+  console.log("JavaScript is running");
+
   // ✅ Close modal on any click (first thing)
   if (customModal) {
     customModal.addEventListener("click", function () {
