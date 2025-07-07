@@ -6,7 +6,31 @@
   <title>Aircraft Delivery Solutions</title>
 
   <style>
-    /* Inline styling for the mobile menu */
+    /* Desktop Menu Styling */
+    .desktop-header {
+      background: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .desktop-menu {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .desktop-menu a {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+    }
+
+    .desktop-menu a:hover {
+      background: #34495e;
+    }
+
+    /* Mobile Menu Styling */
     .mobile-menu {
       display: none; /* Start with menu hidden */
       position: fixed;
@@ -23,7 +47,7 @@
       display: block; /* Show when "show" class is added */
     }
 
-    /* Styling for the hamburger button */
+    /* Hamburger button styling */
     .hamburger {
       width: 50px;
       height: 40px;
@@ -45,16 +69,40 @@
       border-radius: 3px;
     }
 
-    /* Styling for the menu links */
+    /* Mobile-specific menu links */
     .mobile-menu a {
       color: white;
       text-decoration: none;
       display: block;
       padding: 5px 0;
     }
+
+    /* Media Queries for Mobile */
+    @media screen and (max-width: 768px) {
+      .desktop-header {
+        display: none; /* Hide desktop header on mobile */
+      }
+
+      .hamburger {
+        display: flex; /* Show hamburger on mobile */
+      }
+    }
   </style>
 </head>
 <body>
+
+<!-- Desktop Header and Menu -->
+<div class="desktop-header">
+  <h1>Aircraft Delivery Solutions</h1>
+  <div class="desktop-menu">
+    <a href="/services">Services</a>
+    <a href="/quote">Get a Quote</a>
+    <a href="/pilot-directory">Pilot Directory</a>
+    <a href="/pilot-hiring">Pilot Hiring</a>
+    <a href="/about">About</a>
+    <a href="/past-deliveries">Past Deliveries</a>
+  </div>
+</div>
 
 <!-- Mobile Header with Hamburger Button -->
 <header>
@@ -78,7 +126,7 @@
 </div>
 
 <script>
-  // Wait for the DOM to be fully loaded
+  // Wait for the DOM to be fully loaded before running JS
   document.addEventListener('DOMContentLoaded', function() {
     console.log("JavaScript is loaded and ready.");
 
@@ -94,7 +142,7 @@
         mobileMenu.classList.toggle("show"); // Toggle the visibility of the menu
       });
     } else {
-      console.error("Hamburger button or mobile menu not found.");
+      console.error("One or more elements are missing!");
     }
   });
 </script>
