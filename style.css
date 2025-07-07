@@ -348,9 +348,11 @@ tbody td {
   }
 
   .mobile-logo {
-  height: 60px;
+  height: 70px;
   width: auto;
-  display: block;              /* avoids inline baseline issues */
+  display: block;
+  margin: 0;
+  padding: 0;              
 }
 
 .mobile-logo-wrap {
@@ -358,6 +360,7 @@ tbody td {
   justify-content: center; /* Horizontally center the logo */
   align-items: center;     /* Vertically center the logo */
   height: 100%;            /* Ensure it occupies the full height of the header */
+  width: 100%
 }
   /* === MOBILE MENU === */
   .mobile-menu {
