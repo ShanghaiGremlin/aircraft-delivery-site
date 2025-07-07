@@ -220,13 +220,29 @@ document.addEventListener("DOMContentLoaded", function () {
       return elem && elem.offsetParent !== null;
     }
 
-    function handleSubmit(event) {
-      event.preventDefault();
-      const form = event.target;
-      const formData = new FormData(form);
-      console.log("Form submitted:", Object.fromEntries(formData.entries()));
-      alert("Your quote request has been submitted!");
+function handleSubmit(event) {
+  event.preventDefault();
+  const form = event.target;
+  const formData = new FormData(form);
+
+  fetch(form.action, {
+    method: "POST",
+    body: formData,
+    headers: { Accept: "application/json" },
+  })
+  .then(response => {
+    if (response.ok) {
+      window.location.href = "https://aircraft.delivery/thanks";
+    } else {
+      alert("There was a problem submitting the form.");
     }
+  })
+  .catch(error => {
+    console.error("Form submit error:", error);
+    alert("There was a technical issue submitting your request.");
+  });
+}
+
 
     if (isVisible(desktopForm)) {
       desktopForm.addEventListener("submit", handleSubmit);
