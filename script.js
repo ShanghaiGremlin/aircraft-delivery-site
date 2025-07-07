@@ -261,14 +261,17 @@ function handleSubmit(event) {
     }
 
     // === Hamburger Mobile Menu ===
-    const hamburger = document.getElementById(".hamburgerBtn");
-    const mobileMenu = document.getElementById("mobileMenu");
+const hamburger = document.querySelector(".hamburgerBtn");
+const mobileMenu = document.getElementById("mobileMenu");
 
-    if (hamburger && mobileMenu) {
-      hamburger.addEventListener("click", function () {
-        mobileMenu.classList.toggle("show");
-      });
-    }
+if (hamburger && mobileMenu) {
+  hamburger.addEventListener("click", function () {
+    alert("Button was clicked!");
+    mobileMenu.classList.toggle("show");
+  });
+}
+
+   
 
     window.addEventListener("pageshow", function () {
       if (mobileMenu && mobileMenu.classList.contains("show")) {
