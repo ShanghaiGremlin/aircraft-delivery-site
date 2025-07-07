@@ -232,7 +232,7 @@ function handleSubmit(event) {
   })
   .then(response => {
     if (response.ok) {
-      window.location.href = "https://aircraft.delivery/thanks";
+      window.location.href = "https://aircraft.delivery/thank-you";
     } else {
       alert("There was a problem submitting the form.");
     }
