@@ -364,6 +364,24 @@ tbody td {
   height: 100%;            /* Ensure it occupies the full height of the header */
   width: 100%
 }
+
+/* Debugging outlines for layout structure */
+.mobile-header {
+  outline: 2px dashed red; /* Add outline to mobile header */
+}
+
+.mobile-header-inner {
+  outline: 2px dashed blue; /* Add outline to inner grid */
+}
+
+.mobile-logo-wrap {
+  outline: 2px solid green; /* Add outline to logo wrapper */
+}
+
+.mobile-logo {
+  outline: 2px solid yellow; /* Add outline to logo */
+}
+
   /* === MOBILE MENU === */
   .mobile-menu {
     position: fixed;
