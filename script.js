@@ -5,6 +5,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   console.log("JavaScript is running");
 
+  const hamburger = document.getElementById("hamburgerBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+
+console.log("hamburger button:", hamburger);
+console.log("mobile menu:", mobileMenu);
+
+
   // ✅ Close modal on any click (first thing)
   if (customModal) {
     customModal.addEventListener("click", function () {
