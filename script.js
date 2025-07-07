@@ -252,7 +252,7 @@ function handleSubmit(event) {
     }
 
     // === Hamburger Mobile Menu ===
-    const hamburger = document.querySelector(".hamburgerBtn");
+    const hamburger = document.getElementById(".hamburgerBtn");
     const mobileMenu = document.getElementById("mobileMenu");
 
     if (hamburger && mobileMenu) {
