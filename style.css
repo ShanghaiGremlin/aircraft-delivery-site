@@ -299,30 +299,23 @@ tbody td {
     display: none;
   }
 /* === MOBILE HEADER === */
-  .mobile-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 80px;
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-    background: rgba(210, 215, 244, 0.75);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-bottom: 1px solid #ccc;
-    z-index: 9999;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin: 0;
-    padding: 0;
+.mobile-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  background: rgba(0, 0, 255, 0.1);  /* Visible background for testing */
+  z-index: 9999;
+  display: flex;
+  justify-content: center; /* Centering the children horizontally */
+  align-items: center;     /* Centering the children vertically */
   }
 
   .mobile-header-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    height: 100%;
-    background-color: rgba(0, 255, 0, 0.2);
-    justify-items: center;
+  display: flex;
+  justify-content: space-between;  /* Space for hamburger, logo, phone */
+  width: 100%;
+  height: 100%;
   }
 
   .mobile-header-inner > div {
@@ -355,8 +348,7 @@ tbody td {
   height: 60px;
   width: auto;
   display: block;
-  margin: 0;
-  padding: 0;              
+  margin: 0;     
 }
 
 .mobile-logo-wrap {
@@ -364,7 +356,7 @@ tbody td {
   justify-content: center; /* Horizontally center the logo */
   align-items: center;     /* Vertically center the logo */
   height: 100%;            /* Ensure it occupies the full height of the header */
-  width: 100%
+
 }
 
 /* Debugging outlines for layout structure */
