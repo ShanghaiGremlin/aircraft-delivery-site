@@ -6,28 +6,11 @@
   <title>Aircraft Delivery Solutions</title>
 
   <style>
-    /* Desktop Menu Styling */
-    .desktop-header {
-      background: #2c3e50;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .desktop-menu {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-    }
-
-    .desktop-menu a {
-      color: white;
-      text-decoration: none;
-      padding: 10px;
-    }
-
-    .desktop-menu a:hover {
-      background: #34495e;
+    /* Basic styling for mobile */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
     }
 
     /* Mobile Menu Styling */
@@ -77,15 +60,45 @@
       padding: 5px 0;
     }
 
-    /* Media Queries for Mobile */
+    /* Mobile Header */
+    header {
+      padding: 10px;
+      background-color: #333;
+    }
+
+    /* Hide Desktop Header on Mobile */
     @media screen and (max-width: 768px) {
       .desktop-header {
-        display: none; /* Hide desktop header on mobile */
+        display: none;
       }
 
       .hamburger {
-        display: flex; /* Show hamburger on mobile */
+        display: block; /* Show hamburger on mobile */
       }
+    }
+
+    /* Desktop Styling */
+    .desktop-header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .desktop-menu {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .desktop-menu a {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+    }
+
+    .desktop-menu a:hover {
+      background: #34495e;
     }
   </style>
 </head>
