@@ -431,6 +431,13 @@ if (window.location.pathname === "/past-deliveries") {
     });
   });
 
+  const testButton = document.getElementById("hamburgerBtn");
+if (testButton) {
+  testButton.addEventListener("click", function () {
+    alert("Hamburger button was clicked.");
+  });
+}
+
 }
 
 
