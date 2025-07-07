@@ -444,21 +444,21 @@ if (testButton) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+  console.log("DOM fully loaded");
+
   const hamburger = document.querySelector(".hamburgerBtn");
   const mobileMenu = document.getElementById("mobileMenu");
 
-  if (!hamburger) {
-    console.log("No hamburger button found.");
-    return;
-  }
+  console.log("hamburger:", hamburger);
+  console.log("mobileMenu:", mobileMenu);
 
-  if (!mobileMenu) {
-    console.log("No mobile menu found.");
+  if (!hamburger || !mobileMenu) {
+    console.log("One or both elements are missing.");
     return;
   }
 
   hamburger.addEventListener("click", function () {
-    alert("Button was clicked!");
+    console.log("Hamburger clicked.");
     mobileMenu.classList.toggle("show");
   });
 });
