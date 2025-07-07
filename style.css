@@ -321,6 +321,7 @@ tbody td {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     height: 100%;
+    background-color: rgba(0, 255, 0, 0.2);
     justify-items: center;
   }
 
