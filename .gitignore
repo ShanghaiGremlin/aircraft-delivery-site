@@ -1,0 +1,15 @@
+# Ignore dependencies
+node_modules/
+devtools/node_modules/
+
+# Ignore Netlify and build artifacts
+.netlify/
+.dev/
+dist/
+.cache/
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
