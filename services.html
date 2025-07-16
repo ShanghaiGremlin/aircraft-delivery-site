@@ -19,7 +19,7 @@
 <div class="fixed-header">
   <div class="header-bleed-left"></div>
   <header>
-    <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/static-header-v7-95.png" usemap="#image-map"
+    <img src="/assets/static-header-v7-95.png" usemap="#image-map"
          style="width: 100%; height: auto; display: block;">
 
            <map name="image-map">
@@ -36,38 +36,30 @@
   <div class="header-bleed-right"></div>
 </div></div>
 
+<!--MOBILE-ONLY DIV-->
+<!--MOBILE-ONLY DIV-->
+<!--MOBILE-ONLY DIV-->
+
 <div class="mobile-only">
- <header class="mobile-header">
-  <div class="mobile-header-inner">
-    <!-- Hamburger -->
-     <div class="mobile-hamburger-wrap">
-    <button class="hamburger" aria-label="Open menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button></div>
 
-    <!-- Logo -->
-    <a href="/" class="mobile-logo-link">
-      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/mobile/mobile-logo.png"
-           alt="Aircraft Delivery Solutions"
-           class="mobile-logo">
-    </a>
+<!--MOBILE-ONLY HEADER-->
+<!--MOBILE-ONLY HEADER-->
+<!--MOBILE-ONLY HEADER-->
+  <header class="mobile-header">
 
-    <!-- Phone Icon -->
-    <a href="tel:14158458163" class="mobile-phone-link">
-      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/mobile/phone.png"
-           alt="Call"
-           class="mobile-phone-icon">
-    </a>
-  </div>
+    <div class="mobile-header-slot-left"><img src="/assets/mobile/burger.png" alt="Menu" id="hamburger-icon">
+    </div>
 
+    <div class="mobile-logo">
+      <a href="/index"><img src="/assets/mobile/mobile-logo.png" alt="Aircraft Delivery Logo" id="mobile-logo-img"></a>
+    </div>
 
-  <!--div class="header-bleed-right"></div> -->
+    <div class="mobile-header-slot-right"><a href="tel:+14158458163"><img src="/assets/mobile/phone.png" alt="Call me" id="phone-icon"></a>
+    </div>
 
+  </header>
 
-
-      <div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu" id="mobileMenu">
     <nav>
       <a href="/services">Services</a>
       <a href="/quote">Get a Quote</a>
@@ -76,12 +68,15 @@
       <a href="/about">About</a>
       <a href="/past-deliveries">Past Deliveries</a>
     </nav>
-  </div>
-</header>
+  </div> 
 </div>
 
 <main style="background-color: #f5f5f5;">
-<div class="desktop-only" style="padding-top: 145px;">
+
+  <!--DESKTOP-ONLY DIV-->
+  <!--DESKTOP-ONLY DIV-->
+  <!--DESKTOP-ONLY DIV-->
+<div class="desktop-only" style="padding-top: 165px;">
 
 <h1 class="page-title-brick">SERVICES</h1>
 
@@ -91,36 +86,40 @@
   <tr style="text-align: center;">
     <!-- Left Column -->
     <td style="border-left: none; border-top: none; border-bottom: none; border-right: 1px solid #ccc; padding: 0px 20px; vertical-align: top;">
-      <h2 style="margin-top: 10;"><u>FERRY FLIGHTS</u></h2>
-<div style="border: 2px solid #999; border-radius: 12px; background-color: #f9f9f9; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 10px 0px 10px 0px; max-width: 500px; margin: 0 auto; text-align: center; font-weight: 600;">
-  <p style="margin: 0; font-size: 22px; text-align: center;">
+      <h2 class="plaque-heading"><u>FERRY FLIGHTS</u></h2>
+
+          <div id="desktop-slideshow" class="slideshow-container desktop-only" style="max-width: 640px; margin: 40px auto; text-align: center;">
+  <img class="slide" src="/assets/services/slide-wick.jpg" style="display: block;">
+      <img class="slide" src="/assets/services/slide-lancair.jpg" style="display: none;">
+    <img class="slide" src="/assets/services/slide-duchess.jpg" style="display: none;">
+  <img class="slide" src="/assets/services/slide-pa32.jpg" style="display: none;">
+    <img class="slide" src="/assets/services/slide-c310.jpg" style="display: none;">
+  <div style="text-align: center; margin-top: 10px;">
+<button id="prevSlide">&#10094; Prev</button>
+<button id="nextSlide">Next &#10095;</button>
+
+<div style="border: 2px solid #999; border-radius: 12px; background-color: #f9f9f9; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 10px 0px 10px 0px; max-width: 500px; margin: 0 auto; margin-top: 35px; text-align: center; font-weight: 600;">
+  <p style="margin: 0; font-size: 1.6rem; text-align: center;">
     Looking for an experienced outfit? Logged:</p>
-    <div style="text-align: left; padding-left: 30px;">
+    <div style="text-align: left; padding-left: 30px; font-size: 1.5rem; line-height: 1.6;">
     &bull;<a href="/past-deliveries"> 52 ferry deliveries</a><br>
     &bull; in 64,000 naut. mi. <i>(equal to 3x circling the globe)</i><br>
-    &bull; in <abbr title="AA1C BE19 BE24 BE33 BE35 BE76 C150 C152 C172 C177 C182 C206 C210 C310 EuroFox Lancair4 LibertyXL2 M20 PA22 PA28 PA32 PA38">22 different aircraft types</abbr>
+    &bull; in <abbr title="AA1C BE19 BE24 BE33 BE35 BE76&#10;C150 C152 C172 C177 C182 C206&#10;C210 C310 EuroFox Lancair4 LibertyXL2&#10;M20 PA22 PA28 PA32 PA38">22 different aircraft types</abbr>
+
   </div>
 </div>
 
       <p style="text-align: center; font-size: 1.5rem;">
         Most ferry services are one pilot; I manage a <b>professional, supervised</b> flight operation:
       </p>
-      <ul style="padding-left: 1.25rem; font-size: 1.125rem; line-height: 1.7; text-align: left;">
+      <ul class="desk-std-base" style="padding-left: 1.25rem; text-align: left;">
         <li><b>I personally oversee every mission</b> as Director of Operations</li>
         <li><b>Experienced, vetted flightcrew</b> — no need to source your own pilots</li>
         <li><b>Real-time monitoring</b> of flight progress, weather, and enroute issues</li>
         <li><b>Proactive operational support</b> to catch and correct issues early</li>
         <li><b>Same level of care</b> whether you’re moving a light piston or a transport-category aircraft</li>
       </ul>
-    <div id="desktop-slideshow" class="slideshow-container desktop-only" style="max-width: 640px; margin: 40px auto; text-align: center;">
-  <img class="slide" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/services/slide-wick.jpg" style="display: block;">
-      <img class="slide" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/services/slide-lancair.jpg" style="display: none;">
-    <img class="slide" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/services/slide-duchess.jpg" style="display: none;">
-  <img class="slide" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/services/slide-pa32.jpg" style="display: none;">
-    <img class="slide" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/services/slide-c310.jpg" style="display: none;">
-  <div style="text-align: center; margin-top: 10px;">
-<button id="prevSlide">&#10094; Prev</button>
-<button id="nextSlide">Next &#10095;</button>
+
 
   </div>
 </div>
@@ -129,15 +128,16 @@
 
     <!-- Right Col -->
     <td style="border-right: none; border-top: none; border-bottom: none; padding: 0px 20px; vertical-align: top;">
-      <h2 style="margin-top: 10;"><u>CONTAINER DELIVERY</u></h2>
+      <h2 class="plaque-heading"><u>CONTAINER DELIVERY</u></h2>
+            <img src="assets/services/containerize-no-title.png" style="padding-top: 10px; width: 100%; height:auto; display: block; margin: 0 auto;">
       <p style="font-size: 1.5rem;">For light aircraft. A low-cost and very safe alternative to a risky and lengthy ferry flight.</p>
-      <div style="text-align: left;">
+      <div class="desk-std-base" style="text-align: left;">
       <p><b>Is container transport optimal?</b> – I determine that it is for the mission, and/or the customer requests a container quote.</p>
       <p><b>Port identification</b> – I select cities to be used, considering cost, availability, etc.</p>
       <p><b>Fly or truck</b> – The method of moving the aircraft from its present location to the container-izer is determined. Ideally, the aircraft is airworthy and can be flown; if not it will need to be trucked to the container-izer.</p>
       <p><b>Services after port arrival</b> – Typically, my mission ends with delivery at the destination port. However, upon customer request I can add other services such as ground transportation in the destination country, and re-assembly.</p>
       </div>
-      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/containerize-no-title.png" style="padding-top: 10px; width: 100%; height:auto; display: block; margin: 0 auto;">
+
     </td>
   </tr>
 </table>
@@ -152,20 +152,23 @@
 </div>
 </div>
 
-<div class="mobile-only">
-  <!-- Mobile Page Title and Tagline -->
-  <h1 class="page-title-brick">SERVICES</h1>
-  <p class="page-tagline"> Trust Aircraft Delivery Solutions to bring over <a href="/about">30 years of industry expertise</a>
-    to ensure your aircraft delivery is safe, efficient, and on-budget.</p>
-</div>
+  <!--MOBILE-ONLY DIV-->
+  <!--MOBILE-ONLY DIV-->
+  <!--MOBILE-ONLY DIV-->
 
-<!-- Full-width Slideshow (Mobile First) -->
-<div id="mobile-slideshow" class="slideshow-container mobile-only" style="width: 100%; text-align: center; margin: -20px auto 20px auto;">
-  <img class="slide" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/services/slide-wick.jpg" style="display: block; width: 75%; height: auto; margin: 0 auto;">
-  <img class="slide" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/services/slide-mooney.jpg" style="display: none; width: 75%; height: auto; margin: 0 auto;">
-  <img class="slide" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/services/slide-duchess.jpg" style="display: none; width: 75%; height: auto; margin: 0 auto;">
-  <img class="slide" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/services/slide-pa32.jpg" style="display: none; width: 75%; height: auto; margin: 0 auto;">
-  <img class="slide" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/services/slide-c310.jpg" style="display: none; width: 75%; height: auto; margin: 0 auto;">
+<div class="mobile-only" style="padding-top: 70px;">
+  <!-- Mobile Page Title and Tagline -->
+  <h1 class="mob-page-title-brick">SERVICES</h1>
+  <p style="font-size: 0.9rem; text-align: center; margin-top: 10px;"><i>Trust Aircraft Delivery Solutions to bring over <a href="/about">30 years of industry expertise</a> to ensure your aircraft delivery is safe, efficient, and on-budget.</i></p>
+
+
+<!--MOBILE SLIDESHOW-->
+<div id="mobile-slideshow" class="slideshow-container mobile-only" style="width: 100%; text-align: center; margin: 0 auto 0 auto;">
+  <img class="slide" src="/assets/services/slide-wick.jpg" style="display: block; width: 90%; height: auto; margin: 0 auto;">
+  <img class="slide" src="/assets/services/slide-mooney.jpg" style="display: none; width: 90%; height: auto; margin: 0 auto;">
+  <img class="slide" src="/assets/services/slide-duchess.jpg" style="display: none; width: 90%; height: auto; margin: 0 auto;">
+  <img class="slide" src="/assets/services/slide-pa32.jpg" style="display: none; width: 90%; height: auto; margin: 0 auto;">
+  <img class="slide" src="/assets/services/slide-c310.jpg" style="display: none; width: 90%; height: auto; margin: 0 auto;">
     <div style="margin-top: 10px;"> 
 <button onclick="changeMobileSlide(-1)">&#10094; Prev</button>
 <button onclick="changeMobileSlide(1)">Next &#10095;</button>
@@ -174,11 +177,11 @@
 
 <!-- FERRY FLIGHTS Section -->
 <section style="padding: 20px;">
-  <h2 style="margin-top: 10px; text-align: center;"><u>FERRY FLIGHTS</u></h2>
+  <p style="margin-top: 10px; text-align: center; font-size: 1.6rem;"><u><b>FERRY FLIGHTS</b></u></p>
 
-<div style="border: 2px solid #999; border-radius: 12px; background-color: #f9f9f9; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 20px; max-width: 650px; margin: 0 auto; font-weight: 600;">
-  <p style="margin: 0; font-size: 1.125rem; text-align: center;">Looking for an experienced outfit? Logged:</p>
-  <div style="text-align: left; padding-left: 15px; font-size: 1rem; margin-top: 8px;">
+<div class="mob-std-small" style="border: 2px solid #999; border-radius: 12px; background-color: #f9f9f9; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 20px; max-width: 650px; margin: 0 auto;">
+  <p style="margin: 0; font-size: 1.4rem; text-align: center;"><b>Looking for an experienced outfit? Logged:</b></p>
+  <div class="mob-std-small" style= "text-align: left; padding-left: 15px; margin-top: 8px;">
     &bull; <a href="/past-deliveries">52 ferry deliveries</a><br>
     &bull; in 64,000 naut. mi. <i>(equal to 3x circling the globe)</i><br>
     &bull;
@@ -190,6 +193,7 @@
       AA1C, BE19, BE24, BE33, BE35, BE76, C150, C152, C172, C177, C182, C206, C210, C310, EuroFox, Lancair4, LibertyXL2, M20, PA22, PA28, PA32, PA38
     </span>
   </div>
+  </div>
 </div>
 
 <script>
@@ -199,49 +203,44 @@
   }
 </script>
 
-
-  <p style="text-align: center; font-size: 1.125rem; margin-top: 20px;">
+  <p style="text-align: center; font-size: 1.4rem; margin-top: 20px;">
     Most ferry services are one pilot; I manage a <b>professional, supervised</b> flight operation:
   </p>
 
-  <ul style="padding-left: 20px; font-size: 0.875rem; line-height: 1.3; text-align: left;">
+  <ul class="mob-std-small" style="padding-left: 30px; text-align: left;">
     <li><b>I personally oversee <a href="/past-deliveries"> every mission</a></b> as Director of Operations</li>
     <li><b><a href="/pilot-directory">Experienced, vetted flightcrew</a></b> — no need to source your own pilots</li>
     <li><b>Real-time monitoring</b> of flight progress, weather, and enroute issues</li>
     <li><b>Proactive operational support</b> to catch and correct issues early</li>
     <li><b>Same level of care</b> whether you’re moving a light piston or a transport-category aircraft</li>
   </ul>
+  <div style="width: 100%; text-align: center; margin-top: -15px; padding-bottom: 0px; position: relative; z-index: 5;"><a href="/quote"><img src="/assets/quote-button-transp.png" alt="Get a Fast Quote" style="width: 35%; height: auto; display: block; margin: 0 auto;">
+  </a>
+</div>
 </section>
 
 <!-- CONTAINER DELIVERY Section -->
 <section style="padding: 0 0 20px 0;">
-  <h2 style="margin-top: 10px; text-align: center;"><u>CONTAINER DELIVERY</u></h2>
+  <p style="margin-top: 10px; text-align: center; font-size: 1.6rem;"><u><b>CONTAINER DELIVERY</b></u></p>
 
-  <p style="font-size: 1.125rem; text-align: center;">
+    <img src="/assets/services/containerize-no-title.png" alt="Container Delivery Process" style="padding-top: 10px; width: 95%; height:auto; display: block; margin: 0 auto;">
+
+  <p style="font-size: 1.4rem; text-align: center;">
     For light aircraft. A low-cost and very safe alternative to a risky and lengthy ferry flight.
   </p>
 
-  <div style="font-size: 0.875rem; line-height: 1.3; padding-left: 10px; padding-right: 10px; text-align: left;">
+  <div class="mob-std-small" style="padding-left: 10px; padding-right: 10px; text-align: left;">
     <p><b>Is container transport optimal?</b> – I determine that it is for the mission, and/or the customer <a href="/quote">requests a container quote.</a></p>
     <p><b>Port identification</b> – I select cities to be used, considering cost, availability, etc.</p>
     <p><b>Fly or truck</b> – The method of moving the aircraft from its present location to the container-izer is determined. Ideally, the aircraft is airworthy and can be flown; if not, it will need to be trucked to the container-izer.</p>
     <p><b>Services after port arrival</b> – Typically, my mission ends with delivery at the destination port. However, upon customer request I can add other services such as ground transportation in the destination country, and re-assembly.</p>
   </div>
-
-  <img 
-    src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/containerize-no-title.png" 
-    alt="Container Delivery Process"
-    style="padding-top: 10px; width: 95%; height:auto; display: block; margin: 0 auto;"
-  >
 </section>
 
 <!-- CTA Button -->
-<div style="width: 100%; text-align: center; margin: 30px 0 10px 0; padding-bottom: 0px; position: relative; z-index: 5;">
+<div style="width: 100%; text-align: center; margin-top: -15px; padding-bottom: 0px; position: relative; z-index: 5;">
   <a href="/quote">
-    <img 
-      src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/quote-button-transp.png"
-      alt="Get a Fast Quote"
-      style="width: 60%; height: auto; display: block; margin: 0 auto;">
+    <img src="/assets/quote-button-transp.png" alt="Get a Fast Quote" style="width: 35%; height: auto; display: block; margin: 0 auto;">
   </a>
 </div>
 

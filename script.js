@@ -1,25 +1,18 @@
+// === ALL-IN-ONE SCRIPT: FIXED IMAGE ZOOM + SLIDESHOW + MODALS ===
+
 document.addEventListener("DOMContentLoaded", function () {
+
+  // === PILOT RATINGS MODAL ===
   const pilotRatingsBtn = document.getElementById("pilot-ratings-btn");
   const customModal = document.getElementById("custom-modal");
   const modalClose = document.getElementById("custom-modal-close");
 
-  console.log("JavaScript is running");
-
-  const hamburger = document.querySelector("hamburgerBtn");
-const mobileMenu = document.getElementById("mobileMenu");
-
-console.log("hamburger button:", hamburger);
-console.log("mobile menu:", mobileMenu);
-
-
-  // ✅ Close modal on any click (first thing)
   if (customModal) {
     customModal.addEventListener("click", function () {
       this.style.display = "none";
     });
   }
 
-  // ✅ Button opens modal
   if (pilotRatingsBtn && customModal && modalClose) {
     pilotRatingsBtn.addEventListener("click", function () {
       customModal.style.display = "flex";
@@ -29,14 +22,13 @@ console.log("mobile menu:", mobileMenu);
       customModal.style.display = "none";
     });
   }
-});
 
-  
+  // === DESKTOP SLIDESHOW ===
   const desktopSlides = document.querySelectorAll("#desktop-slideshow .slide");
   let desktopIndex = 0;
   let desktopCycles = 0;
   const desktopMaxCycles = 3;
-  let desktopInterval; // store the current interval
+  let desktopInterval;
 
   function showDesktopSlide(index) {
     desktopSlides.forEach((slide, i) => {
@@ -44,22 +36,16 @@ console.log("mobile menu:", mobileMenu);
     });
   }
 
-  function scheduleNextSlide() {
-    // Set delay: 15000ms for slide 1, otherwise 5000ms
+  function scheduleNextDesktopSlide() {
     const delay = (desktopIndex === 1) ? 15000 : 5000;
-
     desktopInterval = setTimeout(() => {
       desktopIndex = (desktopIndex + 1) % desktopSlides.length;
       showDesktopSlide(desktopIndex);
-
       if (desktopIndex === 0) {
         desktopCycles++;
-        if (desktopCycles >= desktopMaxCycles) {
-          return; // Stop autoplay
-        }
+        if (desktopCycles >= desktopMaxCycles) return;
       }
-
-      scheduleNextSlide(); // Recursive schedule
+      scheduleNextDesktopSlide();
     }, delay);
   }
 
@@ -67,411 +53,264 @@ console.log("mobile menu:", mobileMenu);
     clearTimeout(desktopInterval);
     desktopIndex = (desktopIndex + n + desktopSlides.length) % desktopSlides.length;
     showDesktopSlide(desktopIndex);
-    scheduleNextSlide(); // Restart after manual change
+    scheduleNextDesktopSlide();
   }
 
   if (desktopSlides.length > 0) {
     showDesktopSlide(desktopIndex);
-    scheduleNextSlide();
-
-    // Hook up Prev / Next buttons if present
+    scheduleNextDesktopSlide();
     const prevBtn = document.getElementById("prevSlide");
     const nextBtn = document.getElementById("nextSlide");
-
     if (prevBtn && nextBtn) {
       prevBtn.addEventListener("click", () => changeDesktopSlide(-1));
       nextBtn.addEventListener("click", () => changeDesktopSlide(1));
     }
-
-    // Expose function for inline HTML buttons if needed
     window.changeSlide = changeDesktopSlide;
   }
 
+  // === MOBILE SLIDESHOW ===
+  const mobileSlides = document.querySelectorAll("#mobile-slideshow .slide");
+  let mobileIndex = 0;
+  let mobileCycles = 0;
+  const mobileMaxCycles = 3;
 
-
-
-
-      // === MOBILE SLIDESHOW ===
-    const mobileSlides = document.querySelectorAll("#mobile-slideshow .slide");
-    let mobileIndex = 0;
-    let mobileCycles = 0;
-    const mobileMaxCycles = 3;
-
-    function showMobileSlide(index) {
-      mobileSlides.forEach((slide, i) => {
-        slide.style.display = i === index ? "block" : "none";
-      });
-    }
-
-    function changeMobileSlide(n) {
-      mobileIndex = (mobileIndex + n + mobileSlides.length) % mobileSlides.length;
-      showMobileSlide(mobileIndex);
-    }
-
-    if (mobileSlides.length > 0) {
-      showMobileSlide(mobileIndex);
-      window.changeSlide = changeMobileSlide;
-
-      const mobileInterval = setInterval(() => {
-        mobileIndex = (mobileIndex + 1) % mobileSlides.length;
-        showMobileSlide(mobileIndex);
-
-        if (mobileIndex === 0) {
-          mobileCycles++;
-          if (mobileCycles >= mobileMaxCycles) {
-            clearInterval(mobileInterval);
-          }
-        }
-      }, 8000);
-    }
-
-    // === Accordion Scroll + Toggle ===
-    document.querySelectorAll(".accordion-header").forEach((header) => {
-      header.addEventListener("click", () => {
-        const content = header.nextElementSibling;
-        const isOpen = content.style.maxHeight;
-        header.classList.toggle("active");
-        content.style.maxHeight = isOpen ? null : content.scrollHeight + "px";
-
-        setTimeout(() => {
-          const fixedHeaderHeight = 105;
-          const elementTop = header.getBoundingClientRect().top + window.scrollY;
-          const scrollTarget = elementTop - fixedHeaderHeight;
-
-          window.scrollTo({
-            top: scrollTarget,
-            behavior: "smooth",
-          });
-        }, 200);
-      });
+  function showMobileSlide(index) {
+    mobileSlides.forEach((slide, i) => {
+      slide.style.display = i === index ? "block" : "none";
     });
+  }
 
-    // === MOBILE ABOUT IMAGE MODAL ===
-    const imgModal = document.getElementById("imgModal");
-    const modalImg = document.getElementById("modalImg");
-    const modalCaption = document.getElementById("modalCaption");
-    const modalClose = document.getElementById("modalClose");
+  function changeMobileSlide(n) {
+    mobileIndex = (mobileIndex + n + mobileSlides.length) % mobileSlides.length;
+    showMobileSlide(mobileIndex);
+  }
 
-    if (imgModal && modalImg && modalCaption && modalClose) {
-      document.querySelectorAll(".mobile-newspaper-img-left img").forEach(function (img) {
-        img.style.cursor = "pointer";
-        img.addEventListener("click", function () {
-          modalImg.src = this.src;
-          const caption = this.closest(".mobile-newspaper-img-left")?.querySelector(".mob-about-img-caption");
-          modalCaption.textContent = caption ? caption.textContent : "";
-          imgModal.style.display = "flex";
-        });
-      });
-
-      modalClose.addEventListener("click", function () {
-        imgModal.style.display = "none";
-      });
-
-      imgModal.addEventListener("click", function (e) {
-        if (e.target === imgModal) {
-          imgModal.style.display = "none";
-        }
-      });
-    }
-
-    // === Unified Modal ===
-    const unifiedModal = document.getElementById("unified-modal");
-    const unifiedBody = document.getElementById("unified-modal-body");
-    const pilotRatingsBtn = document.getElementById("pilotRatingsBtn");
-
-    if (unifiedModal && unifiedBody && pilotRatingsBtn) {
-      pilotRatingsBtn.addEventListener("click", () => {
-        unifiedBody.innerHTML = `
-        <p><u>Aircraft Delivery Solutions pilot type ratings</u></p> 
-        <ul>
-          <li><b>BEECHCRAFT:</b> BE300 (King Air 350)</li> 
-          <li><b>BOEING:</b> B747-200, B747-400/8, DC-9</li> 
-          <li><b>BOMBARDIER:</b> CL-65, DHC-8, LR-JET</li> 
-          <li><b>CESSNA:</b> CE-750 (Citation X)</li> 
-          <li><b>DASSAULT:</b> FA-20, FA-50 [SIC]</li> 
-          <li><b>EMBRAER:</b> EMB-120, EMB-170–195, EMB-550</li> 
-          <li><b>FAIRCHILD:</b> SA-227</li> 
-          <li><b>GULFSTREAM:</b> IAI-1125 (G100), Gulfstream IV [SIC]</li> 
-          <li><b>LOCKHEED:</b> L-300 (C141)</li> 
-          <li><b>SIKORSKY:</b> S-70 (UH-60)</li> 
-        </ul>`;
-        unifiedModal.style.display = "flex";
-      });
-
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") {
-          unifiedModal.style.display = "none";
-        }
-      });
-
-      unifiedModal.addEventListener("click", function (e) {
-        if (e.target === unifiedModal) {
-          unifiedModal.style.display = "none";
-        }
-      });
-    }
-
-    // === Testimonial Modal Trigger ===
-    document.querySelectorAll(".testimonial-thumb").forEach((img) => {
-      img.addEventListener("click", function () {
-        const fullImageUrl = this.getAttribute("data-full");
-        if (fullImageUrl) {
-          openModal(`<img src="${fullImageUrl}" style="width: 100%; height: auto;" alt="Full Testimonial Image">`);
-        }
-      });
-    });
-
-    // === Quote Form Submission ===
-    const desktopForm = document.getElementById("quote-form-desktop");
-    const mobileForm = document.getElementById("quote-form-mobile");
-
-    function isVisible(elem) {
-      return elem && elem.offsetParent !== null;
-    }
-
-function handleSubmit(event) {
-  event.preventDefault();
-  const form = event.target;
-  const formData = new FormData(form);
-
-  fetch(form.action, {
-    method: "POST",
-    body: formData,
-    headers: { Accept: "application/json" },
-  })
-  .then(response => {
-    if (response.ok) {
-      window.location.href = "https://aircraft.delivery/thank-you";
-    } else {
-      alert("There was a problem submitting the form.");
-    }
-  })
-  .catch(error => {
-    console.error("Form submit error:", error);
-    alert("There was a technical issue submitting your request.");
-  });
-}
-
-
-    if (isVisible(desktopForm)) {
-      desktopForm.addEventListener("submit", handleSubmit);
-    }
-    if (isVisible(mobileForm)) {
-      mobileForm.addEventListener("submit", handleSubmit);
-    }
-
-    // === Hamburger Mobile Menu ===
-const hamburger = document.querySelector(".hamburgerBtn");
-const mobileMenu = document.getElementById("mobileMenu");
-
-if (hamburger && mobileMenu) {
-  hamburger.addEventListener("click", function () {
-    alert("Button was clicked!");
-    mobileMenu.classList.toggle("show");
-  });
-}
-
-   
-
-    window.addEventListener("pageshow", function () {
-      if (mobileMenu && mobileMenu.classList.contains("show")) {
-        mobileMenu.classList.remove("show");
+  if (mobileSlides.length > 0) {
+    showMobileSlide(mobileIndex);
+    window.changeSlide = changeMobileSlide;
+    const mobileInterval = setInterval(() => {
+      mobileIndex = (mobileIndex + 1) % mobileSlides.length;
+      showMobileSlide(mobileIndex);
+      if (mobileIndex === 0) {
+        mobileCycles++;
+        if (mobileCycles >= mobileMaxCycles) clearInterval(mobileInterval);
       }
-      if (hamburger && hamburger.classList.contains("open")) {
-        hamburger.classList.remove("open");
+    }, 8000);
+  }
+
+  // === MOBILE ACCORDION ===
+  document.querySelectorAll('.accordion-header').forEach(header => {
+    header.addEventListener('click', () => {
+      header.classList.toggle('open');
+      const content = header.nextElementSibling;
+      if (content && content.classList.contains('accordion-content')) {
+        const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+        content.style.maxHeight = isOpen ? '0px' : content.scrollHeight + 'px';
+        if (!isOpen) {
+          setTimeout(() => {
+            const headerOffset = header.getBoundingClientRect().top + window.scrollY;
+            const scrollOffset = 100;
+            window.scrollTo({ top: headerOffset - scrollOffset, behavior: 'smooth' });
+          }, 150);
+        }
       }
     });
+  });
 
-// === Mobile Tooltip ===
-console.log("Tooltip script loaded");
-    const tooltips = document.querySelectorAll(".tappable-mob-tooltip");
-    console.log("Found", tooltips.length, "tooltip(s)");
+  // === IMAGE TAP-ZOOM (MOBILE) ===
+  document.querySelectorAll(".img-wrap").forEach(function (wrap) {
+    const img = wrap.querySelector(".thumbnail");
+    if (!img) return;
 
-    document.addEventListener("click", function () {
-      tooltips.forEach((el) => el.classList.remove("active"));
+    img.addEventListener("click", function (e) {
+      e.stopPropagation();
+      const alreadyActive = wrap.classList.contains("active");
+
+      document.querySelectorAll(".img-wrap.active").forEach(el => el.classList.remove("active"));
+      if (!alreadyActive) {
+        wrap.classList.add("active");
+        document.body.style.overflow = "hidden";
+      } else {
+        wrap.classList.remove("active");
+        document.body.style.overflow = "";
+      }
     });
+  });
 
-    tooltips.forEach(function (el) {
-      el.addEventListener("click", function (e) {
-        e.stopPropagation();
-        const isActive = this.classList.contains("active");
-        tooltips.forEach((t) => t.classList.remove("active"));
-        if (!isActive) {
-          this.classList.add("active");
-          console.log("Tapped tooltip: ", this.textContent);
+  document.addEventListener("click", function (e) {
+    const zoomed = document.querySelector(".img-wrap.active");
+    if (zoomed && !zoomed.contains(e.target)) {
+      zoomed.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+  });
 
-          if (!isActive) {
-  this.classList.add("active");
-  console.log("Tapped tooltip: ", this.textContent);
-
-  // --- Shift tooltip if it's too close to edge ---
-  const tooltipText = this.getAttribute("data-tooltip");
-  const tempSpan = document.createElement("span");
-  tempSpan.style.visibility = "hidden";
-  tempSpan.style.position = "absolute";
-  tempSpan.style.whiteSpace = "nowrap";
-  tempSpan.style.fontSize = "14px";
-  tempSpan.textContent = tooltipText;
-  document.body.appendChild(tempSpan);
-
-  const tooltipWidth = tempSpan.offsetWidth;
-  const elRect = this.getBoundingClientRect();
-  const spaceLeft = elRect.left;
-  const spaceRight = window.innerWidth - elRect.right;
-
-  if (tooltipWidth / 2 > spaceLeft) {
-    this.style.setProperty('--tooltip-shift', `${tooltipWidth / 2 - spaceLeft + 8}px`);
-  } else if (tooltipWidth / 2 > spaceRight) {
-    this.style.setProperty('--tooltip-shift', `-${tooltipWidth / 2 - spaceRight + 8}px`);
-  } else {
-    this.style.setProperty('--tooltip-shift', `0px`);
-  }
-
-  document.body.removeChild(tempSpan);
-}
-
-        }
-      });
+  // === MOBILE PAST DELIVERIES THUMBNAIL TOGGLE ===
+  document.querySelectorAll(".mob-past-deliv-thumb").forEach(img => {
+    img.addEventListener("click", function () {
+      const textRow = this.closest("tr").nextElementSibling;
+      if (textRow && textRow.classList.contains("mob-past-deliv-text-row")) {
+        textRow.classList.toggle("open");
+      }
     });
-
-
-
-  // === Global Modal Fallbacks ===
-  function closeModal() {
-    const modal = document.getElementById("imgModal");
-    if (modal) modal.style.display = "none";
-  }
-
-  function openMobileModal() {
-    const modal = document.getElementById("mobile-modal");
-    if (modal) modal.style.display = "flex";
-  }
-
-  function closeMobileModal() {
-    const modal = document.getElementById("mobile-modal");
-    if (modal) modal.style.display = "none";
-  }
-
-  function openModal(content) {
-    const modal = document.getElementById("custom-modal");
-    const body = document.getElementById("modal-body");
-    if (modal && body) {
-      body.innerHTML = content;
-      modal.style.display = "flex";
-    }
-  }
-
-  document.querySelectorAll('.past-delivery-img').forEach(div => {
-  const img = div.querySelector('img');
-  const fullImg = div.getAttribute('data-full') || img.src;
-  const caption = div.querySelector('.past-delivery-caption')?.textContent || "";
-
-  div.style.cursor = 'pointer';
-  div.addEventListener('click', () => {
-    openModal(`
-      <img src="${fullImg}" alt="" style="width: 100%; height: auto; margin-bottom: 12px;">
-      <div style="text-align: center; font-size: 14px; color: #444;">${caption}</div>
-    `);
   });
-});
 
-document.querySelectorAll('.mob-past-deliv-thumb').forEach(function (img) {
-  img.style.cursor = "pointer";
-  img.addEventListener("click", function () {
-    const wrapper = this.closest(".mob-past-deliv-img");
-    if (!wrapper) {
-      console.log("Wrapper not found for thumbnail.");
-      return;
+  // === RESTORE SCROLL POSITION ===
+  if (window.location.pathname === "/past-deliveries") {
+    const savedScroll = localStorage.getItem("scrollPosition");
+    if (savedScroll !== null) {
+      setTimeout(() => {
+        window.scrollTo(0, parseInt(savedScroll, 10));
+        localStorage.removeItem("scrollPosition");
+      }, 100);
     }
-
-    const fullImageUrl = wrapper.getAttribute("data-full") || this.src;
-    const captionEl = wrapper.querySelector(".mob-past-deliv-caption");
-    const caption = captionEl ? captionEl.textContent : "";
-
-    const modal = document.getElementById("imgModal");
-    const modalImg = document.getElementById("modalImg");
-    const modalCaption = document.getElementById("modalCaption");
-
-    if (modal && modalImg && modalCaption) {
-      modalImg.src = fullImageUrl;
-      modalCaption.textContent = caption;
-      modal.style.display = "flex";
-    } else {
-      console.log("Modal elements not found");
-    }
-  });
-});
-
-
-// === CLOSE MODAL ON ANY TAP INSIDE ===
-//document.getElementById("imgModal").addEventListener("click", function () {
-//  this.style.display = "none";
-//});
-
-document.querySelectorAll(".mob-past-deliv-thumb").forEach(img => {
-  img.addEventListener("click", function () {
-    const textRow = this.closest("tr").nextElementSibling;
-    if (textRow && textRow.classList.contains("mob-past-deliv-text-row")) {
-      textRow.classList.toggle("open");
-    }
-  });
-});
-
-// === Restore scroll position on load ===
-if (window.location.pathname === "/past-deliveries") {
-  const savedScroll = localStorage.getItem("scrollPosition");
-  if (savedScroll !== null) {
-    setTimeout(() => {
-      window.scrollTo(0, parseInt(savedScroll, 10));
-      localStorage.removeItem("scrollPosition");
-    }, 100); // slight delay helps layout settle
   }
 
-  // === Save scroll position before navigating away
+  // === SAVE SCROLL POSITION ON LINK CLICK ===
   document.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", function () {
       localStorage.setItem("scrollPosition", window.scrollY);
     });
   });
 
-  const testButton = document.getElementById("hamburgerBtn");
-if (testButton) {
-  testButton.addEventListener("click", function () {
-    alert("Hamburger button was clicked.");
-  });
-}
-
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("DOM fully loaded");
-
-  const hamburger = document.querySelector(".hamburgerBtn");
+  // === MOBILE MENU HAMBURGER TOGGLE ===
+  const hamburger = document.getElementById("hamburger-icon");
   const mobileMenu = document.getElementById("mobileMenu");
 
-  console.log("hamburger:", hamburger);
-  console.log("mobileMenu:", mobileMenu);
-
-  if (!hamburger || !mobileMenu) {
-    console.log("One or both elements are missing.");
-    return;
-  }
-
-  hamburger.addEventListener("click", function () {
-    console.log("Hamburger clicked.");
-    mobileMenu.classList.toggle("show");
-  });
-});
-
-
-document.addEventListener("DOMContentLoaded", function () {
-  const testBtn = document.getElementById("testBtn");
-  const mobileMenu = document.getElementById("mobileMenu");
-
-  if (testBtn && mobileMenu) {
-    testBtn.addEventListener("click", function () {
-      console.log("Test button clicked");
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener("click", () => {
       mobileMenu.classList.toggle("show");
+      hamburger.src = mobileMenu.classList.contains("show")
+        ? "/assets/mobile/mobile-close-menu.svg"
+        : "/assets/mobile/burger.png";
+    });
+
+    document.addEventListener("click", (e) => {
+      if (
+        mobileMenu.classList.contains("show") &&
+        !mobileMenu.contains(e.target) &&
+        !hamburger.contains(e.target)
+      ) {
+        mobileMenu.classList.remove("show");
+        hamburger.src = "/assets/mobile/burger.png";
+      }
     });
   }
+
+  // === BODY CLASS FOR MOBILE ===
+  if (window.innerWidth <= 768) {
+    document.body.classList.add("mobile");
+  }
+
 });
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const button = document.getElementById("pilotRatingsBtn");
+  const modal = document.getElementById("unified-modal");
+
+  if (button && modal) {
+    // Open the modal
+    button.addEventListener("click", function () {
+      modal.style.display = "flex";
+    });
+
+    // Close the modal on ANY click inside it
+    modal.addEventListener("click", function () {
+      modal.style.display = "none";
+    });
+  } else {
+    console.warn("Missing #pilotRatingsBtn or #unified-modal");
+  }
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const zoomBlocks = document.querySelectorAll(".img-wrap");
+
+  zoomBlocks.forEach(function (wrap) {
+    wrap.addEventListener("click", function () {
+      const isActive = wrap.classList.contains("active");
+
+      // Deactivate all other zooms and demote any promoted wrapper
+      document.querySelectorAll(".img-wrap.active").forEach(function (el) {
+        el.classList.remove("active");
+        const promoteWrapper = el.closest(".zoom-wrapper");
+        if (promoteWrapper) promoteWrapper.classList.remove("promote");
+      });
+
+      if (!isActive) {
+        // Activate this one
+        wrap.classList.add("active");
+
+        // Promote its wrapper
+        const zoomWrapper = wrap.closest(".zoom-wrapper");
+        if (zoomWrapper) zoomWrapper.classList.add("promote");
+
+        // Allow content to bleed outside viewport
+        document.documentElement.style.overflow = "visible";
+        document.body.style.overflow = "visible";
+      } else {
+        // Remove zoom + promotion
+        wrap.classList.remove("active");
+        const zoomWrapper = wrap.closest(".zoom-wrapper");
+        if (zoomWrapper) zoomWrapper.classList.remove("promote");
+
+        document.documentElement.style.overflow = "";
+        document.body.style.overflow = "";
+      }
+    });
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".mob-tooltip").forEach(function (el) {
+    el.addEventListener("click", function (e) {
+      // Toggle this tooltip
+      const isOpen = el.classList.contains("show-tooltip");
+      document.querySelectorAll(".mob-tooltip").forEach(t => t.classList.remove("show-tooltip"));
+      if (!isOpen) el.classList.add("show-tooltip");
+      e.stopPropagation(); // Prevent close-on-body-click from firing immediately
+    });
+  });
+
+  // Tap anywhere else to close any open tooltip
+  document.addEventListener("click", function () {
+    document.querySelectorAll(".mob-tooltip").forEach(el => el.classList.remove("show-tooltip"));
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const modal = document.getElementById("desk-past-deliv-modal");
+  const modalImg = document.getElementById("desk-past-deliv-img");
+  const modalClose = document.getElementById("desk-past-deliv-close");
+
+  const thumbnails = document.querySelectorAll("img[data-full]");
+
+  thumbnails.forEach(function (img) {
+    img.addEventListener("click", function () {
+      const fullSrc = this.getAttribute("data-full");
+      modalImg.src = fullSrc;
+      modal.style.display = "flex";
+    });
+  });
+
+  if (modalClose) {
+    modalClose.addEventListener("click", function () {
+      modal.style.display = "none";
+      modalImg.src = ""; // Clear the src to avoid stale image
+    });
+  }
+
+  // Also allow clicking outside the image to close
+  modal.addEventListener("click", function (e) {
+    if (e.target === modal) {
+      modal.style.display = "none";
+      modalImg.src = "";
+    }
+  });
+});
+

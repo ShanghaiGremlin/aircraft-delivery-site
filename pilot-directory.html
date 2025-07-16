@@ -37,44 +37,23 @@
 
 
 <div class="mobile-only">
- <header class="mobile-header">
-  <div class="mobile-header-inner">
-    <!-- Hamburger -->
-    <div class="mobile-hamburger-wrap">
-      <button class="hamburger" aria-label="Open menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+
+<!--MOBILE-ONLY HEADER-->
+<!--MOBILE-ONLY HEADER-->
+
+  <header class="mobile-header">
+
+    <div class="mobile-header-slot-left"><img src="/assets/mobile/burger.png" alt="Menu" id="hamburger-icon">
     </div>
 
-    <!-- Logo -->
-    <a href="/" class="mobile-logo-link">
-      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/mobile/mobile-logo.png"
-           alt="Aircraft Delivery Solutions"
-           class="mobile-logo">
-    </a>
+    <div class="mobile-logo">
+      <a href="/index"><img src="/assets/mobile/mobile-logo.png" alt="Aircraft Delivery Logo" id="mobile-logo-img"></a>
+    </div>
 
-    <!-- Phone Icon -->
-    <a href="tel:14158458163" class="mobile-phone-link">
-      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/mobile/phone.png"
-           alt="Call"
-           class="mobile-phone-icon">
-    </a>
-  </div>
-  <!-- Optional bleed-right element -->
-  <!-- <div class="header-bleed-right"></div> -->
-</header>
+    <div class="mobile-header-slot-right"><a href="tel:+14158458163"><img src="/assets/mobile/phone.png" alt="Call me" id="phone-icon"></a>
+    </div>
 
-  <map name="image-map">
-    <area target="" alt="" href="/services" coords="64,21,147,46" shape="rect" title="Services">
-    <area target="" alt="" href="/quote" coords="160,19,217,46" shape="rect" title="Get a Quote">
-    <area target="" alt="" href="/pilot-directory" coords="17,63,149,90" shape="rect" title="Pilot Directory">
-    <area target="" alt="" href="/pilot-hiring" coords="162,62,264,90" shape="rect" title="Pilot Hiring">
-    <area target="" alt="" href="/about" coords="38,106,98,133" shape="rect" title="About">
-    <area target="" alt="" href="/past-deliveries" coords="108,106,246,133" shape="rect" title="Past Deliveries">
-    <area target="" alt="" href="/" coords="278,6,1076,143" shape="rect" title="Aircraft Delivery Solutions">
-  </map>
+  </header>
 
   <div class="mobile-menu" id="mobileMenu">
     <nav>
@@ -90,29 +69,23 @@
 
 <main>
 
-<div class="desktop-only" style= "padding-top: 145px; background-color: #f5f5f5;">
-  <h1 style="margin-bottom: 15px;" class="page-title-brick">FERRY PILOT DIRECTORY</h1>
+<div class="desktop-only" style= "padding-top: 165px; background-color: #f5f5f5;">
+  <h2 style="margin-bottom: 15px;" class="page-title-brick">FERRY PILOT DIRECTORY</h2>
 
-<table style="width: 98%; height: 225px; background: #f5f5f5; border-collapse: collapse;">
-<tr>
-  <td style="width: 30%; text-align: center; padding: 4px;">
-  
-  
-<div id="pilot-ratings-btn"  style="margin-top: 15px; background-color: #007bff; color: white; padding: 12px 24px; border: none; border-radius: 6px; font-size: 1.25rem; cursor: pointer; box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25); width: auto; display: inline-block;">
+  <table>
+  <td style="text-align: center;">
+<div id="pilot-ratings-btn"  style="margin-top: 15px; background-color: #007bff; color: white; padding: 12px 24px; border: none; border-radius: 6px; font-size: 1.5rem; cursor: pointer; box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25); width: auto; display: inline-block;">
   View Pilot Type Ratings
 </div>
 
-<div>
-        <button style="margin-top: 40px; background-color: #007bff; color: white; padding: 12px 24px; border: none; border-radius: 6px; font-size: 1.25rem; cursor: pointer; box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25); width: auto; display: inline-block;">
-          <a href="/pilot-hiring" style="color: inherit; text-decoration: none;">Pilot Hiring</a>
-        </button></div>
-     </td>
+<div><button style="margin-top: 40px; background-color: #007bff; color: white; padding: 12px 24px; border: none; border-radius: 6px; font-size: 1.5rem; cursor: pointer; box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25); width: auto; display: inline-block;"><a href="/pilot-hiring" style="color: inherit; text-decoration: none;">Pilot Hiring</a></button></div>
+</td>
      
     <td style="width: 70%; text-align: center; vertical-align: top; border: 1px solid #aaa; background-color: #fdfdfd;">
-      <h1 style="margin-bottom: 5px;"><u>Complete Crews</u></h1>
+      <h1 style="margin-bottom: 5px; font-size: 1.8rem;"><u><b>Complete Crews</b></u></h1>
       <p style="font-size: 1.375rem; margin-top: 5px;">
-        I have at least 1 (or 2 when required) pilots that have type-ratings in these types:
-      </p>
+        I have at least 1 (or 2 when required) pilots that have type-ratings in these types:</p>
+        
 <table style="width: 100%; border-collapse: collapse; table-layout: fixed;">
     <tr>
       <td style="width: 25%; text-align: center; padding: 8px;">
@@ -128,116 +101,85 @@
         <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/LR35.png" style="width: 200px; height: auto;">
       </td>
     </tr>
-  </table></td></tr>
+  </table>
+    </td>
 </table>
+  
+  
+<div class="pilot-directory-wrapper">
 
+  <div class="pilot-tile">
+    <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/bob-flag.jpg" alt="Bob N." class="desk-pilot-headshot">
+    <div class="desk-pilot-directory-pilotname">Bob N.</div>
+    <ul class="desk-pilot-directory-pilotbio">
+      <li>Pilot Certificate: FAA Airline Transport Pilot</li>
+      <li>Type ratings: L-300 (C141), DC-9, B-747-200, B-747-400/-8</li>
+      <li>Total time: 20,000</li>
+    </ul>
+  </div>
 
-<table class="gallery-table">
-  <tr><td colspan="4" style="height: 25px; background-color: #f5f5f5;"></td></tr>
-  <tr>
-    <td class="gallery-img-cell">
-      <div style="text-align: center">
-      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/bob-flag.jpg" alt="Image 1">
-    <div class="pilot-name">Bob N.</div></div>
-    </td>
-    <td class="gallery-img-cell">
-     <div style="text-align: center">
-      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/victor-flag.jpg" alt="Image 2">
-    <div class="pilot-name">V.P. M.</div></div>
-    </td>
-    <td class="gallery-img-cell">
-       <div style="text-align: center">
-      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/mike-bach.jpg" alt="Image 3">
-    <div class="pilot-name">Mike B.</div></div>
-    </td>
-    <td class="gallery-img-cell">
-      <div style="text-align: center">
-      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/erick.jpg" alt="Image 4">
-      <div class="pilot-name">Erick G.</div></div>
-    </td>
-  </tr>
-  <tr>
-<td class="gallery-desc-cell">
-  <ul>
-    <li>Pilot Certificate: FAA Airline Transport Pilot</li>
-    <li>Type ratings: L-300 (C141), DC-9, B-747-200, B-747-400/-8</li>
-    <li>Total time: 20,000</li>
-  </ul>
-</td>
+  <div class="pilot-tile">
+    <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/victor-flag.jpg" alt="V.P. M." class="desk-pilot-headshot">
+    <div class="desk-pilot-directory-pilotname">V.P. M.</div>
+    <ul class="desk-pilot-directory-pilotbio">
+      <li>Current Employment: USA Part 121 E175 Captain</li>
+      <li>Pilot Certificate: FAA Airline Transport Pilot</li>
+      <li>FAA Flight Instructor certificate</li>
+      <li>Type ratings: EMB-170/175/190/195, CL65, EMB-120</li>
+      <li>Total time: 13,500</li>
+    </ul>
+  </div>
 
-<td class="gallery-desc-cell">
-  <ul>
-    <li>Current Employment: USA Part 121 E175 Captain</li>
-    <li>Pilot Certificate: FAA Airline Transport Pilot</li>
-    <li>FAA Flight Instructor certificate</li>
-    <li>Type ratings: EMB-170/175/190/195, CL65 (CRJ), EMB-120 (Brasilia)</li>
-    <li>Total time: 13,500</li>
-  </ul>
-</td>
-<td class="gallery-desc-cell">
-  <ul>
-    <li>Current Employment: Central Africa contract King Air 350 Captain</li>
-    <li>Pilot Certificate: FAA Airline Transport Pilot</li>
-    <li>FAA Flight Instructor certificate</li>
-    <li>Type ratings: BE-300 (King Air 300/350), LR-JET (Lear 31/35/55), SA-227 (Metroliner)</li>
-    <li>Total time: 9,400</li>
-  </ul>
-</td>
-<td class="gallery-desc-cell">
-  <ul>
-    <li>Pilot Certificate: FAA Commercial Pilot</li>
-    <li>FAA Flight Instructor certificate</li>
-    <li>Type ratings: LR-JET [SIC]</li>
-    <li>Total time: 5,000</li>
-    <li>Language: Fluent in Spanish</li>
-  </ul>
-</td>
-  </tr>
+  <div class="pilot-tile">
+    <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/mike-bach.jpg" alt="Mike B." class="desk-pilot-headshot">
+    <div class="desk-pilot-directory-pilotname">Mike B.</div>
+    <ul class="desk-pilot-directory-pilotbio">
+      <li>Current Employment: Central Africa contract King Air 350 Captain</li>
+      <li>Pilot Certificate: FAA Airline Transport Pilot</li>
+      <li>FAA Flight Instructor certificate</li>
+      <li>Type ratings: BE-300, LR-JET, SA-227</li>
+      <li>Total time: 9,400</li>
+    </ul>
+  </div>
 
-  <tr><td colspan="4" style="height: 25px; background-color: #f5f5f5;"></td></tr>
+  <div class="pilot-tile">
+    <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/erick.jpg" alt="Erick G." class="desk-pilot-headshot">
+    <div class="desk-pilot-directory-pilotname">Erick G.</div>
+    <ul class="desk-pilot-directory-pilotbio">
+      <li>Pilot Certificate: FAA Commercial Pilot</li>
+      <li>FAA Flight Instructor certificate</li>
+      <li>Type ratings: LR-JET [SIC]</li>
+      <li>Total time: 5,000</li>
+      <li>Language: Fluent in Spanish</li>
+    </ul>
+  </div>
 
-  <tr>
-    <td class="gallery-img-cell">
-      <div style="text-align: center">
-      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/nick.jpg" alt="Image 1">
-    <div class="pilot-name">Nick M.</div></div>
-    </td>
-    <td class="gallery-img-cell">
-     <div style="text-align: center">
-      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/sheldon.jpg" alt="Image 2">
-    <div class="pilot-name">Sheldon L.</div></div>
-    </td>
-    <td class="gallery-img-cell">
-       <div style="text-align: center">
-      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/Brandon-W.jpg" alt="Image 3">
-    <div class="pilot-name">Brandon W.</div></div>
-    </td>
-    <td class="gallery-img-cell">
-      <div style="text-align: center">
-      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/wolfie.jpg" alt="Image 4">
-      <div class="pilot-name">Wolfe C.</div></div>
-    </td>
-  </tr>
-   <tr>
-<td class="gallery-desc-cell">
-  <ul>
+  <div class="pilot-tile">
+  <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/nick.jpg" alt="Nick M." class="desk-pilot-headshot">
+  <div class="desk-pilot-directory-pilotname">Nick M.</div>
+  <ul class="desk-pilot-directory-pilotbio">
     <li>Current Employment: USA Part 91(K) Fractional EMB-550 (Praetor) First Officer</li>
     <li>Pilot Certificate: FAA Airline Transport Pilot</li>
     <li>Type Ratings: EMB-550 (Praetor), FA-20 (Falcon), FA-50 [SIC], LRJET [SIC]</li>
     <li>Total time: 5,000</li>
   </ul>
-</td>
+</div>
 
-<td class="gallery-desc-cell">
-  <ul>
+<div class="pilot-tile">
+  <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/sheldon.jpg" alt="Sheldon L." class="desk-pilot-headshot">
+  <div class="desk-pilot-directory-pilotname">Sheldon L.</div>
+  <ul class="desk-pilot-directory-pilotbio">
     <li>Pilot Certificate: FAA Airline Transport Pilot</li>
     <li>FAA Flight Instructor certificate</li>
     <li>Ratings: Airplane Single Engine Sea</li>
     <li>Total time: 4,000</li>
   </ul>
-</td>
-<td class="gallery-desc-cell">
-  <ul>
+</div>
+
+<div class="pilot-tile">
+  <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/Brandon-W.jpg" alt="Brandon W." class="desk-pilot-headshot">
+  <div class="desk-pilot-directory-pilotname">Brandon W.</div>
+  <ul class="desk-pilot-directory-pilotbio">
     <li>Current Employment: USA Part 135 CE-208 Captain, Alaska-based</li>
     <li>Pilot Certificate: FAA Commercial Pilot</li>
     <li>FAA Flight Instructor certificate</li>
@@ -245,9 +187,12 @@
     <li>United States Marine veteran</li>
     <li>Total time: 3,600</li>
   </ul>
-</td>
-<td class="gallery-desc-cell">
-  <ul>
+</div>
+
+<div class="pilot-tile">
+  <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/wolfie.jpg" alt="Wolfe C." class="desk-pilot-headshot">
+  <div class="desk-pilot-directory-pilotname">Wolfe C.</div>
+  <ul class="desk-pilot-directory-pilotbio">
     <li>Current Employment: USA Part 135 CE-750 First Officer</li>
     <li>Pilot Certificate: FAA Airline Transport Pilot (R): age</li>
     <li>FAA Flight Instructor certificate</li>
@@ -256,44 +201,24 @@
     <li>Total time: 3,400</li>
     <li>Language: Fluent in French</li>
   </ul>
-</td>
-  </tr>
-    <tr><td colspan="4" style="height: 25px; background-color: #f5f5f5;"></td></tr>
-<tr>
-    <td class="gallery-img-cell">
-      <div style="text-align: center">
-      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/doug.jpg" alt="Image 1">
-    <div class="pilot-name">Doug C.</div></div>
-    </td>
-    <td class="gallery-img-cell">
-     <div style="text-align: center">
-      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/andrew-e.jpg" alt="Image 2">
-    <div class="pilot-name">Andrew E.</div></div>
-    </td>
-    <td class="gallery-img-cell">
-       <div style="text-align: center">
-      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/justin-1.jpg" alt="Image 3">
-    <div class="pilot-name">Justin A.</div></div>
-    </td>
-    <td class="gallery-img-cell">
-      <div style="text-align: center">
-      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/will-k.jpg" alt="Image 4">
-      <div class="pilot-name">Will K.</div></div>
-    </td>
-  </tr>
-  <tr>
- <td class="gallery-desc-cell">
-  <ul>
+</div>
+
+<div class="pilot-tile">
+  <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/doug.jpg" alt="Doug C." class="desk-pilot-headshot">
+  <div class="desk-pilot-directory-pilotname">Doug C.</div>
+  <ul class="desk-pilot-directory-pilotbio">
     <li>Current Employment: USA Part 121 E175 Captain</li>
     <li>Pilot Certificate: FAA Airline Transport Pilot</li>
     <li>FAA Flight Instructor certificate</li>
     <li>Type Ratings: DHC-8, EMB-170/175/190/195</li>
     <li>Total time: 3,000</li>
   </ul>
-</td>
+</div>
 
-<td class="gallery-desc-cell">
-  <ul>
+<div class="pilot-tile">
+  <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/andrew-e.jpg" alt="Andrew E." class="desk-pilot-headshot">
+  <div class="desk-pilot-directory-pilotname">Andrew E.</div>
+  <ul class="desk-pilot-directory-pilotbio">
     <li>Current Employment: USA Part 135 Citation X First Officer</li>
     <li>Pilot Certificate: FAA Airline Transport Pilot</li>
     <li>FAA Flight Instructor certificate</li>
@@ -301,18 +226,24 @@
     <li>Endorsements: Tailwheel</li>
     <li>Total time: 1,600</li>
   </ul>
-</td>
-<td class="gallery-desc-cell">
-  <ul>
+</div>
+
+<div class="pilot-tile">
+  <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/justin-1.jpg" alt="Justin A." class="desk-pilot-headshot">
+  <div class="desk-pilot-directory-pilotname">Justin A.</div>
+  <ul class="desk-pilot-directory-pilotbio">
     <li>Pilot Certificate: FAA Commercial Pilot</li>
     <li>FAA Dispatcher certificate</li>
     <li>Mooney M20 owner</li>
     <li>27-year airline employee</li>
     <li>Total time: 1,400</li>
   </ul>
-</td>
-<td class="gallery-desc-cell">
-  <ul>
+</div>
+
+<div class="pilot-tile">
+  <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/will-k.jpg" alt="Will K." class="desk-pilot-headshot">
+  <div class="desk-pilot-directory-pilotname">Will K.</div>
+  <ul class="desk-pilot-directory-pilotbio">
     <li>Current Employment: FAA Part 141 Flight School Senior Lead Instructor & 141 Check Airman</li>
     <li>Pilot Certificate: FAA Commercial Pilot (R): age</li>
     <li>FAA Flight Instructor certificate</li>
@@ -320,34 +251,11 @@
     <li>US Navy veteran</li>
     <li>Total time: 1,200</li>
   </ul>
-</td>
-</tr>
-  <tr><td colspan="4" style="height: 25px; background-color: #f5f5f5;"></td></tr>
-  <tr>
-    <td class="gallery-img-cell">
-      <div style="text-align: center">
-      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/don.jpg" alt="Image 1">
-    <div class="pilot-name">Don H.</div></div>
-    </td>
-    <td class="gallery-img-cell">
-     <div style="text-align: center">
-      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/Harry-y-flag.jpg" alt="Image 2">
-    <div class="pilot-name">Harry Y.</div></div>
-    </td>
-    <td class="gallery-img-cell">
-       <div style="text-align: center">
-      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/brian-d.png" alt="Image 3">
-    <div class="pilot-name">Brian D.</div></div>
-    </td>
-    <td class="gallery-img-cell">
-      <div style="text-align: center">
-      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/joseph-1.jpg" alt="Image 4">
-      <div class="pilot-name">Joseph W.</div></div>
-    </td>
-  </tr>
-    <tr>
- <td class="gallery-desc-cell">
-  <ul>
+</div>
+<div class="pilot-tile">
+  <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/don.jpg" alt="Don H." class="desk-pilot-headshot">
+  <div class="desk-pilot-directory-pilotname">Don H.</div>
+  <ul class="desk-pilot-directory-pilotbio">
     <li>Pilot Certificate: FAA Commercial Pilot</li>
     <li>FAA Flight Instructor certificate</li>
     <li>Ratings: Glider, Sport Pilot Glider Instructor Endorsement</li>
@@ -355,78 +263,89 @@
     <li>Cirrus SR-22 owner</li>
     <li>Total time: 1,200</li>
   </ul>
-</td>
+</div>
 
-<td class="gallery-desc-cell">
-  <ul>
+<div class="pilot-tile">
+  <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/Harry-y-flag.jpg" alt="Harry Y." class="desk-pilot-headshot">
+  <div class="desk-pilot-directory-pilotname">Harry Y.</div>
+  <ul class="desk-pilot-directory-pilotbio">
     <li>Current Employment: Army National Guard UH-60 Aircraft Commander</li>
     <li>Pilot Certificate: FAA Commercial Pilot</li>
     <li>Ratings: Rotorcraft Helicopter; Instrument Helicopter</li>
     <li>Type ratings: S-70 (UH-60 helicopter)</li>
     <li>Total time: 900</li>
   </ul>
-</td>
-<td class="gallery-desc-cell">
-  <ul>
+</div>
+
+<div class="pilot-tile">
+  <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/brian-d.png" alt="Brian D." class="desk-pilot-headshot">
+  <div class="desk-pilot-directory-pilotname">Brian D.</div>
+  <ul class="desk-pilot-directory-pilotbio">
     <li>Pilot Certificate: FAA Commercial Pilot</li>
     <li>Cessna 172 owner</li>
     <li>Total time: 800</li>
   </ul>
-</td>
-<td class="gallery-desc-cell">
-  <ul>
+</div>
+
+<div class="pilot-tile">
+  <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/joseph-1.jpg" alt="Joseph W." class="desk-pilot-headshot">
+  <div class="desk-pilot-directory-pilotname">Joseph W.</div>
+  <ul class="desk-pilot-directory-pilotbio">
     <li>Pilot Certificate: FAA Commercial Pilot</li>
     <li>FAA Flight Instructor certificate</li>
     <li>Total time: 600</li>
   </ul>
-</td>
-</tr>
-  <tr><td colspan="4" style="height: 25px; background-color: #f5f5f5;"></td></tr>
-  <tr>
-    <td class="gallery-img-cell">
-      <div style="text-align: center">
-      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/mike-m-flag.jpg" alt="Image 1">
-    <div class="pilot-name">Mike M.</div></div>
-    </td>
-    <td class="gallery-img-cell">
-     <div style="text-align: center">
-      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/ben-b.jpg" alt="Image 2">
-    <div class="pilot-name">Ben B.</div></div>
-    </td>
-    <td class="gallery-img-cell">
-       <div style="text-align: center">
-      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/125-generic-pilot.jpg" alt="Image 3">
-    <div class="pilot-name">You?</div></div>
-    </td>
-    <td style="text-align: center; font-size: 1.125rem;"><img style="width: 125px;" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/amflag.jpg">
-    <br>denotes United States military, currently serving or veteran
-  <br><img style="width: 125px;" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/blue-star-blank.png">
-<br>denotes number of completed A.D.S. ferry flights
-</td>  
-</tr>
+</div>
 
-<tr>
-  <td class="gallery-desc-cell">
-  <ul>
+<div class="pilot-tile">
+  <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/mike-m-flag.jpg" alt="Mike M." class="desk-pilot-headshot">
+  <div class="desk-pilot-directory-pilotname">Mike M.</div>
+  <ul class="desk-pilot-directory-pilotbio">
     <li>Pilot Certificate: FAA Commercial Pilot</li>
     <li>United States Marine with 12 years' service</li>
     <li>Total time: 600</li>
   </ul>
-</td>
-<td class="gallery-desc-cell">
-  <ul>
+</div>
+
+<div class="pilot-tile">
+  <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/ben-b.jpg" alt="Ben B." class="desk-pilot-headshot">
+  <div class="desk-pilot-directory-pilotname">Ben B.</div>
+  <ul class="desk-pilot-directory-pilotbio">
     <li>Pilot Certificate: FAA Commercial Pilot</li>
     <li>FAA Flight Instructor certificate</li>
     <li>Total time: 300</li>
   </ul>
-</td>
-<td class="gallery-desc-cell">
-<p>I’m always looking to hire pilots. <a href="/pilot-hiring">Click here for the Pilot Hiring page</a>. All it takes is a phone call or message to get started.</p>
-</td>
-<td>&nbsp;</td>
-</tr>
-</table>
 </div>
+
+<div class="pilot-tile">
+  <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/125-generic-pilot.jpg" alt="Join Us" class="desk-pilot-headshot">
+  <div class="desk-pilot-directory-pilotname">You?</div>
+  <ul class="desk-pilot-directory-pilotbio">
+    <li>I’m always looking to hire pilots.</li>
+    <li><a href="/pilot-hiring">Click here for the Pilot Hiring page</a>.</li>
+    <li>All it takes is a phone call or message to get started.</li>
+  </ul>
+</div>
+
+<div class="pilot-tile">
+  <!--<img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/blue-star-blank.png" alt="Ferry Flight Star" class="desk-pilot-headshot">-->
+  <div class="desk-pilot-directory-pilotname">Legend</div>
+  <ul class="desk-pilot-directory-pilotbio">
+    <li><img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/amflag.jpg" style="width: 50px; vertical-align: middle;"> = Current or past U.S. Military service</li>
+    <li><img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/blue-star-blank.png" style="width: 50px; vertical-align: middle;"> = # of completed A.D.S. ferry flights</li>
+  </ul>
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
 
 
     <!-- DIVIDER BETWEEN DESKTOP AND MOBILE DIVS -->
@@ -434,8 +353,8 @@
               <!-- DIVIDER BETWEEN DESKTOP AND MOBILE DIVS -->
 
               
-<div class="mobile-only">
-  <h1 class="page-title-brick">FERRY PILOT DIRECTORY</h1>
+<div class="mobile-only" style="padding-top: 70px; background-color: #e9eff4;">
+  <h1 class="mob-page-title-brick" id="brick-toobig">FERRY PILOT DIRECTORY</h1>
 
     <div style="width: 95%; margin: 0 auto; background-color: #fdfdfd; border: 1px solid #aaa; padding: 10px 10px 5px 10px; border-radius: 8px; box-sizing: border-box; text-align: center;">
     <p style="font-size: 1.625rem; margin: 0 auto;"><u>Complete Crews</u></p>
@@ -443,45 +362,49 @@
 
     <table style="width: 100%; border-collapse: collapse; border: none;">
   <tr>
-    <td style="border: none;"><img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/citationxbust2.png" width="150px;"></td>
-    <td style="border: none;"><img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/E175.png" width="150px;"></td>
+    <td style="border: none;"><img src="/assets/pilot-directory/citationxbust2.png" width="150px;"></td>
+    <td style="border: none;"><img src="/assets/pilot-directory/E175.png" width="150px;"></td>
   </tr>
   <tr>
-    <td style="border: none;"><img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/KA-350.png" width="150px;"></td>
-    <td style="border: none;"><img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/LR35.png" width="150px;"></td>
+    <td style="border: none;"><img src="/assets/pilot-directory/KA-350.png" width="150px;"></td>
+    <td style="border: none;"><img src="/assets/pilot-directory/LR35.png" width="150px;"></td>
   </tr>
 </table>
 </div>
 
-<!-- 'see all' Button block -->
-<div style="text-align: center;">
-<button id="pilotRatingsBtn" class="modal-trigger-btn btn-primary" style="margin-right: 20px;">
-  See all the pilots' type ratings
-</button>
-<a href="/pilot-hiring" class="btn-primary" style="margin-top: 14px;">
-  Pilot Hiring
-</a></div>
+<div style="justify-content: center; display: flex; align-items: center; margin: 10px auto;">
 
-<div class="gallery-wrapper"><table class="gallery-table">
+<a href="javascript:void(0);" 
+   class="mob-pilot-directory-blue-button" 
+   id="pilotRatingsBtn" 
+   role="button">
+  Pilot Type Ratings
+</a>
+
+  <a href="/pilot-hiring" class="mob-pilot-directory-blue-button">
+    Pilot Hiring
+  </a>
+</div>
+
+<table class="gallery-table">
   <tr>
-    <td class="gallery-img-cell" style="border-bottom: none;">
-      <img alt="Image 1" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/bob-flag.jpg"/>
-<div class="pilot-name">Bob N.</div>
+    <td class="gallery-img-cell">
+      <img alt="Image 1" src="/assets/pilot-directory/headshots/bob-flag.jpg" class="mob-pilot-directory-headshot"/>
+<div class="mob-pilot-directory-pilotname">BOB N.</div>
 </td>
-<td class="gallery-img-cell" style="border-bottom: none;">
-<img alt="Image 2" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/victor-flag.jpg"/>
-<div class="pilot-name">V.P. M.</div>
-</td>
-</tr>
+<td class="gallery-img-cell">
+<img alt="Image 2" src="/assets/pilot-directory/headshots/victor-flag.jpg" class="mob-pilot-directory-headshot"/>
+<div class="mob-pilot-directory-pilotname">V.P. M.</div>
+</td></tr>
 
-<tr><td class="gallery-desc-cell" style="border-top: none;">
-<ul>
+<tr><td class="mob-pilot-directory-table-descr">
+<ul class="mob-pilot-directory-tight-bullets">
 <li>Pilot Certificate: FAA Airline Transport Pilot</li>
 <li>Type ratings: L-300 (C141), DC-9, B-747-200, B-747-400/-8</li>
 <li>Total time: 20,000</li>
-</ul>
-</td><td class="gallery-desc-cell" style="border-top: none;">
-<ul>
+</ul></td>
+<td class="mob-pilot-directory-table-descr">
+<ul class="mob-pilot-directory-tight-bullets">
 <li>Current Employment: USA Part 121 E175 Captain</li>
 <li>Pilot Certificate: FAA Airline Transport Pilot</li>
 <li>FAA Flight Instructor certificate</li>
@@ -490,69 +413,70 @@
 </ul>
 </td></tr>
 
-<tr><td class="gallery-img-cell" style="border-bottom: none;">
-<img alt="Image 3" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/mike-bach.jpg"/>
-<div class="pilot-name">Mike B.</div>
-</td><td class="gallery-img-cell" style="border-bottom: none;">
-<img alt="Image 4" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/erick.jpg"/>
-<div class="pilot-name">Erick G.</div>
+  <tr><td class="gallery-img-cell">
+      <img alt="Image 1" src="/assets/pilot-directory/headshots/mike-bach.jpg" class="mob-pilot-directory-headshot"/>
+<div class="mob-pilot-directory-pilotname">MIKE B.</div>
+</td>
+<td class="gallery-img-cell">
+<img alt="Image 2" src="/assets/pilot-directory/headshots/erick.jpg" class="mob-pilot-directory-headshot"/>
+<div class="mob-pilot-directory-pilotname">ERICK G.</div>
 </td></tr>
 
-<tr>
-  <td class="gallery-desc-cell" style="border-top: none;">
-<ul>
+
+<tr><td class="mob-pilot-directory-table-descr">
+<ul class="mob-pilot-directory-tight-bullets">
 <li>Current Employment: Central Africa contract King Air 350 Captain</li>
 <li>Pilot Certificate: FAA Airline Transport Pilot</li>
 <li>FAA Flight Instructor certificate</li>
 <li>Type ratings: BE-300 (King Air 300/350), LR-JET (Lear 31/35/55), SA-227 (Metroliner)</li>
 <li>Total time: 9,400</li>
-</ul>
-</td><td class="gallery-desc-cell" style="border-top: none;">
-<ul>
+</ul></td>
+<td class="mob-pilot-directory-table-descr">
+<ul class="mob-pilot-directory-tight-bullets">
 <li>Pilot Certificate: FAA Commercial Pilot</li>
 <li>FAA Flight Instructor certificate</li>
 <li>Type ratings: LR-JET [SIC]</li>
 <li>Total time: 5,000</li>
 <li>Language: Fluent in Spanish</li>
-</ul>
-</td></tr>
-<tr>
-  <td class="gallery-img-cell" style="border-bottom: none;">
-<img alt="Image 1" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/nick.jpg"/>
-<div class="pilot-name">Nick M.</div></td>
-<td class="gallery-img-cell" style="border-bottom: none;">
-<img alt="Image 2" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/sheldon.jpg"/>
-<div class="pilot-name">Sheldon L.</div>
+</ul></td></tr>
+
+
+  <tr><td class="gallery-img-cell">
+      <img alt="Image 1" src="/assets/pilot-directory/headshots/nick.jpg" class="mob-pilot-directory-headshot"/>
+<div class="mob-pilot-directory-pilotname">NICK M.</div>
 </td>
-</tr>
+<td class="gallery-img-cell">
+<img alt="Image 2" src="/assets/pilot-directory/headshots/sheldon.jpg" class="mob-pilot-directory-headshot"/>
+<div class="mob-pilot-directory-pilotname">SHELDON L.</div>
+</td></tr>
+
 <tr>
-  <td class="gallery-desc-cell" style="border-top: none;">
-<ul>
+<td class="mob-pilot-directory-table-descr">
+<ul class="mob-pilot-directory-tight-bullets">
 <li>Current Employment: USA Part 91(K) Fractional EMB-550 (Praetor) First Officer</li>
 <li>Pilot Certificate: FAA Airline Transport Pilot</li>
 <li>Type Ratings: EMB-550 (Praetor), FA-20 (Falcon), FA-50 [SIC], LRJET [SIC]</li>
 <li>Total time: 5,000</li>
-</ul>
-</td><td class="gallery-desc-cell" style="border-top: none;">
-<ul><li>Pilot Certificate: FAA Airline Transport Pilot</li>
+</ul></td>
+<td class="mob-pilot-directory-table-descr">
+<ul class="mob-pilot-directory-tight-bullets">
+<li>Pilot Certificate: FAA Airline Transport Pilot</li>
 <li>FAA Flight Instructor certificate</li>
 <li>Ratings: Airplane Single Engine Sea</li>
 <li>Total time: 4,000</li></ul>
+</td></tr>
+
+  <tr><td class="gallery-img-cell">
+      <img alt="Image 1" src="/assets/pilot-directory/headshots/Brandon-W.jpg" class="mob-pilot-directory-headshot"/>
+<div class="mob-pilot-directory-pilotname">BRANDON W.</div>
 </td>
-</tr>
-<tr>
-<td class="gallery-img-cell" style="border-bottom: none;">
-<img alt="Image 3" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/Brandon-W.jpg"/>
-<div class="pilot-name">Brandon W.</div>
-</td>
-<td class="gallery-img-cell" style="border-bottom: none;">
-<img alt="Image 4" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/wolfie.jpg"/>
-<div class="pilot-name">Wolfe C.</div>
-</td>
-</tr>
-<tr>
-  <td class="gallery-desc-cell" style="border-top: none;">
-<ul>
+<td class="gallery-img-cell">
+<img alt="Image 2" src="/assets/pilot-directory/headshots/wolfie.jpg" class="mob-pilot-directory-headshot"/>
+<div class="mob-pilot-directory-pilotname">WOLFE C.</div>
+</td></tr>
+
+<tr><td class="mob-pilot-directory-table-descr">
+<ul class="mob-pilot-directory-tight-bullets">
 <li>Current Employment: USA Part 135 CE-208 Captain, Alaska-based</li>
 <li>Pilot Certificate: FAA Commercial Pilot</li>
 <li>FAA Flight Instructor certificate</li>
@@ -561,8 +485,8 @@
 <li>Total time: 3,600</li>
 </ul>
 </td>
-<td class="gallery-desc-cell" style="border-top: none;">
-<ul>
+<td class="mob-pilot-directory-table-descr">
+<ul class="mob-pilot-directory-tight-bullets">
 <li>Current Employment: USA Part 135 CE-750 First Officer</li>
 <li>Pilot Certificate: FAA Airline Transport Pilot (R): age</li>
 <li>FAA Flight Instructor certificate</li>
@@ -573,173 +497,155 @@
 </ul>
 </td>
 </tr>
-<tr>
-  <td class="gallery-img-cell" style="border-bottom: none;">
-<img alt="Image 1" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/doug.jpg"/>
-<div class="pilot-name">Doug C.</div>
-</td><td class="gallery-img-cell" style="border-bottom: none;">
-<img alt="Image 2" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/andrew-e.jpg"/>
-<div class="pilot-name">Andrew E.</div>
+
+  <tr><td class="gallery-img-cell">
+      <img alt="Image 1" src="/assets/pilot-directory/headshots/doug.jpg" class="mob-pilot-directory-headshot"/>
+<div class="mob-pilot-directory-pilotname">DOUG C.</div>
 </td>
-</tr>
+<td class="gallery-img-cell">
+<img alt="Image 2" src="/assets/pilot-directory/headshots/andrew-e.jpg" class="mob-pilot-directory-headshot"/>
+<div class="mob-pilot-directory-pilotname">ANDREW E.</div>
+</td></tr>
+
 <tr>
-  <td class="gallery-desc-cell" style="border-top: none;">
-<ul>
+<td class="mob-pilot-directory-table-descr">
+<ul class="mob-pilot-directory-tight-bullets">
 <li>Current Employment: USA Part 121 E175 Captain</li>
 <li>Pilot Certificate: FAA Airline Transport Pilot</li>
 <li>FAA Flight Instructor certificate</li>
 <li>Type Ratings: DHC-8, EMB-170/175/190/195</li>
-<li>Total time: 3,000</li>
-</ul>
-</td><td class="gallery-desc-cell" style="border-top: none;">
-<ul>
+<li>Total time: 3,000</li></ul></td>
+
+<td class="mob-pilot-directory-table-descr">
+<ul class="mob-pilot-directory-tight-bullets">
 <li>Current Employment: USA Part 135 Citation X First Officer</li>
 <li>Pilot Certificate: FAA Airline Transport Pilot</li>
 <li>FAA Flight Instructor certificate</li>
 <li>Type Ratings: CE-750 (Citation X)</li>
 <li>Endorsements: Tailwheel</li>
-<li>Total time: 1,600</li>
-</ul>
-</td>
+<li>Total time: 1,600</li></ul></td>
 </tr>
-<tr>
-  <td class="gallery-img-cell" style="border-bottom: none;">
-<img alt="Image 3" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/justin-1.jpg"/>
-<div class="pilot-name">Justin A.</div>
+
+
+  <tr><td class="gallery-img-cell">
+      <img alt="Image 1" src="/assets/pilot-directory/headshots/justin-1.jpg" class="mob-pilot-directory-headshot"/>
+<div class="mob-pilot-directory-pilotname">JUSTIN A.</div>
 </td>
-<td class="gallery-img-cell" style="border-bottom: none;">
-<img alt="Image 4" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/will-k.jpg"/>
-<div class="pilot-name">Will K.</div>
-</td>
-</tr>
+<td class="gallery-img-cell">
+<img alt="Image 2" src="/assets/pilot-directory/headshots/will-k.jpg" class="mob-pilot-directory-headshot"/>
+<div class="mob-pilot-directory-pilotname">WILL K.</div>
+</td></tr>
 <tr>
-  <td class="gallery-desc-cell" style="border-top: none;">
-<ul>
+<td class="mob-pilot-directory-table-descr">
+<ul class="mob-pilot-directory-tight-bullets">
 <li>Pilot Certificate: FAA Commercial Pilot</li>
 <li>FAA Dispatcher certificate</li>
 <li>Mooney M20 owner</li>
 <li>27-year airline employee</li>
-<li>Total time: 1,400</li>
-</ul>
-</td><td class="gallery-desc-cell" style="border-top: none;">
-<ul>
+<li>Total time: 1,400</li></ul></td>
+
+<td class="mob-pilot-directory-table-descr">
+<ul class="mob-pilot-directory-tight-bullets">
 <li>Current Employment: FAA Part 141 Flight School Senior Lead Instructor &amp; 141 Check Airman</li>
-<li>Pilot Certificate: FAA Commercial Pilot (R): age</li>
+<li>Pilot Certificate: FAA Commercial Pilot</li>
 <li>FAA Flight Instructor certificate</li>
 <li>CE-650 SIC (61.55) endorsement</li>
 <li>US Navy veteran</li>
-<li>Total time: 1,200</li>
-</ul>
-</td>
+<li>Total time: 1,200</li></ul></td>
 </tr>
-<tr>
-  <td class="gallery-img-cell" style="border-bottom: none;">
-<img alt="Image 1" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/don.jpg"/>
-<div class="pilot-name">Don H.</div></td>
-  <td class="gallery-img-cell" style="border-bottom: none;">
-<img alt="Image 2" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/Harry-y-flag.jpg"/>
-<div class="pilot-name">Harry Y.</div>
+
+
+  <tr><td class="gallery-img-cell">
+      <img alt="Image 1" src="/assets/pilot-directory/headshots/don.jpg" class="mob-pilot-directory-headshot"/>
+<div class="mob-pilot-directory-pilotname">DON H.</div>
 </td>
-</tr>
+<td class="gallery-img-cell">
+<img alt="Image 2" src="/assets/pilot-directory/headshots/Harry-y-flag.jpg" class="mob-pilot-directory-headshot"/>
+<div class="mob-pilot-directory-pilotname">HARRY Y.</div>
+</td></tr>
 <tr>
-  <td class="gallery-desc-cell" style="border-top: none;">
-<ul>
+<td class="mob-pilot-directory-table-descr">
+<ul class="mob-pilot-directory-tight-bullets">
 <li>Pilot Certificate: FAA Commercial Pilot</li>
 <li>FAA Flight Instructor certificate</li>
 <li>Ratings: Glider, Sport Pilot Glider Instructor Endorsement</li>
 <li>Practicing attorney in California</li>
 <li>Cirrus SR-22 owner</li>
-<li>Total time: 1,200</li>
-</ul>
-</td>
-<td class="gallery-desc-cell" style="border-top: none;">
-<ul>
+<li>Total time: 1,200</li></ul></td>
+
+<td class="mob-pilot-directory-table-descr">
+<ul class="mob-pilot-directory-tight-bullets">
 <li>Current Employment: Army National Guard UH-60 Aircraft Commander</li>
 <li>Pilot Certificate: FAA Commercial Pilot</li>
 <li>Ratings: Rotorcraft Helicopter; Instrument Helicopter</li>
 <li>Type ratings: S-70 (UH-60 helicopter)</li>
 <li>Total time: 900</li>
-</ul>
+</ul></td></tr>
+
+
+  <tr><td class="gallery-img-cell">
+      <img alt="Image 1" src="/assets/pilot-directory/headshots/brian-d.png" class="mob-pilot-directory-headshot"/>
+<div class="mob-pilot-directory-pilotname">BRIAN D.</div>
 </td>
-</tr>
-<tr><td class="gallery-img-cell" style="border-bottom: none;">
-<img alt="Image 3" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/brian-d.png"/>
-<div class="pilot-name">Brian D.</div>
-</td><td class="gallery-img-cell" style="border-bottom: none;">
-<img alt="Image 4" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/joseph-1.jpg"/>
-<div class="pilot-name">Joseph W.</div>
-</td>
-</tr>
-<tr><td class="gallery-desc-cell" style="border-top: none;">
-<ul>
+<td class="gallery-img-cell">
+<img alt="Image 2" src="/assets/pilot-directory/headshots/joseph-1.jpg" class="mob-pilot-directory-headshot"/>
+<div class="mob-pilot-directory-pilotname">JOSEPH W.</div>
+</td></tr>
+
+<tr>
+<td class="mob-pilot-directory-table-descr">
+<ul class="mob-pilot-directory-tight-bullets">
 <li>Pilot Certificate: FAA Commercial Pilot</li>
 <li>Cessna 172 owner</li>
-<li>Total time: 800</li>
-</ul>
-</td><td class="gallery-desc-cell" style="border-top: none;">
-<ul>
+<li>Total time: 800</li></ul></td>
+<td class="mob-pilot-directory-table-descr">
+<ul class="mob-pilot-directory-tight-bullets">
 <li>Pilot Certificate: FAA Commercial Pilot</li>
 <li>FAA Flight Instructor certificate</li>
-<li>Total time: 600</li>
-</ul>
-</td>
+<li>Total time: 600</li></ul></td>
 </tr>
-<tr>
-  <td class="gallery-img-cell" style="border-bottom: none;">
-<img alt="Image 1" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/mike-m-flag.jpg"/>
-<div class="pilot-name">Mike M.</div>
-</td><td class="gallery-img-cell" style="border-bottom: none;">
-<img alt="Image 2" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/ben-b.jpg"/>
-<div class="pilot-name">Ben B.</div>
+
+  <tr><td class="gallery-img-cell">
+      <img alt="Image 1" src="/assets/pilot-directory/headshots/mike-m-flag.jpg" class="mob-pilot-directory-headshot"/>
+<div class="mob-pilot-directory-pilotname">MIKE M.</div>
 </td>
-</tr>
+<td class="gallery-img-cell">
+<img alt="Image 2" src="/assets/pilot-directory/headshots/ben-b.jpg" class="mob-pilot-directory-headshot"/>
+<div class="mob-pilot-directory-pilotname">BEN B.</div>
+</td></tr>
 <tr>
-  <td class="gallery-desc-cell" style="border-top: none;">
-<ul>
+<td class="mob-pilot-directory-table-descr">
+<ul class="mob-pilot-directory-tight-bullets">
 <li>Pilot Certificate: FAA Commercial Pilot</li>
 <li>United States Marine with 12 years' service</li>
-<li>Total time: 600</li>
-</ul>
-</td><td class="gallery-desc-cell" style="border-top: none;">
-<ul>
+<li>Total time: 600</li></ul></td>
+
+<td class="mob-pilot-directory-table-descr">
+<ul class="mob-pilot-directory-tight-bullets">
 <li>Pilot Certificate: FAA Commercial Pilot</li>
 <li>FAA Flight Instructor certificate</li>
 <li>Total time: 300</li>
-</ul>
-</td>
-</tr>
-<tr>
-  <td class="gallery-img-cell" style="border-bottom: none;">
-<img alt="Image 3" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/125-generic-pilot.jpg"/>
-<div class="pilot-name">You?</div>
-</td>
-<td style="text-align: center; font-size: 1.125rem; border-bottom: none;"><img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/amflag.jpg" style="width: 125px;"/>
-<br/>denotes United States military, currently serving or veteran
-  <br/><img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/blue-star-blank.png" style="width: 125px;"/>
-<br/>denotes number of completed A.D.S. ferry flights
-</td>
-</tr>
-<tr>
-  <td class="gallery-desc-cell" style="border-top: none;">
-<p>I’m always looking to hire pilots. <a href="/pilot-hiring">Click here for the Pilot Hiring page</a>. All it takes is a phone call or message to get started.</p>
-</td><td> </td></tr></table></div></div>
+</ul></td></tr></table>
 
+<img alt="Image 1" src="/assets/pilot-directory/headshots/125-generic-pilot.jpg" class="mob-pilot-directory-headshot" style="margin-top: 20px;"/>
+<div class="mob-pilot-directory-pilotname">YOU?</div>
+<p class="mob-std-small" style="padding: 0 10px 0 10px;">I’m always looking to hire pilots. <a href="/pilot-hiring">Click here for the Pilot Hiring page</a>. All it takes is a phone call or message to get started.</p>
+
+<table style="width: 100%; vertical-align: bottom;"> <tr>
+<td style="text-align: center;"><img src="/assets/pilot-directory/amflag.jpg" style="width: 125px;"><p class="mob-std-small" style="text-align: left;">denotes United States military, currently serving or veteran</p></td>
+<td style="text-align: center;"><img src="/assets/pilot-directory/blue-star-blank.png" style="width: 125px;"/><br>
+<p class="mob-std-small" style="text-align: left;">denotes number of completed A.D.S. ferry flights</p></td>
+</tr></table>
+
+</div>
 
 </main>
 
 <!-- Mobile Modal Container -->
-<div id="unified-modal" style="display: none;">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeUnifiedModal()">&times;</button>
-    <div id="unified-modal-body"></div>
-  </div>
-</div>
-
-<!-- Desktop Modal Container -->
-<div id="custom-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); justify-content: center; align-items: center; z-index: 9999;">
-  <div id="modal-body" style="background: white; padding: 30px 20px; border-radius: 10px; max-width: 90%; max-height: 85vh; overflow-y: auto; position: relative; text-align: left;">
-    <button id="custom-modal-close" style="position: absolute; top: 10px; right: 12px; background: transparent; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
-    
+<div id="unified-modal"
+     style="position: fixed; z-index: 9999; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.7); display: none; justify-content: center; align-items: center;">
+  <div id="unified-modal-body"
+       style="background: white; padding: 20px; border-radius: 8px; max-width: 80vw; max-height: 80vh; overflow-y: auto;">
     <!-- Pilot Ratings Content -->
     <h2 style="text-align: center;"><u>Aircraft Delivery Solutions Pilot Type Ratings</u></h2>
     <ul style="padding-left: 20px; font-size: 1.2rem; line-height: 1.6; text-align: left;">
@@ -757,6 +663,30 @@
   </div>
 </div>
 
+<!-- Desktop Modal Container -->
+<div id="custom-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); justify-content: center; align-items: center; z-index: 9999;">
+  <div id="modal-body" style="background: white; padding: 30px 20px; border-radius: 10px; max-width: 90%; max-height: 85vh; overflow-y: auto; position: relative; text-align: left;">
+        <!-- Pilot Ratings Content -->
+    <h2 style="text-align: center; font-size: 1.5rem;"><u><b>Aircraft Delivery Solutions Pilot Type Ratings</b></u></h2>
+    <ul style="padding-left: 20px; font-size: 1.2rem; line-height: 1.6; text-align: left;">
+      <li><b>BEECHCRAFT:</b> BE300 (King Air 350)</li>
+      <li><b>BOEING:</b> B747-200, B747-400/8, DC-9</li>
+      <li><b>BOMBARDIER:</b> CL-65, DHC-8, LR-JET</li>
+      <li><b>CESSNA:</b> CE-750 (Citation X)</li>
+      <li><b>DASSAULT:</b> FA-20, FA-50 [SIC]</li>
+      <li><b>EMBRAER:</b> EMB-120, EMB-170–195, EMB-550</li>
+      <li><b>FAIRCHILD:</b> SA-227</li>
+      <li><b>GULFSTREAM:</b> IAI-1125 (G100), Gulfstream IV [SIC]</li>
+      <li><b>LOCKHEED:</b> L-300 (C141)</li>
+      <li><b>SIKORSKY:</b> S-70 (UH-60)</li>
+    </ul>
+    <button id="custom-modal-close" style="position: absolute; top: 10px; right: 12px; background: transparent; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
+  </div>
+</div>
+    
 <script src="script.js"></script>
+<!--forces cache reload when used on localhost or with dev.aircraft.delivery-->
+
+
 </body>
 </html>

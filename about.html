@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v16">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aircraft Delivery Solutions</title>
@@ -18,7 +18,7 @@
 <div class="fixed-header">
   <div class="header-bleed-left"></div>
   <header>
-    <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/static-header-v7-95.png" usemap="#image-map"
+    <img src="/assets/static-header-v7-95.png" usemap="#image-map"
          style="width: 100%; height: auto; display: block;">
            <map name="image-map">
     <area target="" alt="" href="/services" coords="64,21,147,46" shape="rect" title="Services">
@@ -35,35 +35,23 @@
 </div></div>
 
 <div class="mobile-only">
- <header class="mobile-header">
-  <div class="mobile-header-inner">
-    <!-- Hamburger -->
-    <div class="mobile-hamburger-wrap">
-      <button class="hamburger" aria-label="Open menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+
+<!--MOBILE-ONLY HEADER-->
+<!--MOBILE-ONLY HEADER-->
+<!--MOBILE-ONLY HEADER-->
+  <header class="mobile-header">
+
+    <div class="mobile-header-slot-left"><img src="/assets/mobile/burger.png" alt="Menu" id="hamburger-icon">
     </div>
 
-    <!-- Logo -->
-    <a href="/" class="mobile-logo-link">
-      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/mobile/mobile-logo.png"
-           alt="Aircraft Delivery Solutions"
-           class="mobile-logo">
-    </a>
+    <div class="mobile-logo">
+      <a href="/index"><img src="/assets/mobile/mobile-logo.png" alt="Aircraft Delivery Logo" id="mobile-logo-img"></a>
+    </div>
 
-    <!-- Phone Icon -->
-    <a href="tel:14158458163" class="mobile-phone-link">
-      <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/mobile/phone.png"
-           alt="Call"
-           class="mobile-phone-icon">
-    </a>
-  </div>
-  <!-- Optional bleed-right element -->
-  <!-- <div class="header-bleed-right"></div> -->
-</header>
+    <div class="mobile-header-slot-right"><a href="tel:+14158458163"><img src="/assets/mobile/phone.png" alt="Call me" id="phone-icon"></a>
+    </div>
 
+  </header>
 
   <div class="mobile-menu" id="mobileMenu">
     <nav>
@@ -79,21 +67,20 @@
 
 <main>
 
-<div class="desktop-only" style= "padding-top: 145px; background-color: #f5f5f5;">
+<div class="desktop-only" style= "padding-top: 165px; background-color: #f5f5f5;">
   <h1 style="margin-bottom: 15px;" class="page-title-brick">ABOUT</h1>
 <p style="font-size: 2rem; text-align: center; margin-top: 0;"><b>Owner, Aircraft Delivery Solutions - Aaron Kahn</b></p>
 <table style="width: 97%; margin: 0 auto; border-collapse: collapse;">
   <tr>
-    <td colspan="2" style="text-align: left; padding: 10px; font-size: 2.5rem;">
-      <!-- Top row: full width text -->
+    <td colspan="2" class="desk-about-heading">
       <b>Present</b>
     </td>
   </tr>
   <tr>
     <td style="width: 15%; padding: 10px; vertical-align: top;">
-<img style="max-width: 200px;" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/about/2021-aaron.JPG">     
+<img style="max-width: 200px;" src="/assets/about/2021-aaron.JPG">     
 </td>
-    <td style="font-size: 1.25rem; width: 85%; vertical-align: top; padding: 0 20px 0 0;">
+    <td class="desk-std-base" style="width: 85%; vertical-align: top; padding: 0 20px 0 20px;">
       <!-- Right column -->
 <p>I consider myself active in aviation. I'm active in <a href="https://gocivilairpatrol.com">Civil Air Patrol</a> (the civilian organization which performs inland Search and Rescue in the United States). I bought and sold two Cessnas in the last few years. And, I have a continuing and abiding interest in aviation safety and consider myself an expert in Human Factors and Flight Operations. Finally, my fiancée is a 737 pilot for a freight airline.</p>
 <p>My role at Aircraft Delivery Solutions is that of owner and Director of Operations.</p>
@@ -107,13 +94,12 @@
 <table style="width: 97%; margin: 0 auto; border-collapse: collapse; margin-top: 40px;">
 
   <tr>
-    <td colspan="2" style="text-align: left; padding: 10px; font-size: 2.5rem;">
-      <!-- Top row: full width text -->
+    <td colspan="2" class="desk-about-heading">
       <b>Background</b>
     </td>
   </tr>
   <tr>
-    <td style="vertical-align: top; padding-right: 10px; width: 25%; font-size: 1.25rem;" >
+    <td class="desk-about-backgroundstory">
       <p>I graduated from <a href="https://erau.edu/" target="_blank">Embry-Riddle Aeronautical University </a> in 1996 majoring in Aeronautical Science (airplane pilot) with a minor in Aviation Safety.</p>
     </td>
     <td style="width: 75%; text-align: right;">
@@ -127,7 +113,7 @@
 
   <!-- Row 2 -->
   <tr>
-    <td style="vertical-align: top; padding-right: 10px; width: 25%; font-size: 1.25rem;">
+    <td class="desk-about-backgroundstory">
       <p>As is the case with many pilots, I began my career as a flight instructor. Most notably, I spent a year teaching ab-initio cadets from Korean Air.</p>
     </td>
     <td style="text-align: right; width: 75%;">
@@ -141,7 +127,7 @@
 
   <!-- Row 3 -->
   <tr>
-    <td style="vertical-align: top; padding-right: 10px; width: 25%; font-size: 1.25rem;">
+    <td class="desk-about-backgroundstory">
       <p>My first 'commercial' pilot job was flying single-pilot night small-package freight at <a href="https://w3.ameriflight.com/" target="_blank">Ameriflight </a>. After flying some piston types there, I got qualified single-pilot in the <a href="https://en.wikipedia.org/wiki/Beechcraft_Model_99" target="_blank">Beech 99</a> twin-turboprop.</p>
     </td>
     <td style="text-align: right;">
@@ -155,7 +141,7 @@
 
   <!-- Row 4 -->
   <tr>
-<td style="vertical-align: top; padding-right: 10px; width: 25%; font-size: 1.25rem;">
+<td class="desk-about-backgroundstory">
       <p>In 1999 I achieved my goal of becoming an airline pilot; I got hired at Colgan Air/US Airways Express as a first officer in the <a href="https://en.wikipedia.org/wiki/Beechcraft_1900" target="_blank">Beech 1900</a> (19 passengers). In late 2000 I was selected for upgrade to captain and flew in the left seat for about six months.</p>
     </td>
     <td style="text-align: right;">
@@ -169,7 +155,7 @@
 
   <!-- Row 5 -->
   <tr>
-<td style="vertical-align: top; padding-right: 10px; width: 25%; font-size: 1.25rem;">
+<td class="desk-about-backgroundstory">
       <p>I decided airline flying wasn't for me and I returned to my hometown of San Francisco. I flight instructed sporadically for a few years. </p>
     </td>
     <td style="text-align: right;">
@@ -183,7 +169,7 @@
 
   <!-- Row 6 -->
   <tr>
-<td style="vertical-align: top; padding-right: 10px; width: 25%; font-size: 1.25rem;">
+<td class="desk-about-backgroundstory">
       <p>In 2005, I started an airplane ferry company called FlyIt4U. Over the next 12 years, I completed <a href="/past-deliveries">50 delivery flights in 21 different types of airplanes</a>; the smallest I flew was a EuroFox LSA, and the largest a Cessna 310 twin. I flew over 60,000 nautical miles on ferry flights and crossed the Continental Divide 32 times. I also did 9 international trips including 2 in Guatemala, and 1 trans-Atlantic trip to Denmark which included stops in Greenland, Iceland, and Scotland.</p>
     </td>
     <td style="text-align: right;">
@@ -197,7 +183,7 @@
 
   <!-- Row 7 -->
   <tr>
-<td style="vertical-align: top; padding-right: 10px; width: 25%; font-size: 1.25rem;">
+<td class="desk-about-backgroundstory">
       <p>In the next part of my career, I flew quite a few different airplanes in various operations. I began regularly flying Cessna 182s for Civil Air Patrol (United States Air Force Auxiliary); I was a Search and Rescue pilot there, as well as check pilot and check pilot examiner. I spent time as a First Officer on the <a href="https://en.wikipedia.org/wiki/Cessna_Citation_II" target="_blank">Cessna Citation</a> and the <a href="https://en.wikipedia.org/wiki/British_Aerospace_125" target="_blank">Hawker 700</a> for Kaiser Air in Oakland, California. In 2009, I did summer flying in and around Juneau, Alaska in the <a href="https://en.wikipedia.org/wiki/Piper_PA-32_Cherokee_Six" target="_blank">Cherokee Six</a>, flying people and freight to smaller, outlying cities such as Skagway, Alaska. I also was on call as a corporate pilot for SunnyGem Almonds in a Cessna 182, based in Palo Alto, California, flying employees throughout the state.</p>
     </td>
     <td style="text-align: right;">
@@ -211,7 +197,7 @@
 
   <!-- Row 8 -->
   <tr>
-<td style="vertical-align: top; padding-right: 10px; width: 25%; font-size: 1.25rem;">
+<td class="desk-about-backgroundstory">
       <p>Unfortunately, in 2017 I encountered a health condition which precluded me from complying with FAA Medical requirements, so I stopped flying. In the meantime, I've been aloft several times in small airplanes but nothing regular. At this point I don't anticipate regaining my medical privileges. In 25 years of flying, I logged 6,400 hours including 2,400 as a flight instructor and 1,900 in air taxi/airline operations.</p>
     </td>
     <td style="text-align: right;">
@@ -235,108 +221,143 @@
 </table>
 </div>
 
+<!--MOBILE-ONLY DIV-->
+<!--MOBILE-ONLY DIV-->
+<!--MOBILE-ONLY DIV-->
 
 
+<div class="mobile-only" style="padding-top: 90px; background-color: #fdfaf6;">
 
-
-<div class="mobile-only">
   <h1 class="page-title-brick">ABOUT</h1>
-<div style="text-align: center; padding: 0 10px;">
+<div style="margin-top: 20px; text-align: center; padding: 0 10px;">
   <p style="display: inline-block; font-size: 1.3rem; margin-top: -10px; margin-bottom: 0; box-sizing: border-box;"><b>Owner, Aircraft Delivery Solutions - Aaron Kahn</b>
   </p>
 </div>
 
  <p style="text-align: left; padding: 10px; font-size: 1.5rem; margin-top: 0; margin-bottom: 0;"><b>Present</b></p>
 
-<div class="mobile-newspaper-img-left" style="margin-bottom: 0px;">
-  <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/about/2021-aaron.JPG"
-       alt="Aaron Kahn Headshot">
-  
-  <p>I consider myself active in aviation. I'm active in <a href="https://gocivilairpatrol.com">Civil Air Patrol</a> (the civilian organization which performs inland Search and Rescue in the United States). I bought and sold two Cessnas in the last few years. And, I have a continuing and abiding interest in aviation safety and consider myself an expert in Human Factors and Flight Operations. Finally, my fiancée is a 737 pilot for a freight airline.</p>
+<div class="mob-about-newspaper-left"> <img class="mob-about-newspaper-left-img" style="width: 175px;" src="/assets/about/2021-aaron.JPG" alt="Aaron Kahn Headshot">
+       <p>I consider myself active in aviation. I'm active in <a href="https://gocivilairpatrol.com">Civil Air Patrol</a> (the civilian organization which performs inland Search and Rescue in the United States). I bought and sold two Cessnas in the last few years. And, I have a continuing and abiding interest in aviation safety and consider myself an expert in Human Factors and Flight Operations. Finally, my fiancée is a 737 pilot for a freight airline.</p>
   <p>My role at Aircraft Delivery Solutions is that of owner and Director of Operations.</p>
   <p>I reside in South San Francisco, California.</p>
   <p>For <a href="/services">ferry flights</a>, I supply operational control, flight following, Weather and NOTAM advice, and on-call assistance for pilots.</p>
   <p>For <a href="/services">container deliveries</a>, I represent the client in all services and processes from aircraft acceptance to container delivery at the destination.</p>
 </div>
 
-<section style="width: 95%;">
-  <p style="display: block; font-size: 1.5rem; margin-top: -10px; margin-bottom: 10px; padding-left: 10px;"><b>Background</b></p>
 
-  <div class="mobile-newspaper-img-left">
-    <img class="zoomable" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/about/1992_aaron.jpg" alt="Embry-Riddle 1992">
-    <div class="text-block">
-      <p>I graduated from <a href="https://erau.edu/" target="_blank">Embry-Riddle Aeronautical University</a> in 1996 majoring in Aeronautical Science (airplane pilot) with a minor in Aviation Safety.</p>
-      <p class="mob-about-img-caption">Embry-Riddle Tiger. Prescott, Arizona 1992</p>
-    </div>
-  </div>
+  <p style="display: block; font-size: 1.5rem; margin-top: 15px; margin-bottom: 10px; padding-left: 10px;"><b>Background</b></p>
 
-  <div class="mobile-newspaper-img-left">
-    <img class="zoomable" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/about/1997_kal.jpg" alt="Korean Air 1997">
-    <div class="text-block">
-      <p>As is the case with many pilots, I began my career as a flight instructor. Most notably, I spent a year teaching ab-initio cadets from Korean Air.</p>
-      <p class="mob-about-img-caption">Korean Air program. Livermore, California 1997</p>
+      <div class="zoom-wrapper">
+<div class="mob-about-figure-newspaper-left mob-about-zoomblock">
+  <figure class="mob-about-figure img-wrap">
+    <div class="zoom-inner">
+      <img src="/assets/about/1992_aaron.jpg" alt="Embry-Riddle 1992" class="mob-about-thumb">
     </div>
-  </div>
+    <figcaption>Embry-Riddle Tiger. Prescott, Arizona 1992</figcaption>
+  </figure>
+  <p class="mob-about-figure-text">
+    I started my flying career at Embry-Riddle Aeronautical University in Prescott, Arizona in 1992. In 1996 I graduated with a degree in Aeronautical Science and minors in Psychology and Aviation Safety.
+  </p>
+</div>
+</div>
 
-  <div class="mobile-newspaper-img-left">
-    <img class="zoomable" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/about/1999_amf.jpg" alt="Ameriflight 1999">
-    <div class="text-block">
-      <p>My first 'commercial' pilot job was flying single-pilot night small-package freight at <a href="https://w3.ameriflight.com/" target="_blank">Ameriflight</a>. After flying some piston types there, I got qualified single-pilot in the <a href="https://en.wikipedia.org/wiki/Beechcraft_Model_99" target="_blank">Beech 99</a> twin-turboprop.</p>
-      <p class="mob-about-img-caption">Ameriflight Beech 99. Salt Lake City, Utah 1999</p>
-    </div>
-  </div>
 
-  <div class="mobile-newspaper-img-left">
-    <img class="zoomable" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/about/1999_colgan.jpg" alt="Colgan Air 1999">
-    <div class="text-block">
-      <p>In 1999 I achieved my goal of becoming an airline pilot; I got hired at Colgan Air/US Airways Express as a first officer in the <a href="https://en.wikipedia.org/wiki/Beechcraft_1900" target="_blank">Beech 1900</a> (19 passengers). In late 2000 I was selected for upgrade to captain and flew in the left seat for about six months.</p>
-      <p class="mob-about-img-caption">Colgan Air/US Airways Express Beech 1900 First Officer. Boston, Massachusetts 1999</p>
+ <div class="zoom-wrapper">
+<div class="mob-about-figure-newspaper-left mob-about-zoomblock">
+  <figure class="mob-about-figure img-wrap">
+    <div class="zoom-inner">
+      <img src="/assets/about/1997_kal.jpg" alt="Korean Air 1997" class="mob-about-thumb">
     </div>
-  </div>
+    <figcaption>Korean Air program. Livermore, California 1997</figcaption>
+  </figure>
+  <p class="mob-about-figure-text">As is the case with many pilots, I began my career as a flight instructor. Most notably, I spent a year teaching ab-initio cadets from Korean Air.
+  </p>
+</div>
+</div>
 
-  <div class="mobile-newspaper-img-left">
-    <img class="zoomable" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/about/2008_High.jpg" alt="Civil Air Patrol 2008">
-    <div class="text-block">
-      <p>I decided airline flying wasn't for me and I returned to my hometown of San Francisco. I flight instructed sporadically for a few years.</p>
-      <p class="mob-about-img-caption">Civil Air Patrol Communications Relay. California 2008</p>
-    </div>
-  </div>
 
-  <div class="mobile-newspaper-img-left">
-    <img class="zoomable" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/about/2009-12-24.jpg" alt="Saratoga Ferry 2009">
-    <div class="text-block">
-      <p>In 2005, I started an airplane ferry company called FlyIt4U. Over the next 12 years, I completed <a href="/past-deliveries">50 delivery flights in 21 different types of airplanes</a>; the smallest I flew was a EuroFox LSA, and the largest a Cessna 310 twin. I flew over 60,000 nautical miles on ferry flights and crossed the Continental Divide 32 times. I also did 9 international trips including 2 in Guatemala, and 1 trans-Atlantic trip to Denmark which included stops in Greenland, Iceland, and Scotland.</p>
-      <p class="mob-about-img-caption">Ferrying a Saratoga to Denmark over the North Atlantic. Wick, Scotland 2009</p>
+    <div class="zoom-wrapper">
+  <div class="mob-about-figure-newspaper-left mob-about-zoomblock">
+  <figure class="mob-about-figure img-wrap">
+    <div class="zoom-inner">
+      <img src="/assets/about/1999_amf.jpg" alt="AMF 1999" class="mob-about-thumb">
     </div>
-  </div>
+    <figcaption>AmeriFlight Beech 99. Salt Lake City, Utah 1999</figcaption>
+  </figure>
+  <p class="mob-about-figure-text">My first 'commercial' pilot job was flying single-pilot night small-package freight at <a href="https://w3.ameriflight.com/" target="_blank">Ameriflight</a>. After flying some piston types there, I got qualified single-pilot in the <a href="https://en.wikipedia.org/wiki/Beechcraft_Model_99" target="_blank">Beech 99</a> twin-turboprop.</p>
+</div>
+</div>
 
-  <div class="mobile-newspaper-img-left">
-    <img class="zoomable" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/about/2010-duchess.jpg" alt="Duchess Ferry 2010">
-    <div class="text-block">
-      <p>In the next part of my career, I flew quite a few different airplanes in various operations. I began regularly flying Cessna 182s for Civil Air Patrol (United States Air Force Auxiliary); I was a Search and Rescue pilot there, as well as check pilot and check pilot examiner. I spent time as a First Officer on the <a href="https://en.wikipedia.org/wiki/Cessna_Citation_II" target="_blank">Cessna Citation</a> and the <a href="https://en.wikipedia.org/wiki/British_Aerospace_125" target="_blank">Hawker 700</a> for Kaiser Air in Oakland, California. In 2009, I did summer flying in and around Juneau, Alaska in the <a href="https://en.wikipedia.org/wiki/Piper_PA-32_Cherokee_Six" target="_blank">Cherokee Six</a>, flying people and freight to smaller, outlying cities such as Skagway, Alaska. I also was on call as a corporate pilot for SunnyGem Almonds in a Cessna 182, based in Palo Alto, California, flying employees throughout the state.</p>
-      <p class="mob-about-img-caption">Ferrying a Beechcraft 76 Duchess. Colorado, 2010</p>
+    <div class="zoom-wrapper">
+  <div class="mob-about-figure-newspaper-left mob-about-zoomblock">
+  <figure class="mob-about-figure img-wrap">
+    <div class="zoom-inner">
+      <img src="/assets/about/1999_colgan.jpg" alt="Colgan Air 1999" class="mob-about-thumb">
     </div>
-  </div>
+    <figcaption>Colgan Air/US Airways Express Beech 1900 First Officer. Boston, Massachusetts 1999</figcaption>
+  </figure>
+  <p class="mob-about-figure-text">In 1999 I achieved my goal of becoming an airline pilot; I got hired at Colgan Air/US Airways Express as a first officer in the <a href="https://en.wikipedia.org/wiki/Beechcraft_1900" target="_blank">Beech 1900</a> (19 passengers). In late 2000 I was selected for upgrade to captain and flew in the left seat for about six months.</p>
+</div>
+</div>
 
-  <div class="mobile-newspaper-img-left">
-    <img class="zoomable" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/about/2016-m20.JPG" alt="Mooney M20R 2016">
-    <div class="text-block">
-      <p>Unfortunately, in 2017 I encountered a health condition which precluded me from complying with FAA Medical requirements, so I stopped flying. In the meantime, I've been aloft several times in small airplanes but nothing regular. At this point I don't anticipate regaining my medical privileges. In 25 years of flying, I logged 6,400 hours including 2,400 as a flight instructor and 1,900 in air taxi/airline operations.</p>
-      <p class="mob-about-img-caption">Ferrying a Mooney M20R. Arizona 2016</p>
+    <div class="zoom-wrapper">
+  <div class="mob-about-figure-newspaper-left mob-about-zoomblock">
+  <figure class="mob-about-figure img-wrap">
+    <div class="zoom-inner">
+      <img src="/assets/about/2008_High.jpg" alt="Civil Air Patrol 2008" class="mob-about-thumb">
     </div>
-  </div>
-</section>
+    <figcaption>Civil Air Patrol Communications Relay. California 2008</figcaption>
+  </figure>
+  <p class="mob-about-figure-text">I decided airline flying wasn't for me and I returned to my hometown of San Francisco. I flight instructed sporadically for a few years.</p>
+</div>
+</div>
+
+    <div class="zoom-wrapper">
+  <div class="mob-about-figure-newspaper-left mob-about-zoomblock">
+  <figure class="mob-about-figure img-wrap">
+    <div class="zoom-inner">
+      <img src="/assets/about/2009-12-24.jpg" alt="Saratoga Ferry 2009" class="mob-about-thumb">
+    </div>
+    <figcaption>Ferrying a Saratoga to Denmark over the North Atlantic. Wick, Scotland 2009</figcaption>
+  </figure>
+  <p class="mob-about-figure-text">In 2005, I started an airplane ferry company called FlyIt4U. Over the next 12 years, I completed <a href="/past-deliveries">50 delivery flights in 21 different types of airplanes</a>; the smallest I flew was a EuroFox LSA, and the largest a Cessna 310 twin. I flew over 60,000 nautical miles on ferry flights and crossed the Continental Divide 32 times. I also did 9 international trips including 2 in Guatemala, and 1 trans-Atlantic trip to Denmark which included stops in Greenland, Iceland, and Scotland.</p>
+</div>
+</div>
+
+    <div class="zoom-wrapper">
+  <div class="mob-about-figure-newspaper-left mob-about-zoomblock">
+  <figure class="mob-about-figure img-wrap">
+    <div class="zoom-inner">
+      <img src="/assets/about/2010-duchess.jpg" alt="Duchess Ferry 2010" class="mob-about-thumb">
+    </div>
+    <figcaption>Ferrying a Beechcraft 76 Duchess. Colorado, 2010</figcaption>
+  </figure>
+  <p class="mob-about-figure-text">In the next part of my career, I flew quite a few different airplanes in various operations. I began regularly flying Cessna 182s for Civil Air Patrol (United States Air Force Auxiliary); I was a Search and Rescue pilot there, as well as check pilot and check pilot examiner. I spent time as a First Officer on the <a href="https://en.wikipedia.org/wiki/Cessna_Citation_II" target="_blank">Cessna Citation</a> and the <a href="https://en.wikipedia.org/wiki/British_Aerospace_125" target="_blank">Hawker 700</a> for Kaiser Air in Oakland, California. In 2009, I did summer flying in and around Juneau, Alaska in the <a href="https://en.wikipedia.org/wiki/Piper_PA-32_Cherokee_Six" target="_blank">Cherokee Six</a>, flying people and freight to smaller, outlying cities such as Skagway, Alaska. I also was on call as a corporate pilot for SunnyGem Almonds in a Cessna 182, based in Palo Alto, California, flying employees throughout the state.</p>
+</div>
+</div>
+
+        <div class="zoom-wrapper">
+  <div class="mob-about-figure-newspaper-left mob-about-zoomblock">
+  <figure class="mob-about-figure img-wrap">
+    <div class="zoom-inner">
+      <img src="/assets/about/2016-m20.JPG" alt="Mooney M20R 2016" class="mob-about-thumb">
+    </div>
+    <figcaption>Ferrying a Mooney M20R. Arizona 2016</figcaption>
+  </figure>
+  <p class="mob-about-figure-text">Unfortunately, in 2017 I encountered a health condition which precluded me from complying with FAA Medical requirements, so I stopped flying. In the meantime, I've been aloft several times in small airplanes but nothing regular. At this point I don't anticipate regaining my medical privileges. In 25 years of flying, I logged 6,400 hours including 2,400 as a flight instructor and 1,900 in air taxi/airline operations.</p>
+</div>
+</div>
+
+
+
+
 <div>
 <a href="/quote"><img alt="Get a Quote" style="display: block; width: 60%; height: auto; margin: 0 auto;" src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/quote-button-transp.png"></a> 
 </div>
 </div>
-</main>
-<div id="imgModal">
-  <span id="modalClose">&times;</span>
-  <img id="modalImg" src="https://via.placeholder.com/1x1.png" alt="Zoomed image">
-  <div id="modalCaption"></div>
-</div>
-<script src="script.js"></script>
 
+
+</main>
+<script src="script.js"></script>
 </body>
 </html>
