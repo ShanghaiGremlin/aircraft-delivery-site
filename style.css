@@ -295,7 +295,7 @@ h1, h2, h3, h4, h5, h6 {
   flex-wrap: wrap;
   justify-content: center;
   gap: 30px;
-  padding: 20px;
+  padding: 50px 20px 20px 20px;
 }
 
 .pilot-tile {
@@ -330,10 +330,42 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
+.gallery-img-cell {
+  border-top: 1px solid gray;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  border-bottom: none;
+  width: 50%;
+  vertical-align: bottom;
+}
+
+.desk-pilot-directory-typepix {
+  display: block;
+  width: 200px; 
+  height: auto;
+}
+
+.desk-pilot-directory-typewrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 50px;
+  padding: 0 20px 20px 20px;
+
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 
-
-
+.desk-pilot-directory-typewrapper > div {
+  display: flex;
+  align-items: flex-end; /* 👈 ensures image is also bottom-aligned inside */
+}
 
 /* === DESKTOP ACCORDION === */
 .accordion-content {
