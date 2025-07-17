@@ -1,8 +1,2 @@
-/assets/about/*.jpg
+/assets/about/*
   Content-Type: image/jpeg
-
-/assets/about/*.jpeg
-  Content-Type: image/jpeg
-
-/assets/about/*.png
-  Content-Type: image/png
