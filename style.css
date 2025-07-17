@@ -290,6 +290,22 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: 1px solid #2A4570;
 }
 
+.static-header {
+  position: relative;
+}
+
+.header-link {
+  position: absolute;
+  display: block;
+  z-index: 10;
+  pointer-events: auto;
+  -webkit-transform: translateZ(0); /* Safari fix */
+  transform: translateZ(0);
+  text-decoration: none;
+}
+
+
+
 .pilot-directory-wrapper {
   display: flex;
   flex-wrap: wrap;
