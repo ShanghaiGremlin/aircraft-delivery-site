@@ -114,9 +114,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .desk-past-deliv-content img {
   max-width: 100%;
+  max-height: 80vh;         /* ← prevents vertical overflow */
   height: auto;
   margin-bottom: 10px;
+  object-fit: contain;      /* ← smooths Safari behavior */
 }
+
 
 .desk-past-deliv-content p {
   font-size: 1rem;
