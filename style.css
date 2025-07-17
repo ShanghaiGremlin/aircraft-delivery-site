@@ -1068,3 +1068,11 @@ html, body {
     transform: translateY(0);
   }
 }
+
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    input, textarea {
+      font-size: 1.25rem;
+    }
+  }
+}
