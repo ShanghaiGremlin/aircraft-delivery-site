@@ -3,15 +3,10 @@
 document.addEventListener("DOMContentLoaded", function () {
 
   // === PILOT RATINGS MODAL ===
+    if (window.location.pathname === "/pilot-directory") {
   const pilotRatingsBtn = document.getElementById("pilot-ratings-btn");
   const customModal = document.getElementById("custom-modal");
   const modalClose = document.getElementById("custom-modal-close");
-
-  if (customModal) {
-    customModal.addEventListener("click", function () {
-      this.style.display = "none";
-    });
-  }
 
   if (pilotRatingsBtn && customModal && modalClose) {
     pilotRatingsBtn.addEventListener("click", function () {
@@ -22,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
       customModal.style.display = "none";
     });
   }
-
+    }
   // === DESKTOP SLIDESHOW ===
   const desktopSlides = document.querySelectorAll("#desktop-slideshow .slide");
   let desktopIndex = 0;
@@ -184,25 +179,28 @@ document.addEventListener("DOMContentLoaded", function () {
         ? "/assets/mobile/mobile-close-menu.svg"
         : "/assets/mobile/burger.png";
     });
-
-    document.addEventListener("click", (e) => {
-      if (
-        mobileMenu.classList.contains("show") &&
-        !mobileMenu.contains(e.target) &&
-        !hamburger.contains(e.target)
-      ) {
-        mobileMenu.classList.remove("show");
-        hamburger.src = "/assets/mobile/burger.png";
-      }
+  } // <-- closes the hamburger && mobileMenu if-block
     });
-  }
 
+document.addEventListener("DOMContentLoaded", () => {
   // === BODY CLASS FOR MOBILE ===
   if (window.innerWidth <= 768) {
     document.body.classList.add("mobile");
   }
 
+  // === Hide menu on outside click ===
+  document.addEventListener("click", (e) => {
+    if (
+      mobileMenu.classList.contains("show") &&
+      !mobileMenu.contains(e.target) &&
+      !hamburger.contains(e.target)
+    ) {
+      mobileMenu.classList.remove("show");
+      hamburger.src = "/assets/mobile/burger.png";
+    }
+  });
 });
+
 
 
 
@@ -313,4 +311,3 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-
