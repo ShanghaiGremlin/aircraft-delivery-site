@@ -201,30 +201,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
-
-
-document.addEventListener("DOMContentLoaded", function () {
-  const button = document.getElementById("pilotRatingsBtn");
-  const modal = document.getElementById("unified-modal");
-
-  if (button && modal) {
-    // Open the modal
-    button.addEventListener("click", function () {
-      modal.style.display = "flex";
-    });
-
-    // Close the modal on ANY click inside it
-    modal.addEventListener("click", function () {
-      modal.style.display = "none";
-    });
-  } else {
-    console.warn("Missing #pilotRatingsBtn or #unified-modal");
-  }
-});
-
-
-
 document.addEventListener("DOMContentLoaded", function () {
   const zoomBlocks = document.querySelectorAll(".img-wrap");
 
