@@ -257,11 +257,12 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const modal = document.getElementById("desk-past-deliv-modal");
-  const modalImg = document.getElementById("desk-past-deliv-img");
-  const modalClose = document.getElementById("desk-past-deliv-close");
+document.addEventListener("DOMContentLoaded"), function () {
+ const modal = document.getElementById("desk-past-deliv-modal");
+const modalImg = document.getElementById("desk-past-deliv-img");
+const modalClose = document.getElementById("desk-past-deliv-close");
 
+if (modal && modalImg && modalClose) {
   const thumbnails = document.querySelectorAll("img[data-full]");
 
   thumbnails.forEach(function (img) {
@@ -272,18 +273,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  if (modalClose) {
-    modalClose.addEventListener("click", function () {
-      modal.style.display = "none";
-      modalImg.src = ""; // Clear the src to avoid stale image
-    });
-  }
+  modalClose.addEventListener("click", function () {
+    modal.style.display = "none";
+    modalImg.src = "";
+  });
 
-  // Also allow clicking outside the image to close
   modal.addEventListener("click", function (e) {
     if (e.target === modal) {
       modal.style.display = "none";
       modalImg.src = "";
     }
   });
-});
+}
+}
