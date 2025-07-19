@@ -257,7 +257,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-document.addEventListener("DOMContentLoaded"), function () {
+document.addEventListener("DOMContentLoaded", function () {
  const modal = document.getElementById("desk-past-deliv-modal");
 const modalImg = document.getElementById("desk-past-deliv-img");
 const modalClose = document.getElementById("desk-past-deliv-close");
@@ -285,4 +285,4 @@ if (modal && modalImg && modalClose) {
     }
   });
 }
-}
+})
