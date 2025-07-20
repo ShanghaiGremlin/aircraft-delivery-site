@@ -19,18 +19,20 @@
 <div class="fixed-header">
   <div class="header-bleed-left"></div>
   <header>
-    <img src="/assets/static-header-v7-95.png" usemap="#image-map"
-         style="width: 100%; height: auto; display: block;">
-
+<picture>
+  <source media="(min-width: 769px)" srcset="/assets/static-header-v7-95.png">
+  <img src="" alt="static header" usemap="#image-map"
+       style="width: 100%; height: auto; display: block;">
+</picture>
            <map name="image-map">
-    <area target="" alt="" href="/services" coords="64,21,147,46" shape="rect" title="Services">
-    <area target="" alt="" href="/quote" coords="160,19,217,46" shape="rect" title="Get a Quote">
-    <area target="" alt="" href="/pilot-directory" coords="17,63,149,90" shape="rect" title="Pilot Directory">
-    <area target="" alt="" href="/pilot-hiring" coords="162,62,264,90" shape="rect" title="Pilot Hiring">
-    <area target="" alt="" href="/about" coords="38,106,98,133" shape="rect" title="About">
-    <area target="" alt="" href="/past-deliveries" coords="108,106,246,133" shape="rect" title="Past Deliveries">
-    <area target="" alt="" href="/" coords="278,6,1076,143" shape="rect" title="Aircraft Delivery Solutions">
-    <area target="" alt="" href="mailto:akahn28@gmail.com" coords="1115,83,1325,119" shape="rect" title="Email me">
+    <area target="" alt="Services" href="/services" coords="64,21,147,46" shape="rect" title="Services">
+    <area target="" alt="Quote" href="/quote" coords="160,19,217,46" shape="rect" title="Get a Quote">
+    <area target="" alt="Pilot Directory" href="/pilot-directory" coords="17,63,149,90" shape="rect" title="Pilot Directory">
+    <area target="" alt="Pilot Hiring" href="/pilot-hiring" coords="162,62,264,90" shape="rect" title="Pilot Hiring">
+    <area target="" alt="About" href="/about" coords="38,106,98,133" shape="rect" title="About">
+    <area target="" alt="Past Deliveries" href="/past-deliveries" coords="108,106,246,133" shape="rect" title="Past Deliveries">
+    <area target="" alt="Index" href="/" coords="278,6,1076,143" shape="rect" title="Aircraft Delivery Solutions">
+    <area target="" alt="mailto" href="mailto:akahn28@gmail.com" coords="1115,83,1325,119" shape="rect" title="Email me">
   </map>
   </header>
   <div class="header-bleed-right"></div>
@@ -51,7 +53,7 @@
     </div>
 
     <div class="mobile-logo">
-      <a href="/index"><img src="/assets/mobile/mobile-logo.png" alt="Aircraft Delivery Logo" id="mobile-logo-img"></a>
+      <a href="/index"><img src="/assets/mobile/mobile-logo-640w.png" loading="lazy" srcset="/assets/mobile/mobile-logo-320w.png 320w, /assets/mobile/mobile-logo-640w.png 640w, /assets/mobile/mobile-logo-640w@2x.png 1280w" sizes="(max-width: 480px) 320px, (max-width: 768px) 640px" alt="Aircraft Delivery Logo" id="mobile-logo-img"></a>
     </div>
 
     <div class="mobile-header-slot-right"><a href="tel:+14158458163"><img src="/assets/mobile/phone.png" alt="Call me" id="phone-icon"></a>
@@ -89,11 +91,11 @@
       <h2 class="plaque-heading"><u>FERRY FLIGHTS</u></h2>
 
           <div id="desktop-slideshow" class="slideshow-container desktop-only" style="max-width: 640px; margin: 40px auto; text-align: center;">
-  <img class="slide" src="/assets/services/slide-wick.jpg" style="display: block;">
-      <img class="slide" src="/assets/services/slide-lancair.jpg" style="display: none;">
-    <img class="slide" src="/assets/services/slide-duchess.jpg" style="display: none;">
-  <img class="slide" src="/assets/services/slide-pa32.jpg" style="display: none;">
-    <img class="slide" src="/assets/services/slide-c310.jpg" style="display: none;">
+  <img class="slide" alt="Wick Scotland" src="/assets/services/slide-wick.jpg" style="display: block;">
+      <img class="slide" alt="Lancair" src="/assets/services/slide-lancair.jpg" style="display: none;">
+    <img class="slide" alt="Duchess" src="/assets/services/slide-duchess.jpg" style="display: none;">
+  <img class="slide" alt="PA32" src="/assets/services/slide-pa32.jpg" style="display: none;">
+    <img class="slide" alt="C310" src="/assets/services/slide-c310.jpg" style="display: none;">
   <div style="text-align: center; margin-top: 10px;">
 <button id="prevSlide">&#10094; Prev</button>
 <button id="nextSlide">Next &#10095;</button>
@@ -129,7 +131,7 @@
     <!-- Right Col -->
     <td style="border-right: none; border-top: none; border-bottom: none; padding: 0px 20px; vertical-align: top;">
       <h2 class="plaque-heading"><u>CONTAINER DELIVERY</u></h2>
-            <img src="assets/services/containerize-no-title.png" style="padding-top: 10px; width: 100%; height:auto; display: block; margin: 0 auto;">
+            <img src="/assets/services/containerize-no-title.png" loading="lazy" alt="Aircraft Delivery Logo">
       <p style="font-size: 1.5rem;">For light aircraft. A low-cost and very safe alternative to a risky and lengthy ferry flight.</p>
       <div class="desk-std-base" style="text-align: left;">
       <p><b>Is container transport optimal?</b> – I determine that it is for the mission, and/or the customer requests a container quote.</p>
@@ -146,7 +148,7 @@
   <a href="/quote">
     <img
       src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/quote-button-transp.png"
-      alt="Get a Fast Quote"
+      alt="Get a Fast Quote" loading="lazy"
       style="width: 100%; max-width: 350px; height: auto;">
   </a>
 </div>
@@ -164,11 +166,11 @@
 
 <!--MOBILE SLIDESHOW-->
 <div id="mobile-slideshow" class="slideshow-container mobile-only" style="width: 100%; text-align: center; margin: 0 auto 0 auto;">
-  <img class="slide" src="/assets/services/slide-wick.jpg" style="display: block; width: 90%; height: auto; margin: 0 auto;">
-  <img class="slide" src="/assets/services/slide-mooney.jpg" style="display: none; width: 90%; height: auto; margin: 0 auto;">
-  <img class="slide" src="/assets/services/slide-duchess.jpg" style="display: none; width: 90%; height: auto; margin: 0 auto;">
-  <img class="slide" src="/assets/services/slide-pa32.jpg" style="display: none; width: 90%; height: auto; margin: 0 auto;">
-  <img class="slide" src="/assets/services/slide-c310.jpg" style="display: none; width: 90%; height: auto; margin: 0 auto;">
+  <img class="slide" alt="Wick Scotland" src="/assets/services/slide-wick.jpg" style="display: block; width: 90%; height: auto; margin: 0 auto;">
+  <img class="slide" alt="Mooney" src="/assets/services/slide-mooney.jpg" style="display: none; width: 90%; height: auto; margin: 0 auto;">
+  <img class="slide" alt="Duchess" src="/assets/services/slide-duchess.jpg" style="display: none; width: 90%; height: auto; margin: 0 auto;">
+  <img class="slide" alt="PA32" src="/assets/services/slide-pa32.jpg" style="display: none; width: 90%; height: auto; margin: 0 auto;">
+  <img class="slide" alt="C310" src="/assets/services/slide-c310.jpg" style="display: none; width: 90%; height: auto; margin: 0 auto;">
     <div style="margin-top: 10px;"> 
 <button onclick="changeMobileSlide(-1)">&#10094; Prev</button>
 <button onclick="changeMobileSlide(1)">Next &#10095;</button>
@@ -214,7 +216,7 @@
     <li><b>Proactive operational support</b> to catch and correct issues early</li>
     <li><b>Same level of care</b> whether you’re moving a light piston or a transport-category aircraft</li>
   </ul>
-  <div style="width: 100%; text-align: center; margin-top: -15px; padding-bottom: 0px; position: relative; z-index: 5;"><a href="/quote"><img src="/assets/quote-button-transp.png" alt="Get a Fast Quote" style="width: 35%; height: auto; display: block; margin: 0 auto;">
+  <div style="width: 100%; text-align: center; margin-top: -15px; padding-bottom: 0px; position: relative; z-index: 5;"><a href="/quote"><img src="/assets/quote-button-transp.png" alt="Get a Fast Quote" loading="lazy" style="width: 35%; height: auto; display: block; margin: 0 auto;">
   </a>
 </div>
 </section>
@@ -223,7 +225,8 @@
 <section style="padding: 0 0 20px 0;">
   <p style="margin-top: 10px; text-align: center; font-size: 1.6rem;"><u><b>CONTAINER DELIVERY</b></u></p>
 
-    <img src="/assets/services/containerize-no-title.png" alt="Container Delivery Process" style="padding-top: 10px; width: 95%; height:auto; display: block; margin: 0 auto;">
+<div style="display: block; width: 100%; text-align: center;">
+  <img src="/assets/services/containerize-no-title-640w.png" loading="lazy" srcset="/assets/services/containerize-no-title-320w.png 320w, /assets/services/containerize-no-title-640w.png 640w, /assets/services/containerize-no-title-640w@2x.png 1280w" sizes="(max-width: 480px) 320px, (max-width: 768px) 640px" alt="Aircraft Delivery Logo"></div>
 
   <p style="font-size: 1.4rem; text-align: center;">
     For light aircraft. A low-cost and very safe alternative to a risky and lengthy ferry flight.
@@ -240,7 +243,7 @@
 <!-- CTA Button -->
 <div style="width: 100%; text-align: center; margin-top: -15px; padding-bottom: 0px; position: relative; z-index: 5;">
   <a href="/quote">
-    <img src="/assets/quote-button-transp.png" alt="Get a Fast Quote" style="width: 35%; height: auto; display: block; margin: 0 auto;">
+      <img src="/assets/quote-button-transp-640w.png" loading="lazy" srcset="/assets/quote-button-transp-320w.png 320w, /assets/quote-button-transp-640w.png 640w" sizes="(max-width: 480px) 320px, (max-width: 768px) 640px" alt="Quote Button" style="width: 35%; height: auto; display: block; margin: 0 auto;">
   </a>
 </div>
 

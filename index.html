@@ -20,9 +20,11 @@
     <div class="header-bleed-left"></div>
 
     <header class="static-header">
-      <img src="/assets/static-header-v7-95.png"
-           alt="Aircraft Delivery Solutions Header"
-           style="width: 100%; height: auto; display: block;">
+<picture>
+  <source media="(min-width: 769px)" srcset="/assets/static-header-v7-95.png">
+  <img src="" alt="static header" usemap="#image-map"
+       style="width: 100%; height: auto; display: block;">
+</picture>
 
       <!-- Absolutely-positioned links -->
       <a href="/services" class="header-link" style="top: 21px; left: 64px; width: 83px; height: 25px;"></a>
@@ -55,7 +57,7 @@
     </div>
 
     <div class="mobile-logo">
-      <a href="/index"><img src="/assets/mobile/mobile-logo.png" alt="Aircraft Delivery Logo" id="mobile-logo-img"></a>
+      <a href="/index"><img src="/assets/mobile/mobile-logo-640w.png" loading="lazy" srcset="/assets/mobile/mobile-logo-320w.png 320w, /assets/mobile/mobile-logo-640w.png 640w, /assets/mobile/mobile-logo-640w@2x.png 1280w" sizes="(max-width: 480px) 320px, (max-width: 768px) 640px" alt="Aircraft Delivery Logo" id="mobile-logo-img"></a>
     </div>
 
     <div class="mobile-header-slot-right"><a href="tel:+14158458163"><img src="/assets/mobile/phone.png" alt="Call me" id="phone-icon"></a>
@@ -83,7 +85,7 @@
 <div class="desktop-only">
 
   <div style="padding-top: 145px; width: 100%; display: block;">
-  <img style="margin: 0 auto; display: block;" src="/assets/home2.png" alt="Home page background" usemap="#main-image-map">
+  <img style="margin: 0 auto; display: block;" src="/assets/home2.png" loading="lazy" alt="Home page background" usemap="#main-image-map">
   </div>
 
 <map name="main-image-map">
@@ -100,28 +102,61 @@
               
 <div class="mobile-only" style="background-color: #fdfaf5;">
   
-<img src="/assets/mobile/mobile-hero-640w.jpg" class="mob-about-thumb" srcset="/assets/mobile/mobile-hero-320w.jpg 320w, /assets/mobile/mobile-hero-640w.jpg 640w, /assets/mobile/mobile-hero-640w@2x.jpg 1280w" sizes="(max-width: 480px) 320px, (max-width: 768px) 640px" alt="Mobile Hero" style="width: 100vw; max-width: 100%; padding-top: 80px;">
+<img src="/assets/mobile/mobile-hero-640w.jpg" srcset="/assets/mobile/mobile-hero-320w.jpg 320w, /assets/mobile/mobile-hero-640w.jpg 640w, /assets/mobile/mobile-hero-640w@2x.jpg 1280w" sizes="(max-width: 480px) 320px, (max-width: 768px) 640px" loading="lazy" alt="Mobile Hero" style="width: 100vw; max-width: 100%; padding-top: 80px;">
 
-<section class="mobile-services" style="text-align: center">
+<div class="mobile-services-wrapper">
+
   <!-- Service 1: Ferry Flights -->
-  <a href="/services"><div class="service-block"> <img src="/assets/mobile/index-key-640w.jpg" class="mob-about-thumb" srcset="/assets/mobile/index-key-320w.jpg 320w, /assets/mobile/index-key-640w.jpg 640w, /assets/mobile/index-key-640w@2x.jpg 1280w" sizes="(max-width: 480px) 320px, (max-width: 768px) 640px" alt="Aaron 1992"></div></div>
- 
+  <div class="service-block">
+    <a href="/services">
+      <img src="/assets/mobile/index-key-640w.jpg"
+           class="mob-index-service-img"
+           srcset="/assets/mobile/index-key-320w.jpg 320w,
+                   /assets/mobile/index-key-640w.jpg 640w"
+           sizes="(max-width: 480px) 320px, (max-width: 768px) 640px"
+           loading="lazy"
+           alt="Aaron 1992">
+      <div class="mob-index-service-name">Ferry Flights</div>
+    </a>
+  </div>
 
   <!-- Service 2: Container Shipping -->
-  <div class="service-block">
-    <div style="border-top: 1px solid gray; padding-top: 17px;"><img src="/assets/services/containerize-no-title-640w.jpg" class="mob-about-thumb" srcset="/assets/services/containerize-no-title-320w.jpg 320w, /assets/services/containerize-no-title-640w.jpg 640w, /assets/services/containerize-no-title-1280w.jpg 1280w" sizes="(max-width: 480px) 320px, (max-width: 768px) 640px" alt="Aaron 1992"></div> 
-    <div style="margin-top: 5px;" class="mob-index-service-name">Container Shipping</div>
-  </div></a>
+  <div class="service-block" style="border-top: 1px solid gray; padding-top: 17px;">
+    <a href="/services">
+      <img src="/assets/services/containerize-no-title-640w.png"
+           class="mob-index-service-img"
+           srcset="/assets/services/containerize-no-title-320w.png 320w,
+                   /assets/services/containerize-no-title-640w.png 640w,
+                   /assets/services/containerize-no-title-640w@2x.png 1280w"
+           sizes="(max-width: 768px) 100vw"
+           loading="lazy"
+           alt="Container Shipping">
+      <div class="mob-index-service-name">Container Shipping</div>
+    </a>
+  </div>
 
   <!-- Destination Tagline -->
-  <div><p style="font-size: 2rem; font-weight: 800; color: #7186d6"><i>To nearly every destination</i></p></div>
-  
+<div class="shimmer-wrapper">
+  <p><i><span class="shimmer-text">To nearly every destination</span></i></p>
+</div>
 
   <!-- Quote Button -->
-  <div style="display: flex; justify-content: center;"><a href="/quote">
-    <img style="width: 250px;" src="/assets/quote-button-transp.png" alt="Get a Fast Quote">
-  </a></div>
-  </section>
+  <div class="mob-quote-btn-wrapper">
+    <a href="/quote">
+      <img src="/assets/quote-button-transp.png"
+           srcset="/assets/quote-button-transp-320w.png 320w,
+                   /assets/quote-button-transp-640w.png 640w"
+           sizes="(max-width: 480px) 320px, (max-width: 768px) 640px"
+           loading="lazy"
+           alt="Get a Fast Quote"
+           style="width: 250px;">
+    </a>
+  </div>
+
+</div>
+
+
+</div>
 
 
 
