@@ -9,7 +9,11 @@
     cursor: pointer;
   }
 </style>
-
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
   </head>
 <body>
 
@@ -18,20 +22,26 @@
 <div class="fixed-header">
   <div class="header-bleed-left"></div>
   <header>
-    <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/static-header-v7-95.png" usemap="#image-map"
-         style="width: 100%; height: auto; display: block;">
+<picture>
+  <source media="(min-width: 769px)" srcset="/assets/static-header-v7-95.png">
+  <img src="" alt="static header" usemap="#image-map"
+       style="width: 100%; height: auto; display: block;">
+</picture>
            <map name="image-map">
-    <area target="" alt="" href="/services" coords="64,21,147,46" shape="rect" title="Services">
-    <area target="" alt="" href="/quote" coords="160,19,217,46" shape="rect" title="Get a Quote">
-    <area target="" alt="" href="/pilot-directory" coords="17,63,149,90" shape="rect" title="Pilot Directory">
-    <area target="" alt="" href="/pilot-hiring" coords="162,62,264,90" shape="rect" title="Pilot Hiring">
-    <area target="" alt="" href="/about" coords="38,106,98,133" shape="rect" title="About">
-    <area target="" alt="" href="/past-deliveries" coords="108,106,246,133" shape="rect" title="Past Deliveries">
-    <area target="" alt="" href="/" coords="278,6,1076,143" shape="rect" title="Aircraft Delivery Solutions">
+    <area target="" alt="Services" href="/services" coords="64,21,147,46" shape="rect" title="Services">
+    <area target="" alt="Quote" href="/quote" coords="160,19,217,46" shape="rect" title="Get a Quote">
+    <area target="" alt="Pilot Directory" href="/pilot-directory" coords="17,63,149,90" shape="rect" title="Pilot Directory">
+    <area target="" alt="Pilot Hiring" href="/pilot-hiring" coords="162,62,264,90" shape="rect" title="Pilot Hiring">
+    <area target="" alt="About" href="/about" coords="38,106,98,133" shape="rect" title="About">
+    <area target="" alt="Past Deliveries" href="/past-deliveries" coords="108,106,246,133" shape="rect" title="Past Deliveries">
+    <area target="" alt="Index" href="/" coords="278,6,1076,143" shape="rect" title="Aircraft Delivery Solutions">
+    <area target="" alt="mailto" href="mailto:akahn28@gmail.com" coords="1115,83,1325,119" shape="rect" title="Email me">
   </map>
   </header>
   <div class="header-bleed-right"></div>
 </div></div>
+
+
 
 <div class="mobile-only">
   <header class="mobile-header">
@@ -61,8 +71,13 @@
 </div>
 
 
-<main style="padding: 20px; max-width: 800px; margin: 0 auto;">
-  <div class="mobile-only" style="padding-top: 70px;">
+<main>
+
+  <div class="desktop-only" style="padding-top: 145px;"> 
+<p>Hi. You've accidentally reached a mobile-only page. Please select one of the navigation options in the top-left of the page. </p> 
+</div>
+
+  <div class="mobile-only" style="padding-top: 90px;">
     <h1 class="page-title-brick" style="margin-top: 0; margin-bottom: 15px;">TESTIMONIALS</h1>
 
   <!-- Testimonial 1 -->
