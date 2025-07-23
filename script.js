@@ -2,8 +2,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-  // === PILOT RATINGS MODAL ===
-    if (window.location.pathname === "/pilot-directory") {
+if (window.location.pathname === "/pilot-directory") {
   const pilotRatingsBtn = document.getElementById("pilot-ratings-btn");
   const customModal = document.getElementById("custom-modal");
   const modalClose = document.getElementById("custom-modal-close");
@@ -13,11 +12,20 @@ document.addEventListener("DOMContentLoaded", function () {
       customModal.style.display = "flex";
     });
 
+    // Close on close button
     modalClose.addEventListener("click", function () {
       customModal.style.display = "none";
     });
+
+    // Close by clicking outside modal content
+    customModal.addEventListener("click", function (e) {
+      if (e.target === customModal) {
+        customModal.style.display = "none";
+      }
+    });
   }
-    }
+}
+
   // === DESKTOP SLIDESHOW ===
   const desktopSlides = document.querySelectorAll("#desktop-slideshow .slide");
   let desktopIndex = 0;
@@ -271,11 +279,6 @@ if (modal && modalImg && modalClose) {
       modalImg.src = fullSrc;
       modal.style.display = "flex";
     });
-  });
-
-  modalClose.addEventListener("click", function () {
-    modal.style.display = "none";
-    modalImg.src = "";
   });
 
   modal.addEventListener("click", function (e) {

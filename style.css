@@ -31,6 +31,200 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.6;
 }
 
+.desk-index-main-flex {
+  display: flex;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.main-bleed-left,
+.main-bleed-right {
+  flex: 1;
+  background-image: url('/assets/index-bleed-slice.png');
+  background-repeat: repeat-x;
+  background-size: auto;
+  background-position: top center;
+  margin-top: 146px;
+  z-index: 1;
+  position: relative;
+}
+
+.bleed-right-patch {
+  position: absolute;
+  top: 355px;
+  height: auto;
+  width: auto; /* Or set a fixed width if needed */
+  z-index: 5;  /* Higher than the bleed, lower than anything interactive */
+  pointer-events: none; /* Avoids interfering with clicks if it's decorative */
+}
+
+.desktop-bottom-bleed {
+  height: 80px; /* Adjust as needed */
+  background: linear-gradient(to bottom, #C2C2CA 0%, transparent 100%);
+  margin-top: -4px;
+}
+
+.main-content-core {
+  flex-shrink: 0;
+  width: 1365px;
+  max-width: 100%;
+  /*padding: 60px 20px;*/
+  z-index: 2;
+  position: relative;
+  background: none;
+}
+
+.desk-hero-image-wrapper {
+  position: relative;
+  max-width: 1365px; /* optional: constrain image width */
+  min-width: 1365px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.desk-hero-bg-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.desk-hero-tagline-wrap {
+  position: absolute;
+  top: 15px; /* adjust vertical position */
+  left: 55%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+  background: transparent;
+  opacity: 0;
+  animation: fadeInTagline 1.2s ease-out 0.4s forwards;
+}
+
+@keyframes fadeInTagline {
+  to {
+    opacity: 1;
+  }
+}
+
+.desk-hero-tagline {
+  font-size: 3rem;
+  line-height: 1.1;
+  font-weight: 700;
+  color: #ffffff;
+  -webkit-text-stroke: 1.5px #2A4570;
+  text-shadow:
+    1px 1px 4px rgba(0, 0, 0, 0.4),
+    0 0 2px rgba(0, 0, 0, 0.3);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0 auto;
+  max-width: 90%;
+}
+
+.desk-index-hero-wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.desk-index-hero-bg {
+  width: 1365px;
+  height: auto;
+  display: block;
+}
+
+.desk-index-services {
+  position: absolute;
+  top: 67%; 
+  left: 34%;
+  width: 100%;
+  max-width: 875px;
+  height: 255px;
+  z-index: 2;
+  /*border: 1px solid red; DEBUG*/
+  padding-top: 5px;
+}
+
+.desk-index-service {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+
+.desk-index-thumb {
+  width: 150px;
+  height: auto;
+  margin-right: 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.desk-index-text {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+  min-width: 0; /* <-- This one is crucial */
+  /*border: 1px solid green; DEBUG*/
+  line-height: 0.7;
+  padding: 20px 0 0 0;
+  margin-right: 0;
+}
+
+.desk-index-text a {
+  text-decoration: none;
+}
+
+
+.desk-index-headline {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  -webkit-text-stroke: 2.5px #2A4570;
+  text-shadow:
+    1px 1px 4px rgba(0, 0, 0, 0.4),
+    0 0 2px rgba(0, 0, 0, 0.3);
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: -5px;
+}
+
+.desk-index-description {
+  font-size: 1.6rem;
+  color: #2A4570;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.desk-index-services-row {
+  display: flex;
+  justify-content: space-between;
+  /*border: 1px solid orange; DEBUG*/
+  height: 100%;
+
+}
+
+.desk-index-service-column {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 79%;
+}
+
+.desk-index-cta {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*border: 1px solid yellow; DEBUG*/
+  height: 100%;
+  width: 175px;
+}
+
+.desk-index-quote-img {
+  max-width: 170px;
+  height: auto;
+}
+
 .plaque-heading {
   font-size: 2.2rem;
   font-weight: 700;
@@ -261,7 +455,16 @@ width: 40vw;
   color: #333;
 }
 
-
+#desk-past-deliv-modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
 
 
 
@@ -359,16 +562,80 @@ width: 40vw;
   color: #fff;
   padding: 6px 8px;
   border-radius: 4px;
-  white-space: nowrap;
-  font-size: 0.85rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
   z-index: 999;
   opacity: 0;
+  white-space: pre-line;
   pointer-events: none;
   transition: opacity 0.3s ease;
   box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 .tooltip-custom:hover::after {
   opacity: 1;
+}
+
+.tooltip-parent {
+  position: relative;
+  cursor: help;
+  border-bottom: 1px dashed #666;
+}
+
+.tooltip-box {
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  background-color: #333;
+  color: #fff;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  font-family: Arial, sans-serif;
+  white-space: pre-line;
+  z-index: 999;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    width: max-content;         /* ✅ allow to grow */
+  max-width: 300px;           /* ✅ cap if needed */
+  word-break: break-word; 
+}
+
+.tooltip-parent:hover .tooltip-box {
+  display: block;
+}
+
+.desk-pilot-dir-country-bar {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-width: 100%;
+  margin: 0 auto 10px auto;
+}
+
+.desk-pilot-dir-pilot-license {
+  width: 80px;
+  height: auto;
+  display: block;
+  max-width: 100%;
+  margin: 0 auto 10px auto;
+}
+
+.desk-pilot-dir-atp-cfi {
+  width: 170px;
+  height: auto;
+  display: block;
+  max-width: 100%;
+  margin: 0 auto 10px auto;
+}
+
+.desk-pilot-dir-cfi {
+  width: 80px;
+  height: auto;
+  display: block;
+  max-width: 100%;
+  margin: 0 auto 10px auto;
 }
 
 /* === DESKTOP PAGE TITLE & TAGLINE === */
@@ -498,10 +765,9 @@ width: 40vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   gap: 50px;
-  padding: 0 20px 20px 20px;
-
+  padding: 20px 20px 20px 20px;
   background-color: white;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
@@ -552,6 +818,73 @@ width: 40vw;
 .accordion-header.active .chevron {
   transform: rotate(180deg);
 }
+
+
+.desk-statbox-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #2A4570;
+  margin: 30px 0 10px 0;
+}
+
+.logbook-icon {
+  width: 100px;
+  height: auto;
+}
+
+/* Existing container */
+.desk-statbox-logbook {
+  display: table;
+  border-collapse: collapse;
+  margin: 20px auto;
+  background-color: #BEEACF;
+  border: 2px solid black;
+  font-family: 'Segoe Script', 'Lucida Handwriting', cursive, Arial, sans-serif;
+  font-size: 1.4rem;
+
+  text-align: center;
+}
+
+.desk-statbox-logbook a {
+    text-decoration: none;
+}
+
+/* Default rows */
+.logbook-row {
+  display: table-row;
+}
+
+/* Default cells */
+.logbook-cell {
+  display: table-cell;
+  border: 2px solid black;
+  padding: 12px 16px;
+  font-weight: 500;
+}
+
+/* Second row values */
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+/* 🔥 Override the first row's font style */
+.desk-statbox-logbook .logbook-row:first-child .logbook-cell {
+  font-family: Arial, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.desk-statbox-logbook .logbook-row:first-child .logbook-cell a {
+  text-decoration: none;
+}
+
+
 
 /* === DESKTOP-PILOT HIRING === */
 .newspaper-section {
