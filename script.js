@@ -26,12 +26,14 @@ if (window.location.pathname === "/pilot-directory") {
   }
 }
 
-  // === DESKTOP SLIDESHOW ===
-  const desktopSlides = document.querySelectorAll("#desktop-slideshow .slide");
+  // === SERVICES SLIDESHOW ===
+  const desktopSlides = document.querySelectorAll("#desk-services-slideshow .slide");
   let desktopIndex = 0;
   let desktopCycles = 0;
   const desktopMaxCycles = 3;
   let desktopInterval;
+  let desktopPaused = false;
+
 
   function showDesktopSlide(index) {
     desktopSlides.forEach((slide, i) => {
@@ -40,6 +42,7 @@ if (window.location.pathname === "/pilot-directory") {
   }
 
   function scheduleNextDesktopSlide() {
+     if (desktopPaused) return;
     const delay = (desktopIndex === 1) ? 15000 : 5000;
     desktopInterval = setTimeout(() => {
       desktopIndex = (desktopIndex + 1) % desktopSlides.length;
@@ -69,7 +72,21 @@ if (window.location.pathname === "/pilot-directory") {
       nextBtn.addEventListener("click", () => changeDesktopSlide(1));
     }
     window.changeSlide = changeDesktopSlide;
+
+    const slideshowContainer = document.getElementById("desk-services-slideshow");
+if (slideshowContainer) {
+  slideshowContainer.addEventListener("mouseenter", () => {
+    desktopPaused = true;
+    clearTimeout(desktopInterval);
+  });
+  slideshowContainer.addEventListener("mouseleave", () => {
+    desktopPaused = false;
+    scheduleNextDesktopSlide();
+  });
+}
+
   }
+
 
   // === MOBILE SLIDESHOW ===
   const mobileSlides = document.querySelectorAll("#mobile-slideshow .slide");
@@ -289,3 +306,151 @@ if (modal && modalImg && modalClose) {
   });
 }
 })
+
+// Global state to manage scroll behavior
+let lastOpenedBtn = null;
+let lastOpenedY = null;
+let lastOpenedScrollY = null;
+
+document.addEventListener("DOMContentLoaded", function () {
+  const toggles = document.querySelectorAll(".desk-quote-accordion-toggle");
+
+  toggles.forEach(toggle => {
+    toggle.addEventListener("click", function () {
+      const panel = document.getElementById(this.getAttribute("aria-controls"));
+      const isOpen = this.getAttribute("aria-expanded") === "true";
+
+      // Close all panels
+      document.querySelectorAll(".desk-quote-accordion-panel").forEach(p => {
+        p.hidden = true;
+      });
+      toggles.forEach(t => t.setAttribute("aria-expanded", "false"));
+
+      // Toggle this one
+      if (!isOpen) {
+        this.setAttribute("aria-expanded", "true");
+        panel.hidden = false;
+
+        // Store scroll state for possible snap-back
+        lastOpenedBtn = this;
+        lastOpenedY = this.getBoundingClientRect().top + window.pageYOffset - 225;
+        lastOpenedScrollY = window.pageYOffset;
+
+        // Scroll to newly opened accordion
+        window.scrollTo({ top: lastOpenedY, behavior: "smooth" });
+
+      } else {
+        // Manual close
+        this.setAttribute("aria-expanded", "false");
+        panel.hidden = true;
+
+        const currentScrollY = window.pageYOffset;
+        const scrollDelta = Math.abs(currentScrollY - lastOpenedScrollY);
+        const userScrolledSinceOpen = scrollDelta > 100;
+
+        console.log("DEBUG: currentScrollY =", currentScrollY);
+        console.log("DEBUG: lastOpenedScrollY =", lastOpenedScrollY);
+        console.log("DEBUG: scrollDelta =", scrollDelta);
+        console.log("DEBUG: same button?", lastOpenedBtn === this);
+        console.log("DEBUG: userScrolledSinceOpen =", userScrolledSinceOpen);
+
+        if (lastOpenedBtn === this && !userScrolledSinceOpen) {
+          console.log(">> Snap-back triggered");
+          window.scrollTo({ top: lastOpenedY, behavior: "smooth" });
+        } else {
+          console.log(">> Snap-back canceled");
+        }
+
+        // Clear stored state
+        lastOpenedBtn = null;
+        lastOpenedY = null;
+        lastOpenedScrollY = null;
+      }
+    });
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const phoneIcon = document.getElementById("phoneIcon");
+  let wiggleCount = 0;
+  const maxCycles = 3;
+
+  if (phoneIcon) {
+    const interval = setInterval(() => {
+      if (wiggleCount >= maxCycles) {
+        clearInterval(interval); // stop after 3 cycles
+        return;
+      }
+
+      // Restart the animation
+      phoneIcon.style.animation = "none";
+      phoneIcon.offsetHeight; // force reflow
+      phoneIcon.style.animation = ""; // reapply defined animation
+
+      wiggleCount++;
+    }, 8000); // every 8 seconds
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const shimmerTarget = document.getElementById("shimmerTarget");
+  let shimmerCount = 0;
+  const maxShimmers = 3;
+
+  if (shimmerTarget) {
+    const shimmerInterval = setInterval(() => {
+      // Reset the class if already applied
+      shimmerTarget.classList.remove("subtle-background-shimmer");
+      void shimmerTarget.offsetWidth; // Force reflow to restart animation
+
+      // Apply shimmer effect
+      shimmerTarget.classList.add("subtle-background-shimmer");
+
+      shimmerCount++;
+      if (shimmerCount >= maxShimmers) {
+        clearInterval(shimmerInterval);
+      }
+    }, 10000); // run every 10 seconds
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const slides = document.querySelectorAll(".desk-past-deliv-slider-slide");
+  let currentIndex = 0;
+  const total = slides.length;
+  const intervalTime = 10000;
+  let sliderInterval;
+  let advanceCount = 0;
+  const maxAdvances = total * 2;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      const img = slide.querySelector(".desk-past-deliv-slider-thumb");
+      if (i === index) {
+        slide.classList.add("active");
+        img.classList.add("fade-image");
+      } else {
+        slide.classList.remove("active");
+        setTimeout(() => {
+          img.classList.remove("fade-image");
+        }, 2000); // match image fade duration
+      }
+    });
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % total;
+    showSlide(currentIndex);
+    advanceCount++;
+    if (advanceCount >= maxAdvances) {
+      clearInterval(sliderInterval);
+    }
+  }
+
+  function startSlider() {
+    sliderInterval = setInterval(nextSlide, intervalTime);
+  }
+
+  showSlide(currentIndex);
+  startSlider();
+});

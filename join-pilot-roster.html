@@ -1,46 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="style.css">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#002f4b">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Aircraft Delivery">
+
   <title>Aircraft Delivery Solutions</title>
-  <style>
-  area {
-    cursor: pointer;
-  }
-</style>
-<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="shortcut icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<link rel="manifest" href="/site.webmanifest" />
-  </head>
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
 <body>
 
   
   <!-- DESKTOP HEADER WRAPPER -->
 <div class="desktop-only">
-<div class="fixed-header">
-  <div class="header-bleed-left"></div>
-  <header>
-<picture>
-  <source media="(min-width: 769px)" srcset="/assets/static-header-v7-95.png">
-  <img src="" alt="static header" usemap="#image-map"
-       style="width: 100%; height: auto; display: block;">
-</picture>
-           <map name="image-map">
-    <area target="" alt="Services" href="/services" coords="64,21,147,46" shape="rect" title="Services">
-    <area target="" alt="Quote" href="/quote" coords="160,19,217,46" shape="rect" title="Get a Quote">
-    <area target="" alt="Pilot Directory" href="/pilot-directory" coords="17,63,149,90" shape="rect" title="Pilot Directory">
-    <area target="" alt="Pilot Hiring" href="/pilot-hiring" coords="162,62,264,90" shape="rect" title="Pilot Hiring">
-    <area target="" alt="About" href="/about" coords="38,106,98,133" shape="rect" title="About">
-    <area target="" alt="Past Deliveries" href="/past-deliveries" coords="108,106,246,133" shape="rect" title="Past Deliveries">
-    <area target="" alt="Index" href="/" coords="278,6,1076,143" shape="rect" title="Aircraft Delivery Solutions">
-  </map>
-  </header>
-  <div class="header-bleed-right"></div>
-</div></div>
+
+ <div id="desk-header-placeholder"></div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch("/desk-header.html")
+      .then(res => res.text())
+      .then(html => {
+        const target = document.getElementById("desk-header-placeholder");
+        target.outerHTML = html;  // Replaces placeholder entirely
+      });
+  });
+</script>
+
+ 
+</div>
+
 
 <div class="mobile-only">
 
@@ -66,7 +66,7 @@
       <a href="/services">Services</a>
       <a href="/quote">Get a Quote</a>
       <a href="/pilot-directory">Pilot Directory</a>
-      <a href="/pilot-hiring">Pilot Hiring</a>
+      <a href="/join-pilot-roster">Join Pilot Roster</a>
       <a href="/about">About</a>
       <a href="/past-deliveries">Past Deliveries</a>
     </nav>
@@ -75,19 +75,19 @@
 
 <main>
   <div class="desktop-only" style="background-color:#EDF0E2; padding-top: 165px;">
-<h1 class="page-title-brick">PILOT HIRING</h1>
+<h1 class="page-title-brick">JOIN THE PILOT ROSTER</h1>
 
 <div>
 <p style="text-align: center; font-size: 1.5rem;">I’m always looking to add pilots to <a href="/pilot-directory">my roster</a>. This page has details. All it takes to get started is a message or call to <a href="/about">me</a>.</p></div>
 
   
-<div style="border: 2px solid #999; border-radius: 12px; background-color: #f9f9f9; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 5px 20px 5px 20px; width: 90%; margin: 0 auto; text-align: center; font-weight: 500;">
-<p style="text-align: left; font-size: 1.5rem;"><a href="/about">Aircraft Delivery Solutions</a> (A.D.S.) hires <b>contractor pilots</b> for individual ferry missions. All pilots are contractors and I <b>don't carry any pilot employees.</b> Pilots possessing a Commercial or higher certificate (any Administration, Agency, etc) can <b>join the <a href="/pilot-directory">A.D.S. pilot roster</a></b> in one of two ways:</p>
+<div style="border: 2px solid #999; border-radius: 12px; background-color: #f9f9f9; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 5px 20px 5px 20px; width: 90%; max-width: 1700px; margin: 0 auto; text-align: center; font-weight: 500;">
+<p style="text-align: left; font-size: 1.5rem; line-height: 1.6;"><a href="/about">Aircraft Delivery Solutions</a> (A.D.S.) assigns <b>contractor pilots</b> to individual ferry missions. All pilots are contractors and I <b>don't carry any pilot employees.</b> Pilots possessing a Commercial or higher certificate (any Administration, Agency, etc) can <b>join the <a href="/pilot-directory">A.D.S. pilot roster</a></b> in one of two ways:</p>
 </div>
 
 <div class="newspaper-section">
   <div class="newspaper-text">
-          <img class="newspaper-img" src="/assets/pilot-hiring/sample.jpg" alt="Sample Pilot Photo">
+          <img class="newspaper-img" src="/assets/join-pilot-roster/join-roster-sample.jpg" alt="Sample Pilot Listing">
     <p><b>1. Marketed</b></p>
     <ul class="desk-std-base">
       <li>Your face, first name and last initial appear on the <a href="/pilot-directory">“Ferry Pilot Directory"</a> page of Aircraft.Delivery.</li>
@@ -95,30 +95,32 @@
       <li>You're available to bid on ferry flights and want to receive notices from A.D.S. about new flight opportunities.</li>
       <li>Rules:
         <ol>
-          <li>There's no cost to you to join or remain 'marketed'.</li>
+          <li>There's no cost to you to become or remain 'marketed'.</li>
           <li>Cancel your marketing at any time with no questions asked.</li>
           <li>You have control about the way your listing looks, and I will show you a draft listing for your approval prior to it going live.</li>
         </ol>
       </li>
     </ul>
 
-    <p><b>2. Non-marketed.</b> You <b><i>don't</i></b> <a href="/pilot-directory">appear on the website.</a> You <b><i>are</i></b> available to bid on ferry flights and want to receive notices from A.D.S. about new flight opportunities.</p>
-
     <p><b>Reasons you may want to be 'marketed'</b></p>
     <ul class="desk-std-base">
       <li>You are lending your credibility to A.D.S., and with that increased credibility, A.D.S. will likely get more inquiries. More inquiries likely means more opportunities for you.</li>
       <li>A prospective client can read your <a href="/pilot-directory">listing</a>, and if they see something they connect with, can ask for you by name. For example, I place a US flag on the <a href="/pilot-directory">photos of US military veterans</a> so website visitors that care about that can identify US veterans.</li>  
-      <li>It's completely free and you can cancel any time.</li>
+      <li>It's completely free and you can cancel any time.</li></ul>
+
+    <p><b>2. Non-marketed.</b><span class="desk-std-base"> You <b><i>don't</i></b> <a href="/pilot-directory">appear on the website.</a> You <b><i>are</i></b> available to bid on ferry flights and want to receive notices from A.D.S. about new flight opportunities.</p></span>
+
     </ul>
   </div>
 </div>
 
 
-            <div class="accordion">
+ <div class="desk-join-accordion-house">
+
   <button class="accordion-header">Aircraft Delivery Solutions Pilot Requirements<span class="chevron">⌄</span></button>
   <div class="accordion-content">
     <p>For pilots based in the United States: (Pilots based outside the United States will be considered on a case-by-case basis)</p>
-<p>1. For fixed-wing pilots, hold a FAA Commercial or Airline Transport Pilot certificate with a Single-Engine Land rating and an Instrument Airplane rating.</p>
+<p>1. For fixed-wing pilots, hold a FAA Commercial or Airline Transport Pilot certificate with any Airplane class rating, and an Instrument Airplane rating.</p>
 <p>2. For rotary-wing pilots, hold a FAA Commercial or Airline Transport Pilot certificate with Helicopter rating</p>
 <p>3. Have logged 500 hours of Pilot-in-Command time, 100 hours of cross-country (defined here as a landing more than 50 nautical miles from the takeoff airport), and 35 hours of night time.</p>
 <p>4. Mastery of the English language, including aviation English.</p>
@@ -139,11 +141,11 @@
 
 
 <div class="mobile-only" style="background-color: #e8f0fe; padding-top: 90px;">
-<h1 class="page-title-brick">PILOT HIRING</h1>
+<h1 class="page-title-brick">JOIN THE PILOT ROSTER</h1>
 
 <div style="margin: -10px 25px 0 25px;">
 <p style="text-align: center; font-size: 1.3rem; line-height: 1.6;">I’m always looking to add pilots to my roster. This page has details. All it takes to get started is a message or call to <a href="/about">me</a>.</p>
-<p class="mob-std-small" style="text-align: left;"><a href="/about">Aircraft Delivery Solutions</a> (A.D.S.) hires <b>contractor pilots</b> for individual ferry missions. All pilots are contractors and I <b>don't carry any pilot employees.</b> Pilots possessing a Commercial or higher certificate (any Administration, Agency, etc) can <b>join the <a href="/pilot-directory">A.D.S. pilot roster</a></b> in one of two ways:</p>
+<p class="mob-std-small" style="text-align: left;"><a href="/about">Aircraft Delivery Solutions</a> (A.D.S.) assigns <b>contractor pilots</b> to individual ferry missions. All pilots are contractors and I <b>don't carry any pilot employees.</b> Pilots possessing a Commercial or higher certificate (any Administration, Agency, etc) can <b>join the <a href="/pilot-directory">A.D.S. pilot roster</a></b> in one of two ways:</p>
 </div>
 <button style="
   display: block;
@@ -173,7 +175,7 @@
                 <li>You have control about the way your listing looks, and I will show you a draft listing for your approval prior to it going live.</li>
             </ol></li></ul>
             <div style="width: 100%;">
-<img style="margin: 0 auto; width: 80%; display: block; border: 1px solid #000000; margin-bottom: 20px;" alt="Sample listing" src="/assets/pilot-hiring/sample.jpg"></div>
+<img style="margin: 0 auto; width: 80%; display: block; border: 1px solid #000000; margin-bottom: 20px;" alt="Sample listing" src="/assets/join-pilot-roster/join-roster-sample.jpg"></div>
 <button style="
   display: block;
   margin: 0 auto;

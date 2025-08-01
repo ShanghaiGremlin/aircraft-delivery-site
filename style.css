@@ -31,6 +31,91 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.6;
 }
 
+.desk-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(238, 246, 255, 0.75);
+  backdrop-filter: blur(12px); /* main frosted-glass effect */
+  -webkit-backdrop-filter: blur(12px); /* for Safari */
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+  /*padding: 20px 40px;*/
+  padding: 5px 0 5px 0;
+  font-family: sans-serif;
+  flex-wrap: wrap;
+  border-bottom: 2px solid #0a2940;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+
+
+}
+
+.desk-header-left {
+  flex: 1;
+  padding-left: 3vw;
+}
+
+.desk-nav {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 20px 30px;
+}
+
+/* Medium: 3 columns × 2 rows */
+@media (min-width: 1800px) {
+  .desk-nav {
+    grid-template-columns: repeat(3, auto);
+    gap: 30px 30px;
+  }
+}
+
+/* Wide: 6 columns × 1 row */
+@media (min-width: 3300px) {
+  .desk-nav {
+    grid-template-columns: repeat(6, auto);
+  }
+}
+
+.desk-nav a {
+  text-decoration: none;
+  color: #0a2940;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: border-bottom 0.2s ease;
+  padding-bottom: 2px;
+}
+
+.desk-nav a:hover {
+  border-bottom: 2px solid #0a2940;
+}
+
+.desk-header-center {
+  flex: 2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px 0 20px;
+}
+
+.desk-header-logo {
+  height: 140px;
+}
+
+.desk-header-right {
+  flex: 1;
+  text-align: right;
+  color: #1b3558;
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 2;
+  padding-right: 3vw;
+}
+
 .desk-index-main-flex {
   display: flex;
   width: 100%;
@@ -45,8 +130,8 @@ h1, h2, h3, h4, h5, h6 {
   background-repeat: repeat-x;
   background-size: auto;
   background-position: top center;
-  margin-top: 146px;
   z-index: 1;
+  margin-top: 156px;
   position: relative;
 }
 
@@ -54,10 +139,10 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   top: 355px;
   height: auto;
-  width: auto; /* Or set a fixed width if needed */
-  z-index: 5;  /* Higher than the bleed, lower than anything interactive */
-  pointer-events: none; /* Avoids interfering with clicks if it's decorative */
-}
+  width: auto; 
+  z-index: 5;  
+  pointer-events: none; 
+} 
 
 .desktop-bottom-bleed {
   height: 80px; /* Adjust as needed */
@@ -69,7 +154,7 @@ h1, h2, h3, h4, h5, h6 {
   flex-shrink: 0;
   width: 1365px;
   max-width: 100%;
-  /*padding: 60px 20px;*/
+  padding-top: 156px;
   z-index: 2;
   position: relative;
   background: none;
@@ -242,6 +327,74 @@ h1, h2, h3, h4, h5, h6 {
   margin: 20px auto 10px auto;
 }
 
+#desk-services-slideshow img {
+  width: 60%;
+  height: auto;
+  display: block;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+
+.desk-quote-accordion {
+  margin: 30px 0;
+  border-radius: 6px;
+  overflow: visible;
+  width: 100%;
+  box-sizing: border-box;
+  }
+
+.desk-quote-accordion-toggle {
+  width: 100%;
+  font-size: 1.6rem;
+  padding: 14px 20px;
+  background-color: #1b3558;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+.desk-quote-accordion-toggle:hover {
+  background-color: #748eb3;
+}
+
+.desk-quote-accordion-panel {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #fdfdfd;
+  overflow-x: hidden;
+  padding: 0 15px 15px 15px;
+}
+
+.desk-quote-accordion-panel p {
+ font-size: 1.15rem;
+ line-height: 1.6;
+}
+.desk-quote-toggle-label {
+  position: relative;
+  z-index: 1;
+}
+
+.desk-quote-caret {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  transition: transform 0.2s ease;
+}
+
+/* Rotate caret when expanded */
+.desk-quote-accordion-toggle[aria-expanded="true"] .desk-quote-caret {
+  transform: translateY(-50%) rotate(90deg);
+}
+
 .desk-quote-top {
   display: flex;
   flex-direction: column;
@@ -249,11 +402,108 @@ h1, h2, h3, h4, h5, h6 {
   gap: 30px;
 }
 
+.desk-quote-td-wrapper {
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.desk-quote-accordion * {
+  box-sizing: border-box;
+}
+
+.desk-quote-container {
+  display: flex;
+  flex-direction: row;
+  /*gap: 40px;
+  justify-content: center;*/
+  align-items: flex-start;
+  margin-top: 30px;
+  width: 100%;
+}
+
+.desk-quote-form-col {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  /*padding: 0 75px;*/
+  box-sizing: border-box;
+    padding: 0 30px;
+}
+
+.desk-quote-prices-col {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+  box-sizing: border-box;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;
+  border-left: 2px solid gray;
+}
+
+.desk-quote-tooltip-parent {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* This lets the image inside stay centered */
+  position: relative;
+  cursor: help;
+}
+
+
+.desk-quote-tooltip-box {
+  position: absolute;
+  bottom: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0,0,0,0.8);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-size: 1.2rem;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  z-index: 10;
+}
+
+.desk-quote-tooltip-parent:hover .desk-quote-tooltip-box {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+  .desk-quote-admin-fee-area {
+  border: 2px solid #999; 
+  border-radius: 12px; 
+  background-color: #ffffff; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+  padding: 0 20px 0px 20px; 
+  max-width: 90%; 
+  margin: 0 auto 20px;  
+}
+
+.desk-quote-admin-fee-title {
+  text-align: center; 
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.desk-quote-admin-fee-content {
+  text-align: left; 
+  font-size: 1.15rem;
+  line-height: 1.6;
+  padding: 0px 20px 0px 20px;
+}
+
+
 @keyframes subtle-background-shimmer {
   0% {
     background-position: -200%;
   }
-  10% {
+  50% {
     background-position: 200%;
   }
   100% {
@@ -266,11 +516,14 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   border: 4px solid #3535f4;
   border-radius: 15px;
-  padding: 25px 20px 20px 0px;
+  padding: 12px 20px 20px 0px;
   background-color: #fdfdfd;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.05);
-width: 40vw;
+  width: 55vw;
+  max-width: 1100px;
+}
 
+.subtle-background-shimmer {
   background-image: linear-gradient(
     120deg,
     #fdfdfd 0%,
@@ -280,7 +533,8 @@ width: 40vw;
     #fdfdfd 100%
   );
   background-size: 200% 100%;
-  animation: subtle-background-shimmer 10s ease-in-out infinite;
+  animation: subtle-background-shimmer 2s ease-in-out;
+  animation-iteration-count: 1;
 }
 
 
@@ -299,17 +553,16 @@ width: 40vw;
 }
 
 .desk-quote-top-call-box ul {
-  padding-left: 40px;
+  padding-left: 3vw;
   margin-top: 5px;
   margin-bottom: 0;
   text-align: left;
   line-height: 1.6;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
 }
 
 .desk-quote-bottom-row {
   display: flex;
-  gap: 30px;
   justify-content: center;
   flex-wrap: wrap;
 }
@@ -319,7 +572,6 @@ width: 40vw;
   border-radius: 15px;
   background-color: #fdfdfd;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.05);
-  padding: 10px;
   text-align: center;
   min-width: 400px;
   flex: 1 1 300px;
@@ -333,6 +585,26 @@ width: 40vw;
 .desk-quote-box h2 {
   margin: 5px 0 12px 0;
   font-size: 1.5rem;
+}
+
+.desk-quote-phone-wiggle {
+  display: inline-block;
+  animation: wiggle 0.8s ease-in-out;
+  animation-iteration-count: 1;
+}
+
+@keyframes wiggle {
+  0%   { transform: rotate(0deg); }
+  10%  { transform: rotate(-15deg); }
+  20%  { transform: rotate(15deg); }
+  30%  { transform: rotate(-12deg); }
+  40%  { transform: rotate(12deg); }
+  50%  { transform: rotate(-8deg); }
+  60%  { transform: rotate(8deg); }
+  70%  { transform: rotate(-5deg); }
+  80%  { transform: rotate(5deg); }
+  90%  { transform: rotate(-2deg); }
+  100% { transform: rotate(0deg); }
 }
 
 @keyframes shimmerBadge {
@@ -363,9 +635,9 @@ width: 40vw;
   position: absolute;
   left: 20px;
   top: 20px;
-  background-color: #007bff;
+  background-color: #3b82f6;
   color: #ffffff;
-  font-size: 1.5em;
+  font-size: 1.7em;
   font-weight: bold;
   padding: 4px 10px;
   border-radius: 10px;
@@ -465,6 +737,100 @@ width: 40vw;
   align-items: center;
   z-index: 9999;
 }
+
+/* === Past Deliveries Slider Container === */
+#desk-past-deliv-slider {
+  margin: 20px auto;
+}
+
+.desk-past-deliv-slider-container {
+  max-width: 1200px;
+  height: 225px;
+  margin: 0 auto;
+  /*padding: 10px 10px 0px 10px;*/
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  /*display: flex;*/
+  /*justify-content: center;*/
+}
+
+.desk-past-deliv-slider-slide {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 35px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.desk-past-deliv-slider-slide.active {
+  z-index: 1;
+  opacity: 1;
+  pointer-events: auto;
+  /* NO transition here — we want the SLIDE to cut instantly */
+}
+
+/* === Image Section === */
+.desk-past-deliv-slider-imgwrap {
+  /*height: 175px;*/
+  width: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+
+.desk-past-deliv-slider-thumb {
+  height: 150px;
+  width: auto;
+  display: block;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+.desk-past-deliv-slider-thumb.fade-image {
+  opacity: 1;
+}
+
+/* === Text Section === */
+.desk-past-deliv-slider-text {
+  max-width: 680px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  text-align: left;
+  opacity: 1 !important;  /* Force visible */
+  visibility: visible !important;
+}
+
+
+
+.desk-past-deliv-slider-text blockquote {
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin: 0 0 12px;
+  color: #333;
+}
+
+.desk-past-deliv-slider-meta {
+  font-size: 0.95rem;
+  color: #666;
+}
+
 
 
 
@@ -578,8 +944,9 @@ width: 40vw;
 
 .tooltip-parent {
   position: relative;
-  cursor: help;
-  border-bottom: 1px dashed #666;
+  cursor: help; 
+  display: inline-block;
+  margin-right: 12px;
 }
 
 .tooltip-box {
@@ -592,7 +959,8 @@ width: 40vw;
   color: #fff;
   padding: 6px 8px;
   border-radius: 4px;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  line-height: 1.4;
   font-family: Arial, sans-serif;
   white-space: pre-line;
   z-index: 999;
@@ -755,6 +1123,13 @@ width: 40vw;
   vertical-align: bottom;
 }
 
+.desk-pilot-dir-toparea-container {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
 .desk-pilot-directory-typepix {
   display: block;
   width: 200px; 
@@ -772,8 +1147,8 @@ width: 40vw;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
   width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto 20px auto;
+
 }
 
 
@@ -783,11 +1158,18 @@ width: 40vw;
 }
 
 /* === DESKTOP ACCORDION === */
+
+.desk-join-accordion-house {
+max-width: 600px;
+margin: 0 auto;
+}
+
 .accordion-content {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease;
   font-size: 1.2rem;
+  line-height: 1.6;
   padding: 0 40px 15px 30px;
 }
 .accordion-header {
@@ -798,7 +1180,8 @@ width: 40vw;
   border-radius: 6px;
   font-size: 1.4rem;
   cursor: pointer;
-  width: 60%;
+  width: 100%;
+  max-width: 600px;
   text-align: center;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -845,9 +1228,11 @@ width: 40vw;
   border: 2px solid black;
   font-family: 'Segoe Script', 'Lucida Handwriting', cursive, Arial, sans-serif;
   font-size: 1.4rem;
-
   text-align: center;
+  width: 90%;
+  max-width: 700px;
 }
+
 
 .desk-statbox-logbook a {
     text-decoration: none;
@@ -886,7 +1271,7 @@ width: 40vw;
 
 
 
-/* === DESKTOP-PILOT HIRING === */
+/* === DESKTOP JOIN-PILOT-ROSTER === */
 .newspaper-section {
   width: 90vw;
   margin: 0 auto;
@@ -894,7 +1279,7 @@ width: 40vw;
 }
 .newspaper-img {
   float: right;
-  width: 400px;
+  width: 280px;
   max-width: 40%;
   height: auto;
   margin-left: 20px;

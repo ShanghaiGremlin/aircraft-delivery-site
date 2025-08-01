@@ -1,45 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="style.css">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#002f4b">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Aircraft Delivery">
+
   <title>Aircraft Delivery Solutions</title>
-  <style> area {
-    cursor: pointer;
-  }
-</style>
-<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="shortcut icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<link rel="manifest" href="/site.webmanifest" />
-  </head>
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
 <body>
 
   <!-- DESKTOP HEADER WRAPPER -->
 <div class="desktop-only">
-<div class="fixed-header">
-  <div class="header-bleed-left"></div>
-  <header>
-<picture>
-  <source media="(min-width: 769px)" srcset="/assets/static-header-v7-95.png">
-  <img src="" alt="static header" usemap="#image-map"
-       style="width: 100%; height: auto; display: block;">
-</picture>
-           <map name="image-map">
-    <area target="" alt="Services" href="/services" coords="64,21,147,46" shape="rect" title="Services">
-    <area target="" alt="Quote" href="/quote" coords="160,19,217,46" shape="rect" title="Get a Quote">
-    <area target="" alt="Pilot Directory" href="/pilot-directory" coords="17,63,149,90" shape="rect" title="Pilot Directory">
-    <area target="" alt="Pilot Hiring" href="/pilot-hiring" coords="162,62,264,90" shape="rect" title="Pilot Hiring">
-    <area target="" alt="About" href="/about" coords="38,106,98,133" shape="rect" title="About">
-    <area target="" alt="Past Deliveries" href="/past-deliveries" coords="108,106,246,133" shape="rect" title="Past Deliveries">
-    <area target="" alt="Index" href="/" coords="278,6,1076,143" shape="rect" title="Aircraft Delivery Solutions">
-    <area target="" alt="mailto" href="mailto:akahn28@gmail.com" coords="1115,83,1325,119" shape="rect" title="Email me">
-  </map>
-  </header>
-  <div class="header-bleed-right"></div>
-</div></div>
+
+ <div id="desk-header-placeholder"></div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch("/desk-header.html")
+      .then(res => res.text())
+      .then(html => {
+        const target = document.getElementById("desk-header-placeholder");
+        target.outerHTML = html;  // Replaces placeholder entirely
+      });
+  });
+</script>
+
+ 
+</div>
+
 
 
 
@@ -63,7 +63,7 @@
       <a href="/services">Services</a>
       <a href="/quote">Get a Quote</a>
       <a href="/pilot-directory">Pilot Directory</a>
-      <a href="/pilot-hiring">Pilot Hiring</a>
+      <a href="/join-pilot-roster">Join Pilot Roster</a>
       <a href="/about">About</a>
       <a href="/past-deliveries">Past Deliveries</a>
     </nav>

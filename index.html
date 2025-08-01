@@ -1,50 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="style.css">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aircraft Delivery Solutions</title>
-  <style> area {
-    cursor: pointer;
-  }
-</style>
-<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="shortcut icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#002f4b">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Aircraft Delivery">
 
-  </head>
+  <title>Aircraft Delivery Solutions</title>
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
 <body>
 
-  <!-- DESKTOP HEADER WRAPPER -->
-<!-- DESKTOP HEADER WRAPPER -->
+  <!-- DESKTOP HEADER-->
+  <!-- DESKTOP HEADER-->
+
 <div class="desktop-only">
-  <div class="fixed-header">
-    <div class="header-bleed-left"></div>
 
-    <header class="static-header">
-<picture>
-  <source media="(min-width: 769px)" srcset="/assets/static-header-v7-95.png">
-  <img src="" alt="static header" usemap="#image-map"
-       style="width: 100%; height: auto; display: block;">
-</picture>
+ <div id="desk-header-placeholder"></div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch("/desk-header.html")
+      .then(res => res.text())
+      .then(html => {
+        const target = document.getElementById("desk-header-placeholder");
+        target.outerHTML = html;  // Replaces placeholder entirely
+      });
+  });
+</script>
 
-      <!-- Absolutely-positioned links -->
-      <a href="/services" class="header-link" style="top: 21px; left: 64px; width: 83px; height: 25px;"></a>
-      <a href="/quote" class="header-link" style="top: 19px; left: 160px; width: 57px; height: 27px;"></a>
-      <a href="/pilot-directory" class="header-link" style="top: 63px; left: 17px; width: 132px; height: 27px;"></a>
-      <a href="/pilot-hiring" class="header-link" style="top: 62px; left: 162px; width: 102px; height: 28px;"></a>
-      <a href="/about" class="header-link" style="top: 106px; left: 38px; width: 60px; height: 27px;"></a>
-      <a href="/past-deliveries" class="header-link" style="top: 106px; left: 108px; width: 138px; height: 27px;"></a>
-      <a href="/" class="header-link" style="top: 6px; left: 278px; width: 798px; height: 137px;"></a>
-      <a href="mailto:akahn28@gmail.com" class="header-link" style="top: 83px; left: 1115px; width: 210px; height: 36px;"></a>
-    </header>
-
-    <div class="header-bleed-right"></div>
-  </div>
+ 
 </div>
+
 
 
 <!--MOBILE-ONLY DIV-->
@@ -75,7 +73,7 @@
       <a href="/services">Services</a>
       <a href="/quote">Get a Quote</a>
       <a href="/pilot-directory">Pilot Directory</a>
-      <a href="/pilot-hiring">Pilot Hiring</a>
+      <a href="/join-pilot-roster">Join Pilot Roster</a>
       <a href="/about">About</a>
       <a href="/past-deliveries">Past Deliveries</a>
     </nav>
@@ -92,7 +90,7 @@
 <div class="desk-index-main-flex">
   <div class="main-bleed-left"></div>
 
-  <div class="main-content-core" style="padding-top: 145px;">
+  <div class="main-content-core">
 
     <div class="desk-hero-image-wrapper">
       <img class="desk-hero-bg-img" src="/assets/matte7.jpg" loading="lazy" alt="Home page background">

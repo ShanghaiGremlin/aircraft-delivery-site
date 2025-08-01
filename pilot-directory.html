@@ -1,46 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="style.css">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#002f4b">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Aircraft Delivery">
+
   <title>Aircraft Delivery Solutions</title>
-  <style> area {
-    cursor: pointer;
-  }
-</style>
-<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="shortcut icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<link rel="manifest" href="/site.webmanifest" />
-  </head>
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
 <body>
 
   <!-- DESKTOP HEADER WRAPPER -->
    <div class="desktop-only">
-<div class="fixed-header">
-  <div class="header-bleed-left"></div>
-  <header>
-<picture>
-  <source media="(min-width: 769px)" srcset="/assets/static-header-v7-95.png">
-  <img src="" alt="static header" usemap="#image-map"
-       style="width: 100%; height: auto; display: block;">
-</picture>
-           <map name="image-map">
-    <area target="" alt="Services" href="/services" coords="64,21,147,46" shape="rect" title="Services">
-    <area target="" alt="Quote" href="/quote" coords="160,19,217,46" shape="rect" title="Get a Quote">
-    <area target="" alt="Pilt Directory" href="/pilot-directory" coords="17,63,149,90" shape="rect" title="Pilot Directory">
-    <area target="" alt="Pilot Hiring" href="/pilot-hiring" coords="162,62,264,90" shape="rect" title="Pilot Hiring">
-    <area target="" alt="About" href="/about" coords="38,106,98,133" shape="rect" title="About">
-    <area target="" alt="Past Deliveries" href="/past-deliveries" coords="108,106,246,133" shape="rect" title="Past Deliveries">
-    <area target="" alt="Index" href="/" coords="278,6,1076,143" shape="rect" title="Aircraft Delivery Solutions">
-    <area target="" alt="Email" href="mailto:akahn28@gmail.com" coords="1115,83,1325,119" shape="rect" title="Email me">
-  </map>
 
-  </header>
-  <div class="header-bleed-right"></div>
-</div></div>
+ <div id="desk-header-placeholder"></div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch("/desk-header.html")
+      .then(res => res.text())
+      .then(html => {
+        const target = document.getElementById("desk-header-placeholder");
+        target.outerHTML = html;  // Replaces placeholder entirely
+      });
+  });
+</script>
+
+ 
+</div>
+
 
 
 <div class="mobile-only">
@@ -67,7 +66,7 @@
       <a href="/services">Services</a>
       <a href="/quote">Get a Quote</a>
       <a href="/pilot-directory">Pilot Directory</a>
-      <a href="/pilot-hiring">Pilot Hiring</a>
+      <a href="/join-pilot-roster">Join Pilot Roster</a>
       <a href="/about">About</a>
       <a href="/past-deliveries">Past Deliveries</a>
     </nav>
@@ -77,21 +76,19 @@
 <main>
 
 <div class="desktop-only" style= "padding-top: 165px; background-color: #f5f5f5;">
-  <h2 style="margin-bottom: 15px;" class="page-title-brick">FERRY PILOT DIRECTORY</h2>
+  <h2 style="margin-bottom: 30px;" class="page-title-brick">FERRY PILOT DIRECTORY</h2>
 
 
-<div style="margin: 0 auto; text-align: center;">
-  <h1 style="margin-bottom: 0; font-size: 1.8rem; font-weight: bold; text-decoration: underline;">Complete Crews</h1>
-  <p style="font-size: 1.375rem; margin-top: 10px;">I have at least 1 (or 2 when required) pilots that have type-ratings in these types:</p>
-</div>
+<div class="desk-pilot-dir-toparea-container">
+
+  <div style="background-color: white; width: 50%; margin: 0 auto; text-align: center;">
+  <h1 style="margin: 0 auto; font-size: 1.8rem; font-weight: bold; text-decoration: underline;">Complete Crews</h1>
+
+  <p style="font-size: 1.375rem; margin: 0 auto;">I have at least 1 (or 2 when required) pilots that have type-ratings in these types:</p></div>
+
 
 
 <div class="desk-pilot-directory-typewrapper">
-
-<div id="pilot-ratings-btn" style="background-color: #007bff; color: white; padding: 12px 24px; border-radius: 6px; font-size: 1.5rem; text-decoration: none; cursor: pointer; box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25);">
-  View Pilot Type Ratings
-</div>
-
 
 <div><img class="desk-pilot-directory-typepix" alt="Cessna Citation" src="/assets/pilot-directory/typethumbs/citationxbust2.png"></div>
 
@@ -103,10 +100,19 @@
 
 <div><img class="desk-pilot-directory-typepix" alt= "Metroliner" src="/assets/pilot-directory/typethumbs/metro.png"></div>
 
-<div><button style="background-color: #007bff; color: white; border: none; padding: 12px 24px; border-radius: 6px; font-size: 1.5rem; box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25); width: auto;"><a href="/pilot-hiring" style="color: inherit; text-decoration: none;">Pilot Hiring</a></button></div>
 </div>
   
-  
+<div class="desk-pilot-directory-typewrapper">
+
+<div id="pilot-ratings-btn" style="background-color: #007bff; color: white; padding: 12px 24px; border-radius: 6px; font-size: 1.5rem; text-decoration: none; cursor: pointer; box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25);">
+  View Pilot Type Ratings
+</div>
+
+<div><button style="background-color: #007bff; color: white; border: none; padding: 12px 24px; border-radius: 6px; font-size: 1.5rem; box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25); width: auto;"><a href="/join-pilot-roster" style="color: inherit; text-decoration: none;">Join Pilot Roster</a></button></div>
+</div></div>  
+
+
+
 <div class="pilot-directory-wrapper">
 
   <div class="pilot-tile">
@@ -189,6 +195,23 @@
     <li>Current Employment: Part 91(K) Fractional EMB-550 (Praetor) First Officer</li>
     <li>Type Ratings: EMB-550 (Praetor), FA-20 (Falcon), FA-50 [SIC], LRJET [SIC]</li>
     <li>Total time: 5,000</li>
+  </ul>
+</div>
+
+  <div class="pilot-tile">
+  <img src="assets/pilot-directory/headshots/jeremy-flag.jpg" alt="Jeremy R." loading="lazy" class="desk-pilot-headshot">
+  <div class="desk-pilot-directory-pilotname">Jeremy R.</div>
+      <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar">
+      <span class="tooltip-parent"><img src="/assets/pilot-directory/atp.jpg" alt="ATP" class="desk-pilot-dir-pilot-license"><span class="tooltip-box">F.A.A. Airline Transport Pilot - certificate</span></span><span class="tooltip-parent"><img src="/assets/pilot-directory/copter-icon.png" alt="Helicopter icon" class="desk-pilot-dir-pilot-license">  <span class="tooltip-box">Helicopter Pilot</span></span>
+
+
+  <ul class="desk-pilot-directory-pilotbio">
+    <li>Current Employment: Domestic & Overseas Contract EC225LP Super Puma Helicopter Pilot</li>
+    <li>Pilot Certificates: Airline Transport Pilot - Rotorcraft Helicopter; Commercial Pilot Airplane Multi-Engine, Instrument
+    <li>Type Ratings: EC225LP (Super Puma Helicopter), EC332L (Super Puma Helicopter) [SIC], EC332L1 (Super Puma Helicopter) [SIC], SA330 (Puma Helicopter) [SIC]</li>
+    <li>Qualified in Bell 206, 212, 407, 412 Helicopters</li>
+    <li>US Army veteran
+    <li>Total time: 4,400</li>
   </ul>
 </div>
 
@@ -307,6 +330,9 @@
 
           <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar">
 
+          <span class="tooltip-parent">
+        <img src="/assets/pilot-directory/copter-icon.png" alt="Helicopter Pilot" class="desk-pilot-dir-cfi">  <span class="tooltip-box">Helicopter Pilot</span></span>
+
   <ul class="desk-pilot-directory-pilotbio">
     <li>Current Employment: Army National Guard UH-60 Aircraft Commander</li>
     <li>Pilot Certificate: Commercial Pilot</li>
@@ -324,8 +350,9 @@
 
   <ul class="desk-pilot-directory-pilotbio">
     <li>Pilot Certificate: Commercial Pilot</li>
-    <li>Cessna 172 owner</li>
-    <li>Total time: 800</li>
+    <li>Ratings: Airplane Single Engine Sea</li>
+    <li>Cessna 172 & Avid Flyer owner</li>
+    <li>Total time: 850</li>
   </ul>
 </div>
 
@@ -395,8 +422,8 @@
   <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/125-generic-pilot.jpg" alt="Join Us" class="desk-pilot-headshot">
   <div class="desk-pilot-directory-pilotname">You?</div>
   <ul class="desk-pilot-directory-pilotbio">
-    <li>I’m always looking to hire pilots.</li>
-    <li><a href="/pilot-hiring">Click here for the Pilot Hiring page</a>.</li>
+    <li>I’m always looking to add pilots to my roster.</li>
+    <li><a href="/join-pilot-roster">Click here for the Join Pilot Roster page</a>.</li>
     <li>All it takes is a phone call or message to get started.</li>
   </ul>
 </div>
@@ -447,8 +474,8 @@
   Pilot Type Ratings
 </a>
 
-  <a href="/pilot-hiring" class="mob-pilot-directory-blue-button">
-    Pilot Hiring
+  <a href="/join-pilot-roster" class="mob-pilot-directory-blue-button">
+    Join Pilot Roster
   </a>
 </div>
 
@@ -689,8 +716,9 @@
 <td class="mob-pilot-directory-table-descr">
 <ul class="mob-pilot-directory-tight-bullets">
 <li>Pilot Certificate: FAA Commercial Pilot</li>
-<li>Cessna 172 owner</li>
-<li>Total time: 800</li></ul></td>
+<li>Ratings: Airplane Single Engine Sea</li>
+<li>Cessna 172 & Avid Flyer owner</li>
+<li>Total time: 850</li></ul></td>
 <td class="mob-pilot-directory-table-descr">
 <ul class="mob-pilot-directory-tight-bullets">
 <li>Pilot Certificate: FAA Commercial Pilot</li>
@@ -745,7 +773,7 @@
 
 <img alt="Image 1" src="/assets/pilot-directory/headshots/125-generic-pilot.jpg" loading="lazy" class="mob-pilot-directory-headshot" style="margin-top: 20px;"/>
 <div class="mob-pilot-directory-pilotname">YOU?</div>
-<p class="mob-std-small" style="padding: 0 10px 0 10px;">I’m always looking to hire pilots. <a href="/pilot-hiring">Click here for the Pilot Hiring page</a>. All it takes is a phone call or message to get started.</p>
+<p class="mob-std-small" style="padding: 0 10px 0 10px;">I’m always looking to add pilots to my roster. <a href="/join-pilot-roster">Click here for the Join Pilot Roster page</a>. All it takes is a phone call or message to get started.</p>
 
 <table style="width: 100%; vertical-align: bottom;"> <tr>
 <td style="text-align: center;"><img src="/assets/pilot-directory/amflag.jpg" alt="USA Flag" loading="lazy" style="width: 125px;"><p class="mob-std-small" style="text-align: left;">denotes United States military, currently serving or veteran</p></td>
@@ -791,6 +819,7 @@
       <li><b>CESSNA:</b> CE-750 (Citation X)</li>
       <li><b>DASSAULT:</b> FA-20, FA-50 [SIC]</li>
       <li><b>EMBRAER:</b> EMB-120, EMB-170–195, EMB-550</li>
+      <li><b>EUROCOPTER:</b> EC225LP (Super Puma Helicopter), EC332L (Super Puma) [SIC], EC332L1 (Super Puma) [SIC], SA330 (Puma) [SIC]</li>
       <li><b>FAIRCHILD:</b> SA-227</li>
       <li><b>GULFSTREAM:</b> IAI-1125 (G100), Gulfstream IV [SIC]</li>
       <li><b>LOCKHEED:</b> L-300 (C141)</li>

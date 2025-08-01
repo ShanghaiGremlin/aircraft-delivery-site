@@ -1,46 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="style.css">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#002f4b">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Aircraft Delivery">
+
   <title>Aircraft Delivery Solutions</title>
-  <style>
-  area {
-    cursor: pointer;
-  }
-</style>
-<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="shortcut icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<link rel="manifest" href="/site.webmanifest" />
-  </head>
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
 <body>
 
   <!-- DESKTOP HEADER WRAPPER -->
    <div class="desktop-only">
-<div class="fixed-header">
-  <div class="header-bleed-left"></div>
-  <header>
-<picture>
-  <source media="(min-width: 769px)" srcset="/assets/static-header-v7-95.png">
-  <img src="" alt="static header" usemap="#image-map"
-       style="width: 100%; height: auto; display: block;">
-</picture>
-           <map name="image-map">
-    <area target="" alt="Services" href="/services" coords="64,21,147,46" shape="rect" title="Services">
-    <area target="" alt="Quote" href="/quote" coords="160,19,217,46" shape="rect" title="Get a Quote">
-    <area target="" alt="Pilot Directory" href="/pilot-directory" coords="17,63,149,90" shape="rect" title="Pilot Directory">
-    <area target="" alt="Pilot Hiring" href="/pilot-hiring" coords="162,62,264,90" shape="rect" title="Pilot Hiring">
-    <area target="" alt="About" href="/about" coords="38,106,98,133" shape="rect" title="About">
-    <area target="" alt="Past Deliveries" href="/past-deliveries" coords="108,106,246,133" shape="rect" title="Past Deliveries">
-    <area target="" alt="Index" href="/" coords="278,6,1076,143" shape="rect" title="Aircraft Delivery Solutions">
-    <area target="" alt="mailto" href="mailto:akahn28@gmail.com" coords="1115,83,1325,119" shape="rect" title="Email me">
-  </map>
-  </header>
-  <div class="header-bleed-right"></div>
-</div></div>
+
+ <div id="desk-header-placeholder"></div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch("/desk-header.html")
+      .then(res => res.text())
+      .then(html => {
+        const target = document.getElementById("desk-header-placeholder");
+        target.outerHTML = html;  // Replaces placeholder entirely
+      });
+  });
+</script>
+
+ 
+</div>
+
 
 <!--MOBILE-ONLY DIV-->
 <!--MOBILE-ONLY DIV-->
@@ -70,7 +69,7 @@
       <a href="/services">Services</a>
       <a href="/quote">Get a Quote</a>
       <a href="/pilot-directory">Pilot Directory</a>
-      <a href="/pilot-hiring">Pilot Hiring</a>
+      <a href="/join-pilot-roster">Join Pilot Roster</a>
       <a href="/about">About</a>
       <a href="/past-deliveries">Past Deliveries</a>
     </nav>
@@ -94,15 +93,19 @@
     <td style="border-left: none; border-top: none; border-bottom: none; border-right: 1px solid #ccc; padding: 0px 20px; vertical-align: top;">
       <h2 class="plaque-heading"><u>FERRY FLIGHTS</u></h2>
 
-          <div id="desktop-slideshow" class="slideshow-container desktop-only" style="max-width: 640px; margin: 40px auto; text-align: center;">
-  <img class="slide" alt="Wick Scotland" src="/assets/services/slide-wick.jpg" style="display: block;">
-      <img class="slide" alt="Lancair" src="/assets/services/slide-lancair.jpg" style="display: none;">
-    <img class="slide" alt="Duchess" src="/assets/services/slide-duchess.jpg" style="display: none;">
-  <img class="slide" alt="PA32" src="/assets/services/slide-pa32.jpg" style="display: none;">
-    <img class="slide" alt="C310" src="/assets/services/slide-c310.jpg" style="display: none;">
-  <div style="text-align: center; margin-top: 10px;">
-<button id="prevSlide">&#10094; Prev</button>
-<button id="nextSlide">Next &#10095;</button>
+          <div id="desk-services-slideshow" title="Slideshow paused. Click to enlarge" style="width: 100%; max-width: 1000px; margin: 40px auto;">
+<a href="/assets/services/slide-wick.jpg" target="_blank">
+  <img class="slide" alt="Wick Scotland" src="/assets/services/slide-wick.jpg" style="display: block;"></a>
+
+  <a href="/assets/services/slide-lancair.jpg" target="_blank">
+      <img class="slide" alt="Lancair" src="/assets/services/slide-lancair.jpg" style="display: none;"></a>
+      <a href="/assets/services/slide-duchess.jpg" target="_blank">
+    <img class="slide" alt="Duchess" src="/assets/services/slide-duchess.jpg" style="display: none;"></a>
+    <a href="/assets/services/slide-pa32.jpg" target="_blank">
+  <img class="slide" alt="PA32" src="/assets/services/slide-pa32.jpg" style="display: none;"></a>
+  
+  <a href="/assets/services/slide-c310.jpg" target="_blank">
+    <img class="slide" alt="C310" src="/assets/services/slide-c310.jpg" style="display: none;"></a></div>
 
 <h3 class="desk-statbox-title">
   Our <img src="/assets/services/logbook-icon.png" alt="Logbook Icon" class="logbook-icon">
@@ -117,9 +120,7 @@
   <div class="logbook-row">
     <div class="logbook-cell stat-value"><a href="/past-deliveries">52</a></div>
     <div class="logbook-cell stat-value">64,000</div>
-    <div class="logbook-cell stat-value">
-<span class="tooltip-parent">
-  22
+    <div class="logbook-cell stat-value"><span class="tooltip-parent">22
   <span class="tooltip-box">
     AA1C<br>
     BE19 BE24 BE33 BE35 BE76<br>
@@ -134,25 +135,18 @@
 
   </div>
 </div>
-
-  </div>
 </div>
 
       <p style="text-align: center; font-size: 1.5rem;">
        I manage a <b>professional, supervised</b> flight operation:
       </p>
-      <ul class="desk-std-base" style="padding-left: 1.25rem; text-align: left;">
+      <ul class="desk-std-base" style="text-align: left; width: 90%;">
         <li><b>I personally oversee every mission</b> as Director of Operations</li>
         <li><b>Experienced, vetted flightcrew</b> — no need to source your own pilots</li>
         <li><b>Real-time monitoring</b> of flight progress, weather, and enroute issues</li>
         <li><b>Proactive operational support</b> to catch and correct issues early</li>
         <li><b>Same level of care</b> whether you’re moving a light piston or a transport-category aircraft</li>
       </ul>
-
-
-  </div>
-</div>
-
     </td>
 
     <!-- Right Col -->
@@ -160,15 +154,15 @@
   
   <h2 class="plaque-heading" style="margin-bottom: 20px;"><u>CONTAINER DELIVERY</u></h2>
 
-  <img src="/assets/services/containerize-no-title.png" loading="lazy" alt="Container Delivery" style="max-width: 100%; height: auto; margin-bottom: 20px;">
+  <img src="/assets/services/containerize-no-title.png" loading="lazy" alt="Container Delivery" style="width: 90%; max-width: 900px; height: auto; margin-bottom: 20px;">
 
-  <p style="font-size: 1.5rem; font-weight: 500; margin-bottom: 25px;">For light aircraft. A low-cost and very safe alternative to a risky and lengthy ferry flight.</p>
+  <p style="font-size: 1.5rem; font-weight: 500; margin-bottom: 25px; width: 90%;">For light aircraft. A low-cost and very safe alternative to a risky and lengthy ferry flight.</p>
 
-  <div style="text-align: left; max-width: 640px; margin: 0 auto;">
-    <p><b>Is container transport optimal?</b> – I determine that it is for the mission, and/or the customer requests a container quote.</p>
+  <div style="text-align: left; max-width: 900px; margin: 0 auto; width: 90%;">
+    <p><b>Is container transport optimal?</b> – I determine that it is for the mission, and/or the client requests a container quote.</p>
     <p><b>Port identification</b> – I select cities to be used, considering cost, availability, etc.</p>
     <p><b>Fly or truck</b> – The method of moving the aircraft from its present location to the container-izer is determined. Ideally, the aircraft is airworthy and can be flown; if not it will need to be trucked to the container-izer.</p>
-    <p><b>Services after port arrival</b> – Typically, my mission ends with delivery at the destination port. However, upon customer request I can add other services such as ground transportation in the destination country, and re-assembly.</p>
+    <p><b>Services after port arrival</b> – Typically, my mission ends with delivery at the destination port. However, upon client request I can add other services such as ground transportation in the destination country, and re-assembly.</p>
   </div>
 
 </td>
@@ -265,10 +259,10 @@
   </p>
 
   <div class="mob-std-small" style="padding-left: 10px; padding-right: 10px; text-align: left;">
-    <p><b>Is container transport optimal?</b> – I determine that it is for the mission, and/or the customer <a href="/quote">requests a container quote.</a></p>
+    <p><b>Is container transport optimal?</b> – I determine that it is for the mission, and/or the client <a href="/quote">requests a container quote.</a></p>
     <p><b>Port identification</b> – I select cities to be used, considering cost, availability, etc.</p>
     <p><b>Fly or truck</b> – The method of moving the aircraft from its present location to the container-izer is determined. Ideally, the aircraft is airworthy and can be flown; if not, it will need to be trucked to the container-izer.</p>
-    <p><b>Services after port arrival</b> – Typically, my mission ends with delivery at the destination port. However, upon customer request I can add other services such as ground transportation in the destination country, and re-assembly.</p>
+    <p><b>Services after port arrival</b> – Typically, my mission ends with delivery at the destination port. However, upon client request I can add other services such as ground transportation in the destination country, and re-assembly.</p>
   </div>
 </section>
 

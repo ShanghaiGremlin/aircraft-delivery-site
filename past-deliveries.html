@@ -1,44 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="style.css">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#002f4b">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Aircraft Delivery">
+
   <title>Aircraft Delivery Solutions</title>
-  <style> area {
-    cursor: pointer;
-  }
-</style>
-<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="shortcut icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<link rel="manifest" href="/site.webmanifest" />
-  </head>
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
 <body>
 
   <!-- DESKTOP HEADER WRAPPER -->
 <div class="desktop-only">
-<div class="fixed-header">
-  <div class="header-bleed-left"></div>
-  <header>
-<picture>
-  <source media="(min-width: 769px)" srcset="/assets/static-header-v7-95.png">
-  <img src="" alt="static header" usemap="#image-map"
-       style="width: 100%; height: auto; display: block;">
-</picture>
-           <map name="image-map">
-    <area target="" alt="Services" href="/services" coords="64,21,147,46" shape="rect" title="Services">
-    <area target="" alt="Quote" href="/quote" coords="160,19,217,46" shape="rect" title="Get a Quote">
-    <area target="" alt="pilot-directory" href="/pilot-directory" coords="17,63,149,90" shape="rect" title="Pilot Directory">
-    <area target="" alt="Pilot Hiring" href="/pilot-hiring" coords="162,62,264,90" shape="rect" title="Pilot Hiring">
-    <area target="" alt="About" href="/about" coords="38,106,98,133" shape="rect" title="About">
-    <area target="" alt="Past Deliveries" href="/past-deliveries" coords="108,106,246,133" shape="rect" title="Past Deliveries">
-    <area target="" alt="Index" href="/" coords="278,6,1076,143" shape="rect" title="Aircraft Delivery Solutions">
-  </map>
-  </header>
-  <div class="header-bleed-right"></div>
-</div></div>
+
+ <div id="desk-header-placeholder"></div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch("/desk-header.html")
+      .then(res => res.text())
+      .then(html => {
+        const target = document.getElementById("desk-header-placeholder");
+        target.outerHTML = html;  // Replaces placeholder entirely
+      });
+  });
+</script>
+
+ 
+</div>
+
 
 <div class="mobile-only">
   <header class="mobile-header">
@@ -60,7 +61,7 @@
       <a href="/services">Services</a>
       <a href="/quote">Get a Quote</a>
       <a href="/pilot-directory">Pilot Directory</a>
-      <a href="/pilot-hiring">Pilot Hiring</a>
+      <a href="/join-pilot-roster">Join Pilot Roster</a>
       <a href="/about">About</a>
       <a href="/past-deliveries">Past Deliveries</a>
     </nav>
@@ -72,6 +73,96 @@
 
 <div class="desktop-only" style= "padding-top: 165px; background-color: #f5f5f5;">
   <h1 style="margin-bottom: 15px;" class="page-title-brick">PAST DELIVERIES</h1>
+
+<section id="desk-past-deliv-slider">
+    <div class="desk-past-deliv-slider-container">
+
+    <div class="desk-past-deliv-slider-slide active">
+      <div class="desk-past-deliv-slider-imgwrap">
+        <img class="desk-past-deliv-slider-thumb fade-image" src="/assets/past-deliveries/N4352X-1-320w.jpg" alt="Piper PA-28-180 N4352X">
+      </div>
+      <div class="desk-past-deliv-slider-text">
+        <blockquote>
+          “The communication was outstanding. I cannot express how smooth and easy the process was.
+          I will always use Aircraft Delivery Solutions when I purchase another plane in the future.”
+        </blockquote>
+        <div class="desk-past-deliv-slider-meta">
+          — Paul Carswell, Piper PA-28-180 N4352X<br>
+          Marshfield, MA → Hickory, NC — May 2025
+        </div>
+      </div>
+    </div>
+
+
+    <div class="desk-past-deliv-slider-slide">
+        <div class="desk-past-deliv-slider-imgwrap">
+        <img class="desk-past-deliv-slider-thumb fade-image" src="/assets/past-deliveries/N4801G-ramp-320w.jpg" alt="Cessna 172N (N4801G)"></div>
+        <div class="desk-past-deliv-slider-text">
+          <blockquote>
+            “Aaron kept me advised throughout the flight and delivered the aircraft in 3 days.
+            He encountered a thunderstorm with hail and made quick plans for a hangar — very professional.”
+          </blockquote>
+          <div class="desk-past-deliv-slider-meta">
+            — Bruce Moreton, Cessna 172N N4801G<br>
+            Frederick, MD → Burlington, WA — Aug 2013
+                   </div>
+        </div>
+      </div>
+  
+
+    <div class="desk-past-deliv-slider-slide">
+        <div class="desk-past-deliv-slider-imgwrap">
+        <img class="desk-past-deliv-slider-thumb fade-image" src="/assets/past-deliveries/N43056-STS-320w.jpg" alt="Piper PA-28-181 N43056"></div>
+        <div class="desk-past-deliv-slider-text">
+          <blockquote>
+            “Scheduling was flexible, receipts were provided for all expenses,
+            and stats were delivered on the aircraft’s performance. I do not hesitate to recommend their service.”
+          </blockquote>
+          <div class="desk-past-deliv-slider-meta">
+            — Laura Lucier, Piper PA-28-181 N43056<br>
+            Santa Rosa, CA → La Porte, TX — Dec 2011
+          </div>
+        </div>
+      </div>
+
+
+    <div class="desk-past-deliv-slider-slide">
+        <div class="desk-past-deliv-slider-imgwrap">
+        <img class="desk-past-deliv-slider-thumb fade-image" src="/assets/past-deliveries/N2087E-file-320w.jpg" alt="Cessna 172N (N2087E)"></div>
+        <div class="desk-past-deliv-slider-text">
+          <blockquote>
+            “It was the best professional relationship I had in 2010 —
+            you took a task that would demand my time totally off my plate,
+            and did so exactly in the timeline you stated and under budget.”
+          </blockquote>
+          <div class="desk-past-deliv-slider-meta">
+            — Ben Siegel, Cessna 172N N2087E<br>
+            Georgetown, TX → Santa Barbara, CA — Nov 2010
+          </div>
+        </div>
+      </div>
+
+
+    <div class="desk-past-deliv-slider-slide">
+        <div class="desk-past-deliv-slider-imgwrap">
+        <img class="desk-past-deliv-slider-thumb fade-image" src="/assets/past-deliveries/N172PC-file-320w.jpg" alt="Cessna 172M (N172PC)"></div>
+        <div class="desk-past-deliv-slider-text">
+          <blockquote>
+            “The pilot is a CFI and I was a student at the time.
+            He took me for my first flight in my first plane. It meant a lot to me.”
+          </blockquote>
+          <div class="desk-past-deliv-slider-meta">
+            — Pete McGrath, Cessna 172M N172PC<br>
+            Santa Maria, CA → Redmond, OR — Jan 2007
+           </div>
+        </div>
+      </div>
+
+  </div>
+</section>
+
+
+
 
   <div style="max-height: 70vh; overflow-y: auto;">
 <table class="all-borders">
