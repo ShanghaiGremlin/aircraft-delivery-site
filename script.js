@@ -1314,3 +1314,48 @@ document.addEventListener("DOMContentLoaded", () => {
     if (typeof activator.blur === "function") activator.blur();
   }
 });
+
+//put focus on the hamburger and stop the default skip.//
+document.addEventListener("DOMContentLoaded", () => {
+  const menu = document.getElementById("mobileMenu");
+  const hbImg = document.getElementById("hamburger-icon");
+  if (!menu || !hbImg) return;
+
+  const activator = hbImg.closest("button, [role='button'], a[href]") || hbImg;
+
+  let firstTabHandled = false;
+
+  document.addEventListener(
+    "keydown",
+    (e) => {
+      if (e.key !== "Tab" || firstTabHandled) return;
+
+      const active = document.activeElement;
+      const noRealFocus =
+        active === document.body ||
+        active === document.documentElement ||
+        !active ||
+        active === null;
+
+      // Only “prime” if the menu is closed and there wasn’t a meaningful focus yet
+      if (!menu.classList.contains("show") && noRealFocus) {
+        e.preventDefault();
+        // ensure the activator is focusable, then focus it
+        if (!activator.matches("button, a[href], input, select, textarea, [tabindex]")) {
+          activator.setAttribute("tabindex", "-1");
+          activator.addEventListener("blur", () => activator.removeAttribute("tabindex"), {
+            once: true,
+          });
+        }
+        try {
+          activator.focus({ preventScroll: true });
+        } catch {
+          activator.focus();
+        }
+      }
+
+      firstTabHandled = true; // only intercept once
+    },
+    true // capture so it runs before page handlers
+  );
+});
