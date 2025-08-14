@@ -898,42 +898,27 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Try common selectors; adjust if your project uses different ones.
-  const menuToggle =
-    document.querySelector('[data-ads-menu-toggle], [data-menu-toggle], .hamburger, .menu-toggle, #mobile-menu-toggle, .nav-toggle');
-  const menuClose =
-    document.querySelector('[data-ads-menu-close], .menu-close, .close-menu, .mobile-menu .close, .menu-panel .close, #mobile-menu-close');
-  const menuPanel =
-    document.querySelector('[data-ads-mobile-menu], .mobile-menu, .menu-panel, #mobile-menu, .nav-drawer');
+  const hamburger = document.getElementById("hamburger-icon");
+  if (!hamburger) return;
 
-  // Helper to know current lock state
-  const isLocked = () => document.body.classList.contains("ads-scroll-locked");
+  // Toggle lock on the same control you already use to open/close the menu
+  hamburger.addEventListener("click", () => {
+    const locked = document.body.classList.contains("ads-scroll-locked");
+    if (locked) window.adsUnlockScroll();
+    else window.adsLockScroll();
+  });
 
-  // Single-button toggles (most setups): first tap opens (lock), second tap closes (unlock)
-  if (menuToggle) {
-    menuToggle.addEventListener("click", () => {
-      if (isLocked()) window.adsUnlockScroll();
-      else window.adsLockScroll();
-    });
-  }
+  // Safety: if a link is tapped while locked (inside the menu), unlock before navigating
+  document.addEventListener("click", (e) => {
+    if (!document.body.classList.contains("ads-scroll-locked")) return;
+    const a = e.target.closest("a");
+    if (a) window.adsUnlockScroll();
+  }, true);
 
-  // Explicit close button (if present)
-  if (menuClose) {
-    menuClose.addEventListener("click", () => {
-      if (isLocked()) window.adsUnlockScroll();
-    });
-  }
-
-  // If any link inside the menu is clicked, unlock before navigating
-  if (menuPanel) {
-    menuPanel.addEventListener("click", (e) => {
-      const link = e.target.closest("a");
-      if (link && isLocked()) window.adsUnlockScroll();
-    });
-  }
-
-  // Safety: ESC to close/unlock if your UI supports it
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && isLocked()) window.adsUnlockScroll();
+  // Safety: if the page visibility changes (e.g., app switch), make sure we don’t stay locked
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden" && document.body.classList.contains("ads-scroll-locked")) {
+      window.adsUnlockScroll();
+    }
   });
 });
