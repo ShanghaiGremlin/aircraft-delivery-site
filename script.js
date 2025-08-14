@@ -994,3 +994,69 @@ document.addEventListener("DOMContentLoaded", () => {
   window.removeEventListener("scroll", __adsSnapBack, { capture: true });
   window.removeEventListener("touchmove", __adsSnapBack, { capture: true });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  let __adsScrollY = 0;
+  let __adsShield = null;
+
+  function __ensureShield() {
+    if (__adsShield) return __adsShield;
+    const el = document.createElement("div");
+    el.id = "ads-scroll-shield";
+    // Full viewport, above page, below your menu panel (tweak z-index if needed)
+    el.style.position = "fixed";
+    el.style.inset = "0";
+    el.style.zIndex = "9998";
+    // The magic bits that stop scroll/touch from reaching the page:
+    el.style.touchAction = "none";
+    el.style.pointerEvents = "auto";
+    el.style.background = "transparent"; // visible = transparent
+    el.style.webkitOverflowScrolling = "auto";
+    // Prevent any default gestures on the shield itself
+    el.addEventListener("touchmove", (e) => e.preventDefault(), { passive: false });
+    el.addEventListener("wheel", (e) => e.preventDefault(), { passive: false });
+    __adsShield = el;
+    return el;
+  }
+
+  // AUGMENT your existing lock:
+  const _lock = window.adsLockScroll;
+  window.adsLockScroll = function () {
+    if (document.body.classList.contains("ads-scroll-locked")) return;
+    __adsScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+
+    // Create + insert shield
+    const shield = __ensureShield();
+    if (!shield.isConnected) document.body.appendChild(shield);
+
+    // Keep your existing locking styles
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${__adsScrollY}px`;
+    document.body.style.left = "0";
+    document.body.style.right = "0";
+    document.body.style.width = "100%";
+    document.body.classList.add("ads-scroll-locked");
+  };
+
+  // AUGMENT your existing unlock:
+  const _unlock = window.adsUnlockScroll;
+  window.adsUnlockScroll = function () {
+    if (!document.body.classList.contains("ads-scroll-locked")) return;
+
+    // Remove shield first
+    if (__adsShield && __adsShield.isConnected) {
+      __adsShield.remove();
+    }
+
+    // Restore styles
+    document.body.classList.remove("ads-scroll-locked");
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.left = "";
+    document.body.style.right = "";
+    document.body.style.width = "";
+    document.documentElement.style.overflow = "";
+    window.scrollTo(0, __adsScrollY);
+  };
+});
