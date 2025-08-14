@@ -917,14 +917,16 @@ document.addEventListener("DOMContentLoaded", () => {
     //hamburger.setAttribute("aria-expanded", "true");
     //freezePage();
  // }
-  function closeMenu() {
-    if (!menu.classList.contains("show")) return;
-    menu.classList.remove("show");
-    hamburger.setAttribute("aria-expanded", "false");
-    // restore header icon if some other code changed it
-    if (burgerSrc) hamburger.setAttribute("src", burgerSrc);
-    S// unfreezePage(); // disabled to avoid scroll reset when closing via overlay X
+function closeMenu() {
+  if (!menu.classList.contains("show")) return;
+  menu.classList.remove("show");
+  if (hamburger) hamburger.setAttribute("aria-expanded", "false");
+  if (typeof burgerSrc !== "undefined" && burgerSrc) {
+    hamburger.setAttribute("src", burgerSrc);
   }
+  // no body style manipulation here; scroll lock is handled elsewhere
+}
+
 
   //function toggleMenu() {
     //if (menu.classList.contains("show")) closeMenu();
