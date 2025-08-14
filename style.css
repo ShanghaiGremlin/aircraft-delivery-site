@@ -789,6 +789,34 @@ html.menu-open body {
     .mob-index-headline { -webkit-text-stroke-width: 0.5px; }  /* very dense screens */
   }
 
+/* Android-specific: replace stroke with crisp, no-blur outline */
+@media (max-width: 1400px) {
+  html.android .mob-index-headline {
+    -webkit-text-stroke: 0; /* disable stroke on Android */
+    /* 4-direction “pixel” outline + tiny core to tighten edges */
+    text-shadow:
+      0.5px 0    0 #0E172A,
+     -0.5px 0    0 #0E172A,
+      0    0.5px 0 #0E172A,
+      0   -0.5px 0 #0E172A,
+      0    0     0.7px rgba(0,0,0,0.30);
+    /* keep your current fill color (use your darker fill if you prefer) */
+    /* color: #CBD5E1; */
+    line-height: 1.05;   /* tiny bit more breathing room for multi-line */
+    letter-spacing: 0.015em;
+  }
+}
+
+/* Keep the thin stroke for non-Android (iOS/desktop) if you liked that look */
+@supports (-webkit-text-stroke: 1px #000) {
+  @media (max-width: 1400px) {
+    html:not(.android) .mob-index-headline {
+      -webkit-text-stroke-color: #2A4570;
+      -webkit-text-stroke-width: 0.6px;
+      text-shadow: none;
+    }
+  }
+}
 
 .mob-index-description {
   font-size: 1.6rem;

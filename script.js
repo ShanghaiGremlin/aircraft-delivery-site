@@ -1359,3 +1359,10 @@ document.addEventListener("DOMContentLoaded", () => {
     true // capture so it runs before page handlers
   );
 });
+
+//Android-only outline for .mob-index-headline//
+document.addEventListener("DOMContentLoaded", () => {
+  if (/Android/i.test(navigator.userAgent)) {
+    document.documentElement.classList.add("android");
+  }
+});
