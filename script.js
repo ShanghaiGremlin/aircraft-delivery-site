@@ -951,16 +951,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const menu = document.getElementById("mobileMenu");
   if (!menu) return;
 
+  let savedScrollY = 0;
+
   const syncScrollLock = () => {
     const isOpen = menu.classList.contains("show");
-    // Toggle class on <html> to match your CSS selector: html.menu-open
-    document.documentElement.classList.toggle("menu-open", isOpen);
+    if (isOpen) {
+      // remember where the user was when the menu opened
+      savedScrollY = window.scrollY || window.pageYOffset;
+      document.documentElement.classList.add("menu-open");
+    } else {
+      document.documentElement.classList.remove("menu-open");
+      // put the user back exactly where they were
+      window.scrollTo(0, savedScrollY);
+    }
   };
 
   // Initial sync
   syncScrollLock();
 
-  // Watch for menu class changes
+  // Keep in sync whenever the menu's classes change
   const obs = new MutationObserver(syncScrollLock);
   obs.observe(menu, { attributes: true, attributeFilter: ["class"] });
 });
+
