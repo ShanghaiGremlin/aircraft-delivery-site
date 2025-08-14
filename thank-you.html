@@ -17,7 +17,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/style.css">
 
 </head>
 <body>
@@ -40,20 +40,23 @@
  
 </div>
 
-
 <div class="mobile-only">
+
   <header class="mobile-header">
 
     <div class="mobile-header-slot-left"><img src="/assets/mobile/burger.png" alt="Menu" id="hamburger-icon">
     </div>
 
-    <div class="mobile-logo">
-      <a href="/index"><img src="/assets/mobile/mobile-logo-640w.png" loading="lazy" srcset="/assets/mobile/mobile-logo-320w.png 320w, /assets/mobile/mobile-logo-640w.png 640w, /assets/mobile/mobile-logo-640w@2x.png 1280w" sizes="(max-width: 480px) 320px, (max-width: 768px) 640px" alt="Aircraft Delivery Logo" id="mobile-logo-img"></a>
+    <div class="mobile-logo" id="mobile-logo">
+      <a href="/"><img src="/assets/mobile/mobile-logo-v2.png" alt="Aircraft Delivery Logo"></a>
+    </div>
+
+    <div class="mobile-logo-90" id="mobile-logo-90">
+      <a href="/"><img src="/assets/mobile/mobile-logo-90.png" alt="Aircraft Delivery Logo" ></a>
     </div>
 
     <div class="mobile-header-slot-right"><a href="tel:+14158458163"><img src="/assets/mobile/phone.png" alt="Call me" id="phone-icon"></a>
     </div>
-
   </header>
 
   <div class="mobile-menu" id="mobileMenu">
@@ -70,7 +73,10 @@
 
 <main>
 
-<div class="desktop-only" style="padding-top: 165px; background-color: #eeeef5">
+<div class="desktop-only">
+   
+<div class="desk-thank-you-main">
+
 <h1 class="page-title-brick">GET A QUOTE</h1>
 
 <table style="width: 100%; border-collapse: collapse; table-layout: fixed;">
@@ -158,11 +164,14 @@
 <p style="font-size: 1.5rem;">- Aaron</p>
 </div>
 </div>
+</div>
 
+<div class="mobile-only">
 
-<div class="mobile-only" style="padding-top: 90px; background-color: #c9f3dc;">
+<div class="mob-thank-you-main">
 
-<h1 class="page-title-brick" style="margin-bottom: 15px;">GET A QUOTE</h1>
+<div class="page-title-brick page-title-brick-centered" style="margin-top: 10px;">GET A QUOTE
+</div>
 
   <div style="margin: 0 auto; text-align: center; padding: 0 15px 0 15px;">
 <img style="width: 100px;" alt="thumbs up" src="/assets/quote/thumbs-up.png">

@@ -17,7 +17,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/style.css">
 
 </head>
 <body>
@@ -55,13 +55,16 @@
     <div class="mobile-header-slot-left"><img src="/assets/mobile/burger.png" alt="Menu" id="hamburger-icon">
     </div>
 
-    <div class="mobile-logo">
-      <a href="/index"><img src="/assets/mobile/mobile-logo-640w.png" loading="lazy" srcset="/assets/mobile/mobile-logo-320w.png 320w, /assets/mobile/mobile-logo-640w.png 640w, /assets/mobile/mobile-logo-640w@2x.png 1280w" sizes="(max-width: 480px) 320px, (max-width: 768px) 640px" alt="Aircraft Delivery Logo" id="mobile-logo-img"></a>
+    <div class="mobile-logo" id="mobile-logo">
+      <a href="/"><img src="/assets/mobile/mobile-logo-v2.png" alt="Aircraft Delivery Logo"></a>
+    </div>
+
+    <div class="mobile-logo-90" id="mobile-logo-90">
+      <a href="/"><img src="/assets/mobile/mobile-logo-90.png" alt="Aircraft Delivery Logo" ></a>
     </div>
 
     <div class="mobile-header-slot-right"><a href="tel:+14158458163"><img src="/assets/mobile/phone.png" alt="Call me" id="phone-icon"></a>
     </div>
-
   </header>
 
   <div class="mobile-menu" id="mobileMenu">
@@ -76,204 +79,138 @@
   </div> 
 </div>
 
-<main style="background-color: #f5f5f5;">
+<main class="services-main"> 
 
-  <!--DESKTOP-ONLY DIV-->
-  <!--DESKTOP-ONLY DIV-->
-  <!--DESKTOP-ONLY DIV-->
-<div class="desktop-only" style="padding-top: 165px;">
+<div class="page-title-brick page-title-brick-centered">SERVICES</div>
 
-<h1 class="page-title-brick">SERVICES</h1>
+<p class="services-tagline">
+  <i>
+    Led by <a href="/about">a 25-year professional pilot</a> who’s flown <a href="/past-deliveries">50 ferry flights.</a>
+  </i>
+</p>
 
+<div class="services-flex-wrapper">
+  <!-- LEFT COLUMN -->
+  <div class="services-left-col">
+    <div class="services-subheading-wrap">
+    <div class="services-subheading">FERRY FLIGHTS</div></div>
 
-<p style="margin-top: 15px; font-size: 1.6rem;  margin: -10px 20px 10px 20px; text-align: center;"><i>Led by <a href="/about">a 25-year professional pilot</a> who’s flown <a href="/past-deliveries">50 ferry flights.</i></a></p>
-<table style="width: 100%; border-collapse: collapse; table-layout: fixed; margin-top: 0;">
-  <tr style="text-align: center;">
-    <!-- Left Column -->
-    <td style="border-left: none; border-top: none; border-bottom: none; border-right: 1px solid #ccc; padding: 0px 20px; vertical-align: top;">
-      <h2 class="plaque-heading"><u>FERRY FLIGHTS</u></h2>
-
-          <div id="desk-services-slideshow" title="Slideshow paused. Click to enlarge" style="width: 100%; max-width: 1000px; margin: 40px auto;">
-<a href="/assets/services/slide-wick.jpg" target="_blank">
-  <img class="slide" alt="Wick Scotland" src="/assets/services/slide-wick.jpg" style="display: block;"></a>
-
-  <a href="/assets/services/slide-lancair.jpg" target="_blank">
-      <img class="slide" alt="Lancair" src="/assets/services/slide-lancair.jpg" style="display: none;"></a>
+    <div id="desk-services-slideshow" class="services-slideshow" title="Slideshow paused. Click to enlarge">
+      <a href="/assets/services/slide-wick.jpg" target="_blank">
+        <img class="services-slide" alt="Wick Scotland" src="/assets/services/slide-wick.jpg">
+      </a>
+      <a href="/assets/services/slide-lancair.jpg" target="_blank">
+        <img class="services-slide" alt="Lancair" src="/assets/services/slide-lancair.jpg" style="display: none;">
+      </a>
       <a href="/assets/services/slide-duchess.jpg" target="_blank">
-    <img class="slide" alt="Duchess" src="/assets/services/slide-duchess.jpg" style="display: none;"></a>
-    <a href="/assets/services/slide-pa32.jpg" target="_blank">
-  <img class="slide" alt="PA32" src="/assets/services/slide-pa32.jpg" style="display: none;"></a>
-  
-  <a href="/assets/services/slide-c310.jpg" target="_blank">
-    <img class="slide" alt="C310" src="/assets/services/slide-c310.jpg" style="display: none;"></a></div>
+        <img class="services-slide" alt="Duchess" src="/assets/services/slide-duchess.jpg" style="display: none;">
+      </a>
+      <a href="/assets/services/slide-pa32.jpg" target="_blank">
+        <img class="services-slide" alt="PA32" src="/assets/services/slide-pa32.jpg" style="display: none;">
+      </a>
+      <a href="/assets/services/slide-c310.jpg" target="_blank">
+        <img class="services-slide" alt="C310" src="/assets/services/slide-c310.jpg" style="display: none;">
+      </a>
+    </div>
 
-<h3 class="desk-statbox-title">
-  Our <img src="/assets/services/logbook-icon.png" alt="Logbook Icon" class="logbook-icon">
-</h3>
+    <h3 class="services-logbook-title">
+      Our <img src="/assets/services/logbook-icon.png" alt="Logbook Icon" class="services-logbook-icon">
+    </h3>
 
-<div class="desk-statbox-logbook">
-  <div class="logbook-row">
-    <div class="logbook-cell"><a href="/past-deliveries">Ferry Flts</a></div>
-    <div class="logbook-cell">Naut. Mi.</div>
-    <div class="logbook-cell">Different a/c types</div>
+<div class="services-logbook">
+  <div class="services-logbook-row">
+    <div class="services-logbook-cell">Ferry Flts</div>
+    <div class="services-logbook-cell">Naut. Mi.</div>
+    <div class="services-logbook-cell">Different a/c types</div>
   </div>
-  <div class="logbook-row">
-    <div class="logbook-cell stat-value"><a href="/past-deliveries">52</a></div>
-    <div class="logbook-cell stat-value">64,000</div>
-    <div class="logbook-cell stat-value"><span class="tooltip-parent">22
-  <span class="tooltip-box">
-    AA1C<br>
-    BE19 BE24 BE33 BE35 BE76<br>
-    C150 C152 C172 C177 C182 C206 C210 C310<br>
-    EuroFox<br>
-    Lancair4<br>
-    LibertyXL2<br>
-    M20<br>
-    PA22 PA28 PA32 PA38
-  </span>
-</span>
-
+  <div class="services-logbook-row">
+    <div class="services-logbook-cell stat-value"><a href="/past-deliveries">52</a></div>
+    <div class="services-logbook-cell stat-value">64,000</div>
+    <div class="services-logbook-cell stat-value">
+      <span class="services-tooltip-parent">22
+        <span class="services-tooltip-box">        
+        AA1C<br>
+        BE19 BE24 BE33 BE35 BE76<br>
+        C150 C152 C172 C177 C182 C206 C210 C310<br>
+        EuroFox<br>
+        Lancair4<br>
+        LibertyXL2<br>
+        M20<br>
+        PA22 PA28 PA32 PA38</span>
+      </span>
+    </div>
   </div>
 </div>
-</div>
 
-      <p style="text-align: center; font-size: 1.5rem;">
-       I manage a <b>professional, supervised</b> flight operation:
-      </p>
-      <ul class="desk-std-base" style="text-align: left; width: 90%;">
-        <li><b>I personally oversee every mission</b> as Director of Operations</li>
-        <li><b>Experienced, vetted flightcrew</b> — no need to source your own pilots</li>
-        <li><b>Real-time monitoring</b> of flight progress, weather, and enroute issues</li>
-        <li><b>Proactive operational support</b> to catch and correct issues early</li>
-        <li><b>Same level of care</b> whether you’re moving a light piston or a transport-category aircraft</li>
-      </ul>
+<table class="mob-logbook">
+  <tr>
+    <td>FERRY FLTS</td>
+    <td><a href="/past-deliveries">52</a></td>
+  </tr>
+  <tr>
+    <td>NAUT. MI.</td>
+    <td>64,000</td>
+  </tr>
+  <tr>
+    <td>
+      DIFFERENT A/C TYPES
     </td>
-
-    <!-- Right Col -->
-<td style="border: none; padding: 0px 20px; vertical-align: top; text-align: center; font-size: 1.2rem; line-height: 1.6; color: #333;">
-  
-  <h2 class="plaque-heading" style="margin-bottom: 20px;"><u>CONTAINER DELIVERY</u></h2>
-
-  <img src="/assets/services/containerize-no-title.png" loading="lazy" alt="Container Delivery" style="width: 90%; max-width: 900px; height: auto; margin-bottom: 20px;">
-
-  <p style="font-size: 1.5rem; font-weight: 500; margin-bottom: 25px; width: 90%;">For light aircraft. A low-cost and very safe alternative to a risky and lengthy ferry flight.</p>
-
-  <div style="text-align: left; max-width: 900px; margin: 0 auto; width: 90%;">
-    <p><b>Is container transport optimal?</b> – I determine that it is for the mission, and/or the client requests a container quote.</p>
-    <p><b>Port identification</b> – I select cities to be used, considering cost, availability, etc.</p>
-    <p><b>Fly or truck</b> – The method of moving the aircraft from its present location to the container-izer is determined. Ideally, the aircraft is airworthy and can be flown; if not it will need to be trucked to the container-izer.</p>
-    <p><b>Services after port arrival</b> – Typically, my mission ends with delivery at the destination port. However, upon client request I can add other services such as ground transportation in the destination country, and re-assembly.</p>
-  </div>
-
-</td>
-
+    <td><div class="mob-tooltip-parent">22<div class="mob-tooltip-box">AA1C<br>
+          BE19 BE24 BE33 BE35 BE76<br>
+          C150 C152 C172 C177 C182 C206 C210 C310<br>
+          EuroFox<br>
+          Lancair4<br>
+          LibertyXL2<br>
+          M20<br>
+          PA22 PA28 PA32 PA38
+       </div></div></td>
   </tr>
 </table>
 
-<div style="width: 100%; text-align: center;">
+    <p class="services-caption">
+      I manage a <b>professional, supervised</b> flight operation:
+    </p>
+
+    <ul class="services-bullets">
+      <li><b>I personally oversee every mission</b> as Director of Operations</li>
+      <li><b>Experienced, vetted flightcrew</b> — no need to source your own pilots</li>
+      <li><b>Real-time monitoring</b> of flight progress, weather, and enroute issues</li>
+      <li><b>Proactive operational support</b> to catch and correct issues early</li>
+      <li><b>Same level of care</b> whether you’re moving a light piston or a transport-category aircraft</li>
+    </ul>
+  </div>
+  
+<!--<div class="services-col-separator"></div>-->
+  <!-- RIGHT COLUMN -->
+  <div class="services-right-col">
+    <div class="services-subheading-wrap">
+    <div class="services-subheading">CONTAINER <span class="subhead-break">SHIPPING</span></div></div>
+
+    <img src="/assets/services/containerize-no-title.png" loading="lazy"
+         alt="Container Delivery" class="services-container-img">
+
+    <p class="services-caption">
+      For light aircraft. A low-cost and very safe alternative to a risky and lengthy ferry flight.
+    </p>
+    <div class="services-mob-container-explain">
+      <p><b>Is container transport optimal?</b> – I determine that it is for the mission, and/or the client requests a container quote.</p>
+      <p><b>Port identification</b> – I select cities to be used, considering cost, availability, etc.</p>
+      <p><b>Fly or truck</b> – The method of moving the aircraft from its present location to the container-izer is determined. Ideally, the aircraft is airworthy and can be flown; if not it will need to be trucked to the container-izer.</p>
+      <p><b>Services after port arrival</b> – Typically, my mission ends with delivery at the destination port. However, upon client request I can add other services such as ground transportation in the destination country, and re-assembly.</p>
+  </div></div>
+</div>
+
+<!-- CTA BUTTON -->
+<div class="services-cta-wrap">
   <a href="/quote">
     <img
       src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/quote-button-transp.png"
       alt="Get a Fast Quote" loading="lazy"
-      style="width: 100%; max-width: 350px; height: auto;">
-  </a>
-</div>
-</div>
-
-  <!--MOBILE-ONLY DIV-->
-  <!--MOBILE-ONLY DIV-->
-  <!--MOBILE-ONLY DIV-->
-
-<div class="mobile-only" style="padding-top: 70px;">
-  <!-- Mobile Page Title and Tagline -->
-  <h1 class="mob-page-title-brick">SERVICES</h1>
-  <p style="font-size: 0.9rem; text-align: center; margin-top: 10px;"><i>Trust Aircraft Delivery Solutions to bring over <a href="/about">30 years of industry expertise</a> to ensure your aircraft delivery is safe, efficient, and on-budget.</i></p>
-
-
-<!--MOBILE SLIDESHOW-->
-<div id="mobile-slideshow" class="slideshow-container mobile-only" style="width: 100%; text-align: center; margin: 0 auto 0 auto;">
-  <img class="slide" alt="Wick Scotland" src="/assets/services/slide-wick.jpg" style="display: block; width: 90%; height: auto; margin: 0 auto;">
-  <img class="slide" alt="Mooney" src="/assets/services/slide-mooney.jpg" style="display: none; width: 90%; height: auto; margin: 0 auto;">
-  <img class="slide" alt="Duchess" src="/assets/services/slide-duchess.jpg" style="display: none; width: 90%; height: auto; margin: 0 auto;">
-  <img class="slide" alt="PA32" src="/assets/services/slide-pa32.jpg" style="display: none; width: 90%; height: auto; margin: 0 auto;">
-  <img class="slide" alt="C310" src="/assets/services/slide-c310.jpg" style="display: none; width: 90%; height: auto; margin: 0 auto;">
-    <div style="margin-top: 10px;"> 
-<button onclick="changeMobileSlide(-1)">&#10094; Prev</button>
-<button onclick="changeMobileSlide(1)">Next &#10095;</button>
-
-</div>
-
-<!-- FERRY FLIGHTS Section -->
-<section style="padding: 20px;">
-  <p style="margin-top: 10px; text-align: center; font-size: 1.6rem;"><u><b>FERRY FLIGHTS</b></u></p>
-
-<div class="mob-std-small" style="border: 2px solid #999; border-radius: 12px; background-color: #f9f9f9; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 20px; max-width: 650px; margin: 0 auto;">
-  <p style="margin: 0; font-size: 1.4rem; text-align: center;"><b>Looking for an experienced outfit? Logged:</b></p>
-  <div class="mob-std-small" style= "text-align: left; padding-left: 15px; margin-top: 8px;">
-    &bull; <a href="/past-deliveries">52 ferry deliveries</a><br>
-    &bull; in 64,000 naut. mi. <i>(equal to 3x circling the globe)</i><br>
-    &bull;
-    <span style="text-decoration: underline; cursor: pointer; color: #0066cc;" onclick="toggleAircraftList()">
-      22 different aircraft types
-    </span>
-    <span id="aircraft-list" style="display: none; font-weight: normal;">
-      <br>
-      AA1C, BE19, BE24, BE33, BE35, BE76, C150, C152, C172, C177, C182, C206, C210, C310, EuroFox, Lancair4, LibertyXL2, M20, PA22, PA28, PA32, PA38
-    </span>
-  </div>
-  </div>
-</div>
-
-<script>
-  function toggleAircraftList() {
-    const list = document.getElementById('aircraft-list');
-    list.style.display = list.style.display === 'none' ? 'inline' : 'none';
-  }
-</script>
-
-  <p style="text-align: center; font-size: 1.4rem; margin-top: 20px;">
-    Most ferry services are one pilot; I manage a <b>professional, supervised</b> flight operation:
-  </p>
-
-  <ul class="mob-std-small" style="padding-left: 30px; text-align: left;">
-    <li><b>I personally oversee <a href="/past-deliveries"> every mission</a></b> as Director of Operations</li>
-    <li><b><a href="/pilot-directory">Experienced, vetted flightcrew</a></b> — no need to source your own pilots</li>
-    <li><b>Real-time monitoring</b> of flight progress, weather, and enroute issues</li>
-    <li><b>Proactive operational support</b> to catch and correct issues early</li>
-    <li><b>Same level of care</b> whether you’re moving a light piston or a transport-category aircraft</li>
-  </ul>
-  <div style="width: 100%; text-align: center; margin-top: -15px; padding-bottom: 0px; position: relative; z-index: 5;"><a href="/quote"><img src="/assets/quote-button-transp.png" alt="Get a Fast Quote" loading="lazy" style="width: 35%; height: auto; display: block; margin: 0 auto;">
-  </a>
-</div>
-</section>
-
-<!-- CONTAINER DELIVERY Section -->
-<section style="padding: 0 0 20px 0;">
-  <p style="margin-top: 10px; text-align: center; font-size: 1.6rem;"><u><b>CONTAINER DELIVERY</b></u></p>
-
-<div style="display: block; width: 100%; text-align: center;">
-  <img src="/assets/services/containerize-no-title-640w.png" loading="lazy" srcset="/assets/services/containerize-no-title-320w.png 320w, /assets/services/containerize-no-title-640w.png 640w, /assets/services/containerize-no-title-640w@2x.png 1280w" sizes="(max-width: 480px) 320px, (max-width: 768px) 640px" alt="Aircraft Delivery Logo"></div>
-
-  <p style="font-size: 1.4rem; text-align: center;">
-    For light aircraft. A low-cost and very safe alternative to a risky and lengthy ferry flight.
-  </p>
-
-  <div class="mob-std-small" style="padding-left: 10px; padding-right: 10px; text-align: left;">
-    <p><b>Is container transport optimal?</b> – I determine that it is for the mission, and/or the client <a href="/quote">requests a container quote.</a></p>
-    <p><b>Port identification</b> – I select cities to be used, considering cost, availability, etc.</p>
-    <p><b>Fly or truck</b> – The method of moving the aircraft from its present location to the container-izer is determined. Ideally, the aircraft is airworthy and can be flown; if not, it will need to be trucked to the container-izer.</p>
-    <p><b>Services after port arrival</b> – Typically, my mission ends with delivery at the destination port. However, upon client request I can add other services such as ground transportation in the destination country, and re-assembly.</p>
-  </div>
-</section>
-
-<!-- CTA Button -->
-<div style="width: 100%; text-align: center; margin-top: -15px; padding-bottom: 0px; position: relative; z-index: 5;">
-  <a href="/quote">
-      <img src="/assets/quote-button-transp-640w.png" loading="lazy" srcset="/assets/quote-button-transp-320w.png 320w, /assets/quote-button-transp-640w.png 640w" sizes="(max-width: 480px) 320px, (max-width: 768px) 640px" alt="Quote Button" style="width: 35%; height: auto; display: block; margin: 0 auto;">
+      class="services-cta-button">
   </a>
 </div>
 
-</div>
+
 
 </main>
 <script src="script.js"></script>

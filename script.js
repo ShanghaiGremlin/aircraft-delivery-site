@@ -1,33 +1,57 @@
-// === ALL-IN-ONE SCRIPT: FIXED IMAGE ZOOM + SLIDESHOW + MODALS ===
-
-document.addEventListener("DOMContentLoaded", function () {
-
-if (window.location.pathname === "/pilot-directory") {
-  const pilotRatingsBtn = document.getElementById("pilot-ratings-btn");
-  const customModal = document.getElementById("custom-modal");
-  const modalClose = document.getElementById("custom-modal-close");
-
-  if (pilotRatingsBtn && customModal && modalClose) {
-    pilotRatingsBtn.addEventListener("click", function () {
-      customModal.style.display = "flex";
-    });
-
-    // Close on close button
-    modalClose.addEventListener("click", function () {
-      customModal.style.display = "none";
-    });
-
-    // Close by clicking outside modal content
-    customModal.addEventListener("click", function (e) {
-      if (e.target === customModal) {
-        customModal.style.display = "none";
-      }
-    });
+function injectSharedRatingsContent(modalBodyId) {
+  const content = document.getElementById("pilot-dir-shared-pilot-ratings-content");
+  const target = document.getElementById(modalBodyId);
+  if (content && target && !target.dataset.injected) {
+    target.insertAdjacentHTML("beforeend", content.innerHTML);
+    target.dataset.injected = "true";
   }
 }
 
+// Desktop modal logic
+const deskRatingsBtn = document.getElementById("pilot-ratings-btn");
+const deskModal = document.getElementById("desk-pilot-ratings-modal");
+const deskModalBody = document.getElementById("desk-pilot-ratings-modal-body");
+const deskModalClose = document.querySelector(".desk-modal-close");
+
+if (deskRatingsBtn && deskModal && deskModalBody && deskModalClose) {
+  deskRatingsBtn.addEventListener("click", () => {
+    injectSharedRatingsContent("desk-pilot-ratings-modal-body");
+    deskModal.style.display = "flex";
+  });
+
+  deskModalClose.addEventListener("click", () => {
+    deskModal.style.display = "none";
+  });
+}
+
+// Mobile modal logic
+const waitForMobRatingsBtn = setInterval(() => {
+  const mobBtn = document.getElementById("pilotRatingsBtn");
+  const mobModal = document.getElementById("mob-pilot-ratings-modal");
+  const mobModalBody = document.getElementById("mob-pilot-ratings-modal-body");
+  const mobModalClose = document.getElementById("mob-pilot-ratings-close");
+
+  if (mobBtn && mobModal && mobModalBody && mobModalClose) {
+    mobBtn.addEventListener("click", () => {
+      injectSharedRatingsContent("mob-pilot-ratings-modal-body");
+      mobModal.style.display = "flex";
+    });
+
+    mobModalClose.addEventListener("click", () => {
+      mobModal.style.display = "none";
+    });
+
+    clearInterval(waitForMobRatingsBtn);
+  }
+}, 100);
+
+
+
+
+
+
   // === SERVICES SLIDESHOW ===
-  const desktopSlides = document.querySelectorAll("#desk-services-slideshow .slide");
+  const desktopSlides = document.querySelectorAll("#desk-services-slideshow .services-slide");
   let desktopIndex = 0;
   let desktopCycles = 0;
   const desktopMaxCycles = 3;
@@ -83,9 +107,7 @@ if (slideshowContainer) {
     desktopPaused = false;
     scheduleNextDesktopSlide();
   });
-}
-
-  }
+}}
 
 
   // === MOBILE SLIDESHOW ===
@@ -118,44 +140,6 @@ if (slideshowContainer) {
     }, 8000);
   }
 
-  // === MOBILE ACCORDION ===
-  document.querySelectorAll('.accordion-header').forEach(header => {
-    header.addEventListener('click', () => {
-      header.classList.toggle('open');
-      const content = header.nextElementSibling;
-      if (content && content.classList.contains('accordion-content')) {
-        const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
-        content.style.maxHeight = isOpen ? '0px' : content.scrollHeight + 'px';
-        if (!isOpen) {
-          setTimeout(() => {
-            const headerOffset = header.getBoundingClientRect().top + window.scrollY;
-            const scrollOffset = 100;
-            window.scrollTo({ top: headerOffset - scrollOffset, behavior: 'smooth' });
-          }, 150);
-        }
-      }
-    });
-  });
-
-  // === IMAGE TAP-ZOOM (MOBILE) ===
-  document.querySelectorAll(".img-wrap").forEach(function (wrap) {
-    const img = wrap.querySelector(".thumbnail");
-    if (!img) return;
-
-    img.addEventListener("click", function (e) {
-      e.stopPropagation();
-      const alreadyActive = wrap.classList.contains("active");
-
-      document.querySelectorAll(".img-wrap.active").forEach(el => el.classList.remove("active"));
-      if (!alreadyActive) {
-        wrap.classList.add("active");
-        document.body.style.overflow = "hidden";
-      } else {
-        wrap.classList.remove("active");
-        document.body.style.overflow = "";
-      }
-    });
-  });
 
   document.addEventListener("click", function (e) {
     const zoomed = document.querySelector(".img-wrap.active");
@@ -205,7 +189,7 @@ if (slideshowContainer) {
         : "/assets/mobile/burger.png";
     });
   } // <-- closes the hamburger && mobileMenu if-block
-    });
+  ;
 
 document.addEventListener("DOMContentLoaded", () => {
   // === BODY CLASS FOR MOBILE ===
@@ -226,149 +210,82 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const zoomBlocks = document.querySelectorAll(".img-wrap");
+//document.addEventListener("DOMContentLoaded", function () {
+//  const zoomBlocks = document.querySelectorAll(".img-wrap");
 
-  zoomBlocks.forEach(function (wrap) {
-    wrap.addEventListener("click", function () {
-      const isActive = wrap.classList.contains("active");
+//  zoomBlocks.forEach(function (wrap) {
+//    wrap.addEventListener("click", function () {
+//      const isActive = wrap.classList.contains("active");
 
       // Deactivate all other zooms and demote any promoted wrapper
-      document.querySelectorAll(".img-wrap.active").forEach(function (el) {
-        el.classList.remove("active");
-        const promoteWrapper = el.closest(".zoom-wrapper");
-        if (promoteWrapper) promoteWrapper.classList.remove("promote");
-      });
+  //    document.querySelectorAll(".img-wrap.active").forEach(function (el) {
+  //      el.classList.remove("active");
+  //      const promoteWrapper = el.closest(".zoom-wrapper");
+  //      if (promoteWrapper) promoteWrapper.classList.remove("promote");
+    //  });
 
-      if (!isActive) {
+  //    if (!isActive) {
         // Activate this one
-        wrap.classList.add("active");
+ //       wrap.classList.add("active");
 
         // Promote its wrapper
-        const zoomWrapper = wrap.closest(".zoom-wrapper");
-        if (zoomWrapper) zoomWrapper.classList.add("promote");
+  //      const zoomWrapper = wrap.closest(".zoom-wrapper");
+  //      if (zoomWrapper) zoomWrapper.classList.add("promote");
 
         // Allow content to bleed outside viewport
-        document.documentElement.style.overflow = "visible";
-        document.body.style.overflow = "visible";
-      } else {
+ //       document.documentElement.style.overflow = "visible";
+  //      document.body.style.overflow = "visible";
+      //} else {
         // Remove zoom + promotion
-        wrap.classList.remove("active");
-        const zoomWrapper = wrap.closest(".zoom-wrapper");
-        if (zoomWrapper) zoomWrapper.classList.remove("promote");
+        //wrap.classList.remove("active");
+        //const zoomWrapper = wrap.closest(".zoom-wrapper");
+        //if (zoomWrapper) zoomWrapper.classList.remove("promote");
 
-        document.documentElement.style.overflow = "";
-        document.body.style.overflow = "";
-      }
-    });
-  });
-});
+//        document.documentElement.style.overflow = "";
+  //      document.body.style.overflow = "";
+    //  }
+   // });
+ // });
+//});
 
 
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".mob-tooltip").forEach(function (el) {
-    el.addEventListener("click", function (e) {
-      // Toggle this tooltip
-      const isOpen = el.classList.contains("show-tooltip");
-      document.querySelectorAll(".mob-tooltip").forEach(t => t.classList.remove("show-tooltip"));
-      if (!isOpen) el.classList.add("show-tooltip");
-      e.stopPropagation(); // Prevent close-on-body-click from firing immediately
-    });
-  });
 
-  // Tap anywhere else to close any open tooltip
-  document.addEventListener("click", function () {
-    document.querySelectorAll(".mob-tooltip").forEach(el => el.classList.remove("show-tooltip"));
-  });
-});
 
-document.addEventListener("DOMContentLoaded", function () {
- const modal = document.getElementById("desk-past-deliv-modal");
-const modalImg = document.getElementById("desk-past-deliv-img");
-const modalClose = document.getElementById("desk-past-deliv-close");
 
-if (modal && modalImg && modalClose) {
-  const thumbnails = document.querySelectorAll("img[data-full]");
 
-  thumbnails.forEach(function (img) {
-    img.addEventListener("click", function () {
-      const fullSrc = this.getAttribute("data-full");
-      modalImg.src = fullSrc;
-      modal.style.display = "flex";
-    });
-  });
 
-  modal.addEventListener("click", function (e) {
-    if (e.target === modal) {
-      modal.style.display = "none";
-      modalImg.src = "";
-    }
-  });
-}
-})
+
+//document.addEventListener("DOMContentLoaded", function () {
+// const modal = document.getElementById("desk-past-deliv-modal");
+//const modalImg = document.getElementById("desk-past-deliv-img");
+//const modalClose = document.getElementById("desk-past-deliv-close");
+
+//if (modal && modalImg && modalClose) {
+//  const thumbnails = document.querySelectorAll("img[data-full]");
+
+  //thumbnails.forEach(function (img) {
+   // img.addEventListener("click", function () {
+    //  const fullSrc = this.getAttribute("data-full");
+    //  modalImg.src = fullSrc;
+   //   modal.style.display = "flex";
+  //  });
+ // });
+
+ //modal.addEventListener("click", function (e) {
+   // if (e.target === modal) {
+     // modal.style.display = "none";
+     // modalImg.src = "";
+  //  }
+ // });
+//}
+//})
 
 // Global state to manage scroll behavior
-let lastOpenedBtn = null;
-let lastOpenedY = null;
-let lastOpenedScrollY = null;
+//let lastOpenedBtn = null;
+//let lastOpenedY = null;
+//let lastOpenedScrollY = null;
 
-document.addEventListener("DOMContentLoaded", function () {
-  const toggles = document.querySelectorAll(".desk-quote-accordion-toggle");
 
-  toggles.forEach(toggle => {
-    toggle.addEventListener("click", function () {
-      const panel = document.getElementById(this.getAttribute("aria-controls"));
-      const isOpen = this.getAttribute("aria-expanded") === "true";
-
-      // Close all panels
-      document.querySelectorAll(".desk-quote-accordion-panel").forEach(p => {
-        p.hidden = true;
-      });
-      toggles.forEach(t => t.setAttribute("aria-expanded", "false"));
-
-      // Toggle this one
-      if (!isOpen) {
-        this.setAttribute("aria-expanded", "true");
-        panel.hidden = false;
-
-        // Store scroll state for possible snap-back
-        lastOpenedBtn = this;
-        lastOpenedY = this.getBoundingClientRect().top + window.pageYOffset - 225;
-        lastOpenedScrollY = window.pageYOffset;
-
-        // Scroll to newly opened accordion
-        window.scrollTo({ top: lastOpenedY, behavior: "smooth" });
-
-      } else {
-        // Manual close
-        this.setAttribute("aria-expanded", "false");
-        panel.hidden = true;
-
-        const currentScrollY = window.pageYOffset;
-        const scrollDelta = Math.abs(currentScrollY - lastOpenedScrollY);
-        const userScrolledSinceOpen = scrollDelta > 100;
-
-        console.log("DEBUG: currentScrollY =", currentScrollY);
-        console.log("DEBUG: lastOpenedScrollY =", lastOpenedScrollY);
-        console.log("DEBUG: scrollDelta =", scrollDelta);
-        console.log("DEBUG: same button?", lastOpenedBtn === this);
-        console.log("DEBUG: userScrolledSinceOpen =", userScrolledSinceOpen);
-
-        if (lastOpenedBtn === this && !userScrolledSinceOpen) {
-          console.log(">> Snap-back triggered");
-          window.scrollTo({ top: lastOpenedY, behavior: "smooth" });
-        } else {
-          console.log(">> Snap-back canceled");
-        }
-
-        // Clear stored state
-        lastOpenedBtn = null;
-        lastOpenedY = null;
-        lastOpenedScrollY = null;
-      }
-    });
-  });
-});
 
 document.addEventListener("DOMContentLoaded", function () {
   const phoneIcon = document.getElementById("phoneIcon");
@@ -453,4 +370,501 @@ document.addEventListener("DOMContentLoaded", function () {
 
   showSlide(currentIndex);
   startSlider();
+});
+
+const zoomOverlay = document.getElementById("mob-past-deliv-modal");
+const zoomImg = document.getElementById("mob-past-deliv-img");
+const zoomCaption = document.getElementById("mob-past-deliv-caption");
+
+if (zoomOverlay && zoomImg && zoomCaption) {
+  zoomOverlay.addEventListener("click", function (e) {
+    zoomOverlay.style.display = "none";
+    zoomImg.removeAttribute("src");
+    zoomImg.removeAttribute("srcset");
+    zoomCaption.textContent = "";
+  });
+
+  const thumbs = document.querySelectorAll("img[data-full]");
+  thumbs.forEach((thumb) => {
+    thumb.addEventListener("click", function () {
+      zoomImg.src = thumb.getAttribute("data-full");
+      zoomImg.srcset = thumb.getAttribute("data-srcset") || "";
+      zoomImg.setAttribute("sizes", "100vw");
+      const captionText = thumb.nextElementSibling?.textContent || "";
+      zoomCaption.textContent = captionText;
+      zoomOverlay.style.display = "flex";
+    });
+  });
+}
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const modalOverlay = document.getElementById("mob-about-zoom-overlay");
+    const modalImg = document.getElementById("mob-about-zoom-img");
+    const modalCaption = document.getElementById("mob-about-zoom-caption");
+
+    // Check if modal elements exist
+    if (!modalOverlay || !modalImg || !modalCaption) {
+        console.log("Modal elements are missing.");
+        return;
+    }
+
+    // Add click event listener to each thumbnail to open the modal
+    document.querySelectorAll(".mob-about-thumb").forEach(function (thumb) {
+        thumb.addEventListener("click", function () {
+            console.log("Modal clicked!"); // Log to verify click event
+            modalImg.src = thumb.src;
+            modalCaption.textContent = thumb.nextElementSibling?.textContent || "";
+            modalOverlay.style.display = "flex";
+        });
+    });
+
+    // Add click event listener to the overlay to close the modal when clicked
+    modalOverlay.addEventListener("click", function (e) {
+        // Check if the click is on the overlay itself (not the content)
+        if (e.target === modalOverlay) {
+            console.log("Overlay clicked, closing modal");
+            modalOverlay.style.display = "none";
+            modalImg.removeAttribute("src");
+            modalCaption.textContent = "";
+        }
+    });
+});
+
+
+
+
+// ✅ MOBILE SLIDESHOW for /past-deliveries with 1 cycle limit
+const mobSlides = document.querySelectorAll(".mob-past-deliv-slider-slide");
+let mobCurrent = 0;
+let mobCycles = 0;
+const mobMaxCycles = 1;
+const mobTotalSlides = mobSlides.length;
+
+if (mobTotalSlides > 1) {
+  const slideInterval = setInterval(() => {
+    mobSlides[mobCurrent].classList.remove("active");
+    mobCurrent = (mobCurrent + 1) % mobTotalSlides;
+    mobSlides[mobCurrent].classList.add("active");
+
+    // If we've completed a full loop, count it
+    if (mobCurrent === 0) {
+      mobCycles++;
+      if (mobCycles >= mobMaxCycles) {
+        clearInterval(slideInterval);
+        console.log("⏹️ Mobile slider stopped after 1 full cycle");
+      }
+    }
+  }, 10000);
+}
+
+// Accordion toggle logic – multiple allowed open, with scroll on open
+//const allAccordionToggles = document.querySelectorAll('.desk-quote-accordion-toggle');
+
+
+//allAccordionToggles.forEach((toggle) => {
+ // toggle.addEventListener('click', () => {
+   // const expanded = toggle.getAttribute('aria-expanded') === 'true';
+  //  toggle.setAttribute('aria-expanded', String(!expanded));
+
+//    const panel = toggle.nextElementSibling;
+  //  if (!expanded) {
+    //  panel.style.display = 'block';
+
+      // Scroll behavior
+ //     const offset = window.innerWidth <= 768 ? 100 : 60; // Mobile vs Desktop offset
+   //   const panelTop = panel.getBoundingClientRect().top + window.scrollY - offset;
+ //     window.scrollTo({ top: panelTop, behavior: 'smooth' });
+ //   } else {
+   //   panel.style.display = 'none';
+//    }
+//  });
+// });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const joinPage = document.querySelector(".join-page");
+  if (joinPage) {
+    joinPage.querySelectorAll(".join-accordion-toggle").forEach((btn) => {
+      btn.addEventListener("click", function () {
+        const wrapper = btn.closest(".join-wayaligner");
+        const panel = wrapper?.nextElementSibling;
+
+        if (!panel) {
+          console.warn("⚠️ Panel not found for join-page accordion.");
+          return;
+        }
+
+        const isOpen = btn.getAttribute("aria-expanded") === "true";
+        btn.setAttribute("aria-expanded", String(!isOpen));
+        panel.style.display = isOpen ? "none" : "block";
+      });
+    });
+  }
+
+  // All other global accordions (outside join-page)
+  document.querySelectorAll('.desk-quote-accordion-toggle').forEach((toggle) => {
+    // Skip if toggle is inside join-page (already handled above)
+    if (toggle.closest(".join-page")) return;
+
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+
+      const panel = toggle.nextElementSibling;
+      if (!panel) {
+        console.warn("⚠️ Panel not found for global accordion.");
+        return;
+      }
+
+if (!expanded) {
+  panel.style.display = 'block';
+
+  // Scroll down only until the toggle sits at headerOffset from the top
+  requestAnimationFrame(() => {
+    const headerOffset = 165; // fixed header height
+    const targetTop =
+      toggle.getBoundingClientRect().top + window.scrollY - headerOffset;
+
+    // Clamp to the document bottom
+    const maxTop = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+    const clamped = Math.min(targetTop, maxTop);
+
+    // Only scroll if we'd move DOWN (avoid upward nudges)
+    if (clamped > window.scrollY + 1) {
+      window.scrollTo({ top: clamped, behavior: 'smooth' });
+    }
+  });
+} else {
+  panel.style.display = 'none';
+}
+
+    });
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const HEADER_OFFSET = 165; // fixed header height (adjust if needed)
+
+  document.querySelectorAll(".mob-quote-toggle-btn").forEach((btn) => {
+    const formContainer = btn.closest(".mob-quote-form-wrap")?.querySelector(".mob-quote-form-container");
+    if (!formContainer) return;
+
+    btn.addEventListener("click", function () {
+      const isCollapsed = formContainer.classList.toggle("mob-quote-collapsed");
+
+      // text + aria
+      btn.textContent = isCollapsed ? "Click to view Quote Request Form" : "Hide Form";
+      btn.setAttribute("aria-expanded", String(!isCollapsed));
+
+      // On expand: scroll DOWN only until the toggle sits at HEADER_OFFSET
+      if (!isCollapsed) {
+        requestAnimationFrame(() => {
+          const targetTop = btn.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+
+          // Clamp to document bottom
+          const maxTop = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+          const clamped = Math.min(targetTop, maxTop);
+
+          // Only move if we'd scroll down
+          if (clamped > window.scrollY + 1) {
+            window.scrollTo({ top: clamped, behavior: "smooth" });
+          }
+        });
+      }
+    });
+  });
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".mob-quote-showmore-row").forEach((row) => {
+    const btn = row.querySelector(".mob-quote-toggle-btn");
+    const table = row.closest("table");
+    const hiddenRows = table?.querySelectorAll(".mob-quote-extra-row");
+
+    if (btn && hiddenRows.length > 0) {
+      btn.addEventListener("click", function () {
+        const isHidden = hiddenRows[0].classList.contains("mob-quote-hidden");
+
+        hiddenRows.forEach((r) =>
+          r.classList.toggle("mob-quote-hidden")
+        );
+
+        btn.textContent = isHidden
+          ? "Hide Extra Pay Scenarios"
+          : "Show More Pay Scenarios";
+      });
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const HEADER_OFFSET = 165; // fixed header height
+
+  document.querySelectorAll(".mob-quote-expenses-wrapper").forEach((wrapper) => {
+    const btn = wrapper.querySelector(".mob-quote-expenses-btn");
+    const container = wrapper.querySelector(".mob-quote-expenses-container");
+
+    if (btn && container) {
+      btn.addEventListener("click", function () {
+        const isCollapsed = container.classList.toggle("mob-quote-collapsed");
+
+        // text + aria
+        btn.textContent = isCollapsed ? "Show Aircraft Expenses" : "Hide Expense Details";
+        btn.setAttribute("aria-expanded", String(!isCollapsed));
+
+        // On expand: scroll DOWN only until the button sits at HEADER_OFFSET
+        if (!isCollapsed) {
+          requestAnimationFrame(() => {
+            const targetTop = btn.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+
+            // clamp to document bottom
+            const maxTop = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+            const clamped = Math.min(targetTop, maxTop);
+
+            if (clamped > window.scrollY + 1) {
+              window.scrollTo({ top: clamped, behavior: "smooth" });
+            }
+          });
+        }
+      });
+    }
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const HEADER_OFFSET = 165; // fixed header height
+
+  document.querySelectorAll(".mob-quote-admin-wrapper").forEach((wrapper) => {
+    const btn = wrapper.querySelector(".mob-quote-admin-btn");
+    const container = wrapper.querySelector(".mob-quote-admin-fee-content");
+    if (!btn || !container) return;
+
+    btn.addEventListener("click", function () {
+      const isCollapsed = container.classList.toggle("mob-quote-collapsed");
+
+      // text + aria
+      btn.textContent = isCollapsed
+        ? "Show Flight Dispatch Details"
+        : "Hide Flight Dispatch Details";
+      btn.setAttribute("aria-expanded", String(!isCollapsed));
+
+      // On expand: scroll DOWN only until the button sits at HEADER_OFFSET
+      if (!isCollapsed) {
+        requestAnimationFrame(() => {
+          const targetTop = btn.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+
+          // clamp to document bottom
+          const maxTop = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+          const clamped = Math.min(targetTop, maxTop);
+
+          if (clamped > window.scrollY + 1) {
+            window.scrollTo({ top: clamped, behavior: "smooth" });
+          }
+        });
+      }
+    });
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.matchMedia("(max-width: 1400px)").matches) { // mobile breakpoint
+    document.querySelectorAll(".desk-pilot-dir-tooltip-parent").forEach(function (parent) {
+      const tooltip = parent.querySelector(".desk-pilot-dir-tooltip-box");
+      if (!tooltip) return;
+
+      parent.addEventListener("click", function (e) {
+        e.stopPropagation(); // prevent clicks bubbling out
+        tooltip.style.display = (tooltip.style.display === "block") ? "none" : "block";
+      });
+    });
+
+    // Hide tooltips if user taps elsewhere
+    document.addEventListener("click", function () {
+      document.querySelectorAll(".desk-pilot-dir-tooltip-box").forEach(function (box) {
+        box.style.display = "none";
+      });
+    });
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Scope: ONLY the reqfaq accordions
+  const groups = document.querySelectorAll(".join-accordion-group-reqfaq");
+  if (!groups.length) return;
+
+  groups.forEach((group) => {
+    const toggles = group.querySelectorAll(".join-accordion-toggle-reqfaq");
+
+    toggles.forEach((btn) => {
+      if (btn.dataset.wired === "true") return; // avoid double-binding
+      btn.dataset.wired = "true";
+
+      // Find the associated panel:
+      // 1) aria-controls target, else 2) next sibling .join-accordion-panel-reqfaq
+      let panel = null;
+      const controlsId = btn.getAttribute("aria-controls");
+      if (controlsId) {
+        try {
+          panel = group.querySelector("#" + CSS.escape(controlsId));
+        } catch {
+          panel = null;
+        }
+      }
+      if (!panel) {
+        const next = btn.nextElementSibling;
+        if (next && next.classList.contains("join-accordion-panel-reqfaq")) panel = next;
+      }
+      if (!panel) return;
+
+      // Normalize initial state from aria-expanded
+      const expanded = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", expanded ? "true" : "false");
+      if ("hidden" in panel) panel.hidden = !expanded;
+      else panel.style.display = expanded ? "block" : "none";
+
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+
+        const isOpen = btn.getAttribute("aria-expanded") === "true";
+
+        // If this one is open, close ONLY this one and exit.
+        if (isOpen) {
+          btn.setAttribute("aria-expanded", "false");
+          if ("hidden" in panel) panel.hidden = true;
+          else panel.style.display = "none";
+          return; // do not touch the others
+        }
+
+        // Otherwise you're opening this one — close any other open reqfaq accordions in this group.
+        group.querySelectorAll('.join-accordion-toggle-reqfaq[aria-expanded="true"]').forEach((openBtn) => {
+          if (openBtn === btn) return;
+          openBtn.setAttribute("aria-expanded", "false");
+          const otherId = openBtn.getAttribute("aria-controls");
+          let otherPanel = null;
+          if (otherId) {
+            try {
+              otherPanel = group.querySelector("#" + CSS.escape(otherId));
+            } catch {
+              otherPanel = null;
+            }
+          }
+          if (!otherPanel) {
+            const ns = openBtn.nextElementSibling;
+            if (ns && ns.classList.contains("join-accordion-panel-reqfaq")) otherPanel = ns;
+          }
+          if (otherPanel) {
+            if ("hidden" in otherPanel) otherPanel.hidden = true;
+            else otherPanel.style.display = "none";
+          }
+        });
+
+        // Open the clicked one
+        btn.setAttribute("aria-expanded", "true");
+        if ("hidden" in panel) panel.hidden = false;
+        else panel.style.display = "block";
+      });
+    });
+  });
+});
+
+// Mobile pay scenarios toggle (table rows)
+const HEADER_OFFSET = 165;
+
+document.querySelectorAll('.mob-quote-pay-btn').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const controlRow = btn.closest('tr');
+    const table = controlRow ? controlRow.closest('table') : null;
+    if (!table) return;
+
+    // All extra rows in this table, excluding the row with the button
+    const targets = Array.from(
+      table.querySelectorAll('tr.mob-quote-extra-row')
+    ).filter((tr) => tr !== controlRow);
+
+    if (!targets.length) {
+      console.warn('mob-quote-pay-btn: no .mob-quote-extra-row targets found in this table');
+      return;
+    }
+
+    // Determine next state: open if all (or any) are currently hidden
+    const anyVisible = targets.some((tr) => getComputedStyle(tr).display !== 'none');
+    const open = !anyVisible;
+
+    // Toggle visibility with correct table display
+    targets.forEach((tr) => {
+      tr.style.display = open ? 'table-row' : 'none';
+    });
+
+    // Button state/text
+    btn.setAttribute('aria-expanded', String(open));
+    btn.textContent = open ? 'Hide Pay Scenarios' : 'Show More Pay Scenarios';
+
+    // On expand: scroll DOWN to place the button at HEADER_OFFSET from top
+    if (open) {
+      requestAnimationFrame(() => {
+        const targetTop = btn.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+        const maxTop = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+        const clamped = Math.min(targetTop, maxTop);
+        if (clamped > window.scrollY + 1) {
+          window.scrollTo({ top: clamped, behavior: 'smooth' });
+        }
+      });
+    }
+  });
+});
+
+// Tooltips for .mob-past-deliv-tooltip
+document.addEventListener('DOMContentLoaded', () => {
+  const triggers = Array.from(document.querySelectorAll('.mob-past-deliv-tooltip'));
+  let openEl = null;
+
+  function closeCurrent() {
+    if (!openEl) return;
+    openEl.classList.remove('show-tooltip');
+    openEl.setAttribute('aria-expanded', 'false');
+    openEl = null;
+  }
+
+  triggers.forEach(el => {
+    // a11y + focusability
+    el.setAttribute('tabindex', el.tabIndex >= 0 ? el.tabIndex : '0');
+    el.setAttribute('role', 'button');
+    el.setAttribute('aria-haspopup', 'true');
+    el.setAttribute('aria-expanded', 'false');
+
+    const toggle = (evt) => {
+      evt.stopPropagation();
+      if (openEl === el) {
+        closeCurrent();
+      } else {
+        closeCurrent();
+        el.classList.add('show-tooltip');
+        el.setAttribute('aria-expanded', 'true');
+        openEl = el;
+      }
+    };
+
+    el.addEventListener('click', toggle);
+    el.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggle(e);
+      }
+    });
+  });
+
+  // Close behaviors
+  document.addEventListener('click', closeCurrent);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeCurrent(); });
+  window.addEventListener('scroll', closeCurrent, { passive: true });
+  window.addEventListener('resize', closeCurrent);
 });

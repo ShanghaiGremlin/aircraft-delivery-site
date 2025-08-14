@@ -17,7 +17,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/style.css">
 
 </head>
 <body>
@@ -37,23 +37,25 @@
   });
 </script>
 
- 
 </div>
-
-
 
 <div class="mobile-only">
 
 <!--MOBILE-ONLY HEADER-->
 <!--MOBILE-ONLY HEADER-->
 
-  <header class="mobile-header">
+  <div class="mobile-only">
+    <header class="mobile-header">
 
     <div class="mobile-header-slot-left"><img src="/assets/mobile/burger.png" alt="Menu" id="hamburger-icon">
     </div>
 
-    <div class="mobile-logo">
-      <a href="/index"><img src="/assets/mobile/mobile-logo-640w.png" loading="lazy" srcset="/assets/mobile/mobile-logo-320w.png 320w, /assets/mobile/mobile-logo-640w.png 640w, /assets/mobile/mobile-logo-640w@2x.png 1280w" sizes="(max-width: 480px) 320px, (max-width: 768px) 640px" alt="Aircraft Delivery Logo" id="mobile-logo-img"></a>
+    <div class="mobile-logo" id="mobile-logo">
+      <a href="/"><img src="/assets/mobile/mobile-logo-v2.png" alt="Aircraft Delivery Logo"></a>
+    </div>
+
+    <div class="mobile-logo-90" id="mobile-logo-90">
+      <a href="/"><img src="/assets/mobile/mobile-logo-90.png" alt="Aircraft Delivery Logo" ></a>
     </div>
 
     <div class="mobile-header-slot-right"><a href="tel:+14158458163"><img src="/assets/mobile/phone.png" alt="Call me" id="phone-icon"></a>
@@ -72,21 +74,18 @@
     </nav>
   </div>
 </div>
+</div>
+<main class="pilot-dir-main">
 
-<main>
-
-<div class="desktop-only" style= "padding-top: 165px; background-color: #f5f5f5;">
-  <h2 style="margin-bottom: 30px;" class="page-title-brick">FERRY PILOT DIRECTORY</h2>
-
-
-<div class="desk-pilot-dir-toparea-container">
-
-  <div style="background-color: white; width: 50%; margin: 0 auto; text-align: center;">
-  <h1 style="margin: 0 auto; font-size: 1.8rem; font-weight: bold; text-decoration: underline;">Complete Crews</h1>
-
-  <p style="font-size: 1.375rem; margin: 0 auto;">I have at least 1 (or 2 when required) pilots that have type-ratings in these types:</p></div>
+<div class="page-title-brick page-title-brick-centered" style="margin-top: 10px;">FERRY PILOT DIRECTORY</div>
 
 
+<div class="pilot-dir-toparea-container">
+
+  <div class="pilot-dir-crewstatement"><h1>Complete Crews</h1>
+
+  <p>I have at least 1 (or 2 when required) pilots that have type-ratings in these types:</p>
+</div>
 
 <div class="desk-pilot-directory-typewrapper">
 
@@ -101,15 +100,14 @@
 <div><img class="desk-pilot-directory-typepix" alt= "Metroliner" src="/assets/pilot-directory/typethumbs/metro.png"></div>
 
 </div>
-  
-<div class="desk-pilot-directory-typewrapper">
 
-<div id="pilot-ratings-btn" style="background-color: #007bff; color: white; padding: 12px 24px; border-radius: 6px; font-size: 1.5rem; text-decoration: none; cursor: pointer; box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25);">
-  View Pilot Type Ratings
+<div class="pilot-dir-buttons" id="pilot-ratings-btn">
+  View Pilot Type Ratings</div>
+
+<a href="/join-pilot-roster" class="pilot-dir-buttons">Join This Pilot Roster</a>
+
 </div>
-
-<div><button style="background-color: #007bff; color: white; border: none; padding: 12px 24px; border-radius: 6px; font-size: 1.5rem; box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25); width: auto;"><a href="/join-pilot-roster" style="color: inherit; text-decoration: none;">Join Pilot Roster</a></button></div>
-</div></div>  
+</div> 
 
 
 
@@ -118,8 +116,8 @@
   <div class="pilot-tile">
     <img src="/assets/pilot-directory/headshots/bob-flag.jpg" alt="Bob N." loading="lazy" class="desk-pilot-headshot">
     <div class="desk-pilot-directory-pilotname">Bob N.</div>
-    <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="tooltip-parent">
-        <img src="/assets/pilot-directory/atp.jpg" alt="ATP" class="desk-pilot-dir-pilot-license">  <span class="tooltip-box">F.A.A. Airline Transport Pilot certificate</span></span>
+    <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
+        <img src="/assets/pilot-directory/atp.jpg" alt="ATP" class="desk-pilot-dir-pilot-license">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Airline Transport Pilot certificate</span></span>
 
     <ul class="desk-pilot-directory-pilotbio">
       <li>Type ratings: L-300 (C141), DC-9, B-747-200, B-747-400/-8</li>
@@ -131,8 +129,8 @@
     <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/victor-flag.jpg" alt="V.P. M." loading="lazy" class="desk-pilot-headshot">
     <div class="desk-pilot-directory-pilotname">V.P. M.</div>
 
-          <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="tooltip-parent">
-        <img src="/assets/pilot-directory/atp-cfi.jpg" alt="ATP-CFI" class="desk-pilot-dir-atp-cfi">  <span class="tooltip-box">F.A.A. Airline Transport Pilot & Flight Instructor certificates</span></span>
+          <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
+        <img src="/assets/pilot-directory/atp-cfi.jpg" alt="ATP-CFI" class="desk-pilot-dir-atp-cfi">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Airline Transport Pilot & Flight Instructor certificates</span></span>
 
             <ul class="desk-pilot-directory-pilotbio">
       <li>Current Employment: Part 121 E175 Captain</li>
@@ -146,8 +144,8 @@
     <img src="/assets/pilot-directory/headshots/mike-bach.jpg"  loading="lazy" alt="Mike B." class="desk-pilot-headshot">
     <div class="desk-pilot-directory-pilotname">Mike B.</div>
         
-    <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="tooltip-parent">
-        <img src="/assets/pilot-directory/atp-cfi.jpg" alt="ATP-CFI" class="desk-pilot-dir-atp-cfi">  <span class="tooltip-box">F.A.A. Airline Transport Pilot & Flight Instructor certificates</span></span>
+    <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
+        <img src="/assets/pilot-directory/atp-cfi.jpg" alt="ATP-CFI" class="desk-pilot-dir-atp-cfi">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Airline Transport Pilot & Flight Instructor certificates</span></span>
 
     <ul class="desk-pilot-directory-pilotbio">
       <li>Current Employment: Central Africa contract King Air 350 Captain</li>
@@ -162,8 +160,8 @@
     <img src="/assets/pilot-directory/headshots/les-s.jpg" loading="lazy" alt="Les S." class="desk-pilot-headshot">
     <div class="desk-pilot-directory-pilotname">Les S.</div>
 
-        <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="tooltip-parent">
-        <img src="/assets/pilot-directory/atp-cfi.jpg" alt="ATP-CFI" class="desk-pilot-dir-atp-cfi">  <span class="tooltip-box">F.A.A. Airline Transport Pilot & Flight Instructor certificates</span></span>
+        <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
+        <img src="/assets/pilot-directory/atp-cfi.jpg" alt="ATP-CFI" class="desk-pilot-dir-atp-cfi">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Airline Transport Pilot & Flight Instructor certificates</span></span>
 
     <ul class="desk-pilot-directory-pilotbio">
       <li>Current Employment: Air Ambulance Lear 60 Captain</li>
@@ -176,8 +174,8 @@
   <div class="pilot-tile">
     <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/erick.jpg" alt="Erick G." loading="lazy" class="desk-pilot-headshot">
     <div class="desk-pilot-directory-pilotname">Erick G.</div>
-          <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="tooltip-parent">
-        <img src="/assets/pilot-directory/cfi.jpg" alt="CFI" class="desk-pilot-dir-cfi">  <span class="tooltip-box">F.A.A. Flight Instructor certificate</span></span>
+          <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
+        <img src="/assets/pilot-directory/cfi.jpg" alt="CFI" class="desk-pilot-dir-cfi">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Flight Instructor certificate</span></span>
     <ul class="desk-pilot-directory-pilotbio">
       <li>Pilot Certificate: Commercial Pilot</li>
       <li>Type ratings: LR-JET [SIC]</li>
@@ -189,8 +187,8 @@
   <div class="pilot-tile">
   <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/nick.jpg" alt="Nick M." loading="lazy" class="desk-pilot-headshot">
   <div class="desk-pilot-directory-pilotname">Nick M.</div>
-      <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="tooltip-parent">
-        <img src="/assets/pilot-directory/atp.jpg" alt="ATP" class="desk-pilot-dir-pilot-license">  <span class="tooltip-box">F.A.A. Airline Transport Pilot certificate</span></span>
+      <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
+        <img src="/assets/pilot-directory/atp.jpg" alt="ATP" class="desk-pilot-dir-pilot-license">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Airline Transport Pilot certificate</span></span>
   <ul class="desk-pilot-directory-pilotbio">
     <li>Current Employment: Part 91(K) Fractional EMB-550 (Praetor) First Officer</li>
     <li>Type Ratings: EMB-550 (Praetor), FA-20 (Falcon), FA-50 [SIC], LRJET [SIC]</li>
@@ -202,7 +200,7 @@
   <img src="assets/pilot-directory/headshots/jeremy-flag.jpg" alt="Jeremy R." loading="lazy" class="desk-pilot-headshot">
   <div class="desk-pilot-directory-pilotname">Jeremy R.</div>
       <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar">
-      <span class="tooltip-parent"><img src="/assets/pilot-directory/atp.jpg" alt="ATP" class="desk-pilot-dir-pilot-license"><span class="tooltip-box">F.A.A. Airline Transport Pilot - certificate</span></span><span class="tooltip-parent"><img src="/assets/pilot-directory/copter-icon.png" alt="Helicopter icon" class="desk-pilot-dir-pilot-license">  <span class="tooltip-box">Helicopter Pilot</span></span>
+      <span class="desk-pilot-dir-tooltip-parent"><img src="/assets/pilot-directory/atp.jpg" alt="ATP" class="desk-pilot-dir-pilot-license"><span class="desk-pilot-dir-tooltip-box">F.A.A. Airline Transport Pilot - certificate</span></span><span class="desk-pilot-dir-tooltip-parent"><img src="/assets/pilot-directory/copter-icon.png" alt="Helicopter icon" class="desk-pilot-dir-pilot-license">  <span class="desk-pilot-dir-tooltip-box">Helicopter Pilot</span></span>
 
 
   <ul class="desk-pilot-directory-pilotbio">
@@ -218,8 +216,8 @@
 <div class="pilot-tile">
   <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/sheldon.jpg" loading="lazy" alt="Sheldon L." class="desk-pilot-headshot">
   <div class="desk-pilot-directory-pilotname">Sheldon L.</div>
-      <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="tooltip-parent">
-        <img src="/assets/pilot-directory/atp-cfi.jpg" alt="ATP-CFI" class="desk-pilot-dir-atp-cfi">  <span class="tooltip-box">F.A.A. Airline Transport Pilot & Flight Instructor certificates</span></span>
+      <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
+        <img src="/assets/pilot-directory/atp-cfi.jpg" alt="ATP-CFI" class="desk-pilot-dir-atp-cfi">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Airline Transport Pilot & Flight Instructor certificates</span></span>
   <ul class="desk-pilot-directory-pilotbio">
     <li>Ratings: Airplane Single Engine Sea</li>
     <li>Total time: 4,000</li>
@@ -229,8 +227,8 @@
 <div class="pilot-tile">
   <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/Brandon-W.jpg" alt="Brandon W." loading="lazy" class="desk-pilot-headshot">
   <div class="desk-pilot-directory-pilotname">Brandon W.</div>
-           <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="tooltip-parent">
-        <img src="/assets/pilot-directory/cfi.jpg" alt="CFI" class="desk-pilot-dir-cfi">  <span class="tooltip-box">F.A.A. Flight Instructor certificate</span></span>
+           <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
+        <img src="/assets/pilot-directory/cfi.jpg" alt="CFI" class="desk-pilot-dir-cfi">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Flight Instructor certificate</span></span>
   <ul class="desk-pilot-directory-pilotbio">
     <li>Current Employment: Part 135 CE-208 Captain, Alaska-based</li>
     <li>Pilot Certificate: Commercial Pilot</li>
@@ -243,8 +241,8 @@
 <div class="pilot-tile">
   <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/wolfie.jpg" loading="lazy" alt="Wolfe C." class="desk-pilot-headshot">
   <div class="desk-pilot-directory-pilotname">Wolfe C.</div>
-      <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="tooltip-parent">
-        <img src="/assets/pilot-directory/atp-cfi.jpg" alt="ATP-CFI" class="desk-pilot-dir-atp-cfi">  <span class="tooltip-box">F.A.A. Airline Transport Pilot & Flight Instructor certificates</span></span>
+      <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
+        <img src="/assets/pilot-directory/atp-cfi.jpg" alt="ATP-CFI" class="desk-pilot-dir-atp-cfi">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Airline Transport Pilot & Flight Instructor certificates</span></span>
   <ul class="desk-pilot-directory-pilotbio">
     <li>Current Employment: Part 135 CE-750 First Officer</li>
     <li>Pilot Certificate: Airline Transport Pilot (R): age</li>
@@ -258,8 +256,8 @@
 <div class="pilot-tile">
   <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/doug.jpg" alt="Doug C." loading="lazy" class="desk-pilot-headshot">
   <div class="desk-pilot-directory-pilotname">Doug C.</div>
-      <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="tooltip-parent">
-        <img src="/assets/pilot-directory/atp-cfi.jpg" alt="ATP-CFI" class="desk-pilot-dir-atp-cfi">  <span class="tooltip-box">F.A.A. Airline Transport Pilot & Flight Instructor certificates</span></span>
+      <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
+        <img src="/assets/pilot-directory/atp-cfi.jpg" alt="ATP-CFI" class="desk-pilot-dir-atp-cfi">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Airline Transport Pilot & Flight Instructor certificates</span></span>
   <ul class="desk-pilot-directory-pilotbio">
     <li>Current Employment: Part 121 E175 Captain</li>
     <li>Type Ratings: DHC-8, EMB-170/175/190/195</li>
@@ -270,8 +268,8 @@
 <div class="pilot-tile">
   <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/andrew-e.jpg" alt="Andrew E." loading="lazy" class="desk-pilot-headshot">
   <div class="desk-pilot-directory-pilotname">Andrew E.</div>
-      <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="tooltip-parent">
-        <img src="/assets/pilot-directory/atp-cfi.jpg" alt="ATP-CFI" class="desk-pilot-dir-atp-cfi">  <span class="tooltip-box">F.A.A. Airline Transport Pilot & Flight Instructor certificates</span></span>
+      <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
+        <img src="/assets/pilot-directory/atp-cfi.jpg" alt="ATP-CFI" class="desk-pilot-dir-atp-cfi">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Airline Transport Pilot & Flight Instructor certificates</span></span>
   <ul class="desk-pilot-directory-pilotbio">
     <li>Current Employment: Part 135 Citation X First Officer</li>
     <li>Type Ratings: CE-750 (Citation X)</li>
@@ -298,8 +296,8 @@
 <div class="pilot-tile">
   <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/will-k.jpg" alt="Will K." loading="lazy" class="desk-pilot-headshot">
   <div class="desk-pilot-directory-pilotname">Will K.</div>
-          <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="tooltip-parent">
-        <img src="/assets/pilot-directory/cfi.jpg" alt="CFI" class="desk-pilot-dir-cfi">  <span class="tooltip-box">F.A.A. Flight Instructor certificate</span></span>
+          <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
+        <img src="/assets/pilot-directory/cfi.jpg" alt="CFI" class="desk-pilot-dir-cfi">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Flight Instructor certificate</span></span>
   <ul class="desk-pilot-directory-pilotbio">
     <li>Current Employment: Part 141 Flight School Senior Lead Instructor & 141 Check Airman</li>
     <li>Pilot Certificate: Commercial Pilot</li>
@@ -312,8 +310,8 @@
   <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/don.jpg" alt="Don H." loading="lazy" class="desk-pilot-headshot">
   <div class="desk-pilot-directory-pilotname">Don H.</div>
 
-          <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="tooltip-parent">
-        <img src="/assets/pilot-directory/cfi.jpg" alt="CFI" class="desk-pilot-dir-cfi">  <span class="tooltip-box">F.A.A. Flight Instructor certificate</span></span>
+          <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
+        <img src="/assets/pilot-directory/cfi.jpg" alt="CFI" class="desk-pilot-dir-cfi">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Flight Instructor certificate</span></span>
 
   <ul class="desk-pilot-directory-pilotbio">
     <li>Pilot Certificate: Commercial Pilot</li>
@@ -330,8 +328,8 @@
 
           <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar">
 
-          <span class="tooltip-parent">
-        <img src="/assets/pilot-directory/copter-icon.png" alt="Helicopter Pilot" class="desk-pilot-dir-cfi">  <span class="tooltip-box">Helicopter Pilot</span></span>
+          <span class="desk-pilot-dir-tooltip-parent">
+        <img src="/assets/pilot-directory/copter-icon.png" alt="Helicopter Pilot" class="desk-pilot-dir-cfi">  <span class="desk-pilot-dir-tooltip-box">Helicopter Pilot</span></span>
 
   <ul class="desk-pilot-directory-pilotbio">
     <li>Current Employment: Army National Guard UH-60 Aircraft Commander</li>
@@ -360,8 +358,8 @@
   <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/joseph-1.jpg" alt="Joseph W." loading="lazy" class="desk-pilot-headshot">
   <div class="desk-pilot-directory-pilotname">Joseph W.</div>
 
-               <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="tooltip-parent">
-        <img src="/assets/pilot-directory/cfi.jpg" alt="CFI" class="desk-pilot-dir-cfi">  <span class="tooltip-box">F.A.A. Flight Instructor certificate</span></span>
+               <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
+        <img src="/assets/pilot-directory/cfi.jpg" alt="CFI" class="desk-pilot-dir-cfi">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Flight Instructor certificate</span></span>
 
   <ul class="desk-pilot-directory-pilotbio">
     <li>Pilot Certificate: Commercial Pilot</li>
@@ -385,8 +383,8 @@
 <div class="pilot-tile">
   <img src="/assets/pilot-directory/headshots/zach-f.jpg" loading="lazy" alt="Zach F" class="desk-pilot-headshot">
   <div class="desk-pilot-directory-pilotname">Zach F.</div>
-          <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="tooltip-parent">
-        <img src="/assets/pilot-directory/cfi.jpg" alt="CFI" class="desk-pilot-dir-cfi">  <span class="tooltip-box">F.A.A. Flight Instructor certificate</span></span>
+          <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
+        <img src="/assets/pilot-directory/cfi.jpg" alt="CFI" class="desk-pilot-dir-cfi">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Flight Instructor certificate</span></span>
   <ul class="desk-pilot-directory-pilotbio">
     <li>Pilot Certificate: Commercial Pilot</li>
     <li>Total time: 360</li>
@@ -410,8 +408,8 @@
 <div class="pilot-tile">
   <img src="https://cdn.jsdelivr.net/gh/ShanghaiGremlin/aircraft-delivery-site@main/assets/pilot-directory/headshots/ben-b.jpg" loading="lazy" alt="Ben B." class="desk-pilot-headshot">
   <div class="desk-pilot-directory-pilotname">Ben B.</div>
-          <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="tooltip-parent">
-        <img src="/assets/pilot-directory/cfi.jpg" alt="CFI" class="desk-pilot-dir-cfi">  <span class="tooltip-box">F.A.A. Flight Instructor certificate</span></span>
+          <img src="/assets/pilot-directory/faa-bar.jpg" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
+        <img src="/assets/pilot-directory/cfi.jpg" alt="CFI" class="desk-pilot-dir-cfi">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Flight Instructor certificate</span></span>
   <ul class="desk-pilot-directory-pilotbio">
     <li>Pilot Certificate: Commercial Pilot</li>
     <li>Total time: 300</li>
@@ -439,15 +437,46 @@
 </div>
 </div>
 
-<!-- DIVIDER BETWEEN DESKTOP AND MOBILE DIVS -->
-         <!-- DIVIDER BETWEEN DESKTOP AND MOBILE DIVS -->
-              <!-- DIVIDER BETWEEN DESKTOP AND MOBILE DIVS -->
+<!--<div class="mobile-only" style="padding-top: 60px; background-color: rgb(244, 241, 241);">
 
-              
-<div class="mobile-only" style="padding-top: 70px; background-color: #e9eff4;">
-  <h1 class="mob-page-title-brick" id="brick-toobig">FERRY PILOT DIRECTORY</h1>
+<div class="page-title-brick-wrapper">
+  <div class="page-title-brick">
+    FERRY PILOT<span class="subhead-break"> DIRECTORY</span>
+  </div>
+</div>
 
-    <div style="width: 95%; margin: 0 auto; background-color: #fdfdfd; border: 1px solid #aaa; padding: 10px 10px 5px 10px; border-radius: 8px; box-sizing: border-box; text-align: center;">
+<div class="desk-pilot-dir-toparea-container">
+
+  <div style="background-color: white; width: 50%; margin: 0 auto; text-align: center;">
+  <h1 style="margin: 0 auto; font-size: 1.8rem; font-weight: bold; text-decoration: underline;">Complete Crews</h1>
+
+  <p style="font-size: 1.375rem; margin: 0 auto;">I have at least 1 (or 2 when required) pilots that have type-ratings in these types:</p></div>
+
+<div class="desk-pilot-directory-typewrapper">
+
+<div><img class="desk-pilot-directory-typepix" alt="Cessna Citation" src="/assets/pilot-directory/typethumbs/citationxbust2.png"></div>
+
+<div><img class="desk-pilot-directory-typepix" alt="E175" src="/assets/pilot-directory/typethumbs/E175.png"></div>
+
+<div><img class="desk-pilot-directory-typepix" alt="KingAir" src="/assets/pilot-directory/typethumbs/KA-350.png"></div>
+
+<div><img class="desk-pilot-directory-typepix" alt="Lear 35" src="/assets/pilot-directory/typethumbs/LR35.png"></div>
+
+<div><img class="desk-pilot-directory-typepix" alt= "Metroliner" src="/assets/pilot-directory/typethumbs/metro.png"></div>
+
+</div>
+  
+<div class="desk-pilot-directory-typewrapper">
+
+<div id="pilot-ratings-btn" style="background-color: #007bff; color: white; padding: 12px 24px; border-radius: 6px; font-size: 1.5rem; text-decoration: none; cursor: pointer; box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25);">
+  View Pilot Type Ratings
+</div>
+
+
+<div><button style="background-color: #007bff; color: white; border: none; padding: 12px 24px; border-radius: 6px; font-size: 1.5rem; box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25); width: auto;"><a href="/join-pilot-roster" style="color: inherit; text-decoration: none;">Join Pilot Roster</a></button></div>
+</div></div>  
+
+<div style="width: 95%; margin: 0 auto; background-color: #fdfdfd; border: 1px solid #aaa; padding: 10px 10px 5px 10px; border-radius: 8px; box-sizing: border-box; text-align: center;">
     <p style="font-size: 1.625rem; margin: 0 auto;"><u>Complete Crews</u></p>
     <p style="font-size: 1.125rem; margin: 0 auto;">I have at least 1 (or 2 when required) pilots that have ratings in these types:</p>
 
@@ -542,11 +571,10 @@
 <div class="mob-pilot-directory-pilotname">ERICK G.</div>
 </td>
 
-<!--PLACEHOLDER-->
-<td class="gallery-img-cell">
-  <p style="font-size: 1rem; color: #aaa;">This space intentionally left blank</p>
-  </td>
-</tr>
+  <td class="gallery-img-cell">
+      <img alt="Image 1" loading="lazy" src="/assets/pilot-directory/headshots/nick.jpg" class="mob-pilot-directory-headshot"/>
+<div class="mob-pilot-directory-pilotname">NICK M.</div>
+</td></tr>
 
 <tr><td class="mob-pilot-directory-table-descr">
 <ul class="mob-pilot-directory-tight-bullets">
@@ -557,27 +585,35 @@
 <li>Language: Fluent in Spanish</li>
 </ul></td>
 
-<!--PLACEHOLDER-->
-<td class="mob-pilot-directory-table-descr">&nbsp;</td>
-</tr>
-
-  <tr><td class="gallery-img-cell">
-      <img alt="Image 1" loading="lazy" src="/assets/pilot-directory/headshots/nick.jpg" class="mob-pilot-directory-headshot"/>
-<div class="mob-pilot-directory-pilotname">NICK M.</div>
-</td>
-<td class="gallery-img-cell">
-<img alt="Image 2" loading="lazy" src="/assets/pilot-directory/headshots/sheldon.jpg" class="mob-pilot-directory-headshot"/>
-<div class="mob-pilot-directory-pilotname">SHELDON L.</div>
-</td></tr>
-
-<tr>
 <td class="mob-pilot-directory-table-descr">
 <ul class="mob-pilot-directory-tight-bullets">
 <li>Current Employment: USA Part 91(K) Fractional EMB-550 (Praetor) First Officer</li>
 <li>Pilot Certificate: FAA Airline Transport Pilot</li>
 <li>Type Ratings: EMB-550 (Praetor), FA-20 (Falcon), FA-50 [SIC], LRJET [SIC]</li>
 <li>Total time: 5,000</li>
-</ul></td>
+</ul></td></tr>
+
+<tr><td class="gallery-img-cell">
+<img alt="Jeremy" loading="lazy" src="/assets/pilot-directory/headshots/jeremy-flag.jpg" class="mob-pilot-directory-headshot"/>
+<div class="mob-pilot-directory-pilotname">JEREMY R.</div>
+</td>
+
+<td class="gallery-img-cell">
+<img alt="Sheldon" loading="lazy" src="/assets/pilot-directory/headshots/sheldon.jpg" class="mob-pilot-directory-headshot"/>
+<div class="mob-pilot-directory-pilotname">SHELDON L.</div>
+</td></tr>
+
+<tr>
+<td class="mob-pilot-directory-table-descr">
+<ul class="mob-pilot-directory-tight-bullets">
+<li>Current Employment: Domestic & Overseas Contract EC225LP Super Puma Helicopter Pilot</li>
+<li>Pilot Certificates: Airline Transport Pilot - Rotorcraft Helicopter; Commercial Pilot Airplane Multi-Engine, Instrument</li>
+<li>Type Ratings: EC225LP (Super Puma Helicopter), EC332L (Super Puma Helicopter) [SIC], EC332L1 (Super Puma Helicopter) [SIC], SA330 (Puma Helicopter) [SIC]</li>
+<li>Qualified in Bell 206, 212, 407, 412 Helicopters</li>
+<li>US Army veteran</li>
+<li>Total time: 4,400</li>
+</td>
+
 <td class="mob-pilot-directory-table-descr">
 <ul class="mob-pilot-directory-tight-bullets">
 <li>Pilot Certificate: FAA Airline Transport Pilot</li>
@@ -585,6 +621,12 @@
 <li>Ratings: Airplane Single Engine Sea</li>
 <li>Total time: 4,000</li></ul>
 </td></tr>
+
+
+
+
+
+
 
   <tr><td class="gallery-img-cell">
       <img alt="Image 1" src="/assets/pilot-directory/headshots/Brandon-W.jpg" loading="lazy" class="mob-pilot-directory-headshot"/>
@@ -781,39 +823,20 @@
 <p class="mob-std-small" style="text-align: left;">denotes number of completed A.D.S. ferry flights</p></td>
 </tr></table>
 
-</div>
+</div>-->
 
 </main>
 
-<!-- Mobile Modal Container -->
-<div id="unified-modal"
-     style="position: fixed; z-index: 9999; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.7); display: none; justify-content: center; align-items: center;">
-  <div id="unified-modal-body"
-       style="background: white; padding: 20px; border-radius: 8px; max-width: 80vw; max-height: 80vh; overflow-y: auto;">
-    <!-- Pilot Ratings Content -->
-    <h2 style="text-align: center;"><u>Aircraft Delivery Solutions Pilot Type Ratings</u></h2>
-    <ul style="padding-left: 20px; font-size: 1.2rem; line-height: 1.6; text-align: left;">
-      <li><b>BEECHCRAFT:</b> BE300 (King Air 350)</li>
-      <li><b>BOEING:</b> B747-200, B747-400/8, DC-9</li>
-      <li><b>BOMBARDIER:</b> CL-65, DHC-8, LR-JET</li>
-      <li><b>CESSNA:</b> CE-750 (Citation X)</li>
-      <li><b>DASSAULT:</b> FA-20, FA-50 [SIC]</li>
-      <li><b>EMBRAER:</b> EMB-120, EMB-170–195, EMB-550</li>
-      <li><b>FAIRCHILD:</b> SA-227</li>
-      <li><b>GULFSTREAM:</b> IAI-1125 (G100), Gulfstream IV [SIC]</li>
-      <li><b>LOCKHEED:</b> L-300 (C141)</li>
-      <li><b>SIKORSKY:</b> S-70 (UH-60)</li>
-    </ul>
+<div id="desk-pilot-ratings-modal" class="desk-pilot-dir-modal">
+  <div id="desk-pilot-ratings-modal-body" class="desk-pilot-dir-modal-body">
+   <button class="desk-modal-close">Close</button>
   </div>
 </div>
 
-<!-- Desktop Modal Container -->
-<div id="custom-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); justify-content: center; align-items: center; z-index: 9999;">
-  <div id="modal-body" style="background: white; padding: 30px 20px; border-radius: 10px; max-width: 90%; max-height: 85vh; overflow-y: auto; position: relative; text-align: left;">
-        <!-- Pilot Ratings Content -->
-    <h2 style="text-align: center; font-size: 1.5rem;"><u><b>Aircraft Delivery Solutions Pilot Type Ratings</b></u></h2>
-    <ul style="padding-left: 20px; font-size: 1.2rem; line-height: 1.6; text-align: left;">
-      <li><b>BEECHCRAFT:</b> BE300 (King Air 350)</li>
+<div id="pilot-dir-shared-pilot-ratings-content" style="display: none;">
+  <h2 style="text-align: center; font-size: 1.6rem;"><u>Aircraft Delivery Solutions Pilot Type Ratings</u></h2>
+  <ul style="padding-left: 20px; font-size: 1.2rem; line-height: 1.6; text-align: left;">
+    <li><b>BEECHCRAFT:</b> BE300 (King Air 350)</li>
       <li><b>BOEING:</b> B747-200, B747-400/8, DC-9</li>
       <li><b>BOMBARDIER:</b> CL-65, DHC-8, LR-JET</li>
       <li><b>CESSNA:</b> CE-750 (Citation X)</li>
@@ -824,13 +847,11 @@
       <li><b>GULFSTREAM:</b> IAI-1125 (G100), Gulfstream IV [SIC]</li>
       <li><b>LOCKHEED:</b> L-300 (C141)</li>
       <li><b>SIKORSKY:</b> S-70 (UH-60)</li>
-    </ul>
-    <button id="custom-modal-close" style="position: absolute; top: 10px; right: 12px; background: transparent; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
-  </div>
+  </ul>
 </div>
     
 <script src="script.js"></script>
-<!--forces cache reload when used on localhost or with dev.aircraft.delivery-->
+
 
 
 </body>
