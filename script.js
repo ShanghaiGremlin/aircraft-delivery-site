@@ -974,3 +974,50 @@ document.addEventListener("DOMContentLoaded", () => {
   obs.observe(menu, { attributes: true, attributeFilter: ["class"] });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const menu = document.getElementById("mobileMenu");
+  if (!menu) return;
+
+  let isLocked = false;
+  let savedScrollY = 0;
+
+  const lockScroll = () => {
+    if (isLocked) return;
+    savedScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+    document.documentElement.classList.add("menu-open"); // matches your CSS
+    // Fix the body in place so iOS doesn’t lose position
+    const s = document.body.style;
+    s.position = "fixed";
+    s.top = `-${savedScrollY}px`;
+    s.left = "0";
+    s.right = "0";
+    s.width = "100%";
+    isLocked = true;
+  };
+
+  const unlockScroll = () => {
+    if (!isLocked) return;
+    document.documentElement.classList.remove("menu-open");
+    // Remove fixed positioning and restore the exact scroll location
+    const s = document.body.style;
+    s.position = "";
+    s.top = "";
+    s.left = "";
+    s.right = "";
+    s.width = "";
+    window.scrollTo(0, savedScrollY);
+    isLocked = false;
+  };
+
+  const sync = () => {
+    if (menu.classList.contains("show")) lockScroll();
+    else unlockScroll();
+  };
+
+  // Initial sync in case the class is already set
+  sync();
+
+  // Track menu open/close no matter who toggles it
+  const obs = new MutationObserver(sync);
+  obs.observe(menu, { attributes: true, attributeFilter: ["class"] });
+});
