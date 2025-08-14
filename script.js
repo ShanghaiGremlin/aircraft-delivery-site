@@ -991,3 +991,23 @@ document.addEventListener("DOMContentLoaded", () => {
   updateAria();
   new MutationObserver(updateAria).observe(menu, { attributes: true, attributeFilter: ["class"] });
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const menu = document.getElementById("mobileMenu");
+  const hamburger = document.getElementById("hamburger-icon");
+  if (!menu || !hamburger) return;
+
+  if (!window.__adsEscBound) {
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && menu.classList.contains("show")) {
+        if (typeof hamburger.click === "function") {
+          hamburger.click();       // reuse your existing close path
+        } else {
+          menu.classList.remove("show"); // fallback; observer will sync aria/scroll-lock
+        }
+      }
+    });
+    window.__adsEscBound = true;
+  }
+});
