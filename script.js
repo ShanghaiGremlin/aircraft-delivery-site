@@ -976,7 +976,7 @@ document.addEventListener("DOMContentLoaded", () => {
   obs.observe(menu, { attributes: true, attributeFilter: ["class"] });
 });
 
-
+// update ARIA //
 document.addEventListener("DOMContentLoaded", () => {
   const menu = document.getElementById("mobileMenu");
   const hamburger = document.getElementById("hamburger-icon");
@@ -985,12 +985,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const updateAria = () => {
     const isOpen = menu.classList.contains("show");
     hamburger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    hamburger.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
   };
 
-  // initial + changes
   updateAria();
   new MutationObserver(updateAria).observe(menu, { attributes: true, attributeFilter: ["class"] });
 });
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
