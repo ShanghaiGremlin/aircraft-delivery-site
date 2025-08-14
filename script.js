@@ -1115,10 +1115,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const focusIntoMenu = () => {
     // First focusable thing inside the menu
-    const target =
-      menu.querySelector(
-        'a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])'
-      ) || menu;
+// Prefer the first real nav link; exclude obvious Close controls
+const target =
+  // common containers for nav links
+  menu.querySelector('nav a[href], .menu-links a[href], .menu a[href], ul li a[href]') ||
+  // any link that isn't labeled like a close button
+  menu.querySelector('a[href]:not([aria-label*="close" i]):not([data-close]):not([data-role="close"])') ||
+  // fall back to any non-close button
+  menu.querySelector('button:not([aria-label*="close" i]):not([data-close]):not([data-role="close"])') ||
+  // final fallback: the menu itself
+  menu;
+
 
     let addedTabindex = false;
     if (target === menu && !menu.hasAttribute("tabindex")) {
