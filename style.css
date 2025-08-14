@@ -364,39 +364,40 @@ html, body {
 }
 
 
-html.menu-open {
+html.menu-open,
+html.menu-open body {
   overflow: hidden;
   overscroll-behavior: none;
 }
 
-/* Mobile menu overlay — full viewport, scrolls independently */
+/* Mobile menu overlay — full viewport, its own scroll */
 .mobile-menu {
   position: fixed;
-  inset: 0;                         /* top:0; right:0; bottom:0; left:0 */
-  height: 100dvh;                   /* robust viewport height on iOS */
-  overflow-y: auto;                 /* menu content scrolls; page does not */
+  inset: 0;
+  height: 100dvh;
+  display: none;                 /* hidden until .show */
+  z-index: 2147483646;
+
+  /* Make the overlay itself scrollable, not the page */
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
 
   background: rgba(228, 239, 243, 0.90);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 
-  display: none;                    /* hidden until .show */
-  flex-direction: column;
-  padding: 60px 0 20px;             /* preserves header spacing visually */
-  z-index: 2147483646;              /* very high, below any explicit header z if needed */
+  /* Keep your visual spacing for the header area */
+  padding: 60px 0 20px;
   border-radius: 0 0 12px 12px;
+  display: none;
+  flex-direction: column;
 }
 
-/* Open state */
 .mobile-menu.show {
   display: flex;
   animation: slideDown 0.3s ease forwards;
-  overflow-y: auto;                 /* ensure scrolling when open */
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior: contain;
 }
 
 
