@@ -869,104 +869,175 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', closeCurrent);
 });
 
-
-
-// --- Mobile menu background scroll lock (for #hamburger-icon + #mobileMenu) ---
+// Robust mobile menu scroll lock: detects and freezes the real scroll containers
 document.addEventListener("DOMContentLoaded", () => {
-  const hamburger = document.getElementById("hamburger-icon");
   const menu = document.getElementById("mobileMenu");
-  if (!hamburger || !menu) return;
+  if (!menu) return;
 
-  let lockedY = 0;
+  // --- State
+  let locked = false;
   let shield = null;
+  const frozen = []; // {el, styles:{...}, scrollTop, scrollLeft}
 
-  function ensureMenuOverlay() {
-    const cs = getComputedStyle(menu);
-    if (cs.position !== "fixed") menu.style.position = "fixed";
-    menu.style.top = "0";
-    menu.style.left = "0";
-    menu.style.right = "0";
-    menu.style.bottom = "0";
-    // Menu content should scroll independently if it overflows
-    if (cs.overflowY === "visible") menu.style.overflowY = "auto";
-    menu.style.overscrollBehavior = "contain";
-    // Sit on top of everything
-    const z = parseInt(cs.zIndex, 10);
-    menu.style.zIndex = Number.isNaN(z) ? "2147483647" : String(Math.max(z, 2147483647));
+  // Find actual scroll containers (not just body)
+  function findScrollContainers() {
+    const candidates = [document.documentElement, document.body];
+    // Add large top-level wrappers if present
+    document.querySelectorAll("main, #page, #page-wrapper, .page, .page-wrapper, #content, .content")
+      .forEach(el => candidates.push(el));
+
+    // De-dup and filter to elements that can scroll
+    const uniq = Array.from(new Set(candidates.filter(Boolean)));
+    return uniq.filter(el => {
+      const cs = getComputedStyle(el);
+      const canScrollY = /auto|scroll/i.test(cs.overflowY) || el.scrollHeight > el.clientHeight + 1;
+      const canScrollX = /auto|scroll/i.test(cs.overflowX) || el.scrollWidth > el.clientWidth + 1;
+      // Ignore elements that are display:none or position:fixed overlays
+      const isHidden = cs.display === "none" || cs.visibility === "hidden";
+      const isFixed = cs.position === "fixed";
+      return (canScrollY || canScrollX) && !isHidden && !isFixed;
+    });
   }
 
-  function ensureShield() {
+  function makeShield(zBelowMenu) {
     if (shield) return shield;
     const el = document.createElement("div");
     el.id = "ads-scroll-shield";
     el.style.position = "fixed";
     el.style.inset = "0";
-    el.style.touchAction = "none";
+    el.style.zIndex = String(zBelowMenu || 99998);
     el.style.pointerEvents = "auto";
+    el.style.touchAction = "none";
     el.style.background = "transparent";
-    el.style.overscrollBehavior = "none";
-    // Block gestures at the shield level (iOS-safe)
-    el.addEventListener("touchmove", (e) => { e.preventDefault(); }, { passive: false });
-    el.addEventListener("wheel", (e) => { e.preventDefault(); }, { passive: false });
+    el.addEventListener("touchmove", e => { e.preventDefault(); }, { passive: false });
+    el.addEventListener("wheel", e => { e.preventDefault(); }, { passive: false });
     shield = el;
     return el;
   }
 
-  // Final, minimal scroll lock tied to #mobileMenu .show
-document.addEventListener("DOMContentLoaded", () => {
-  const menu = document.getElementById("mobileMenu");
-  if (!menu) return;
-
-  let lockedY = 0;
-
   function lockScroll() {
-    if (document.body.classList.contains("ads-scroll-locked")) return;
-    lockedY = window.scrollY || document.documentElement.scrollTop || 0;
+    if (locked) return;
+    locked = true;
 
-    // Freeze the page (iOS-safe combo)
-    document.documentElement.style.overflow = "hidden";
-    document.body.style.position = "fixed";
-    document.body.style.top = `-${lockedY}px`;
-    document.body.style.left = "0";
-    document.body.style.right = "0";
-    document.body.style.width = "100%";
-    document.body.classList.add("ads-scroll-locked");
+    // Ensure menu sits above everything and can scroll on its own if needed
+    const cs = getComputedStyle(menu);
+    if (cs.position !== "fixed") menu.style.position = "fixed";
+    if (!/^\d+$/.test(cs.zIndex)) menu.style.zIndex = "2147483647";
+    menu.style.overscrollBehavior = "contain";
+    if (cs.overflowY === "visible") {
+      menu.style.overflowY = "auto";
+      menu.style.webkitOverflowScrolling = "touch";
+    }
+
+    // Insert a shield just under the menu to absorb gestures
+    const zMenu = parseInt(getComputedStyle(menu).zIndex, 10) || 2147483647;
+    const s = makeShield(zMenu - 1);
+    if (s.isConnected) s.remove();
+    menu.parentNode.insertBefore(s, menu);
+
+    // Freeze every real scroll container we can find
+    const containers = findScrollContainers();
+    containers.forEach(el => {
+      const cs2 = getComputedStyle(el);
+      const record = {
+        el,
+        styles: {
+          position: el.style.position,
+          overflow: el.style.overflow,
+          overflowY: el.style.overflowY,
+          overflowX: el.style.overflowX,
+          top: el.style.top,
+          left: el.style.left,
+          right: el.style.right,
+          width: el.style.width
+        },
+        scrollTop: el.scrollTop,
+        scrollLeft: el.scrollLeft
+      };
+
+      // Freeze technique differs for <html>/<body> vs others
+      if (el === document.body) {
+        // “fixed body” pattern
+        el.style.position = "fixed";
+        el.style.top = `-${record.scrollTop}px`;
+        el.style.left = "0";
+        el.style.right = "0";
+        el.style.width = "100%";
+      } else if (el === document.documentElement) {
+        // Kill root scrolling to stop propagation on iOS
+        el.style.overflow = "hidden";
+        el.style.overscrollBehavior = "none";
+      } else {
+        // Generic container freeze
+        el.style.overflowY = "hidden";
+        el.style.overflowX = "hidden";
+        el.style.overscrollBehavior = "none";
+      }
+
+      frozen.push(record);
+    });
+
+    // Belt & suspenders: block gestures at the document level
+    document.addEventListener("touchmove", preventAll, { capture: true, passive: false });
+    document.addEventListener("wheel", preventAll, { capture: true, passive: false });
   }
 
   function unlockScroll() {
-    if (!document.body.classList.contains("ads-scroll-locked")) return;
+    if (!locked) return;
+    locked = false;
 
-    document.body.classList.remove("ads-scroll-locked");
-    document.body.style.position = "";
-    document.body.style.top = "";
-    document.body.style.left = "";
-    document.body.style.right = "";
-    document.body.style.width = "";
-    document.documentElement.style.overflow = "";
+    document.removeEventListener("touchmove", preventAll, { capture: true });
+    document.removeEventListener("wheel", preventAll, { capture: true });
 
-    window.scrollTo(0, lockedY);
+    if (shield && shield.isConnected) shield.remove();
+
+    // Restore every container
+    frozen.forEach(rec => {
+      const { el, styles, scrollTop, scrollLeft } = rec;
+      el.style.position = styles.position;
+      el.style.overflow = styles.overflow;
+      el.style.overflowY = styles.overflowY;
+      el.style.overflowX = styles.overflowX;
+      el.style.top = styles.top;
+      el.style.left = styles.left;
+      el.style.right = styles.right;
+      el.style.width = styles.width;
+      // Restore scroll after styles, so jump back to the same spot
+      el.scrollTop = scrollTop;
+      el.scrollLeft = scrollLeft;
+    });
+    frozen.length = 0;
   }
 
-  // 1) React to your real open/close: .show on #mobileMenu
+  function preventAll(e) {
+    if (locked) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+  }
+
+  // Observe your real open/close: .show on #mobileMenu
   const obs = new MutationObserver(() => {
     if (menu.classList.contains("show")) lockScroll();
     else unlockScroll();
   });
   obs.observe(menu, { attributes: true, attributeFilter: ["class"] });
 
-  // 2) Safety: clicking any link inside the menu should unlock before navigation
-  menu.addEventListener("click", (e) => {
+  // Safety: unlock when navigating via a menu link
+  menu.addEventListener("click", e => {
     const a = e.target.closest("a");
     if (a) unlockScroll();
-  });
+  }, true);
 
-  // 3) Safety: if tab/app is backgrounded, don’t leave the page locked
+  // Safety: don’t leave the page locked if app is backgrounded
   document.addEventListener("visibilitychange", () => {
     if (document.visibilityState === "hidden") unlockScroll();
   });
 
-  // Optional: expose for console testing
-  window.adsLockScroll = lockScroll;
-  window.adsUnlockScroll = unlockScroll;
+  // Optional debug
+  window.__adsLockScroll = lockScroll;
+  window.__adsUnlockScroll = unlockScroll;
 });
-})
+
+
