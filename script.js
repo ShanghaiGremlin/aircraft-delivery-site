@@ -973,3 +973,24 @@ document.addEventListener("DOMContentLoaded", () => {
     window.scrollTo(0, __adsScrollY);
   };
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  // --- Add these lines alongside your existing helpers ---
+  let __adsScrollY = 0; // you already have this, keep only one
+  const __adsSnapBack = () => {
+    if (document.body.classList.contains("ads-scroll-locked")) {
+      // Force the page back to the stored position
+      window.scrollTo(0, __adsScrollY);
+    }
+  };
+
+  // In your window.adsLockScroll, after you set __adsScrollY and styles:
+  //   (Add these two lines if not already present)
+  window.addEventListener("scroll", __adsSnapBack, { capture: true });
+  window.addEventListener("touchmove", __adsSnapBack, { capture: true, passive: false });
+
+  // In your window.adsUnlockScroll, before restoring styles:
+  //   (Add these two lines)
+  window.removeEventListener("scroll", __adsSnapBack, { capture: true });
+  window.removeEventListener("touchmove", __adsSnapBack, { capture: true });
+});
