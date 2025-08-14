@@ -1161,3 +1161,13 @@ const target =
   });
 });
 
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (window.__adsAriaControlsBound) return;
+  window.__adsAriaControlsBound = true;
+
+  const hb = document.getElementById("hamburger-icon");
+  if (hb && !hb.hasAttribute("aria-controls")) {
+    hb.setAttribute("aria-controls", "mobileMenu");
+  }
+});
