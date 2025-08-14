@@ -96,12 +96,19 @@ h1, h2, h3, h4, h5, h6 {
 
 /*Use :focus-visible so outlines don’t appear for touch/gesture*/
 /* Hamburger */
-#hamburger-icon:focus { outline: none; }
-#hamburger-icon:focus-visible { outline: 2px auto; outline-offset: 2px; }
+#hamburger-icon:focus { 
+  outline: none; 
+}
+
+#hamburger-icon:focus-visible { 
+  outline: 2px auto; outline-offset: 2px; 
+}
 
 /* Menu items (links/buttons) */
 #mobileMenu a:focus,
-#mobileMenu button:focus { outline: none; }
+#mobileMenu button:focus { 
+  outline: none; 
+}
 
 #mobileMenu a:focus-visible,
 #mobileMenu button:focus-visible {
@@ -109,6 +116,17 @@ h1, h2, h3, h4, h5, h6 {
   outline-offset: 2px;
 }
 
+/*style the actual activator (button or image), not just the image */
+
+/* Whichever element actually controls the menu (button or img) */
+[aria-controls="mobileMenu"]:focus { outline: none; }
+[aria-controls="mobileMenu"]:focus-visible { outline: 2px auto; outline-offset: 2px; }
+
+/* Menu items: show outline only for keyboard focus */
+#mobileMenu a:focus { outline: none; }
+#mobileMenu button:focus { outline: none; }
+#mobileMenu a:focus-visible,
+#mobileMenu button:focus-visible { outline: 2px auto; outline-offset: 2px; }
 
 
 @media screen and (max-width: 1400px) {

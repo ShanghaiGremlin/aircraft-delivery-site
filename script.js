@@ -1284,3 +1284,33 @@ document.addEventListener("DOMContentLoaded", () => {
   syncIcon();
   new MutationObserver(syncIcon).observe(menu, { attributes: true, attributeFilter: ["class"] });
 });
+
+//Don’t leave focus on the trigger at load (only show rings after keyboard)//
+
+document.addEventListener("DOMContentLoaded", () => {
+  const img = document.getElementById("hamburger-icon");
+  if (!img) return;
+
+  // Prefer the real activator (button/anchor) if it exists
+  const activator = img.closest("button, [role='button'], a[href]") || img;
+
+  // Ensure the activator has aria-controls so our CSS targets it
+  if (!activator.hasAttribute("aria-controls")) {
+    activator.setAttribute("aria-controls", "mobileMenu");
+  }
+
+  // Track input modality
+  let usedKeyboard = false;
+  document.addEventListener("keydown", () => {
+    usedKeyboard = true;
+    document.documentElement.classList.add("user-keyboard");
+  }, true);
+  document.addEventListener("pointerdown", () => {
+    document.documentElement.classList.remove("user-keyboard");
+  }, true);
+
+  // If focus landed on the activator at load (e.g., programmatic focus), and no keyboard yet, blur it.
+  if (document.activeElement === activator && !usedKeyboard) {
+    if (typeof activator.blur === "function") activator.blur();
+  }
+});
