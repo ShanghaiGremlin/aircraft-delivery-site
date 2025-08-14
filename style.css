@@ -373,12 +373,12 @@ html.menu-open body {
 /* Mobile menu overlay — full viewport, its own scroll */
 .mobile-menu {
   position: fixed;
-  inset: 0;
+  inset: 0;                         /* cover entire viewport */
   height: 100dvh;
-  display: none;                 /* hidden until .show */
+  display: none;                    /* hidden until .show */
   z-index: 2147483646;
 
-  /* Make the overlay itself scrollable, not the page */
+  /* Overlay itself scrolls if needed; page stays still */
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
@@ -388,16 +388,32 @@ html.menu-open body {
   -webkit-backdrop-filter: blur(5px);
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 
-  /* Keep your visual spacing for the header area */
+  /* Keep visual breathing room where your header was */
   padding: 60px 0 20px;
   border-radius: 0 0 12px 12px;
-  display: none;
   flex-direction: column;
 }
 
 .mobile-menu.show {
   display: flex;
   animation: slideDown 0.3s ease forwards;
+}
+
+/* Close button inside the overlay */
+.mobile-menu-close {
+  position: sticky;        /* stays visible while menu scrolls */
+  top: 12px;
+  margin-left: auto;
+  margin-right: 12px;
+  z-index: 1;
+  border: 0;
+  background: rgba(0,0,0,0.15);
+  color: #000;
+  font-size: 1.5rem;
+  line-height: 1;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 

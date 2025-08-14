@@ -871,34 +871,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
 document.addEventListener("DOMContentLoaded", () => {
   const menu = document.getElementById("mobileMenu");
   const hamburger = document.getElementById("hamburger-icon");
+  let closeBtn = document.getElementById("mobileMenuClose");
+
   if (!menu || !hamburger) return;
 
-  // Ensure the menu is a body-level overlay (avoids stacking context pitfalls)
-  if (menu.parentNode !== document.body) {
-    document.body.appendChild(menu);
+  // Ensure a close button exists inside the overlay (no DOM reordering elsewhere)
+  if (!closeBtn) {
+    closeBtn = document.createElement("button");
+    closeBtn.id = "mobileMenuClose";
+    closeBtn.className = "mobile-menu-close";
+    closeBtn.type = "button";
+    closeBtn.setAttribute("aria-label", "Close menu");
+    closeBtn.textContent = "✕";
+    menu.prepend(closeBtn);
   }
 
   const html = document.documentElement;
-  let locked = false;
   let lockY = 0;
 
-  function applyBodyFreeze() {
-    // Freeze current scroll position using the fixed-body pattern (iOS-safe)
+  function openMenu() {
+    if (menu.classList.contains("show")) return;
     lockY = window.scrollY || document.documentElement.scrollTop || 0;
+    menu.classList.add("show");
     html.classList.add("menu-open");
+    // Fixed-body pattern to freeze background
     document.body.style.position = "fixed";
     document.body.style.top = `-${lockY}px`;
     document.body.style.left = "0";
     document.body.style.right = "0";
     document.body.style.width = "100%";
-    locked = true;
   }
 
-  function releaseBodyFreeze() {
+  function closeMenu() {
+    if (!menu.classList.contains("show")) return;
+    menu.classList.remove("show");
     html.classList.remove("menu-open");
     document.body.style.position = "";
     document.body.style.top = "";
@@ -906,67 +915,21 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.style.right = "";
     document.body.style.width = "";
     window.scrollTo(0, lockY);
-    locked = false;
   }
 
-  // Hard stop: block background gestures while locked (capture phase)
-  function preventAll(e) {
-    if (locked) {
-      e.preventDefault();
-      e.stopPropagation();
-      return false;
-    }
-  }
+  // Wire up: no observers, no DOM moves
+  hamburger.addEventListener("click", openMenu);
+  closeBtn.addEventListener("click", closeMenu);
 
-  function bindGlobalBlocks() {
-    document.addEventListener("touchmove", preventAll, { capture: true, passive: false });
-    document.addEventListener("wheel", preventAll, { capture: true, passive: false });
-  }
-
-  function unbindGlobalBlocks() {
-    document.removeEventListener("touchmove", preventAll, { capture: true });
-    document.removeEventListener("wheel", preventAll, { capture: true });
-  }
-
-  function lockIfOpen() {
-    // If menu now has .show, lock; otherwise unlock.
-    if (menu.classList.contains("show")) {
-      if (!locked) {
-        applyBodyFreeze();
-        bindGlobalBlocks();
-      }
-    } else if (locked) {
-      unbindGlobalBlocks();
-      releaseBodyFreeze();
-    }
-  }
-
-  // Wire to YOUR actual triggers:
-  // 1) The hamburger toggles the menu .show in your existing code; after each click, sync lock.
-  hamburger.addEventListener("click", () => {
-    // Allow your existing toggle code to run, then sync.
-    // If you're toggling .show here too, you can wrap in setTimeout to run after DOM change.
-    setTimeout(lockIfOpen, 0);
-  });
-
-  // 2) Any click inside the menu on a link should unlock immediately before navigation.
+  // Close on link tap inside menu
   menu.addEventListener("click", (e) => {
     const a = e.target.closest("a");
-    if (a) {
-      unbindGlobalBlocks();
-      releaseBodyFreeze();
-    }
+    if (a) closeMenu();
   }, true);
 
-  // 3) Fallback: if some other script toggles .show (without hamburger), observe class changes.
-  const obs = new MutationObserver(lockIfOpen);
-  obs.observe(menu, { attributes: true, attributeFilter: ["class"] });
-
-  // 4) Safety: don’t leave the page locked if the app is backgrounded.
+  // Safety: if app backgrounds, don't leave page locked
   document.addEventListener("visibilitychange", () => {
-    if (document.visibilityState === "hidden" && locked) {
-      unbindGlobalBlocks();
-      releaseBodyFreeze();
-    }
+    if (document.visibilityState === "hidden") closeMenu();
   });
 });
+
