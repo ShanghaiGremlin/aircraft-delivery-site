@@ -869,6 +869,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', closeCurrent);
 });
 
+
+
 // --- Mobile menu background scroll lock (for #hamburger-icon + #mobileMenu) ---
 document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.getElementById("hamburger-icon");
@@ -967,3 +969,4 @@ document.addEventListener("DOMContentLoaded", () => {
   window.adsLockScroll = lockScroll;
   window.adsUnlockScroll = unlockScroll;
 });
+})
