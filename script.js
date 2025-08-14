@@ -931,7 +931,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Wire both controls:
-  hamburger.addEventListener("click", toggleMenu); // header button opens OR closes
+ // hamburger.addEventListener("click", toggleMenu); 
   closeBtn.addEventListener("click", closeMenu);   // overlay ✕ closes
 
   // Close when a menu link is tapped
