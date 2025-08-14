@@ -1171,3 +1171,20 @@ document.addEventListener("DOMContentLoaded", () => {
     hb.setAttribute("aria-controls", "mobileMenu");
   }
 });
+
+
+// make the menu a clear navigation landmark for assistive tech.//
+document.addEventListener("DOMContentLoaded", () => {
+  const menu = document.getElementById("mobileMenu");
+  if (!menu) return;
+
+  // If it's not a <nav>, give it a navigation role.
+  if (menu.tagName !== "NAV" && !menu.hasAttribute("role")) {
+    menu.setAttribute("role", "navigation");
+  }
+  // Give it a readable label if it doesn't have one yet.
+  if (!menu.hasAttribute("aria-label") && !menu.hasAttribute("aria-labelledby")) {
+    menu.setAttribute("aria-label", "Primary");
+  }
+});
+
