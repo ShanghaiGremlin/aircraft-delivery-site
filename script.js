@@ -910,47 +910,30 @@ document.addEventListener("DOMContentLoaded", () => {
     return el;
   }
 
+  // Final, minimal scroll lock tied to #mobileMenu .show
+document.addEventListener("DOMContentLoaded", () => {
+  const menu = document.getElementById("mobileMenu");
+  if (!menu) return;
+
+  let lockedY = 0;
+
   function lockScroll() {
     if (document.body.classList.contains("ads-scroll-locked")) return;
-
-    ensureMenuOverlay();
-
-    // Insert shield directly before the menu so it sits just under it
-    const s = ensureShield();
-    if (s.isConnected) s.remove();
-    menu.parentNode.insertBefore(s, menu);
-
-    // Align stacking: shield under menu
-    const menuZ = parseInt(getComputedStyle(menu).zIndex, 10) || 2147483647;
-    s.style.zIndex = String(menuZ - 1);
-
     lockedY = window.scrollY || document.documentElement.scrollTop || 0;
-    document.body.classList.add("ads-scroll-locked");
 
-    // Body freeze (works across iOS)
+    // Freeze the page (iOS-safe combo)
     document.documentElement.style.overflow = "hidden";
     document.body.style.position = "fixed";
     document.body.style.top = `-${lockedY}px`;
     document.body.style.left = "0";
     document.body.style.right = "0";
     document.body.style.width = "100%";
-
-    // Belt & suspenders: capture gestures globally while locked
-    document.addEventListener("touchmove", preventAll, { capture: true, passive: false });
-    document.addEventListener("wheel", preventAll, { capture: true, passive: false });
+    document.body.classList.add("ads-scroll-locked");
   }
 
   function unlockScroll() {
     if (!document.body.classList.contains("ads-scroll-locked")) return;
 
-    // Remove global gesture capture
-    document.removeEventListener("touchmove", preventAll, { capture: true });
-    document.removeEventListener("wheel", preventAll, { capture: true });
-
-    // Remove shield
-    if (shield && shield.isConnected) shield.remove();
-
-    // Unfreeze body
     document.body.classList.remove("ads-scroll-locked");
     document.body.style.position = "";
     document.body.style.top = "";
@@ -959,44 +942,28 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.style.width = "";
     document.documentElement.style.overflow = "";
 
-    // Restore scroll position
     window.scrollTo(0, lockedY);
   }
 
-  function preventAll(e) {
-    if (document.body.classList.contains("ads-scroll-locked")) {
-      e.preventDefault();
-      e.stopPropagation();
-      return false;
-    }
-  }
+  // 1) React to your real open/close: .show on #mobileMenu
+  const obs = new MutationObserver(() => {
+    if (menu.classList.contains("show")) lockScroll();
+    else unlockScroll();
+  });
+  obs.observe(menu, { attributes: true, attributeFilter: ["class"] });
 
-  // Toggle lock with the same control you use to open/close the menu
-  hamburger.addEventListener("click", () => {
-    if (document.body.classList.contains("ads-scroll-locked")) {
-      unlockScroll();
-    } else {
-      lockScroll();
-    }
+  // 2) Safety: clicking any link inside the menu should unlock before navigation
+  menu.addEventListener("click", (e) => {
+    const a = e.target.closest("a");
+    if (a) unlockScroll();
   });
 
-  // If any link is tapped while the menu is open, unlock before navigating
-  document.addEventListener("click", (e) => {
-    if (!document.body.classList.contains("ads-scroll-locked")) return;
-    const link = e.target.closest("a");
-    if (link) unlockScroll();
-  }, true);
-
-  // Safety: if the page gets hidden (app switch), don’t leave it locked
+  // 3) Safety: if tab/app is backgrounded, don’t leave the page locked
   document.addEventListener("visibilitychange", () => {
-    if (document.visibilityState === "hidden" && document.body.classList.contains("ads-scroll-locked")) {
-      unlockScroll();
-    }
+    if (document.visibilityState === "hidden") unlockScroll();
   });
 
-  // Optional: expose for debugging in console
+  // Optional: expose for console testing
   window.adsLockScroll = lockScroll;
   window.adsUnlockScroll = unlockScroll;
 });
-
-
