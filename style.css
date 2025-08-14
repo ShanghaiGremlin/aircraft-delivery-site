@@ -365,28 +365,29 @@ html, body {
 
 
 /* === Mobile Menu Panel === */
-  .mobile-menu {
-    position: fixed;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background: rgba(228, 239, 243, 0.90);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    display: none;
-    flex-direction: column;
-    padding: 20px 0;
-    z-index: 9998;
-    border-radius: 0 0 12px 12px;
-  }
+.mobile-menu {
+  position: fixed;
+  inset: 0;                    /* top:0; right:0; bottom:0; left:0 */
+  height: 100dvh;              /* robust viewport height on iOS */
+  overflow-y: auto;            /* menu scrolls; page won't */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  background: rgba(228,239,243,0.90);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: none;
+  flex-direction: column;
+  padding: 60px 0 20px;        /* preserves visual gap for header instead of leaving it uncovered */
+  z-index: 2147483646;         /* very high; your header can sit visually under it */
+  border-radius: 0 0 12px 12px;
+}
 
-  .mobile-menu.show {
-    display: flex;
-    animation: slideDown 0.3s ease forwards;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-  }
+.mobile-menu.show {
+  display: flex;
+  animation: slideDown 0.3s ease forwards;
+}
+
 
   .mobile-menu nav {
     display: flex;
