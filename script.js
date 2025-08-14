@@ -874,11 +874,10 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener("DOMContentLoaded", () => {
   const menu = document.getElementById("mobileMenu");
   const hamburger = document.getElementById("hamburger-icon");
-  let closeBtn = document.getElementById("mobileMenuClose");
-
   if (!menu || !hamburger) return;
 
-  // Ensure a close button exists inside the overlay (no DOM reordering elsewhere)
+  // Ensure a close button exists inside the overlay
+  let closeBtn = document.getElementById("mobileMenuClose");
   if (!closeBtn) {
     closeBtn = document.createElement("button");
     closeBtn.id = "mobileMenuClose";
@@ -892,32 +891,45 @@ document.addEventListener("DOMContentLoaded", () => {
   const html = document.documentElement;
   let lockY = 0;
 
+  // Optional: remember the burger icon src so we can restore it
+  const burgerSrc = hamburger.getAttribute("src");
+
   function openMenu() {
     if (menu.classList.contains("show")) return;
     lockY = window.scrollY || document.documentElement.scrollTop || 0;
     menu.classList.add("show");
     html.classList.add("menu-open");
-    // Fixed-body pattern to freeze background
+
+    // Freeze background
     document.body.style.position = "fixed";
     document.body.style.top = `-${lockY}px`;
     document.body.style.left = "0";
     document.body.style.right = "0";
     document.body.style.width = "100%";
+
+    // If your site swaps the hamburger to an X elsewhere, mark state here too
+    hamburger.setAttribute("aria-expanded", "true");
   }
 
   function closeMenu() {
     if (!menu.classList.contains("show")) return;
     menu.classList.remove("show");
     html.classList.remove("menu-open");
+
+    // Unfreeze background
     document.body.style.position = "";
     document.body.style.top = "";
     document.body.style.left = "";
     document.body.style.right = "";
     document.body.style.width = "";
     window.scrollTo(0, lockY);
+
+    // Force hamburger back to burger state (fixes "stuck X" behavior)
+    hamburger.setAttribute("aria-expanded", "false");
+    if (burgerSrc) hamburger.setAttribute("src", burgerSrc);
   }
 
-  // Wire up: no observers, no DOM moves
+  // Wire up
   hamburger.addEventListener("click", openMenu);
   closeBtn.addEventListener("click", closeMenu);
 
@@ -927,9 +939,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (a) closeMenu();
   }, true);
 
-  // Safety: if app backgrounds, don't leave page locked
+  // Safety: don't leave page locked if app backgrounds
   document.addEventListener("visibilitychange", () => {
     if (document.visibilityState === "hidden") closeMenu();
   });
 });
-

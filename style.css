@@ -303,7 +303,7 @@ html, body {
   justify-content: center;
   padding: 0;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  z-index: 9999;
+  z-index: 2147483647;
 }
 
 .mobile-header-slot-left {
@@ -373,12 +373,14 @@ html.menu-open body {
 /* Mobile menu overlay — full viewport, its own scroll */
 .mobile-menu {
   position: fixed;
-  inset: 0;                         /* cover entire viewport */
-  height: 100dvh;
-  display: none;                    /* hidden until .show */
+  top: 60px;          /* header height; adjust if your header is taller/shorter */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;      /* hidden until .show */
   z-index: 2147483646;
 
-  /* Overlay itself scrolls if needed; page stays still */
+  /* Overlay itself scrolls; background is locked by html.menu-open */
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
@@ -388,9 +390,9 @@ html.menu-open body {
   -webkit-backdrop-filter: blur(5px);
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 
-  /* Keep visual breathing room where your header was */
-  padding: 60px 0 20px;
+  padding: 16px 0 20px;
   border-radius: 0 0 12px 12px;
+  display: none;
   flex-direction: column;
 }
 
