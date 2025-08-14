@@ -868,3 +868,72 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', closeCurrent, { passive: true });
   window.addEventListener('resize', closeCurrent);
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  let __adsScrollY = 0;
+
+  // Call when opening the mobile menu
+  window.adsLockScroll = function () {
+    if (document.body.classList.contains("ads-scroll-locked")) return;
+    __adsScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${__adsScrollY}px`;
+    document.body.style.left = "0";
+    document.body.style.right = "0";
+    document.body.style.width = "100%";
+    document.body.classList.add("ads-scroll-locked");
+  };
+
+  // Call when closing the mobile menu
+  window.adsUnlockScroll = function () {
+    if (!document.body.classList.contains("ads-scroll-locked")) return;
+    document.body.classList.remove("ads-scroll-locked");
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.left = "";
+    document.body.style.right = "";
+    document.body.style.width = "";
+    window.scrollTo(0, __adsScrollY);
+  };
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Try common selectors; adjust if your project uses different ones.
+  const menuToggle =
+    document.querySelector('[data-ads-menu-toggle], [data-menu-toggle], .hamburger, .menu-toggle, #mobile-menu-toggle, .nav-toggle');
+  const menuClose =
+    document.querySelector('[data-ads-menu-close], .menu-close, .close-menu, .mobile-menu .close, .menu-panel .close, #mobile-menu-close');
+  const menuPanel =
+    document.querySelector('[data-ads-mobile-menu], .mobile-menu, .menu-panel, #mobile-menu, .nav-drawer');
+
+  // Helper to know current lock state
+  const isLocked = () => document.body.classList.contains("ads-scroll-locked");
+
+  // Single-button toggles (most setups): first tap opens (lock), second tap closes (unlock)
+  if (menuToggle) {
+    menuToggle.addEventListener("click", () => {
+      if (isLocked()) window.adsUnlockScroll();
+      else window.adsLockScroll();
+    });
+  }
+
+  // Explicit close button (if present)
+  if (menuClose) {
+    menuClose.addEventListener("click", () => {
+      if (isLocked()) window.adsUnlockScroll();
+    });
+  }
+
+  // If any link inside the menu is clicked, unlock before navigating
+  if (menuPanel) {
+    menuPanel.addEventListener("click", (e) => {
+      const link = e.target.closest("a");
+      if (link && isLocked()) window.adsUnlockScroll();
+    });
+  }
+
+  // Safety: ESC to close/unlock if your UI supports it
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && isLocked()) window.adsUnlockScroll();
+  });
+});
