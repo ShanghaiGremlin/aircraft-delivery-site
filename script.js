@@ -1011,3 +1011,54 @@ document.addEventListener("DOMContentLoaded", () => {
     window.__adsEscBound = true;
   }
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const menu = document.getElementById("mobileMenu");
+  const hamburger = document.getElementById("hamburger-icon");
+  if (!menu || !hamburger) return;
+
+  const returnFocusIfClosed = () => {
+    if (menu.classList.contains("show")) return;
+
+    // Prefer a naturally focusable ancestor (button/anchor) if the icon itself isn't
+    let focusEl = hamburger.closest('button, a[href], [tabindex]') || hamburger;
+
+    // If not naturally focusable, give it a temporary tabindex
+    const isNaturallyFocusable = focusEl.matches(
+      'button, a[href], input, select, textarea, [tabindex]'
+    );
+    let addedTabindex = false;
+    if (!isNaturallyFocusable) {
+      focusEl.setAttribute("tabindex", "-1");
+      addedTabindex = true;
+    }
+
+    // Return focus without scrolling the page
+    try {
+      focusEl.focus({ preventScroll: true });
+    } catch (e) {
+      // Fallback for older browsers
+      focusEl.focus();
+    }
+
+    // Clean up the temporary tabindex after focus leaves
+    if (addedTabindex) {
+      const cleanup = () => {
+        focusEl.removeAttribute("tabindex");
+        focusEl.removeEventListener("blur", cleanup);
+      };
+      focusEl.addEventListener("blur", cleanup, { once: true });
+    }
+  };
+
+  // Observe menu open/close
+  new MutationObserver(returnFocusIfClosed).observe(menu, {
+    attributes: true,
+    attributeFilter: ["class"],
+  });
+
+  // Also run once at load in case it's already closed
+  returnFocusIfClosed();
+});
+
