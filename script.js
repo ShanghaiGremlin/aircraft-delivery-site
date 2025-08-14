@@ -874,7 +874,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const menu = document.getElementById("mobileMenu");
-  if (menu && menu.parentNode !== document.body) {
-    document.body.appendChild(menu); // move it to be the last child of <body>
-  }
+  if (!menu) return;
+
+  const html = document.documentElement;
+
+  // Observer watches for .show on the menu
+  const obs = new MutationObserver(() => {
+    if (menu.classList.contains("show")) {
+      html.classList.add("menu-open");
+    } else {
+      html.classList.remove("menu-open");
+    }
+  });
+
+  obs.observe(menu, { attributes: true, attributeFilter: ["class"] });
+
+  // Safety: if navigating via menu link, unlock immediately
+  menu.addEventListener("click", (e) => {
+    const a = e.target.closest("a");
+    if (a) {
+      html.classList.remove("menu-open");
+    }
+  });
+
+  // Safety: if tab/app is backgrounded, unlock
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") {
+      html.classList.remove("menu-open");
+    }
+  });
 });
