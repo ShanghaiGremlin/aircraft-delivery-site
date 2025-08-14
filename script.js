@@ -1006,7 +1006,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Full viewport, above page, below your menu panel (tweak z-index if needed)
     el.style.position = "fixed";
     el.style.inset = "0";
-    el.style.zIndex = "9998";
+    el.style.zIndex = "99998";
     // The magic bits that stop scroll/touch from reaching the page:
     el.style.touchAction = "none";
     el.style.pointerEvents = "auto";
