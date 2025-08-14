@@ -1249,3 +1249,38 @@ document.addEventListener("DOMContentLoaded", () => {
   new MutationObserver(syncHistory).observe(menu, { attributes: true, attributeFilter: ["class"] });
   syncHistory(); // initialize
 });
+
+
+//Keep hamburger icon in sync with menu state //
+document.addEventListener("DOMContentLoaded", () => {
+  if (window.__adsIconSyncBound) return;
+  window.__adsIconSyncBound = true;
+
+  const menu = document.getElementById("mobileMenu");
+  const hb = document.getElementById("hamburger-icon");
+  if (!menu || !hb) return;
+
+  // Original burger icon (fallback to current src)
+  const burgerSrc = hb.getAttribute("data-burger-src") || hb.getAttribute("src");
+
+  // Optional open-state icon; set data-x-src=".../close.png" in HTML if you have one
+  let xSrc = hb.getAttribute("data-x-src") || hb.dataset.xSrc || "";
+
+  // If menu is open right now and the icon isn't the burger, learn the X src once
+  if (menu.classList.contains("show") && hb.getAttribute("src") !== burgerSrc && !xSrc) {
+    xSrc = hb.getAttribute("src");
+  }
+
+  const syncIcon = () => {
+    const isOpen = menu.classList.contains("show");
+    if (isOpen) {
+      if (xSrc) hb.setAttribute("src", xSrc);
+    } else {
+      hb.setAttribute("src", burgerSrc);
+    }
+  };
+
+  // Initial + on changes
+  syncIcon();
+  new MutationObserver(syncIcon).observe(menu, { attributes: true, attributeFilter: ["class"] });
+});
