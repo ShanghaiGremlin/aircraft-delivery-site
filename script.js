@@ -1062,3 +1062,46 @@ document.addEventListener("DOMContentLoaded", () => {
   returnFocusIfClosed();
 });
 
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const menu = document.getElementById("mobileMenu");
+  const hb = document.getElementById("hamburger-icon");
+  if (!menu || !hb) return;
+
+  // 1) If the hamburger isn't inside a real button/anchor, give it keyboard activation
+  const buttonAncestor = hb.closest("button, a[href]");
+  if (!buttonAncestor) {
+    hb.setAttribute("role", "button");
+    if (!hb.hasAttribute("tabindex")) hb.setAttribute("tabindex", "0");
+    if (!hb.hasAttribute("aria-label")) hb.setAttribute("aria-label", "Menu");
+
+    hb.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();       // prevent page scroll on Space
+        hb.click();               // reuse your existing click handler
+      }
+    });
+  }
+
+  // 2) Focus return: when menu closes, move focus to the actual activator
+  const getActivator = () => buttonAncestor || hb;
+
+  const returnFocusIfClosed = () => {
+    if (menu.classList.contains("show")) return;
+    const target = getActivator();
+
+    // Ensure target is focusable, then focus without scrolling the page
+    if (!target.matches("button, a[href], input, select, textarea, [tabindex]")) {
+      target.setAttribute("tabindex", "-1");
+      target.addEventListener("blur", () => target.removeAttribute("tabindex"), { once: true });
+    }
+    try { target.focus({ preventScroll: true }); } catch { target.focus(); }
+  };
+
+  new MutationObserver(returnFocusIfClosed).observe(menu, {
+    attributes: true,
+    attributeFilter: ["class"],
+  });
+});
+
