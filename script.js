@@ -911,12 +911,12 @@ document.addEventListener("DOMContentLoaded", () => {
     window.scrollTo(0, lockY);
   }
 
-  function openMenu() {
-    if (menu.classList.contains("show")) return;
-    menu.classList.add("show");
-    hamburger.setAttribute("aria-expanded", "true");
-    freezePage();
-  }
+  //function openMenu() {
+    //if (menu.classList.contains("show")) return;
+    //menu.classList.add("show");
+    //hamburger.setAttribute("aria-expanded", "true");
+    //freezePage();
+ // }
   function closeMenu() {
     if (!menu.classList.contains("show")) return;
     menu.classList.remove("show");
@@ -925,10 +925,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (burgerSrc) hamburger.setAttribute("src", burgerSrc);
     unfreezePage();
   }
-  function toggleMenu() {
-    if (menu.classList.contains("show")) closeMenu();
-    else openMenu();
-  }
+  //function toggleMenu() {
+    //if (menu.classList.contains("show")) closeMenu();
+    //else openMenu();
+  //}
 
   // Wire both controls:
  // hamburger.addEventListener("click", toggleMenu); 
@@ -944,4 +944,22 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("visibilitychange", () => {
     if (document.visibilityState === "hidden") closeMenu();
   });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const menu = document.getElementById("mobileMenu");
+  if (!menu) return;
+
+  const syncScrollLock = () => {
+    const isOpen = menu.classList.contains("show");
+    // Toggle class on <html> to match your CSS selector: html.menu-open
+    document.documentElement.classList.toggle("menu-open", isOpen);
+  };
+
+  // Initial sync
+  syncScrollLock();
+
+  // Watch for menu class changes
+  const obs = new MutationObserver(syncScrollLock);
+  obs.observe(menu, { attributes: true, attributeFilter: ["class"] });
 });
