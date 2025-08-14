@@ -922,3 +922,54 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Add these near your existing helpers
+  let __adsScrollY = 0;
+  const __adsPreventScroll = (e) => {
+    // Only block when locked
+    if (document.body.classList.contains("ads-scroll-locked")) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+  };
+
+  // Replace your previous adsLockScroll/adsUnlockScroll with these versions:
+  window.adsLockScroll = function () {
+    if (document.body.classList.contains("ads-scroll-locked")) return;
+    __adsScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+
+    // CSS side
+    document.documentElement.style.overflow = "hidden"; // blocks background scroll in many cases
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${__adsScrollY}px`;
+    document.body.style.left = "0";
+    document.body.style.right = "0";
+    document.body.style.width = "100%";
+    document.body.classList.add("ads-scroll-locked");
+
+    // Event-level block (iOS-safe): capture + passive: false so preventDefault works
+    document.addEventListener("touchmove", __adsPreventScroll, { capture: true, passive: false });
+    document.addEventListener("wheel", __adsPreventScroll, { capture: true, passive: false });
+  };
+
+  window.adsUnlockScroll = function () {
+    if (!document.body.classList.contains("ads-scroll-locked")) return;
+
+    // Remove event-level block first
+    document.removeEventListener("touchmove", __adsPreventScroll, { capture: true });
+    document.removeEventListener("wheel", __adsPreventScroll, { capture: true });
+
+    // CSS restore
+    document.body.classList.remove("ads-scroll-locked");
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.left = "";
+    document.body.style.right = "";
+    document.body.style.width = "";
+    document.documentElement.style.overflow = "";
+
+    window.scrollTo(0, __adsScrollY);
+  };
+});
