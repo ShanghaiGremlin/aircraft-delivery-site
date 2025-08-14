@@ -1188,3 +1188,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+//ensure both X buttons announce clearly as “Close menu”.//
+document.addEventListener("DOMContentLoaded", () => {
+  const overlayClose = document.querySelector('#mobileMenu [data-close], #mobileMenu .close, #mobileMenu .overlay-x, #mobileMenu [aria-label*="close" i]');
+  const headerClose  = document.querySelector('.header .close, .header [data-close], .header [aria-label*="close" i]');
+
+  if (overlayClose && !overlayClose.hasAttribute('aria-label')) {
+    overlayClose.setAttribute('aria-label', 'Close menu');
+  }
+  if (headerClose && !headerClose.hasAttribute('aria-label')) {
+    headerClose.setAttribute('aria-label', 'Close menu');
+  }
+});
+
