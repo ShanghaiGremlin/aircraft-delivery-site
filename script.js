@@ -976,3 +976,18 @@ document.addEventListener("DOMContentLoaded", () => {
   obs.observe(menu, { attributes: true, attributeFilter: ["class"] });
 });
 
+
+document.addEventListener("DOMContentLoaded", () => {
+  const menu = document.getElementById("mobileMenu");
+  const hamburger = document.getElementById("hamburger-icon");
+  if (!menu || !hamburger) return;
+
+  const updateAria = () => {
+    const isOpen = menu.classList.contains("show");
+    hamburger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  };
+
+  // initial + changes
+  updateAria();
+  new MutationObserver(updateAria).observe(menu, { attributes: true, attributeFilter: ["class"] });
+});
