@@ -1003,6 +1003,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
+
 document.addEventListener("DOMContentLoaded", () => {
   const menu = document.getElementById("mobileMenu");
   const hamburger = document.getElementById("hamburger-icon");
@@ -1211,3 +1213,39 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+
+// history handling for Back on Android //
+document.addEventListener("DOMContentLoaded", () => {
+  const menu = document.getElementById("mobileMenu");
+  if (!menu) return;
+
+  let originalHash = location.hash;   // includes leading '#', or '' if none
+  let armed = false;                  // whether we added a menu state
+
+  // Sync history when the menu opens/closes
+  const syncHistory = () => {
+    const open = menu.classList.contains("show");
+
+    if (open && !armed) {
+      // Remember the page's prior hash and add a "menu-open" entry
+      originalHash = location.hash;
+      history.pushState({ adsMenu: true }, "", location.pathname + location.search + "#menu-open");
+      armed = true;
+    } else if (!open && armed) {
+      // Restore the original hash without adding another entry
+      history.replaceState({}, "", location.pathname + location.search + originalHash);
+      armed = false;
+    }
+  };
+
+  // Close the menu if Back is pressed while it's open
+  window.addEventListener("popstate", () => {
+    if (menu.classList.contains("show")) {
+      menu.classList.remove("show"); // observers you already have will tidy ARIA/scroll
+    }
+  });
+
+  // Observe menu class changes (whoever toggles it)
+  new MutationObserver(syncHistory).observe(menu, { attributes: true, attributeFilter: ["class"] });
+  syncHistory(); // initialize
+});
