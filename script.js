@@ -923,8 +923,9 @@ document.addEventListener("DOMContentLoaded", () => {
     hamburger.setAttribute("aria-expanded", "false");
     // restore header icon if some other code changed it
     if (burgerSrc) hamburger.setAttribute("src", burgerSrc);
-    unfreezePage();
+    S// unfreezePage(); // disabled to avoid scroll reset when closing via overlay X
   }
+
   //function toggleMenu() {
     //if (menu.classList.contains("show")) closeMenu();
     //else openMenu();
