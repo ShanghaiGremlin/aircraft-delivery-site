@@ -979,18 +979,27 @@ document.addEventListener("DOMContentLoaded", () => {
 // update ARIA //
 document.addEventListener("DOMContentLoaded", () => {
   const menu = document.getElementById("mobileMenu");
-  const hamburger = document.getElementById("hamburger-icon");
-  if (!menu || !hamburger) return;
+  const hbImg = document.getElementById("hamburger-icon");
+  if (!menu || !hbImg) return;
+
+  // Use the real activator if one exists; else fall back to the image
+  const activator = hbImg.closest("button, [role='button'], a[href]") || hbImg;
+
+  // Remove any stale label on the img to avoid confusion when querying
+  if (hbImg !== activator) {
+    hbImg.removeAttribute("aria-label");
+  }
 
   const updateAria = () => {
     const isOpen = menu.classList.contains("show");
-    hamburger.setAttribute("aria-expanded", isOpen ? "true" : "false");
-    hamburger.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+    activator.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    activator.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
   };
 
   updateAria();
   new MutationObserver(updateAria).observe(menu, { attributes: true, attributeFilter: ["class"] });
 });
+
 
 
 
