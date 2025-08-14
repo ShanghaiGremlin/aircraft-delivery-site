@@ -1105,3 +1105,52 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (window.__adsFocusOnOpenBound) return; // guard against duplicates
+  window.__adsFocusOnOpenBound = true;
+
+  const menu = document.getElementById("mobileMenu");
+  if (!menu) return;
+
+  const focusIntoMenu = () => {
+    // First focusable thing inside the menu
+    const target =
+      menu.querySelector(
+        'a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      ) || menu;
+
+    let addedTabindex = false;
+    if (target === menu && !menu.hasAttribute("tabindex")) {
+      menu.setAttribute("tabindex", "-1");
+      addedTabindex = true;
+    }
+
+    try {
+      target.focus({ preventScroll: true });
+    } catch {
+      target.focus();
+    }
+
+    if (addedTabindex) {
+      const cleanup = () => {
+        menu.removeAttribute("tabindex");
+        menu.removeEventListener("blur", cleanup);
+      };
+      menu.addEventListener("blur", cleanup, { once: true });
+    }
+  };
+
+  const onClassChange = () => {
+    if (menu.classList.contains("show")) {
+      // Defer so layout/paint finishes before we move focus
+      setTimeout(focusIntoMenu, 0);
+    }
+  };
+
+  new MutationObserver(onClassChange).observe(menu, {
+    attributes: true,
+    attributeFilter: ["class"],
+  });
+});
+
