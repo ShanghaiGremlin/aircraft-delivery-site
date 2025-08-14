@@ -94,6 +94,23 @@ h1, h2, h3, h4, h5, h6 {
 
 /* MOBILE BROAD STYLES */ 
 
+/*Use :focus-visible so outlines don’t appear for touch/gesture*/
+/* Hamburger */
+#hamburger-icon:focus { outline: none; }
+#hamburger-icon:focus-visible { outline: 2px auto; outline-offset: 2px; }
+
+/* Menu items (links/buttons) */
+#mobileMenu a:focus,
+#mobileMenu button:focus { outline: none; }
+
+#mobileMenu a:focus-visible,
+#mobileMenu button:focus-visible {
+  outline: 2px auto;
+  outline-offset: 2px;
+}
+
+
+
 @media screen and (max-width: 1400px) {
   .desktop-only {
     display: none !important;
