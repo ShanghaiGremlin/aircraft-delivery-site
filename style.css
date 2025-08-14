@@ -729,6 +729,8 @@ html.menu-open body {
 
 @media screen and (max-width: 1400px) {
 
+
+
   .mob-index-mobilehero {
   width: 100vw; 
   max-width: 100%; 
@@ -758,19 +760,36 @@ html.menu-open body {
 }
 
 .mob-index-headline {
-  font-size: 2.4rem;
-  line-height: 1;
-  font-weight: 700;
-  color: #ffffff;
-  -webkit-text-stroke: 1.5px #2A4570;
-  text-shadow:
-    1px 1px 4px rgba(0, 0, 0, 0.4),
-    0 0 2px rgba(0, 0, 0, 0.3);
   font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.05;                /* a bit more breathing room than 1 */
+  letter-spacing: 0.015em;          /* slightly looser with an outline */
   margin-bottom: 5px;
-  text-decoration: none;
+  text-decoration: none;            /* not needed for headings, safe to drop */
+  font-size: clamp(32px, 5.5vw, 44px);
+  /* fallback shadow for browsers without text-stroke (Firefox Android/Desktop) */
+  text-shadow:
+    0.25px 0.25px 0.6px rgba(0,0,0,0.35),
+    0     0     0.5px rgba(0,0,0,0.30);
 }
 
+/* Prefer stroke where supported (Chrome/Android, Safari/iOS) */
+@supports (-webkit-text-stroke: 1px #000) {
+  .mob-index-headline {
+    text-shadow: none;                    /* drop the blur when stroke is on */
+    -webkit-text-stroke-color: #2A4570;   /* your color */
+    -webkit-text-stroke-width: 1px;       /* desktop/tablet default */
+  }
+}
+    @media (max-width: 1400px) and (min-resolution: 2dppx) {
+    .mob-index-headline { -webkit-text-stroke-width: 0.6px; }  /* Pixel 8, iPhones */
+  }
+  @media (max-width: 1400px) and (min-resolution: 3dppx) {
+    .mob-index-headline { -webkit-text-stroke-width: 0.5px; }  /* very dense screens */
+  }
+
+  
 .mob-index-description {
   font-size: 1.6rem;
   color: #2A4570;
