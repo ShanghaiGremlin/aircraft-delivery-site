@@ -765,7 +765,7 @@ html.menu-open body {
   margin-bottom: 5px;
 
   /* typography */
-  color: #cbd5e1;
+  color: #3871b6;
   font-family: "Arial", Helvetica, sans-serif;
   font-weight: 700;
   font-size: clamp(32px, 5.5vw, 44px);
@@ -782,7 +782,7 @@ html.menu-open body {
 @supports (-webkit-text-stroke: 1px #000) {
   html:not(.android) .mob-index-headline {
     text-shadow: none;
-    -webkit-text-fill-color: #cbd5e1;
+    -webkit-text-fill-color: #3871b6;
     -webkit-text-stroke: 0.9px #2a4570; /* desktop/tablet default */
   }
 }
@@ -801,7 +801,7 @@ html.menu-open body {
 
 /* Android: plain darker text, no stroke, no shadow */
 html.android .mob-index-headline {
-  color: #94a3b8;
+  color: #64748b;
   -webkit-text-stroke: 0;
   text-shadow: none;
 }
