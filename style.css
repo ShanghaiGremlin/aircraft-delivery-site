@@ -759,38 +759,51 @@ html.menu-open body {
   margin-top: 10px;
 }
 
-/* Headline with improved Android stroke behavior */
+/* Base headline (fallback for engines without stroke) */
 .mob-index-headline {
   margin-bottom: 5px;
 
-  /* try Inter first; switch first family to 'Arimo' if you prefer that look */
-  font-family: "Inter", "Arimo", Arial, "Helvetica Neue", Helvetica, system-ui, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+  color: #cbd5e1;
+  font-family: "Arial", Helvetica, sans-serif;
   font-weight: 700;
   font-size: clamp(32px, 5.5vw, 44px);
   line-height: 1.06;
   letter-spacing: 0.022em;
-  color: #cbd5e1;
 
-  /* fallback when stroke isn't supported (Firefox) */
+  /* light, crisp fallback */
   text-shadow:
     0.25px 0.25px 0.6px rgba(0, 0, 0, 0.35),
     0 0 0.5px rgba(0, 0, 0, 0.30);
 }
 
+/* Non-Android (Chrome/iOS/Safari/etc.): keep clean stroke, no glow */
 @supports (-webkit-text-stroke: 1px #000) {
-  .mob-index-headline {
-    text-shadow: none;                 /* avoid the fuzzy double ring */
+  html:not(.android) .mob-index-headline {
+    text-shadow: none;
     -webkit-text-fill-color: #cbd5e1;
-    -webkit-text-stroke: 0.9px #2a4570; /* desktop/tablet default */
+    -webkit-text-stroke: 0.9px #2a4570;
   }
 
-  /* dense mobile (Pixel/iPhone) */
   @media (max-width: 1400px) and (min-resolution: 2dppx) {
-    .mob-index-headline { -webkit-text-stroke-width: 0.65px; }
+    html:not(.android) .mob-index-headline { -webkit-text-stroke-width: 0.65px; }
   }
   @media (max-width: 1400px) and (min-resolution: 3dppx) {
-    .mob-index-headline { -webkit-text-stroke-width: 0.55px; }
+    html:not(.android) .mob-index-headline { -webkit-text-stroke-width: 0.55px; }
   }
+}
+
+/* Android: disable stroke and use a crisp 8-direction outline (no blur, no overlay) */
+html.android .mob-index-headline {
+  -webkit-text-stroke: 0;
+  text-shadow:
+    1px 0 0 #2a4570,
+   -1px 0 0 #2a4570,
+    0 1px 0 #2a4570,
+    0 -1px 0 #2a4570,
+    1px 1px 0 #2a4570,
+   -1px -1px 0 #2a4570,
+    1px -1px 0 #2a4570,
+   -1px 1px 0 #2a4570;
 }
 }
 
