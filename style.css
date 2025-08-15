@@ -790,6 +790,7 @@ html.menu-open body {
     -webkit-text-stroke-width: 0.7px;
   }
 }
+
 @media (max-width: 1400px) and (min-resolution: 3dppx) {
   html:not(.android) .mob-index-headline {
     -webkit-text-stroke-width: 0.55px;
