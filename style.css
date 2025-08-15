@@ -759,66 +759,64 @@ html.menu-open body {
   margin-top: 10px;
 }
 
-/* ===== Base (fallback works in all browsers) ===== */
+/* 1) Base (works everywhere; simple shadow fallback) */
 .mob-index-headline {
-  font-family: Arial, Helvetica, sans-serif;
+  /* box model */
+  margin-bottom: 5px;
+
+  /* typography */
+  color: #94a3b8;
+  font-family: "Arial", Helvetica, sans-serif;
   font-weight: 700;
-  color: #94A3B8;                 /* darker fill for photo backgrounds */
+  font-size: clamp(32px, 5.5vw, 44px);
   line-height: 1.05;
   letter-spacing: 0.015em;
-  margin-bottom: 5px;
-  font-size: clamp(32px, 5.5vw, 44px);
-
-  /* Fallback outline for engines without text-stroke (e.g., Firefox) */
   text-shadow:
-    0.25px 0.25px 0.6px rgba(0,0,0,0.35),
-    0     0     0.5px rgba(0,0,0,0.30);
+    0.25px 0.25px 0.6px rgba(0, 0, 0, 0.35),
+    0 0 0.5px rgba(0, 0, 0, 0.3);
 }
 
-/* ===== Non-Android: thin stroke, no shadow ===== */
+/* 2) Non-Android: use crisp stroke, disable shadow */
 @supports (-webkit-text-stroke: 1px #000) {
   html:not(.android) .mob-index-headline {
     text-shadow: none;
-    -webkit-text-stroke-color: #2A4570; /* brand stroke */
-    -webkit-text-stroke-width: 1px;     /* desktop/tablet default */
-  }
-
-  /* Scale stroke down on dense mobile screens */
-  @media (max-width: 1400px) and (min-resolution: 2dppx) {
-    html:not(.android) .mob-index-headline { -webkit-text-stroke-width: 0.70px; }
-  }
-  @media (max-width: 1400px) and (min-resolution: 3dppx) {
-    html:not(.android) .mob-index-headline { -webkit-text-stroke-width: 0.55px; }
+    -webkit-text-stroke: 1px #2a4570;
   }
 }
 
-/* ANDROID (≤1400px): no stroke/shadow; use a background highlight under the text */
+/* 3) Non-Android dense screens: thin the stroke on mobile */
+@media (max-width: 1400px) and (min-resolution: 2dppx) {
+  html:not(.android) .mob-index-headline {
+    -webkit-text-stroke-width: 0.7px;
+  }
+}
+@media (max-width: 1400px) and (min-resolution: 3dppx) {
+  html:not(.android) .mob-index-headline {
+    -webkit-text-stroke-width: 0.55px;
+  }
+}
+
+/* 4) Android ≤1400px: keep it simple—no stroke/shadow, add a subtle text background */
 @media (max-width: 1400px) {
   html.android .mob-index-headline {
-    -webkit-text-stroke: 0;       /* disable stroke on Android */
-    text-shadow: none;            /* no fuzzy halo */
-    color: #94A3B8;               /* keep your darker fill (adjust if needed) */
+    /* turn off outline methods */
+    -webkit-text-stroke: 0;
+    text-shadow: none;
 
-    /* the "underlay" – a soft background behind the text */
-    display: inline-block;        /* shrink background to text width, keep margin-bottom working */
-    padding: 0.05em 0.35em 0.10em;
+    /* a soft underlay that always sits behind the glyphs */
+    display: inline-block;
+    padding: 0.06em 0.4em 0.12em;
     border-radius: 8px;
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.38),
-      rgba(0, 0, 0, 0.18)
-    );
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.46),
+        rgba(0, 0, 0, 0.28)
+      );
     -webkit-box-decoration-break: clone;
             box-decoration-break: clone;
-
-    /* keep your type tweaks */
-    line-height: 1.05;
-    letter-spacing: 0.015em;
-    font-size: clamp(32px, 5.5vw, 44px);
-    margin-bottom: 5px;
   }
 }
-
 
 
 .mob-index-description {
