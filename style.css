@@ -801,7 +801,7 @@ html.menu-open body {
 
 /* Android: plain darker text, no stroke, no shadow */
 html.android .mob-index-headline {
-  color: #64748b;
+  color: #334155;
   -webkit-text-stroke: 0;
   text-shadow: none;
 }
