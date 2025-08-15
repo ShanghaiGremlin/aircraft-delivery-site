@@ -799,7 +799,9 @@ html.menu-open body {
     text-shadow: none;
     position: relative;
     z-index: 0;
+    isolation: isolate;
   }
+
   html.android .mob-index-headline::before {
     content: "";
     position: absolute;
@@ -811,6 +813,7 @@ html.menu-open body {
       rgba(0,0,0,0.18)
     );
     z-index: -1;
+    pointer-events: none;;
   }
 }
 
