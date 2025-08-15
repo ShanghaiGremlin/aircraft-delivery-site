@@ -759,67 +759,49 @@ html.menu-open body {
   margin-top: 10px;
 }
 
-/* 1) Base (works everywhere; simple shadow fallback) */
+/* Headline (stroke-first), with a simple fallback for engines without text-stroke */
 .mob-index-headline {
   /* box model */
   margin-bottom: 5px;
 
   /* typography */
-  color: #94a3b8;
+  color: #cbd5e1; /* slightly darker than white for photo backgrounds */
   font-family: "Arial", Helvetica, sans-serif;
   font-weight: 700;
   font-size: clamp(32px, 5.5vw, 44px);
   line-height: 1.05;
   letter-spacing: 0.015em;
+
+  /* fallback when -webkit-text-stroke isn't supported (e.g., Firefox) */
   text-shadow:
     0.25px 0.25px 0.6px rgba(0, 0, 0, 0.35),
-    0 0 0.5px rgba(0, 0, 0, 0.3);
+    0 0 0.5px rgba(0, 0, 0, 0.30);
 }
 
-/* 2) Non-Android: use crisp stroke, disable shadow */
 @supports (-webkit-text-stroke: 1px #000) {
-  html:not(.android) .mob-index-headline {
-    text-shadow: none;
-    -webkit-text-stroke: 1px #2a4570;
+  /* Stroke enabled: keep stroke, add a micro smoothing halo (not a visible glow) */
+  .mob-index-headline {
+    -webkit-text-stroke: 0.9px #1f2937;          /* desktop/tablet default */
+    text-shadow: 0 0 0.35px rgba(0, 0, 0, 0.28);  /* sub-pixel AA to reduce jaggies on Pixel */
+  }
+
+  /* Dense mobile screens (your mobile breakpoint) */
+  @media (max-width: 1400px) and (min-resolution: 2dppx) {
+    .mob-index-headline {
+      -webkit-text-stroke-width: 0.7px;
+    }
+  }
+
+  @media (max-width: 1400px) and (min-resolution: 3dppx) {
+    .mob-index-headline {
+      -webkit-text-stroke-width: 0.55px;
+    }
   }
 }
-
-/* 3) Non-Android dense screens: thin the stroke on mobile */
-@media (max-width: 1400px) and (min-resolution: 2dppx) {
-  html:not(.android) .mob-index-headline {
-    -webkit-text-stroke-width: 0.7px;
-  }
 }
 
-@media (max-width: 1400px) and (min-resolution: 3dppx) {
-  html:not(.android) .mob-index-headline {
-    -webkit-text-stroke-width: 0.55px;
-  }
-}
-
-/* 4) Android ≤1400px: keep it simple—no stroke/shadow, add a subtle text background */
 @media (max-width: 1400px) {
-  html.android .mob-index-headline {
-    /* turn off outline methods */
-    -webkit-text-stroke: 0;
-    text-shadow: none;
-
-    /* a soft underlay that always sits behind the glyphs */
-    display: inline-block;
-    padding: 0.06em 0.4em 0.12em;
-    border-radius: 8px;
-    background:
-      linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.46),
-        rgba(0, 0, 0, 0.28)
-      );
-    -webkit-box-decoration-break: clone;
-            box-decoration-break: clone;
-  }
-}
-
-
+  
 .mob-index-description {
   font-size: 1.6rem;
   color: #2A4570;
