@@ -792,30 +792,33 @@ html.menu-open body {
   }
 }
 
-/* ===== Android (mobile range): soft underlay, no stroke/shadow ===== */
+/* ANDROID (≤1400px): no stroke/shadow; use a background highlight under the text */
 @media (max-width: 1400px) {
   html.android .mob-index-headline {
-    -webkit-text-stroke: 0;
-    text-shadow: none;
-    position: relative;
-    z-index: 0;
-    isolation: isolate;
-  }
+    -webkit-text-stroke: 0;       /* disable stroke on Android */
+    text-shadow: none;            /* no fuzzy halo */
+    color: #94A3B8;               /* keep your darker fill (adjust if needed) */
 
-  html.android .mob-index-headline::before {
-    content: "";
-    position: absolute;
-    inset: -0.15em -0.30em;        /* small pad around glyphs */
+    /* the "underlay" – a soft background behind the text */
+    display: inline-block;        /* shrink background to text width, keep margin-bottom working */
+    padding: 0.05em 0.35em 0.10em;
     border-radius: 8px;
     background: linear-gradient(
       to bottom,
-      rgba(0,0,0,0.38),
-      rgba(0,0,0,0.18)
+      rgba(0, 0, 0, 0.38),
+      rgba(0, 0, 0, 0.18)
     );
-    z-index: -1;
-    pointer-events: none;;
+    -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
+
+    /* keep your type tweaks */
+    line-height: 1.05;
+    letter-spacing: 0.015em;
+    font-size: clamp(32px, 5.5vw, 44px);
+    margin-bottom: 5px;
   }
 }
+
 
 
 .mob-index-description {
