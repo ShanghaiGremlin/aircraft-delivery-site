@@ -759,10 +759,12 @@ html.menu-open body {
   margin-top: 10px;
 }
 
-/* Base headline (fallback for engines without stroke) */
+/* Headline — base + fallback (works everywhere) */
 .mob-index-headline {
+  /* box model */
   margin-bottom: 5px;
 
+  /* typography */
   color: #cbd5e1;
   font-family: "Arial", Helvetica, sans-serif;
   font-weight: 700;
@@ -770,41 +772,40 @@ html.menu-open body {
   line-height: 1.06;
   letter-spacing: 0.022em;
 
-  /* light, crisp fallback */
+  /* fallback when stroke isn't supported (e.g., Firefox) */
   text-shadow:
     0.25px 0.25px 0.6px rgba(0, 0, 0, 0.35),
     0 0 0.5px rgba(0, 0, 0, 0.30);
 }
 
-/* Non-Android (Chrome/iOS/Safari/etc.): keep clean stroke, no glow */
+/* Non-Android (Chrome/Safari on iOS/desktop): keep clean stroke, no glow */
 @supports (-webkit-text-stroke: 1px #000) {
   html:not(.android) .mob-index-headline {
     text-shadow: none;
     -webkit-text-fill-color: #cbd5e1;
-    -webkit-text-stroke: 0.9px #2a4570;
-  }
-
-  @media (max-width: 1400px) and (min-resolution: 2dppx) {
-    html:not(.android) .mob-index-headline { -webkit-text-stroke-width: 0.65px; }
-  }
-  @media (max-width: 1400px) and (min-resolution: 3dppx) {
-    html:not(.android) .mob-index-headline { -webkit-text-stroke-width: 0.55px; }
+    -webkit-text-stroke: 0.9px #2a4570; /* desktop/tablet default */
   }
 }
 
-/* Android: disable stroke and use a crisp 8-direction outline (no blur, no overlay) */
+/* Dense mobile screens: thin the stroke */
+@media (max-width: 1400px) and (min-resolution: 2dppx) {
+  html:not(.android) .mob-index-headline {
+    -webkit-text-stroke-width: 0.65px;
+  }
+}
+@media (max-width: 1400px) and (min-resolution: 3dppx) {
+  html:not(.android) .mob-index-headline {
+    -webkit-text-stroke-width: 0.55px;
+  }
+}
+
+/* Android: plain darker text, no stroke, no shadow */
 html.android .mob-index-headline {
+  color: #94a3b8;
   -webkit-text-stroke: 0;
-  text-shadow:
-    1px 0 0 #2a4570,
-   -1px 0 0 #2a4570,
-    0 1px 0 #2a4570,
-    0 -1px 0 #2a4570,
-    1px 1px 0 #2a4570,
-   -1px -1px 0 #2a4570,
-    1px -1px 0 #2a4570,
-   -1px 1px 0 #2a4570;
+  text-shadow: none;
 }
+
 }
 
 @media (max-width: 1400px) {
