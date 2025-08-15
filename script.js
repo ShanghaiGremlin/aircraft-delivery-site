@@ -287,27 +287,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-document.addEventListener("DOMContentLoaded", function () {
+// phone-wiggle.js
+document.addEventListener("DOMContentLoaded", () => {
   const phoneIcon = document.getElementById("phoneIcon");
+  if (!phoneIcon) return;
+
+  // Optional: fix mojibake if it ever sneaks in (does NOT change good content)
+  if (phoneIcon.textContent && phoneIcon.textContent.includes("ðŸ“ž")) {
+    phoneIcon.textContent = "\u{1F4DE}"; // 📞
+  }
+
+  // Respect user's motion preference
+  const motionOK = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
   let wiggleCount = 0;
   const maxCycles = 3;
+  const intervalMs = 8000;
 
-  if (phoneIcon) {
-    const interval = setInterval(() => {
-      if (wiggleCount >= maxCycles) {
-        clearInterval(interval); // stop after 3 cycles
-        return;
-      }
+  const restartWiggle = () => {
+    if (!motionOK) return;
+    // Only toggle the name; keep your duration/easing/iteration from CSS
+    phoneIcon.style.animationName = "none";
+    // Force reflow to reset the animation
+    void phoneIcon.offsetWidth;
+    phoneIcon.style.animationName = "";
+  };
 
-      // Restart the animation
-      phoneIcon.style.animation = "none";
-      phoneIcon.offsetHeight; // force reflow
-      phoneIcon.style.animation = ""; // reapply defined animation
-
-      wiggleCount++;
-    }, 8000); // every 8 seconds
-  }
+  // Kick the cycle every 8s, up to 3 times (like your original)
+  const timer = setInterval(() => {
+    if (!document.body.contains(phoneIcon) || wiggleCount >= maxCycles) {
+      clearInterval(timer);
+      return;
+    }
+    restartWiggle();
+    wiggleCount++;
+  }, intervalMs);
 });
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const shimmerTarget = document.getElementById("shimmerTarget");
