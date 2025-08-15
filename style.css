@@ -759,49 +759,43 @@ html.menu-open body {
   margin-top: 10px;
 }
 
-/* Headline (stroke-first), with a simple fallback for engines without text-stroke */
+/* Headline with improved Android stroke behavior */
 .mob-index-headline {
-  /* box model */
   margin-bottom: 5px;
 
-  /* typography */
-  color: #cbd5e1; /* slightly darker than white for photo backgrounds */
-  font-family: "Arial", Helvetica, sans-serif;
+  /* try Inter first; switch first family to 'Arimo' if you prefer that look */
+  font-family: "Inter", "Arimo", Arial, "Helvetica Neue", Helvetica, system-ui, "Segoe UI", Roboto, "Noto Sans", sans-serif;
   font-weight: 700;
   font-size: clamp(32px, 5.5vw, 44px);
-  line-height: 1.05;
-  letter-spacing: 0.015em;
+  line-height: 1.06;
+  letter-spacing: 0.022em;
+  color: #cbd5e1;
 
-  /* fallback when -webkit-text-stroke isn't supported (e.g., Firefox) */
+  /* fallback when stroke isn't supported (Firefox) */
   text-shadow:
     0.25px 0.25px 0.6px rgba(0, 0, 0, 0.35),
     0 0 0.5px rgba(0, 0, 0, 0.30);
 }
 
 @supports (-webkit-text-stroke: 1px #000) {
-  /* Stroke enabled: keep stroke, add a micro smoothing halo (not a visible glow) */
   .mob-index-headline {
-    -webkit-text-stroke: 0.9px #1f2937;          /* desktop/tablet default */
-    text-shadow: 0 0 0.35px rgba(0, 0, 0, 0.28);  /* sub-pixel AA to reduce jaggies on Pixel */
+    text-shadow: none;                 /* avoid the fuzzy double ring */
+    -webkit-text-fill-color: #cbd5e1;
+    -webkit-text-stroke: 0.9px #2a4570; /* desktop/tablet default */
   }
 
-  /* Dense mobile screens (your mobile breakpoint) */
+  /* dense mobile (Pixel/iPhone) */
   @media (max-width: 1400px) and (min-resolution: 2dppx) {
-    .mob-index-headline {
-      -webkit-text-stroke-width: 0.7px;
-    }
+    .mob-index-headline { -webkit-text-stroke-width: 0.65px; }
   }
-
   @media (max-width: 1400px) and (min-resolution: 3dppx) {
-    .mob-index-headline {
-      -webkit-text-stroke-width: 0.55px;
-    }
+    .mob-index-headline { -webkit-text-stroke-width: 0.55px; }
   }
 }
 }
 
 @media (max-width: 1400px) {
-  
+
 .mob-index-description {
   font-size: 1.6rem;
   color: #2A4570;
