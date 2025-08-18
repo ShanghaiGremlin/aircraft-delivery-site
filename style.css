@@ -86,10 +86,6 @@ h1, h2, h3, h4, h5, h6 {
   display: none;
 }
 
-.mob-header-pad {
-  display: none;
-}
-
 .desktop-only {
   display: block;
 }
@@ -191,17 +187,7 @@ html, body {
 }
 }
 
-@media (max-width: 750px) {
-.mob-header-pad {
-  padding-top: 70px;
-}
-}
 
-@media (min-width: 751px) {
-.mob-header-pad {
-padding-top: 100px; 
-}
-}
 
 /* !!! END BROAD MOBILE STYLES !!! END */
 
@@ -249,18 +235,12 @@ padding-top: 100px;
   gap: 30px 30px;
 }
 
-.desk-header-pad {
-  padding-top: 170px;
-}
+
 
 /* =========================
    CONFIG 5:
    ========================= */
 @media (max-width: 1455px) and (min-width: 1401px) {
-  .desk-header-pad {
-     height: 52px; 
-    }
-
   .desk-nav a { 
     white-space: nowrap; 
   }
@@ -286,9 +266,6 @@ padding-top: 100px;
    CONFIG 4: forced wrap for "Past Deliveries"
    ========================= */
 @media (max-width: 1495px) and (min-width: 1456px) {
-  .desk-header-pad {
-     height: 53px; 
-    }
 
   .desk-nav a { 
     white-space: nowrap; 
@@ -310,10 +287,6 @@ padding-top: 100px;
   .desk-nav {
     grid-template-columns: repeat(2, auto);
     grid-template-rows: repeat(3, auto);
-  }
-
-  .desk-header-pad { 
-    height: 33px; 
   }
 
   /* Keep everything no-wrap EXCEPT Join Pilot Roster */
@@ -339,9 +312,6 @@ padding-top: 100px;
     /*gap: 18px 28px;*/
   }
 
-  .desk-header-pad { 
-    height: 14px; 
-  }
   .desk-nav a { 
     white-space: nowrap; 
   } /* still no wrap */
@@ -568,16 +538,14 @@ html.menu-open body {
   }
 }
 
-/* INTERMEDIATE OVERRIDE */
+
+
+/* INTERMEDIATE MOBILE HEADER OVERRIDE */
 @media screen and (min-width: 751px) and (max-width: 1400px) { 
  .mobile-menu {
   padding: 50px 0 20px 0;
  }
  
-  .mobile-header {
-   height: 90px;
-}
-
 .mobile-logo {
   display: none;
 }
@@ -590,6 +558,64 @@ html.menu-open body {
 }
 
 /* !!! END === MOBILE HEADER === !!! END*/
+
+
+
+/* ALL HEADER SIZING */
+
+.header-pad {
+  padding-top: 170px;
+}
+
+@media (max-width: 1455px) and (min-width: 1401px) {
+  .header-pad {
+     height: 52px; 
+    }
+  }
+
+@media (max-width: 1495px) and (min-width: 1456px) {
+  .header-pad {
+     height: 53px; 
+    }
+  }
+   
+@media (max-width: 1530px) and (min-width: 1496px) {
+  .header-pad { 
+    height: 33px; 
+  }
+    }
+
+@media (max-width: 1800px) and (min-width: 1531px) {
+  .header-pad { 
+    height: 14px; 
+  }
+    }
+
+@media (max-width: 750px) {
+.header-pad {
+  padding-top: 70px;
+}
+}
+
+@media (min-width: 751px) and (max-width: 1400px) {
+.header-pad {
+padding-top: 100px; 
+}
+}
+
+@media screen and (min-width: 751px) and (max-width: 1400px) { 
+  .mobile-header {
+   height: 90px;
+}
+}
+
+@media screen and (min-width: 751px) and (max-width: 1400px) {
+.mob-index-mobilehero {
+  padding-top: 90px;
+}
+}
+
+
 
 
 /* ++++++ INDEX +++++++++*/
@@ -808,7 +834,10 @@ html.menu-open body {
 
 @media screen and (max-width: 1400px) {
 
-
+.index-mob-main {
+display: flex;
+flex-direction: column;
+}
 
   .mob-index-mobilehero {
   width: 100vw; 
@@ -926,11 +955,7 @@ html.android .mob-index-headline {
 
 /* OTHER MOBILE INDEX OVERRIDES */
 
-@media screen and (min-width: 751px) and (max-width: 1400px) {
-.mob-index-mobilehero {
-  padding-top: 90px;
-}
-}
+
 
 
 
@@ -1921,6 +1946,12 @@ a.join-mob-copy-button {
 
 .mob-past-deliv-zoom-inner {
 padding: 1.5vw;
+}
+}
+
+@media (max-width: 480px) {
+.mob-past-deliv-slider-wrapper {
+  min-height: 480px; 
 }
 }
 
