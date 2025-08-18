@@ -523,7 +523,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // All other global accordions (outside join-page)
-  document.querySelectorAll('.desk-quote-accordion-toggle').forEach((toggle) => {
+  document.querySelectorAll('.quote-accordion-toggle').forEach((toggle) => {
     // Skip if toggle is inside join-page (already handled above)
     if (toggle.closest(".join-page")) return;
 
@@ -563,132 +563,104 @@ if (!expanded) {
   });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const HEADER_OFFSET = 165; // fixed header height (adjust if needed)
-
-  document.querySelectorAll(".mob-quote-toggle-btn").forEach((btn) => {
-    const formContainer = btn.closest(".mob-quote-form-wrap")?.querySelector(".mob-quote-form-container");
-    if (!formContainer) return;
-
-    btn.addEventListener("click", function () {
-      const isCollapsed = formContainer.classList.toggle("mob-quote-collapsed");
-
-      // text + aria
-      btn.textContent = isCollapsed ? "Click to view Quote Request Form" : "Hide Form";
-      btn.setAttribute("aria-expanded", String(!isCollapsed));
-
-      // On expand: scroll DOWN only until the toggle sits at HEADER_OFFSET
-      if (!isCollapsed) {
-        requestAnimationFrame(() => {
-          const targetTop = btn.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
-
-          // Clamp to document bottom
-          const maxTop = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-          const clamped = Math.min(targetTop, maxTop);
-
-          // Only move if we'd scroll down
-          if (clamped > window.scrollY + 1) {
-            window.scrollTo({ top: clamped, behavior: "smooth" });
-          }
-        });
-      }
-    });
-  });
-});
 
 
+document.addEventListener('DOMContentLoaded', () => {
+  const HEADER_OFFSET = 165;
 
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".mob-quote-showmore-row").forEach((row) => {
-    const btn = row.querySelector(".mob-quote-toggle-btn");
-    const table = row.closest("table");
-    const hiddenRows = table?.querySelectorAll(".mob-quote-extra-row");
+  const btn = document.getElementById('quote-mob-form-toggle-btn');
+  const section = document.getElementById('quote-form-section'); 
 
-    if (btn && hiddenRows.length > 0) {
-      btn.addEventListener("click", function () {
-        const isHidden = hiddenRows[0].classList.contains("mob-quote-hidden");
+  if (!btn || !section) return;
 
-        hiddenRows.forEach((r) =>
-          r.classList.toggle("mob-quote-hidden")
-        );
+  btn.addEventListener('click', () => {
+    const isOpen = section.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded', String(isOpen));
+    btn.textContent = isOpen ? 'Hide Form' : 'Click to view Quote Request Form';
 
-        btn.textContent = isHidden
-          ? "Hide Extra Pay Scenarios"
-          : "Show More Pay Scenarios";
-      });
-    }
-  });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  const HEADER_OFFSET = 165; // fixed header height
-
-  document.querySelectorAll(".mob-quote-expenses-wrapper").forEach((wrapper) => {
-    const btn = wrapper.querySelector(".mob-quote-expenses-btn");
-    const container = wrapper.querySelector(".mob-quote-expenses-container");
-
-    if (btn && container) {
-      btn.addEventListener("click", function () {
-        const isCollapsed = container.classList.toggle("mob-quote-collapsed");
-
-        // text + aria
-        btn.textContent = isCollapsed ? "Show Aircraft Expenses" : "Hide Expense Details";
-        btn.setAttribute("aria-expanded", String(!isCollapsed));
-
-        // On expand: scroll DOWN only until the button sits at HEADER_OFFSET
-        if (!isCollapsed) {
-          requestAnimationFrame(() => {
-            const targetTop = btn.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
-
-            // clamp to document bottom
-            const maxTop = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-            const clamped = Math.min(targetTop, maxTop);
-
-            if (clamped > window.scrollY + 1) {
-              window.scrollTo({ top: clamped, behavior: "smooth" });
-            }
-          });
-        }
+    if (isOpen) {
+      requestAnimationFrame(() => {
+        const top = section.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+        const maxTop = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+        window.scrollTo({ top: Math.min(top, maxTop), behavior: 'smooth' });
       });
     }
   });
 });
 
 
-document.addEventListener("DOMContentLoaded", function () {
-  const HEADER_OFFSET = 165; // fixed header height
 
-  document.querySelectorAll(".mob-quote-admin-wrapper").forEach((wrapper) => {
-    const btn = wrapper.querySelector(".mob-quote-admin-btn");
-    const container = wrapper.querySelector(".mob-quote-admin-fee-content");
-    if (!btn || !container) return;
+document.addEventListener('DOMContentLoaded', () => {
+  const HEADER_OFFSET = 165;
 
-    btn.addEventListener("click", function () {
-      const isCollapsed = container.classList.toggle("mob-quote-collapsed");
+const btn = document.getElementById('quote-mob-extra-row-btn');
+  const sec = document.getElementById('quote-mob-extra-rows');
+  if (!btn || !sec) return;
 
-      // text + aria
-      btn.textContent = isCollapsed
-        ? "Show Flight Dispatch Details"
-        : "Hide Flight Dispatch Details";
-      btn.setAttribute("aria-expanded", String(!isCollapsed));
+  btn.addEventListener('click', () => {
+    const isOpen = sec.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded', String(isOpen));
+    btn.textContent = isOpen ? 'Hide Pay Scenarios' : 'Show More Pay Scenarios';
 
-      // On expand: scroll DOWN only until the button sits at HEADER_OFFSET
-      if (!isCollapsed) {
-        requestAnimationFrame(() => {
-          const targetTop = btn.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
-
-          // clamp to document bottom
-          const maxTop = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-          const clamped = Math.min(targetTop, maxTop);
-
-          if (clamped > window.scrollY + 1) {
-            window.scrollTo({ top: clamped, behavior: "smooth" });
-          }
-        });
-      }
-    });
+    if (isOpen) {
+      requestAnimationFrame(() => {
+        const top = sec.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+        const maxTop = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+        window.scrollTo({ top: Math.min(top, maxTop), behavior: 'smooth' });
+      });
+    }
   });
 });
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const HEADER_OFFSET = 165;
+
+  const btn = document.getElementById('quote-mob-expenses-btn');
+  const container = document.getElementById('quote-mob-expenses-container');
+  if (!btn || !container) return;
+
+  btn.addEventListener('click', () => {
+    const isOpen = container.classList.toggle('is-open'); // <-- matches CSS
+    btn.setAttribute('aria-expanded', String(isOpen));
+    btn.textContent = isOpen ? 'Hide Expense Details' : 'Show Aircraft Expenses';
+
+    if (isOpen) {
+      requestAnimationFrame(() => {
+        const top = btn.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+        const maxTop = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+        window.scrollTo({ top: Math.min(top, maxTop), behavior: 'smooth' });
+      });
+    }
+  });
+});
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const HEADER_OFFSET = 165;
+
+  const btn = document.getElementById('quote-mob-dispatch-btn');
+  const sec = document.getElementById('quote-mob-dispatch-content');
+  if (!btn || !sec) return;
+
+  btn.addEventListener('click', () => {
+    const isOpen = sec.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded', String(isOpen));
+    btn.textContent = isOpen ? 'Hide Dispatch Services' : 'Show Dispatch Services';
+
+    if (isOpen) {
+      requestAnimationFrame(() => {
+        const top = btn.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+        const maxTop = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+        window.scrollTo({ top: Math.min(top, maxTop), behavior: 'smooth' });
+      });
+    }
+  });
+});
+
 
 
 document.addEventListener("DOMContentLoaded", function () {
