@@ -3010,7 +3010,7 @@ width: clamp(150px, 45vw, 400px);
 
 .services-main {
   background-color: #f5f5f5; 
-  padding: 165px 15px 0 15px;
+  padding: 0 15px;
   text-align: center;
 }
 
