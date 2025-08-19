@@ -2,7 +2,10 @@
 /index        /        301
 /index.html   /        301!
 
-/__test500   /500.html   500
+/__test500  /500.html  500
+  Cache-Control: no-store, no-cache, must-revalidate
+  Pragma: no-cache
+  Expires: 0
 
 # Subfolder indexes → trailing-slash folder URL
 /*/index      /:splat/ 301
