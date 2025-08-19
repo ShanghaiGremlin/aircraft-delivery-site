@@ -11,10 +11,10 @@
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
-  X-Frame-Options: SAMEORIGIN
+  X-Frame-Options: DENY
   Strict-Transport-Security: max-age=15552000
   Content-Security-Policy: upgrade-insecure-requests
-  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  ermissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
 
 /404.html
   Cache-Control: no-store, no-cache, must-revalidate
@@ -27,10 +27,3 @@
   Pragma: no-cache
   Expires: 0
   X-Robots-Tag: noindex
-
-/*
-  # Prevent your pages from being embedded elsewhere (anti-clickjacking)
-  X-Frame-Options: DENY
-
-  # Disable powerful APIs you don’t need
-  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
