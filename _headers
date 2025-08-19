@@ -27,3 +27,10 @@
   Pragma: no-cache
   Expires: 0
   X-Robots-Tag: noindex
+
+/*
+  # Prevent your pages from being embedded elsewhere (anti-clickjacking)
+  X-Frame-Options: DENY
+
+  # Disable powerful APIs you don’t need
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
