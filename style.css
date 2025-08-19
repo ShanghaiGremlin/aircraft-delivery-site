@@ -840,11 +840,12 @@ flex-direction: column;
 }
 
   .mob-index-mobilehero {
-  width: 100vw; 
+  width: 100%; 
   max-width: 100%; 
   padding-top: 60px; 
   display: block;
-  margin-bottom: 0;
+  height: auto;
+  margin-bottom: 20px;
   }
 
 .mob-index-service {
