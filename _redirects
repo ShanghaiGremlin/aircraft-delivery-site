@@ -8,3 +8,6 @@
 
 # Quality-of-life: make /404 resolve to the template
 /404          /404.html 301!
+
+# Fallback for anything that doesn't exist → 404 template with real 404 status
+/*  /404.html  404
