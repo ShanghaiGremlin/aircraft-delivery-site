@@ -1354,3 +1354,47 @@ document.addEventListener("DOMContentLoaded", () => {
     document.documentElement.classList.add("android");
   }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('quote-form'); // updated id
+  if (!form) return;
+
+  const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
+  if (!submitBtn) return;
+
+  let submitted = false;
+  const REENABLE_TIMEOUT_MS = 12000; // safety net for offline/error
+
+  form.addEventListener('submit', (e) => {
+    if (submitted) {
+      e.preventDefault(); // block double-submit
+      return;
+    }
+    submitted = true;
+
+    // Disable & show progress
+    submitBtn.disabled = true;
+    submitBtn.setAttribute('aria-busy', 'true');
+    submitBtn.setAttribute('data-original-text', submitBtn.textContent || submitBtn.value || '');
+    if (submitBtn.tagName === 'BUTTON') {
+      submitBtn.textContent = 'Submitting…';
+    } else {
+      submitBtn.value = 'Submitting…';
+    }
+
+    // Safety re-enable if we don't navigate away (offline / error)
+    setTimeout(() => {
+      if (document.getElementById('quote-form')) { // still on the page
+        submitted = false;
+        submitBtn.disabled = false;
+        submitBtn.removeAttribute('aria-busy');
+        const original = submitBtn.getAttribute('data-original-text') || 'Submit';
+        if (submitBtn.tagName === 'BUTTON') {
+          submitBtn.textContent = original;
+        } else {
+          submitBtn.value = original;
+        }
+      }
+    }, REENABLE_TIMEOUT_MS);
+  });
+});
