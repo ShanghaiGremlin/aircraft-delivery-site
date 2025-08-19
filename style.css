@@ -595,6 +595,10 @@ html.menu-open body {
 .header-pad {
   padding-top: 70px;
 }
+
+.index-mob-pad  {
+padding-top: 60px
+}
 }
 
 @media (min-width: 751px) and (max-width: 1400px) {
@@ -607,13 +611,12 @@ padding-top: 100px;
   .mobile-header {
    height: 90px;
 }
-}
 
-@media screen and (min-width: 751px) and (max-width: 1400px) {
-.mob-index-mobilehero {
+.index-mob-pad {
   padding-top: 90px;
 }
 }
+
 
 
 
@@ -838,15 +841,6 @@ padding-top: 100px;
 display: flex;
 flex-direction: column;
 }
-
-  .mob-index-mobilehero {
-  width: 100%; 
-  max-width: 100%; 
-  padding-top: 60px; 
-  display: block;
-  height: auto;
-  margin-bottom: 20px;
-  }
 
 .mob-index-service {
   display: flex;
