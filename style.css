@@ -338,7 +338,8 @@ html, body {
   font-weight: bold;
   font-size: 1.2rem;
   transition: border-bottom 0.2s ease;
-  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+
 }
 
 .desk-nav a:hover {
@@ -353,10 +354,6 @@ html, body {
   justify-content: center;
   text-align: center;
   padding: 0 20px 0 20px;
-}
-
-.desk-header-logo {
-  height: 140px;
 }
 
 .desk-header-right {
