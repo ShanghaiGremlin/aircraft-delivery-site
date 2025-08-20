@@ -1,6 +1,6 @@
 ﻿*
-#   Link: </styles.css?v=20250820-015355>; rel=preload; as=style
-#   Link: </script.js?v=20250820-015355>; rel=preload; as=script
+#   Link: </styles.css?v=20250820-015825>; rel=preload; as=style
+#   Link: </script.js?v=20250820-015825>; rel=preload; as=script
 #   # (optional) gate one hero preload per device class:
-#   # Link: </assets/desktop/desk-index-hero-1400w.avif?v=20250820-015355>; rel=preload; as=image; media="(min-width: 1400px)"
-#   # Link: </assets/mobile/mob-index-mobilehero-640w.jpg?v=20250820-015355>; rel=preload; as=image; media="(max-width: 1399px)"
+#   # Link: </assets/desktop/desk-index-hero-1400w.avif?v=20250820-015825>; rel=preload; as=image; media="(min-width: 1400px)"
+#   # Link: </assets/mobile/mob-index-mobilehero-640w.jpg?v=20250820-015825>; rel=preload; as=image; media="(max-width: 1399px)"
