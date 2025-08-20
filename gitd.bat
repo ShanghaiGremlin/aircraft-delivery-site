@@ -11,6 +11,13 @@ if errorlevel 1 (
   exit /b 1
 )
 
+echo [gitd] Tripwire check...
+powershell -NoProfile -ExecutionPolicy Bypass -File "tools\powershell\tripwire.ps1"
+if errorlevel 1 (
+  echo [gitd] ERROR: tripwire.ps1 failed. Aborting.
+  exit /b 1
+)
+
 echo [gitd] Staging changes...
 git add -A
 
