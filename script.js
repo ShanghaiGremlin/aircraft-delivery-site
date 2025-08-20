@@ -1617,3 +1617,37 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const report = document.getElementById("reportLink");
+  if (!report) return;
+
+  report.addEventListener("click", async (e) => {
+    e.preventDefault();
+
+    const details = [
+      `URL: ${location.href}`,
+      `Referrer: ${document.referrer || "(none)"}`,
+      `Time: ${new Date().toISOString()}`,
+      `User-Agent: ${navigator.userAgent}`,
+      `Viewport: ${window.innerWidth}x${window.innerHeight}`,
+      `Language: ${navigator.language || "(unknown)"}`
+    ].join("\n");
+
+    try {
+      await navigator.clipboard.writeText(
+        `Please describe what you were doing:\n\n---\n${details}\n`
+      );
+      // brief confirmation
+      const old = report.textContent;
+      report.textContent = "Details copied—paste into your email";
+      setTimeout(() => (report.textContent = old), 4000);
+    } catch {
+      // Fallback: open a blank mailto with prefilled body (no recipient)
+      const subject = encodeURIComponent("Site error report");
+      const body = encodeURIComponent(`(Describe the issue)\n\n---\n${details}\n`);
+      location.href = `mailto:?subject=${subject}&body=${body}`;
+    }
+  });
+});
