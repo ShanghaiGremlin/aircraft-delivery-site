@@ -1740,7 +1740,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function loadWV() {
     const s = document.createElement("script");
-    s.src = "/assets/js/web-vitals.js?v=2025-08-20"; // keep your version string
+    s.src = "/assets/js/wv.js"; 
     s.defer = true;
     s.onload = () => {
       if (window.webVitals) {
