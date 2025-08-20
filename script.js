@@ -260,82 +260,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-//document.addEventListener("DOMContentLoaded", function () {
-//  const zoomBlocks = document.querySelectorAll(".img-wrap");
-
-//  zoomBlocks.forEach(function (wrap) {
-//    wrap.addEventListener("click", function () {
-//      const isActive = wrap.classList.contains("active");
-
-      // Deactivate all other zooms and demote any promoted wrapper
-  //    document.querySelectorAll(".img-wrap.active").forEach(function (el) {
-  //      el.classList.remove("active");
-  //      const promoteWrapper = el.closest(".zoom-wrapper");
-  //      if (promoteWrapper) promoteWrapper.classList.remove("promote");
-    //  });
-
-  //    if (!isActive) {
-        // Activate this one
- //       wrap.classList.add("active");
-
-        // Promote its wrapper
-  //      const zoomWrapper = wrap.closest(".zoom-wrapper");
-  //      if (zoomWrapper) zoomWrapper.classList.add("promote");
-
-        // Allow content to bleed outside viewport
- //       document.documentElement.style.overflow = "visible";
-  //      document.body.style.overflow = "visible";
-      //} else {
-        // Remove zoom + promotion
-        //wrap.classList.remove("active");
-        //const zoomWrapper = wrap.closest(".zoom-wrapper");
-        //if (zoomWrapper) zoomWrapper.classList.remove("promote");
-
-//        document.documentElement.style.overflow = "";
-  //      document.body.style.overflow = "";
-    //  }
-   // });
- // });
-//});
-
-
-
-
-
-
-
-
-//document.addEventListener("DOMContentLoaded", function () {
-// const modal = document.getElementById("desk-past-deliv-modal");
-//const modalImg = document.getElementById("desk-past-deliv-img");
-//const modalClose = document.getElementById("desk-past-deliv-close");
-
-//if (modal && modalImg && modalClose) {
-//  const thumbnails = document.querySelectorAll("img[data-full]");
-
-  //thumbnails.forEach(function (img) {
-   // img.addEventListener("click", function () {
-    //  const fullSrc = this.getAttribute("data-full");
-    //  modalImg.src = fullSrc;
-   //   modal.style.display = "flex";
-  //  });
- // });
-
- //modal.addEventListener("click", function (e) {
-   // if (e.target === modal) {
-     // modal.style.display = "none";
-     // modalImg.src = "";
-  //  }
- // });
-//}
-//})
-
-// Global state to manage scroll behavior
-//let lastOpenedBtn = null;
-//let lastOpenedY = null;
-//let lastOpenedScrollY = null;
-
-
 
 // phone-wiggle.js
 document.addEventListener("DOMContentLoaded", () => {
@@ -529,28 +453,6 @@ if (mobTotalSlides > 1) {
   }, 10000);
 }
 
-// Accordion toggle logic – multiple allowed open, with scroll on open
-//const allAccordionToggles = document.querySelectorAll('.desk-quote-accordion-toggle');
-
-
-//allAccordionToggles.forEach((toggle) => {
- // toggle.addEventListener('click', () => {
-   // const expanded = toggle.getAttribute('aria-expanded') === 'true';
-  //  toggle.setAttribute('aria-expanded', String(!expanded));
-
-//    const panel = toggle.nextElementSibling;
-  //  if (!expanded) {
-    //  panel.style.display = 'block';
-
-      // Scroll behavior
- //     const offset = window.innerWidth <= 768 ? 100 : 60; // Mobile vs Desktop offset
-   //   const panelTop = panel.getBoundingClientRect().top + window.scrollY - offset;
- //     window.scrollTo({ top: panelTop, behavior: 'smooth' });
- //   } else {
-   //   panel.style.display = 'none';
-//    }
-//  });
-// });
 
 document.addEventListener("DOMContentLoaded", function () {
   const joinPage = document.querySelector(".join-page");
@@ -1562,28 +1464,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-  // Secure external links that open in a new tab
-document.addEventListener("DOMContentLoaded", () => {
-
-  const here = location.hostname;
-
-  document.querySelectorAll('a[target="_blank"]').forEach((a) => {
-    try {
-      const url = new URL(a.href, location.href);
-      const isExternal = url.hostname && url.hostname !== here;
-
-      if (isExternal) {
-        // Ensure noopener; add noreferrer for privacy (removes Referer)
-        const rel = (a.getAttribute("rel") || "").split(/\s+/);
-        if (!rel.includes("noopener")) rel.push("noopener");
-        if (!rel.includes("noreferrer")) rel.push("noreferrer");
-        a.setAttribute("rel", rel.filter(Boolean).join(" "));
-      }
-    } catch {
-      // ignore malformed/anchor-only links
-    }
-  });
-});
 
 // SPAM GUARD FOR MINIMUM TIME TO SUBMIT FORM 
 document.addEventListener("DOMContentLoaded", () => {
@@ -1726,4 +1606,157 @@ document.addEventListener("DOMContentLoaded", () => {
       location.href = `mailto:?subject=${subject}&body=${body}`;
     }
   });
+});
+
+// HANDLES TARGET_BLANK
+document.addEventListener("DOMContentLoaded", () => {
+  const here = location.hostname;
+
+  document.querySelectorAll('a[target="_blank"]').forEach((a) => {
+    try {
+      const url = new URL(a.href, location.href);
+      const isExternal = url.hostname && url.hostname !== here;
+
+      // Always add noopener (internal or external)
+      const rel = (a.getAttribute("rel") || "").split(/\s+/).filter(Boolean);
+      if (!rel.includes("noopener")) rel.push("noopener");
+
+      // Add noreferrer only for external links
+      if (isExternal && !rel.includes("noreferrer")) rel.push("noreferrer");
+
+      a.setAttribute("rel", rel.join(" "));
+    } catch {
+      // If URL can't be parsed, still add noopener as a safe default
+      const rel = (a.getAttribute("rel") || "").split(/\s+/).filter(Boolean);
+      if (!rel.includes("noopener")) rel.push("noopener");
+      a.setAttribute("rel", rel.join(" "));
+    }
+  });
+});
+
+// APPENDS AN ADVISORY TO EVERY TARGET-BLANK 
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll('a[target="_blank"]').forEach((a) => {
+    if (a.dataset.newtabAnnotated === "1") return; // guard
+    a.dataset.newtabAnnotated = "1";
+
+    const cue = document.createElement("span");
+    cue.className = "sr-only";
+    cue.textContent = " (opens in a new tab)";
+    a.appendChild(cue);
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Guard: don't run twice
+  if (window.__autoLabelBound) return;
+  window.__autoLabelBound = true;
+
+  const hasVisibleText = (el) => ((el.textContent || "").trim().length > 0);
+  const hasAriaName = (el) => el.hasAttribute("aria-label") || el.hasAttribute("aria-labelledby");
+  const hasImgAlt = (el) => {
+    const img = el.querySelector("img[alt]");
+    return !!(img && img.getAttribute("alt") && img.getAttribute("alt").trim());
+  };
+  const svgTitle = (el) => {
+    const t = el.querySelector("svg > title");
+    return (t && t.textContent && t.textContent.trim()) || "";
+  };
+
+  // Heuristic labeling rules, ordered from most specific → generic fallbacks
+  function inferLabel(el) {
+    const isLink = el.tagName === "A";
+    const href = isLink ? (el.getAttribute("href") || "") : "";
+    const cls = el.className || "";
+
+    // Known controls by selector patterns (edit/extend if you add more)
+    if (el.id === "hamburger-icon" || /(?:^|\s)(hamburger|menu-toggle)(?:\s|$)/i.test(cls)) return "Open menu";
+    if (/(?:^|\s)(modal-close|drawer-close|close|icon-close|x-close)(?:\s|$)/i.test(cls)) return "Close";
+    if (/(?:^|\s)(slider-prev|carousel-prev|prev|arrow-left)(?:\s|$)/i.test(cls)) return "Previous slide";
+    if (/(?:^|\s)(slider-next|carousel-next|next|arrow-right)(?:\s|$)/i.test(cls)) return "Next slide";
+
+    // Links with clear intent
+    if (href.startsWith("tel:")) return "Call us";
+    if (href.startsWith("mailto:")) return "Email us";
+
+    // Full-size image links (common on /past-deliveries)
+    if (/\.(?:avif|webp|png|jpe?g|gif)(?:[?#]|$)/i.test(href)) return "View full-size image";
+
+    // Use <svg><title> if provided
+    const title = svgTitle(el);
+    if (title) return title;
+
+    // No safe inference → skip (don’t risk a wrong label)
+    return "";
+  }
+
+  function hidePureIcon(el) {
+    // Hide decorative icons from a11y tree
+    el.querySelectorAll("svg, img").forEach((icon) => {
+      // If the image has alt text, keep it; otherwise hide it
+      if (icon.tagName === "IMG") {
+        const alt = icon.getAttribute("alt");
+        if (alt && alt.trim()) return;
+      }
+      if (!icon.hasAttribute("aria-hidden")) icon.setAttribute("aria-hidden", "true");
+    });
+  }
+
+  const candidates = Array.from(document.querySelectorAll('a, button, [role="button"]'));
+  candidates.forEach((el) => {
+    // Skip if it already has a name via ARIA or visible text or image alt
+    if (hasAriaName(el) || hasVisibleText(el) || hasImgAlt(el)) return;
+
+    const label = inferLabel(el);
+    if (label) {
+      el.setAttribute("aria-label", label);
+      hidePureIcon(el);
+      el.dataset.autoLabeled = "1";
+    }
+  });
+});
+
+
+//Helps screen readers and improves Lighthouse a11y (“Links have a discernible name / current page indicated”).
+document.addEventListener("DOMContentLoaded", () => {
+  const here = (location.pathname.replace(/\/+$/, "") || "/").toLowerCase();
+
+  document.querySelectorAll("nav a[href]").forEach((a) => {
+    try {
+      const url = new URL(a.getAttribute("href"), location.origin);
+      const path = (url.pathname.replace(/\/+$/, "") || "/").toLowerCase();
+      if (path === here) a.setAttribute("aria-current", "page");
+    } catch {/* ignore bad/malformed hrefs */}
+  });
+});
+
+// INCREASE LOADIDNG SPEED OF WEB VITALS
+document.addEventListener("DOMContentLoaded", () => {
+  // Load only on the homepage
+  const onHome = location.pathname === "/" || location.pathname.toLowerCase() === "/index";
+  if (!onHome || window.__webVitalsLoaded) return;
+  window.__webVitalsLoaded = true;
+
+  function loadWV() {
+    const s = document.createElement("script");
+    s.src = "/assets/js/web-vitals.js?v=2025-08-20"; // keep your version string
+    s.defer = true;
+    s.onload = () => {
+      if (window.webVitals) {
+        // webVitals.getCLS(sendToAnalytics);
+        // webVitals.getLCP(sendToAnalytics);
+        // webVitals.getINP(sendToAnalytics);
+      }
+    };
+    document.head.appendChild(s);
+  }
+
+  if (document.readyState === "complete") {
+    (window.requestIdleCallback || ((cb) => setTimeout(cb, 150)))(loadWV);
+  } else {
+    window.addEventListener("load", () => {
+      (window.requestIdleCallback || ((cb) => setTimeout(cb, 150)))(loadWV);
+    }, { once: true });
+  }
 });
