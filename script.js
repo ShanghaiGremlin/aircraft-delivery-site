@@ -1,3 +1,53 @@
+// --- diagnostics buffer (place at TOP of script.js) ---
+(() => {
+  const MAX = 50;
+  const buf = [];
+  const orig = {
+    log: console.log,
+    info: console.info,
+    warn: console.warn,
+    error: console.error,
+  };
+
+  function record(level, args) {
+    try {
+      const msg = args.map(a =>
+        typeof a === "string" ? a :
+        a instanceof Error ? (a.stack || a.message) :
+        JSON.stringify(a)
+      ).join(" ");
+      buf.push(`[${level}] ${msg}`);
+      if (buf.length > MAX) buf.shift();
+    } catch {
+      buf.push(`[${level}] [unserializable]`);
+      if (buf.length > MAX) buf.shift();
+    }
+  }
+
+  ["log","info","warn","error"].forEach(level => {
+    console[level] = (...args) => {
+      record(level, args);
+      orig[level].apply(console, args);
+    };
+  });
+
+  window.__diagLogs = buf;
+  window.__lastError = null;
+
+  window.addEventListener("error", (e) => {
+    window.__lastError = `${e.message} at ${e.filename}:${e.lineno}:${e.colno}`;
+  });
+
+  window.addEventListener("unhandledrejection", (e) => {
+    const reason = e.reason && (e.reason.stack || e.reason.message || String(e.reason));
+    window.__lastError = `unhandledrejection: ${reason}`;
+  });
+})();
+
+
+
+
+
 function injectSharedRatingsContent(modalBodyId) {
   const content = document.getElementById("pilot-dir-shared-pilot-ratings-content");
   const target = document.getElementById(modalBodyId);
@@ -1626,27 +1676,53 @@ document.addEventListener("DOMContentLoaded", () => {
   report.addEventListener("click", async (e) => {
     e.preventDefault();
 
-    const details = [
+    // Basics
+    const basics = [
       `URL: ${location.href}`,
       `Referrer: ${document.referrer || "(none)"}`,
       `Time: ${new Date().toISOString()}`,
       `User-Agent: ${navigator.userAgent}`,
       `Viewport: ${window.innerWidth}x${window.innerHeight}`,
       `Language: ${navigator.language || "(unknown)"}`
+    ];
+
+    // From the diagnostics buffer you added earlier
+    const lastErr = window.__lastError || "(none)";
+    const logs = (window.__diagLogs || []).slice(-30); // last 30 lines
+
+    const payload = [
+      "Please describe what you were doing:",
+      "",
+      "--- Basics ---",
+      ...basics,
+      "",
+      `Last error: ${lastErr}`,
+      "",
+      "--- Recent console ---",
+      ...logs
     ].join("\n");
 
     try {
-      await navigator.clipboard.writeText(
-        `Please describe what you were doing:\n\n---\n${details}\n`
-      );
-      // brief confirmation
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(payload);
+      } else {
+        // lightweight fallback copy
+        const ta = document.createElement("textarea");
+        ta.value = payload;
+        ta.setAttribute("readonly", "");
+        ta.style.position = "fixed";
+        ta.style.top = "-9999px";
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+      }
       const old = report.textContent;
       report.textContent = "Details copied—paste into your email";
       setTimeout(() => (report.textContent = old), 4000);
     } catch {
-      // Fallback: open a blank mailto with prefilled body (no recipient)
       const subject = encodeURIComponent("Site error report");
-      const body = encodeURIComponent(`(Describe the issue)\n\n---\n${details}\n`);
+      const body = encodeURIComponent(payload);
       location.href = `mailto:?subject=${subject}&body=${body}`;
     }
   });
