@@ -1596,3 +1596,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+// SUBSTITUTING FOR INLINE ONCLICK
+document.addEventListener("DOMContentLoaded", () => {
+  const retryBtn = document.getElementById("error-retry-btn");
+  if (retryBtn) {
+    retryBtn.addEventListener("click", () => location.reload());
+  }
+});
+
+// SUBSTITUTING FOR INLINE ONCLICK
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".join-mob-copy-button").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      if (typeof window.copyJoinTemplate === "function") {
+        window.copyJoinTemplate(e);
+      } else {
+        console.warn("copyJoinTemplate() is not defined.");
+      }
+    });
+  });
+});

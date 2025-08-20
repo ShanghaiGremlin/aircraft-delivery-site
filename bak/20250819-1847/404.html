@@ -1,70 +1,32 @@
-<!doctype html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
+<title>Page Not Found &mdash; Aircraft Delivery Solutions</title>
+
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Something went wrong — Aircraft Delivery Solutions</title>
   <meta name="robots" content="noindex" />
   <style>
-    :root {
-      --bg: #0f172a;    /* deep slate */
-      --fg: #e5e7eb;    /* light gray */
-      --muted: #94a3b8; /* muted */
-      --link: #60a5fa;  /* blue */
-      --btn: #1f2937;   /* dark button */
-      --btn-hover: #374151;
-      --maxw: 720px;
-    }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--fg);
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
-      line-height: 1.5;
-      display: grid;
-      place-items: center;
-      padding: 24px;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    main { width: 100%; max-width: var(--maxw); text-align: center; }
-    h1 { font-size: clamp(1.75rem, 3.5vw, 2.25rem); margin: 0 0 8px 0; }
-    p { margin: 0 0 18px 0; color: var(--muted); }
-    .actions { display: grid; gap: 10px; justify-items: center; margin-top: 10px; }
-    a.button, button.button {
-      display: inline-block; text-decoration: none; color: #fff; background: var(--btn);
-      padding: 10px 16px; border-radius: 6px; border: 0; cursor: pointer; font-size: 1rem;
-    }
-    a.button:hover, button.button:hover { background: var(--btn-hover); }
-    a.link { color: var(--link); }
-    .code {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      background: rgba(255,255,255,0.06);
-      padding: 6px 8px; border-radius: 6px; display: inline-block; color: #fff;
-    }
-    footer { margin-top: 24px; font-size: 0.95rem; color: var(--muted); }
+    body{display:flex;min-height:100vh;align-items:center;justify-content:center;padding:40px}
+    .notfound{max-width:700px;text-align:center}
+    .notfound h1{font-size:2rem;margin:0 0 10px}
+    .notfound p{font-size:1.15rem;line-height:1.6;margin:0 0 20px}
+    .notfound a{border-bottom:2px solid currentColor;text-decoration:none}
   </style>
 </head>
 <body>
-  <main role="main">
-    <div aria-hidden="true" style="font-size:3.5rem; line-height:1; margin-bottom: 8px;">⚠️</div>
-    <h1>We hit a snag</h1>
-    <p>Our server had an issue while loading this page.</p>
+  <main class="notfound">
+    <h1>We can't find that page.</h1>
+    <p>The link may be broken or the page may have moved.</p>
+    <p><a href="/">Back to the homepage</a></p>
+        <p><a id="reportLink" href="#" rel="nofollow">Report this broken link</a></p>
 
-    <div class="actions">
-      <button class="button" type="button" id="error-retry-btn">Try again</button>
-      <a class="button" href="/">Go to Home</a>
-      <a class="link" id="reportLink" href="#">Report this error</a>
-    </div>
-
-    <footer>
-      <span>Request URL:</span>
-      <span class="code" id="badUrl"></span>
+    <footer style="margin-top:16px;color:#6b7280;font-size:0.95rem;">
+      <div>Request URL: <span class="code" id="badUrl" style="font-family:ui-monospace,Menlo,Consolas,monospace;background:rgba(0,0,0,0.06);padding:4px 6px;border-radius:6px;"></span></div>
+      <div style="margin-top:6px;">Incident ID: <span class="code" id="incidentId" style="font-family:ui-monospace,Menlo,Consolas,monospace;background:rgba(0,0,0,0.06);padding:4px 6px;border-radius:6px;"></span></div>
     </footer>
-  </main>
 
+  </main>
 <script>
   (function () {
     // Generate a short collision-resistant incident id (base36 + time)
@@ -116,5 +78,16 @@
   })();
 </script>
 
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
