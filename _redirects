@@ -18,3 +18,12 @@
 /*  /404.html  404
 
 /bak/*   /404.html   404!
+
+/*.log           /404.html   404!
+/*.env           /404.html   404!
+/env             /404.html   404!
+/node_modules/*  /404.html   404!
+/*.tmp           /404.html   404!
+
+http://www.aircraft.delivery/*   https://aircraft.delivery/:splat   301!
+https://www.aircraft.delivery/*  https://aircraft.delivery/:splat   301!

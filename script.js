@@ -1458,7 +1458,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   forms.forEach((form) => {
     form.addEventListener("submit", (e) => {
-      const hp = form.querySelector('input[name="company"]');
+      const hp = form.querySelector('input[name="_gotcha"], input[name="company"]');
       if (hp && hp.value.trim() !== "") {
         // Bot likely filled the honeypot — block submission
         e.preventDefault();
