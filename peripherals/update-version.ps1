@@ -1,125 +1,188 @@
-# peripherals\update-version.ps1
-# -------------------------------------------------------------------
-# What this does
-# - Computes a version string (?v=<timestamp>) once per run
-# - Backs up current HTML + _headers into /bak/<YYYYMMDD-HHmm>/
-# - Updates HTML to use ?v=<ver> for:
-#     - /script.js    (in src= or href=)
-#     - /styles.css or /style.css (in href=)
-#     - /wv.js        (in src= or href=)  [optional file you added]
-# - Writes _headers from _headers.tpl by replacing {{VER}} with <ver>
-#   (falls back to in-place replace if _headers.tpl is missing and
-#    live _headers contains {{VER}})
-# -------------------------------------------------------------------
+<#
+  update-version.ps1
+  - Replaces {{VER}} tokens anywhere in HTML.
+  - Refreshes existing v=... OR adds it if missing for allowed local assets.
+  - Attributes handled: href, src, and srcset (multi-URL).
+  - Backs up each changed HTML file to .bak.<timestamp>.
+  - Does NOT read/write _headers.
+
+  Usage:
+    pwsh .\update-version.ps1
+    pwsh .\update-version.ps1 -DryRun
+#>
+
+param(
+  [switch]$DryRun
+)
 
 $ErrorActionPreference = 'Stop'
 
-# Resolve repo root (this file lives in peripherals\ under the repo)
-$root = Split-Path -Parent $PSScriptRoot
-Set-Location $root
+# -----------------------------
+# Config (adjust as desired)
+# -----------------------------
+# Version string format: YYYYMMDD-HHMMss
+$ver = (Get-Date).ToString('yyyyMMdd-HHmmss')
 
-# Version stamp (YYYYMMDD-HHmmss) and minute bucket for bak folder
-$ver   = Get-Date -Format 'yyyyMMdd-HHmmss'
-$stamp = Get-Date -Format 'yyyyMMdd-HHmm'
+# Add/update version ONLY on local assets
+$onlyLocal = $true
 
-# 1) Audit trail
-$bakDir = Join-Path $root ("bak\" + $stamp)
-if (-not (Test-Path $bakDir)) { New-Item -Path $bakDir -ItemType Directory | Out-Null }
-"version set to ?v=$ver" | Set-Content -LiteralPath (Join-Path $bakDir 'version-used.txt') -Encoding UTF8
+# File types to touch
+$allowedExtPattern = 'css|js|png|jpg|jpeg|webp|gif|svg'
 
-# 2) Snapshot current HTML before changes (skip bak\)
-$liveHtml = Get-ChildItem -Path $root -Recurse -File -Include *.html,*.htm |
-            Where-Object { $_.FullName -notmatch '\\bak\\' }
-foreach ($f in $liveHtml) {
-  $dest = Join-Path $bakDir ($f.FullName.Substring($root.Length).TrimStart('\'))
-  $destDir = Split-Path -Parent $dest
-  if (-not (Test-Path $destDir)) { New-Item -ItemType Directory -Path $destDir | Out-Null }
-  Copy-Item -LiteralPath $f.FullName -Destination $dest
+# Optional directory allowlist for URL paths (regex; leave empty to allow any local path)
+# Example: '^/(assets|css|js)/'
+$allowedDirRegex = ''
+
+# -----------------------------
+# Helpers
+# -----------------------------
+function Is-LocalUrl([string]$u) {
+  if (-not $onlyLocal) { return $true }
+  if ($u -match '^(?:https?:)?//') { return $false }                 # absolute or protocol-relative
+  if ($u -match '^(?:data:|mailto:|tel:|javascript:)') { return $false }
+  return $true
 }
 
-# 2.5) Stamp _headers with the same version (using a {{VER}} placeholder)
-$headersTpl = Join-Path $root "_headers.tpl"   # template you maintain
-$headersOut = Join-Path $root "_headers"       # file Netlify reads
-
-# Backup live _headers into bak\
-if (Test-Path $headersOut) {
-  Copy-Item -LiteralPath $headersOut -Destination (Join-Path $bakDir "_headers") -ErrorAction SilentlyContinue
+function Has-AllowedExtension([string]$u) {
+  $path = $u -replace '[?#].*$', ''                                  # strip query/fragment
+  return ($path -match "\.($allowedExtPattern)$")
 }
 
-if (Test-Path $headersTpl) {
-  (Get-Content -Raw $headersTpl) -replace '\{\{VER\}\}', $ver |
-    Set-Content -Encoding UTF8 $headersOut
-} elseif (Test-Path $headersOut) {
-  $h = Get-Content -Raw $headersOut
-  if ($h -match '\{\{VER\}\}') {
-    ($h -replace '\{\{VER\}\}', $ver) | Set-Content -Encoding UTF8 $headersOut
-  } else {
-    Write-Warning "Skipping header stamping: no _headers.tpl and no {{VER}} placeholder in _headers."
+function Passes-AllowedDir([string]$u) {
+  if ([string]::IsNullOrEmpty($allowedDirRegex)) { return $true }
+  $path = $u -replace '[?#].*$', ''
+  return ($path -match $allowedDirRegex)
+}
+
+function Upsert-Version([string]$u, [string]$v) {
+  # separate fragment
+  $fragment = ''
+  if ($u -match '#') {
+    $fragment = $u.Substring($u.IndexOf('#'))
+    $u = $u.Substring(0, $u.IndexOf('#'))
+  }
+  # refresh existing v=
+  if ($u -match '([?&])v=([0-9A-Za-z_\-\.]+)') {
+    $u = [regex]::Replace($u, '([?&])v=([0-9A-Za-z_\-\.]+)', { param($m) $m.Groups[1].Value + 'v=' + $v })
+    return $u + $fragment
+  }
+  # add v= (choose ? or &)
+  if ($u -match '\?') { $u = $u + '&v=' + $v } else { $u = $u + '?v=' + $v }
+  return $u + $fragment
+}
+
+# For srcset values: "url1 640w, url2 1280w, url3 2x"
+function Process-Srcset([string]$val, [string]$v) {
+  # Split on commas (candidates)
+  $parts = $val -split ','
+  $out = New-Object System.Collections.Generic.List[string]
+  foreach ($raw in $parts) {
+    $candidate = $raw.Trim()
+    if ($candidate -eq '') { continue }
+
+    # Split into URL and optional descriptor by the first whitespace
+    $url = $candidate
+    $desc = ''
+    # If candidate contains whitespace, treat the first run as URL/descriptor boundary
+    $m = [regex]::Match($candidate, '^\s*(\S+)(?:\s+(.+))?$')
+    if ($m.Success) {
+      $url = $m.Groups[1].Value
+      $desc = $m.Groups[2].Value
+    }
+
+    # Decide whether to touch this URL
+    if (Is-LocalUrl $url -and Has-AllowedExtension $url -and Passes-AllowedDir $url) {
+      $newUrl = Upsert-Version $url $v
+    } else {
+      $newUrl = $url
+    }
+
+    if ([string]::IsNullOrEmpty($desc)) {
+      $out.Add($newUrl)
+    } else {
+      # Preserve a single space between URL and descriptor
+      $out.Add("$newUrl $desc")
+    }
+  }
+
+  # Re-join with comma+space (common formatting)
+  return ($out -join ', ')
+}
+
+# -----------------------------
+# Main
+# -----------------------------
+$repoRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
+Write-Host "Version: $ver"
+Write-Host "Root:    $repoRoot"
+if ($DryRun) { Write-Host "Mode:   DRY RUN (no writes)" -ForegroundColor Yellow }
+
+# HTML targets only (exclude _headers just in case)
+$files = Get-ChildItem -Path $repoRoot -Recurse -File -Include *.html, *.htm |
+  Where-Object { $_.Name -ne '_headers' }
+
+# Attribute regexes
+# 1) href/src: capture attribute name, quote, and the URL
+$attrLinkRegex = [regex]::new('(?<attr>\b(?:href|src))\s*=\s*(?<q>["''])(?<url>[^"''\s>]+)\k<q>',
+  [System.Text.RegularExpressions.RegexOptions]::IgnoreCase)
+
+# 2) srcset: capture quote and full value (may contain spaces/commas)
+$attrSrcsetRegex = [regex]::new('(?<attr>\bsrcset)\s*=\s*(?<q>["''])(?<val>[^"'']+)\k<q>',
+  [System.Text.RegularExpressions.RegexOptions]::IgnoreCase)
+
+$changedCount = 0
+
+foreach ($f in $files) {
+  $orig = Get-Content -LiteralPath $f.FullName -Raw
+  $updated = $orig
+
+  # Replace {{VER}} anywhere
+  $updated = [regex]::Replace($updated, '\{\{VER\}\}', [System.Text.RegularExpressions.MatchEvaluator]{ param($m) $ver })
+
+  # Pass 1: href/src (single URL)
+  $updated = $attrLinkRegex.Replace($updated, {
+    param($m)
+    $attr = $m.Groups['attr'].Value
+    $q    = $m.Groups['q'].Value
+    $url  = $m.Groups['url'].Value
+
+    if (-not (Is-LocalUrl $url)) { return $m.Value }
+    if (-not (Has-AllowedExtension $url)) { return $m.Value }
+    if (-not (Passes-AllowedDir $url)) { return $m.Value }
+
+    $newUrl = Upsert-Version $url $ver
+    if ($newUrl -eq $url) { return $m.Value }
+    return "$attr=$q$newUrl$q"
+  })
+
+  # Pass 2: srcset (multi-URL)
+  $updated = $attrSrcsetRegex.Replace($updated, {
+    param($m)
+    $attr = $m.Groups['attr'].Value
+    $q    = $m.Groups['q'].Value
+    $val  = $m.Groups['val'].Value
+
+    $newVal = Process-Srcset $val $ver
+    if ($newVal -eq $val) { return $m.Value }
+    return "$attr=$q$newVal$q"
+  })
+
+  if ($updated -ne $orig) {
+    $changedCount++
+    if ($DryRun) {
+      Write-Host "[DRY] Would update: $($f.FullName)"
+      continue
+    }
+    $bakPath = "$($f.FullName).bak.$ver"
+    Copy-Item -LiteralPath $f.FullName -Destination $bakPath -Force
+    Set-Content -LiteralPath $f.FullName -Value $updated -NoNewline
+    Write-Host "Updated: $($f.FullName)"
+    Write-Host "Backup : $bakPath"
   }
 }
 
-# 3) Normalize asset version strings in HTML
-#    - Replaces any existing ?v= or ?ver= (or legacy $HASH) on targets
-#    - Matches both src= and href= for .js targets (covers <script> and <link rel=preload as=script>)
-#    - Matches href= for CSS (style.css or styles.css)
-$patternJS  = @'
-(?i)(?:src|href)=(["'])([^"'']*?script\.js)(?:\?(?:v|ver)=[^"'']+|\$[^"'']+)?\1
-'@
-
-$patternWV  = @'
-(?i)(?:src|href)=(["'])([^"'']*?wv\.js)(?:\?(?:v|ver)=[^"'']+|\$[^"'']+)?\1
-'@
-
-$patternCSS = @'
-(?i)href=(["'])([^"'']*?styles?\.css)(?:\?(?:v|ver)=[^"'']+|\$[^"'']+)?\1
-'@
-
-$changed = 0
-foreach ($f in $liveHtml) {
-  $p = $f.FullName
-  $text = Get-Content -Raw -LiteralPath $p
-  $new = $text
-
-  # script.js in src= or href=
-  $new = [regex]::Replace($new, $patternJS, {
-    param($m)
-    $q = $m.Groups[1].Value   # quote
-    $s = $m.Groups[2].Value   # path ending in script.js
-    ($m.Value -replace [regex]::Escape($m.Value), ('src=' + $q + $s + '?v=' + $ver + $q)) # replaced attr; name normalized to src=
-  })
-
-  # wv.js in src= or href= (optional file)
-  $new = [regex]::Replace($new, $patternWV, {
-    param($m)
-    $q = $m.Groups[1].Value
-    $s = $m.Groups[2].Value
-    ($m.Value -replace [regex]::Escape($m.Value), ('src=' + $q + $s + '?v=' + $ver + $q))
-  })
-
-  # styles.css or style.css in href=
-  $new = [regex]::Replace($new, $patternCSS, {
-    param($m)
-    $q = $m.Groups[1].Value
-    $s = $m.Groups[2].Value
-    'href=' + $q + $s + '?v=' + $ver + $q
-  })
-
-  if ($new -ne $text) {
-    Set-Content -LiteralPath $p -Value $new -Encoding UTF8
-    Write-Host "Updated: $p"
-    $changed++
-  }
+if ($DryRun) {
+  Write-Host "`nDRY RUN complete. Files that would change: $changedCount"
+} else {
+  Write-Host "`nDone. Files changed: $changedCount"
 }
-
-Write-Host ("Done. Updated {0} file(s). Version = {1}" -f $changed, $ver) -ForegroundColor Green
-
-# -------------------------------------------------------------------
-# _headers.tpl example (put this next to _headers; script replaces {{VER}})
-#
-# /*
-#   Link: </styles.css?v={{VER}}>; rel=preload; as=style
-#   Link: </script.js?v={{VER}}>; rel=preload; as=script
-#   # (optional) gate one hero preload per device class:
-#   # Link: </assets/desktop/desk-index-hero-1400w.avif?v={{VER}}>; rel=preload; as=image; media="(min-width: 1400px)"
-#   # Link: </assets/mobile/mob-index-mobilehero-640w.jpg?v={{VER}}>; rel=preload; as=image; media="(max-width: 1399px)"
-# -------------------------------------------------------------------
