@@ -1,18 +1,22 @@
 <#
   update-version.ps1
   - Replaces {{VER}} tokens anywhere in HTML.
-  - Refreshes existing v=... OR adds it if missing for allowed local assets.
-  - Attributes handled: href, src, and srcset (multi-URL).
+  - Adds or refreshes v=... for allowed local assets in href, src, and srcset.
   - Backs up each changed HTML file to .bak.<timestamp>.
   - Does NOT read/write _headers.
 
   Usage:
-    pwsh .\update-version.ps1
-    pwsh .\update-version.ps1 -DryRun
+    # from repo root
+    .\tools\powershell\update-version.ps1 -Root .
+
+    # preview only
+    .\tools\powershell\update-version.ps1 -Root . -DryRun
 #>
 
+[CmdletBinding()]
 param(
-  [switch]$DryRun
+  [switch]$DryRun,
+  [string]$Root
 )
 
 $ErrorActionPreference = 'Stop'
@@ -20,31 +24,49 @@ $ErrorActionPreference = 'Stop'
 # -----------------------------
 # Config (adjust as desired)
 # -----------------------------
-# Version string format: YYYYMMDD-HHMMss
+# Version string format: YYYYMMDD-HHmmss
 $ver = (Get-Date).ToString('yyyyMMdd-HHmmss')
 
-# Add/update version ONLY on local assets
+# Only touch local assets (skip http(s)://, //, data:, mailto:, tel:, javascript:)
 $onlyLocal = $true
 
-# File types to touch
+# File types to version
 $allowedExtPattern = 'css|js|png|jpg|jpeg|webp|gif|svg'
 
-# Optional directory allowlist for URL paths (regex; leave empty to allow any local path)
+# Optional allowlist of URL paths (regex). Leave empty to allow any local path.
 # Example: '^/(assets|css|js)/'
 $allowedDirRegex = ''
+
+# -----------------------------
+# Resolve root (default: caller's CWD)
+# -----------------------------
+$invokedAt  = (Get-Location).Path      # caller's working directory
+$scriptDir  = $PSScriptRoot            # folder containing this script
+$scriptPath = $PSCommandPath
+
+if ($PSBoundParameters.ContainsKey('Root') -and $Root) {
+  $repoRoot = (Resolve-Path -LiteralPath $Root).Path
+} else {
+  $repoRoot = $invokedAt
+}
+
+Write-Host "Script: $scriptPath"
+Write-Host "CWD:    $invokedAt"
+Write-Host "Root:   $repoRoot"
+if ($DryRun) { Write-Host "Mode:   DRY RUN (no writes)" -ForegroundColor Yellow }
 
 # -----------------------------
 # Helpers
 # -----------------------------
 function Is-LocalUrl([string]$u) {
   if (-not $onlyLocal) { return $true }
-  if ($u -match '^(?:https?:)?//') { return $false }                 # absolute or protocol-relative
+  if ($u -match '^(?:https?:)?//') { return $false }
   if ($u -match '^(?:data:|mailto:|tel:|javascript:)') { return $false }
   return $true
 }
 
 function Has-AllowedExtension([string]$u) {
-  $path = $u -replace '[?#].*$', ''                                  # strip query/fragment
+  $path = $u -replace '[?#].*$', ''
   return ($path -match "\.($allowedExtPattern)$")
 }
 
@@ -55,91 +77,66 @@ function Passes-AllowedDir([string]$u) {
 }
 
 function Upsert-Version([string]$u, [string]$v) {
-  # separate fragment
+  # Separate fragment
   $fragment = ''
   if ($u -match '#') {
     $fragment = $u.Substring($u.IndexOf('#'))
     $u = $u.Substring(0, $u.IndexOf('#'))
   }
-  # refresh existing v=
+  # Refresh existing v=
   if ($u -match '([?&])v=([0-9A-Za-z_\-\.]+)') {
     $u = [regex]::Replace($u, '([?&])v=([0-9A-Za-z_\-\.]+)', { param($m) $m.Groups[1].Value + 'v=' + $v })
     return $u + $fragment
   }
-  # add v= (choose ? or &)
+  # Add v= (choose ? or &)
   if ($u -match '\?') { $u = $u + '&v=' + $v } else { $u = $u + '?v=' + $v }
   return $u + $fragment
 }
 
 # For srcset values: "url1 640w, url2 1280w, url3 2x"
 function Process-Srcset([string]$val, [string]$v) {
-  # Split on commas (candidates)
   $parts = $val -split ','
   $out = New-Object System.Collections.Generic.List[string]
   foreach ($raw in $parts) {
     $candidate = $raw.Trim()
     if ($candidate -eq '') { continue }
-
-    # Split into URL and optional descriptor by the first whitespace
-    $url = $candidate
-    $desc = ''
-    # If candidate contains whitespace, treat the first run as URL/descriptor boundary
     $m = [regex]::Match($candidate, '^\s*(\S+)(?:\s+(.+))?$')
-    if ($m.Success) {
-      $url = $m.Groups[1].Value
-      $desc = $m.Groups[2].Value
-    }
+    $url = $candidate; $desc = ''
+    if ($m.Success) { $url = $m.Groups[1].Value; $desc = $m.Groups[2].Value }
 
-    # Decide whether to touch this URL
     if (Is-LocalUrl $url -and Has-AllowedExtension $url -and Passes-AllowedDir $url) {
-      $newUrl = Upsert-Version $url $v
-    } else {
-      $newUrl = $url
+      $url = Upsert-Version $url $v
     }
 
-    if ([string]::IsNullOrEmpty($desc)) {
-      $out.Add($newUrl)
-    } else {
-      # Preserve a single space between URL and descriptor
-      $out.Add("$newUrl $desc")
-    }
+    if ([string]::IsNullOrEmpty($desc)) { $out.Add($url) } else { $out.Add("$url $desc") }
   }
-
-  # Re-join with comma+space (common formatting)
   return ($out -join ', ')
 }
 
 # -----------------------------
-# Main
+# Gather HTML files robustly
 # -----------------------------
-$repoRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
-Write-Host "Version: $ver"
-Write-Host "Root:    $repoRoot"
-if ($DryRun) { Write-Host "Mode:   DRY RUN (no writes)" -ForegroundColor Yellow }
+$files = Get-ChildItem -Path $repoRoot -Recurse -File | Where-Object {
+  $_.Extension -in @('.html', '.htm') -and $_.Name -ne '_headers'
+}
 
-# HTML targets only (exclude _headers just in case)
-$files = Get-ChildItem -Path $repoRoot -Recurse -File -Include *.html, *.htm |
-  Where-Object { $_.Name -ne '_headers' }
+# Attribute regexes (compatible with Windows PowerShell 5.x)
+$attrLinkRegex   = New-Object System.Text.RegularExpressions.Regex '(?<attr>\b(?:href|src))\s*=\s*(?<q>["''])(?<url>[^"''\s>]+)\k<q>', ([System.Text.RegularExpressions.RegexOptions]::IgnoreCase)
+$attrSrcsetRegex = New-Object System.Text.RegularExpressions.Regex '(?<attr>\bsrcset)\s*=\s*(?<q>["''])(?<val>[^"'']+)\k<q>', ([System.Text.RegularExpressions.RegexOptions]::IgnoreCase)
 
-# Attribute regexes
-# 1) href/src: capture attribute name, quote, and the URL
-$attrLinkRegex = [regex]::new('(?<attr>\b(?:href|src))\s*=\s*(?<q>["''])(?<url>[^"''\s>]+)\k<q>',
-  [System.Text.RegularExpressions.RegexOptions]::IgnoreCase)
-
-# 2) srcset: capture quote and full value (may contain spaces/commas)
-$attrSrcsetRegex = [regex]::new('(?<attr>\bsrcset)\s*=\s*(?<q>["''])(?<val>[^"'']+)\k<q>',
-  [System.Text.RegularExpressions.RegexOptions]::IgnoreCase)
-
+# -----------------------------
+# Process files
+# -----------------------------
 $changedCount = 0
 
 foreach ($f in $files) {
   $orig = Get-Content -LiteralPath $f.FullName -Raw
   $updated = $orig
 
-  # Replace {{VER}} anywhere
-  $updated = [regex]::Replace($updated, '\{\{VER\}\}', [System.Text.RegularExpressions.MatchEvaluator]{ param($m) $ver })
+  # 1) Replace {{VER}} anywhere (simple & reliable)
+  $updated = $updated -replace '\{\{VER\}\}', $ver
 
-  # Pass 1: href/src (single URL)
+  # 2) href/src (single URL)
   $updated = $attrLinkRegex.Replace($updated, {
     param($m)
     $attr = $m.Groups['attr'].Value
@@ -147,7 +144,7 @@ foreach ($f in $files) {
     $url  = $m.Groups['url'].Value
 
     if (-not (Is-LocalUrl $url)) { return $m.Value }
-    if (-not (Has-AllowedExtension $url)) { return $m.Value }
+    if (-not (Has-AllowedExtension $ url)) { return $m.Value }
     if (-not (Passes-AllowedDir $url)) { return $m.Value }
 
     $newUrl = Upsert-Version $url $ver
@@ -155,7 +152,7 @@ foreach ($f in $files) {
     return "$attr=$q$newUrl$q"
   })
 
-  # Pass 2: srcset (multi-URL)
+  # 3) srcset (multi-URL)
   $updated = $attrSrcsetRegex.Replace($updated, {
     param($m)
     $attr = $m.Groups['attr'].Value

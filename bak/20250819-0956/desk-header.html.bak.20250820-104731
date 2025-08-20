@@ -1,0 +1,34 @@
+<header class="desk-header">
+  <div class="desk-header-left">
+    <nav class="desk-nav">
+      <a href="/services">Services</a>
+      <a href="/quote">Quote</a>
+      <a href="/pilot-directory" class="nav-dir">Pilot Directory</a>
+      <a href="/join-pilot-roster" class="nav-join">Join Pilot<wbr> Roster</a>
+      <a href="/about">About</a>
+      <a href="/past-deliveries" class="nav-past">Past Deliveries</a>
+    </nav>
+  </div>
+
+  <div class="desk-header-center"><a href="/index">
+
+    <picture>
+      <source srcset="assets/side-by-side-logo.png" media="(min-width: 1401px)">
+    <img 
+    alt="Aircraft Delivery Logo" 
+    class="desk-header-logo"
+    width="951"
+    height="179"
+    decoding="async"
+    src="/assets/blank1.png"
+    style="width:auto; height:140px">
+
+ </picture>
+</a>
+  </div>
+
+  <div class="desk-header-right">
+    <div>+1 (415) 845-8163</div>
+    <div ><a style="text-decoration: none; color: inherit;" href="mailto:akahn28@gmail.com">akahn28@gmail.com</a></div>
+  </div>
+</header>

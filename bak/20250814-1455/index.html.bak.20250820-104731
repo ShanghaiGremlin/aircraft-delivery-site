@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#002f4b">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Aircraft Delivery">
+
+  <title>Aircraft Delivery Solutions</title>
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <link rel="stylesheet" href="/style.css?v=20250814-145259">
+
+</head>
+
+<body>
+
+  <!-- DESKTOP HEADER-->
+  <!-- DESKTOP HEADER-->
+
+<div class="desktop-only">
+
+ <div id="desk-header-placeholder"></div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch("/desk-header.html")
+      .then(res => res.text())
+      .then(html => {
+        const target = document.getElementById("desk-header-placeholder");
+        target.outerHTML = html;  // Replaces placeholder entirely
+      });
+  });
+</script>
+
+ 
+</div>
+
+
+
+<!--MOBILE-ONLY DIV-->
+<!--MOBILE-ONLY DIV-->
+<!--MOBILE-ONLY DIV-->
+
+<div class="mobile-only">
+
+ <!--MOBILE-ONLY HEADER-->
+<!--MOBILE-ONLY HEADER-->
+<!--MOBILE-ONLY HEADER-->
+
+  <header class="mobile-header">
+
+    <div class="mobile-header-slot-left"><img src="/assets/mobile/burger.png" alt="Menu" id="hamburger-icon">
+    </div>
+
+    <div class="mobile-logo" id="mobile-logo">
+      <a href="/"><img src="/assets/mobile/mobile-logo-v2.png" alt="Aircraft Delivery Logo"></a>
+    </div>
+
+    <div class="mobile-logo-90" id="mobile-logo-90">
+      <a href="/"><img src="/assets/mobile/mobile-logo-90.png" alt="Aircraft Delivery Logo" ></a>
+    </div>
+
+    <div class="mobile-header-slot-right"><a href="tel:+14158458163"><img src="/assets/mobile/phone.png" alt="Call me" id="phone-icon"></a>
+    </div>
+
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <nav>
+      <a href="/services">Services</a>
+      <a href="/quote">Get a Quote</a>
+      <a href="/pilot-directory">Pilot Directory</a>
+      <a href="/join-pilot-roster">Join Pilot Roster</a>
+      <a href="/about">About</a>
+      <a href="/past-deliveries">Past Deliveries</a>
+    </nav>
+  </div>
+</div>
+
+<main>
+  
+  <!--DESKTOP-ONLY DIV-->
+  <!--DESKTOP-ONLY DIV-->
+  <!--DESKTOP-ONLY DIV-->
+
+<div class="desktop-only">
+
+<div class="desk-index-main-flex">
+  <div class="main-bleed-left"></div>
+
+  <div class="main-content-core">
+
+    <div class="desk-hero-image-wrapper">
+      <img class="desk-hero-bg-img" src="/assets/matte7.jpg" loading="lazy" alt="Home page background">
+      <div class="desk-hero-tagline-wrap">
+        <h1 class="desk-hero-tagline">We bring aircraft<br> to their new homes</h1>
+      </div>
+    </div>
+
+    <div class="desk-index-services">
+      <div class="desk-index-services-row">
+
+        <div class="desk-index-service-column">
+          <!-- Ferry Flights -->
+          <div class="desk-index-service">
+            <a href="/services"><img src="/assets/index-key-200px.jpg" alt="Ferry Flights" class="desk-index-thumb"></a>
+            <div class="desk-index-text"><a href="/services">
+              <h2 class="desk-index-headline">FERRY FLIGHTS</h2>
+              <p class="desk-index-description">Nearly any aircraft. To nearly every destination</p></a>
+            </div>
+          </div>
+
+          <!-- Container Shipping -->
+          <div class="desk-index-service">
+            <a href="/services"><img src="/assets/services/containerize-no-title-320w.png" alt="Container Shipping" class="desk-index-thumb"></a>
+           <div class="desk-index-text"><a href="/services">
+              <h2 class="desk-index-headline">CONTAINER SHIPPING</h2>
+              <p class="desk-index-description">For light aircraft; safe & low-cost</p></a>
+            </div>
+          </div>
+        </div> <!-- closes .desk-index-service-column -->
+
+        <div class="desk-index-cta">
+          <a href="/quote">
+            <img src="/assets/quote-button-transp-320w.png" loading="lazy" alt="Quote Button" class="desk-index-quote-img">
+          </a>
+        </div>
+
+      </div> <!-- closes .desk-index-services-row -->
+    </div> <!-- closes .desk-index-services -->
+
+  </div> <!-- closes .main-content-core -->
+
+  <div class="main-bleed-right">
+    <img src="/assets/bleed-patch.png" alt="patch" class="bleed-right-patch">
+  </div>
+</div> <!-- closes .desk-index-main-flex -->
+
+<div class="desktop-bottom-bleed"></div>
+
+
+</div>
+
+
+
+    <!-- DIVIDER BETWEEN DESKTOP AND MOBILE DIVS -->
+         <!-- DIVIDER BETWEEN DESKTOP AND MOBILE DIVS -->
+              <!-- DIVIDER BETWEEN DESKTOP AND MOBILE DIVS -->
+
+
+<div class="mobile-only">
+
+<div class="mob-index-main">
+  
+<img class="mob-index-mobilehero" src="/assets/mobile/mob-index-mobilehero-640w.jpg" srcset="/assets/mobile/mob-index-mobilehero-320w.jpg 320w, /assets/mobile/mob-index-mobilehero-640w.jpg 640w, /assets/mobile/mob-index-mobilehero-640w@2x.jpg 1280w" sizes="(max-width: 480px) 320px, (max-width: 768px) 640px" loading="lazy" alt="Mobile Hero">
+
+
+<a href="/services" class="mob-index-service-link">
+  <div class="mob-index-service" style="padding-bottom: 10px;">
+    <img src="/assets/index-key-200px.jpg" alt="Ferry Flights" class="mob-index-imgborder">
+    <div class="mob-index-service-text">
+      <div class="mob-index-headline">FERRY FLIGHTS</div>
+      <div class="mob-index-description">Nearly any aircraft.<br> To nearly every destination.</div>
+    </div>
+  </div>
+</a>
+
+<a href="/services" class="mob-index-service-link">
+  <div class="mob-index-service">
+    <div class="mob-index-imgbg-wrap">
+  <img src="/assets/services/containerize-no-title-320w.png" alt="Container Shipping" class="mob-index-imgbg-img">
+</div>
+
+<div class="mob-index-service-text">
+      <div class="mob-index-headline">CONTAINER SHIPPING</div>
+      <div class="mob-index-description">Safe & low-cost for light aircraft</div>
+    </div>
+  </div>
+</a>
+
+  <!-- Quote Button -->
+  <div class="mob-quote-btn-wrapper">
+    <a href="/quote">
+      <img src="/assets/quote-button-transp.png"
+           srcset="/assets/quote-button-transp-320w.png 320w,
+                   /assets/quote-button-transp-640w.png 640w"
+           sizes="(
+           max-width: 480px) 320px, (max-width: 768px) 640px"
+           loading="lazy"
+           alt="Get a Fast Quote"
+           style="width: 250px;">
+    </a>
+  </div>
+
+</div>
+
+
+</div>
+
+
+
+</div>
+</main>
+<script src="script.js?v=20250814-145259"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
