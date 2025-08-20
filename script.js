@@ -1398,3 +1398,201 @@ document.addEventListener('DOMContentLoaded', () => {
     }, REENABLE_TIMEOUT_MS);
   });
 });
+
+  // Honeypot spam guard for quote forms
+document.addEventListener("DOMContentLoaded", () => {
+
+  const forms = [
+    document.getElementById("quote-form")
+  ].filter(Boolean);
+
+  forms.forEach((form) => {
+    form.addEventListener("submit", (e) => {
+      const hp = form.querySelector('input[name="company"]');
+      if (hp && hp.value.trim() !== "") {
+        // Bot likely filled the honeypot — block submission
+        e.preventDefault();
+        e.stopPropagation();
+        // Optional: log quietly for your debugging
+        console.warn("Honeypot triggered; form submission blocked.");
+      }
+    });
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Email & phone validation for quote forms
+  const FORMS = [
+    document.getElementById("form-desktop"),
+
+  ].filter(Boolean);
+
+  // Very permissive phone: digits, spaces, (), +, -, and dots
+  const PHONE_OK = /^[\d\s()+\-\.]{7,}$/;
+
+  FORMS.forEach((form) => {
+    const email = form.querySelector("#email");
+    const emailErr = form.querySelector("#email-error");
+    const phone = form.querySelector("#phone");
+    const phoneErr = form.querySelector("#phone-error");
+
+    function showError(inputEl, errEl, message) {
+      if (!inputEl || !errEl) return;
+      errEl.textContent = message;
+      errEl.hidden = false;
+      inputEl.classList.add("quote-invalid");
+      inputEl.setAttribute("aria-invalid", "true");
+    }
+
+    function clearError(inputEl, errEl) {
+      if (!inputEl || !errEl) return;
+      errEl.hidden = true;
+      inputEl.classList.remove("quote-invalid");
+      inputEl.removeAttribute("aria-invalid");
+    }
+
+    // Email: required & must be valid per HTML5
+    function validateEmail() {
+      if (!email) return true;
+      if (email.validity.valueMissing) {
+        showError(email, emailErr, "Email is required.");
+        return false;
+      }
+      if (email.validity.typeMismatch) {
+        showError(email, emailErr, "Please enter a valid email (e.g., name@example.com).");
+        return false;
+      }
+      clearError(email, emailErr);
+      return true;
+    }
+
+    // Phone: optional, but if filled must match permissive pattern
+    function validatePhone() {
+      if (!phone) return true;
+      const v = phone.value.trim();
+      if (v === "") {
+        clearError(phone, phoneErr);
+        return true;
+      }
+      if (!PHONE_OK.test(v)) {
+        showError(phone, phoneErr, "Please enter a valid phone number (digits, spaces, () + - allowed).");
+        return false;
+      }
+      clearError(phone, phoneErr);
+      return true;
+    }
+
+    // Validate on blur & input
+    if (email) {
+      email.addEventListener("blur", validateEmail);
+      email.addEventListener("input", () => {
+        if (!emailErr.hidden) validateEmail();
+      });
+    }
+    if (phone) {
+      phone.addEventListener("blur", validatePhone);
+      phone.addEventListener("input", () => {
+        if (!phoneErr.hidden) validatePhone();
+      });
+    }
+
+    // Gate on submit
+    form.addEventListener("submit", (e) => {
+      const okEmail = validateEmail();
+      const okPhone = validatePhone();
+      if (!okEmail || !okPhone) {
+        e.preventDefault();
+        e.stopPropagation();
+        // Focus first invalid field
+        if (!okEmail && email) email.focus();
+        else if (!okPhone && phone) phone.focus();
+      }
+    });
+  });
+});
+
+  // Secure external links that open in a new tab
+document.addEventListener("DOMContentLoaded", () => {
+
+  const here = location.hostname;
+
+  document.querySelectorAll('a[target="_blank"]').forEach((a) => {
+    try {
+      const url = new URL(a.href, location.href);
+      const isExternal = url.hostname && url.hostname !== here;
+
+      if (isExternal) {
+        // Ensure noopener; add noreferrer for privacy (removes Referer)
+        const rel = (a.getAttribute("rel") || "").split(/\s+/);
+        if (!rel.includes("noopener")) rel.push("noopener");
+        if (!rel.includes("noreferrer")) rel.push("noreferrer");
+        a.setAttribute("rel", rel.filter(Boolean).join(" "));
+      }
+    } catch {
+      // ignore malformed/anchor-only links
+    }
+  });
+});
+
+// SPAM GUARD FOR MINIMUM TIME TO SUBMIT FORM 
+document.addEventListener("DOMContentLoaded", () => {
+  // Apply to any quote forms (unified page uses quote-* IDs)
+  const forms = Array.from(document.querySelectorAll('form[id^="quote-form"]'));
+  if (!forms.length) return;
+
+  const MIN_MS = 3000; // require at least 3s from load to submit
+
+  forms.forEach((form) => {
+    // Create a timestamp field (JS-only; not visible)
+    const ts = document.createElement("input");
+    ts.type = "hidden";
+    ts.name = "quote_ts";
+    ts.value = String(Date.now());
+    form.appendChild(ts);
+
+    // Double-submit guard
+    let submitting = false;
+
+    form.addEventListener("submit", (e) => {
+      // If already submitting, block repeats
+      if (submitting) {
+        e.preventDefault();
+        e.stopPropagation();
+        return;
+      }
+
+      // Time-to-submit check
+      const start = Number(ts.value) || 0;
+      const elapsed = Date.now() - start;
+      if (elapsed < MIN_MS) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        // Gentle inline note (once)
+        let note = form.querySelector(".quote-submit-note");
+        if (!note) {
+          note = document.createElement("p");
+          note.className = "quote-submit-note";
+          note.style.margin = "8px 0 0";
+          note.style.fontSize = "0.95rem";
+          note.style.lineHeight = "1.3";
+          note.style.color = "#b00020";
+          // Insert near the submit button if possible
+          const submit = form.querySelector('button[type="submit"], input[type="submit"]');
+          (submit?.parentElement || form).appendChild(note);
+        }
+        note.textContent = "Please wait a moment and try again.";
+        return;
+      }
+
+      // Lock after first valid submit
+      submitting = true;
+      const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
+      if (submitBtn) {
+        submitBtn.setAttribute("aria-busy", "true");
+        submitBtn.disabled = true;
+      }
+    });
+  });
+});

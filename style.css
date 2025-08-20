@@ -2570,6 +2570,26 @@ flex-direction: row;
   border-left: 2px solid gray;
 }
 
+/* === Honeypot (desktop defaults) === */
+.quote-honeypot {
+  position: absolute !important;
+  left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden;
+}
+
+/* === Form validation (desktop defaults) === */
+.quote-error {
+  margin: 6px 0 12px;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #b00020; /* accessible red */
+}
+
+.quote-invalid {
+  outline: 2px solid #b00020;
+  outline-offset: 2px;
+}
+
+
 /* Quote form: submit button states */
 #quote-form button[type="submit"],
 #quote-form input[type="submit"] {

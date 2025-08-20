@@ -16,3 +16,5 @@
 
 # Fallback for anything that doesn't exist → 404 template with real 404 status
 /*  /404.html  404
+
+/bak/*   /404.html   404!
