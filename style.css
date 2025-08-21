@@ -3435,14 +3435,14 @@ text-align: left;
 }
 
 /* INTERMEDIATE SCREEN */
-@media screen and (min-width: 1050px) and (max-width: 1400px) {
+@media screen and (min-width: 1051px) and (max-width: 1400px) {
   .services-bullets {
     padding-left: 225px;  
   }
 }
 
 /* INTERMEDIATE SCREEN */
-@media screen and (min-width: 1100px) and (max-width: 1400px) {
+@media screen and (min-width: 1101px) and (max-width: 1400px) {
 .services-mob-container-explain {
 padding: 0 100px;
 }
