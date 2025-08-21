@@ -1760,3 +1760,36 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { once: true });
   }
 });
+
+
+// DESK-HEADER SCRIPT
+(function () {
+  var loaded = false;
+  var mql = window.matchMedia('(min-width: 1401px)');
+
+  function loadDeskHeader() {
+    if (loaded || !mql.matches) return;
+    fetch('/desk-header.html')
+      .then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.text();
+      })
+      .then(function (html) {
+        var target = document.getElementById('desk-header-placeholder');
+        if (!target) return;
+        target.outerHTML = html;
+        loaded = true;
+      })
+      .catch(function (err) {
+        console.error('desk-header load failed:', err);
+      });
+  }
+
+  loadDeskHeader();
+
+  if (mql.addEventListener) {
+    mql.addEventListener('change', function (e) { if (e.matches) loadDeskHeader(); });
+  } else {
+    mql.addListener(function (e) { if (e.matches) loadDeskHeader(); });
+  }
+})();
