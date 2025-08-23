@@ -8,7 +8,7 @@ devtools/node_modules/
 dist/
 .cache/
 
-# VS Code
+# VS Code 
 .vscode/
 
 # Logs
