@@ -393,49 +393,35 @@ if (zoomOverlay && zoomImg && zoomCaption) {
 
 //MOB ABOUT MODAL ZOOM
 document.addEventListener("DOMContentLoaded", function () {
-  const modalOverlay  = document.getElementById("mob-about-zoom-overlay");
-  const modalImg      = document.getElementById("mob-about-zoom-img");
-  const modalCaption  = document.getElementById("mob-about-zoom-caption");
+  const modalOverlay = document.getElementById("mob-about-zoom-overlay");
+  const modalImg     = document.getElementById("mob-about-zoom-img");
+  const modalCaption = document.getElementById("mob-about-zoom-caption");
 
-  // Click any thumbnail to open modal (safe even if none exist)
+  // If this page has no modal skeleton, bail out silently.
+  if (!modalOverlay || !modalImg || !modalCaption) return;
+
+  // Open on thumbnail click (uses srcset candidate if present)
   document.querySelectorAll(".mob-about-thumb").forEach(function (thumb) {
     thumb.addEventListener("click", function () {
-      // Guard in case this runs on a page without the modal skeleton
-      if (!modalOverlay || !modalImg || !modalCaption) {
-        console.warn("[about-modal] Modal elements not found — open skipped");
-        return;
-      }
-
-      // Use currentSrc so the chosen candidate from srcset is used
       modalImg.src = thumb.currentSrc || thumb.src;
-
-      // Prefer a sibling caption; fall back to alt text
-      const captionText =
-        (thumb.nextElementSibling && thumb.nextElementSibling.textContent?.trim()) ||
+      modalCaption.textContent =
+        (thumb.nextElementSibling?.textContent?.trim()) ||
         thumb.getAttribute("alt") ||
         "";
-
-      modalCaption.textContent = captionText;
       modalOverlay.style.display = "flex";
     });
   });
 
-  // Close modal when clicking the overlay background (guarded)
-  if (modalOverlay && modalImg && modalCaption) {
-    modalOverlay.addEventListener("click", function (e) {
-      // Only when the click is on the overlay itself, not its children
-      if (e.target === e.currentTarget) {
-        console.log("Overlay clicked, closing modal");
-        modalOverlay.style.display = "none";
-        modalImg.removeAttribute("src");
-        modalCaption.textContent = "";
-      }
-    });
-  } else {
-    // Optional: useful when this file runs site-wide
-    console.warn("[about-modal] Overlay or parts missing — close handler not attached");
-  }
+  // Close when clicking the dim background
+  modalOverlay.addEventListener("click", function (e) {
+    if (e.target === e.currentTarget) {
+      modalOverlay.style.display = "none";
+      modalImg.removeAttribute("src");
+      modalCaption.textContent = "";
+    }
+  });
 });
+
 
 
 
@@ -459,7 +445,7 @@ if (mobTotalSlides > 1) {
       mobCycles++;
       if (mobCycles >= mobMaxCycles) {
         clearInterval(slideInterval);
-        console.log("⏹️ Mobile slider stopped after 1 full cycle");
+        //console.log("⏹️ Mobile slider stopped after 1 full cycle");
       }
     }
   }, 10000);
