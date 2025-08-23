@@ -400,12 +400,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const modalImg = document.getElementById("mob-about-zoom-img");
     const modalCaption = document.getElementById("mob-about-zoom-caption");
 
-    // Check if modal elements exist
-    if (!modalOverlay || !modalImg || !modalCaption) {
-        console.log("Modal elements are missing.");
-        return;
-    }
-
     // Add click event listener to each thumbnail to open the modal
     document.querySelectorAll(".mob-about-thumb").forEach(function (thumb) {
         thumb.addEventListener("click", function () {
