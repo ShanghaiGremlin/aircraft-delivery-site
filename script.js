@@ -391,36 +391,52 @@ if (zoomOverlay && zoomImg && zoomCaption) {
 
 
 
-
-
-
-
+//MOB ABOUT MODAL ZOOM
 document.addEventListener("DOMContentLoaded", function () {
-    const modalOverlay = document.getElementById("mob-about-zoom-overlay");
-    const modalImg = document.getElementById("mob-about-zoom-img");
-    const modalCaption = document.getElementById("mob-about-zoom-caption");
+  const modalOverlay  = document.getElementById("mob-about-zoom-overlay");
+  const modalImg      = document.getElementById("mob-about-zoom-img");
+  const modalCaption  = document.getElementById("mob-about-zoom-caption");
 
-    // Add click event listener to each thumbnail to open the modal
-    document.querySelectorAll(".mob-about-thumb").forEach(function (thumb) {
-        thumb.addEventListener("click", function () {
-            console.log("Modal clicked!"); // Log to verify click event
-            modalImg.src = thumb.src;
-            modalCaption.textContent = thumb.nextElementSibling?.textContent || "";
-            modalOverlay.style.display = "flex";
-        });
+  // Click any thumbnail to open modal (safe even if none exist)
+  document.querySelectorAll(".mob-about-thumb").forEach(function (thumb) {
+    thumb.addEventListener("click", function () {
+      // Guard in case this runs on a page without the modal skeleton
+      if (!modalOverlay || !modalImg || !modalCaption) {
+        console.warn("[about-modal] Modal elements not found — open skipped");
+        return;
+      }
+
+      // Use currentSrc so the chosen candidate from srcset is used
+      modalImg.src = thumb.currentSrc || thumb.src;
+
+      // Prefer a sibling caption; fall back to alt text
+      const captionText =
+        (thumb.nextElementSibling && thumb.nextElementSibling.textContent?.trim()) ||
+        thumb.getAttribute("alt") ||
+        "";
+
+      modalCaption.textContent = captionText;
+      modalOverlay.style.display = "flex";
     });
+  });
 
-    // Add click event listener to the overlay to close the modal when clicked
+  // Close modal when clicking the overlay background (guarded)
+  if (modalOverlay && modalImg && modalCaption) {
     modalOverlay.addEventListener("click", function (e) {
-        // Check if the click is on the overlay itself (not the content)
-        if (e.target === modalOverlay) {
-            console.log("Overlay clicked, closing modal");
-            modalOverlay.style.display = "none";
-            modalImg.removeAttribute("src");
-            modalCaption.textContent = "";
-        }
+      // Only when the click is on the overlay itself, not its children
+      if (e.target === e.currentTarget) {
+        console.log("Overlay clicked, closing modal");
+        modalOverlay.style.display = "none";
+        modalImg.removeAttribute("src");
+        modalCaption.textContent = "";
+      }
     });
+  } else {
+    // Optional: useful when this file runs site-wide
+    console.warn("[about-modal] Overlay or parts missing — close handler not attached");
+  }
 });
+
 
 
 
