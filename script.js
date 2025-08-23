@@ -96,108 +96,108 @@ const waitForMobRatingsBtn = setInterval(() => {
 }, 100);
 
 
-
-
-
-
   // === SERVICES SLIDESHOW ===
-  const desktopSlides = document.querySelectorAll("#desk-services-slideshow .services-slide");
-  let desktopIndex = 0;
-  let desktopCycles = 0;
-  const desktopMaxCycles = 3;
-  let desktopInterval;
-  let desktopPaused = false;
+// === SERVICES SLIDESHOW (fade + preload next) ===
+const desktopSlides = document.querySelectorAll("#services-slideshow .services-slide");
+let desktopIndex = 0;
+let desktopCycles = 0;
+const desktopMaxCycles = 3;
+let desktopInterval;
+let desktopPaused = false;
 
+function showDesktopSlide(index) {
+  desktopSlides.forEach((slide, i) => {
+    slide.classList.toggle("is-active", i === index);
+  });
+}
 
-  function showDesktopSlide(index) {
-    desktopSlides.forEach((slide, i) => {
-      slide.style.display = i === index ? "block" : "none";
-    });
-  }
+/* Preload & decode the next slide’s image so it’s ready to fade in */
+function preloadNextDesktopImage(nextIndex) {
+  const nextSlide = desktopSlides[nextIndex];
+  if (!nextSlide) return;
 
-  function scheduleNextDesktopSlide() {
-     if (desktopPaused) return;
-    const delay = (desktopIndex === 1) ? 15000 : 5000;
-    desktopInterval = setTimeout(() => {
-      desktopIndex = (desktopIndex + 1) % desktopSlides.length;
-      showDesktopSlide(desktopIndex);
-      if (desktopIndex === 0) {
-        desktopCycles++;
-        if (desktopCycles >= desktopMaxCycles) return;
-      }
-      scheduleNextDesktopSlide();
-    }, delay);
-  }
+  const img = nextSlide.querySelector("img");
+  if (!img) return;
 
-  function changeDesktopSlide(n) {
-    clearTimeout(desktopInterval);
-    desktopIndex = (desktopIndex + n + desktopSlides.length) % desktopSlides.length;
-    showDesktopSlide(desktopIndex);
-    scheduleNextDesktopSlide();
-  }
-
-  if (desktopSlides.length > 0) {
-    showDesktopSlide(desktopIndex);
-    scheduleNextDesktopSlide();
-    const prevBtn = document.getElementById("prevSlide");
-    const nextBtn = document.getElementById("nextSlide");
-    if (prevBtn && nextBtn) {
-      prevBtn.addEventListener("click", () => changeDesktopSlide(-1));
-      nextBtn.addEventListener("click", () => changeDesktopSlide(1));
+  try {
+    // Nudge the browser to fetch & decode now
+    img.loading = "eager";
+    if ("fetchPriority" in img) img.fetchPriority = "high";
+    if (img.decode) {
+      img.decode().catch(() => {}); // ignore decode errors; browser will still render
     }
-    window.changeSlide = changeDesktopSlide;
+  } catch (e) {
+    // safe to ignore
+  }
+}
 
-    const slideshowContainer = document.getElementById("desk-services-slideshow");
-if (slideshowContainer) {
-  slideshowContainer.addEventListener("mouseenter", () => {
-    desktopPaused = true;
-    clearTimeout(desktopInterval);
-  });
-  slideshowContainer.addEventListener("mouseleave", () => {
-    desktopPaused = false;
+function scheduleNextDesktopSlide() {
+  if (desktopPaused) return;
+
+  const delay = (desktopIndex === 1) ? 15000 : 5000; // keep your longer dwell on slide 2
+  const nextIndex = (desktopIndex + 1) % desktopSlides.length;
+
+  // Warm the next image during the wait window
+  preloadNextDesktopImage(nextIndex);
+
+  desktopInterval = setTimeout(() => {
+    desktopIndex = nextIndex;
+    showDesktopSlide(desktopIndex);
+
+    if (desktopIndex === 0) {
+      desktopCycles++;
+      if (desktopCycles >= desktopMaxCycles) return;
+    }
     scheduleNextDesktopSlide();
-  });
-}}
+  }, delay);
+}
 
+function changeDesktopSlide(n) {
+  clearTimeout(desktopInterval);
+  desktopIndex = (desktopIndex + n + desktopSlides.length) % desktopSlides.length;
+  showDesktopSlide(desktopIndex);
+  scheduleNextDesktopSlide();
+}
 
-  // === MOBILE SLIDESHOW ===
-  const mobileSlides = document.querySelectorAll("#mobile-slideshow .slide");
-  let mobileIndex = 0;
-  let mobileCycles = 0;
-  const mobileMaxCycles = 3;
+// boot
+if (desktopSlides.length > 0) {
+  showDesktopSlide(desktopIndex);
+  scheduleNextDesktopSlide();
 
-  function showMobileSlide(index) {
-    mobileSlides.forEach((slide, i) => {
-      slide.style.display = i === index ? "block" : "none";
+  const prevBtn = document.getElementById("prevSlide");
+  const nextBtn = document.getElementById("nextSlide");
+  if (prevBtn && nextBtn) {
+    prevBtn.addEventListener("click", () => changeDesktopSlide(-1));
+    nextBtn.addEventListener("click", () => changeDesktopSlide(1));
+  }
+  window.changeSlide = changeDesktopSlide;
+
+  const slideshowContainer = document.getElementById("services-slideshow");
+  if (slideshowContainer) {
+    slideshowContainer.addEventListener("mouseenter", () => {
+      desktopPaused = true;
+      clearTimeout(desktopInterval);
+    });
+    slideshowContainer.addEventListener("mouseleave", () => {
+      desktopPaused = false;
+      scheduleNextDesktopSlide();
     });
   }
-
-  function changeMobileSlide(n) {
-    mobileIndex = (mobileIndex + n + mobileSlides.length) % mobileSlides.length;
-    showMobileSlide(mobileIndex);
-  }
-
-  if (mobileSlides.length > 0) {
-    showMobileSlide(mobileIndex);
-    window.changeSlide = changeMobileSlide;
-    const mobileInterval = setInterval(() => {
-      mobileIndex = (mobileIndex + 1) % mobileSlides.length;
-      showMobileSlide(mobileIndex);
-      if (mobileIndex === 0) {
-        mobileCycles++;
-        if (mobileCycles >= mobileMaxCycles) clearInterval(mobileInterval);
-      }
-    }, 8000);
-  }
+}
 
 
-  document.addEventListener("click", function (e) {
+
+// ORPHAN??
+document.addEventListener("click", function (e) {
     const zoomed = document.querySelector(".img-wrap.active");
     if (zoomed && !zoomed.contains(e.target)) {
       zoomed.classList.remove("active");
       document.body.style.overflow = "";
     }
   });
+
+
+
 
   // === MOBILE PAST DELIVERIES THUMBNAIL TOGGLE ===
   document.querySelectorAll(".mob-past-deliv-thumb").forEach(img => {
@@ -227,6 +227,8 @@ if (slideshowContainer) {
     });
   });
 
+
+  
   // === MOBILE MENU HAMBURGER TOGGLE ===
   const hamburger = document.getElementById("hamburger-icon");
   const mobileMenu = document.getElementById("mobileMenu");
@@ -1793,3 +1795,113 @@ document.addEventListener("DOMContentLoaded", () => {
     mql.addListener(function (e) { if (e.matches) loadDeskHeader(); });
   }
 })();
+
+// SERVICES-MOB-TOOLTIP 
+document.addEventListener('DOMContentLoaded', () => {
+  const parents = Array.from(document.querySelectorAll('.mob-tooltip-parent'));
+  if (!parents.length) return;
+
+  let open = null;
+
+  function openTip(p) {
+    if (open && open !== p) closeTip(open);
+    p.classList.add('active');
+    p.setAttribute('aria-expanded', 'true');
+    open = p;
+
+    // Keep the box within the viewport width
+    const box = p.querySelector('.mob-tooltip-box');
+    if (!box) return;
+    box.style.maxWidth = Math.min(window.innerWidth - 32, 240) + 'px';
+  }
+
+  function closeTip(p) {
+    p.classList.remove('active');
+    p.setAttribute('aria-expanded', 'false');
+    if (open === p) open = null;
+  }
+
+  parents.forEach(p => {
+    // Accessibility & mobile ergonomics
+    p.setAttribute('role', 'button');
+    p.setAttribute('tabindex', '0');
+    p.setAttribute('aria-haspopup', 'true');
+    p.setAttribute('aria-expanded', 'false');
+
+    p.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (p.classList.contains('active')) closeTip(p);
+      else openTip(p);
+    });
+
+    p.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        p.click();
+      }
+    });
+  });
+
+  // Close when tapping anywhere else, or on resize/scroll
+  document.addEventListener('click', () => { if (open) closeTip(open); });
+  window.addEventListener('resize', () => { if (open) closeTip(open); });
+  // capture-phase scroll so any scrolling ancestor will close it
+  window.addEventListener('scroll', () => { if (open) closeTip(open); }, true);
+});
+
+
+// TESTIMONIALS BOX FLASHY
+document.addEventListener('DOMContentLoaded', () => {
+  const runFlash = () => {
+    const hash = decodeURIComponent(location.hash || '').replace('#','');
+    if (!hash) return;
+    const el = document.getElementById(hash);
+    if (!el) return;
+
+    // Remove from any previously highlighted node
+    document.querySelectorAll('.anchor-flash').forEach(n => n.classList.remove('anchor-flash'));
+
+    // Restartable animation trick
+    void el.offsetWidth; // force reflow so the animation can replay
+    el.classList.add('anchor-flash');
+
+    // Clean up after it finishes so it can be triggered again later
+    el.addEventListener('animationend', () => {
+      el.classList.remove('anchor-flash');
+    }, { once: true });
+  };
+
+  // Initial load with #hash (cross-page navigation)
+  runFlash();
+
+  // In-page jumps or subsequent navigations
+  window.addEventListener('hashchange', runFlash, { passive: true });
+});
+
+// TESTIMONIALS FREEZE BUTTONS
+document.addEventListener('DOMContentLoaded', () => {
+  // Only affects pages that actually include the bar
+  const bar = document.querySelector('.mob-testim-freeze');
+  if (!bar) return;
+
+  const setBarHeight = () => {
+    const h = Math.ceil(bar.getBoundingClientRect().height);
+    document.documentElement.style.setProperty('--mob-testim-freeze-h', h + 'px');
+  };
+
+  // Initial measure
+  setBarHeight();
+
+  // Recompute if fonts load later (text wrap can change height)
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(setBarHeight).catch(() => {});
+  }
+
+  // Recompute on resize / orientation changes
+  window.addEventListener('resize', setBarHeight, { passive: true });
+  window.addEventListener('orientationchange', setBarHeight);
+
+  // Recompute if the bar’s size changes (e.g., button text wraps)
+  const ro = new ResizeObserver(setBarHeight);
+  ro.observe(bar);
+});

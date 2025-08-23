@@ -1020,7 +1020,6 @@ DESKTOP ABOUT */
 .mob-about-newspaper-left-img {
   /*float: left;*/
   width: 50%;
-  max-width: 175px;
   margin-right: 20px;
   margin-bottom: 7px;
   /*border-radius: 6px;*/
@@ -1032,13 +1031,32 @@ DESKTOP ABOUT */
 
 .mob-about-figure-newspaper-left {
   float: left;
-  /*width: 50%;*/
-  max-width: 200px;
+  width: 50%;
   margin: 0 20px 7px 0; /* top right bottom left */
   transform: translateZ(0); /* fixes snapping in Safari */
-  /*box-shadow: 0 1px 6px rgba(0,0,0,0.2);*/
+  box-shadow: 0 1px 6px rgba(0,0,0,0.2);
 }
 
+.mob-about-newspaper-aaron {
+  float: left;
+  min-width: 200px;
+  width: 25%;
+  margin: 0 20px 7px 0; /* top right bottom left */
+  transform: translateZ(0); /* fixes snapping in Safari */
+  box-shadow: 0 1px 6px rgba(0,0,0,0.2);
+}
+
+.mob-about-newspaper-aaron-img {
+  /*float: left;*/
+  width: 100%;
+  margin-right: 20px;
+  margin-bottom: 7px;
+  /*border-radius: 6px;*/
+  transform: translateZ(0); /* fixes snapping in Safari */
+  box-shadow: 0 1px 6px rgba(0,0,0,0.2);
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
+}
 .mob-about-img-caption {
   font-size: 0.85rem;
   color: #555;
@@ -1691,6 +1709,11 @@ a.join-mob-copy-button {
 
 @media screen and (max-width: 1400px) {
 
+.mob-fltbrick {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 .mob-past-deliv-fltnumbrick {
  font-size: 1.25rem;
   color: white;
@@ -1760,14 +1783,14 @@ a.join-mob-copy-button {
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
-.mob-past-deliv-thumb {
+/*.mob-past-deliv-thumb {
   width: 100%;
   max-width: 120px;
   border-radius: 6px;
   display: inline-block;
   vertical-align: top;
   margin: 0 10px 6px 0;
-}
+}*/
 
 .mob-past-deliv-caption {
   font-size: 1.2rem;
@@ -1783,17 +1806,38 @@ a.join-mob-copy-button {
   font-size: 1.2rem;
 }
 
+
 .mob-past-deliv-testim-thumb {
-  width: 90px; 
-  height: 40px; 
-  cursor: pointer;
+  display: block;                  
+  width: clamp(135px, 35vw, 210px);   
+  height: auto;
+  margin: 0 auto;                
 }
 
 .mob-past-deliv-sidebyside {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 10%;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
+
+.mob-past-deliv-sidebyside p {
+  flex: 0 1 auto;        
+  width: 55vw;
+  margin: 0;
+}
+
+.mob-past-deliv-sidebyside a {
+  display: inline-block;      
+  width: 35vw;
+}
+
+.mob-past-deliv-notestim {
+  width: 100%;
+  margin: 0;
+}  
 
 .mob-past-deliv-tdcell {
   border: 1px solid gray;
@@ -1801,7 +1845,6 @@ a.join-mob-copy-button {
   font-size: 1.2rem;
   line-height: 1.4;
   text-align: left;
-  word-wrap: break-word;
 }
 
 .mob-past-deliv-thumb-td {
@@ -1946,6 +1989,7 @@ padding: 1.5vw;
   min-height: 480px; 
 }
 }
+
 
 /* !!! END +++++++++/PAST DELIVERIES ++++++++++ END !!!*/
 
@@ -3080,7 +3124,7 @@ width: clamp(150px, 45vw, 400px);
 
 .services-flex-wrapper {
   display: flex;  /* Ensures flex layout */
-  justify-content: space-between;  /* Space between columns */
+  justify-content: space-between;  /* Space between columns*/
   align-items: flex-start;  /* Align items at the top */
   gap: 150px;  /* Space between flex items (columns) */
   max-width: 2000px;  /* Max width of the wrapper */
@@ -3105,10 +3149,13 @@ width: clamp(150px, 45vw, 400px);
 }
 
 .services-left-col,
-.services-right-col {
-  flex: 1;
-  min-width: 0;
-  overflow: hidden;
+.services-right-col{
+  flex: 1 1 clamp(640px, 50%, 2000px);  /* equal growth, min 640px each */
+  min-width: 0;                          /* allow text to wrap */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: visible;
 }
 
 .services-subheading-wrap {
@@ -3150,21 +3197,52 @@ width: clamp(150px, 45vw, 400px);
 }
 
 .services-slideshow {
-  width: 98%;
-  max-width: 1000px;
-  margin: 20px auto 0 auto;
-  text-align: center;
   position: relative;
-  border: 4px solid gray;
+  max-width: clamp(640px, 45vw, 1000px);
+  aspect-ratio: 640 / 684;      /* matches your images */
+  overflow: hidden;             /* clip cross-fading slides */
+  margin: 8px 0 16px;           /* tweak to taste */
+   border: 4px solid gray;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
 }
 
 .services-slide {
   width: 100%;
-  height: auto;
-  display: block;
-  max-width: 100%;
+  max-width: 1000px;
+  inset: 0;
+  opacity: 0;
+  text-align: center;
+  transition: opacity 400ms ease;
+  pointer-events: none;
+  position: absolute;
+  box-sizing: border-box;
+  z-index: 0;
+ 
 }
+
+.services-slide.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Ensure the anchor fills the slide box */
+.services-slide > a {
+  display: block;
+    width: 100%;
+  height: 100%;
+
+}
+
+/* Images fill the box */
+.services-slideshow img {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+
 
 .services-container-img {
   width: 100%;
@@ -3182,9 +3260,6 @@ width: clamp(150px, 45vw, 400px);
   text-align: center;
   margin: 50px auto 20px auto;
   color: #2A4570;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   gap: 10px;
 }
 
@@ -3194,7 +3269,7 @@ width: clamp(150px, 45vw, 400px);
   vertical-align: middle;
 }
 
-.services-logbook {
+.services-logbook-table {
   display: table;
   border-collapse: collapse;
   margin: 20px auto;
@@ -3223,7 +3298,7 @@ width: clamp(150px, 45vw, 400px);
   font-weight: 800;
 }
 
-.services-logbook-row:first-child .services-logbook-cell {
+.services-logbook-row:first-child {
   font-family: Arial, sans-serif;
   font-size: 1.4rem;
   font-weight: 600;
@@ -3231,35 +3306,61 @@ width: clamp(150px, 45vw, 400px);
   text-transform: uppercase;
 }
 
-.services-logbook a {
+.services-logbook-table a {
   text-decoration: none;
   color: inherit;
 }
 
+
 /* Tooltip wrapper */
 .services-tooltip-parent {
-  position: relative;
-  cursor: help;
+  position: relative;          /* anchor for the box */
+  display: inline-block;       /* make hover area solid */
+  cursor: help;                /* your "?" cursor */
+  border-bottom: 1px dotted #666;
+  line-height: 1;              /* tighter underline alignment */
 }
 
 /* Tooltip box (hidden by default) */
 .services-tooltip-box {
-  display: none;
   position: absolute;
-  bottom: 110%;
   left: 50%;
+  bottom: 100%;                /* above the number */
   transform: translateX(-50%);
-  background: #333;
+  margin-bottom: 8px;
+
+  min-width: max-content;      /* don't wrap the short codes unless needed */
+  max-width: 320px;
+  padding: 8px 10px;
+  background: #111;
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-family: Arial, Helvetica, sans-serif;
-  padding: 8px 12px;
-  border-radius: 4px;
-  white-space: pre-line;
-  z-index: 10;
-  width: max-content;
-  max-width: 300px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  line-height: 1.4;
+  box-shadow: 0 6px 16px rgba(0,0,0,.25);
+
+  /* layering + reveal */
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 150ms ease, visibility 150ms ease;
+  white-space: normal;         /* allow wrap when long */
+}
+
+/* --- Show on hover / keyboard focus --- */
+.services-tooltip-parent:hover .services-tooltip-box,
+.services-tooltip-parent:focus-within .services-tooltip-box {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* --- Make sure ancestors don't clip it --- */
+.services-logbook,
+.services-logbook-table,
+.services-left-col {
+  overflow: visible;
 }
 
 .services-caption {
@@ -3311,8 +3412,18 @@ text-align: left;
   padding: 0 5px;
 }
 
- .services-logbook {
+ .services-logbook-table {
     display: none;
+  }
+
+  .services-slideshow {
+    /* Center this one child on the cross-axis */
+    align-self: center;          /* ← the key line */
+    margin-inline: auto;         /* logical ‘auto’ margins (LTR/RTL safe) */
+    width: min(100%, 640px);     /* explicit inline size so centering is visible */
+    max-width: 640px;
+    float: none;                 /* neutralize any stray floats */
+    box-sizing: border-box;      /* keep border inside width */
   }
 
   .mob-logbook {
@@ -3332,10 +3443,6 @@ text-align: left;
     padding: 12px 16px;
     text-align: left;
     font-weight: 600;
-  }
-
-  .mob-logbook td a {
-    text-decoration: none;
   }
 
   .mob-logbook td:nth-child(2) {
@@ -3370,11 +3477,45 @@ text-align: left;
     position: relative;
     display: inline-block;
     cursor: pointer;
+    border-bottom: 3px dotted #666;  /* ← the dots */
+    line-height: 1;            /* keeps dots snug to the digits */
+    padding-bottom: 2px;       /* avoids clipping the dots */
+    padding-inline: 2px;       /* slightly larger tap target */
+    text-decoration: none;     /* in case it's inside a link */
+    -webkit-tap-highlight-color: transparent;
+  }
+
+    /* Accessible focus ring when using keyboard */
+  .mob-tooltip-parent:focus-visible {
+    outline: 2px solid #7aa7ff;
+    outline-offset: 2px;
+    border-bottom-color: currentColor; /* keeps dots visible with outline */
   }
 
   .mob-tooltip-parent.active .mob-tooltip-box {
     display: block;
   }
+
+  /* Make sure nothing upstream clips the box */
+  .services-left-col,
+  .services-logbook,
+  .mob-logbook { 
+    overflow: visible; 
+    position: relative; 
+    z-index: 1;
+  }
+
+  /* Stronger stacking so it beats nearby elements */
+  .mob-tooltip-box { 
+    z-index: 4000;                /* was 99 */
+    max-width: min(240px, calc(100vw - 32px)); /* stay within viewport */
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .mob-tooltip-parent { 
+    touch-action: manipulation;   /* improves tap responsiveness */
+  }
+
 
   .services-cta-wrap img {
     max-width: 60%;
@@ -3403,7 +3544,6 @@ text-align: left;
   .services-right-col {
     padding: 0;
     width: 100%;
-    max-width: 100%;
     box-sizing: border-box;
   }
 
@@ -3460,10 +3600,145 @@ padding: 0 100px;
   }
 }
 
+/* INTERMEDIATE SCREEN */
+  @media (max-width: 800px) {
+.services-tagline {
+  margin: 0 4px 20px 4px;
+}
+  }
+
 /* !!! END SERVICES MOBILE OVERRIDES !!! END */
 
 /* !!! END ++++++++++SERVICES+++++++++ (UNIFIED) !!! END*/
 
+/* +++++++++++++ /TESTIMONIALS (MOBILE-ONLY)+++++++++++ */
+
+  .testimonial-block {
+margin: 0 4px 40px 4px; 
+padding: 15px; 
+border: 3px solid #180b3c;
+border-radius: 10px; 
+background-color: #ffffff; 
+box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+line-height: 1.6;
+font-size: 1.2rem;
+max-width: 1100px;
+  }
+
+.testimonials-button {
+  padding: 10px 5px 10px 5px; 
+  background-color: #005eb8; 
+  color: white; 
+  border: none; 
+  border-radius: 6px; 
+  font-size: max(1.2rem, 3vw);
+  cursor: pointer;
+  height: auto;
+  width: 40vw;
+  margin: 0 12px;
+}
+
+  :root { 
+    --anchor-offset: 100px; 
+  } 
+
+  [id^="testimonial"] { 
+    scroll-margin-top: var(--anchor-offset); 
+  }
+
+/* Configurable variables */
+:root{
+  --anchor-flash-color: #ffb703;         /* highlight color */
+  --anchor-flash-off: #ccc;              /* normal border color */
+  --anchor-flash-glow: rgba(255,183,3,.35);
+}
+
+/* Apply to the node that gets the class (your <section id="testimonialX">) */
+.anchor-flash {
+  /* 0.5s ON, 2s OFF, 0.5s ON = total 3s */
+  animation: anchor-flash-thrice 3s ease-in-out 1;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .anchor-flash { animation: none; border-color: var(--anchor-flash-color) !important; }
+}
+
+@keyframes anchor-flash-thrice {
+
+  0%, 17.0%   { border-color: var(--anchor-flash-color); box-shadow: 0 0 0 3px var(--anchor-flash-glow); }
+
+  17.01%, 34.0% { border-color: var(--anchor-flash-off); box-shadow: none; }
+
+  34.01%, 51.0% { border-color: var(--anchor-flash-color); box-shadow: 0 0 0 3px var(--anchor-flash-glow); }
+    51.01%, 68.0% { border-color: var(--anchor-flash-off); box-shadow: none; }
+
+  68.01%, 85.0% { border-color: var(--anchor-flash-color); box-shadow: 0 0 0 3px var(--anchor-flash-glow); }
+
+  85.01%, 100.0% { border-color: var(--anchor-flash-off); box-shadow: none; }
+}
+
+  :root{
+    /* Fallback height; JS will measure actual height and update this */
+    --mob-testim-freeze-h: 84px;
+
+    /* Visuals */
+    --mob-testim-freeze-bg: rgba(0, 18, 34, 0.55);  /* translucent, “raised” */
+    --mob-testim-freeze-blur: 5px;                 /* background blur */
+    --mob-testim-freeze-border: rgba(255,255,255,0.12);
+    --mob-testim-freeze-z: 1200;
+
+    /* Spacing */
+    --mob-testim-freeze-gap: 12px;
+    --mob-testim-freeze-pad-x: 14px;
+    --mob-testim-freeze-pad-y: 10px;
+  }
+
+  /* Fixed bar that “floats” over content at the bottom of the viewport */
+  .mob-testim-freeze{
+    position: fixed;
+    height: clamp(50px, 10vw, 300px);
+    left: 0; right: 0; bottom: 0;
+    display: flex;
+    justify-content: center;                
+    flex-direction: row;
+    align-items: center;
+   
+    padding: var(--mob-testim-freeze-pad-y) var(--mob-testim-freeze-pad-x)
+             calc(var(--mob-testim-freeze-pad-y) + env(safe-area-inset-bottom))
+             var(--mob-testim-freeze-pad-x);
+
+    background: var(--mob-testim-freeze-bg);
+    -webkit-backdrop-filter: blur(var(--mob-testim-freeze-blur));
+    backdrop-filter: blur(var(--mob-testim-freeze-blur));
+    border-top: 1px solid var(--mob-testim-freeze-border);
+    box-shadow: 0 -12px 30px rgba(0,0,0,.25);       /* “raised” look */
+    z-index: var(--mob-testim-freeze-z);
+    transform: translateZ(0); /* iOS repaint hint */
+  }
+
+  /* Keep content visible above the bar (JS updates the var precisely) */
+  main.mobile-only { 
+    padding-bottom: calc(var(--mob-testim-freeze-h) + 8px); 
+  }
+
+  .testimonials-label {
+  background-color: #180b3c;
+  color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 10px 15px;
+  margin: 0 auto 10px auto;
+  display: block;
+  width: fit-content;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+
+/* !!! END ++++++++++TESTIMONIALS+++++++++ !!! END*/
 
 /* === DESKTOP TOOLTIPS === */
 .tooltip-custom {
