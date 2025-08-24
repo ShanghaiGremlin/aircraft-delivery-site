@@ -1557,7 +1557,7 @@ a.join-mob-copy-button {
 .desk-past-deliv-slider-container {
   max-width: 1200px;
   height: 225px;
-  margin: 0 auto;
+  /*margin: 20px auto 0 auto;*/
   /*padding: 10px 10px 0px 10px;*/
   background-color: #ffffff;
   border-radius: 12px;
@@ -1710,20 +1710,48 @@ a.join-mob-copy-button {
 
 .mob-fltbrick {
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 0 auto 5vw;
+  }
+
+.mob-past-deliv-tabtable {
+  border-spacing: 0;           /* avoid gaps at corners */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 0;  /* square */
+  border-bottom-left-radius: 0;   /* square */
+  overflow: hidden; 
+  display: inline-table;   /* shrink-to-fit its contents */
+  table-layout: auto;      /* size columns by content */
+  width: auto; 
+  border: 3px solid gray;
+  background-color: #fff;
+  border-bottom: hidden;
+}
+
+.mob-past-deliv-pixandinfotable {
+  width: 100%; 
+  border-collapse: separate;   /* important */
+  border-spacing: 0;           /* avoid gaps at corners */
+  border-top-left-radius: 0px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;  /* square */
+  border-bottom-left-radius: 10px;   /* square */
+  overflow: hidden; 
+  border: 3px solid gray;
+  table-layout: fixed;
 }
 
 .mob-past-deliv-fltnumbrick {
  font-size: 1.25rem;
   color: white;
-  margin-top: 15px;
-  margin-bottom: 10px;
+  margin: 10px 15px;
   padding: 6px 12px;
   background-color: #444040;
   border: 1px solid #ccc;
   border-radius: 6px;
-  display: inline-block;
+  display: block;
   font-weight: 600;
+  width: max-content;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -1803,6 +1831,7 @@ a.join-mob-copy-button {
   padding: 0 6px;
   text-align: center;
   font-size: 1.2rem;
+  background-color: #fff;
 }
 
 
@@ -1844,6 +1873,7 @@ a.join-mob-copy-button {
   font-size: 1.2rem;
   line-height: 1.4;
   text-align: left;
+  background-color: #fff;
 }
 
 .mob-past-deliv-thumb-td {
@@ -1851,6 +1881,7 @@ a.join-mob-copy-button {
  width: 33.33%; 
  text-align: center; 
  vertical-align: top;
+ background-color: #fff;
 }
 
 .mob-past-deliv-overlay {
@@ -1907,8 +1938,7 @@ a.join-mob-copy-button {
   position: absolute;
   width: 88%;
   z-index: 0;
-  /*border: 1px solid red;*/
-  left: 50%;
+   left: 50%;
   transform: translateX(-50%);
 }
 
@@ -1918,8 +1948,8 @@ a.join-mob-copy-button {
 }
 
 .mob-past-deliv-slider-thumb {
-  width: auto;
-  height: 100px;
+  height: auto;
+  width: clamp(200px, 40vw, 450px);
   border-radius: 6px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
@@ -1953,11 +1983,12 @@ a.join-mob-copy-button {
 
 .mob-past-deliv-slider-wrapper {
   position: relative;
-  width: 99%;
-  min-height: 380px; /* adjust based on content */
+  aspect-ratio: 13 / 6;
+  height: 480px;
+  max-width: 100%;
   overflow: hidden;
-  /*border: 1px solid blue;*/
   text-align: center;
+  margin: 0 auto;
 }
 
 @keyframes slideDown {
@@ -1989,7 +2020,11 @@ padding: 1.5vw;
 }
 }
 
-
+@media (min-width: 601px) {
+.mob-past-deliv-slider-wrapper {
+  height: 400px; 
+}
+}
 /* !!! END +++++++++/PAST DELIVERIES ++++++++++ END !!!*/
 
 
