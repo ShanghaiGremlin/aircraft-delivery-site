@@ -9,15 +9,15 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="Aircraft Delivery">
 
-  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=20250823-204955">
-  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=20250823-204955">
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=20250823-204955">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=20250825-021556">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=20250825-021556">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=20250825-021556">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
 
-<link rel="preload" href="/style.css?v=20250823-204955" as="style">
-<link rel="stylesheet" href="/style.css?v=20250823-204955">
-<link rel="preload" href="/script.js?v=20250823-204955" as="script">
+<link rel="preload" href="/style.css?v=20250825-021556" as="style">
+<link rel="stylesheet" href="/style.css?v=20250825-021556">
+<link rel="preload" href="/script.js?v=20250825-021556" as="script">
 
   <!-- ===== PER-PAGE  ===== -->
   <!-- Basic SEO -->
@@ -40,7 +40,7 @@
   <meta name="twitter:description" content="Get A Delivery Quote">
   <meta name="twitter:image" content="https://aircraft.delivery/assets/about/2009-12-24.jpg">
 </head>
-<body>
+<body class="quote-page"">
 
   <!-- DESKTOP HEADER WRAPPER -->
    <div class="desktop-only">
@@ -69,7 +69,7 @@
       <picture>
         <source
         media="(max-width: 1400px)"
-        srcset="/assets/mobile/burger.png?v=20250823-204955">
+        srcset="/assets/mobile/burger.png?v=20250825-021556">
 
       <img 
     src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
@@ -86,7 +86,7 @@
         <picture>
           <source
           media="(max-width: 750px)"
-          srcset="/assets/mobile/mobile-logo-v2.png?v=20250823-204955">
+          srcset="/assets/mobile/mobile-logo-v2.png?v=20250825-021556">
 
                 <img 
     src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
@@ -103,7 +103,7 @@
                <picture>
           <source
           media="(min-width: 751px) and (max-width: 1400px)"
-          srcset="/assets/mobile/mobile-logo-90.png?v=20250823-204955">
+          srcset="/assets/mobile/mobile-logo-90.png?v=20250825-021556">
 
                 <img 
     src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
@@ -119,7 +119,7 @@
       <picture>
         <source 
         media="(max-width: 1400px)"
-        srcset="/assets/mobile/phone.png?v=20250823-204955">
+        srcset="/assets/mobile/phone.png?v=20250825-021556">
 
       <img 
     src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
@@ -153,8 +153,7 @@
 
 <div class="quote-top" style="margin: 15px 0 40px 0;">
 
-  <!-- Call Me Box -->
-   <div id="shimmerTarget" class="quote-top-call-box">
+<div id="shimmerTarget" class="quote-top-call-box">
     
 <div class="quote-top-call-box-top3elements">
   
@@ -162,7 +161,7 @@
   <div class="quote-top-badge">Fastest Way!</div>
   
   <!-- Center: Phone info -->
-  <div class="quote-top-center-item">
+  <div class="quote-top-center-item"> 
     <p style="font-size: 2.5rem; font-weight: 600; margin: 0;">
       <span class="quote-phone-wiggle" id="phoneIcon">&#x1F4DE;</span> Call Me
     </p>
@@ -171,8 +170,8 @@
   </div>
   
   <!-- Right: Aaron image -->
-  <a href="/about">
-    <img src="/assets/quote/aaron-for-quote.jpg?v=20250823-204955" alt="Aaron" style="height: 160px; width: auto;">
+  <a class="quote-top3-aaron" href="/about"> 
+    <img src="/assets/quote/aaron-for-quote.jpg?v=20250825-021556" alt="Aaron" style="height: 160px; width: auto;">
   </a>
   
 </div>
@@ -213,21 +212,30 @@
 
         <button id="quote-mob-form-toggle-btn"
         class="quote-mob-toggle-btn"
+        style="margin-bottom: 20px;"
         type="button"
         aria-expanded="false"
+        data-label-closed="Show Quote Request Form"
+        data-label-open="Hide Quote Request Form"
         aria-controls="quote-form-section">
-  Click to view Quote Request Form</button>
+  Show Quote Request Form</button>
     <div class="formwrap" id="quote-form-section">
 
     <form id="quote-form" class="quote-form" action="https://formspree.io/f/mnnvozvg" method="POST">
 
-<!-- Honeypot (human users never see or focus it) -->
-<div class="quote-honeypot" aria-hidden="true">
-  <label for="company">Company</label>
-
-  <input type="text" id="quote-gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
-
+<!-- removed the giveaway comment -->
+<div class="quote-offscreen-field" aria-hidden="true">
+  <label for="quote-website">Website (leave blank)</label>
+  <input
+    type="text"
+    id="quote-website"
+    name="website"
+    tabindex="-1"
+    autocomplete="off"
+    inputmode="text"
+  >
 </div>
+
 
 <!-- Name -->
 <div class="quote-quoteline">
@@ -443,19 +451,15 @@ aria-describedby="email-error"
   <input type="hidden" name="_redirect" value="https://aircraft.delivery/thank-you">
 
   <!-- Submit Button -->
-  <button type="submit" style="
-    background-color: #333;
-    color: white;
-    font-size: 1.1em;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;">
+  <button type="submit" class="quote-submit-button">
     Submit
   </button>
 </form>
     </div>
 </div>
+
+  <!-- New: the 10px center divider -->
+  <div class="quote-divider" aria-hidden="true"></div>
 
 <div class="quote-prices-col">
 
@@ -474,6 +478,7 @@ aria-describedby="email-error"
   class="quote-accordion-toggle" 
   aria-expanded="false" 
   aria-controls="quote-panel-1">
+    
     <span class="quote-toggle-label">Pilot Pay <span class="quote-tooltip-parent">
   (contracted)
   <span class="quote-tooltip-box">"Contracted": Agreed to in advance and not subject to variations</span>
@@ -521,12 +526,11 @@ aria-describedby="email-error"
 
  <!-- ACCORDION 2 PILOT EXPENSES -->
       <div class="quote-accordion" style="margin-bottom: 10px;">
-  <button class="quote-accordion-toggle" aria-expanded="false" aria-controls="quote-panel-pilot-expenses">
+  <button class="quote-accordion-toggle" aria-expanded="false" aria-controls="quote-panel-pilot-expenses"
+  >
     <span class="quote-toggle-label">Pilot Expenses <span class="quote-tooltip-parent">
   (reimbursed)
-  <span class="quote-tooltip-box">"Reimbursed": Cost estimates are provided, but these expenses will vary; 
-    <br>items are purchased at actual prices by A.D.S.
-    <br> to be reimbursed following mission end.</span>
+  <span class="quote-tooltip-box">"Reimbursed": Cost estimates are provided, but these expenses will vary; items are purchased at actual prices by A.D.S.to be reimbursed following mission end.</span>
 </span></span> 
     <span class="quote-caret" aria-hidden="true">></span>
   </button>
@@ -627,7 +631,9 @@ aria-describedby="email-error"
       id="quote-mob-extra-row-btn"
       aria-expanded="false"
       aria-controls="quote-mob-extra-rows"
-      >Show More Pay Scenarios</button>
+      data-label-closed="Show More Pay Scenarios"
+      data-label-open="Hide Pay Scenarios">
+      Show More Pay Scenarios</button>
     </td>
   </tr>
     </tbody>
@@ -672,7 +678,9 @@ aria-describedby="email-error"
   type="button"
   id="quote-mob-expenses-btn"
   aria-expanded="false"
-  aria-controls="quote-mob-expenses-container">
+  aria-controls="quote-mob-expenses-container"
+          data-label-closed="Show Aircraft Expenses"
+        data-label-open="Hide Aircraft Expenses">
   Show Aircraft Expenses
 </button>
 
@@ -703,7 +711,9 @@ aria-describedby="email-error"
   type="button"
   id="quote-mob-dispatch-btn"
   aria-expanded="false"
-  aria-controls="quote-mob-dispatch-content">
+  aria-controls="quote-mob-dispatch-content"
+          data-label-closed="Show Dispatch Services"
+        data-label-open="Hide Dispatch Services">
   Show Dispatch Services
 </button>
 
@@ -745,11 +755,14 @@ aria-describedby="email-error"
 </div>
 
 <div class="quote-decorative-pix">
-  <div class="quote-tooltip-parent">
-  <img src="/assets/quote/1999_amf_slc2.jpg?v=20250823-204955" alt="1999 AMF SLC" style="width: 70%; height: auto; margin-top: 30px; margin-bottom: 30px;"><span class="quote-tooltip-box">Ameriflight Beech 99 at Salt Lake City, UT. <br>Single-pilot schlepping 3,000 pounds of UPS boxes.</span>
-</div>
-  <div class="quote-tooltip-parent">
-<img src="/assets/quote/2002-kaiserair.jpg?v=20250823-204955" alt="2002 KaiserAir" style="width: 70%; height: auto; margin-bottom: 20px;"><span class="quote-tooltip-box">First Officer on the Hawker 700<br> for KaiserAir in Oakland, CA</span>
+ <div class="desk-quote-img-wrap">
+  <img src="/assets/quote/1999_amf_slc2.jpg?v=20250825-021556" alt="1999 AMF SLC" style="width: 100%; max-width: 700px; height: auto;">
+  <div class="desk-quote-caption">Ameriflight Beech 99C at Salt Lake City, UT. <br>Single-pilot schlepping 3,000 pounds of UPS boxes.
+  </div>
+ </div>
+
+  <div class="desk-quote-img-wrap">
+<img src="/assets/quote/2002-kaiserair.jpg?v=20250825-021556" alt="2002 KaiserAir" style="width: 100%; max-width: 700px; height: auto; margin: 40px 0 20px 0;"><div class="desk-quote-caption">First Officer on the Hawker 700<br> for KaiserAir in Oakland, CA.
 </div>
 </div>
 
@@ -762,7 +775,7 @@ aria-describedby="email-error"
  
 </main>
 
-<script src="/script.js?v=20250823-204955" defer></script>
+<script src="/script.js?v=20250825-021556" defer></script>
 </body>
 </html>
 

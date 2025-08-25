@@ -980,6 +980,14 @@ DESKTOP ABOUT */
   line-height: 1.6;
 }
 
+.desk-about-background-table {
+  width: 97%; 
+  margin: 0 auto; 
+  border-collapse: collapse; 
+  margin-top: 40px; 
+  max-width: 1750px;
+}
+
 /* !!! END DESKTOP ABOUT !!! END*/
 
 /* MOBILE ABOUT */
@@ -1337,6 +1345,11 @@ DESKTOP ABOUT */
   z-index: 1;
 }
 
+.join-page {
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
 /* JOIN MOBILE 1400 OVERRIDE*/
 
 @media screen and (max-width: 1400px) {
@@ -1344,6 +1357,12 @@ DESKTOP ABOUT */
 .join-table td {
 font-size: 1.2rem;
 }
+
+/* Mobile: show open join panels */
+  .join-page .join-accordion-panel.is-open {
+    display: block !important;
+  }
+
 
 pre.join-template-text-mobile {
   display: block;
@@ -1551,13 +1570,13 @@ a.join-mob-copy-button {
 
 /* === Past Deliveries Slider Container === */
 #desk-past-deliv-slider {
-  margin: 20px auto;
+  margin: 20px 0;
 }
 
 .desk-past-deliv-slider-container {
   max-width: 1200px;
   height: 225px;
-  /*margin: 20px auto 0 auto;*/
+  margin: 0 auto;
   /*padding: 10px 10px 0px 10px;*/
   background-color: #ffffff;
   border-radius: 12px;
@@ -1664,7 +1683,7 @@ a.join-mob-copy-button {
 }
 .caption {
   position: absolute;
-  bottom: -5px;
+  bottom: -25px;
   left: 0;
   width: 100%;
   padding: 6px 8px;
@@ -2526,7 +2545,6 @@ text-decoration: underline;
   background-color: #fdfdfd;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.05);
   text-align: center;
-  min-width: 400px;
   flex: 1 1 300px;
 }
 
@@ -2577,6 +2595,21 @@ margin: 0;
 .quote-column-house {
 display:flex;
 flex-direction: row;
+max-width: 2000px;
+justify-self: center;
+align-items: stretch;
+gap: 0;
+column-gap: 0;
+}
+
+.quote-divider {
+  flex: 0 0 10px;
+  align-self: stretch;
+  /* If you only have the 10px-wide 1x file: */
+  background-image: url("/assets/quote/desk-quote-divider-tile.png");
+  background-repeat: repeat-y;
+  background-position: center top;
+  background-size: 10px auto;   /* lock CSS width to 10px */
 }
 
 .quote-form {
@@ -2588,10 +2621,9 @@ flex-direction: row;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  /*padding: 0 75px;*/
   box-sizing: border-box;
-    padding: 0 30px;
-    text-align: center;
+  padding: 0 45px 0 0;
+  text-align: center;
 }
 
 /* Unified form placeholder style */
@@ -2610,10 +2642,8 @@ flex-direction: row;
 }
 
 .quote-main {
-  padding: 0 15px; 
   background-color: #e2ebf6; 
-  max-width: 2000px; 
-  margin: 0 auto;
+  padding-bottom: 30px;
 }
 
 .quote-phone-wiggle {
@@ -2640,19 +2670,36 @@ flex-direction: row;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 30px;
+  padding: 0 0 0 45px;
   box-sizing: border-box;
   display: flex; 
   flex-direction: column; 
   align-items: center;
-  border-left: 2px solid gray;
 }
 
-/* === Honeypot (desktop defaults) === */
-.quote-honeypot {
+/* desktop-first */
+.quote-offscreen-field{
   position: absolute !important;
-  left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
+
+/* Mobile layout (≤1400px) */
+/* (no overrides) */
+
+/* Phone (≤1000px) */
+/* (no overrides) */
+
+
+/* Mobile layout (≤1400px) */
+/* (no overrides needed) */
+
+/* Phone (≤1000px) */
+/* (no overrides needed) */
+
 
 /* === Form validation (desktop defaults) === */
 .quote-error {
@@ -2736,6 +2783,17 @@ text-align: center;
 font-size: 1.5rem;
 }
 
+.quote-submit-button {
+    background-color: #333;
+    color: white;
+    font-size: 1.1em;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
 .quote-td-wrapper {
   width: 100%;
   box-sizing: border-box;
@@ -2748,29 +2806,38 @@ font-size: 1.5rem;
 }
 
 .quote-tooltip-box {
-  position: absolute;
-  bottom: 25%;
-  left: 50%;
+  position: fixed;
+    left: clamp(16px, var(--quote-tip-x), calc(100vw - 16px));
+    top:  clamp(16px, var(--quote-tip-y), calc(100vh - 16px));
   transform: translateX(-50%);
   background-color: rgba(0,0,0,0.8);
   color: #fff;
   padding: 6px 10px;
   border-radius: 4px;
-  white-space: nowrap;
+  width: 600px;
   font-size: 1.2rem;
   visibility: hidden;
   opacity: 0;
+  pointer-events: none;
+  white-space: normal;
+  text-align: left;
   transition: opacity 0.2s ease-in-out;
-  z-index: 10;
+  z-index: 2000;
 }
 
 .quote-tooltip-parent {
   display: flex;
   flex-direction: column;
   align-items: center; /* This lets the image inside stay centered */
-  position: relative;
+  position: static;
   cursor: help;
+  font-size: 1.3rem;
 }
+
+body.quote-page {
+    --quote-tip-x: calc(100vw - 370px); /* X from viewport left (e.g., right rail) */
+    --quote-tip-y: 790px;        
+}      
 
 .quote-tooltip-parent:hover .quote-tooltip-box {
   visibility: visible;
@@ -2790,19 +2857,60 @@ font-size: 1.5rem;
   background: gold;
   padding: 5px 10px;
   border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  isolation: isolate;
+  grid-area: left;
+  max-height: 39px;
+}
 
-  /* Shimmer setup */
-  background-image: linear-gradient(
-    120deg,
-    #007bff 0%,
-    #33a1ff 50%,
-    #007bff 100%
+.quote-top3-aaron {
+  grid-area: right; 
+  justify-self: end; 
+  text-align: right;
+}
+
+.quote-top-center-item {
+grid-area: center; 
+justify-self: center; 
+text-align: center;
+}
+
+/* The moving “light” */
+.quote-top-badge::before{
+  content: "";
+  position: absolute;
+  top: -30%;               /* overscan vertically so diagonal always covers */
+  bottom: -30%;
+  left: -40%;              /* start well off the left side */
+  width: 35%;              /* stripe width (make it obvious while testing) */
+  pointer-events: none;
+  z-index: 2;              /* sit above text */
+  opacity: 0;
+
+
+  /* Narrow bright core with soft edges */
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.95) 50%,
+    rgba(255,255,255,0) 100%
   );
-  background-size: 200% 100%;
-  background-repeat: no-repeat;
 
-  /* Animate once every 10s */
-  animation: shimmerBadge 10s ease-in-out infinite;
+  transform: translateX(-120%) skewX(-20deg);
+}
+
+/* Only animates when JS adds this class */
+.quote-top-badge.is-shimmering::before {
+  animation: quote-shimmer-pass 900ms ease-out forwards;
+}
+
+@keyframes quote-shimmer-pass{
+  0%   { transform: translateX(-120%) skewX(-20deg); opacity: 0; }
+  15%  { opacity: 0.55; }
+  45%  { opacity: 0.9; }
+  100% { transform: translateX(260%)  skewX(-20deg); opacity: 0; }
 }
 
 .quote-top-call-box {
@@ -2828,67 +2936,49 @@ font-size: 1.5rem;
 }
 
 .quote-top-call-box-top3elements {
-  display: flex;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+  grid-template-areas: "left center right"; 
+  width: 100%;
+  box-sizing: border-box;
+  /* Optional: give the whole box its own stacking context if needed */
+  isolation: isolate;
 }
 
-.quote-top-call-box-top3elements > :nth-child(2) {
-  margin: 0 auto;          /* center in the remaining space */
+.quote-decorative-pix {
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-top: 30px;
+}
+
+
+.desk-quote-caption {
+  position: absolute;
+  left: 20px;
+  bottom: 30px;
+  width: 90%;
+  padding: 6px 8px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 1.2rem;
   text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
-.quote-top-call-box-top3elements > :last-child {
-  margin-left: auto;       /* stick to far right */
-}
+.desk-quote-img-wrap {
+  position: relative;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  overflow: visible;
+  z-index: 1;
+ }
 
-.subtle-background-shimmer {
-  background-image: linear-gradient(
-    120deg,
-    #fdfdfd 0%,
-    #fdfdfd 40%,
-    #e8f0ff 50%,
-    #fdfdfd 60%,
-    #fdfdfd 100%
-  );
-  background-size: 200% 100%;
-  animation: subtle-background-shimmer 2s ease-in-out;
-  animation-iteration-count: 1;
-}
-
-@keyframes subtle-background-shimmer {
-  0% {
-    background-position: -200%;
-  }
-  50% {
-    background-position: 200%;
-  }
-  100% {
-    background-position: 200%;
-  }
-}
-
-@keyframes shimmerBadge {
-  0% {
-    background-position: -200%;
-  }
-  50% {
-    background-position: 200%;
-  }
-  100% {
-    background-position: 200%;
-  }
-}
-
-@keyframes shimmerBadge {
-  0% {
-    background-position: -200%;
-  }
-  15% {
-    background-position: 200%;
-  }
-  100% {
-    background-position: 200%;
-  }
+.desk-quote-img-wrap:hover .desk-quote-caption {
+  opacity: 1;
 }
 
 /* !!! END DEFAULT QUOTE !!! END */
@@ -2901,23 +2991,26 @@ font-size: 1.5rem;
   font-size: 1.3rem;
 }
 
-  .quote-main {
-  padding: 0 5px;
-  background-color: #e2ebf6; 
-  margin: 0 auto;
+.quote-decorative-pix {
+  display: none;
 }
+.quote-column-house {
+  display: flex;
+  flex-direction: column;
+}
+
+.quote-form-col,
+.quote-prices-col {
+  padding: 0 10px;
+}
+
+.quote-prices-col {
+  border: hidden;
+}
+
  .quote-toggle-label {
   font-size: 1.2rem;
 }
-
-.quote-top-badge {
-  margin-bottom: 15px;
-}
-
-.quote-top-call-box-top3elements > :last-child {
-  margin-left: 0;
-}
-
 
 .quote-top-call-box {
 width: 85vw;
@@ -2927,11 +3020,6 @@ padding: 8px;
 
 .quote-top-call-box ul {
 padding-left: 30px;
-}
-
-.quote-top-call-box-top3elements {
-flex-direction: column;
-align-items: center;
 }
 
   .quote-admin-fee-content {
@@ -2969,29 +3057,6 @@ align-items: center;
 
 /* INTERMEDIATE SCREEN MOBILE /QUOTE */
 
-@media screen and (max-width: 1200px) {
-  .quote-column-house {
-  display: block;
-  }
-
-  .quote-decorative-pix,
-  .quote-accordion-group {  
-    display: none;
-}
-
-  .quote-mob-ferryflights-headings {
-  font-size: 1.4rem;
-  font-weight: 600;
-  text-align: center;
-}
-
-.quote-mob-dispatch-content {
-  font-size: 1.15rem;
-  line-height: 1.6;
-  text-align: left;
-}
-}
-
 @media (min-width: 1201px) and (max-width: 1400px) {
 .quote-quoteline > :is(input, select, textarea) {
 width: clamp(200px, 22vw, 500px);
@@ -3009,16 +3074,30 @@ width: clamp(200px, 22vw, 500px);
   }
 }
 
-@media (min-width: 1201px) {
-  .quote-mob-ferry-costs {
-    display: none;
+@media (max-width: 800px) {
+.quote-top-call-box-top3elements {
+    /* one column = vertical stack */
+    grid-template-columns: 1fr;
+
+    /* choose the visual order here */
+    grid-template-areas:
+      "left"
+      "center"
+      "right"; /* change order as needed */
+
+    row-gap: 10px;
   }
+  .quote-top-badge {
+width: 200px;
+justify-self: center;
 }
 
-@media (min-width: 651px) {
-.quote-top-call-box-top3elements {
-flex-direction: row;
-align-items: flex-start;
+.quote-top-call-box-top3elements a {
+  justify-self: center;
+}
+
+.quote-top3-aaron {
+  justify-self: center;
 }
 }
 
@@ -3027,6 +3106,7 @@ align-items: flex-start;
   #quote-mob-expenses-btn,
   #quote-mob-dispatch-btn,
   #quote-mob-extra-row-btn,
+  .quote-mob-ferry-costs,
   tr:has(.quote-mob-extra-row-btn) { 
     display: none; 
 }
@@ -3042,7 +3122,8 @@ align-items: flex-start;
 @media (max-width: 1000px) {
   #quote-form-section,
   #quote-mob-expenses-container,
-  #quote-mob-dispatch-content {
+  #quote-mob-dispatch-content,
+  .quote-accordion-group {
     display: none; 
   }
 

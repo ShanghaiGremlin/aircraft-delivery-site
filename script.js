@@ -273,6 +273,9 @@ document.addEventListener("DOMContentLoaded", () => {
     phoneIcon.textContent = "\u{1F4DE}"; // 📞
   }
 
+  // Stop any auto-play CSS animation at load; JS will trigger later
+phoneIcon.style.animationName = "none";
+
   // Respect user's motion preference
   const motionOK = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -290,38 +293,24 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // Kick the cycle every 8s, up to 3 times (like your original)
+// Delay first wiggle by 3s, then keep 8s cadence for 3 total runs
+setTimeout(() => {
+  if (!document.body.contains(phoneIcon)) return;
+
+  restartWiggle();   // ~3s after load
+  wiggleCount++;
+
   const timer = setInterval(() => {
     if (!document.body.contains(phoneIcon) || wiggleCount >= maxCycles) {
       clearInterval(timer);
       return;
     }
-    restartWiggle();
+    restartWiggle(); // ~11s, ~19s
     wiggleCount++;
   }, intervalMs);
+}, 3000);
 });
 
-
-document.addEventListener("DOMContentLoaded", function () {
-  const shimmerTarget = document.getElementById("shimmerTarget");
-  let shimmerCount = 0;
-  const maxShimmers = 3;
-
-  if (shimmerTarget) {
-    const shimmerInterval = setInterval(() => {
-      // Reset the class if already applied
-      shimmerTarget.classList.remove("subtle-background-shimmer");
-      void shimmerTarget.offsetWidth; // Force reflow to restart animation
-
-      // Apply shimmer effect
-      shimmerTarget.classList.add("subtle-background-shimmer");
-
-      shimmerCount++;
-      if (shimmerCount >= maxShimmers) {
-        clearInterval(shimmerInterval);
-      }
-    }, 10000); // run every 10 seconds
-  }
-});
 
 document.addEventListener("DOMContentLoaded", function () {
   const slides = document.querySelectorAll(".desk-past-deliv-slider-slide");
@@ -450,119 +439,6 @@ if (mobTotalSlides > 1) {
     }
   }, 10000);
 }
-
-
-document.addEventListener("DOMContentLoaded", function () {
-  const joinPage = document.querySelector(".join-page");
-  if (joinPage) {
-    joinPage.querySelectorAll(".join-accordion-toggle").forEach((btn) => {
-      btn.addEventListener("click", function () {
-        const wrapper = btn.closest(".join-wayaligner");
-        const panel = wrapper?.nextElementSibling;
-
-        if (!panel) {
-          console.warn("⚠️ Panel not found for join-page accordion.");
-          return;
-        }
-
-        const isOpen = btn.getAttribute("aria-expanded") === "true";
-        btn.setAttribute("aria-expanded", String(!isOpen));
-        panel.style.display = isOpen ? "none" : "block";
-      });
-    });
-  }
-
-  // All other global accordions (outside join-page)
-  document.querySelectorAll('.quote-accordion-toggle').forEach((toggle) => {
-    // Skip if toggle is inside join-page (already handled above)
-    if (toggle.closest(".join-page")) return;
-
-    toggle.addEventListener('click', () => {
-      const expanded = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', String(!expanded));
-
-      const panel = toggle.nextElementSibling;
-      if (!panel) {
-        console.warn("⚠️ Panel not found for global accordion.");
-        return;
-      }
-
-if (!expanded) {
-  panel.style.display = 'block';
-
-  // Scroll down only until the toggle sits at headerOffset from the top
-  requestAnimationFrame(() => {
-    const headerOffset = 165; // fixed header height
-    const targetTop =
-      toggle.getBoundingClientRect().top + window.scrollY - headerOffset;
-
-    // Clamp to the document bottom
-    const maxTop = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-    const clamped = Math.min(targetTop, maxTop);
-
-    // Only scroll if we'd move DOWN (avoid upward nudges)
-    if (clamped > window.scrollY + 1) {
-      window.scrollTo({ top: clamped, behavior: 'smooth' });
-    }
-  });
-} else {
-  panel.style.display = 'none';
-}
-
-    });
-  });
-});
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const HEADER_OFFSET = 165;
-
-  const btn = document.getElementById('quote-mob-form-toggle-btn');
-  const section = document.getElementById('quote-form-section'); 
-
-  if (!btn || !section) return;
-
-  btn.addEventListener('click', () => {
-    const isOpen = section.classList.toggle('is-open');
-    btn.setAttribute('aria-expanded', String(isOpen));
-    btn.textContent = isOpen ? 'Hide Form' : 'Click to view Quote Request Form';
-
-    if (isOpen) {
-      requestAnimationFrame(() => {
-        const top = section.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
-        const maxTop = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-        window.scrollTo({ top: Math.min(top, maxTop), behavior: 'smooth' });
-      });
-    }
-  });
-});
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const HEADER_OFFSET = 165;
-
-const btn = document.getElementById('quote-mob-extra-row-btn');
-  const sec = document.getElementById('quote-mob-extra-rows');
-  if (!btn || !sec) return;
-
-  btn.addEventListener('click', () => {
-    const isOpen = sec.classList.toggle('is-open');
-    btn.setAttribute('aria-expanded', String(isOpen));
-    btn.textContent = isOpen ? 'Hide Pay Scenarios' : 'Show More Pay Scenarios';
-
-    if (isOpen) {
-      requestAnimationFrame(() => {
-        const top = sec.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
-        const maxTop = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-        window.scrollTo({ top: Math.min(top, maxTop), behavior: 'smooth' });
-      });
-    }
-  });
-});
-
-
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -713,6 +589,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
 
 // Mobile pay scenarios toggle (table rows)
 const HEADER_OFFSET = 165;
@@ -1772,25 +1649,32 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!res.ok) throw new Error('HTTP ' + res.status);
         return res.text();
       })
-      .then(function (html) {
-        var target = document.getElementById('desk-header-placeholder');
-        if (!target) return;
-        target.outerHTML = html;
-        loaded = true;
-      })
+.then(function (html) {
+  var target = document.getElementById('desk-header-placeholder');
+  if (!target) return;
+  target.outerHTML = html;   // ← replace insert+remove with a single swap
+  loaded = true;
+})
+
       .catch(function (err) {
         console.error('desk-header load failed:', err);
       });
   }
 
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', loadDeskHeader, { once: true });
+} else {
   loadDeskHeader();
+}
 
-  if (mql.addEventListener) {
-    mql.addEventListener('change', function (e) { if (e.matches) loadDeskHeader(); });
-  } else {
-    mql.addListener(function (e) { if (e.matches) loadDeskHeader(); });
-  }
+if (mql.addEventListener) {
+  mql.addEventListener('change', function (e) { if (e.matches) loadDeskHeader(); });
+} else {
+  mql.addListener(function (e) { if (e.matches) loadDeskHeader(); });
+}
 })();
+
+
 
 // SERVICES-MOB-TOOLTIP 
 document.addEventListener('DOMContentLoaded', () => {
@@ -1901,3 +1785,241 @@ document.addEventListener('DOMContentLoaded', () => {
   const ro = new ResizeObserver(setBarHeight);
   ro.observe(bar);
 });
+
+
+
+// quote-top-badge shimmer: run at 5s, 13s, 21s post-load
+document.addEventListener('DOMContentLoaded', () => {
+  const badge =
+    document.getElementById('quote-top-badge') ||
+    document.querySelector('.quote-top-badge');
+  if (!badge) return;
+
+  // Respect reduced motion
+  const motionOK = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!motionOK) return;
+
+  const SHIMMER_MS = 900;                   // keep in sync with CSS
+  const STARTS = [5000, 13000, 21000];      // ms after load
+
+  const runShimmer = () => {
+    if (!document.body.contains(badge)) return;
+    // retriggerable animation: remove → reflow → add
+    badge.classList.remove('is-shimmering');
+    void badge.offsetWidth;                 // force reflow
+    badge.classList.add('is-shimmering');
+
+    // cleanup after the pass so it can be retriggered
+    setTimeout(() => {
+      badge.classList.remove('is-shimmering');
+    }, SHIMMER_MS + 30);
+  };
+
+  // Schedule the three passes
+STARTS.forEach(delay => setTimeout(runShimmer, delay));
+});
+
+
+
+/* /quote accordions — delegated CAPTURE-phase so other listeners can't block it */
+(function () {
+  window.ADS = window.ADS || {};
+  if (window.ADS._quoteAccordionCapture) return;
+  window.ADS._quoteAccordionCapture = true;
+
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest(
+      '.quote-accordion-toggle, .quote-accordion [aria-controls], .desk-quote-accordion [aria-controls]'
+    );
+    if (!btn || btn.closest('.join-page')) return;
+
+    var panelId = btn.getAttribute('aria-controls');
+    var panel = panelId ? document.getElementById(panelId) : btn.nextElementSibling;
+    if (!panel) return;
+
+    e.preventDefault();
+
+    var nowOpen = btn.getAttribute('aria-expanded') !== 'true';
+    btn.setAttribute('aria-expanded', String(nowOpen));
+
+    // Reveal/hide regardless of CSS method
+    panel.hidden = !nowOpen;
+    panel.classList.toggle('is-open', nowOpen);
+
+    if (nowOpen) {
+      requestAnimationFrame(function () {
+        var headerOffset = 165; // your fixed header height
+        var rect = btn.getBoundingClientRect();
+        var targetTop = rect.top + window.scrollY - headerOffset;
+        var maxTop = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+        var clamped = Math.min(targetTop, maxTop);
+        if (clamped > window.scrollY + 1) {
+          window.scrollTo({ top: clamped, behavior: 'smooth' });
+        }
+      });
+    }
+  }, { capture: true });
+})();
+
+
+
+
+
+
+/* /quote — mobile un-hider (mobile-only, single install, capture-phase) */
+(function () {
+  window.ADS = window.ADS || {};
+  if (window.ADS._quoteMobHider) return;
+  window.ADS._quoteMobHider = true;
+
+  document.addEventListener('click', function (e) {
+    // Only act on phone widths
+    if (!window.matchMedia('(max-width: 1000px)').matches) return;
+
+    var btn = e.target.closest('.quote-mob-toggle-btn[aria-controls]');
+    if (!btn) return;
+
+    var id = btn.getAttribute('aria-controls');
+    var panel = id && document.getElementById(id);
+    if (!panel) return;
+
+    e.preventDefault();
+
+    // flip open/closed
+    var nowOpen = btn.getAttribute('aria-expanded') !== 'true';
+    btn.setAttribute('aria-expanded', String(nowOpen));
+
+    // show/hide content (CSS uses .is-open); keep [hidden] in sync
+    panel.classList.toggle('is-open', nowOpen);
+    if ('hidden' in panel) panel.hidden = !nowOpen;
+
+    // flip the button label
+    if (!btn.dataset.closedLabel) {
+      btn.dataset.closedLabel = (btn.getAttribute('data-label-closed') || btn.textContent || '').trim();
+    }
+    var closed = btn.dataset.closedLabel;
+    var open = (btn.getAttribute('data-label-open') || '').trim();
+    if (!open) open = 'Hide ' + closed.replace(/^\s*(Hide|Show)\s*/i, '').trim();
+
+    btn.textContent = nowOpen ? open : closed;
+  }, { capture: true });
+})();
+
+
+/* /join-pilot-roster — desktop accordions (unified, capture-phase) */
+(function () {
+  window.ADS = window.ADS || {};
+  if (window.ADS._joinAccordsUnified) return;
+  window.ADS._joinAccordsUnified = true;
+
+  document.addEventListener('click', function (e) {
+    // Desktop only
+    if (!window.matchMedia('(min-width: 1401px)').matches) return;
+
+    // Only act inside the join page
+    var root = e.target.closest('.join-page');
+    if (!root) return;
+
+    // 1) Prefer buttons that declare a target via aria-controls
+    var btn = e.target.closest('.join-accordion-toggle-reqfaq[aria-controls], .join-accordion-toggle[aria-controls]');
+    // 2) Fallback: plain .join-accordion-toggle with no aria-controls
+    if (!btn) btn = e.target.closest('.join-accordion-toggle');
+    if (!btn || !root.contains(btn)) return;
+
+    e.preventDefault();
+
+    // Find the panel
+    var panel = null;
+    var id = btn.getAttribute('aria-controls');
+    if (id) panel = document.getElementById(id);
+
+    // Index-map fallback for plain toggles
+    if (!panel) {
+      var toggles = Array.prototype.slice.call(root.querySelectorAll('.join-accordion-toggle'));
+      var panels  = Array.prototype.slice.call(root.querySelectorAll('.join-accordion-panel'));
+      var i = toggles.indexOf(btn);
+      if (i > -1 && panels[i]) panel = panels[i];
+    }
+
+// Wrapper-aware fallback: panel is the sibling after .join-wayaligner
+if (!panel) {
+  var wrap = btn.closest('.join-wayaligner');
+  if (wrap && wrap.nextElementSibling && root.contains(wrap.nextElementSibling)) {
+    panel = wrap.nextElementSibling;
+  }
+}
+// Final fallback: immediate sibling of the button’s parent
+if (!panel && btn.parentElement && btn.parentElement.nextElementSibling && root.contains(btn.parentElement.nextElementSibling)) {
+  panel = btn.parentElement.nextElementSibling;
+}
+
+
+    if (!panel) return;
+
+    // Toggle state
+    var nowOpen = btn.getAttribute('aria-expanded') !== 'true';
+    btn.setAttribute('aria-expanded', String(nowOpen));
+
+    // Show/hide regardless of CSS method
+    panel.classList.toggle('is-open', nowOpen);
+    if ('hidden' in panel) panel.hidden = !nowOpen;
+
+    // If CSS still keeps it hidden, use inline fallback
+    if (nowOpen && getComputedStyle(panel).display === 'none') {
+      panel.style.display = 'block';
+    } else if (!nowOpen) {
+      panel.style.removeProperty('display');
+    }
+  }, { capture: true });
+})();
+
+
+
+
+
+/* /join-pilot-roster — mobile accordions (wrapper-aware, capture-phase) */
+(function () {
+  window.ADS = window.ADS || {};
+  if (window.ADS._joinMobileAccords) return;
+  window.ADS._joinMobileAccords = true;
+
+  document.addEventListener('click', function (e) {
+    if (!window.matchMedia('(max-width: 1000px)').matches) return;
+
+    var root = e.target.closest('.join-page');
+    if (!root) return;
+
+    // top “join accordion toggle” buttons
+    var btn = e.target.closest('.join-accordion-toggle');
+    if (!btn || !root.contains(btn)) return;
+
+    e.preventDefault();
+
+    // Prefer the sibling after the .join-wayaligner wrapper
+    var panel = null;
+    var wrap = btn.closest('.join-wayaligner');
+    if (wrap && wrap.nextElementSibling && root.contains(wrap.nextElementSibling)) {
+      panel = wrap.nextElementSibling;
+    }
+
+    // Fallback: parent’s next sibling
+    if (!panel && btn.parentElement && btn.parentElement.nextElementSibling && root.contains(btn.parentElement.nextElementSibling)) {
+      panel = btn.parentElement.nextElementSibling;
+    }
+
+    // Final fallback: nth toggle ↔ nth .join-accordion-panel
+    if (!panel) {
+      var toggles = Array.prototype.slice.call(root.querySelectorAll('.join-accordion-toggle'));
+      var panels  = Array.prototype.slice.call(root.querySelectorAll('.join-accordion-panel'));
+      var i = toggles.indexOf(btn);
+      if (i > -1) panel = panels[i] || null;
+    }
+    if (!panel) return;
+
+    var nowOpen = btn.getAttribute('aria-expanded') !== 'true';
+    btn.setAttribute('aria-expanded', String(nowOpen));
+
+    panel.classList.toggle('is-open', nowOpen);
+    if ('hidden' in panel) panel.hidden = !nowOpen;
+  }, { capture: true });
+})();

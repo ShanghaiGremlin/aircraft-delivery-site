@@ -9,14 +9,14 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="Aircraft Delivery">
 
-  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=20250823-204955">
-  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=20250823-204955">
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=20250823-204955">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=20250825-021556">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=20250825-021556">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=20250825-021556">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
 
-<link rel="preload" href="/style.css?v=20250823-204955" as="style">
-<link rel="stylesheet" href="/style.css?v=20250823-204955">
+<link rel="preload" href="/style.css?v=20250825-021556" as="style">
+<link rel="stylesheet" href="/style.css?v=20250825-021556">
 
 
 
@@ -50,7 +50,16 @@
 <div class="desktop-only">
 
  <div id="desk-header-placeholder"></div>
-
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch("/desk-header.html")
+      .then(res => res.text())
+      .then(html => {
+        const target = document.getElementById("desk-header-placeholder");
+        target.outerHTML = html;  // Replaces placeholder entirely
+      });
+  });
+</script>
 </div>
 
 <!--MOBILE-ONLY DIV-->
@@ -69,7 +78,7 @@
       <picture>
         <source
         media="(max-width: 1400px)"
-        srcset="/assets/mobile/burger.png?v=20250823-204955">
+        srcset="/assets/mobile/burger.png?v=20250825-021556">
 
       <img 
     src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
@@ -86,7 +95,7 @@
         <picture>
           <source
           media="(max-width: 750px)"
-          srcset="/assets/mobile/mobile-logo-v2.png?v=20250823-204955">
+          srcset="/assets/mobile/mobile-logo-v2.png?v=20250825-021556">
 
                 <img 
     src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
@@ -103,7 +112,7 @@
                <picture>
           <source
           media="(min-width: 751px) and (max-width: 1400px)"
-          srcset="/assets/mobile/mobile-logo-90.png?v=20250823-204955">
+          srcset="/assets/mobile/mobile-logo-90.png?v=20250825-021556">
 
                 <img 
     src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
@@ -119,7 +128,7 @@
       <picture>
         <source 
         media="(max-width: 1400px)"
-        srcset="/assets/mobile/phone.png?v=20250823-204955">
+        srcset="/assets/mobile/phone.png?v=20250825-021556">
 
       <img 
     src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
@@ -162,7 +171,7 @@
 
     <div class="desk-hero-image-wrapper">
 <picture>
-  <source srcset="/assets/matte7.jpg?v=20250823-204955" media="(min-width: 1401px)">
+  <source srcset="/assets/matte7.jpg?v=20250825-021556" media="(min-width: 1401px)">
   <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="Home page background"
        width="1365" height="656"
        decoding="async" fetchpriority="high"
@@ -179,7 +188,7 @@
         <div class="desk-index-service-column">
           <!-- Ferry Flights -->
           <div class="desk-index-service">
-            <a href="/services"><img src="/assets/index-key-200px.jpg?v=20250823-204955" alt="Ferry Flights" class="desk-index-thumb"></a>
+            <a href="/services"><img src="/assets/index-key-200px.jpg?v=20250825-021556" alt="Ferry Flights" class="desk-index-thumb"></a>
             <div class="desk-index-text"><a href="/services">
               <h2 class="desk-index-headline">FERRY FLIGHTS</h2>
               <p class="desk-index-description">Nearly any aircraft. To nearly every destination</p></a>
@@ -188,7 +197,7 @@
 
           <!-- Container Shipping -->
           <div class="desk-index-service">
-            <a href="/services"><img src="/assets/services/containerize-no-title-320w.png?v=20250823-204955" alt="Container Shipping" class="desk-index-thumb"></a>
+            <a href="/services"><img src="/assets/services/containerize-no-title-320w.png?v=20250825-021556" alt="Container Shipping" class="desk-index-thumb"></a>
            <div class="desk-index-text"><a href="/services">
               <h2 class="desk-index-headline">CONTAINER SHIPPING</h2>
               <p class="desk-index-description">For light aircraft; safe & low-cost</p></a>
@@ -198,7 +207,7 @@
 
         <div class="desk-index-cta">
           <a href="/quote">
-            <img src="/assets/quote-button-transp-320w.png?v=20250823-204955" loading="lazy" alt="Quote Button" class="desk-index-quote-img">
+            <img src="/assets/quote-button-transp-320w.png?v=20250825-021556" loading="lazy" alt="Quote Button" class="desk-index-quote-img">
           </a>
         </div>
 
@@ -208,7 +217,7 @@
   </div> <!-- closes .main-content-core -->
 
   <div class="main-bleed-right">
-    <img src="/assets/bleed-patch.png?v=20250823-204955" alt="patch" class="bleed-right-patch">
+    <img src="/assets/bleed-patch.png?v=20250825-021556" alt="patch" class="bleed-right-patch">
   </div>
 </div> <!-- closes .desk-index-main-flex -->
 
@@ -229,13 +238,13 @@
 <div class="index-mob-main">
   
 <picture class="index-mob-pad">
-  <source srcset="/assets/mobile/mob-index-mobilehero-320w.jpg?v=20250823-204955 320w, /assets/mobile/mob-index-mobilehero-640w.jpg?v=20250823-204955 640w, /assets/mobile/mob-index-mobilehero-640w@2x.jpg?v=20250823-204955 1280w"
+  <source srcset="/assets/mobile/mob-index-mobilehero-320w.jpg?v=20250825-021556 320w, /assets/mobile/mob-index-mobilehero-640w.jpg?v=20250825-021556 640w, /assets/mobile/mob-index-mobilehero-640w@2x.jpg?v=20250825-021556 1280w"
           sizes="(max-width: 480px) 320px,
                  (max-width: 768px) 640px,
                  100vw"
           media="(max-width: 1400px)">
   <img
-    src="/assets/matte7.jpg?v=20250823-204955"
+    src="/assets/matte7.jpg?v=20250825-021556"
     alt="Hero"
     width="1245" height="598"
     decoding="async" fetchpriority="high"
@@ -246,7 +255,7 @@
 
 <a href="/services" class="mob-index-service-link">
   <div class="mob-index-service" style="padding-bottom: 10px;">
-    <img src="/assets/index-key-200px.jpg?v=20250823-204955" alt="Ferry Flights" class="mob-index-imgborder" width="200" height="150" decoding="async">
+    <img src="/assets/index-key-200px.jpg?v=20250825-021556" alt="Ferry Flights" class="mob-index-imgborder" width="200" height="150" decoding="async">
     <div class="mob-index-service-text">
       <div class="mob-index-headline">FERRY FLIGHTS</div>
       <div class="mob-index-description">Nearly any aircraft.<br> To nearly every destination.</div>
@@ -257,7 +266,7 @@
 <a href="/services" class="mob-index-service-link">
   <div class="mob-index-service">
     <div class="mob-index-imgbg-wrap">
-  <img src="/assets/services/containerize-no-title-320w.png?v=20250823-204955" alt="Container Shipping" class="mob-index-imgbg-img" width="300" height="155" decoding="async">
+  <img src="/assets/services/containerize-no-title-320w.png?v=20250825-021556" alt="Container Shipping" class="mob-index-imgbg-img" width="300" height="155" decoding="async">
 </div>
 
 <div class="mob-index-service-text">
@@ -269,8 +278,8 @@
 
   <!-- Quote Button -->
     <a style="text-align: center;" href="/quote">
-      <img src="/assets/quote-button-transp.png?v=20250823-204955"
-           srcset="/assets/quote-button-transp-320w.png?v=20250823-204955 320w, /assets/quote-button-transp-640w.png?v=20250823-204955 640w"
+      <img src="/assets/quote-button-transp.png?v=20250825-021556"
+           srcset="/assets/quote-button-transp-320w.png?v=20250825-021556 320w, /assets/quote-button-transp-640w.png?v=20250825-021556 640w"
            sizes="(
            max-width: 480px) 320px, (max-width: 768px) 640px"
            loading="lazy"
@@ -286,7 +295,7 @@
 
 </main>
 
-<script src="/script.js?v=20250823-204955" defer></script>
+<script src="/script.js?v=20250825-021556" defer></script>
 
 
 </body>
