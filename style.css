@@ -3935,3 +3935,50 @@ background-color: #eeeef5"
   overflow: hidden; white-space: nowrap;
 }
 
+/* =========================
+   Skip link + focus styles
+   ========================= */
+
+/* Desktop-first defaults */
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  padding: 10px 14px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  z-index: 2147483647;
+  transform: translateY(-150%);
+  transition: transform 0.15s ease;
+}
+/* place AFTER the rule above */
+body .skip-link:focus,
+body .skip-link:focus-visible {
+  transform: translateY(0); /* show on first Tab */
+}
+
+/* Give the target room under a fixed header so it’s not hidden */
+#main-content { scroll-margin-top: 88px; }
+
+/* Improve keyboard focus visibility sitewide */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[role="button"]:focus-visible {
+  outline: 3px solid #0a84ff;
+  outline-offset: 2px;
+}
+
+/* Mobile layout (≤1400px) */
+@media (max-width: 1399px) {
+  #main-content { scroll-margin-top: 64px; }
+}
+
+/* Phone (≤1000px) */
+@media (max-width: 999px) {
+  /* keep as-is unless your mobile header is shorter */
+}
