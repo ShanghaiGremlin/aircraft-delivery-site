@@ -8,30 +8,28 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="Aircraft Delivery">
+  <meta name="ads-ver" content="20250826-235823">
 
   <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=20250825-090406">
-  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=20250825-090406">
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=20250825-090406">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=20250826-235823">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=20250826-235823">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=20250826-235823">
   <link rel="manifest" href="/site.webmanifest">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
 
-<link rel="preload" href="/style.css?v=20250825-090406" as="style">
-<link rel="stylesheet" href="/style.css?v=20250825-090406">
-<link rel="preload" href="/script.js?v=20250825-090406" as="script">
+<link rel="preload" href="/style.css?v=20250826-235823" as="style">
+<link rel="stylesheet" href="/style.css?v=20250826-235823">
+<link rel="preload" href="/script.js?v=20250826-235823" as="script">
 
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="dns-prefetch" href="//formspree.io">
+<link rel="dns-prefetch" href="//www.googletagmanager.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
 <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
 
-<link rel="preconnect" href="https://www.googletagmanager.com">
-<link rel="dns-prefetch" href="//www.googletagmanager.com">
-
-<link rel="preconnect" href="https://www.google-analytics.com">
-<link rel="dns-prefetch" href="//www.google-analytics.com">
-
-<link rel="preconnect" href="https://formspree.io">
-<link rel="dns-prefetch" href="//formspree.io">
 
   <!-- ===== PER-PAGE  ===== -->
   <!-- Basic SEO -->
@@ -56,18 +54,9 @@
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <!-- DESKTOP HEADER WRAPPER -->
-   <div class="desktop-only">
- <div id="desk-header-placeholder"></div>
- <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    fetch("/desk-header.html")
-      .then(res => res.text())
-      .then(html => {
-        const target = document.getElementById("desk-header-placeholder");
-        target.outerHTML = html;  // Replaces placeholder entirely
-      });
-  });
-</script>
+<div class="desktop-only">
+ <div id="desk-header-placeholder" aria-hidden="true">
+ </div>
 </div>
 
 <div class="mobile-only">
@@ -78,7 +67,7 @@
       <picture>
         <source
         media="(max-width: 1400px)"
-        srcset="/assets/mobile/burger.png?v=20250825-090406">
+        srcset="/assets/mobile/burger.png?v=20250826-235823">
 
       <img 
     src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
@@ -95,7 +84,7 @@
         <picture>
           <source
           media="(max-width: 750px)"
-          srcset="/assets/mobile/mobile-logo-v2.png?v=20250825-090406">
+          srcset="/assets/mobile/mobile-logo-v2.png?v=20250826-235823">
 
                 <img 
     src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
@@ -112,7 +101,7 @@
                <picture>
           <source
           media="(min-width: 751px) and (max-width: 1400px)"
-          srcset="/assets/mobile/mobile-logo-90.png?v=20250825-090406">
+          srcset="/assets/mobile/mobile-logo-90.png?v=20250826-235823">
 
                 <img 
     src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
@@ -128,7 +117,7 @@
       <picture>
         <source 
         media="(max-width: 1400px)"
-        srcset="/assets/mobile/phone.png?v=20250825-090406">
+        srcset="/assets/mobile/phone.png?v=20250826-235823">
 
       <img 
     src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
@@ -169,7 +158,7 @@
   <div style="display: flex; justify-content: flex-end; align-items: center; gap: 100px;">
     
     <!-- Image -->
-    <img src="/assets/quote/1999-amf.jpg?v=20250825-090406" alt="Beech 99" loading="lazy"
+    <img src="/assets/quote/1999-amf.jpg?v=20250826-235823" alt="Beech 99" loading="lazy"
          style="width: 325px; height: auto; max-width: 100%;" title="Single-pilot in the soup at 12,000' in the Ameriflight Beech 99 flying UPS boxes in Nevada">
 
     <!-- Info Box -->
@@ -233,7 +222,7 @@
     </div>
 
     <!-- Right: Image aligned vertically with boxes -->
-    <img src="/assets/quote/2002-kaiserair.jpg?v=20250825-090406" alt="KaiserAir" loading="lazy"
+    <img src="/assets/quote/2002-kaiserair.jpg?v=20250826-235823" alt="KaiserAir" loading="lazy"
          style="width: 345px; height: auto; display: block;" title="First Officer in the Hawker 700; Oakland, California">
   </div>
 </td>
@@ -242,7 +231,7 @@
 </table>
 
 <div style="margin: 0 auto; text-align: center;">
-<img style="width: 300px;" loading="lazy" thumbs up" src="/assets/quote/thumbs-up.png?v=20250825-090406">
+<img style="width: 300px;" loading="lazy" thumbs up" src="/assets/quote/thumbs-up.png?v=20250826-235823">
 <p style="font-size: 2.5rem; font-weight: 600;">Thank you!</p>
 <p style="font-size: 1.5rem;">I've received your quote request via email and you should hear from me shortly. In the meantime, don't hesitate to call, text or message.</p>
 <p style="font-size: 1.5rem;">- Aaron</p>
@@ -261,7 +250,7 @@
 </div>
 
   <div style="margin: 0 auto; text-align: center; padding: 0 15px 0 15px;">
-<img style="width: 100px;" alt="thumbs up" src="/assets/quote/thumbs-up.png?v=20250825-090406">
+<img style="width: 100px;" alt="thumbs up" src="/assets/quote/thumbs-up.png?v=20250826-235823">
 <p style="font-size: 1.7rem; font-weight: 600;">Thank you!</p>
 <p style="font-size: 1.2rem;">I've received your quote request via email and you should hear from me shortly. In the meantime, don't hesitate to call, text or message.</p>
 <p style="font-size: 1.2rem;">- Aaron</p>
@@ -331,7 +320,7 @@ box-sizing: border-box;">
 
 
 </main>
-<script src="/script.js?v=20250825-090406" defer></script>
+<script src="/script.js?v=20250826-235823" defer></script>
 </body>
 </html>
 

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ===== GLOBAL (copy identical on every page) ===== -->
+  <meta charset="UTF-8">
+
+</head>
+
+<!-- HERO WRAPPER (must contain the services overlay) -->
+<div class="desk-hero-image-wrapper"
+     style="position:relative; z-index:1; width:clamp(1365px,100%,2000px); margin:0 auto;">
+
+  <!-- MATTE (force-load so layout has real dimensions) -->
+  <img class="desk-hero-matte"
+       src="/assets/matte7.jpg?v=20250826-235823"
+       alt="Hero"
+       loading="eager" fetchpriority="high" decoding="sync"
+       style="display:block; width:100%; height:auto;">
+
+  <!-- SERVICES OVERLAY (absolute inside the hero; fixed aspect while resizing) -->
+  <div class="desk-index-services"
+       style="
+         position:absolute; top:61.3%; left:35%; border: 3px solid red;
+         width:64.5%; min-width: 0; max-width:1250px;
+         aspect-ratio:875/250; overflow:hidden; box-sizing:border-box; z-index:2;">
+
+    <!-- Inner layer: content sits over the aspect box; content height won't stretch the box -->
+    <div class="desk-index-services-inner"
+         style="position:absolute; inset:0; padding:8px 0; display:flex; flex-direction:column; justify-content:center; gap:12px; box-sizing:border-box;">
+
+      <!-- Column stacks your service rows -->
+      <div class="desk-index-service-column"
+           style="display:flex; flex-direction:column; gap:12px; min-width:0;">
+
+        <!-- SERVICE ROW 1 -->
+        <div class="desk-index-service"
+             style="
+               --thumb: clamp(150px, calc(-45px + 13vw), 215px);
+               display:grid; grid-template-columns: var(--thumb) 1fr auto;
+               align-items:center; width:100%; padding-left: clamp(25px, calc(-35px + 4vw), 45px); min-width:0; border: 3px solid green; gap: 3vw;">
+          <!-- THUMB (IMG is direct child) -->
+          <img class="desk-index-thumb"
+               src="/assets/index-key-200px.jpg?v=20250826-235823"
+               alt="Ferry Flights"
+               style="display:block; width:100%; height:auto; object-fit:contain; border-radius:0;">
+          <!-- TEXT -->
+          <div class="desk-index-text"
+               style="overflow-wrap:anywhere; line-height:0.7; padding:6px 0; margin-right:0;">
+            <div class="desk-index-headline"
+                 style="font-size: clamp(62.4px, calc(12px + 3.36vw), 79.2px); font-weight: 700; color:#ffffff; -webkit-text-stroke-width:clamp(1.8px,0.18vw,2.8px); -webkit-text-stroke-color:#2A4570; text-shadow:1px 1px 4px rgba(0,0,0,.4), 0 0 2px rgba(0,0,0,.3); font-family:Arial, Helvetica, sans-serif; margin-bottom: 15px;">
+              FERRY FLIGHTS
+            </div>
+            <div class="desk-index-description"
+                 style="font-size:clamp(1.4em, 0.2vw, 1.8rem); color:#2A4570; text-shadow:0 1px 2px rgba(0,0,0,.3); font-family: Arial, Helvetica, sans-serif">
+              Nearly any aircraft. To nearly every destination.
+            </div>
+          </div>
+        </div>
+
+        <!-- SERVICE ROW 2 -->
+        <div class="desk-index-service"
+             style="
+               --thumb: clamp(190px, calc(-140px + 22vw), 300px);
+               display:grid; grid-template-columns: var(--thumb) 1fr auto;
+               align-items:center; gap:20px; width:100%; min-width:0; border: 3px solid orange; ">
+          <img class="desk-index-thumb"
+               src="assets\services\containerize-no-title-320w.png?v=20250826-235823"
+               alt="Container Shipping"
+               style="display:block; width:100%; height:auto; object-fit:contain; border-radius:0; border: 3px dashed black; ">
+          <div class="desk-index-text"
+               style="overflow-wrap:anywhere; line-height:0.7; padding:6px 0 0 0; margin-right:0;">
+            <div class="desk-index-headline"
+                 style="font-size: clamp(62.4px, calc(12px + 3.36vw), 79.2px); font-weight:700; color:#ffffff; -webkit-text-stroke-width:clamp(1.8px,0.18vw,2.8px); -webkit-text-stroke-color:#2A4570; text-shadow:1px 1px 4px rgba(0,0,0,.4), 0 0 2px rgba(0,0,0,.3); font-family:Arial, Helvetica, sans-serif; margin-bottom: 15px;">
+              CONTAINER SHIPPING
+            </div>
+            <div class="desk-index-description"
+                 style="font-size:clamp(1.4rem, 1vw, 2.8rem); color:#2A4570; text-shadow:0 1px 2px rgba(0,0,0,.3); font-family: Arial, Helvetica, sans-serif;">
+              For light aircraft: safe &amp; low-cost.
+            </div>
+          </div>
+         </div>
+
+      </div>
+    </div>
+  </div>
+</div>

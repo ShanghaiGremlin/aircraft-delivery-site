@@ -8,17 +8,25 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="Aircraft Delivery">
+  <meta name="ads-ver" content="20250826-235823">
 
-  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=20250825-090406">
-  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=20250825-090406">
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=20250825-090406">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=20250826-235823">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=20250826-235823">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=20250826-235823">
  
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
 
-<link rel="preload" href="/style.css?v=20250825-090406" as="style">
-<link rel="stylesheet" href="/style.css?v=20250825-090406">
-<link rel="preload" href="/script.js?v=20250825-090406" as="script">
+<link rel="preload" href="/style.css?v=20250826-235823" as="style">
+<link rel="stylesheet" href="/style.css?v=20250826-235823">
+<link rel="preload" href="/script.js?v=20250826-235823" as="script">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="dns-prefetch" href="//formspree.io">
+<link rel="dns-prefetch" href="//www.googletagmanager.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<link rel="dns-prefetch" href="//cdn.jsdelivr.net">
   <!-- ===== PER-PAGE  ===== -->
   <!-- Basic SEO -->
   <title>Aircraft Delivery Solutions &mdash; Join The Pilot Roster</title>
@@ -45,38 +53,8 @@
   
   <!-- DESKTOP HEADER WRAPPER -->
 <div class="desktop-only">
-
- <div id="desk-header-placeholder"></div>
-<script>
-(function () {
-  // prevent double-runs across pages
-  if (window.__deskHeaderLoaded) return;
-
-  document.addEventListener('DOMContentLoaded', function () {
-    if (window.__deskHeaderLoaded) return;
-
-    var ph = document.getElementById('desk-header-placeholder');
-    if (!ph) return; // nothing to do on pages without the placeholder
-
-    fetch('/desk-header.html')
-      .then(function (res) {
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        return res.text();
-      })
-      .then(function (html) {
-        // re-read in case something else changed the DOM meanwhile
-        var node = document.getElementById('desk-header-placeholder');
-        if (!node) return;        // already swapped by someone else
-        node.outerHTML = html;    // atomic swap
-        window.__deskHeaderLoaded = true;
-      })
-      .catch(function (err) {
-        console.error('desk-header load failed:', err);
-      });
-  }, { once: true });
-})();
-</script>
-
+ <div id="desk-header-placeholder" aria-hidden="true">
+ </div>
 </div>
 
 <div class="mobile-only">
@@ -90,7 +68,7 @@
       <picture>
         <source
         media="(max-width: 1400px)"
-        srcset="/assets/mobile/burger.png?v=20250825-090406">
+        srcset="/assets/mobile/burger.png?v=20250826-235823">
 
       <img 
     src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
@@ -107,7 +85,7 @@
         <picture>
           <source
           media="(max-width: 750px)"
-          srcset="/assets/mobile/mobile-logo-v2.png?v=20250825-090406">
+          srcset="/assets/mobile/mobile-logo-v2.png?v=20250826-235823">
 
                 <img 
     src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
@@ -124,7 +102,7 @@
                <picture>
           <source
           media="(min-width: 751px) and (max-width: 1400px)"
-          srcset="/assets/mobile/mobile-logo-90.png?v=20250825-090406">
+          srcset="/assets/mobile/mobile-logo-90.png?v=20250826-235823">
 
                 <img 
     src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
@@ -140,7 +118,7 @@
       <picture>
         <source 
         media="(max-width: 1400px)"
-        srcset="/assets/mobile/phone.png?v=20250825-090406">
+        srcset="/assets/mobile/phone.png?v=20250826-235823">
 
       <img 
     src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
@@ -204,7 +182,7 @@
 </table>
 
         <div class="join-page">
-        <a href="/pilot-directory"><img class="join-newspaper-img" src="/assets/join-pilot-roster/join-roster-sample.jpg?v=20250825-090406" alt="Sample Pilot Listing"></a>
+        <a href="/pilot-directory"><img class="join-newspaper-img" src="/assets/join-pilot-roster/join-roster-sample.jpg?v=20250826-235823" alt="Sample Pilot Listing"></a>
         <div class="join-wayaligner">
         <div class="join-waynumber">Way #1: "Marketed"</div>
       <button class="join-accordion-toggle"  aria-expanded="false"> 
@@ -378,7 +356,7 @@ Any other information that would enhance your attractiveness to potential client
 
 
 </main>
-<script src="/script.js?v=20250825-090406" defer></script>
+<script src="/script.js?v=20250826-235823" defer></script>
 </body>
 </html>
 

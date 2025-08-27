@@ -8,28 +8,26 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="Aircraft Delivery">
+  <meta name="ads-ver" content="20250826-235823">
 
-  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=20250825-090406">
-  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=20250825-090406">
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=20250825-090406">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=20250826-235823">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=20250826-235823">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=20250826-235823">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
 
-<link rel="preload" href="/style.css?v=20250825-090406" as="style">
-<link rel="stylesheet" href="/style.css?v=20250825-090406">
-<link rel="preload" href="/script.js?v=20250825-090406" as="script">
+<link rel="preload" href="/style.css?v=20250826-235823" as="style">
+<link rel="stylesheet" href="/style.css?v=20250826-235823">
+<link rel="preload" href="/script.js?v=20250826-235823" as="script">
 
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="dns-prefetch" href="//formspree.io">
+<link rel="dns-prefetch" href="//www.googletagmanager.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
 <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
 
-<link rel="preconnect" href="https://www.googletagmanager.com">
-<link rel="dns-prefetch" href="//www.googletagmanager.com">
-
-<link rel="preconnect" href="https://www.google-analytics.com">
-<link rel="dns-prefetch" href="//www.google-analytics.com">
-
-<link rel="preconnect" href="https://formspree.io">
-<link rel="dns-prefetch" href="//formspree.io">
   <!-- ===== PER-PAGE  ===== -->
   <!-- Basic SEO -->
   <title>Aircraft Delivery Solutions &mdash; Home</title>
@@ -55,19 +53,9 @@
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <!-- DESKTOP HEADER WRAPPER -->
-   <div class="desktop-only">
-
- <div id="desk-header-placeholder"></div>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    fetch("/desk-header.html")
-      .then(res => res.text())
-      .then(html => {
-        const target = document.getElementById("desk-header-placeholder");
-        target.outerHTML = html;  // Replaces placeholder entirely
-      });
-  });
-</script>
+<div class="desktop-only">
+ <div id="desk-header-placeholder">
+ </div>
 </div>
 
 <!--MOBILE-ONLY HEADER-->
@@ -81,7 +69,7 @@
       <picture>
         <source
         media="(max-width: 1400px)"
-        srcset="/assets/mobile/burger.png?v=20250825-090406">
+        srcset="/assets/mobile/burger.png?v=20250826-235823">
 
       <img 
     src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
@@ -98,7 +86,7 @@
         <picture>
           <source
           media="(max-width: 750px)"
-          srcset="/assets/mobile/mobile-logo-v2.png?v=20250825-090406">
+          srcset="/assets/mobile/mobile-logo-v2.png?v=20250826-235823">
 
                 <img 
     src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
@@ -115,7 +103,7 @@
                <picture>
           <source
           media="(min-width: 751px) and (max-width: 1400px)"
-          srcset="/assets/mobile/mobile-logo-90.png?v=20250825-090406">
+          srcset="/assets/mobile/mobile-logo-90.png?v=20250826-235823">
 
                 <img 
     src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
@@ -131,7 +119,7 @@
       <picture>
         <source 
         media="(max-width: 1400px)"
-        srcset="/assets/mobile/phone.png?v=20250825-090406">
+        srcset="/assets/mobile/phone.png?v=20250826-235823">
 
       <img 
     src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
@@ -183,7 +171,7 @@
   
   <!-- Right: Aaron image -->
   <a class="quote-top3-aaron" href="/about"> 
-    <img src="/assets/quote/aaron-for-quote.jpg?v=20250825-090406" alt="Aaron" style="height: 160px; width: auto;">
+    <img src="/assets/quote/aaron-for-quote.jpg?v=20250826-235823" alt="Aaron" style="height: 160px; width: auto;">
   </a>
   
 </div>
@@ -461,6 +449,9 @@ aria-describedby="email-error"
 
   <!-- Redirect on success -->
   <input type="hidden" name="_redirect" value="https://aircraft.delivery/thank-you">
+
+  <!-- Live region for form status -->
+<div id="quote-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
 
   <!-- Submit Button -->
   <button type="submit" class="quote-submit-button">
@@ -768,13 +759,13 @@ aria-describedby="email-error"
 
 <div class="quote-decorative-pix">
  <div class="desk-quote-img-wrap">
-  <img src="/assets/quote/1999_amf_slc2.jpg?v=20250825-090406" alt="1999 AMF SLC" style="width: 100%; max-width: 700px; height: auto;">
+  <img src="/assets/quote/1999_amf_slc2.jpg?v=20250826-235823" alt="1999 AMF SLC" style="width: 100%; max-width: 700px; height: auto;">
   <div class="desk-quote-caption">Ameriflight Beech 99C at Salt Lake City, UT. <br>Single-pilot schlepping 3,000 pounds of UPS boxes.
   </div>
  </div>
 
   <div class="desk-quote-img-wrap">
-<img src="/assets/quote/2002-kaiserair.jpg?v=20250825-090406" alt="2002 KaiserAir" style="width: 100%; max-width: 700px; height: auto; margin: 40px 0 20px 0;"><div class="desk-quote-caption">First Officer on the Hawker 700<br> for KaiserAir in Oakland, CA.
+<img src="/assets/quote/2002-kaiserair.jpg?v=20250826-235823" alt="2002 KaiserAir" style="width: 100%; max-width: 700px; height: auto; margin: 40px 0 20px 0;"><div class="desk-quote-caption">First Officer on the Hawker 700<br> for KaiserAir in Oakland, CA.
 </div>
 </div>
 
@@ -787,7 +778,7 @@ aria-describedby="email-error"
  
 </main>
 
-<script src="/script.js?v=20250825-090406" defer></script>
+<script src="/script.js?v=20250826-235823" defer></script>
 </body>
 </html>
 

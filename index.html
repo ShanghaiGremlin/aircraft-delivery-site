@@ -8,28 +8,25 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="Aircraft Delivery">
+  <meta name="ads-ver" content="?v=20250826-235823">
 
-  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=20250825-090406">
-  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=20250825-090406">
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=20250825-090406">
+
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=20250826-235823">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=20250826-235823">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=20250826-235823">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
 
-<link rel="preload" href="/style.css?v=20250825-090406" as="style">
-<link rel="stylesheet" href="/style.css?v=20250825-090406">
+<link rel="preload" href="/style.css?v=20250826-235823" as="style">
+<link rel="stylesheet" href="/style.css?v=20250826-235823">
 
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link rel="preconnect" href="https://www.googletagmanager.com">
-<link rel="dns-prefetch" href="//www.googletagmanager.com">
-
-<link rel="preconnect" href="https://www.google-analytics.com">
-<link rel="dns-prefetch" href="//www.google-analytics.com">
-
-<link rel="preconnect" href="https://formspree.io">
 <link rel="dns-prefetch" href="//formspree.io">
-
+<link rel="dns-prefetch" href="//www.googletagmanager.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<link rel="dns-prefetch" href="//cdn.jsdelivr.net">
   <!-- ===== PER-PAGE  ===== -->
   <!-- Basic SEO -->
   <title>Aircraft Delivery Solutions &mdash; Home</title>
@@ -49,6 +46,33 @@
   <meta name="twitter:title" content="Aircraft Delivery Solutions">
   <meta name="twitter:description" content="Aircraft ferry flights and container shipping worldwide">
   <meta name="twitter:image" content="https://aircraft.delivery/assets/about/2009-12-24.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://aircraft.delivery/#org",
+      "name": "Aircraft Delivery Solutions",
+      "url": "https://aircraft.delivery/",
+      "logo": "https://aircraft.delivery/assets/side-by-side-logo.png",
+      "email": "akahn28@gmail.com"",
+      "areaServed": "Worldwide",
+      "sameAs": []
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://aircraft.delivery/#website",
+      "url": "https://aircraft.delivery/",
+      "name": "Aircraft Delivery Solutions",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://aircraft.delivery/#org" }
+    }
+  ]
+}
+</script>
+
 </head>
 
 
@@ -60,17 +84,7 @@
 
 <div class="desktop-only">
 
- <div id="desk-header-placeholder"></div>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    fetch("/desk-header.html")
-      .then(res => res.text())
-      .then(html => {
-        const target = document.getElementById("desk-header-placeholder");
-        target.outerHTML = html;  // Replaces placeholder entirely
-      });
-  });
-</script>
+ <div id="desk-header-placeholder" aria-hidden="true"></div>
 </div>
 
 <!--MOBILE-ONLY DIV-->
@@ -89,7 +103,7 @@
       <picture>
         <source
         media="(max-width: 1400px)"
-        srcset="/assets/mobile/burger.png?v=20250825-090406">
+        srcset="/assets/mobile/burger.png?v=20250826-235823">
 
       <img 
     src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
@@ -106,7 +120,7 @@
         <picture>
           <source
           media="(max-width: 750px)"
-          srcset="/assets/mobile/mobile-logo-v2.png?v=20250825-090406">
+          srcset="/assets/mobile/mobile-logo-v2.png?v=20250826-235823">
 
                 <img 
     src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
@@ -123,7 +137,7 @@
                <picture>
           <source
           media="(min-width: 751px) and (max-width: 1400px)"
-          srcset="/assets/mobile/mobile-logo-90.png?v=20250825-090406">
+          srcset="/assets/mobile/mobile-logo-90.png?v=20250826-235823">
 
                 <img 
     src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
@@ -139,7 +153,7 @@
       <picture>
         <source 
         media="(max-width: 1400px)"
-        srcset="/assets/mobile/phone.png?v=20250825-090406">
+        srcset="/assets/mobile/phone.png?v=20250826-235823">
 
       <img 
     src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
@@ -174,68 +188,101 @@
 
 <div class="desktop-only">
   <div class="header-pad" style="padding-top: 149px;"></div>
-<div class="desk-index-main-flex">
 
+  <!-- FLEX ROW: left | core | right -->
+  <div class="desk-index-main-flex">
     <div class="main-bleed-left"></div>
 
-  <div class="main-content-core">
+    <div class="main-content-core">
+      <!-- HERO WRAPPER (must contain the services overlay) -->
+      <div class="desk-hero-image-wrapper">
+        <picture>
+          <source srcset="/assets/matte8.jpg?v=20250826-235823" media="(min-width: 1401px)">
+          <img
+            class="desk-hero-matte"
+            src="data:image/gif;base64,R0lGODlhAQABAAAAACw="
+            alt="Home page background"
+            width="1365" height="656"
+            decoding="async" fetchpriority="high"
+            style="display:block;width:100%;height:auto;"
+          >
+        </picture>
 
-    <div class="desk-hero-image-wrapper">
-<picture>
-  <source srcset="/assets/matte7.jpg?v=20250825-090406" media="(min-width: 1401px)">
-  <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="Home page background"
-       width="1365" height="656"
-       decoding="async" fetchpriority="high"
-       style="display: block; width: 100%; height: auto;">
-</picture>
-      <div class="desk-hero-tagline-wrap">
-        <h1 class="desk-hero-tagline">We bring aircraft<br> to their new homes</h1>
-      </div>
-    </div>
+<a class="desk-index-cta" href="/quote" aria-label="Get a fast quote">
 
-    <div class="desk-index-services">
-      <div class="desk-index-services-row">
+  <picture>
+    <!-- Prevent loading on mobile/tablet: serve a 1x1 transparent source there -->
+    <source
+      media="(max-width: 1400px)"
+      srcset="data:image/gif;base64, R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==?v=20250826-235823"
+      type="image/gif" />
+    <img
+      class="desk-index-cta-img"
+      src="/assets/quote-sign.png?v=20250826-235823"
+      alt="Get a fast quote"
+      decoding="async"
+      fetchpriority="low" />
+  </picture>
+</a>
 
-        <div class="desk-index-service-column">
-          <!-- Ferry Flights -->
-          <div class="desk-index-service">
-            <a href="/services"><img src="/assets/index-key-200px.jpg?v=20250825-090406" alt="Ferry Flights" class="desk-index-thumb"></a>
-            <div class="desk-index-text"><a href="/services">
-              <h2 class="desk-index-headline">FERRY FLIGHTS</h2>
-              <p class="desk-index-description">Nearly any aircraft. To nearly every destination</p></a>
-            </div>
-          </div>
-
-          <!-- Container Shipping -->
-          <div class="desk-index-service">
-            <a href="/services"><img src="/assets/services/containerize-no-title-320w.png?v=20250825-090406" alt="Container Shipping" class="desk-index-thumb"></a>
-           <div class="desk-index-text"><a href="/services">
-              <h2 class="desk-index-headline">CONTAINER SHIPPING</h2>
-              <p class="desk-index-description">For light aircraft; safe & low-cost</p></a>
-            </div>
-          </div>
-        </div> <!-- closes .desk-index-service-column -->
-
-        <div class="desk-index-cta">
-          <a href="/quote">
-            <img src="/assets/quote-button-transp-320w.png?v=20250825-090406" loading="lazy" alt="Quote Button" class="desk-index-quote-img">
-          </a>
+        <div class="desk-hero-tagline-wrap">
+          <h1 class="desk-hero-tagline">We bring aircraft<br> to their new homes</h1>
         </div>
 
-      </div> <!-- closes .desk-index-services-row -->
-    </div> <!-- closes .desk-index-services -->
+        <!-- SERVICES OVERLAY (both rows restored) -->
+        <div class="desk-index-services">
+          <div class="desk-index-services-inner">
+            <div class="desk-index-service-column">
 
-  </div> <!-- closes .main-content-core -->
+              <!-- SERVICE ROW 1 -->
+              <div class="desk-index-service">
+                <img
+                  class="desk-index-thumb"
+                  src="/assets/index-key-200px.jpg?v=20250826-235823"
+                  alt="Ferry Flights"
+                >
+                <div class="desk-index-text">
+                  <div class="desk-index-headline">FERRY FLIGHTS</div>
+                  <div class="desk-index-description">
+                    Nearly any aircraft. To nearly every destination.
+                  </div>
+                </div>
+              </div>
 
-  <div class="main-bleed-right">
-    <img src="/assets/bleed-patch.png?v=20250825-090406" alt="patch" class="bleed-right-patch">
+              <!-- SERVICE ROW 2 -->
+              <div class="desk-index-service">
+                <img
+                  class="desk-index-thumb"
+                  src="/assets/services/containerize-no-title-320w.png?v=20250826-235823"
+                  alt="Container Shipping"
+                >
+                <div class="desk-index-text">
+                  <div class="desk-index-headline">CONTAINER SHIPPING</div>
+                  <div class="desk-index-description">
+                    For light aircraft: safe &amp; low-cost.
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    
+      <div class="desktop-bottom-bleed"></div>
+      <!-- rest of /index content... -->
+    </div>
+
+    <!-- Right bleed inside the flex row -->
+    <div class="main-bleed-right">
+      <img src="/assets/bleed-patch.png?v=20250826-235823" alt="patch" class="bleed-right-patch">
+    </div>
   </div>
-</div> <!-- closes .desk-index-main-flex -->
-
-<div class="desktop-bottom-bleed"></div>
-
-
 </div>
+
+
+
 
 
 
@@ -249,13 +296,13 @@
 <div class="index-mob-main">
   
 <picture class="index-mob-pad">
-  <source srcset="/assets/mobile/mob-index-mobilehero-320w.jpg?v=20250825-090406 320w, /assets/mobile/mob-index-mobilehero-640w.jpg?v=20250825-090406 640w, /assets/mobile/mob-index-mobilehero-640w@2x.jpg?v=20250825-090406 1280w"
+  <source srcset="/assets/mobile/mob-index-mobilehero-320w.jpg?v=20250826-235823 320w, /assets/mobile/mob-index-mobilehero-640w.jpg?v=20250826-235823 640w, /assets/mobile/mob-index-mobilehero-640w@2x.jpg?v=20250826-235823 1280w"
           sizes="(max-width: 480px) 320px,
                  (max-width: 768px) 640px,
                  100vw"
           media="(max-width: 1400px)">
   <img
-    src="/assets/matte7.jpg?v=20250825-090406"
+    src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
     alt="Hero"
     width="1245" height="598"
     decoding="async" fetchpriority="high"
@@ -266,7 +313,7 @@
 
 <a href="/services" class="mob-index-service-link">
   <div class="mob-index-service" style="padding-bottom: 10px;">
-    <img src="/assets/index-key-200px.jpg?v=20250825-090406" alt="Ferry Flights" class="mob-index-imgborder" width="200" height="150" decoding="async">
+    <img src="/assets/index-key-200px.jpg?v=20250826-235823" alt="Ferry Flights" class="mob-index-imgborder" width="200" height="150" decoding="async">
     <div class="mob-index-service-text">
       <div class="mob-index-headline">FERRY FLIGHTS</div>
       <div class="mob-index-description">Nearly any aircraft.<br> To nearly every destination.</div>
@@ -277,7 +324,7 @@
 <a href="/services" class="mob-index-service-link">
   <div class="mob-index-service">
     <div class="mob-index-imgbg-wrap">
-  <img src="/assets/services/containerize-no-title-320w.png?v=20250825-090406" alt="Container Shipping" class="mob-index-imgbg-img" width="300" height="155" decoding="async">
+  <img src="/assets/services/containerize-no-title-320w.png?v=20250826-235823" alt="Container Shipping" class="mob-index-imgbg-img" width="300" height="155" decoding="async">
 </div>
 
 <div class="mob-index-service-text">
@@ -289,8 +336,8 @@
 
   <!-- Quote Button -->
     <a style="text-align: center;" href="/quote">
-      <img src="/assets/quote-button-transp.png?v=20250825-090406"
-           srcset="/assets/quote-button-transp-320w.png?v=20250825-090406 320w, /assets/quote-button-transp-640w.png?v=20250825-090406 640w"
+      <img src="/assets/quote-button-transp.png?v=20250826-235823"
+           srcset="/assets/quote-button-transp-320w.png?v=20250826-235823 320w, /assets/quote-button-transp-640w.png?v=20250826-235823 640w"
            sizes="(
            max-width: 480px) 320px, (max-width: 768px) 640px"
            loading="lazy"
@@ -306,7 +353,7 @@
 
 </main>
 
-<script src="/script.js?v=20250825-090406" defer></script>
+<script src="/script.js?v=20250826-235823" defer></script>
 
 
 </body>

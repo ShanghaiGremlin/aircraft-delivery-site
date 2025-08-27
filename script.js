@@ -1636,43 +1636,147 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-
-// DESK-HEADER SCRIPT
+// DESK-HEADER SCRIPT — SAFE ES5 BUILD (01–00 policy; grow-only; singleton; timeout; dedupe)
 (function () {
-  var loaded = false;
-  var mql = window.matchMedia('(min-width: 1401px)');
+  if (window.__ADS_DESK_HEADER_INIT__) return;
+  window.__ADS_DESK_HEADER_INIT__ = true;
 
-  function loadDeskHeader() {
-    if (loaded || !mql.matches) return;
-    fetch('/desk-header.html')
-      .then(function (res) {
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        return res.text();
-      })
-.then(function (html) {
-  var target = document.getElementById('desk-header-placeholder');
-  if (!target) return;
-  target.outerHTML = html;   // ← replace insert+remove with a single swap
-  loaded = true;
-})
+  document.addEventListener('DOMContentLoaded', function () {
+    var DESK_MIN = 1401;
+    var mql = window.matchMedia('(min-width: ' + DESK_MIN + 'px)');
+    var loaded = false;
 
-      .catch(function (err) {
-        console.error('desk-header load failed:', err);
+    // Read deploy/version for cache-busting
+    function getAdsVer() {
+      var m = document.querySelector('meta[name="ads-ver"]');
+      return (m && m.content) ? m.content : '';
+    }
+
+    // fetch timeout utility (ES5 safe)
+    function fetchWithTimeout(url, ms) {
+      var controller = (typeof AbortController !== 'undefined') ? new AbortController() : null;
+      var signal = controller ? controller.signal : undefined;
+      var timeoutId = setTimeout(function () {
+        try { if (controller && typeof controller.abort === 'function') controller.abort(); } catch (e) {}
+      }, ms);
+      var opts = signal ? { signal: signal } : {};
+      return fetch(url, opts).then(function (res) {
+        clearTimeout(timeoutId);
+        return res;
+      }, function (err) {
+        clearTimeout(timeoutId);
+        throw err;
       });
-  }
+    }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', loadDeskHeader, { once: true });
-} else {
-  loadDeskHeader();
-}
+    function haveMountedHeader() {
+      return !!document.querySelector('[data-ads-desk-header]');
+    }
 
-if (mql.addEventListener) {
-  mql.addEventListener('change', function (e) { if (e.matches) loadDeskHeader(); });
-} else {
-  mql.addListener(function (e) { if (e.matches) loadDeskHeader(); });
-}
+    // Ensure only one injected header exists
+    function dedupeHeaders() {
+      var nodes = document.querySelectorAll('[data-ads-desk-header]');
+      if (nodes.length > 1) {
+        for (var i = 1; i < nodes.length; i++) {
+          var n = nodes[i];
+          if (n && n.parentNode) n.parentNode.removeChild(n);
+        }
+      }
+    }
+
+    function insertHeader(html) {
+      var target = document.getElementById('desk-header-placeholder');
+
+      if (target) {
+        target.insertAdjacentHTML('afterend', html);
+        var root = target.nextElementSibling;
+        if (root && root.setAttribute) root.setAttribute('data-ads-desk-header', '');
+        if (target.remove) { target.remove(); } else if (target.parentNode) { target.parentNode.removeChild(target); }
+      } else {
+        document.body.insertAdjacentHTML('afterbegin', html);
+        var first = document.body.firstElementChild;
+        if (first && first.setAttribute) first.setAttribute('data-ads-desk-header', '');
+      }
+
+      dedupeHeaders();
+
+      // Flag on <html> for CSS/diagnostics
+      try {
+        var htmlEl = document.documentElement;
+        if (htmlEl && !htmlEl.classList.contains('has-desk-header')) {
+          htmlEl.classList.add('has-desk-header');
+        }
+      } catch (e) {}
+
+      // Expose header height to CSS var --desk-header-h
+      try {
+        var headerEl = document.querySelector('[data-ads-desk-header]');
+        var htmlEl2 = document.documentElement;
+        function applyHeaderHeight() {
+          if (!headerEl || !htmlEl2) return;
+          var h = headerEl.offsetHeight || 0;
+          htmlEl2.style.setProperty('--desk-header-h', h + 'px');
+        }
+        applyHeaderHeight();
+        if (typeof ResizeObserver !== 'undefined') {
+          var ro = new ResizeObserver(function () { applyHeaderHeight(); });
+          ro.observe(headerEl);
+        } else {
+          window.addEventListener('resize', applyHeaderHeight);
+        }
+      } catch (e2) {}
+    }
+
+    function mountHeader() {
+      if (loaded || haveMountedHeader() || !mql.matches) return;
+      loaded = true; // lock before fetch to avoid races
+
+      var ver = getAdsVer();
+      var headerUrl = '/desk-header.html' + (ver ? ver : '');
+
+      fetchWithTimeout(headerUrl, 4000)
+        .then(function (res) {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          return res.text();
+        })
+        .then(function (html) { insertHeader(html); })
+        .catch(function (err) {
+          loaded = false; // allow retry later if it truly failed
+          try { console.warn('desk-header load skipped:', (err && err.message) ? err.message : err); } catch (e) {}
+        });
+    }
+
+    // Grow-only model; unmount disabled
+    /*
+    function unmountHeader() {
+      var node = document.querySelector('[data-ads-desk-header]');
+      if (node && node.parentNode) node.parentNode.removeChild(node);
+      loaded = false;
+    }
+    */
+
+    function syncToViewport() {
+      if (mql.matches) {
+        mountHeader();
+      } else {
+        // grow-only; CSS guardrail hides on mobile widths
+        // unmountHeader();
+      }
+    }
+
+    syncToViewport();
+
+    function handleChange(e) {
+      if (e.matches) mountHeader(); // only when crossing up into desktop
+    }
+    if (mql.addEventListener) { mql.addEventListener('change', handleChange); }
+    else if (mql.addListener) { mql.addListener(handleChange); } // legacy Safari
+  });
 })();
+
+
+
+
 
 
 
@@ -2023,3 +2127,35 @@ if (!panel && btn.parentElement && btn.parentElement.nextElementSibling && root.
     if ('hidden' in panel) panel.hidden = !nowOpen;
   }, { capture: true });
 })();
+
+//ACCESIBLE STATUS FOR FORM
+document.addEventListener('DOMContentLoaded', function () {
+  if (location.pathname.replace(/\/+$/,'') !== '/quote') return;
+
+  var form = document.querySelector('form[action*="formspree.io"]');
+  if (!form) return;
+
+  var statusEl = document.getElementById('quote-status');
+  var submitBtn = form.querySelector('[type="submit"]');
+
+  function say(msg) {
+    if (!statusEl) return;
+    // Clear first so screen readers re-announce even identical text
+    statusEl.textContent = '';
+    // Minimal delay to ensure DOM mutation is detected by AT
+    setTimeout(function(){ statusEl.textContent = msg; }, 10);
+  }
+
+  // Announce when the user triggers submit
+  form.addEventListener('submit', function () {
+    form.setAttribute('aria-busy', 'true');
+    say('Sending your request…');
+  }, { capture: true });
+
+  // If you navigate away on success, AT won’t read further.
+  // But if the page stays (e.g., validation error), announce ready state again.
+  window.addEventListener('pageshow', function () {
+    form.removeAttribute('aria-busy');
+    say('Ready.');
+  });
+});

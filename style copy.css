@@ -98,11 +98,6 @@ h1, h2, h3, h4, h5, h6 {
 /* Hamburger */
 @media (max-width: 1400px) {
 
-  #desk-header,
-  .desk-header {
-    display: none !important;
-  }
-  
 #hamburger-icon:focus { 
   outline: none; 
 }
@@ -511,7 +506,9 @@ html.menu-open body {
   cursor: pointer;
 }
 
-.mobile-menu nav {
+
+
+  .mobile-menu nav {
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -537,6 +534,8 @@ html.menu-open body {
     background: rgba(0, 0, 0, 0.1);
   }
 }
+
+
 
 /* INTERMEDIATE MOBILE HEADER OVERRIDE */
 @media screen and (min-width: 751px) and (max-width: 1400px) { 
@@ -623,100 +622,176 @@ padding-top: 100px;
 
 /* DESKTOP INDEX */
 
-/* Base: keep your existing flex row and stretch */
-.desk-index-main-flex { display: flex; align-items: stretch; flex-wrap: nowrap;}
-
-.desk-index-main-flex > .header-pad {
-  flex: 0 0 100%;
-  width: 100%;
-  min-width: 0;
-  order: -1;
+.desk-index-main-flex {
+  display: flex;
+  align-items: stretch;
 }
 
-/* Baseline bleed setup */
 .main-bleed-left,
 .main-bleed-right {
-  flex: 0 0 0;
+  flex: 1 1 0;                    /* absorb leftover width; can shrink to 0 */
   min-width: 0;
-  background-image: url('/assets/index-bleed-slice.png');
-  background-repeat: repeat-x;
-  background-position: top left;     /* overridden for left */
-  background-size: auto 100%;
-}
-
-/* Edge anchoring */
-.main-bleed-left  { background-position: top right; }
-.main-bleed-right { background-position: top left; }
-
-/* Hard lock when hero is at max width (your breakpoint style: 2001px+) */
-@media (min-width: 2001px) {
-  .main-bleed-left,
-  .main-bleed-right {
-    flex-basis: calc((100vw - 2000px) / 2);
-    height: 961px;                   /* your hero matte’s max height */
-    background-size: auto 961px;     /* 1:1 with hero; prevents “zoomed” look */
-  }
-}
-
-/* Right bleed is the positioning context */
-.main-bleed-right { position: relative; }
-
-/* Tune these two numbers only */
-.main-bleed-right {
-  --patch-h: 103px;      /* patch height (try 240–420px) */
-  --patch-offset-y: 500px; /* vertical nudge from the top edge */
-}
-
-/* Patch overlay: fixed-size (no stretching), anchored to the top-right */
-.bleed-right-patch {
   position: relative;
-  right: 0;
-  top: 0;
-  height: var(--patch-h);   /* <-- controls size */
-  width: 138px;       /* never overflow horizontally */
-  object-fit: contain;      /* safety if both dims ever get set */
-  pointer-events: none;
-  z-index: 1;
-  transform: translateY(var(--patch-offset-y));  /* <-- controls vertical placement */
+  z-index: 0;                   /* important so they can fully collapse */
+
+  background-image: url('/assets/index-bleed-slice.png');
+  background-repeat: repeat-x;    /* tile across width of the bleed */
+  background-size: auto 100%;  
 }
 
-/* If you lock the bleed height when the viewport > 2000px, keep it here */
-@media (min-width: 2001px) {
-  .main-bleed-right { height: 961px; }  /* your hero’s max height */
+.bleed-right-patch {
+  position: absolute;
+  top: 355px;
+  height: auto;
+  width: auto; 
+  z-index: 5;  
+  pointer-events: none; 
+} 
+
+.main-bleed-left  { 
+  background-position: top right; 
 }
 
-
-
+.main-bleed-right { 
+  background-position: top left; 
+}
 
 .desktop-bottom-bleed {
-  height: 80px;
-  margin-top: 0;
+  height: 80px; /* Adjust as needed */
   background: linear-gradient(to bottom, #C2C2CA 0%, transparent 100%);
-
-  /* Full viewport width while remaining inside the centered core */
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-}
-
-@supports (width: 100dvw) {
-  .desktop-bottom-bleed {
-    width: 100dvw;
-    margin-left: calc(50% - 50dvw);
-    margin-right: calc(50% - 50dvw);
-  }
+  margin-top: -4px;
 }
 
 .main-content-core {
-  width: clamp(1365px, 100vw, 2000px);
-  flex: 0 0 auto;                    /* fixed to its intrinsic width */
+  width: clamp(1365px, 100vw, 2000px);/* min 1365, fluid up to 2000, then stop */
+  flex: 0 0 auto;                     /* don't let flex steal/give width */
+  min-width: 0;                       /* keep shrink math sane */
+  position: relative;
+  z-index: 1;                         /* above bleeds */
+}
+
+.desk-hero-image-wrapper {
+  width: 100%;
+  box-sizing: border-box;
   min-width: 0;
 }
 
+.desk-hero-matte {
+  display: block;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+} 
 
-/*.desk-hero-tagline-wrap {
+
+
+/* SERVICES */
+
+.desk-index-services {
+ position: absolute;
+  top: 61%;
+  left: 34%;
+  width: 65%;
+  aspect-ratio: 875 / 255;
+  height: auto;
+  z-index: 2;
+  padding-top: 5px;
+  box-sizing: border-box;
+  border: 3px dashed red; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.desk-index-chatgpt {
   position: absolute;
-  top: 15px; 
+  inset: 0;
+  padding: 5px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;    /* vertical centering within the aspect box */
+  gap: 12px;
+  box-sizing: border-box;
+}
+
+.desk-index-services-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;  
+  border: 1px solid blue; 
+}
+
+.desk-index-service> * { 
+  min-width: 0 !important;
+}
+
+.desk-index-service-column {
+  display: grid;
+  grid-auto-rows: min-content;
+  gap: 12px;
+  min-width: 0;                   /* flex/grid safety */
+}
+
+.desk-index-service {
+  display: grid;
+  grid-template-columns: 22% 1fr auto;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  min-width: 0;
+}
+.desk-index-service > a {
+   flex: 0 0 auto;
+  width: min(200px, max(150px, 18%)); /* responsive band: 150–200px */
+  max-width: 200px;                   /* hard ceiling so it never hits 600px */
+  display: block;
+  border: 3px solid green;
+}
+
+.desk-index-service > img.desk-index-thumb {
+  display: block;
+  width: 100%;        /* fills the thumb column from the grid */
+  height: auto;
+  object-fit: contain; /* never crop inside the column */
+  border-radius: 0;    /* square corners per your preference */
+}
+
+.desk-index-text {
+  overflow-wrap: anywhere;
+  padding: 6px 0 0 0;
+  line-height: 0.7;
+  margin-right: 0;
+}
+
+.desk-index-text a {
+  text-decoration: none;
+}
+
+.desk-index-headline {
+   font-size: clamp(2.8rem, 2.1vw + 0.6rem, 3.6rem);  /* ↑ readable floor; fluid */
+  font-weight: 700;
+  color: #ffffff;
+  -webkit-text-stroke-width: clamp(1.8px, 0.18vw, 2.8px);
+  -webkit-text-stroke-color: #2A4570;
+  text-shadow:
+    1px 1px 4px rgba(0, 0, 0, 0.4),
+    0 0 2px rgba(0, 0, 0, 0.3);
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: -5px;
+  border: 1px solid black;
+}
+
+.desk-index-description {
+  font-size: clamp(1.4rem, 1.0vw + 0.45rem, 1.8rem); /* ↑ readable floor; fluid */
+  color: #2A4570;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  border: 3px dashed red;
+}
+
+
+.desk-hero-tagline-wrap {
+  position: absolute;
+  top: 15px; /* adjust vertical position */
   left: 55%;
   transform: translateX(-50%);
   width: 100%;
@@ -725,23 +800,15 @@ padding-top: 100px;
   background: transparent;
   opacity: 0;
   animation: fadeInTagline 1.2s ease-out 0.4s forwards;
-}*/
-
-.desk-hero-tagline-wrap {
-  position: absolute;
-  inset-block-start: 15px;     /* top offset */
-  inset-inline: 0;             /* stretch full width of hero */
-  display: grid;
-  place-items: center;         /* centers the child */
-  padding-inline: clamp(16px, 3vw, 40px); /* edge breathing room */
-  z-index: 2;
 }
 
 @keyframes fadeInTagline {
-  to { opacity: 1; }
+  to {
+    opacity: 1;
+  }
 }
 
-/*.desk-hero-tagline {
+.desk-hero-tagline {
   font-size: 3rem;
   line-height: 1.1;
   font-weight: 700;
@@ -753,22 +820,16 @@ padding-top: 100px;
   font-family: Arial, Helvetica, sans-serif;
   margin: 0 auto;
   max-width: 90%;
-}*/
+}
 
-.desk-hero-tagline {
-  margin: 0;
-  text-align: center;
-  text-wrap: balance;          /* nicer breaks (safe to keep if supported) */
-  font-weight: 700;
-  /* desktop-only responsive size; adjust numbers to taste */
-  font-size: clamp(50px, calc(-10px + 4vw), 70px);
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.1;
-
-  color: #fff;
-  -webkit-text-stroke: 1.5px #2A4570;
-  text-shadow: 1px 1px 4px rgba(0,0,0,.4), 0 0 2px rgba(0,0,0,.3);
-  font-family: Arial, Helvetica, sans-serif;
+.desk-index-cta {laq
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*border: 1px solid yellow; DEBUG*/
+  height: 100%;
+  width: 175px;
 }
 
 .desk-index-quote-img {
@@ -776,159 +837,7 @@ padding-top: 100px;
   height: auto;
 }
 
-.plaque-heading {
-  font-size: 2.2rem;
-  font-weight: 700;
-  text-align: center;
-  letter-spacing: 1px;
-  background: linear-gradient(135deg, #4a4a4a, #7a7a7a, #2a2a2a);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  text-shadow:
-    1px 1px 0 #111,
-    2px 2px 4px rgba(0, 0, 0, 0.6),
-    -1px -1px 0 #ccc;
-  margin: 20px auto 10px auto;
-}
-
-.desk-index-cta {
-  position: absolute;
-  top: 70%;
-  right: 20px;
-  transform: translateY(-50%);
-  z-index: 20;               /* above the matte */
-  display: block;
-  text-decoration: none;
-  pointer-events: auto;  
-}
-
-/* Scale nicely between large and very large desktops */
-.desk-index-cta-img {
-  display: block;
-  width: clamp(175px, calc(13vw - 20px), 240px);
-  height: auto;
-  /* optional micro-lift on hover; remove if you want it static */
-  transition: transform 160ms ease;
-}
-.desk-index-cta:hover .desk-index-cta-img { 
-  transform: translateY(-1px) scale(1.04); 
-}
-
-
-/* ===== DESKTOP ONLY — desk-index-services block ===== */
-
-/* Hero wrapper must contain the services overlay */
-.desk-hero-image-wrapper {
-  position: relative;
-  z-index: 1;
-  width: clamp(1365px, 100%, 2000px);
-  margin: 0 auto;
-}
-
-/* Matte (force-load so layout has real dimensions) */
-.desk-hero-matte {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-/* Services overlay: absolute within hero; fixed aspect while resizing */
-.desk-index-services {
-  position: absolute;
-  top: 60.5%;
-  left: 35%;
-  width: 64.5%;
-  min-width: 0;
-  max-width: 1250px;
-  aspect-ratio: 875/250;
-  overflow: hidden;
-  box-sizing: border-box;
-  z-index: 2;
-}
-
-/* Inner layer: content sits over the aspect box */
-.desk-index-services-inner {
-  position: absolute;
-  inset: 0;
-  padding: 8px 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 12px;
-  box-sizing: border-box;
-}
-
-/* Column stacks service rows */
-.desk-index-service-column {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  min-width: 0;
-}
-
-/* Base service row layout */
-.desk-index-service {
-  display: grid;
-  grid-template-columns: var(--thumb) 1fr auto;
-  align-items: center;
-  width: 100%;
-  min-width: 0;
-  box-sizing: border-box;
-}
-
-/* Row 1 specifics */
-.desk-index-service-column > .desk-index-service:nth-child(1) {
-  --thumb: clamp(150px, calc(-45px + 13vw), 215px);
-  padding-left: clamp(25px, calc(-35px + 4vw), 45px);
-  gap: 3vw;
-}
-
-/* Row 2 specifics */
-.desk-index-service-column > .desk-index-service:nth-child(2) {
-  --thumb: clamp(190px, calc(-140px + 22vw), 300px);
-   gap: 20px;
-}
-
-/* Thumbs */
-.desk-index-thumb {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  border-radius: 0; /* per your no-rounded-images rule */
-}
-
-/* Text blocks */
-.desk-index-text {
-  overflow-wrap: anywhere;
-  line-height: 0.7;
-  margin-right: 0;
-}
-
-/* Headline (shared) */
-.desk-index-headline {
-  font-size: clamp(62.4px, calc(12px + 3.36vw), 79.2px);
-  font-weight: 700;
-  color: #ffffff;
-  -webkit-text-stroke-width: clamp(1.8px, 0.18vw, 2.8px);
-  -webkit-text-stroke-color: #2A4570;
-  text-shadow: 1px 1px 4px rgba(0,0,0,.4), 0 0 2px rgba(0,0,0,.3);
-  font-family: Arial, Helvetica, sans-serif;
-  margin-bottom: 15px;
-}
-
-/* Descriptions (row-specific sizes) */
-.desk-index-description {
-  color: #2A4570;
-  text-shadow: 0 1px 2px rgba(0,0,0,.3);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(25px, calc(-5px + 2vw), 35px);
-}
-
-/* !!! END DESKTOP INDEX !!! END */
-
+/* !!! END DESKTOP INDEX !!! END*/
 
 /* MOBILE INDEX */
 
@@ -1070,6 +979,7 @@ DESKTOP ABOUT */
     0 2px 5px rgba(0, 0, 0, 0.2);
   letter-spacing: 1px;
   text-align: left; /* or center if preferred */
+  width: 100%
 }
 
 .desk-about-backgroundstory {

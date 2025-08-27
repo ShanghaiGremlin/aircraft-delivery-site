@@ -20,6 +20,10 @@
 /*
   Cache-Control: no-cache, must-revalidate, max-age=0
 
+/desk-header.html
+  Cache-Control: public, max-age=31536000, immutable
+  X-ADS-Debug: headers-match-1
+
 # -----------------------------
 # ERROR/TEST PAGES: never cache
 # -----------------------------
@@ -132,5 +136,24 @@
   X-Content-Type-Options: nosniff
 
 /*.ico
+  Cache-Control: public, max-age=31536000, immutable
+  X-Content-Type-Options: nosniff
+
+/404.html
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: public, max-age=60
+
+/500.html
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store
+
+/thank-you
+  X-Robots-Tag: noindex, nofollow, noarchive
+/thank-you/
+  X-Robots-Tag: noindex, nofollow, noarchive
+/thank-you.html
+  X-Robots-Tag: noindex, nofollow, noarchive
+
+/desk-header.html
   Cache-Control: public, max-age=31536000, immutable
   X-Content-Type-Options: nosniff
