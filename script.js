@@ -3059,3 +3059,36 @@ document.addEventListener('DOMContentLoaded', () => {
     childList: true, subtree: true, attributes: true, attributeFilter: ['class', 'style']
   });
 });
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.querySelector('header.desk-header');
+  if (!header) return;
+
+  const $ = (sel) => header.querySelector(sel);
+  const left = $('.desk-header-left');
+  const logo = $('img.desk-header-logo');
+  const right = $('.desk-header-right');
+
+  const applyFixIfStacked = () => {
+    const H = header.offsetHeight || 0;
+    const hL = left?.offsetHeight || 0;
+    const hC = logo?.offsetHeight || 0;
+    const hR = right?.offsetHeight || 0;
+
+    // Heuristic: "stacked" when header is much taller than any single section
+    // OR when the sum of children ≈ header (typical vertical stack).
+    const tallest = Math.max(hL, hC, hR);
+    const sum = hL + hC + hR;
+    const stacked = (H > tallest + 40) || (Math.abs(sum - H) <= 8) || (H >= 220);
+
+    header.classList.toggle('ads-row-fix', stacked);
+  };
+
+  applyFixIfStacked();
+  window.addEventListener('resize', applyFixIfStacked, { passive: true });
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(applyFixIfStacked).catch(() => {});
+  }
+});
