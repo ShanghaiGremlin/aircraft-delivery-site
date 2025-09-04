@@ -27,6 +27,7 @@
 
 http://www.aircraft.delivery/*   https://aircraft.delivery/:splat   301!
 https://www.aircraft.delivery/*  https://aircraft.delivery/:splat   301!
+http://aircraft.delivery/*        https://yourdomain.com/:splat   301!
 
 /*.map        /404.html   404!
 /*.bak        /404.html   404!

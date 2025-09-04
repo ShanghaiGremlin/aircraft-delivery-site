@@ -8,17 +8,17 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="Aircraft Delivery">
-  <meta name="ads-ver" content="20250826-235823">
+  <meta name="ads-ver" content="?v=20250826-235823">
 
-  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=20250826-235823">
-  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=20250826-235823">
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=20250826-235823">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=20250904-061638">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=20250904-061638">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=20250904-061638">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
 
-<link rel="preload" href="/style.css?v=20250826-235823" as="style">
-<link rel="stylesheet" href="/style.css?v=20250826-235823">
-<link rel="preload" href="/script.js?v=20250826-235823" as="script">
+<link rel="preload" href="/style.css?v=20250904-061638" as="style">
+<link rel="stylesheet" href="/style.css?v=20250904-061638">
+<link rel="preload" href="/script.js?v=20250904-061638" as="script">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,93 +63,92 @@
 <!--MOBILE-ONLY HEADER-->
 
 <div class="mobile-only">
-    <header class="mobile-header">
+        <header class="mobile-header">
 
-    <div class="mobile-header-slot-left">
-      <picture>
-        <source
-        media="(max-width: 1400px)"
-        srcset="/assets/mobile/burger.png?v=20250826-235823">
-
-      <img 
-    src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-    alt="Menu"
-    width="50" 
-    height="39"
-    decoding="async" 
-    id="hamburger-icon">
-      </picture>
-    </div>
-
-    <div class="mobile-logo" id="mobile-logo">
-      <a href="/">
-        <picture>
-          <source
-          media="(max-width: 750px)"
-          srcset="/assets/mobile/mobile-logo-v2.png?v=20250826-235823">
-
-                <img 
-    src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-    alt="mobile logo"
-    width="300" 
-    height="148"
-    decoding="async"> 
-        </picture>
-</a>
-    </div>
-
-    <div class="mobile-logo-90" id="mobile-logo-90">
-      <a href="/">
-               <picture>
-          <source
-          media="(min-width: 751px) and (max-width: 1400px)"
-          srcset="/assets/mobile/mobile-logo-90.png?v=20250826-235823">
-
-                <img 
-    src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-    alt="mobile logo"
-    width="300" 
-    height="116"
-    decoding="async"> 
-        </picture> 
-      </a>
-    </div>
-
-    <div class="mobile-header-slot-right"><a href="tel:+14158458163">
-      <picture>
-        <source 
-        media="(max-width: 1400px)"
-        srcset="/assets/mobile/phone.png?v=20250826-235823">
-
-      <img 
-    src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-    alt="Call"
-    width="36" 
-    height="36"
-    decoding="async" 
-    id="phone-icon">
-      </picture>
-  </a>
-    </div>
-
-  </header>
-  <div class="mobile-menu" id="mobileMenu">
-    <nav>
-      <a href="/services">Services</a>
-      <a href="/quote">Get a Quote</a>
-      <a href="/pilot-directory">Pilot Directory</a>
-      <a href="/join-pilot-roster">Join Pilot Roster</a>
-      <a href="/about">About</a>
-      <a href="/past-deliveries">Past Deliveries</a>
-    </nav>
-  </div>
+<div class="mobile-header-slot-left">
+  <button
+    id="hamburger-icon"
+    class="mobile-burger-proxy"
+    type="button"
+    aria-label="Open menu"
+    aria-expanded="false"
+    aria-controls="mobile-menu"
+    data-burger-proxy>
+    <picture>
+      <source 
+        media="(max-width: 1400px)" 
+        srcset="/assets/mobile/burger.png?v=20250904-061638">
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+        alt="aria-label-active" 
+        width="50"
+        height="39"
+        decoding="async">
+    </picture>
+  </button>
 </div>
 
-<main class="quote-main">
+             <div class="mobile-header-slot-center">
+               <a 
+                 href="/" 
+                 class="mobile-header-logo" 
+                 
+                 aria-label="Home"
+               >
+                  <picture>
+                    <source 
+                      media="(max-width: 750px)"
+                      srcset="/assets/mobile/mobile-logo-v2.png?v=20250904-061638">
+                    <source 
+                      media="(min-width: 751px) and (max-width: 1400px)"
+                      srcset="/assets/mobile/mobile-logo-90.png?v=20250904-061638">
+                    <img
+                      src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                      alt="Aircraft Delivery Solutions"
+                      width="300" 
+                      height="148" 
+                      decoding="async">
+                  </picture>
+                </a>
+              </div>
+
+              <div class="mobile-header-slot-right">
+                <a
+                  href="tel:+14158458163"
+                  class="mobile-header-phone"
+                >
+                  <picture>
+                    <source 
+                      media="(max-width: 1400px)"
+                      srcset="/assets/mobile/phone.png?v=20250904-061638">
+                    <img 
+                      src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                      alt="Call"
+                      width="36" 
+                      height="36"
+                      decoding="async">
+                  </picture>
+                </a>
+              </div>
+
+  </header>
+<div class="mobile-menu" id="mobileMenu" hidden aria-hidden="true">
+  <nav class="mobile-nav" aria-label="Mobile primary">
+    <a href="/services">Services</a>
+    <a href="/quote">Get a Quote</a>
+    <a href="/pilot-directory">Pilot Directory</a>
+    <a href="/join-pilot-roster">Join Pilot Roster</a>
+    <a href="/about">About</a>
+    <a href="/past-deliveries">Past Deliveries</a>
+  </nav>
+</div>
+</div>
+
+<main id="main" class="quote-main">
 
 <div class="header-pad"></div>
 
-<div class="page-title-brick page-title-brick-centered">GET A QUOTE</div>
+<div class="page-title-brick page-title-brick-centered"><h1>GET A QUOTE</h1></div>
 
 <div class="quote-top" style="margin: 15px 0 40px 0;">
 
@@ -171,7 +170,7 @@
   
   <!-- Right: Aaron image -->
   <a class="quote-top3-aaron" href="/about"> 
-    <img src="/assets/quote/aaron-for-quote.jpg?v=20250826-235823" alt="Aaron" style="height: 160px; width: auto;">
+    <img src="/assets/quote/aaron-for-quote.jpg?v=20250904-061638" alt="Aaron" style="height: 160px; width: auto;">
   </a>
   
 </div>
@@ -187,16 +186,19 @@
 
     <!-- Text / WhatsApp Box -->
     <div class="quote-box">
-      <h1>&#x1F4AC; Text <span style="font-size: 1em;">or </span>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"
-             style="height: 1.3em; vertical-align: middle;"> WhatsApp
-      </h1>
+      <p>&#x1F4AC; Text <span style="font-size: 1em;">or </span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+             alt="WhatsApp"
+             style="height: 1.3em; vertical-align: middle;"
+             aria-hidden="true"
+             focusable="false">WhatsApp
+      </p>
       <h2><b>+1 (415) 845-8163</b></h2>
     </div>
 
     <!-- Email Box -->
     <div class="quote-box">
-      <h1>&#x2709;&#xFE0F; Email</h1>
+      <p>&#x2709;&#xFE0F; Email</p>
       <h2><a href="mailto:akahn28@gmail.com">akahn28@gmail.com</a></h2>
     </div>
   </div>
@@ -205,8 +207,8 @@
 <div class="quote-column-house">
 <div class="quote-form-col">
 
-    <h1 style="margin-top: 10; text-align: center; font-size: 2.5rem; margin-bottom: 15px;"><u><b>Quote Request Form</b></u>
-    <br><i>Completely Optional!</i></h1>
+    <p style="margin-top: 10; text-align: center; font-size: 2.5rem; margin-bottom: 15px;"><u><b>Quote Request Form</b></u>
+    <br><i>Completely Optional!</i></p>
       <div class="quote-subbox"><p> &bull; If you want a more detailed initial quote</p>
     <p> &bull; All fields are optional and "if known" &mdash; except Email is required</p></div>
 
@@ -223,7 +225,6 @@
 
     <form id="quote-form" class="quote-form" action="https://formspree.io/f/mnnvozvg" method="POST">
 
-<!-- removed the giveaway comment -->
 <div class="quote-offscreen-field" aria-hidden="true">
   <label for="quote-website">Website (leave blank)</label>
   <input
@@ -233,6 +234,7 @@
     tabindex="-1"
     autocomplete="off"
     inputmode="text"
+    style="height: 48px; width: 48px;"
   >
 </div>
 
@@ -362,25 +364,26 @@ aria-describedby="email-error"
 <fieldset class="quote-button-alignleft">
   <legend class="quote-legendstyler">Type of Ownership:</legend>
 
-  <div>
-    <input type="radio" id="ownership-sole" name="ownership" value="Sole-Owner">
-    <label for="ownership-sole">Sole Owner</label>
+  <div class="quote-buttonline">
+    <input class="quote-radio-button" type="radio" id="ownership-sole" name="ownership" value="Sole-Owner">
+    <label class="quote-radio-label" for="ownership-sole">Sole Owner</label>
   </div>
 
-  <div>
-    <input type="radio" id="ownership-llc" name="ownership" value="LLC-or-other">
-    <label for="ownership-llc">LLC or other business entity</label>
+  <div class="quote-buttonline">
+    <input class="quote-radio-button" type="radio" id="ownership-llc" name="ownership" value="LLC-or-other">
+    <label class="quote-radio-label" for="ownership-sole">LLC or other business entity</label>
   </div>
 
-  <div>
-    <input type="radio" id="ownership-partnership" name="ownership" value="Partnership">
-    <label for="ownership-partnership">Partnership</label>
+  <div class="quote-buttonline">
+    <input class="quote-radio-button" type="radio" id="ownership-partnership" name="ownership" value="Partnership">
+    <label class="quote-radio-label" for="ownership-sole">Partnership</label>
   </div>
 
-  <div>
-    <input type="radio" id="ownership-other" name="ownership" value="Other">
-    <label for="ownership-other">Other</label>
+  <div class="quote-buttonline">
+    <input class="quote-radio-button" type="radio" id="ownership-other" name="ownership" value="Other">
+    <label class="quote-radio-label" for="ownership-sole">Other</label>
   </div>
+
 </fieldset>
 
  
@@ -389,40 +392,47 @@ aria-describedby="email-error"
 <fieldset class="quote-button-alignleft">
   <legend class="quote-legendstyler">Ordinary Use of Aircraft (Check any that apply):</legend>
 
-  <div>
-    <input type="checkbox" id="aircraft-use-personal"   name="aircraft_use[]" value="Personal">
-    <label for="aircraft-use-personal">Personal</label>
+
+  <div class="quote-buttonline">
+    <input class="quote-checkbox" type="checkbox" id="aircraft-use-personal"   name="aircraft_use[]" value="Personal">
+    <label class="quote-checkbox-label" for="aircraft-use-personal">Personal</label>
   </div>
 
-  <div>
-    <input type="checkbox" id="aircraft-use-flight-school" name="aircraft_use[]" value="Flight-School">
-    <label for="aircraft-use-flight-school">Flight School</label>
+    <div class="quote-buttonline">
+    <input class="quote-checkbox" type="checkbox" id="aircraft-use-flight-school"   name="aircraft_use[]" value="Flight-School">
+    <label class="quote-checkbox-label" for="aircraft-use-flight-school">Flight School</label>
   </div>
 
-  <div>
-    <input type="checkbox" id="aircraft-use-charter"   name="aircraft_use[]" value="Charter">
-    <label for="aircraft-use-charter">Charter</label>
+    <div class="quote-buttonline">
+    <input class="quote-checkbox" type="checkbox" id="aircraft-use-charter"   name="aircraft_use[]" value="Charter">
+    <label class="quote-checkbox-label" for="aircraft-use-charter">Charter</label>
   </div>
 
-  <div>
-    <input type="checkbox" id="aircraft-use-corporate" name="aircraft_use[]" value="Corporate">
-    <label for="aircraft-use-corporate">Corporate</label>
+    <div class="quote-buttonline">
+    <input class="quote-checkbox" type="checkbox" id="aircraft-use-corporate"   name="aircraft_use[]" value="Corporate">
+    <label class="quote-checkbox-label" for="aircraft-use-corporate">Corporate</label>
   </div>
 
-  <div>
-    <input type="checkbox" id="aircraft-use-freight"   name="aircraft_use[]" value="Freight">
-    <label for="aircraft-use-freight">Freight</label>
+    <div class="quote-buttonline">
+    <input class="quote-checkbox" type="checkbox" id="aircraft-use-freight"   name="aircraft_use[]" value="Freight">
+    <label class="quote-checkbox-label" for="aircraft-use-freight">Freight</label>
   </div>
 
-  <div>
-    <input type="checkbox" id="aircraft-use-none"      name="aircraft_use[]" value="None-no-regular flying">
-    <label for="aircraft-use-none">None &mdash; no regular flying</label>
+      <div class="quote-buttonline">
+    <input class="quote-checkbox" type="checkbox" id="aircraft-use-skedpax"   name="aircraft_use[]" value="SkedPax">
+    <label class="quote-checkbox-label" for="aircraft-use-skedpax">Scheduled Passenger</label>
   </div>
 
-  <div>
-    <input type="checkbox" id="aircraft-use-unknown"   name="aircraft_use[]" value="Unknown">
-    <label for="aircraft-use-unknown">Unknown</label>
+    <div class="quote-buttonline">
+    <input class="quote-checkbox" type="checkbox" id="aircraft-use-nope"   name="aircraft_use[]" value="None">
+    <label class="quote-checkbox-label" for="aircraft-use-none">None &mdash; no regular flying</label>
   </div>
+
+    <div class="quote-buttonline">
+    <input class="quote-checkbox" type="checkbox" id="aircraft-use-unk"   name="aircraft_use[]" value="Unknown">
+    <label class="quote-checkbox-label" for="aircraft-use-unknown">Unknown</label>
+  </div>
+ 
 </fieldset>
 <br>
 
@@ -430,20 +440,21 @@ aria-describedby="email-error"
 <fieldset class="quote-button-alignleft">
   <legend class="quote-legendstyler">Client-Preferred Delivery Method:</legend>
 
-  <div>
-    <input type="radio" id="delivery-ferry" name="delivery_method" value="Ferry-Flight">
-    <label for="delivery-ferry">Ferry Flight</label>
+  <div class="quote-buttonline">
+    <input class="quote-radio-button" type="radio" id="delivery-pref-ferry" name="ownership" value="Ferry-flight">
+    <label class="quote-radio-label" for="delivery-pref">Ferry Flight</label>
   </div>
 
-  <div>
-    <input type="radio" id="delivery-container" name="delivery_method" value="Container-Shipping">
-    <label for="delivery-container">Container Shipping</label>
+  <div class="quote-buttonline">
+    <input class="quote-radio-button" type="radio" id="delivery-pref-container" name="ownership" value="Container">
+    <label class="quote-radio-label" for="delivery-pref">Container Shipping</label>
   </div>
 
-  <div>
-    <input type="radio" id="delivery-undecided" name="delivery_method" value="Undecided">
-    <label for="delivery-undecided">Undecided</label>
+  <div class="quote-buttonline">
+    <input class="quote-radio-button" type="radio" id="delivery-pref-undecided" name="ownership" value="Undecided">
+    <label class="quote-radio-label" for="delivery-pref">Undecided</label>
   </div>
+
 </fieldset>
 <br>
 
@@ -466,7 +477,7 @@ aria-describedby="email-error"
 
 <div class="quote-prices-col">
 
-      <h1 style="margin-top: 5px; margin-bottom: 15px; text-align: center; font-size: 2.5rem;"><u><b>Prices</b></u></h1>
+      <p style="margin-top: 5px; margin-bottom: 15px; text-align: center; font-size: 2.5rem;"><u><b>Prices</b></u></p>
       <div class="quote-subbox"><p> &bull; Answers common questions</p>
     <p> &bull; Orients you to what your proposed project might cost</p>
   </div>
@@ -611,7 +622,7 @@ aria-describedby="email-error"
 </div></div></div></div></div>
 
 <div class="quote-mob-ferry-costs">
- <p class="quote-mob-ferryflights-headings"><u>Pilot Pay (contracted)</u></p>
+ <p class="quote-mob-expenses-headings"><u>Pilot Pay (contracted)</u></p>
   <p class="mob-std-small" style="text-align:left; margin-top: 3px;">Highly dependent on many factors. Also, there are variations in the mode of billing; pilots can bill by the day, by the flight hour, by the duty hour, or bill a flat fee for the project.</p>
 
   <table style="width: 100%; max-width: 1000px; margin: 0 auto; border-collapse: collapse; border: 1px solid #333; font-size: 1.3rem; background-color: #fcfcfc;">
@@ -665,7 +676,7 @@ aria-describedby="email-error"
   </tbody>
   </table>
 
-  <p class="quote-mob-ferryflights-headings" style="margin-top: 35px;"><u>Pilot Expenses (reimbursed)</u></p>
+  <p class="quote-mob-expenses-headings" style="margin-top: 35px;"><u>Pilot Expenses (reimbursed)</u></p>
 <p class="mob-std-small" style="margin-top: 3px; text-align: left;">There are usual expenses related to what it costs to have pilot(s) on duty away from their home:</p>
 <ul style="text-align: left;">
   <li class="mob-std-small" style="margin-bottom: 6px;"><b>Travel:</b> Will almost always include last-minute airline travel. Often includes taxi/Uber. Sometimes involves rental car(s). Some pilots require Business class or higher for overseas air travel.</li>
@@ -673,7 +684,7 @@ aria-describedby="email-error"
 </ul>
 
 <div class="quote-mob-expenses-wrapper">
-<p class="quote-mob-ferryflights-headings" style="margin-top: 35px;"><u>Aircraft Expenses (reimbursed)</u></p>
+<p class="quote-mob-expenses-headings" style="margin-top: 35px;"><u>Aircraft Expenses (reimbursed)</u></p>
 <p class="mob-std-small" style="margin-top: 3px; text-align: left;">Every aircraft has a fuel expense. Here are some other common aircraft expenses:</p>
 
 <button 
@@ -701,7 +712,7 @@ aria-describedby="email-error"
 
 
 <div class="mob-quote-admin-wrapper">
-  <p class="quote-mob-ferryflights-headings" style="margin-top: 35px;">
+  <p class="quote-mob-expenses-headings" style="margin-top: 35px;">
     <u>Support & Administration Fee (contracted)</u>
   </p>
   <p class="mob-std-small"><b>I charge a fee which compensates me for three areas:</b></p>
@@ -759,13 +770,13 @@ aria-describedby="email-error"
 
 <div class="quote-decorative-pix">
  <div class="desk-quote-img-wrap">
-  <img src="/assets/quote/1999_amf_slc2.jpg?v=20250826-235823" alt="1999 AMF SLC" style="width: 100%; max-width: 700px; height: auto;">
+  <img src="/assets/quote/1999_amf_slc2.jpg?v=20250904-061638" alt="1999 AMF SLC" style="width: 100%; max-width: 700px; height: auto;">
   <div class="desk-quote-caption">Ameriflight Beech 99C at Salt Lake City, UT. <br>Single-pilot schlepping 3,000 pounds of UPS boxes.
   </div>
  </div>
 
   <div class="desk-quote-img-wrap">
-<img src="/assets/quote/2002-kaiserair.jpg?v=20250826-235823" alt="2002 KaiserAir" style="width: 100%; max-width: 700px; height: auto; margin: 40px 0 20px 0;"><div class="desk-quote-caption">First Officer on the Hawker 700<br> for KaiserAir in Oakland, CA.
+<img src="/assets/quote/2002-kaiserair.jpg?v=20250904-061638" alt="2002 KaiserAir" style="width: 100%; max-width: 700px; height: auto; margin: 40px 0 20px 0;"><div class="desk-quote-caption">First Officer on the Hawker 700<br> for KaiserAir in Oakland, CA.
 </div>
 </div>
 
@@ -778,7 +789,7 @@ aria-describedby="email-error"
  
 </main>
 
-<script src="/script.js?v=20250826-235823" defer></script>
+<script src="/script.js?v=20250904-061638" defer></script>
 </body>
 </html>
 

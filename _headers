@@ -1,159 +1,39 @@
-﻿# -----------------------------
-# GLOBAL SECURITY HEADERS
-# -----------------------------
-/*
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
-  X-Frame-Options: DENY
-  Strict-Transport-Security: max-age=15552000
-  Content-Security-Policy: upgrade-insecure-requests
-  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
-  Cross-Origin-Opener-Policy: same-origin
-  Cross-Origin-Resource-Policy: same-origin
-  X-Permitted-Cross-Domain-Policies: none
-  Origin-Agent-Cluster: ?1
+﻿# ============================
+# Netlify `_headers`
+# ============================
 
-# -----------------------------
-# HTML: revalidate on each nav
-# (overridden below for assets)
-# -----------------------------
-/*
-  Cache-Control: no-cache, must-revalidate, max-age=0
-
-/desk-header.html
-  Cache-Control: public, max-age=31536000, immutable
-  X-ADS-Debug: headers-match-1
-
-# -----------------------------
-# ERROR/TEST PAGES: never cache
-# -----------------------------
-/404.html
-  Cache-Control: no-store, no-cache, must-revalidate
-  Pragma: no-cache
-  Expires: 0
-  X-Robots-Tag: noindex, nofollow, noarchive
-
-/500.html
-  Cache-Control: no-store, no-cache, must-revalidate
-  Pragma: no-cache
-  Expires: 0
-  X-Robots-Tag: noindex, nofollow, noarchive
-
-/__test500
-  Cache-Control: no-store, no-cache, must-revalidate
-  Pragma: no-cache
-  Expires: 0
-  X-Robots-Tag: noindex
-
-# -----------------------------
-# ROBOTS / SITEMAP
-# -----------------------------
-/robots.txt
-  Content-Type: text/plain; charset=utf-8
-  Cache-Control: public, max-age=3600
-  X-Content-Type-Options: nosniff
-
-/sitemap.xml
-  Content-Type: application/xml; charset=utf-8
-  Cache-Control: public, max-age=3600
-  X-Content-Type-Options: nosniff
-
-# -----------------------------
-# CRITICAL ASSETS (versioned)
-# -----------------------------
-/style.css
-  Cache-Control: public, max-age=31536000, immutable
-
-/script.js
-  Cache-Control: public, max-age=31536000, immutable
-
-# -----------------------------
-# STATIC ASSETS
-# -----------------------------
+# ---------- Long-cache static assets ----------
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
-/assets/fonts/*
+/*.js
   Cache-Control: public, max-age=31536000, immutable
-
-/icons/*
-  Cache-Control: public, max-age=31536000, immutable
-
-/favicon.ico
-  Cache-Control: public, max-age=31536000, immutable
-  Content-Type: image/x-icon
-
-/site.webmanifest
-  Cache-Control: public, max-age=31536000, immutable
-  Content-Type: application/manifest+json
 
 /*.css
   Cache-Control: public, max-age=31536000, immutable
-  X-Content-Type-Options: nosniff
 
-/*.js
+# Common root assets (favicons / manifest)
+/favicon.ico
   Cache-Control: public, max-age=31536000, immutable
-  X-Content-Type-Options: nosniff
 
-/*.woff2
+/apple-touch-icon.png
   Cache-Control: public, max-age=31536000, immutable
-  X-Content-Type-Options: nosniff
 
-/*.woff
+/site.webmanifest
   Cache-Control: public, max-age=31536000, immutable
+
+
+# ---------- Everything else (HTML + misc) ----------
+/*
+  # --- Security (ENFORCED CSP) ---
+  Content-Security-Policy: default-src 'self'; img-src 'self' data: https:; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; connect-src 'self' https://formspree.io https://api.formspree.io; form-action 'self' https://formspree.io https://api.formspree.io; base-uri 'none'; object-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests; worker-src 'self'; manifest-src 'self'
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
   X-Content-Type-Options: nosniff
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
+  X-Frame-Options: DENY
 
-/*.ttf
-  Cache-Control: public, max-age=31536000, immutable
-  X-Content-Type-Options: nosniff
-
-/*.otf
-  Cache-Control: public, max-age=31536000, immutable
-  X-Content-Type-Options: nosniff
-
-/*.svg
-  Cache-Control: public, max-age=31536000, immutable
-  X-Content-Type-Options: nosniff
-
-/*.png
-  Cache-Control: public, max-age=31536000, immutable
-  X-Content-Type-Options: nosniff
-
-/*.jpg
-  Cache-Control: public, max-age=31536000, immutable
-  X-Content-Type-Options: nosniff
-
-/*.jpeg
-  Cache-Control: public, max-age=31536000, immutable
-  X-Content-Type-Options: nosniff
-
-/*.webp
-  Cache-Control: public, max-age=31536000, immutable
-  X-Content-Type-Options: nosniff
-
-/*.gif
-  Cache-Control: public, max-age=31536000, immutable
-  X-Content-Type-Options: nosniff
-
-/*.ico
-  Cache-Control: public, max-age=31536000, immutable
-  X-Content-Type-Options: nosniff
-
-/404.html
-  X-Robots-Tag: noindex, nofollow
-  Cache-Control: public, max-age=60
-
-/500.html
-  X-Robots-Tag: noindex, nofollow
+  # --- Caching (HTML should not persist) ---
   Cache-Control: no-store
-
-/thank-you
-  X-Robots-Tag: noindex, nofollow, noarchive
-/thank-you/
-  X-Robots-Tag: noindex, nofollow, noarchive
-/thank-you.html
-  X-Robots-Tag: noindex, nofollow, noarchive
-
-/desk-header.html
-  Cache-Control: public, max-age=31536000, immutable
-  X-Content-Type-Options: nosniff

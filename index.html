@@ -11,14 +11,14 @@
   <meta name="ads-ver" content="?v=20250826-235823">
 
 
-  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=20250826-235823">
-  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=20250826-235823">
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=20250826-235823">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=20250904-061638">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=20250904-061638">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=20250904-061638">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
 
-<link rel="preload" href="/style.css?v=20250826-235823" as="style">
-<link rel="stylesheet" href="/style.css?v=20250826-235823">
+<link rel="preload" href="/style.css?v=20250904-061638" as="style">
+<link rel="stylesheet" href="/style.css?v=20250904-061638">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -99,95 +99,95 @@
 
   <header class="mobile-header">
 
-    <div class="mobile-header-slot-left">
-      <picture>
-        <source
-        media="(max-width: 1400px)"
-        srcset="/assets/mobile/burger.png?v=20250826-235823">
+<div class="mobile-header-slot-left">
+  <button
+    id="hamburger-icon"
+    class="mobile-burger-proxy"
+    type="button"
+    aria-label="Open menu"
+    aria-expanded="false"
+    aria-controls="mobile-menu"
+    data-burger-proxy>
+    <picture>
+      <source 
+        media="(max-width: 1400px)" 
+        srcset="/assets/mobile/burger.png?v=20250904-061638">
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+        alt="aria-label-active" 
+        width="50"
+        height="39"
+        decoding="async">
+    </picture>
+  </button>
+</div>
 
-      <img 
-    src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-    alt="Menu"
-    width="50" 
-    height="39"
-    decoding="async" 
-    id="hamburger-icon">
-      </picture>
-    </div>
+             <div class="mobile-header-slot-center">
+               <a 
+                 href="/" 
+                 class="mobile-header-logo" 
+                 
+                 aria-label="Home"
+               >
+                  <picture>
+                    <source 
+                      media="(max-width: 750px)"
+                      srcset="/assets/mobile/mobile-logo-v2.png?v=20250904-061638">
+                    <source 
+                      media="(min-width: 751px) and (max-width: 1400px)"
+                      srcset="/assets/mobile/mobile-logo-90.png?v=20250904-061638">
+                    <img
+                      src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                      alt="Aircraft Delivery Solutions"
+                      width="300" 
+                      height="148" 
+                      decoding="async">
+                  </picture>
+                </a>
+              </div>
 
-    <div class="mobile-logo" id="mobile-logo">
-      <a href="/">
-        <picture>
-          <source
-          media="(max-width: 750px)"
-          srcset="/assets/mobile/mobile-logo-v2.png?v=20250826-235823">
-
-                <img 
-    src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-    alt="mobile logo"
-    width="300" 
-    height="148"
-    decoding="async"> 
-        </picture>
-</a>
-    </div>
-
-    <div class="mobile-logo-90" id="mobile-logo-90">
-      <a href="/">
-               <picture>
-          <source
-          media="(min-width: 751px) and (max-width: 1400px)"
-          srcset="/assets/mobile/mobile-logo-90.png?v=20250826-235823">
-
-                <img 
-    src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-    alt="mobile logo"
-    width="300" 
-    height="116"
-    decoding="async"> 
-        </picture> 
-      </a>
-    </div>
-
-    <div class="mobile-header-slot-right"><a href="tel:+14158458163">
-      <picture>
-        <source 
-        media="(max-width: 1400px)"
-        srcset="/assets/mobile/phone.png?v=20250826-235823">
-
-      <img 
-    src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-    alt="Call"
-    width="36" 
-    height="36"
-    decoding="async" 
-    id="phone-icon">
-      </picture>
-  </a>
-    </div>
+              <div class="mobile-header-slot-right">
+                <a
+                  href="tel:+14158458163"
+                  class="mobile-header-phone"
+                >
+                  <picture>
+                    <source 
+                      media="(max-width: 1400px)"
+                      srcset="/assets/mobile/phone.png?v=20250904-061638">
+                    <img 
+                      src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                      alt="Call"
+                      width="36" 
+                      height="36"
+                      decoding="async">
+                  </picture>
+                </a>
+              </div>
 
   </header>
 
-  <div class="mobile-menu" id="mobileMenu">
-    <nav>
-      <a href="/services">Services</a>
-      <a href="/quote">Get a Quote</a>
-      <a href="/pilot-directory">Pilot Directory</a>
-      <a href="/join-pilot-roster">Join Pilot Roster</a>
-      <a href="/about">About</a>
-      <a href="/past-deliveries">Past Deliveries</a>
-    </nav>
-  </div>
+<div class="mobile-menu" id="mobileMenu" hidden aria-hidden="true">
+  <nav class="mobile-nav" aria-label="Mobile primary">
+    <a href="/services">Services</a>
+    <a href="/quote">Get a Quote</a>
+    <a href="/pilot-directory">Pilot Directory</a>
+    <a href="/join-pilot-roster">Join Pilot Roster</a>
+    <a href="/about">About</a>
+    <a href="/past-deliveries">Past Deliveries</a>
+  </nav>
 </div>
 
-<main>
+</div>
+
+<main id="main"> 
   
   <!--DESKTOP-ONLY DIV-->
   <!--DESKTOP-ONLY DIV-->
   <!--DESKTOP-ONLY DIV-->
 
 <div class="desktop-only">
-  <div class="header-pad" style="padding-top: 149px;"></div>
+  <div class="header-pad"></div>
 
   <!-- FLEX ROW: left | core | right -->
   <div class="desk-index-main-flex">
@@ -197,7 +197,7 @@
       <!-- HERO WRAPPER (must contain the services overlay) -->
       <div class="desk-hero-image-wrapper">
         <picture>
-          <source srcset="/assets/matte8.jpg?v=20250826-235823" media="(min-width: 1401px)">
+          <source srcset="/assets/matte8.jpg?v=20250904-061638" media="(min-width: 1401px)">
           <img
             class="desk-hero-matte"
             src="data:image/gif;base64,R0lGODlhAQABAAAAACw="
@@ -214,61 +214,71 @@
     <!-- Prevent loading on mobile/tablet: serve a 1x1 transparent source there -->
     <source
       media="(max-width: 1400px)"
-      srcset="data:image/gif;base64, R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==?v=20250826-235823"
-      type="image/gif" />
+      srcset="data:image/gif;base64, R0lGODlhAQABAAAAACw=?v=20250904-061638"
+      type="image/gif">
     <img
       class="desk-index-cta-img"
-      src="/assets/quote-sign.png?v=20250826-235823"
+      src="/assets/quote-sign.png?v=20250904-061638"
       alt="Get a fast quote"
       decoding="async"
-      fetchpriority="low" />
+      fetchpriority="low">
   </picture>
 </a>
 
-        <div class="desk-hero-tagline-wrap">
-          <h1 class="desk-hero-tagline">We bring aircraft<br> to their new homes</h1>
-        </div>
+    <div class="desk-hero-tagline-wrap">
+      <h1 class="desk-hero-tagline">We bring aircraft<br> to their new homes</h1>
+    </div>
+    <div class="desk-index-services">
 
-        <!-- SERVICES OVERLAY (both rows restored) -->
-        <div class="desk-index-services">
-          <div class="desk-index-services-inner">
-            <div class="desk-index-service-column">
+      <section class="desk-index-services-inner" aria-label="Our Services">
 
-              <!-- SERVICE ROW 1 -->
-              <div class="desk-index-service">
-                <img
-                  class="desk-index-thumb"
-                  src="/assets/index-key-200px.jpg?v=20250826-235823"
-                  alt="Ferry Flights"
-                >
-                <div class="desk-index-text">
-                  <div class="desk-index-headline">FERRY FLIGHTS</div>
-                  <div class="desk-index-description">
-                    Nearly any aircraft. To nearly every destination.
-                  </div>
-                </div>
-              </div>
-
-              <!-- SERVICE ROW 2 -->
-              <div class="desk-index-service">
-                <img
-                  class="desk-index-thumb"
-                  src="/assets/services/containerize-no-title-320w.png?v=20250826-235823"
-                  alt="Container Shipping"
-                >
-                <div class="desk-index-text">
-                  <div class="desk-index-headline">CONTAINER SHIPPING</div>
-                  <div class="desk-index-description">
-                    For light aircraft: safe &amp; low-cost.
-                  </div>
-                </div>
-              </div>
-
-            </div>
+        <article class="desk-index-service">
+          <a 
+            class="desk-index-thumbwrap"
+            href="/services"
+          >
+            <img 
+              class="desk-index-thumb"
+              src="/assets/index-key-200px.jpg?v=20250904-061638"
+              alt="Ferry Flights"
+              style="display: block; width: clamp(150px, calc(-45px + 13vw), 215px);"            >
+          </a>
+          <div class="desk-index-content">
+            <p class="desk-index-title">
+              <a 
+                style="text-decoration: none; color: inherit;"
+                href="/services">FERRY FLIGHTS
+              </a>
+            </p>
+            <p class="desk-index-description">Nearly any aircraft. To nearly every destination.</p>
           </div>
-        </div>
-  
-      </div>
+        </article>
+
+        <article class="desk-index-service">
+          <a 
+            class="desk-index-thumbwrap"
+            href="/services"
+          >
+            <img 
+              class="desk-index-thumb"
+              src="/assets/services/containerize-no-title-320w.png?v=20250904-061638"
+              alt="Container Shipping">
+          </a>
+          <div class="desk-index-content">
+            <p class="desk-index-title">
+              <a style="text-decoration: none; color: inherit;" 
+                 href="/services">CONTAINER SHIPPING
+              </a>
+            </p>
+            <p class="desk-index-description">For light aircraft: safe &amp; low-cost.</p>
+          </div>
+        </article>
+
+      </section>
+
+    </div>
+  </div>
+
     
       <div class="desktop-bottom-bleed"></div>
       <!-- rest of /index content... -->
@@ -276,7 +286,7 @@
 
     <!-- Right bleed inside the flex row -->
     <div class="main-bleed-right">
-      <img src="/assets/bleed-patch.png?v=20250826-235823" alt="patch" class="bleed-right-patch">
+      <img src="/assets/bleed-patch.png?v=20250904-061638" alt="patch" class="bleed-right-patch">
     </div>
   </div>
 </div>
@@ -296,7 +306,7 @@
 <div class="index-mob-main">
   
 <picture class="index-mob-pad">
-  <source srcset="/assets/mobile/mob-index-mobilehero-320w.jpg?v=20250826-235823 320w, /assets/mobile/mob-index-mobilehero-640w.jpg?v=20250826-235823 640w, /assets/mobile/mob-index-mobilehero-640w@2x.jpg?v=20250826-235823 1280w"
+  <source srcset="/assets/mobile/mob-index-mobilehero-320w.jpg?v=20250904-061638 320w, /assets/mobile/mob-index-mobilehero-640w.jpg?v=20250904-061638 640w, /assets/mobile/mob-index-mobilehero-640w@2x.jpg?v=20250904-061638 1280w"
           sizes="(max-width: 480px) 320px,
                  (max-width: 768px) 640px,
                  100vw"
@@ -313,7 +323,7 @@
 
 <a href="/services" class="mob-index-service-link">
   <div class="mob-index-service" style="padding-bottom: 10px;">
-    <img src="/assets/index-key-200px.jpg?v=20250826-235823" alt="Ferry Flights" class="mob-index-imgborder" width="200" height="150" decoding="async">
+    <img src="/assets/index-key-200px.jpg?v=20250904-061638" alt="Ferry Flights" class="mob-index-imgborder" width="200" height="150" decoding="async">
     <div class="mob-index-service-text">
       <div class="mob-index-headline">FERRY FLIGHTS</div>
       <div class="mob-index-description">Nearly any aircraft.<br> To nearly every destination.</div>
@@ -324,7 +334,7 @@
 <a href="/services" class="mob-index-service-link">
   <div class="mob-index-service">
     <div class="mob-index-imgbg-wrap">
-  <img src="/assets/services/containerize-no-title-320w.png?v=20250826-235823" alt="Container Shipping" class="mob-index-imgbg-img" width="300" height="155" decoding="async">
+  <img src="/assets/services/containerize-no-title-320w.png?v=20250904-061638" alt="Container Shipping" class="mob-index-imgbg-img" width="300" height="155" decoding="async">
 </div>
 
 <div class="mob-index-service-text">
@@ -336,8 +346,8 @@
 
   <!-- Quote Button -->
     <a style="text-align: center;" href="/quote">
-      <img src="/assets/quote-button-transp.png?v=20250826-235823"
-           srcset="/assets/quote-button-transp-320w.png?v=20250826-235823 320w, /assets/quote-button-transp-640w.png?v=20250826-235823 640w"
+      <img src="/assets/quote-button-transp.png?v=20250904-061638"
+           srcset="/assets/quote-button-transp-320w.png?v=20250904-061638 320w, /assets/quote-button-transp-640w.png?v=20250904-061638 640w"
            sizes="(
            max-width: 480px) 320px, (max-width: 768px) 640px"
            loading="lazy"
@@ -353,7 +363,7 @@
 
 </main>
 
-<script src="/script.js?v=20250826-235823" defer></script>
+<script src="/script.js?v=20250904-061638" defer></script>
 
 
 </body>

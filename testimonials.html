@@ -8,19 +8,19 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="Aircraft Delivery">
-  <meta name="ads-ver" content="20250826-235823">
+  <meta name="ads-ver" content="?v=20250826-235823">
 
   <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=20250826-235823">
-  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=20250826-235823">
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=20250826-235823">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=20250904-061638">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=20250904-061638">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=20250904-061638">
   <link rel="manifest" href="/site.webmanifest">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
 
-<link rel="preload" href="/style.css?v=20250826-235823" as="style">
-<link rel="stylesheet" href="/style.css?v=20250826-235823">
-<link rel="preload" href="/script.js?v=20250826-235823" as="script">
+<link rel="preload" href="/style.css?v=20250904-061638" as="style">
+<link rel="stylesheet" href="/style.css?v=20250904-061638">
+<link rel="preload" href="/script.js?v=20250904-061638" as="script">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,90 +58,88 @@
 </div>
 
 <div class="mobile-only">
-  <header class="mobile-header">
+       <header class="mobile-header">
 
-    <div class="mobile-header-slot-left">
-      <picture>
-        <source
-        media="(max-width: 1400px)"
-        srcset="/assets/mobile/burger.png?v=20250826-235823">
+<div class="mobile-header-slot-left">
+  <button
+    id="hamburger-icon"
+    class="mobile-burger-proxy"
+    type="button"
+    aria-label="Open menu"
+    aria-expanded="false"
+    aria-controls="mobile-menu"
+    data-burger-proxy>
+    <picture>
+      <source 
+        media="(max-width: 1400px)" 
+        srcset="/assets/mobile/burger.png?v=20250904-061638">
+      <img
+        src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+        alt="aria-label-active" 
+        width="50"
+        height="39"
+        decoding="async">
+    </picture>
+  </button>
+</div>
 
-      <img 
-    src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-    alt="Menu"
-    width="50" 
-    height="39"
-    decoding="async" 
-    id="hamburger-icon">
-      </picture>
-    </div>
+             <div class="mobile-header-slot-center">
+               <a 
+                 href="/" 
+                 class="mobile-header-logo" 
+                 
+                 aria-label="Home"
+               >
+                  <picture>
+                    <source 
+                      media="(max-width: 750px)"
+                      srcset="/assets/mobile/mobile-logo-v2.png?v=20250904-061638">
+                    <source 
+                      media="(min-width: 751px) and (max-width: 1400px)"
+                      srcset="/assets/mobile/mobile-logo-90.png?v=20250904-061638">
+                    <img
+                      src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                      alt="Aircraft Delivery Solutions"
+                      width="300" 
+                      height="148" 
+                      decoding="async">
+                  </picture>
+                </a>
+              </div>
 
-    <div class="mobile-logo" id="mobile-logo">
-      <a href="/">
-        <picture>
-          <source
-          media="(max-width: 750px)"
-          srcset="/assets/mobile/mobile-logo-v2.png?v=20250826-235823">
-
-                <img 
-    src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-    alt="mobile logo"
-    width="300" 
-    height="148"
-    decoding="async"> 
-        </picture>
-</a>
-    </div>
-
-    <div class="mobile-logo-90" id="mobile-logo-90">
-      <a href="/">
-               <picture>
-          <source
-          media="(min-width: 751px) and (max-width: 1400px)"
-          srcset="/assets/mobile/mobile-logo-90.png?v=20250826-235823">
-
-                <img 
-    src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-    alt="mobile logo"
-    width="300" 
-    height="116"
-    decoding="async"> 
-        </picture> 
-      </a>
-    </div>
-
-    <div class="mobile-header-slot-right"><a href="tel:+14158458163">
-      <picture>
-        <source 
-        media="(max-width: 1400px)"
-        srcset="/assets/mobile/phone.png?v=20250826-235823">
-
-      <img 
-    src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-    alt="Call"
-    width="36" 
-    height="36"
-    decoding="async" 
-    id="phone-icon">
-      </picture>
-  </a>
-    </div>
+              <div class="mobile-header-slot-right">
+                <a
+                  href="tel:+14158458163"
+                  class="mobile-header-phone"
+                >
+                  <picture>
+                    <source 
+                      media="(max-width: 1400px)"
+                      srcset="/assets/mobile/phone.png?v=20250904-061638">
+                    <img 
+                      src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                      alt="Call"
+                      width="36" 
+                      height="36"
+                      decoding="async">
+                  </picture>
+                </a>
+              </div>
 
   </header>
-  <div class="mobile-menu" id="mobileMenu">
-    <nav>
-      <a href="/services">Services</a>
-      <a href="/quote">Get a Quote</a>
-      <a href="/pilot-directory">Pilot Directory</a>
-      <a href="/join-pilot-roster">Join Pilot Roster</a>
-      <a href="/about">About</a>
-      <a href="/past-deliveries">Past Deliveries</a>
-    </nav>
-  </div>
+<div class="mobile-menu" id="mobileMenu" hidden aria-hidden="true">
+  <nav class="mobile-nav" aria-label="Mobile primary">
+    <a href="/services">Services</a>
+    <a href="/quote">Get a Quote</a>
+    <a href="/pilot-directory">Pilot Directory</a>
+    <a href="/join-pilot-roster">Join Pilot Roster</a>
+    <a href="/about">About</a>
+    <a href="/past-deliveries">Past Deliveries</a>
+  </nav>
 </div>
 
 
-<main>
+<main id="main">
 
   <div class="desktop-only" style="padding-top: 145px;"> 
 <p style="font-size: 2rem; padding-top: 200px;">Hi. You've accidentally reached a mobile-only page. Please select one of the navigation options in the top-left of the page. </p> 
@@ -151,7 +149,7 @@
  
     <div class="header-pad"></div>
   <div class="testimonials-main" style="display: flex; flex-direction: column; align-items: center;">
-<div class="page-title-brick page-title-brick-centered" style="margin-bottom: 15px;">TESTIMONIALS
+<div class="page-title-brick page-title-brick-centered" style="margin-bottom: 15px;"><h1>TESTIMONIALS</h1>
 </div>
 
   <!-- Testimonial 1 -->
@@ -476,8 +474,14 @@
 </section>
 
 <div class="mob-testim-freeze" role="navigation" aria-label="Testimonials navigation (mobile)">
-  <a href="/quote" style="text-decoration: none;">
-    <button class="testimonials-button">Get a Quote</button></a>
+  <a href="/quote">
+    <button 
+      class="testimonials-button"
+      style="padding: 15px 0;">Get A Quote
+    </button>
+  </a>
+   
+  
 
   <a href="/past-deliveries" style="text-decoration: none;">
     <button class="testimonials-button">
@@ -486,7 +490,7 @@
 </div>
 </main>
 
-<script src="/script.js?v=20250826-235823" defer></script>
+<script src="/script.js?v=20250904-061638" defer></script>
 </body>
 </html>
 

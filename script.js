@@ -44,6 +44,66 @@
   });
 })();
 
+// --- Expenses toggle: hardwired, capture-phase, independent of other code ---
+(() => {
+  const BTN_ID = 'quote-mob-expenses-btn';
+  const PANEL_ID = 'quote-mob-expenses-container';
+
+  // Prove we actually wired (check for this line in console after reload)
+  console.log('[expenses] capture handler wired');
+
+  const resolve = () => {
+    const btn = document.getElementById(BTN_ID);
+    const panel = document.getElementById(PANEL_ID);
+    return btn && panel ? { btn, panel } : null;
+  };
+
+  // Initialize labels/state once DOM is ready enough
+  document.addEventListener('DOMContentLoaded', () => {
+    const refs = resolve();
+    if (!refs) return;
+    const { btn, panel } = refs;
+    const OPEN_LABEL  = btn.dataset.labelOpen   || 'Hide Aircraft Expenses';
+    const CLOSE_LABEL = btn.dataset.labelClosed || 'Show Aircraft Expenses';
+    const startsOpen = panel.classList.contains('is-open') && !panel.hasAttribute('hidden');
+    btn.setAttribute('aria-expanded', String(startsOpen));
+    btn.textContent = startsOpen ? OPEN_LABEL : CLOSE_LABEL;
+  });
+
+  // Capture-phase delegate so nothing can swallow or reverse the click
+  document.addEventListener('click', (e) => {
+    const hit = e.target.closest?.(`#${BTN_ID}`);
+    if (!hit) return;
+
+    // Own the event
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation?.();
+
+    const refs = resolve();
+    if (!refs) return;
+    const { btn, panel } = refs;
+
+    const OPEN_LABEL  = btn.dataset.labelOpen   || 'Hide Aircraft Expenses';
+    const CLOSE_LABEL = btn.dataset.labelClosed || 'Show Aircraft Expenses';
+
+    // Toggle open/closed
+    const next = btn.getAttribute('aria-expanded') !== 'true';
+    btn.setAttribute('aria-expanded', String(next));
+    btn.textContent = next ? OPEN_LABEL : CLOSE_LABEL;
+
+    panel.classList.toggle('is-open', next);
+    panel.toggleAttribute('hidden', !next);
+
+    // If some CSS still forces it hidden, override just for open state
+    if (next && getComputedStyle(panel).display === 'none') {
+      panel.style.setProperty('display', 'block', 'important');
+    }
+    if (!next) {
+      panel.style.removeProperty('display');
+    }
+  }, true);
+})();
 
 
 
@@ -197,18 +257,6 @@ document.addEventListener("click", function (e) {
   });
 
 
-
-
-  // === MOBILE PAST DELIVERIES THUMBNAIL TOGGLE ===
-  document.querySelectorAll(".mob-past-deliv-thumb").forEach(img => {
-    img.addEventListener("click", function () {
-      const textRow = this.closest("tr").nextElementSibling;
-      if (textRow && textRow.classList.contains("mob-past-deliv-text-row")) {
-        textRow.classList.toggle("open");
-      }
-    });
-  });
-
   // === RESTORE SCROLL POSITION ===
   if (window.location.pathname === "/past-deliveries") {
     const savedScroll = localStorage.getItem("scrollPosition");
@@ -229,39 +277,6 @@ document.addEventListener("click", function (e) {
 
 
   
-  // === MOBILE MENU HAMBURGER TOGGLE ===
-  const hamburger = document.getElementById("hamburger-icon");
-  const mobileMenu = document.getElementById("mobileMenu");
-
-  if (hamburger && mobileMenu) {
-    hamburger.addEventListener("click", () => {
-      mobileMenu.classList.toggle("show");
-      hamburger.src = mobileMenu.classList.contains("show")
-        ? "/assets/mobile/mobile-close-menu.svg"
-        : "/assets/mobile/burger.png";
-    });
-  } // <-- closes the hamburger && mobileMenu if-block
-  ;
-
-document.addEventListener("DOMContentLoaded", () => {
-  // === BODY CLASS FOR MOBILE ===
-  if (window.innerWidth <= 768) {
-    document.body.classList.add("mobile");
-  }
-
-  // === Hide menu on outside click ===
-  document.addEventListener("click", (e) => {
-    if (
-      mobileMenu.classList.contains("show") &&
-      !mobileMenu.contains(e.target) &&
-      !hamburger.contains(e.target)
-    ) {
-      mobileMenu.classList.remove("show");
-      hamburger.src = "/assets/mobile/burger.png";
-    }
-  });
-});
-
 
 // phone-wiggle.js
 document.addEventListener("DOMContentLoaded", () => {
@@ -353,34 +368,13 @@ document.addEventListener("DOMContentLoaded", function () {
   startSlider();
 });
 
-const zoomOverlay = document.getElementById("mob-past-deliv-modal");
-const zoomImg = document.getElementById("mob-past-deliv-img");
-const zoomCaption = document.getElementById("mob-past-deliv-caption");
 
-if (zoomOverlay && zoomImg && zoomCaption) {
-  zoomOverlay.addEventListener("click", function (e) {
-    zoomOverlay.style.display = "none";
-    zoomImg.removeAttribute("src");
-    zoomImg.removeAttribute("srcset");
-    zoomCaption.textContent = "";
-  });
 
-  const thumbs = document.querySelectorAll("img[data-full]");
-  thumbs.forEach((thumb) => {
-    thumb.addEventListener("click", function () {
-      zoomImg.src = thumb.getAttribute("data-full");
-      zoomImg.srcset = thumb.getAttribute("data-srcset") || "";
-      zoomImg.setAttribute("sizes", "100vw");
-      const captionText = thumb.nextElementSibling?.textContent || "";
-      zoomCaption.textContent = captionText;
-      zoomOverlay.style.display = "flex";
-    });
-  });
-}
 
 
 
 //MOB ABOUT MODAL ZOOM
+// MOB ABOUT MODAL ZOOM
 document.addEventListener("DOMContentLoaded", function () {
   const modalOverlay = document.getElementById("mob-about-zoom-overlay");
   const modalImg     = document.getElementById("mob-about-zoom-img");
@@ -389,24 +383,108 @@ document.addEventListener("DOMContentLoaded", function () {
   // If this page has no modal skeleton, bail out silently.
   if (!modalOverlay || !modalImg || !modalCaption) return;
 
-  // Open on thumbnail click (uses srcset candidate if present)
-  document.querySelectorAll(".mob-about-thumb").forEach(function (thumb) {
-    thumb.addEventListener("click", function () {
-      modalImg.src = thumb.currentSrc || thumb.src;
+  // NEW — panel, bg, close buttons, opener tracking
+  const panel      = modalOverlay.querySelector(".mob-about-zoom-content") || modalOverlay; // NEW
+  const overlayBg  = modalOverlay.querySelector(".mob-about-zoom-overlay-bg");              // NEW
+  const closeBtns  = modalOverlay.querySelectorAll("[data-modal-close], .mob-about-zoom-close"); // NEW
+  let lastFocus    = null;                                                                  // NEW
+
+  // NEW — helpers for focus trap
+  const isVisible = el => !!el && el.offsetParent !== null && getComputedStyle(el).visibility !== "hidden"; // NEW
+  const getTabbables = (root) => {                                                         // NEW
+    const SEL = [
+      "a[href]","area[href]","button:not([disabled])","input:not([disabled])",
+      "select:not([disabled])","textarea:not([disabled])","[tabindex]:not([tabindex='-1'])"
+    ].join(",");
+    return Array.from(root.querySelectorAll(SEL)).filter(isVisible);
+  };
+
+  // Open on thumbnail click (uses best available src)
+  document.querySelectorAll(".mob-about-thumb, [data-modal-open='mob-about-zoom']").forEach(function (thumb) { // CHANGED
+    // NEW — make triggers keyboardable
+    if (!thumb.hasAttribute("role")) thumb.setAttribute("role", "button");               // NEW
+    if (!thumb.hasAttribute("tabindex")) thumb.tabIndex = 0;                             // NEW
+
+    const open = () => {                                                                  // NEW
+      lastFocus = thumb;                                                                  // NEW
+
+      // Prefer explicit zoom src, then currentSrc/src
+      const fullSrc =
+        thumb.getAttribute("data-zoom-src") ||
+        thumb.getAttribute("data-full") ||
+        thumb.currentSrc || thumb.src;                                                   // NEW
+
+      // Prevent browser from selecting a tiny srcset for the zoom
+      modalImg.removeAttribute("srcset");                                                // NEW
+      modalImg.removeAttribute("sizes");                                                 // NEW
+      modalImg.src = fullSrc;                                                            // CHANGED
+
+      // Better caption discovery: nearest caption > data-caption > alt
+      const nearbyCapEl =
+        thumb.closest(".img-wrap")?.querySelector(".mob-about-img-caption") ||
+        thumb.nextElementSibling;                                                        // NEW
       modalCaption.textContent =
-        (thumb.nextElementSibling?.textContent?.trim()) ||
-        thumb.getAttribute("alt") ||
-        "";
-      modalOverlay.style.display = "flex";
+        (nearbyCapEl?.textContent?.trim()) ||
+        thumb.getAttribute("data-caption") ||
+        thumb.getAttribute("alt") || "";                                                // CHANGED
+
+      // Show overlay (keep your display toggle, add semantic + body lock)
+      modalOverlay.style.display = "flex";                                               // (yours)
+      modalOverlay.classList.add("is-open");                                             // NEW
+      modalOverlay.removeAttribute("hidden");                                            // NEW
+      document.body.classList.add("body--modal-open");                                   // NEW
+
+      // Focus panel for screen readers / keyboard
+      if (!panel.hasAttribute("tabindex")) panel.setAttribute("tabindex", "-1");         // NEW
+      panel.focus();                                                                     // NEW
+    };
+
+    thumb.addEventListener("click", function (e) { e.preventDefault(); open(); });        // CHANGED
+    // NEW — keyboard activation
+    thumb.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }
     });
   });
 
-  // Close when clicking the dim background
+  // NEW — unified close routine
+  function closeOverlay() {                                                               // NEW
+    modalOverlay.classList.remove("is-open");
+    modalOverlay.setAttribute("hidden", "");
+    modalOverlay.style.display = "none"; // keep original mechanism in sync
+    document.body.classList.remove("body--modal-open");
+    modalImg.removeAttribute("src");
+    modalCaption.textContent = "";
+    if (lastFocus && document.contains(lastFocus)) lastFocus.focus();
+    lastFocus = null;
+  }
+
+  // Close when clicking the dim background (your original logic kept; routed to unified close)
   modalOverlay.addEventListener("click", function (e) {
     if (e.target === e.currentTarget) {
-      modalOverlay.style.display = "none";
-      modalImg.removeAttribute("src");
-      modalCaption.textContent = "";
+      closeOverlay();                                                                     // CHANGED
+    }
+  });
+
+  // NEW — also close if clicking overlay inner bg or any explicit close control
+  if (overlayBg) {
+    overlayBg.addEventListener("click", function (e) { e.preventDefault(); closeOverlay(); }); // NEW
+  }
+  closeBtns.forEach(btn => btn.addEventListener("click", (e) => { e.preventDefault(); closeOverlay(); })); // NEW
+
+  // NEW — Esc to close + focus trap
+  document.addEventListener("keydown", function (e) {                                     // NEW
+    // If overlay isn't open, ignore
+    const open = !modalOverlay.hasAttribute("hidden") || modalOverlay.style.display === "flex";
+    if (!open) return;
+
+    if (e.key === "Escape") { e.preventDefault(); closeOverlay(); return; }
+
+    if (e.key === "Tab") {
+      const tabs = getTabbables(panel);
+      if (tabs.length === 0) { e.preventDefault(); panel.focus(); return; }
+      const first = tabs[0], last = tabs[tabs.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     }
   });
 });
@@ -442,50 +520,115 @@ if (mobTotalSlides > 1) {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  const HEADER_OFFSET = 165;
+  const BTN_ID = 'quote-mob-expenses-btn';
+  const PANEL_ID = 'quote-mob-expenses-container';
 
-  const btn = document.getElementById('quote-mob-expenses-btn');
-  const container = document.getElementById('quote-mob-expenses-container');
-  if (!btn || !container) return;
+  const btn = document.getElementById(BTN_ID);
+  const panel = document.getElementById(PANEL_ID);
+  if (!btn || !panel) return;
 
-  btn.addEventListener('click', () => {
-    const isOpen = container.classList.toggle('is-open'); // <-- matches CSS
-    btn.setAttribute('aria-expanded', String(isOpen));
-    btn.textContent = isOpen ? 'Hide Expense Details' : 'Show Aircraft Expenses';
+  const LABEL_OPEN   = btn.dataset.labelOpen   || 'Hide Aircraft Expenses';
+  const LABEL_CLOSED = btn.dataset.labelClosed || 'Show Aircraft Expenses';
 
-    if (isOpen) {
-      requestAnimationFrame(() => {
-        const top = btn.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
-        const maxTop = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-        window.scrollTo({ top: Math.min(top, maxTop), behavior: 'smooth' });
-      });
+  // Ensure a known starting state
+  const startsOpen = panel.classList.contains('is-open') && !panel.hasAttribute('hidden');
+  btn.setAttribute('aria-expanded', String(startsOpen));
+  btn.textContent = startsOpen ? LABEL_OPEN : LABEL_CLOSED;
+
+  // Capture-phase, specific to this ID; prevents other listeners from reversing it
+  document.addEventListener('click', function onCapture(e){
+    const hit = e.target.closest(`#${BTN_ID}`);
+    if (!hit) return;
+
+    e.preventDefault();
+    e.stopPropagation();
+    if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    const next = !isOpen;
+
+    // 1) Button state + label
+    btn.setAttribute('aria-expanded', String(next));
+    btn.textContent = next ? LABEL_OPEN : LABEL_CLOSED;
+
+    // 2) Panel state — class AND [hidden] kept in sync
+    panel.classList.toggle('is-open', next);
+    panel.toggleAttribute('hidden', !next);
+
+    // 3) Last-resort: defeat any lingering hide if present
+    if (next && getComputedStyle(panel).display === 'none') {
+      panel.style.setProperty('display', 'block', 'important');
     }
-  });
+    if (!next) {
+      panel.style.removeProperty('display');
+    }
+  }, true);
 });
 
 
 
-document.addEventListener('DOMContentLoaded', () => {
-  const HEADER_OFFSET = 165;
 
-  const btn = document.getElementById('quote-mob-dispatch-btn');
-  const sec = document.getElementById('quote-mob-dispatch-content');
-  if (!btn || !sec) return;
 
-  btn.addEventListener('click', () => {
-    const isOpen = sec.classList.toggle('is-open');
-    btn.setAttribute('aria-expanded', String(isOpen));
-    btn.textContent = isOpen ? 'Hide Dispatch Services' : 'Show Dispatch Services';
 
-    if (isOpen) {
-      requestAnimationFrame(() => {
-        const top = btn.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
-        const maxTop = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-        window.scrollTo({ top: Math.min(top, maxTop), behavior: 'smooth' });
-      });
-    }
+
+// --- Dispatch toggle: hardwired, capture-phase (mirrors Expenses) ---
+(() => {
+  const BTN_ID = 'quote-mob-dispatch-btn';
+  const PANEL_ID = 'quote-mob-dispatch-content';
+
+  console.log('[dispatch] capture handler wired');
+
+  const resolve = () => {
+    const btn = document.getElementById(BTN_ID);
+    const panel = document.getElementById(PANEL_ID);
+    return btn && panel ? { btn, panel } : null;
+  };
+
+  // Initialize labels/state on load
+  document.addEventListener('DOMContentLoaded', () => {
+    const refs = resolve();
+    if (!refs) return;
+    const { btn, panel } = refs;
+    const OPEN_LABEL  = btn.dataset.labelOpen   || 'Hide Dispatch Details';
+    const CLOSE_LABEL = btn.dataset.labelClosed || 'Show Dispatch Details';
+    const startsOpen = panel.classList.contains('is-open') && !panel.hasAttribute('hidden');
+    btn.setAttribute('aria-expanded', String(startsOpen));
+    btn.textContent = startsOpen ? OPEN_LABEL : CLOSE_LABEL;
   });
-});
+
+  // Capture-phase delegate so no other handler cancels or reverses it
+  document.addEventListener('click', (e) => {
+    const hit = e.target.closest?.(`#${BTN_ID}`);
+    if (!hit) return;
+
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation?.();
+
+    const refs = resolve();
+    if (!refs) return;
+    const { btn, panel } = refs;
+
+    const OPEN_LABEL  = btn.dataset.labelOpen   || 'Hide Dispatch Details';
+    const CLOSE_LABEL = btn.dataset.labelClosed || 'Show Dispatch Details';
+
+    const next = btn.getAttribute('aria-expanded') !== 'true';
+    btn.setAttribute('aria-expanded', String(next));
+    btn.textContent = next ? OPEN_LABEL : CLOSE_LABEL;
+
+    panel.classList.toggle('is-open', next);
+    panel.toggleAttribute('hidden', !next);
+
+    // Last-resort CSS override if something still forces it hidden
+    if (next && getComputedStyle(panel).display === 'none') {
+      panel.style.setProperty('display', 'block', 'important');
+    }
+    if (!next) {
+      panel.style.removeProperty('display');
+    }
+  }, true);
+})();
+
 
 
 
@@ -510,85 +653,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Scope: ONLY the reqfaq accordions
-  const groups = document.querySelectorAll(".join-accordion-group-reqfaq");
-  if (!groups.length) return;
-
-  groups.forEach((group) => {
-    const toggles = group.querySelectorAll(".join-accordion-toggle-reqfaq");
-
-    toggles.forEach((btn) => {
-      if (btn.dataset.wired === "true") return; // avoid double-binding
-      btn.dataset.wired = "true";
-
-      // Find the associated panel:
-      // 1) aria-controls target, else 2) next sibling .join-accordion-panel-reqfaq
-      let panel = null;
-      const controlsId = btn.getAttribute("aria-controls");
-      if (controlsId) {
-        try {
-          panel = group.querySelector("#" + CSS.escape(controlsId));
-        } catch {
-          panel = null;
-        }
-      }
-      if (!panel) {
-        const next = btn.nextElementSibling;
-        if (next && next.classList.contains("join-accordion-panel-reqfaq")) panel = next;
-      }
-      if (!panel) return;
-
-      // Normalize initial state from aria-expanded
-      const expanded = btn.getAttribute("aria-expanded") === "true";
-      btn.setAttribute("aria-expanded", expanded ? "true" : "false");
-      if ("hidden" in panel) panel.hidden = !expanded;
-      else panel.style.display = expanded ? "block" : "none";
-
-      btn.addEventListener("click", (e) => {
-        e.stopPropagation();
-
-        const isOpen = btn.getAttribute("aria-expanded") === "true";
-
-        // If this one is open, close ONLY this one and exit.
-        if (isOpen) {
-          btn.setAttribute("aria-expanded", "false");
-          if ("hidden" in panel) panel.hidden = true;
-          else panel.style.display = "none";
-          return; // do not touch the others
-        }
-
-        // Otherwise you're opening this one — close any other open reqfaq accordions in this group.
-        group.querySelectorAll('.join-accordion-toggle-reqfaq[aria-expanded="true"]').forEach((openBtn) => {
-          if (openBtn === btn) return;
-          openBtn.setAttribute("aria-expanded", "false");
-          const otherId = openBtn.getAttribute("aria-controls");
-          let otherPanel = null;
-          if (otherId) {
-            try {
-              otherPanel = group.querySelector("#" + CSS.escape(otherId));
-            } catch {
-              otherPanel = null;
-            }
-          }
-          if (!otherPanel) {
-            const ns = openBtn.nextElementSibling;
-            if (ns && ns.classList.contains("join-accordion-panel-reqfaq")) otherPanel = ns;
-          }
-          if (otherPanel) {
-            if ("hidden" in otherPanel) otherPanel.hidden = true;
-            else otherPanel.style.display = "none";
-          }
-        });
-
-        // Open the clicked one
-        btn.setAttribute("aria-expanded", "true");
-        if ("hidden" in panel) panel.hidden = false;
-        else panel.style.display = "block";
-      });
-    });
-  });
-});
 
 
 // Mobile pay scenarios toggle (table rows)
@@ -691,6 +755,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.getElementById("hamburger-icon"); // header button
   if (!menu || !hamburger) return;
 
+  
   // Ensure an internal close button exists (overlay ✕)
   let closeBtn = document.getElementById("mobileMenuClose");
   if (!closeBtn) {
@@ -702,318 +767,9 @@ document.addEventListener("DOMContentLoaded", () => {
     closeBtn.textContent = "✕";
     menu.prepend(closeBtn);
   }
-
-  const html = document.documentElement;
-  let lockY = 0;
-  const burgerSrc = hamburger.getAttribute("src"); // remember the burger icon
-
-  function freezePage() {
-    lockY = window.scrollY || document.documentElement.scrollTop || 0;
-    html.classList.add("menu-open");
-    document.body.style.position = "fixed";
-    document.body.style.top = `-${lockY}px`;
-    document.body.style.left = "0";
-    document.body.style.right = "0";
-    document.body.style.width = "100%";
-  }
-  function unfreezePage() {
-    html.classList.remove("menu-open");
-    document.body.style.position = "";
-    document.body.style.top = "";
-    document.body.style.left = "";
-    document.body.style.right = "";
-    document.body.style.width = "";
-    window.scrollTo(0, lockY);
-  }
-
-  //function openMenu() {
-    //if (menu.classList.contains("show")) return;
-    //menu.classList.add("show");
-    //hamburger.setAttribute("aria-expanded", "true");
-    //freezePage();
- // }
-function closeMenu() {
-  if (!menu.classList.contains("show")) return;
-  menu.classList.remove("show");
-  if (hamburger) hamburger.setAttribute("aria-expanded", "false");
-  if (typeof burgerSrc !== "undefined" && burgerSrc) {
-    hamburger.setAttribute("src", burgerSrc);
-  }
-  // no body style manipulation here; scroll lock is handled elsewhere
-}
-
-
-  //function toggleMenu() {
-    //if (menu.classList.contains("show")) closeMenu();
-    //else openMenu();
-  //}
-
-  // Wire both controls:
- // hamburger.addEventListener("click", toggleMenu); 
-  closeBtn.addEventListener("click", closeMenu);   // overlay ✕ closes
-
-  // Close when a menu link is tapped
-  menu.addEventListener("click", (e) => {
-    const a = e.target.closest("a");
-    if (a) closeMenu();
-  }, true);
-
-  // Safety: don’t leave page locked if app backgrounds
-  document.addEventListener("visibilitychange", () => {
-    if (document.visibilityState === "hidden") closeMenu();
-  });
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const menu = document.getElementById("mobileMenu");
-  if (!menu) return;
-
-  let savedScrollY = 0;
-
-  const syncScrollLock = () => {
-    const isOpen = menu.classList.contains("show");
-    if (isOpen) {
-      // remember where the user was when the menu opened
-      savedScrollY = window.scrollY || window.pageYOffset;
-      document.documentElement.classList.add("menu-open");
-    } else {
-      document.documentElement.classList.remove("menu-open");
-      // put the user back exactly where they were
-      window.scrollTo(0, savedScrollY);
-    }
-  };
-
-  // Initial sync
-  syncScrollLock();
-
-  // Keep in sync whenever the menu's classes change
-  const obs = new MutationObserver(syncScrollLock);
-  obs.observe(menu, { attributes: true, attributeFilter: ["class"] });
-});
-
-// update ARIA //
-document.addEventListener("DOMContentLoaded", () => {
-  const menu = document.getElementById("mobileMenu");
-  const hbImg = document.getElementById("hamburger-icon");
-  if (!menu || !hbImg) return;
-
-  // Use the real activator if one exists; else fall back to the image
-  const activator = hbImg.closest("button, [role='button'], a[href]") || hbImg;
-
-  // Remove any stale label on the img to avoid confusion when querying
-  if (hbImg !== activator) {
-    hbImg.removeAttribute("aria-label");
-  }
-
-  const updateAria = () => {
-    const isOpen = menu.classList.contains("show");
-    activator.setAttribute("aria-expanded", isOpen ? "true" : "false");
-    activator.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
-  };
-
-  updateAria();
-  new MutationObserver(updateAria).observe(menu, { attributes: true, attributeFilter: ["class"] });
 });
 
 
-
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  const menu = document.getElementById("mobileMenu");
-  const hamburger = document.getElementById("hamburger-icon");
-  if (!menu || !hamburger) return;
-
-  if (!window.__adsEscBound) {
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && menu.classList.contains("show")) {
-        if (typeof hamburger.click === "function") {
-          hamburger.click();       // reuse your existing close path
-        } else {
-          menu.classList.remove("show"); // fallback; observer will sync aria/scroll-lock
-        }
-      }
-    });
-    window.__adsEscBound = true;
-  }
-});
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  const menu = document.getElementById("mobileMenu");
-  const hamburger = document.getElementById("hamburger-icon");
-  if (!menu || !hamburger) return;
-
-  const returnFocusIfClosed = () => {
-    if (menu.classList.contains("show")) return;
-
-    // Prefer a naturally focusable ancestor (button/anchor) if the icon itself isn't
-    let focusEl = hamburger.closest('button, a[href], [tabindex]') || hamburger;
-
-    // If not naturally focusable, give it a temporary tabindex
-    const isNaturallyFocusable = focusEl.matches(
-      'button, a[href], input, select, textarea, [tabindex]'
-    );
-    let addedTabindex = false;
-    if (!isNaturallyFocusable) {
-      focusEl.setAttribute("tabindex", "-1");
-      addedTabindex = true;
-    }
-
-    // Return focus without scrolling the page
-    try {
-      focusEl.focus({ preventScroll: true });
-    } catch (e) {
-      // Fallback for older browsers
-      focusEl.focus();
-    }
-
-    // Clean up the temporary tabindex after focus leaves
-    if (addedTabindex) {
-      const cleanup = () => {
-        focusEl.removeAttribute("tabindex");
-        focusEl.removeEventListener("blur", cleanup);
-      };
-      focusEl.addEventListener("blur", cleanup, { once: true });
-    }
-  };
-
-  // Observe menu open/close
-  new MutationObserver(returnFocusIfClosed).observe(menu, {
-    attributes: true,
-    attributeFilter: ["class"],
-  });
-
-  // Also run once at load in case it's already closed
-  returnFocusIfClosed();
-});
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  const menu = document.getElementById("mobileMenu");
-  const hb = document.getElementById("hamburger-icon");
-  if (!menu || !hb) return;
-
-  // 1) If the hamburger isn't inside a real button/anchor, give it keyboard activation
-  const buttonAncestor = hb.closest("button, a[href]");
-  if (!buttonAncestor) {
-    hb.setAttribute("role", "button");
-    if (!hb.hasAttribute("tabindex")) hb.setAttribute("tabindex", "0");
-    if (!hb.hasAttribute("aria-label")) hb.setAttribute("aria-label", "Menu");
-
-    hb.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();       // prevent page scroll on Space
-        hb.click();               // reuse your existing click handler
-      }
-    });
-  }
-
-  // 2) Focus return: when menu closes, move focus to the actual activator
-  const getActivator = () => buttonAncestor || hb;
-
-  const returnFocusIfClosed = () => {
-    if (menu.classList.contains("show")) return;
-    const target = getActivator();
-
-    // Ensure target is focusable, then focus without scrolling the page
-    if (!target.matches("button, a[href], input, select, textarea, [tabindex]")) {
-      target.setAttribute("tabindex", "-1");
-      target.addEventListener("blur", () => target.removeAttribute("tabindex"), { once: true });
-    }
-    try { target.focus({ preventScroll: true }); } catch { target.focus(); }
-  };
-
-  new MutationObserver(returnFocusIfClosed).observe(menu, {
-    attributes: true,
-    attributeFilter: ["class"],
-  });
-});
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  if (window.__adsFocusOnOpenBound) return; // guard against duplicates
-  window.__adsFocusOnOpenBound = true;
-
-  const menu = document.getElementById("mobileMenu");
-  if (!menu) return;
-
-  const focusIntoMenu = () => {
-    // First focusable thing inside the menu
-// Prefer the first real nav link; exclude obvious Close controls
-const target =
-  // common containers for nav links
-  menu.querySelector('nav a[href], .menu-links a[href], .menu a[href], ul li a[href]') ||
-  // any link that isn't labeled like a close button
-  menu.querySelector('a[href]:not([aria-label*="close" i]):not([data-close]):not([data-role="close"])') ||
-  // fall back to any non-close button
-  menu.querySelector('button:not([aria-label*="close" i]):not([data-close]):not([data-role="close"])') ||
-  // final fallback: the menu itself
-  menu;
-
-
-    let addedTabindex = false;
-    if (target === menu && !menu.hasAttribute("tabindex")) {
-      menu.setAttribute("tabindex", "-1");
-      addedTabindex = true;
-    }
-
-    try {
-      target.focus({ preventScroll: true });
-    } catch {
-      target.focus();
-    }
-
-    if (addedTabindex) {
-      const cleanup = () => {
-        menu.removeAttribute("tabindex");
-        menu.removeEventListener("blur", cleanup);
-      };
-      menu.addEventListener("blur", cleanup, { once: true });
-    }
-  };
-
-  const onClassChange = () => {
-    if (menu.classList.contains("show")) {
-      // Defer so layout/paint finishes before we move focus
-      setTimeout(focusIntoMenu, 0);
-    }
-  };
-
-  new MutationObserver(onClassChange).observe(menu, {
-    attributes: true,
-    attributeFilter: ["class"],
-  });
-});
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  if (window.__adsAriaControlsBound) return;
-  window.__adsAriaControlsBound = true;
-
-  const hb = document.getElementById("hamburger-icon");
-  if (hb && !hb.hasAttribute("aria-controls")) {
-    hb.setAttribute("aria-controls", "mobileMenu");
-  }
-});
-
-
-// make the menu a clear navigation landmark for assistive tech.//
-document.addEventListener("DOMContentLoaded", () => {
-  const menu = document.getElementById("mobileMenu");
-  if (!menu) return;
-
-  // If it's not a <nav>, give it a navigation role.
-  if (menu.tagName !== "NAV" && !menu.hasAttribute("role")) {
-    menu.setAttribute("role", "navigation");
-  }
-  // Give it a readable label if it doesn't have one yet.
-  if (!menu.hasAttribute("aria-label") && !menu.hasAttribute("aria-labelledby")) {
-    menu.setAttribute("aria-label", "Primary");
-  }
-});
 
 //ensure both X buttons announce clearly as “Close menu”.//
 document.addEventListener("DOMContentLoaded", () => {
@@ -1100,80 +856,6 @@ document.addEventListener("DOMContentLoaded", () => {
   new MutationObserver(syncIcon).observe(menu, { attributes: true, attributeFilter: ["class"] });
 });
 
-//Don’t leave focus on the trigger at load (only show rings after keyboard)//
-
-document.addEventListener("DOMContentLoaded", () => {
-  const img = document.getElementById("hamburger-icon");
-  if (!img) return;
-
-  // Prefer the real activator (button/anchor) if it exists
-  const activator = img.closest("button, [role='button'], a[href]") || img;
-
-  // Ensure the activator has aria-controls so our CSS targets it
-  if (!activator.hasAttribute("aria-controls")) {
-    activator.setAttribute("aria-controls", "mobileMenu");
-  }
-
-  // Track input modality
-  let usedKeyboard = false;
-  document.addEventListener("keydown", () => {
-    usedKeyboard = true;
-    document.documentElement.classList.add("user-keyboard");
-  }, true);
-  document.addEventListener("pointerdown", () => {
-    document.documentElement.classList.remove("user-keyboard");
-  }, true);
-
-  // If focus landed on the activator at load (e.g., programmatic focus), and no keyboard yet, blur it.
-  if (document.activeElement === activator && !usedKeyboard) {
-    if (typeof activator.blur === "function") activator.blur();
-  }
-});
-
-//put focus on the hamburger and stop the default skip.//
-document.addEventListener("DOMContentLoaded", () => {
-  const menu = document.getElementById("mobileMenu");
-  const hbImg = document.getElementById("hamburger-icon");
-  if (!menu || !hbImg) return;
-
-  const activator = hbImg.closest("button, [role='button'], a[href]") || hbImg;
-
-  let firstTabHandled = false;
-
-  document.addEventListener(
-    "keydown",
-    (e) => {
-      if (e.key !== "Tab" || firstTabHandled) return;
-
-      const active = document.activeElement;
-      const noRealFocus =
-        active === document.body ||
-        active === document.documentElement ||
-        !active ||
-        active === null;
-
-      // Only “prime” if the menu is closed and there wasn’t a meaningful focus yet
-      if (!menu.classList.contains("show") && noRealFocus) {
-        e.preventDefault();
-        // ensure the activator is focusable, then focus it
-        if (!activator.matches("button, a[href], input, select, textarea, [tabindex]")) {
-          activator.setAttribute("tabindex", "-1");
-          activator.addEventListener("blur", () => activator.removeAttribute("tabindex"), {
-            once: true,
-          });
-        }
-        try {
-          activator.focus({ preventScroll: true });
-        } catch {
-          activator.focus();
-        }
-      }
-
-      firstTabHandled = true; // only intercept once
-    },
-    true // capture so it runs before page handlers
-  );
-});
 
 //Android-only outline for .mob-index-headline//
 document.addEventListener("DOMContentLoaded", () => {
@@ -1181,6 +863,8 @@ document.addEventListener("DOMContentLoaded", () => {
     document.documentElement.classList.add("android");
   }
 });
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('quote-form'); // updated id
@@ -1410,19 +1094,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// SUBSTITUTING FOR INLINE ONCLICK
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".join-mob-copy-button").forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      if (typeof window.copyJoinTemplate === "function") {
-        window.copyJoinTemplate(e);
-      } else {
-        console.warn("copyJoinTemplate() is not defined.");
-      }
-    });
-  });
-});
-
 
 document.addEventListener("DOMContentLoaded", () => {
   const report = document.getElementById("reportLink");
@@ -1636,146 +1307,255 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// DESK-HEADER SCRIPT — SAFE ES5 BUILD (01–00 policy; grow-only; singleton; timeout; dedupe)
+// DESK-HEADER SCRIPT — ROBUST BUILD
+// 01–00 policy (desktop ≥1401px); ES5-safe; singleton; late-start; versioned fetch;
+// timeout; grow-only; dedupe; live height CSS var; robust aria-current; bfcache; observer; custom events.
 (function () {
   if (window.__ADS_DESK_HEADER_INIT__) return;
   window.__ADS_DESK_HEADER_INIT__ = true;
 
-  document.addEventListener('DOMContentLoaded', function () {
-    var DESK_MIN = 1401;
-    var mql = window.matchMedia('(min-width: ' + DESK_MIN + 'px)');
-    var loaded = false;
+  // ---------- config & state ----------
+  var DESK_MIN = 1401; // 01–00: desktop min
+  var mql = window.matchMedia('(min-width:' + DESK_MIN + 'px)');
+  var loaded = false;  // prevents duplicate fetches
 
-    // Read deploy/version for cache-busting
-    function getAdsVer() {
-      var m = document.querySelector('meta[name="ads-ver"]');
-      return (m && m.content) ? m.content : '';
-    }
-
-    // fetch timeout utility (ES5 safe)
-    function fetchWithTimeout(url, ms) {
-      var controller = (typeof AbortController !== 'undefined') ? new AbortController() : null;
-      var signal = controller ? controller.signal : undefined;
-      var timeoutId = setTimeout(function () {
-        try { if (controller && typeof controller.abort === 'function') controller.abort(); } catch (e) {}
-      }, ms);
-      var opts = signal ? { signal: signal } : {};
-      return fetch(url, opts).then(function (res) {
-        clearTimeout(timeoutId);
-        return res;
-      }, function (err) {
-        clearTimeout(timeoutId);
-        throw err;
-      });
-    }
-
-    function haveMountedHeader() {
-      return !!document.querySelector('[data-ads-desk-header]');
-    }
-
-    // Ensure only one injected header exists
-    function dedupeHeaders() {
-      var nodes = document.querySelectorAll('[data-ads-desk-header]');
-      if (nodes.length > 1) {
-        for (var i = 1; i < nodes.length; i++) {
-          var n = nodes[i];
-          if (n && n.parentNode) n.parentNode.removeChild(n);
-        }
-      }
-    }
-
-    function insertHeader(html) {
-      var target = document.getElementById('desk-header-placeholder');
-
-      if (target) {
-        target.insertAdjacentHTML('afterend', html);
-        var root = target.nextElementSibling;
-        if (root && root.setAttribute) root.setAttribute('data-ads-desk-header', '');
-        if (target.remove) { target.remove(); } else if (target.parentNode) { target.parentNode.removeChild(target); }
+  // ---------- helpers ----------
+  // Emit custom events with detail (document + window)
+  function emit(name, detail) {
+    try {
+      var ev;
+      if (typeof window.CustomEvent === 'function') {
+        ev = new CustomEvent(name, { bubbles: true, cancelable: false, detail: detail });
       } else {
-        document.body.insertAdjacentHTML('afterbegin', html);
-        var first = document.body.firstElementChild;
-        if (first && first.setAttribute) first.setAttribute('data-ads-desk-header', '');
+        ev = document.createEvent('CustomEvent');
+        ev.initCustomEvent(name, true, false, detail);
       }
+      document.dispatchEvent(ev);
+      try { window.dispatchEvent(ev); } catch (_) {}
+    } catch (_) {}
+  }
 
-      dedupeHeaders();
+  function getAdsVer() {
+    var m = document.querySelector('meta[name="ads-ver"]');
+    return (m && m.content) ? m.content : ''; // e.g., "?v=20250826-1623xx"
+  }
 
-      // Flag on <html> for CSS/diagnostics
-      try {
-        var htmlEl = document.documentElement;
-        if (htmlEl && !htmlEl.classList.contains('has-desk-header')) {
-          htmlEl.classList.add('has-desk-header');
-        }
-      } catch (e) {}
+  // Fetch with timeout (no Promise.finally; works w/o AbortController)
+  function fetchWithTimeout(url, ms) {
+    var controller = (typeof AbortController !== 'undefined') ? new AbortController() : null;
+    var signal = controller ? controller.signal : undefined;
+    var tid = setTimeout(function () {
+      try { if (controller && typeof controller.abort === 'function') controller.abort(); } catch (e) {}
+    }, ms);
+    var opts = signal ? { signal: signal } : {};
+    return fetch(url, opts).then(function (res) {
+      clearTimeout(tid);
+      return res;
+    }, function (err) {
+      clearTimeout(tid);
+      throw err;
+    });
+  }
 
-      // Expose header height to CSS var --desk-header-h
-      try {
-        var headerEl = document.querySelector('[data-ads-desk-header]');
-        var htmlEl2 = document.documentElement;
-        function applyHeaderHeight() {
-          if (!headerEl || !htmlEl2) return;
-          var h = headerEl.offsetHeight || 0;
-          htmlEl2.style.setProperty('--desk-header-h', h + 'px');
-        }
-        applyHeaderHeight();
-        if (typeof ResizeObserver !== 'undefined') {
-          var ro = new ResizeObserver(function () { applyHeaderHeight(); });
-          ro.observe(headerEl);
+  function haveHeader() {
+    return !!document.querySelector('[data-ads-desk-header]');
+  }
+
+  function dedupeHeaders() {
+    var nodes = document.querySelectorAll('[data-ads-desk-header]');
+    if (nodes.length > 1) {
+      for (var i = 1; i < nodes.length; i++) {
+        var n = nodes[i];
+        if (n && n.parentNode) n.parentNode.removeChild(n);
+      }
+    }
+  }
+
+  // Path normalizer for aria-current
+  function normalizePath(p) {
+    if (!p) p = '/';
+    try { p = new URL(p, location.origin).pathname; } catch (e) {}
+    p = p.split('#')[0].split('?')[0];
+    p = p.toLowerCase();
+    if (/^\/(?:index(?:\.html?|\/)?)?$/.test(p)) p = '/'; // treat index as root
+    if (p.charAt(0) !== '/') p = '/' + p;
+    if (p.length > 1 && p.slice(-1) === '/') p = p.slice(0, -1);
+    return p;
+  }
+  function isHomeLink(href, norm, text) {
+    if (norm === '/') return true;
+    if (!href || href === '#' || href === './') return true;
+    var h = String(href).toLowerCase();
+    if (h === '/' || h === '/index' || h === '/index.html' || h === '/index.htm') return true;
+    if (/^\/#/.test(h) || /^\#/.test(h)) return true; // "/#top" or "#top"
+    if (text && /^home$/i.test(String(text).trim())) return true;
+    return false;
+  }
+  function markActiveLink() {
+    try {
+      var headerRoot = document.querySelector('[data-ads-desk-header]');
+      if (!headerRoot) return;
+
+      var current = normalizePath(location.pathname);
+      var links = headerRoot.querySelectorAll('a[href]');
+      var matches = 0, firstLink = null, homeCand = null;
+
+      for (var i = 0; i < links.length; i++) {
+        var a = links[i];
+        if (!firstLink) firstLink = a;
+
+        var raw = a.getAttribute('href') || '';
+        var linkPath;
+        try { linkPath = new URL(raw, location.origin).pathname; } catch (e) { linkPath = raw; }
+        var norm = normalizePath(linkPath);
+
+        if (isHomeLink(raw, norm, a.textContent)) homeCand = homeCand || a;
+
+        if (norm === current) {
+          a.setAttribute('aria-current', 'page');
+          matches++;
         } else {
-          window.addEventListener('resize', applyHeaderHeight);
+          a.removeAttribute('aria-current');
         }
-      } catch (e2) {}
-    }
-
-    function mountHeader() {
-      if (loaded || haveMountedHeader() || !mql.matches) return;
-      loaded = true; // lock before fetch to avoid races
-
-      var ver = getAdsVer();
-      var headerUrl = '/desk-header.html' + (ver ? ver : '');
-
-      fetchWithTimeout(headerUrl, 4000)
-        .then(function (res) {
-          if (!res.ok) throw new Error('HTTP ' + res.status);
-          return res.text();
-        })
-        .then(function (html) { insertHeader(html); })
-        .catch(function (err) {
-          loaded = false; // allow retry later if it truly failed
-          try { console.warn('desk-header load skipped:', (err && err.message) ? err.message : err); } catch (e) {}
-        });
-    }
-
-    // Grow-only model; unmount disabled
-    /*
-    function unmountHeader() {
-      var node = document.querySelector('[data-ads-desk-header]');
-      if (node && node.parentNode) node.parentNode.removeChild(node);
-      loaded = false;
-    }
-    */
-
-    function syncToViewport() {
-      if (mql.matches) {
-        mountHeader();
-      } else {
-        // grow-only; CSS guardrail hides on mobile widths
-        // unmountHeader();
       }
+
+      if (matches === 0 && current === '/') {
+        if (homeCand) homeCand.setAttribute('aria-current', 'page');
+        else if (firstLink) firstLink.setAttribute('aria-current', 'page');
+      }
+    } catch (e) {}
+  }
+
+  // ---------- core ----------
+  function insertHeader(html) {
+    var ph = document.getElementById('desk-header-placeholder');
+
+    if (ph) {
+      ph.insertAdjacentHTML('afterend', html);
+      var root = ph.nextElementSibling;
+      if (root && root.setAttribute) root.setAttribute('data-ads-desk-header', '');
+      if (ph.remove) ph.remove(); else if (ph.parentNode) ph.parentNode.removeChild(ph);
+    } else {
+      document.body.insertAdjacentHTML('afterbegin', html);
+      var first = document.body.firstElementChild;
+      if (first && first.setAttribute) first.setAttribute('data-ads-desk-header', '');
     }
 
+    // ensure single instance
+    dedupeHeaders();
+
+    // header element (after dedupe)
+    var hdr = document.querySelector('[data-ads-desk-header]');
+
+    // flag on <html> for CSS/diagnostics
+    try {
+      var htmlEl = document.documentElement;
+      if (htmlEl && !htmlEl.classList.contains('has-desk-header')) {
+        htmlEl.classList.add('has-desk-header');
+      }
+    } catch (e) {}
+
+    // expose live height + broadcast height changes
+    try {
+      var htmlEl2 = document.documentElement;
+
+      function applyHeaderHeight() {
+        if (!hdr || !htmlEl2) return;
+        const h = 155; // ← your fixed height
+        htmlEl2.style.setProperty('--desk-header-h', h + 'px');
+        emit('ads:desk-header:height', { height: h });
+      }
+
+      // initial measure
+      applyHeaderHeight();
+
+      // keep updated
+      if (typeof ResizeObserver !== 'undefined') {
+        var ro = new ResizeObserver(function () { applyHeaderHeight(); });
+        if (hdr) ro.observe(hdr);
+      } else {
+        window.addEventListener('resize', applyHeaderHeight);
+      }
+    } catch (e2) {}
+
+    // mark active nav link now that header exists
+    markActiveLink();
+
+    // fire the mounted event AFTER insertion + first paint (ensures non-0 height)
+    try {
+      if (hdr) {
+        var sendMounted = function () {
+          var hNow = hdr.getBoundingClientRect ? Math.round(hdr.getBoundingClientRect().height || 0) : (hdr.offsetHeight || 0);
+          emit('ads:desk-header:mounted', { el: hdr, height: hNow });
+        };
+        if (window.requestAnimationFrame) { requestAnimationFrame(sendMounted); }
+        else { setTimeout(sendMounted, 0); }
+      }
+    } catch (e4) {}
+  }
+
+  function mountHeader() {
+    if (loaded || haveHeader() || !mql.matches) return;
+    loaded = true; // lock before fetch to avoid races
+
+    var ver = getAdsVer();                   // e.g., "?v=20250826-162301"
+    var headerUrl = '/desk-header.html' + (ver ? ver : '');
+
+    fetchWithTimeout(headerUrl, 4000).then(function (res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.text();
+    }).then(function (html) {
+      insertHeader(html);
+    }).catch(function (err) {
+      loaded = false; // allow retry later if it truly failed
+      try { console.warn('desk-header load skipped:', (err && err.message) ? err.message : err); } catch (e) {}
+    });
+  }
+
+  function syncToViewport() {
+    if (mql.matches) {
+      mountHeader();
+    } else {
+      // grow-only; CSS guardrail hides on mobile. No unmount.
+    }
+  }
+
+  function start() {
+    // initial check + listener for crossing up into desktop
     syncToViewport();
-
-    function handleChange(e) {
-      if (e.matches) mountHeader(); // only when crossing up into desktop
-    }
+    function handleChange(e) { if (e.matches) mountHeader(); }
     if (mql.addEventListener) { mql.addEventListener('change', handleChange); }
     else if (mql.addListener) { mql.addListener(handleChange); } // legacy Safari
-  });
+
+    // bfcache restore + late runs to avoid timing issues
+    window.addEventListener('pageshow', function () {
+      markActiveLink();
+      if (mql.matches && !haveHeader()) mountHeader();
+    });
+    setTimeout(markActiveLink, 0);
+    setTimeout(markActiveLink, 120);
+
+    try {
+      var mo = new MutationObserver(function (muts) {
+        for (var i = 0; i < muts.length; i++) {
+          var rec = muts[i];
+          if (rec.type === 'childList' && rec.addedNodes && rec.addedNodes.length) {
+            markActiveLink();
+            break;
+          }
+        }
+      });
+      mo.observe(document.body, { childList: true, subtree: true });
+    } catch (e) {}
+  }
+
+  // Run now if DOM is already loaded; otherwise wait for DOMContentLoaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', start);
+  } else {
+    start();
+  }
 })();
-
-
-
 
 
 
@@ -1966,10 +1746,6 @@ STARTS.forEach(delay => setTimeout(runShimmer, delay));
 })();
 
 
-
-
-
-
 /* /quote — mobile un-hider (mobile-only, single install, capture-phase) */
 (function () {
   window.ADS = window.ADS || {};
@@ -2010,123 +1786,8 @@ STARTS.forEach(delay => setTimeout(runShimmer, delay));
 })();
 
 
-/* /join-pilot-roster — desktop accordions (unified, capture-phase) */
-(function () {
-  window.ADS = window.ADS || {};
-  if (window.ADS._joinAccordsUnified) return;
-  window.ADS._joinAccordsUnified = true;
-
-  document.addEventListener('click', function (e) {
-    // Desktop only
-    if (!window.matchMedia('(min-width: 1401px)').matches) return;
-
-    // Only act inside the join page
-    var root = e.target.closest('.join-page');
-    if (!root) return;
-
-    // 1) Prefer buttons that declare a target via aria-controls
-    var btn = e.target.closest('.join-accordion-toggle-reqfaq[aria-controls], .join-accordion-toggle[aria-controls]');
-    // 2) Fallback: plain .join-accordion-toggle with no aria-controls
-    if (!btn) btn = e.target.closest('.join-accordion-toggle');
-    if (!btn || !root.contains(btn)) return;
-
-    e.preventDefault();
-
-    // Find the panel
-    var panel = null;
-    var id = btn.getAttribute('aria-controls');
-    if (id) panel = document.getElementById(id);
-
-    // Index-map fallback for plain toggles
-    if (!panel) {
-      var toggles = Array.prototype.slice.call(root.querySelectorAll('.join-accordion-toggle'));
-      var panels  = Array.prototype.slice.call(root.querySelectorAll('.join-accordion-panel'));
-      var i = toggles.indexOf(btn);
-      if (i > -1 && panels[i]) panel = panels[i];
-    }
-
-// Wrapper-aware fallback: panel is the sibling after .join-wayaligner
-if (!panel) {
-  var wrap = btn.closest('.join-wayaligner');
-  if (wrap && wrap.nextElementSibling && root.contains(wrap.nextElementSibling)) {
-    panel = wrap.nextElementSibling;
-  }
-}
-// Final fallback: immediate sibling of the button’s parent
-if (!panel && btn.parentElement && btn.parentElement.nextElementSibling && root.contains(btn.parentElement.nextElementSibling)) {
-  panel = btn.parentElement.nextElementSibling;
-}
 
 
-    if (!panel) return;
-
-    // Toggle state
-    var nowOpen = btn.getAttribute('aria-expanded') !== 'true';
-    btn.setAttribute('aria-expanded', String(nowOpen));
-
-    // Show/hide regardless of CSS method
-    panel.classList.toggle('is-open', nowOpen);
-    if ('hidden' in panel) panel.hidden = !nowOpen;
-
-    // If CSS still keeps it hidden, use inline fallback
-    if (nowOpen && getComputedStyle(panel).display === 'none') {
-      panel.style.display = 'block';
-    } else if (!nowOpen) {
-      panel.style.removeProperty('display');
-    }
-  }, { capture: true });
-})();
-
-
-
-
-
-/* /join-pilot-roster — mobile accordions (wrapper-aware, capture-phase) */
-(function () {
-  window.ADS = window.ADS || {};
-  if (window.ADS._joinMobileAccords) return;
-  window.ADS._joinMobileAccords = true;
-
-  document.addEventListener('click', function (e) {
-    if (!window.matchMedia('(max-width: 1000px)').matches) return;
-
-    var root = e.target.closest('.join-page');
-    if (!root) return;
-
-    // top “join accordion toggle” buttons
-    var btn = e.target.closest('.join-accordion-toggle');
-    if (!btn || !root.contains(btn)) return;
-
-    e.preventDefault();
-
-    // Prefer the sibling after the .join-wayaligner wrapper
-    var panel = null;
-    var wrap = btn.closest('.join-wayaligner');
-    if (wrap && wrap.nextElementSibling && root.contains(wrap.nextElementSibling)) {
-      panel = wrap.nextElementSibling;
-    }
-
-    // Fallback: parent’s next sibling
-    if (!panel && btn.parentElement && btn.parentElement.nextElementSibling && root.contains(btn.parentElement.nextElementSibling)) {
-      panel = btn.parentElement.nextElementSibling;
-    }
-
-    // Final fallback: nth toggle ↔ nth .join-accordion-panel
-    if (!panel) {
-      var toggles = Array.prototype.slice.call(root.querySelectorAll('.join-accordion-toggle'));
-      var panels  = Array.prototype.slice.call(root.querySelectorAll('.join-accordion-panel'));
-      var i = toggles.indexOf(btn);
-      if (i > -1) panel = panels[i] || null;
-    }
-    if (!panel) return;
-
-    var nowOpen = btn.getAttribute('aria-expanded') !== 'true';
-    btn.setAttribute('aria-expanded', String(nowOpen));
-
-    panel.classList.toggle('is-open', nowOpen);
-    if ('hidden' in panel) panel.hidden = !nowOpen;
-  }, { capture: true });
-})();
 
 //ACCESIBLE STATUS FOR FORM
 document.addEventListener('DOMContentLoaded', function () {
@@ -2157,5 +1818,1134 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('pageshow', function () {
     form.removeAttribute('aria-busy');
     say('Ready.');
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const burger = document.getElementById("hamburger-icon"); // this is your BUTTON
+  const menu   = document.getElementById("mobileMenu");
+  if (!burger || !menu) return;
+
+  // Guard so we don't double-bind if this file runs twice
+  if (window.__adsBurgerToggleBound) return;
+  window.__adsBurgerToggleBound = true;
+
+  burger.addEventListener("click", () => {
+    const open = !menu.classList.contains("show");
+    menu.classList.toggle("show", open);
+    // optional (your ARIA observer also does this):
+    burger.setAttribute("aria-expanded", String(open));
+  });
+});
+
+//ARIA SYNC
+document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('[aria-controls]');
+    if (!btn) return;
+    const id = btn.getAttribute('aria-controls');
+    const panel = document.getElementById(id);
+    if (!panel) return;
+
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    panel.hidden = expanded; // show when expanded === false -> now true
+  });
+});
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.__ADS_MENU_V2) return;
+  window.__ADS_MENU_V2 = true;
+
+  const body = document.body;
+  let hamburger = document.getElementById('hamburger-icon');
+  const menu = document.getElementById('mobileMenu');
+  if (!hamburger || !menu) return;
+
+  // wipe old listeners on the trigger by cloning it
+  const clone = hamburger.cloneNode(true);
+  hamburger.parentNode.replaceChild(clone, hamburger);
+  hamburger = clone;
+
+  // ensure an internal close button exists (idempotent)
+  let closeBtn = menu.querySelector('#mobileMenuClose');
+  if (!closeBtn) {
+    closeBtn = document.createElement('button');
+    closeBtn.id = 'mobileMenuClose';
+    closeBtn.type = 'button';
+    closeBtn.className = 'mobile-menu-close';
+    closeBtn.setAttribute('aria-label', 'Close menu');
+    closeBtn.textContent = '✕';
+    menu.prepend(closeBtn);
+  }
+
+  const getFocusables = () =>
+    Array.from(menu.querySelectorAll('a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])'))
+      .filter(el => el.offsetWidth + el.offsetHeight > 0);
+
+  const firstFocusable = () => getFocusables()[0] || closeBtn;
+  const isOpen = () => !menu.hidden || menu.classList.contains('show');
+
+  const syncState = (open, silent = false) => {
+    hamburger.setAttribute('aria-expanded', String(open));
+    menu.hidden = !open;
+    menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    menu.classList.toggle('show', open);        // legacy class support
+    body.classList.toggle('no-scroll', open);   // CSS: .no-scroll { overflow: hidden; }
+
+    if (silent) return; // don't move focus on init
+    if (open) {
+      setTimeout(() => firstFocusable()?.focus({ preventScroll: true }), 0);
+    } else {
+      hamburger.focus({ preventScroll: true });
+    }
+  };
+
+  // toggle handlers
+  hamburger.addEventListener('click', (e) => {
+    e.preventDefault();
+    syncState(!isOpen());
+  });
+
+  closeBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (isOpen()) syncState(false);
+  });
+
+  // click on backdrop (empty wrapper area) closes
+  menu.addEventListener('click', (e) => {
+    if (e.target === menu && isOpen()) syncState(false);
+  });
+
+  // keyboard: ESC and basic focus trap
+  document.addEventListener('keydown', (e) => {
+    if (!isOpen()) return;
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      syncState(false);
+      return;
+    }
+    if (e.key === 'Tab') {
+      const f = getFocusables();
+      if (!f.length) return;
+      const first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+
+  // legacy watcher: if some old code toggles .show, keep ARIA in sync
+  new MutationObserver(() => {
+    const legacyOpen = menu.classList.contains('show');
+    if (legacyOpen !== isOpen()) syncState(legacyOpen, true);
+  }).observe(menu, { attributes: true, attributeFilter: ['class'] });
+
+  // start closed without focusing the trigger
+  syncState(false, true);
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const wrap = document.getElementById('mobileMenu');
+  if (!wrap) return;
+
+  const scrub = () => {
+    wrap.removeAttribute('role');
+    wrap.removeAttribute('aria-label');
+    wrap.removeAttribute('aria-labelledby');
+  };
+
+  scrub(); // clear now
+  new MutationObserver((muts) => {
+    for (const m of muts) {
+      if (['role','aria-label','aria-labelledby'].includes(m.attributeName)) {
+        // keep it off
+        scrub();
+      }
+    }
+  }).observe(wrap, { attributes: true, attributeFilter: ['role','aria-label','aria-labelledby'] });
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  // ===========================
+  // Helpers (shared)
+  // ===========================
+  const isVisible = el => !!el && el.offsetParent !== null && getComputedStyle(el).visibility !== "hidden";
+  const getTabbables = root => {
+    const SEL = [
+      "a[href]","area[href]","button:not([disabled])","input:not([disabled])",
+      "select:not([disabled])","textarea:not([disabled])","[tabindex]:not([tabindex='-1'])"
+    ].join(",");
+    return Array.from(root.querySelectorAll(SEL)).filter(isVisible);
+  };
+  const isOpen = (el) => {
+    if (!el) return false;
+    if (!el.hasAttribute("hidden")) return true;
+    const disp = (el.style && el.style.display) || "";
+    return disp && disp !== "none";
+  };
+
+  // Global active modal state for this block only
+  let ACTIVE = { modal: null, panel: null, lastFocus: null };
+
+  function onOpen(modal) {
+    ACTIVE.modal = modal;
+    ACTIVE.panel = modal.querySelector('[tabindex="-1"]') || modal;
+    document.body.classList.add("body--modal-open");
+    if (!ACTIVE.panel.hasAttribute("tabindex")) ACTIVE.panel.setAttribute("tabindex", "-1");
+    ACTIVE.panel.focus({ preventScroll: false });
+  }
+
+  function onClose(modal) {
+    document.body.classList.remove("body--modal-open");
+    if (ACTIVE.lastFocus && document.contains(ACTIVE.lastFocus)) ACTIVE.lastFocus.focus();
+    ACTIVE = { modal: null, panel: null, lastFocus: null };
+  }
+
+  // One keydown handler for both modals (focus trap + Esc)
+  document.addEventListener("keydown", (e) => {
+    const modal = ACTIVE.modal;
+    if (!modal || !isOpen(modal)) return;
+
+    if (e.key === "Escape") {
+      e.preventDefault();
+      // Prefer an explicit closer if present
+      const btn = modal.querySelector("[data-modal-close], .close, .mob-past-deliv-close, .desk-past-deliv-close");
+      if (btn) btn.click();
+      else {
+        modal.setAttribute("hidden", "");
+        modal.style.display = "none";
+      }
+      return;
+    }
+
+    if (e.key === "Tab") {
+      const panel = ACTIVE.panel || modal;
+      const tabs = getTabbables(panel);
+      if (!tabs.length) { e.preventDefault(); panel.focus(); return; }
+      const first = tabs[0], last = tabs[tabs.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+
+  // ===========================
+  // A) MOBILE past-deliveries modal (zoom with population)
+  // ===========================
+  (function setupMobPastDeliv() {
+    const overlay = document.querySelector('[data-modal="mob-past-deliv"]') ||
+                    document.getElementById("mob-past-deliv-modal");
+    const zoomImg     = document.getElementById("mob-past-deliv-img");
+    const zoomCaption = document.getElementById("mob-past-deliv-caption");
+    if (!overlay || !zoomImg || !zoomCaption) return;
+
+    const panel     = overlay.querySelector('[tabindex="-1"]') || overlay;
+    const overlayBg = overlay.querySelector(".mob-past-deliv-overlay-bg");
+    const closeBtns = overlay.querySelectorAll("[data-modal-close], .mob-past-deliv-close");
+
+    function openFrom(trigger) {
+      ACTIVE.lastFocus = trigger;
+
+      // Choose best image source
+      const fullSrc    = trigger.getAttribute("data-zoom-src") || trigger.getAttribute("data-full") || trigger.currentSrc || trigger.src;
+      const fullSrcset = trigger.getAttribute("data-srcset") || "";
+
+      zoomImg.removeAttribute("sizes");
+      zoomImg.src = fullSrc || "";
+      if (fullSrcset) zoomImg.srcset = fullSrcset; else zoomImg.removeAttribute("srcset");
+      zoomImg.setAttribute("sizes", "100vw");
+
+      // Caption: nearest caption → data-caption → alt → next sibling text
+      const capEl = trigger.closest(".mob-past-deliv-zoom-inner")?.querySelector(".mob-past-deliv-caption")
+                 || trigger.closest(".mob-past-deliv-img-wrap")?.querySelector(".mob-past-deliv-caption")
+                 || trigger.nextElementSibling;
+      zoomCaption.textContent = (capEl?.textContent?.trim()) || trigger.getAttribute("data-caption") || trigger.alt || "";
+
+      // Show (compatible with your CSS)
+      overlay.style.display = "flex";
+      overlay.classList.add("is-open");
+      overlay.removeAttribute("hidden");
+
+      onOpen(overlay);
+    }
+
+    function closeMob() {
+      overlay.classList.remove("is-open");
+      overlay.setAttribute("hidden", "");
+      overlay.style.display = "none";
+
+      zoomImg.removeAttribute("src");
+      zoomImg.removeAttribute("srcset");
+      zoomCaption.textContent = "";
+
+      onClose(overlay);
+    }
+
+    // Wire triggers (prefer hard-coded data attribute)
+    const triggers = document.querySelectorAll('[data-modal-open="mob-past-deliv"], img.mob-past-deliv-img[data-full]');
+    triggers.forEach((el) => {
+      // Only add role/tabindex if the trigger is an IMG not inside a link
+      if (el.tagName === "IMG" && !el.closest("a")) {
+        if (!el.hasAttribute("role")) el.setAttribute("role", "button");
+        if (!el.hasAttribute("tabindex")) el.tabIndex = 0;
+      }
+      el.addEventListener("click", (e) => { e.preventDefault(); openFrom(el); });
+      el.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openFrom(el); }
+      });
+    });
+
+    // Click backdrop or explicit close controls
+    overlay.addEventListener("click", (e) => {
+      if (e.target === e.currentTarget) closeMob();
+    });
+    if (overlayBg) overlayBg.addEventListener("click", (e) => { e.preventDefault(); closeMob(); });
+    closeBtns.forEach(btn => btn.addEventListener("click", (e) => { e.preventDefault(); closeMob(); }));
+  })();
+
+  // ===========================
+  // B) DESKTOP past-deliveries modal (enhancer only)
+  // ===========================
+  (function enhanceDeskPastDeliv() {
+    const modal = document.querySelector('[data-modal="desk-past-deliv"]') ||
+                  document.getElementById("desk-past-deliv-modal");
+    if (!modal) return;
+
+    // Ensure minimal ARIA/focus target
+    if (!modal.hasAttribute("role")) modal.setAttribute("role", "dialog");
+    if (!modal.hasAttribute("aria-modal")) modal.setAttribute("aria-modal", "true");
+    const panel = modal.querySelector('[tabindex="-1"]') || modal;
+    if (!panel.hasAttribute("tabindex")) panel.setAttribute("tabindex", "-1");
+
+    // Track opener (any element explicitly marked to open desktop modal)
+    document.addEventListener("click", (e) => {
+      const opener = e.target.closest('[data-modal-open="desk-past-deliv"]');
+      if (opener) ACTIVE.lastFocus = opener;
+    }, true);
+
+    // Close on backdrop/close buttons (non-invasive; runs alongside your existing logic)
+    modal.addEventListener("click", (e) => {
+      const hitClose = e.target.closest("[data-modal-close], .desk-past-deliv-close");
+      if (hitClose || e.target === e.currentTarget) {
+        onClose(modal);
+      }
+    });
+
+    // Observe open/close (hidden/style/class) and apply side-effects
+    const mo = new MutationObserver(() => {
+      const openNow = isOpen(modal);
+      if (openNow && ACTIVE.modal !== modal) onOpen(modal);
+      if (!openNow && ACTIVE.modal === modal) onClose(modal);
+    });
+    mo.observe(modal, { attributes: true, attributeFilter: ["hidden", "style", "class"] });
+  })();
+});
+
+
+
+
+// === Blog & Testimonial → DESKTOP past-deliveries modal (works with your markup) ===
+document.addEventListener("DOMContentLoaded", () => {
+  const overlay = document.getElementById("desk-past-deliv-modal");
+  const bigImg  = document.getElementById("desk-past-deliv-img");
+  if (!overlay || !bigImg) return;
+
+  // Prefer the content panel for focus
+  const content  = overlay.querySelector(".desk-past-deliv-content") || overlay;
+  const panel    = content; // focus target
+  if (!panel.hasAttribute("tabindex")) panel.setAttribute("tabindex", "-1");
+
+  // Caption: create one if it doesn't exist
+  let capEl = document.getElementById("desk-past-deliv-caption");
+  if (!capEl) {
+    capEl = document.createElement("div");
+    capEl.id = "desk-past-deliv-caption";
+    capEl.className = "desk-past-deliv-caption";
+    bigImg.after(capEl);
+  }
+
+  // ARIA defaults (no class changes)
+  if (!overlay.hasAttribute("role")) overlay.setAttribute("role", "dialog");
+  if (!overlay.hasAttribute("aria-modal")) overlay.setAttribute("aria-modal", "true");
+
+  const closeX = document.getElementById("desk-past-deliv-close");
+  const closeBtns = [closeX, ...overlay.querySelectorAll("[data-modal-close], .desk-past-deliv-close, .close")].filter(Boolean);
+
+  let lastFocus = null;
+
+  function resolveCaption(trigger) {
+    // aria-describedby can list multiple IDs
+    const ids = (trigger.getAttribute("aria-describedby") || "").trim().split(/\s+/).filter(Boolean);
+    for (const id of ids) {
+      const el = document.getElementById(id);
+      if (el && el.textContent.trim()) return el.textContent.trim();
+    }
+    const nearby =
+      trigger.closest(".desk-past-deliv-zoom-inner")?.querySelector(".desk-past-deliv-caption") ||
+      trigger.closest(".mob-past-deliv-zoom-inner")?.querySelector(".mob-past-deliv-caption") ||
+      trigger.nextElementSibling;
+    return (nearby?.textContent?.trim()) || trigger.getAttribute("data-caption") || trigger.alt || "";
+  }
+
+  function openFrom(trigger) {
+    lastFocus = trigger;
+
+    const fullSrc    = trigger.getAttribute("data-zoom-src") || trigger.getAttribute("data-full") || trigger.currentSrc || trigger.src;
+    const fullSrcset = trigger.getAttribute("data-srcset") || "";
+
+    bigImg.removeAttribute("sizes");
+    bigImg.src = fullSrc || "";
+    if (fullSrcset) bigImg.srcset = fullSrcset; else bigImg.removeAttribute("srcset");
+    bigImg.setAttribute("sizes", "100vw");
+
+    capEl.textContent = resolveCaption(trigger);
+
+    overlay.style.display = "flex";
+    overlay.classList.add("is-open");
+    overlay.removeAttribute("hidden");
+    document.body.classList.add("body--modal-open");
+
+    panel.focus({ preventScroll: false });
+
+    // One-time close wiring
+    if (!overlay.__desk_bind) {
+      // Click backdrop to close (clicking empty overlay area)
+      overlay.addEventListener("click", (e) => { if (e.target === e.currentTarget) closeModal(); });
+      // Close buttons (includes #desk-past-deliv-close)
+      closeBtns.forEach(btn => btn.addEventListener("click", (e) => { e.preventDefault(); closeModal(); }));
+      // Esc + simple focus trap
+      document.addEventListener("keydown", onKeydown);
+      overlay.__desk_bind = true;
+    }
+  }
+
+  function closeModal() {
+    overlay.classList.remove("is-open");
+    overlay.setAttribute("hidden", "");
+    overlay.style.display = "none";
+    document.body.classList.remove("body--modal-open");
+
+    bigImg.removeAttribute("src");
+    bigImg.removeAttribute("srcset");
+    capEl.textContent = "";
+
+    if (lastFocus && document.contains(lastFocus)) lastFocus.focus();
+    lastFocus = null;
+  }
+
+  function onKeydown(e) {
+    const open = !overlay.hasAttribute("hidden") || overlay.style.display === "flex";
+    if (!open) return;
+
+    if (e.key === "Escape") { e.preventDefault(); closeModal(); return; }
+
+    if (e.key === "Tab") {
+      const isVisible = el => !!el && el.offsetParent !== null && getComputedStyle(el).visibility !== "hidden";
+      const tabs = Array.from(panel.querySelectorAll(
+        "a[href],area[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex='-1'])"
+      )).filter(isVisible);
+      if (!tabs.length) { e.preventDefault(); panel.focus(); return; }
+      const first = tabs[0], last = tabs[tabs.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  }
+
+  // Bind Blog + Testimonial triggers (no class renames)
+  const TRIGGERS = ".testimonial-thumb, [data-modal-open='desk-past-deliv']";
+  document.querySelectorAll(TRIGGERS).forEach(trigger => {
+    if (trigger.tagName === "IMG" && !trigger.closest("a")) {
+      if (!trigger.hasAttribute("role")) trigger.setAttribute("role", "button");
+      if (!trigger.hasAttribute("tabindex")) trigger.tabIndex = 0;
+    }
+    trigger.addEventListener("click", (e) => { e.preventDefault(); openFrom(trigger); });
+    trigger.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openFrom(trigger); }
+    });
+  });
+});
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Guard (set AFTER we successfully attach)
+  window.ADS = window.ADS || {};
+  if (window.ADS._joinAccordions) return;
+
+  const SELECTOR_ITEM   = '.join-accordion-item';
+  const SELECTOR_TOGGLE = '.join-accordion-toggle';
+  const SELECTOR_PANEL  = '.join-accordion-panel';
+
+  const getItem  = (el) => el?.closest(SELECTOR_ITEM) || null;
+  const getPanel = (btn) => {
+    if (!btn) return null;
+    const item = getItem(btn);
+    // Prefer sibling panel to survive duplicate IDs
+    const sib = item?.querySelector(SELECTOR_PANEL);
+    if (sib) return sib;
+    const id = btn.getAttribute('aria-controls');
+    return id ? document.getElementById(id) : null;
+  };
+
+  const closeItem = (item) => {
+    const btn   = item.querySelector(SELECTOR_TOGGLE);
+    const panel = getPanel(btn);
+    if (!btn || !panel) return;
+    btn.setAttribute('aria-expanded', 'false');
+    panel.hidden = true;
+    item.classList.remove('is-open');
+  };
+
+  const openItem = (item) => {
+    const btn   = item.querySelector(SELECTOR_TOGGLE);
+    const panel = getPanel(btn);
+    if (!btn || !panel) return;
+    btn.setAttribute('aria-expanded', 'true');
+    panel.hidden = false;
+    item.classList.add('is-open');
+  };
+
+const handler = (e) => {
+  const btn = e.target.closest(SELECTOR_TOGGLE);
+
+  if (btn) {
+    const item = getItem(btn);
+    if (!item) return;
+
+    // NEW: if this item is already open, close it (re-click closes)
+    if (item.classList.contains('is-open')) {
+      closeItem(item);
+    } else {
+      // otherwise close others, then open this one
+      document.querySelectorAll(`${SELECTOR_ITEM}.is-open`).forEach(closeItem);
+      openItem(item);
+    }
+
+    e.stopImmediatePropagation(); // prevent other code from re-toggling
+    e.preventDefault();
+    return;
+  }
+
+  // Non-toggle click: close any open items
+  const anyOpen = document.querySelector(`${SELECTOR_ITEM}.is-open`);
+  if (anyOpen) {
+    document.querySelectorAll(`${SELECTOR_ITEM}.is-open`).forEach(closeItem);
+    if (e.target.closest(SELECTOR_ITEM)) e.stopImmediatePropagation();
+  }
+};
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  // ===== Guards
+  const container = document.getElementById('mob-join-ways');
+  if (!container) return;
+
+  // ===== Accordion logic (only one open; toggle closes same)
+  const toggles = container.querySelectorAll('.mob-join-accordion-toggle');
+
+  function closeAllExcept(button) {
+    toggles.forEach(t => {
+      if (t !== button) {
+        const panelId = t.getAttribute('aria-controls');
+        const panel = panelId ? document.getElementById(panelId) : null;
+        if (!panel) return;
+        t.setAttribute('aria-expanded', 'false');
+        panel.hidden = true;
+      }
+    });
+  }
+
+  toggles.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const panelId = btn.getAttribute('aria-controls');
+      const panel = panelId ? document.getElementById(panelId) : null;
+      if (!panel) return;
+
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      if (isOpen) {
+        btn.setAttribute('aria-expanded', 'false');
+        panel.hidden = true;
+      } else {
+        closeAllExcept(btn);
+        btn.setAttribute('aria-expanded', 'true');
+        panel.hidden = false;
+      }
+    });
+  });
+
+  // Optional: close on outside click (toggle-able)
+  const CLOSE_ON_OUTSIDE_CLICK = false;
+  if (CLOSE_ON_OUTSIDE_CLICK) {
+    document.addEventListener('click', (evt) => {
+      const inside = container.contains(evt.target);
+      if (inside) return;
+      toggles.forEach(btn => {
+        const panelId = btn.getAttribute('aria-controls');
+        const panel = panelId ? document.getElementById(panelId) : null;
+        if (!panel) return;
+        btn.setAttribute('aria-expanded', 'false');
+        panel.hidden = true;
+      });
+    });
+  }
+});
+  
+
+document.addEventListener('DOMContentLoaded', () => {
+  // ===== Guards
+  const container = document.getElementById('mob-join-ways');
+  if (!container) return;
+
+  // ===== Accordion logic (only one open; toggle closes same)
+  const toggles = container.querySelectorAll('.mob-join-accordion-toggle');
+
+  function closeAllExcept(button) {
+    toggles.forEach(t => {
+      if (t !== button) {
+        const panelId = t.getAttribute('aria-controls');
+        const panel = panelId ? document.getElementById(panelId) : null;
+        if (!panel) return;
+        t.setAttribute('aria-expanded', 'false');
+        panel.hidden = true;
+      }
+    });
+  }
+
+  toggles.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const panelId = btn.getAttribute('aria-controls');
+      const panel = panelId ? document.getElementById(panelId) : null;
+      if (!panel) return;
+
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      if (isOpen) {
+        btn.setAttribute('aria-expanded', 'false');
+        panel.hidden = true;
+      } else {
+        closeAllExcept(btn);
+        btn.setAttribute('aria-expanded', 'true');
+        panel.hidden = false;
+      }
+    });
+  });
+
+  // Optional: close on outside click (toggle-able)
+  const CLOSE_ON_OUTSIDE_CLICK = false;
+  if (CLOSE_ON_OUTSIDE_CLICK) {
+    document.addEventListener('click', (evt) => {
+      const inside = container.contains(evt.target);
+      if (inside) return;
+      toggles.forEach(btn => {
+        const panelId = btn.getAttribute('aria-controls');
+        const panel = panelId ? document.getElementById(panelId) : null;
+        if (!panel) return;
+        btn.setAttribute('aria-expanded', 'false');
+        panel.hidden = true;
+     });
+    });
+  }
+});
+
+// ===== BEGIN mob-join-ways =====
+document.addEventListener('DOMContentLoaded', function () {
+  console.log('[mob-join] init');
+
+  var container = document.getElementById('mob-join-ways');
+  if (!container) return;
+
+  // --- Accordion
+  var toggles = container.querySelectorAll('.join-mob-accordion-toggle');
+
+  function closeAllExcept(button) {
+    toggles.forEach(function (t) {
+      if (t !== button) {
+        var pid = t.getAttribute('aria-controls');
+        var pnl = pid ? document.getElementById(pid) : null;
+        if (!pnl) return;
+        t.setAttribute('aria-expanded', 'false');
+        pnl.hidden = true;
+      }
+    });
+  }
+
+  toggles.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var pid = btn.getAttribute('aria-controls');
+      var pnl = pid ? document.getElementById(pid) : null;
+      if (!pnl) return;
+
+      var isOpen = btn.getAttribute('aria-expanded') === 'true';
+      if (isOpen) {
+        btn.setAttribute('aria-expanded', 'false');
+        pnl.hidden = true;
+      } else {
+        closeAllExcept(btn);
+        btn.setAttribute('aria-expanded', 'true');
+        pnl.hidden = false;
+      }
+    });
+  });
+});
+// ===== END mob-join-ways =====
+
+
+// /join-pilot-roster — unified accordions: only-one-open + close-on-any-click
+document.addEventListener("DOMContentLoaded", () => {
+  window.ADS = window.ADS || {};
+  if (window.ADS._joinAccordionsAnyClick) return;
+  window.ADS._joinAccordionsAnyClick = true;
+
+  const DEBUG = false;
+
+  // If your mobile uses different class names, add them to these selectors.
+  const SELECTOR_ITEM   = ".join-accordion-item";
+  const SELECTOR_TOGGLE = ".join-accordion-toggle";
+  const OPEN_CLASS      = "is-open";
+
+  const toggles = Array.from(document.querySelectorAll(SELECTOR_TOGGLE));
+  if (!toggles.length) {
+    if (DEBUG) console.warn("[join] No toggles found for", SELECTOR_TOGGLE);
+    return;
+  }
+
+  const metas = toggles.map(btn => {
+    const panel = getPanel(btn);
+    const item  = getItem(btn, panel);
+    prep(btn, panel, item);
+    return { btn, panel, item };
+  });
+
+  // ——— Bind events
+  toggles.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation(); // prevents immediate global close on the same click
+      const meta = findMeta(btn);
+      toggle(meta);
+    });
+
+    btn.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        const meta = findMeta(btn);
+        toggle(meta);
+      }
+    });
+  });
+
+document.addEventListener("click", (e) => {
+  // ignore clicks on a toggle (handled elsewhere)
+  if (e.target.closest(SELECTOR_TOGGLE)) return;
+  // NEW: ignore clicks on action buttons (keep panel open after Copy/Email)
+  if (e.target.closest(".join-mob-copy-button, .join-mob-email-button")) return; 
+  if (metas.some(isOpen)) metas.forEach(close);
+});
+
+
+  // Escape closes (nice to have)
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && metas.some(isOpen)) metas.forEach(close);
+  });
+
+  // ——— Helpers
+  function getPanel(btn) {
+    // 1) aria-controls id
+    const id = btn.getAttribute("aria-controls");
+    if (id) {
+      const el = document.getElementById(id);
+      if (el) return el;
+    }
+    // 2) nextElementSibling fallback if it looks like a panel
+    let sib = btn.nextElementSibling;
+    while (sib && sib.nodeType === 3) sib = sib.nextElementSibling; // skip text nodes
+    if (sib && (sib.matches?.(".join-accordion-panel, [role='region']") || sib.hasAttribute?.("data-accordion-panel"))) {
+      return sib;
+    }
+    if (DEBUG) console.warn("[join] Panel not found for toggle:", btn);
+    return null;
+  }
+
+  function getItem(btn, panel) {
+    return btn.closest(SELECTOR_ITEM) || panel?.closest(SELECTOR_ITEM) || null;
+  }
+
+  function prep(btn, panel, item) {
+    if (!btn.hasAttribute("aria-expanded")) btn.setAttribute("aria-expanded", "false");
+    if (panel) {
+      if (!panel.id && btn.id) {
+        panel.id = btn.id + "-panel";
+        btn.setAttribute("aria-controls", panel.id);
+      }
+      panel.hidden = true;
+      panel.style.display = "none";
+    }
+    item?.classList.remove(OPEN_CLASS);
+  }
+
+  function findMeta(btn) { return metas.find(m => m.btn === btn) || null; }
+  function isOpen(meta)  { return meta?.btn.getAttribute("aria-expanded") === "true"; }
+
+  function close(meta) {
+    if (!meta) return;
+    meta.btn.setAttribute("aria-expanded", "false");
+    if (meta.panel) {
+      meta.panel.hidden = true;
+      meta.panel.style.display = "none";
+    }
+    meta.item?.classList.remove(OPEN_CLASS);
+    if (DEBUG) console.log("[join] close ->", meta.btn.id || meta.panel?.id || meta.item);
+  }
+
+  function open(meta) {
+    // only one open: close all others first
+    metas.forEach(m => { if (m !== meta) close(m); });
+    meta.btn.setAttribute("aria-expanded", "true");
+    if (meta.panel) {
+      meta.panel.hidden = false;
+      meta.panel.style.display = "";
+    }
+    meta.item?.classList.add(OPEN_CLASS);
+    if (DEBUG) console.log("[join] open ->", meta.btn.id || meta.panel?.id || meta.item);
+  }
+
+  function toggle(meta) { isOpen(meta) ? close(meta) : open(meta); }
+});
+
+
+
+
+
+
+// /join-pilot-roster (MOBILE) — copy/email from non-contiguous <template> bank (class-based)
+document.addEventListener("DOMContentLoaded", () => {
+  window.ADS = window.ADS || {};
+  if (window.ADS._joinMobCopyEmailLoose) return;
+  window.ADS._joinMobCopyEmailLoose = true;
+
+  const DEBUG = false;
+
+  // Your selectors (verbatim)
+  const SELECTORS = {
+    scope: document, // or document.querySelector(".join-page")
+    item: ".join-mob-accordion-item",
+    copyBtn: ".join-mob-copy-button",
+    emailBtn: ".join-mob-email-button",
+    copyTarget: ".join-mob-copy-target", // may be a <template> or a wrapper that contains one
+    emailBody: ".join-mob-email-body"    // may be a <template> or a wrapper that contains one
+  };
+
+  // Optional: shared "tag" class to pair buttons to templates in a global bank.
+  // Example: add class "join-tmpl-way1" to the button and to the target <template>.
+  const TAG_PREFIX = "join-tmpl-";
+
+  const EMAIL_DEFAULTS = {
+    to: "ops@aircraft.delivery",
+    subject: "Join Pilot Roster Info",
+    cc: "",
+    bcc: ""
+  };
+
+  ensureButtonTypeAll(SELECTORS.copyBtn);
+  ensureButtonTypeAll(SELECTORS.emailBtn);
+
+  SELECTORS.scope.addEventListener("click", (e) => {
+    // COPY
+    const copyBtn = e.target.closest(SELECTORS.copyBtn);
+    if (copyBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      const src = getTargetEl(copyBtn, SELECTORS.copyTarget, SELECTORS.emailBody);
+      if (!src) { if (DEBUG) console.warn("[join] copy target not found"); return; }
+      const text = extractPreferredText(src);
+      if (DEBUG) console.log("[join] COPY len:", text.length, "preview:", text.slice(0, 120));
+copyText(text)
+  .then(() => {
+    confirmFlash(copyBtn, "Copied!");
+    flag(copyBtn, "Copied!");      // keeps your aria feedback
+  })
+  .catch(() => {
+    confirmFlash(copyBtn, "Copy failed");
+    flag(copyBtn, "Copy failed");
+  });
+
+    }
+
+    // EMAIL
+    const emailBtn = e.target.closest(SELECTORS.emailBtn);
+    if (emailBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      const bodyEl = getTargetEl(emailBtn, SELECTORS.emailBody, SELECTORS.copyTarget);
+      if (!bodyEl) { if (DEBUG) console.warn("[join] email body target not found"); return; }
+      const bodyText = extractPreferredText(bodyEl);
+      if (DEBUG) console.log("[join] EMAIL len:", bodyText.length, "preview:", bodyText.slice(0, 120));
+      const href = buildMailto({
+        to: EMAIL_DEFAULTS.to,
+        subject: EMAIL_DEFAULTS.subject,
+        cc: EMAIL_DEFAULTS.cc,
+        bcc: EMAIL_DEFAULTS.bcc,
+        body: bodyText.replace(/\r?\n/g, "\r\n")
+      });
+      confirmFlash(emailBtn, "Email Program Opening!");
+flag(emailBtn, "Email Program Opening!");
+
+      window.location.href = href;
+      return;
+    }
+  }, { capture: true });
+
+  // ------- helpers -------
+
+  // Prefer: (1) tag-match in global bank, (2) inside nearest item, (3) global fallback
+  function getTargetEl(btn, primarySel, secondarySel) {
+    // (1) tag-match: find a class like "join-tmpl-xxx" on the button
+    const tagClass = Array.from(btn.classList).find(c => c.startsWith(TAG_PREFIX));
+    if (tagClass) {
+      const tagged =
+        document.querySelector(`${primarySel}.${tagClass}`) ||
+        document.querySelector(`${secondarySel}.${tagClass}`);
+      if (tagged) return resolveTemplate(tagged);
+    }
+
+    // (2) inside nearest item
+    const container = btn.closest(SELECTORS.item);
+    if (container) {
+      const local =
+        container.querySelector(primarySel) ||
+        container.querySelector(secondarySel);
+      if (local) return resolveTemplate(local);
+    }
+
+    // (3) global fallback (first match in the bank)
+    const globalEl =
+      document.querySelector(primarySel) ||
+      document.querySelector(secondarySel);
+    return resolveTemplate(globalEl);
+  }
+
+  // Accepts either a <template>, an element that contains a <template>, or a plain element.
+  function resolveTemplate(el) {
+    if (!el) return null;
+    const tag = el.tagName ? el.tagName.toLowerCase() : "";
+    if (tag === "template") return el; // we'll read el.content below
+    const t = el.querySelector ? el.querySelector("template") : null;
+    return t || el;
+  }
+
+  // Robust extractor for <template> or regular elements.
+  function extractPreferredText(nodeOrTemplate) {
+    if (!nodeOrTemplate) return "";
+    // If it's a <template>, use its .content text
+    if (nodeOrTemplate.tagName && nodeOrTemplate.tagName.toLowerCase() === "template") {
+      return normalizeText(nodeOrTemplate.content.textContent || "");
+    }
+    // Prefer visible text when possible
+    const visible = (nodeOrTemplate.innerText || "").trim();
+    if (visible) return normalizeText(visible);
+    // Otherwise fall back to raw text (works for hidden/offscreen)
+    const raw = (nodeOrTemplate.textContent || "").trim();
+    if (raw) return normalizeText(raw);
+    // Last resort: strip tags from innerHTML and normalize block/line breaks
+    const html = nodeOrTemplate.innerHTML || "";
+    if (!html) return "";
+    const lineish = html
+      .replace(/<br\s*\/?>/gi, "\n")
+      .replace(/<\/(p|div|li|h[1-6])>\s*/gi, "\n")
+      .replace(/<li>/gi, "• ")
+      .replace(/<[^>]+>/g, "");
+    return normalizeText(decodeEntities(lineish));
+  }
+
+  function normalizeText(s) {
+    // collapse spaces before newlines; trim; leave \n (mailto builder converts to CRLF)
+    return String(s).replace(/[ \t]+\n/g, "\n").trim();
+  }
+
+  function decodeEntities(s) {
+    const ta = document.createElement("textarea");
+    ta.innerHTML = s;
+    return ta.value;
+  }
+
+  function ensureButtonTypeAll(sel) {
+    document.querySelectorAll(sel).forEach(el => {
+      if (el.tagName === "BUTTON" && !el.getAttribute("type")) el.setAttribute("type", "button");
+    });
+  }
+
+  function copyText(text) {
+    if (navigator.clipboard?.writeText) return navigator.clipboard.writeText(text);
+    // Fallback
+    return new Promise((resolve, reject) => {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.top = "-9999px";
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        const ok = document.execCommand("copy");
+        document.body.removeChild(ta);
+        ok ? resolve() : reject();
+      } catch (err) {
+        document.body.removeChild(ta);
+        reject(err);
+      }
+    });
+  }
+
+function confirmFlash(btn, text, ms = 1300) {
+  // Lock current width to avoid layout shift while the label changes
+  const rect = btn.getBoundingClientRect();
+  const prevMinW = btn.style.minWidth;
+  if (rect?.width) btn.style.minWidth = Math.ceil(rect.width) + "px";
+
+  // Remember original HTML once
+  if (!btn.dataset.originalHtml) btn.dataset.originalHtml = btn.innerHTML;
+
+  // Show confirmation
+  btn.innerText = text; // plain text on purpose (no HTML injection)
+  btn.classList.add("is-confirming");
+
+  // Restore after a moment
+  window.clearTimeout(btn._confirmTimer);
+  btn._confirmTimer = window.setTimeout(() => {
+    btn.innerHTML = btn.dataset.originalHtml;
+    btn.classList.remove("is-confirming");
+    // restore min-width
+    if (prevMinW) btn.style.minWidth = prevMinW; else btn.style.minWidth = "";
+  }, ms);
+}
+
+  function buildMailto({ to, subject, cc, bcc, body }) {
+    const params = [];
+    if (subject) params.push("subject=" + encodeURIComponent(subject));
+    if (cc)      params.push("cc=" + encodeURIComponent(cc));
+    if (bcc)     params.push("bcc=" + encodeURIComponent(bcc));
+    params.push("body=" + encodeURIComponent(String(body || "")));
+    return "mailto:" + encodeURIComponent(to || "") + (params.length ? "?" + params.join("&") : "");
+  }
+
+  function flag(btn, msg) {
+    btn.setAttribute("aria-label", msg);
+    btn.dataset.lastStatus = msg;
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  window.ADS = window.ADS || {};
+  if (window.ADS._modalA11y_auto) return;
+  window.ADS._modalA11y_auto = true;
+
+  // 🔧 Update selectors if your modal class names differ
+  const MODAL_SELECTORS = ['.mob-past-deliv-img', '.mob-about-thumb', 'thumbnail'];
+  const CLOSE_SEL   = '.modal-close, .close, [aria-label="Close"]';
+  const OVERLAY_SEL = '.modal-overlay, .overlay';
+  const TITLE_SEL   = 'h1, h2, .modal-title, [data-title]';
+
+  let lastOpener = null;
+  const remember = (e) => { lastOpner = e.target; }; // typo-safe fallback below
+  document.addEventListener('mousedown', e => { lastOpener = e.target; }, true);
+  document.addEventListener('keydown',  e => {
+    if (e.key === 'Enter' || e.key === ' ') lastOpener = e.target;
+  }, true);
+
+  const FOCUSABLE = 'a[href],button:not([disabled]),input:not([disabled]):not([type="hidden"]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
+  const getFocusable = (root) => Array.from(root.querySelectorAll(FOCUSABLE))
+    .filter(el => el.offsetParent !== null || el === root);
+
+  const isVisible = (el) => {
+    const cs = getComputedStyle(el);
+    return cs.display !== 'none' && cs.visibility !== 'hidden' && el.offsetParent !== null;
+  };
+
+  const applySemantics = (modal) => {
+    if (!modal.hasAttribute('role')) modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    if (!modal.hasAttribute('tabindex')) modal.tabIndex = -1;
+
+    if (!modal.hasAttribute('aria-labelledby') && !modal.hasAttribute('aria-label')) {
+      const title = modal.querySelector(TITLE_SEL);
+      if (title) {
+        if (!title.id) title.id = 'm-' + Math.random().toString(36).slice(2,8);
+        modal.setAttribute('aria-labelledby', title.id);
+      } else {
+        modal.setAttribute('aria-label', 'Dialog');
+      }
+    }
+  };
+
+  const lockBody = (on) => document.body.classList[on ? 'add' : 'remove']('no-scroll');
+
+  const onOpen = (modal) => {
+    applySemantics(modal);
+    modal.setAttribute('aria-hidden', 'false');
+    lockBody(true);
+
+    const first = getFocusable(modal)[0] || modal;
+    first.focus();
+
+    const keyHandler = (e) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        const closer = modal.querySelector(CLOSE_SEL);
+        if (closer) closer.click(); else onClose(modal);
+      } else if (e.key === 'Tab') {
+        const f = getFocusable(modal);
+        if (!f.length) { e.preventDefault(); return; }
+        const a = document.activeElement, first = f[0], last = f[f.length-1];
+        if (e.shiftKey && a === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && a === last) { e.preventDefault(); first.focus(); }
+      }
+    };
+    modal._adsKeyHandler = keyHandler;
+    document.addEventListener('keydown', keyHandler, true);
+  };
+
+  const onClose = (modal) => {
+    modal.setAttribute('aria-hidden', 'true');
+    lockBody(false);
+    if (modal._adsKeyHandler) document.removeEventListener('keydown', modal._adsKeyHandler, true);
+    setTimeout(() => {
+      try { (lastOpener && lastOpener.focus) ? lastOpener.focus() : document.body.focus(); } catch {}
+    }, 0);
+  };
+
+  // Click handlers for overlay + close (no HTML edits needed if you already use these classes)
+  document.addEventListener('click', (e) => {
+    const overlay = e.target.closest(OVERLAY_SEL);
+    if (overlay && overlay === e.target) {
+      const modal = MODAL_SELECTORS.map(sel => overlay.closest(sel)).find(Boolean);
+      if (modal) {
+        const closer = modal.querySelector(CLOSE_SEL);
+        if (closer) closer.click(); else onClose(modal);
+      }
+    }
+    const closer = e.target.closest(CLOSE_SEL);
+    if (closer) {
+      const modal = MODAL_SELECTORS.map(sel => closer.closest(sel)).find(Boolean);
+      if (modal) onClose(modal);
+    }
+  }, true);
+
+  // Observe visibility changes on the modal elements you already have
+  const targets = MODAL_SELECTORS.flatMap(sel => Array.from(document.querySelectorAll(sel)));
+  const observer = new MutationObserver((mut) => {
+    mut.forEach(m => {
+      const modal = m.target;
+      const now = isVisible(modal);
+      const wasHidden = modal.getAttribute('aria-hidden') !== 'false';
+      if (now && wasHidden) onOpen(modal);
+      else if (!now && !wasHidden) onClose(modal);
+    });
+  });
+  targets.forEach(modal => {
+    applySemantics(modal);
+    modal.setAttribute('aria-hidden', isVisible(modal) ? 'false' : 'true');
+    observer.observe(modal, { attributes: true, attributeFilter: ['class','style','hidden','aria-hidden'] });
   });
 });
