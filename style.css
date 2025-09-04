@@ -48,6 +48,17 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
 }
 
+/* Keep pad neutral so JS height is exact */
+.header-pad {
+  display: block;
+  width: 100%;
+  height: 0;          /* JS will override */
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  box-sizing: content-box !important;
+}
+
 /*9/1
 .ul-tall-line-height-1point2rem {
 font-size: 1.2rem;
@@ -376,9 +387,7 @@ html, body {
     line-height: 1.3;
   }
 
-  .header-pad {
-     padding-top: 178px;
-    }
+
   }
    
 /* =========================
@@ -407,9 +416,6 @@ html, body {
     line-height: 1.3;
   }
 
-  .header-pad {
-     padding-top: 178px;
-    }
   }
 
 /* =========================
@@ -428,9 +434,7 @@ html, body {
     white-space: nowrap; 
   } /* still no wrap */
 
-  .header-pad { 
-    padding-top: 157px;
-  }
+
  }
 
 /* =========================
@@ -443,10 +447,8 @@ html, body {
     gap: 8px 50px;
  }
 
-  .header-pad {
-  padding-top: 157px;
 }
-}
+
  
 /* =========================
    CONFIG E: 3301px+
@@ -458,10 +460,9 @@ html, body {
     grid-template-columns: repeat(6, auto);
   }
 
-.header-pad {
-  padding-top: 157px;
+
 }
-}
+
 
 /* !!! END DESKTOP HEADER !!! END */
 
@@ -678,35 +679,40 @@ html.menu-open body {
 }
 }
 
-/* !!! END === MOBILE HEADER === !!! END*/
-
 /* MOBILE HEADER SIZING */
 
 @media (max-width: 750px) {
-.header-pad {
-  padding-top: 70px;
+.mobile-header {
+  height: 60px;
+}
 }
 
-.index-mob-pad  {
+/*  .header-pad {
+  padding-top: 70px;
+}*/
+
+/*.index-mob-pad  {
 padding-top: 60px
 }
-}
+}*/
 
-@media (min-width: 751px) and (max-width: 1400px) {
+/*@media (min-width: 751px) and (max-width: 1400px) {
 .header-pad {
 padding-top: 100px; 
 }
-}
+}*/
 
-@media screen and (min-width: 751px) and (max-width: 1400px) { 
+@media (min-width: 751px) and (max-width: 1400px) { 
   .mobile-header {
    height: 90px;
 }
 
-.index-mob-pad {
+/*.index-mob-pad {
   padding-top: 90px;
+}*/
 }
-}
+
+/* !!! END === MOBILE HEADER === !!! END*/
 
 /* ++++++ INDEX +++++++++*/
 

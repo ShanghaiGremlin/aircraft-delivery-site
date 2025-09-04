@@ -2949,3 +2949,113 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(modal, { attributes: true, attributeFilter: ['class','style','hidden','aria-hidden'] });
   });
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  window.ADS = window.ADS || {};
+  if (window.ADS._padSync_v5) return;
+  window.ADS._padSync_v5 = true;
+
+  // Update/trim selectors if yours differ
+  const CANDIDATES = [
+    'header.desk-header',
+    'header.mob-header',
+    'header.mobile-header',
+    '.mobile-header',
+    '.site-header'
+  ];
+
+  const getHeaders = () =>
+    CANDIDATES.flatMap(sel => Array.from(document.querySelectorAll(sel)));
+
+  const cs = (el) => getComputedStyle(el);
+
+  const isRenderable = (el) => {
+    const s = cs(el);
+    if (s.display === 'none' || s.visibility === 'hidden' || s.opacity === '0') return false;
+    const r = el.getBoundingClientRect();
+    return r.width > 0 && r.height > 0;
+  };
+
+  // A header should only pad if it's fixed AND actually overlapping the viewport top
+  const shouldPadFor = (el) => {
+    if (!isRenderable(el)) return false;
+    if (cs(el).position !== 'fixed') return false;
+    const r = el.getBoundingClientRect();
+    // In view (touching/overlapping the viewport) & near the top edge
+    const overlapsViewport = r.bottom > 0 && r.top < window.innerHeight;
+    const nearTop = r.top < 100; // allow tiny scroll offsets/transforms
+    return overlapsViewport && nearTop;
+  };
+
+  const ensurePadAfter = (header) => {
+    let pad = header.nextElementSibling;
+    if (!(pad && pad.classList && pad.classList.contains('header-pad'))) {
+      // Reuse existing pad elsewhere if present
+      pad = document.querySelector('.header-pad') || document.createElement('div');
+      pad.className = 'header-pad';
+      pad.style.width = '100%';
+      pad.style.height = '0px';
+      header.parentNode.insertBefore(pad, header.nextSibling);
+    } else {
+      // Make sure it's not styled by external CSS in ways that affect height math
+      pad.style.margin = '0';
+      pad.style.padding = '0';
+      pad.style.border = '0';
+      pad.style.boxSizing = 'content-box';
+    }
+    return pad;
+  };
+
+  let active = null;
+  let ros = [];
+
+  const pickActiveHeader = () => {
+    const all = getHeaders().filter(isRenderable);
+    // Prefer fixed, visible, near-top headers; fall back to none
+    const fixed = all.filter(shouldPadFor);
+    if (fixed.length) {
+      // Choose the one closest to the top
+      fixed.sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top);
+      return fixed[0];
+    }
+    return null;
+  };
+
+  const sync = () => {
+    const next = pickActiveHeader();
+    if (next !== active) {
+      // (Re)attach ResizeObservers on the new active header
+      ros.forEach(ro => ro.disconnect && ro.disconnect());
+      ros = [];
+      active = next;
+
+      if (active && 'ResizeObserver' in window) {
+        const ro = new ResizeObserver(() => setPad());
+        ro.observe(active);
+        ros.push(ro);
+      }
+    }
+    setPad();
+  };
+
+  const setPad = () => {
+    // Always ensure a pad exists right after whichever header is active (if any)
+    const pad = active ? ensurePadAfter(active) : (document.querySelector('.header-pad') || null);
+    const height = active ? active.offsetHeight : 0;
+    if (pad) pad.style.height = height + 'px';
+  };
+
+  // Initial + after webfonts (font swap can change header height)
+  sync();
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(sync).catch(() => {});
+  }
+
+  // Watch global layout changes that could flip headers or sizes
+  ['resize', 'orientationchange', 'scroll'].forEach(ev => window.addEventListener(ev, sync, { passive: true }));
+  const mo = new MutationObserver(sync);
+  mo.observe(document.documentElement, {
+    childList: true, subtree: true, attributes: true, attributeFilter: ['class', 'style']
+  });
+});
