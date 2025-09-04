@@ -4385,19 +4385,10 @@ textarea:focus-visible,
 }
 
 @media (min-width: 1401px) {
-  header.desk-header.ads-row-fix {
-    display: flex !important;              /* enforce a single row only when broken */
-    align-items: center;
-    justify-content: space-between;
-  }
-  header.desk-header.ads-row-fix .desk-header-left,
-  header.desk-header.ads-row-fix .desk-header-right {
-    white-space: nowrap;                    /* keep clusters on one line */
-  }
-  header.desk-header.ads-row-fix img.desk-header-logo {
-    height: auto;
-    width: auto;
-    max-height: clamp(72px, 7.5vw, 110px);  /* prevent logo from ballooning the row */
-    display: block;
+  /* Hide briefly to prevent the plaintext flash; fade in once ready */
+  header.desk-header.boot-hide {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .12s ease-out;
   }
 }

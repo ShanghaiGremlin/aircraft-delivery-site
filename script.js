@@ -3128,36 +3128,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  const html = document.documentElement;
-  const reveal = () => html.classList.remove('hdr-hide');
-
-  // Wait for the injected header to actually exist
-  const waitForHeader = () => new Promise(resolve => {
-    const have = () => document.querySelector('header.desk-header');
-    const h = have(); if (h) return resolve(h);
-    const mo = new MutationObserver(() => { const el = have(); if (el) { mo.disconnect(); resolve(el); }});
-    mo.observe(document.documentElement, { childList: true, subtree: true });
+  const H = document.querySelector('header.desk-header.boot-hide');
+  if (!H) return;
+  // Let the browser apply CSS, then reveal on the next frame
+  requestAnimationFrame(() => {
+    H.classList.remove('boot-hide');
   });
-
-  // Consider the header "stable" when its height stops changing between checks
-  const waitStableHeight = (el, intervalMs = 80) => new Promise(resolve => {
-    let last = el.offsetHeight;
-    const tick = () => {
-      const cur = el.offsetHeight;
-      if (Math.abs(cur - last) <= 1) return resolve();
-      last = cur;
-      setTimeout(tick, intervalMs);
-    };
-    setTimeout(tick, intervalMs);
-  });
-
-  (async () => {
-    const header = await waitForHeader();
-    try { await (document.fonts && document.fonts.ready); } catch {}
-    await waitStableHeight(header, 80);
-    reveal();
-  })();
-
-  // Safety: never keep it hidden too long on poor networks
-  setTimeout(reveal, 2500);
 });
