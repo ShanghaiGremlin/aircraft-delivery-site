@@ -3061,34 +3061,67 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-
 document.addEventListener('DOMContentLoaded', () => {
+  // Guard
+  window.ADS = window.ADS || {};
+  if (window.ADS._deskHeaderRowFix) return;
+  window.ADS._deskHeaderRowFix = true;
+
   const header = document.querySelector('header.desk-header');
   if (!header) return;
 
-  const $ = (sel) => header.querySelector(sel);
-  const left = $('.desk-header-left');
-  const logo = $('img.desk-header-logo');
-  const right = $('.desk-header-right');
+  const left = header.querySelector('.desk-header-left');
+  const logo = header.querySelector('img.desk-header-logo');
+  const right = header.querySelector('.desk-header-right');
 
-  const applyFixIfStacked = () => {
-    const H = header.offsetHeight || 0;
+  const isStacked = () => {
+    const H  = header.offsetHeight || 0;
     const hL = left?.offsetHeight || 0;
     const hC = logo?.offsetHeight || 0;
     const hR = right?.offsetHeight || 0;
-
-    // Heuristic: "stacked" when header is much taller than any single section
-    // OR when the sum of children ≈ header (typical vertical stack).
     const tallest = Math.max(hL, hC, hR);
     const sum = hL + hC + hR;
-    const stacked = (H > tallest + 40) || (Math.abs(sum - H) <= 8) || (H >= 220);
 
-    header.classList.toggle('ads-row-fix', stacked);
+    // Stacked if header is way taller than any child or roughly equals their sum
+    return (innerWidth > 1400) && (H >= 220 || H > tallest + 40 || Math.abs(sum - H) <= 8);
   };
 
-  applyFixIfStacked();
-  window.addEventListener('resize', applyFixIfStacked, { passive: true });
+  const applyRow = () => {
+    // Minimal, non-destructive styles — only when stacked
+    header.style.display = 'flex';
+    header.style.alignItems = 'center';
+    header.style.justifyContent = 'space-between';
+    if (left)  left.style.whiteSpace = 'nowrap';
+    if (right) right.style.whiteSpace = 'nowrap';
+
+    // Keep the logo from ballooning the row
+    if (logo) {
+      logo.style.display = 'block';
+      logo.style.height = 'auto';
+      logo.style.width = 'auto';
+      // cap the logo height; adjust the max if your brand lockup needs more
+      logo.style.maxHeight = '110px';
+    }
+  };
+
+  const maybeFix = () => {
+    // Clear any previous inline styles in case we crossed breakpoints
+    if (innerWidth <= 1400) {
+      header.style.removeProperty('display');
+      header.style.removeProperty('align-items');
+      header.style.removeProperty('justify-content');
+      if (left)  left.style.removeProperty('white-space');
+      if (right) right.style.removeProperty('white-space');
+      if (logo)  logo.style.removeProperty('max-height');
+      return;
+    }
+    if (isStacked()) applyRow();
+  };
+
+  // Run now, on resize, and after fonts load (fonts often change header height)
+  maybeFix();
+  window.addEventListener('resize', maybeFix, { passive: true });
   if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(applyFixIfStacked).catch(() => {});
+    document.fonts.ready.then(maybeFix).catch(() => {});
   }
 });
