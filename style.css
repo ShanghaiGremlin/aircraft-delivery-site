@@ -4384,11 +4384,3 @@ textarea:focus-visible,
   border: 0 !important;
 }
 
-@media (min-width: 1401px) {
-  /* Hide briefly to prevent the plaintext flash; fade in once ready */
-  header.desk-header.boot-hide {
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity .12s ease-out;
-  }
-}

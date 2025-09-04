@@ -3127,11 +3127,3 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-document.addEventListener('DOMContentLoaded', () => {
-  const H = document.querySelector('header.desk-header.boot-hide');
-  if (!H) return;
-  // Let the browser apply CSS, then reveal on the next frame
-  requestAnimationFrame(() => {
-    H.classList.remove('boot-hide');
-  });
-});
