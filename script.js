@@ -1459,13 +1459,6 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       var htmlEl2 = document.documentElement;
 
-      function applyHeaderHeight() {
-        if (!hdr || !htmlEl2) return;
-        const h = 155; // ← your fixed height
-        htmlEl2.style.setProperty('--desk-header-h', h + 'px');
-        emit('ads:desk-header:height', { height: h });
-      }
-
       // initial measure
       applyHeaderHeight();
 
