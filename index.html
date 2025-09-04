@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="no-fouc">
+<html lang="en" class="hdr-hide">
 <head>
   <!-- ===== GLOBAL (copy identical on every page) ===== -->
   <meta charset="UTF-8">
@@ -11,14 +11,14 @@
   <meta name="ads-ver" content="?v=20250826-235823">
 
 
-  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=20250904-091235">
-  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=20250904-091235">
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=20250904-091235">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=20250904-093340">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=20250904-093340">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=20250904-093340">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"> rel="stylesheet">
 
-<link rel="preload" href="/style.css?v=20250904-091235" as="style">
-<link rel="stylesheet" href="/style.css?v=20250904-091235">
+<link rel="preload" href="/style.css?v=20250904-093340" as="style">
+<link rel="stylesheet" href="/style.css?v=20250904-093340">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -74,17 +74,17 @@
 </script>
 
 <style>
-  /* Hide the desktop header until CSS/Fonts are ready (prevents plaintext flash) */
+  /* Prevent header flash on desktop while the page is booting */
   @media (min-width:1401px){
-    html.no-fouc header.desk-header{ opacity:0; }
-    /* Ensure no phantom gap while hidden */
-    html.no-fouc .header-pad{ height:0 !important; }
-    /* Nice fade-in when we reveal it */
+    html.hdr-hide header.desk-header { visibility: hidden; }
+    html.hdr-hide .header-pad { height: 0 !important; } /* no phantom gap */
     @media (prefers-reduced-motion:no-preference){
-      header.desk-header{ transition:opacity .12s ease-out; }
+      header.desk-header { transition: opacity .12s ease-out; }
+      html:not(.hdr-hide) header.desk-header { opacity: 1; }
     }
   }
 </style>
+
 
 </head>
 
@@ -124,7 +124,7 @@
     <picture>
       <source 
         media="(max-width: 1400px)" 
-        srcset="/assets/mobile/burger.png?v=20250904-091235">
+        srcset="/assets/mobile/burger.png?v=20250904-093340">
       <img
         src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
         alt="aria-label-active" 
@@ -145,10 +145,10 @@
                   <picture>
                     <source 
                       media="(max-width: 750px)"
-                      srcset="/assets/mobile/mobile-logo-v2.png?v=20250904-091235">
+                      srcset="/assets/mobile/mobile-logo-v2.png?v=20250904-093340">
                     <source 
                       media="(min-width: 751px) and (max-width: 1400px)"
-                      srcset="/assets/mobile/mobile-logo-90.png?v=20250904-091235">
+                      srcset="/assets/mobile/mobile-logo-90.png?v=20250904-093340">
                     <img
                       src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
                       alt="Aircraft Delivery Solutions"
@@ -167,7 +167,7 @@
                   <picture>
                     <source 
                       media="(max-width: 1400px)"
-                      srcset="/assets/mobile/phone.png?v=20250904-091235">
+                      srcset="/assets/mobile/phone.png?v=20250904-093340">
                     <img 
                       src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
                       alt="Call"
@@ -210,7 +210,7 @@
       <!-- HERO WRAPPER (must contain the services overlay) -->
       <div class="desk-hero-image-wrapper">
         <picture>
-          <source srcset="/assets/matte8.jpg?v=20250904-091235" media="(min-width: 1401px)">
+          <source srcset="/assets/matte8.jpg?v=20250904-093340" media="(min-width: 1401px)">
           <img
             class="desk-hero-matte"
             src="data:image/gif;base64,R0lGODlhAQABAAAAACw="
@@ -227,11 +227,11 @@
     <!-- Prevent loading on mobile/tablet: serve a 1x1 transparent source there -->
     <source
       media="(max-width: 1400px)"
-      srcset="data:image/gif;base64, R0lGODlhAQABAAAAACw=?v=20250904-091235"
+      srcset="data:image/gif;base64, R0lGODlhAQABAAAAACw=?v=20250904-093340"
       type="image/gif">
     <img
       class="desk-index-cta-img"
-      src="/assets/quote-sign.png?v=20250904-091235"
+      src="/assets/quote-sign.png?v=20250904-093340"
       alt="Get a fast quote"
       decoding="async"
       fetchpriority="low">
@@ -252,7 +252,7 @@
           >
             <img 
               class="desk-index-thumb"
-              src="/assets/index-key-200px.jpg?v=20250904-091235"
+              src="/assets/index-key-200px.jpg?v=20250904-093340"
               alt="Ferry Flights"
               style="display: block; width: clamp(150px, calc(-45px + 13vw), 215px);"            >
           </a>
@@ -274,7 +274,7 @@
           >
             <img 
               class="desk-index-thumb"
-              src="/assets/services/containerize-no-title-320w.png?v=20250904-091235"
+              src="/assets/services/containerize-no-title-320w.png?v=20250904-093340"
               alt="Container Shipping">
           </a>
           <div class="desk-index-content">
@@ -299,7 +299,7 @@
 
     <!-- Right bleed inside the flex row -->
     <div class="main-bleed-right">
-      <img src="/assets/bleed-patch.png?v=20250904-091235" alt="patch" class="bleed-right-patch">
+      <img src="/assets/bleed-patch.png?v=20250904-093340" alt="patch" class="bleed-right-patch">
     </div>
   </div>
 </div>
@@ -319,7 +319,7 @@
 <div class="index-mob-main">
   
 <picture class="index-mob-pad">
-  <source srcset="/assets/mobile/mob-index-mobilehero-320w.jpg?v=20250904-091235 320w, /assets/mobile/mob-index-mobilehero-640w.jpg?v=20250904-091235 640w, /assets/mobile/mob-index-mobilehero-640w@2x.jpg?v=20250904-091235 1280w"
+  <source srcset="/assets/mobile/mob-index-mobilehero-320w.jpg?v=20250904-093340 320w, /assets/mobile/mob-index-mobilehero-640w.jpg?v=20250904-093340 640w, /assets/mobile/mob-index-mobilehero-640w@2x.jpg?v=20250904-093340 1280w"
           sizes="(max-width: 480px) 320px,
                  (max-width: 768px) 640px,
                  100vw"
@@ -336,7 +336,7 @@
 
 <a href="/services" class="mob-index-service-link">
   <div class="mob-index-service" style="padding-bottom: 10px;">
-    <img src="/assets/index-key-200px.jpg?v=20250904-091235" alt="Ferry Flights" class="mob-index-imgborder" width="200" height="150" decoding="async">
+    <img src="/assets/index-key-200px.jpg?v=20250904-093340" alt="Ferry Flights" class="mob-index-imgborder" width="200" height="150" decoding="async">
     <div class="mob-index-service-text">
       <div class="mob-index-headline">FERRY FLIGHTS</div>
       <div class="mob-index-description">Nearly any aircraft.<br> To nearly every destination.</div>
@@ -347,7 +347,7 @@
 <a href="/services" class="mob-index-service-link">
   <div class="mob-index-service">
     <div class="mob-index-imgbg-wrap">
-  <img src="/assets/services/containerize-no-title-320w.png?v=20250904-091235" alt="Container Shipping" class="mob-index-imgbg-img" width="300" height="155" decoding="async">
+  <img src="/assets/services/containerize-no-title-320w.png?v=20250904-093340" alt="Container Shipping" class="mob-index-imgbg-img" width="300" height="155" decoding="async">
 </div>
 
 <div class="mob-index-service-text">
@@ -359,8 +359,8 @@
 
   <!-- Quote Button -->
     <a style="text-align: center;" href="/quote">
-      <img src="/assets/quote-button-transp.png?v=20250904-091235"
-           srcset="/assets/quote-button-transp-320w.png?v=20250904-091235 320w, /assets/quote-button-transp-640w.png?v=20250904-091235 640w"
+      <img src="/assets/quote-button-transp.png?v=20250904-093340"
+           srcset="/assets/quote-button-transp-320w.png?v=20250904-093340 320w, /assets/quote-button-transp-640w.png?v=20250904-093340 640w"
            sizes="(
            max-width: 480px) 320px, (max-width: 768px) 640px"
            loading="lazy"
@@ -376,7 +376,7 @@
 
 </main>
 
-<script src="/script.js?v=20250904-091235" defer></script>
+<script src="/script.js?v=20250904-093340" defer></script>
 
 
 </body>

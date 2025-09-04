@@ -3128,28 +3128,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  const reveal = () => document.documentElement.classList.remove('no-fouc');
+  const html = document.documentElement;
+  const reveal = () => html.classList.remove('hdr-hide');
 
-  // If your main stylesheet link exists, wait for it if needed
-  const styleLink = [...document.querySelectorAll('link[rel="stylesheet"]')]
-    .find(l => /\/style\.css(\?|$)/.test(l.href));
+  // Wait for the injected header to actually exist
+  const waitForHeader = () => new Promise(resolve => {
+    const have = () => document.querySelector('header.desk-header');
+    const h = have(); if (h) return resolve(h);
+    const mo = new MutationObserver(() => { const el = have(); if (el) { mo.disconnect(); resolve(el); }});
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+  });
 
-  let revealed = false;
-  const safeReveal = () => { if (!revealed) { reveal(); revealed = true; } };
+  // Consider the header "stable" when its height stops changing between checks
+  const waitStableHeight = (el, intervalMs = 80) => new Promise(resolve => {
+    let last = el.offsetHeight;
+    const tick = () => {
+      const cur = el.offsetHeight;
+      if (Math.abs(cur - last) <= 1) return resolve();
+      last = cur;
+      setTimeout(tick, intervalMs);
+    };
+    setTimeout(tick, intervalMs);
+  });
 
-  if (styleLink && !styleLink.sheet) {
-    styleLink.addEventListener('load', safeReveal, { once: true });
-    styleLink.addEventListener('error', safeReveal, { once: true });
-  } else {
-    // Stylesheet already parsed
-    safeReveal();
-  }
+  (async () => {
+    const header = await waitForHeader();
+    try { await (document.fonts && document.fonts.ready); } catch {}
+    await waitStableHeight(header, 80);
+    reveal();
+  })();
 
-  // Fonts can nudge header height; reveal after they’re ready too (whichever comes first)
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(safeReveal).catch(() => {});
-  }
-
-  // Final safety: don’t hide longer than ~1.5s even on slow nets
-  setTimeout(safeReveal, 1500);
+  // Safety: never keep it hidden too long on poor networks
+  setTimeout(reveal, 2500);
 });
