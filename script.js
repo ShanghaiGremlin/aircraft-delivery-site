@@ -3125,3 +3125,31 @@ document.addEventListener('DOMContentLoaded', () => {
     document.fonts.ready.then(maybeFix).catch(() => {});
   }
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const reveal = () => document.documentElement.classList.remove('no-fouc');
+
+  // If your main stylesheet link exists, wait for it if needed
+  const styleLink = [...document.querySelectorAll('link[rel="stylesheet"]')]
+    .find(l => /\/style\.css(\?|$)/.test(l.href));
+
+  let revealed = false;
+  const safeReveal = () => { if (!revealed) { reveal(); revealed = true; } };
+
+  if (styleLink && !styleLink.sheet) {
+    styleLink.addEventListener('load', safeReveal, { once: true });
+    styleLink.addEventListener('error', safeReveal, { once: true });
+  } else {
+    // Stylesheet already parsed
+    safeReveal();
+  }
+
+  // Fonts can nudge header height; reveal after they’re ready too (whichever comes first)
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(safeReveal).catch(() => {});
+  }
+
+  // Final safety: don’t hide longer than ~1.5s even on slow nets
+  setTimeout(safeReveal, 1500);
+});
