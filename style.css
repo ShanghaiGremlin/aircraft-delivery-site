@@ -2889,9 +2889,8 @@ bottom-row-textbox a
 }
 
 .quote-buttonline {
-  display: flex;
-  align-items: center;
-  min-height: 48px; /* passes Lighthouse */
+ min-height: 48px; /* passes Lighthouse */
+ display: inline-grid;
 }
 
 .quote-radio-button {
@@ -2901,7 +2900,7 @@ bottom-row-textbox a
   margin-right: 12px;
 }
 
-.quote-checkbox {
+.quote-checkbox-button {
   accent-color: #0b5fff;                /* brand color */
   transform: scale(1.25);               /* slightly bigger dot */
   transform-origin: left center;
@@ -2919,7 +2918,7 @@ bottom-row-textbox a
   padding-left: 15px;
 }
 
-.quote-radio-button:focus-visible + .quote-radio-label {
+.quote-radio:focus-visible + .quote-radio-label {
   outline: 2px solid #0b5fff;
   outline-offset: 2px;
 }
@@ -3066,6 +3065,19 @@ margin: 50px auto 0 auto;
 
 .quote-quoteline textarea {
   align-self: start;                              /* top-align multi-line controls */
+}
+
+.quote-button-alignleft {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 75vw;
+  margin: 0 auto;
+  text-align: left;          /* contents default left */
+
+  align-self: center;    /* if parent is flex */
+  justify-self: center;       /* if parent is grid */
+  line-height: 2;
 }
 
 .quote-quoteline > label:has(:is(input, select, textarea)) :is(input, select, textarea) {

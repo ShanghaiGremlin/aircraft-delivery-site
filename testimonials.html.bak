@@ -11,16 +11,16 @@
   <meta name="ads-ver" content="?v=20250826-235823">
 
   <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=20250908-160320">
-  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=20250908-160320">
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=20250908-160320">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=20250907-192839">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=20250907-192839">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=20250907-192839">
   <link rel="manifest" href="/site.webmanifest">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
 
-<link rel="preload" href="/style.css?v=20250908-160320" as="style">
-<link rel="stylesheet" href="/style.css?v=20250908-160320">
-<link rel="preload" href="/script.js?v=20250908-160320" as="script">
+<link rel="preload" href="/style.css?v=20250907-192839" as="style">
+<link rel="stylesheet" href="/style.css?v=20250907-192839">
+<link rel="preload" href="/script.js?v=20250907-192839" as="script">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,7 +49,7 @@
   <meta name="twitter:image" content="https://aircraft.delivery/assets/about/2009-12-24.jpg">
 </head>
 <body>
-<a class="skip-link" href="#main">Skip to main content</a>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
   <!-- DESKTOP HEADER WRAPPER -->
 <div class="desktop-only">
@@ -85,7 +85,7 @@
             <source
               media="(min-width: 1401px)"
               type="image/png"
-              srcset="/assets/side-by-side-logo.png?v=20250908-160320">
+              srcset="/assets/side-by-side-logo.png?v=20250907-192839">
             <img
               class="desk-header-logo"
               src="data:image/gif;base64,R0lGODlhAQABAAAAACw="
@@ -120,7 +120,7 @@
     <picture>
       <source 
         media="(max-width: 1400px)" 
-        srcset="/assets/mobile/burger.png?v=20250908-160320">
+        srcset="/assets/mobile/burger.png?v=20250907-192839">
       <img
         src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
         alt="aria-label-active" 
@@ -141,10 +141,10 @@
                   <picture>
                     <source 
                       media="(max-width: 750px)"
-                      srcset="/assets/mobile/mobile-logo-v2.png?v=20250908-160320">
+                      srcset="/assets/mobile/mobile-logo-v2.png?v=20250907-192839">
                     <source 
                       media="(min-width: 751px) and (max-width: 1400px)"
-                      srcset="/assets/mobile/mobile-logo-90.png?v=20250908-160320">
+                      srcset="/assets/mobile/mobile-logo-90.png?v=20250907-192839">
                     <img
                       src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
                       alt="Aircraft Delivery Solutions"
@@ -163,7 +163,7 @@
                   <picture>
                     <source 
                       media="(max-width: 1400px)"
-                      srcset="/assets/mobile/phone.png?v=20250908-160320">
+                      srcset="/assets/mobile/phone.png?v=20250907-192839">
                     <img 
                       src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
                       alt="Call"
@@ -175,22 +175,15 @@
               </div>
 
   </header>
-    <div 
-      class="mobile-menu" 
-      id="mobileMenu" 
-      hidden 
-      aria-labelledby="hamburger-icon"
-      role="region">
-      <nav class="mobile-nav" 
-           aria-label="Mobile primary">
-        <a href="/services">Services</a>
-        <a href="/quote">Get a Quote</a>
-        <a href="/pilot-directory">Pilot Directory</a>
-        <a href="/join-pilot-roster">Join Pilot Roster</a>
-        <a href="/about">About</a>
-        <a href="/past-deliveries">Past Deliveries</a>
-      </nav>
-    </div>
+<div class="mobile-menu" id="mobileMenu" hidden aria-hidden="true">
+  <nav class="mobile-nav" aria-label="Mobile primary">
+    <a href="/services">Services</a>
+    <a href="/quote">Get a Quote</a>
+    <a href="/pilot-directory">Pilot Directory</a>
+    <a href="/join-pilot-roster">Join Pilot Roster</a>
+    <a href="/about">About</a>
+    <a href="/past-deliveries">Past Deliveries</a>
+  </nav>
 </div>
 
 
@@ -542,25 +535,25 @@
 </section>
 
 <div class="mob-testim-freeze" role="navigation" aria-label="Testimonials navigation (mobile)">
-  <a href="/quote"
-     class="testimonials-button"
-     style="padding: 15px 0;">Get A Quote
+  <a href="/quote">
+    <button 
+      class="testimonials-button"
+      style="padding: 15px 0;">Get A Quote
+    </button>
   </a>
    
   
 
-  <a href="/past-deliveries" 
-     style="text-decoration: none;"
-     class="testimonials-button">
-     <span style="font-size: 1.1rem;"> Back to </span> Past Deliveries
+  <a href="/past-deliveries" style="text-decoration: none;">
+    <button class="testimonials-button">
+     <span style="font-size: 1.1rem;"> Back to </span> Past Deliveries</button>
   </a>
 </div>
 </main>
 
-<script src="/script.js?v=20250908-160320" defer></script>
+<script src="/script.js?v=20250907-192839" defer></script>
 </body>
 </html>
-
 
 
 

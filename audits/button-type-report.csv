@@ -1,0 +1,14 @@
+﻿"File","Line","InsideForm","Action","Snippet"
+"C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html","668","False","add type=""button""","<button class=""desk-modal-close"">"
+"C:\Users\Public\Documents\Web Design\aircraft-delivery-site\quote.html","750","False","add type=""button""","<button 
+  class=""quote-accordion-toggle"" 
+  aria-expanded=""false"" 
+  aria-controls=""quote-panel-1"">"
+"C:\Users\Public\Documents\Web Design\aircraft-delivery-site\quote.html","802","False","add type=""button""","<button class=""quote-accordion-toggle"" aria-expanded=""false"" aria-controls=""quote-panel-pilot-expenses""
+  >"
+"C:\Users\Public\Documents\Web Design\aircraft-delivery-site\quote.html","818","False","add type=""button""","<button class=""quote-accordion-toggle"" aria-expanded=""false"" aria-controls=""quote-panel-3"">"
+"C:\Users\Public\Documents\Web Design\aircraft-delivery-site\quote.html","838","False","add type=""button""","<button class=""quote-accordion-toggle"" aria-expanded=""false"" aria-controls=""quote-panel-4"">"
+"C:\Users\Public\Documents\Web Design\aircraft-delivery-site\testimonials.html","540","False","add type=""button""","<button 
+      class=""testimonials-button""
+      style=""padding: 15px 0;"">"
+"C:\Users\Public\Documents\Web Design\aircraft-delivery-site\testimonials.html","549","False","add type=""button""","<button class=""testimonials-button"">"

@@ -10,15 +10,15 @@
   <meta name="apple-mobile-web-app-title" content="Aircraft Delivery">
   <meta name="ads-ver" content="?v=20250826-235823">
 
-  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=20250908-160320">
-  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=20250908-160320">
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=20250908-160320">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=20250907-192839">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=20250907-192839">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=20250907-192839">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
 
-<link rel="preload" href="/style.css?v=20250908-160320" as="style">
-<link rel="stylesheet" href="/style.css?v=20250908-160320">
-<link rel="preload" href="/script.js?v=20250908-160320" as="script">
+<link rel="preload" href="/style.css?v=20250907-192839" as="style">
+<link rel="stylesheet" href="/style.css?v=20250907-192839">
+<link rel="preload" href="/script.js?v=20250907-192839" as="script">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,7 +50,7 @@
   <meta name="twitter:image" content="https://aircraft.delivery/assets/about/2009-12-24.jpg">
 </head>
 <body class="quote-page">
-<a class="skip-link" href="#main">Skip to main content</a>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
   <!-- DESKTOP HEADER WRAPPER -->
 <div class="desktop-only">
@@ -87,7 +87,7 @@
             <source
               media="(min-width: 1401px)"
               type="image/png"
-              srcset="/assets/side-by-side-logo.png?v=20250908-160320">
+              srcset="/assets/side-by-side-logo.png?v=20250907-192839">
             <img
               class="desk-header-logo"
               src="data:image/gif;base64,R0lGODlhAQABAAAAACw="
@@ -126,7 +126,7 @@
     <picture>
       <source 
         media="(max-width: 1400px)" 
-        srcset="/assets/mobile/burger.png?v=20250908-160320">
+        srcset="/assets/mobile/burger.png?v=20250907-192839">
       <img
         src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
         alt="aria-label-active" 
@@ -147,10 +147,10 @@
                   <picture>
                     <source 
                       media="(max-width: 750px)"
-                      srcset="/assets/mobile/mobile-logo-v2.png?v=20250908-160320">
+                      srcset="/assets/mobile/mobile-logo-v2.png?v=20250907-192839">
                     <source 
                       media="(min-width: 751px) and (max-width: 1400px)"
-                      srcset="/assets/mobile/mobile-logo-90.png?v=20250908-160320">
+                      srcset="/assets/mobile/mobile-logo-90.png?v=20250907-192839">
                     <img
                       src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
                       alt="Aircraft Delivery Solutions"
@@ -170,7 +170,7 @@
                   <picture>
                     <source 
                       media="(max-width: 1400px)"
-                      srcset="/assets/mobile/phone.png?v=20250908-160320">
+                      srcset="/assets/mobile/phone.png?v=20250907-192839">
                     <img 
                       src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
                       alt="Call"
@@ -182,22 +182,16 @@
               </div>
 
   </header>
-    <div 
-      class="mobile-menu" 
-      id="mobileMenu" 
-      hidden 
-      aria-labelledby="hamburger-icon"
-      role="region">
-      <nav class="mobile-nav" 
-           aria-label="Mobile primary">
-        <a href="/services">Services</a>
-        <a href="/quote">Get a Quote</a>
-        <a href="/pilot-directory">Pilot Directory</a>
-        <a href="/join-pilot-roster">Join Pilot Roster</a>
-        <a href="/about">About</a>
-        <a href="/past-deliveries">Past Deliveries</a>
-      </nav>
-    </div>
+<div class="mobile-menu" id="mobileMenu" hidden aria-hidden="true">
+  <nav class="mobile-nav" aria-label="Mobile primary">
+    <a href="/services">Services</a>
+    <a href="/quote">Get a Quote</a>
+    <a href="/pilot-directory">Pilot Directory</a>
+    <a href="/join-pilot-roster">Join Pilot Roster</a>
+    <a href="/about">About</a>
+    <a href="/past-deliveries">Past Deliveries</a>
+  </nav>
+</div>
 </div>
 
 <main id="main" 
@@ -232,10 +226,8 @@
           
 
               <img class="quote-callme-points-opensign"
-                   src="/assets/quote/open-sign-320w.jpg?v=20250908-160320"
-                   alt="open sign"
-                                  loading="eager"
-               fetchpriority="high">
+                   src="/assets/quote/open-sign-320w.jpg?v=20250907-192839"
+                   alt="open sign">
 
               <ul class="quote-callme-points-opentimes">
                 <li>I typically answer 08:00 &ndash; 20:00 <i>Pacific</i> [UTC -7] daily.</li>
@@ -252,10 +244,8 @@
                  
 
             <img class="quote-callme-points-vm-chip"
-                 src="/assets/quote/voicemail-icon.png?v=20250908-160320"
-                   alt="voicemail-icon"
-                                  loading="eager"
-               fetchpriority="high">
+                 src="/assets/quote/voicemail-icon.png?v=20250907-192839"
+                   alt="voicemail-icon">
    
               <ul class="quote-callme-points-vm-points">
                 <li>After my 'hours'? Not answering? No problem.</li>
@@ -267,30 +257,26 @@
         <!--HEADSHOT -->
         <figure class="quote-callme-headshot">
           <img 
-            src="/assets/quote/aaron-for-quote.jpg?v=20250908-160320" 
-            alt="Aaron Kahn — Aircraft Delivery Solutions" 
+            src="/assets/quote/aaron-for-quote.jpg?v=20250907-192839" 
+            alt="Aaron Kahn â€” Aircraft Delivery Solutions" 
             decoding="async" 
-                           loading="eager"
-               fetchpriority="high">
+            loading="lazy">
         </figure>
 
         <!-- NOAI -->
         <div class="quote-callme-noai">
-          <img src="/assets/quote/no-ai-320w.png?v=20250908-160320" 
+          <img src="/assets/quote/no-ai-320w.png?v=20250907-192839" 
                alt="No AI" 
                decoding="async" 
-                              loading="eager"
-               fetchpriority="high">
+               loading="lazy">
           <div
             style="display:flex; align-items:center; gap:10px; width: 100%;">    
             <span style="display:inline-flex; width: 50%; justify-content: right; align-items: center;">
               <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
-                 alt=""
+                 alt="WhatsApp"
                  aria-hidden="true"
                  focusable="false"
-                 style="width: 75px; height: auto;"
-                 loading="eager"
-                 fetchpriority="high">
+                 style="width: 75px; height: auto;">
             </span>
             <span style="font-size: 1.3rem; margin: 0; width: 50%;">
               <i>WhatsApp Enabled</i>
@@ -322,20 +308,19 @@
          style="display: flex; align-items: center; gap: 10px;">
         <img class="quote-wa-icon"
              src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-             alt="" 
-             aria-label="WhatsApp capable number" 
+             alt="Whatsapp icon" 
+             aria-hidden="true" 
              focusable="false"
-             style="height: 3.3rem; width: auto;"
-                            loading="eager"
-               fetchpriority="high">
+             style="height: 3.3rem; width: auto;">
         WhatsApp
       </a>
     </span>
     <span><b>+1 (415) 845-8163</b></span>
   </h2>
 </div>
-      <!-- Email Box -->
 
+
+      <!-- Email Box -->
       <div class="quote-bottom-row-emailbox">
         <h2 class="quote-contact-row">
           <span>&#x2709;&#xFE0F; Email</a></span>
@@ -362,28 +347,21 @@
         <p> &bull; All fields are optional and "if known" &mdash; except Email is required</p>
       </div>
  
-      <button 
-        id="quote-mob-form-toggle-btn"
-        class="quote-mob-toggle-btn"
-        style="margin-bottom: 20px;"
-        type="button"
-        aria-expanded="false"
-        data-label-closed="Show Quote Request Form"
-        data-label-open="Hide Quote Request Form"
-        aria-controls="quote-form-section">Show Quote Request Form
-      </button>
-      <div 
-        class="formwrap" 
-        id="quote-form-section"
-        role="region"
-        aria-labelledby="quote-mob-form-toggle-btn"
-        tabindex="-1">
+        <button id="quote-mob-form-toggle-btn"
+                class="quote-mob-toggle-btn"
+                style="margin-bottom: 20px;"
+                type="button"
+                aria-expanded="false"
+                data-label-closed="Show Quote Request Form"
+                data-label-open="Hide Quote Request Form"
+                aria-controls="quote-form-section">
+                Show Quote Request Form
+        </button>
+      <div class="formwrap" id="quote-form-section">
 
         <form 
           id="quote-form" 
-          class="quote-form"
-          role="region"
-          aria-labelledby="quote-mob-form-toggle-btn" 
+          class="quote-form" 
           action="https://formspree.io/f/mnnvozvg" 
           method="POST">
 
@@ -723,7 +701,7 @@
           </label>
 </div>
         </fieldset>
-
+      </div>
 
 <br>
 
@@ -748,227 +726,165 @@
         </button>
 </form>
     </div>
-    </div>
- 
 
 
 
 
   <!-- New: the 10px center divider -->
-    <div class="quote-divider" aria-hidden="true"></div>
+  <div class="quote-divider" aria-hidden="true"></div>
 
-    <div class="quote-columnhouse-column">
+<div class="quote-columnhouse-column">
 
       <p class="quote-columnhouse-heading"><u><b>Prices</b></u></p>
-      <div class="quote-subbox">
-        <p> &bull; Answers common questions</p>
-        <p> &bull; Orients you to what your proposed project might cost</p>
-       </div>
+      <div class="quote-subbox"><p> &bull; Answers common questions</p>
+    <p> &bull; Orients you to what your proposed project might cost</p>
+  </div>
     
       <h2 style="text-align:center; font-size: 2.1rem; margin-top: 40px;"><b>Ferry Flights</b></h2><br>
 
-      <div class="quote-accordion-group">
+    <div class="quote-accordion-group">
 
-        <!-- ACCORDION 1 PILOT PAY -->
-        <div class="quote-accordion" 
-             style="margin-bottom: 10px;">
-          <button 
-            id="quote-panel-pay-toggle"
-            type="button" 
-            class="quote-accordion-toggle" 
-            aria-expanded="false" 
-            aria-controls="quote-panel-1">
-            <span class="quote-toggle-label">Pilot Pay 
-              <span class="quote-tooltip-parent">(contracted)
-                <span class="quote-tooltip-box">"Contracted": Agreed to in advance and not subject to variations</span>
-              </span>
-            </span>
-            <span 
-              class="quote-caret" 
-              aria-hidden="true">>
-            </span>
-          </button>
+      <!-- ACCORDION 1 PILOT PAY -->
+      <div class="quote-accordion" style="margin-bottom: 10px;">
+  <button 
+  class="quote-accordion-toggle" 
+  aria-expanded="false" 
+  aria-controls="quote-panel-1">
+    
+    <span class="quote-toggle-label">Pilot Pay <span class="quote-tooltip-parent">
+  (contracted)
+  <span class="quote-tooltip-box">"Contracted": Agreed to in advance and not subject to variations</span>
+</span></span>
+    <span class="quote-caret" aria-hidden="true">></span>
+  </button>
 
-          <div 
-            class="quote-accordion-panel" 
-            id="quote-panel-1"
-            role="region"
-            aria-labelledby="quote-panel-pay-toggle" 
-            hidden>
-            <p><b>Highly dependent on many factors. Also, there are variations in the mode of billing; pilots can bill by the day, by the flight hour, by the duty hour, or bill a flat fee for the project.</b></p>
+  <div class="quote-accordion-panel" id="quote-panel-1" hidden>
+      <p><b>Highly dependent on many factors. Also, there are variations in the mode of billing; pilots can bill by the day, by the flight hour, by the duty hour, or bill a flat fee for the project.</b></p>
 
-            <table style="width: 100%; border-collapse: collapse; border: 1px solid #333; font-size: 1.125rem; background-color: #fcfcfc; max-width: 900px; margin: 0 auto;">
-              <tr>
-                <td style="border: 1px solid #333; border-right: 1px solid white; text-align: center; background-color: #382d4b; color:#ffffff;"><b>Scenario</b></td>
-                <td style="border: 1px solid #333; text-align: center; background-color: #382d4b; color: #ffffff;"><b>Pay</b></td>
-              </tr>
-              <tr>
-                <td style="border: 1px solid #333;">Domestic ferry of a small trainer aircraft</td>
-                <td style="border: 1px solid #333;">$400 - $600 daily rate</td>
-              </tr>
-              <tr>
-                <td style="border: 1px solid #333;">A light turboprop such as a King Air 90</td>
-                <td style="border: 1px solid #333;">$700 - $1,000 daily rate</td>
-              </tr>
-              <tr>
-                <td style="border: 1px solid #333;">Any turbojet</td>
-                <td style="border: 1px solid #333;">$1,200 - $2,500 daily rate</td>
-              </tr>
-              <tr>
-                <td style="border: 1px solid #333;">Helicopters</td>
-                <td style="border: 1px solid #333;">$700 and up daily rate</td>
-              </tr>
-              <tr>
-                <td style="border: 1px solid #333;">Co-pilot Pay 
-                  <span style="font-size: 0.875rem;">(when required or requested)</span>
-                </td>
-                <td style="border: 1px solid #333;">About 60% of Pilot-In-Command Pay</td>
-              </tr>
-              <tr>
-                <td style="border: 1px solid #333;"><i>Domestic U.S. per diem</i></td>
-                <td style="border: 1px solid #333;"><i>$75 per day (higher outside U.S.)</i></td>
-              </tr>
-            </table>
-          </div>
-        </div>
+    <table style="width: 100%; border-collapse: collapse; border: 1px solid #333; font-size: 1.125rem; background-color: #fcfcfc; max-width: 900px; margin: 0 auto;">
+      <tr>
+        <td style="border: 1px solid #333; border-right: 1px solid white; text-align: center; background-color: #382d4b; color:#ffffff;"><b>Scenario</b></td>
+        <td style="border: 1px solid #333; text-align: center; background-color: #382d4b; color: #ffffff;"><b>Pay</b></td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid #333;">Domestic ferry of a small trainer aircraft</td>
+        <td style="border: 1px solid #333;">$400 - $600 daily rate</td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid #333;">A light turboprop such as a King Air 90</td>
+        <td style="border: 1px solid #333;">$700 - $1,000 daily rate</td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid #333;">Any turbojet</td>
+        <td style="border: 1px solid #333;">$1,200 - $2,500 daily rate</td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid #333;">Helicopters</td>
+        <td style="border: 1px solid #333;">$700 and up daily rate</td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid #333;">
+          Co-pilot Pay <span style="font-size: 0.875rem;">(when required or requested)</span>
+        </td>
+        <td style="border: 1px solid #333;">About 60% of Pilot-In-Command Pay</td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid #333;"><i>Domestic U.S. per diem</i></td>
+        <td style="border: 1px solid #333;"><i>$75 per day (higher outside U.S.)</i></td>
+      </tr>
+    </table>
+  </div>
+</div>
 
-        <!-- ACCORDION 2 PILOT EXPENSES -->
-        <div 
-          class="quote-accordion" 
-          style="margin-bottom: 10px;">
-          <button 
-            id="quote-panel-expenses-toggle"
-            type="button" 
-            class="quote-accordion-toggle" 
-            aria-expanded="false" 
-            aria-controls="quote-panel-pilot-expenses">
-            <span class="quote-toggle-label">Pilot Expenses 
-              <span class="quote-tooltip-parent">(reimbursed)
-                <span class="quote-tooltip-box">"Reimbursed": Cost estimates are provided, but these expenses will vary; items are purchased at actual prices by A.D.S.to be reimbursed following mission end.</span>
-              </span>
-            </span> 
-            <span 
-              class="quote-caret" 
-              aria-hidden="true">>
-            </span>
-          </button>
-          <div 
-            class="quote-accordion-panel" 
-            id="quote-panel-pilot-expenses" 
-            hidden
-            role="region"
-            aria-labelledby="quote-panel-expenses-toggle">
-            <p><b>There are usual expenses related to what it costs to have pilot(s) on duty away from their home:</b></p>
-            <p>&bull; Travel. Will almost always include last-minute airline travel. Often includes taxi/Uber. Sometimes involves rental car(s). Some pilots require Business class or higher for overseas air travel.</p>
-            <p>&bull; Lodging. $150 - $250 per night for US domestic hotels, with prices higher outside the US and/or during peak travel times.</p>
-          </div>
-        </div>
+ <!-- ACCORDION 2 PILOT EXPENSES -->
+      <div class="quote-accordion" style="margin-bottom: 10px;">
+  <button class="quote-accordion-toggle" aria-expanded="false" aria-controls="quote-panel-pilot-expenses"
+  >
+    <span class="quote-toggle-label">Pilot Expenses <span class="quote-tooltip-parent">
+  (reimbursed)
+  <span class="quote-tooltip-box">"Reimbursed": Cost estimates are provided, but these expenses will vary; items are purchased at actual prices by A.D.S.to be reimbursed following mission end.</span>
+</span></span> 
+    <span class="quote-caret" aria-hidden="true">></span>
+  </button>
+  <div class="quote-accordion-panel" id="quote-panel-pilot-expenses" hidden>
+      <p><b>There are usual expenses related to what it costs to have pilot(s) on duty away from their home:</b></p>
+<p>&bull; Travel. Will almost always include last-minute airline travel. Often includes taxi/Uber. Sometimes involves rental car(s). Some pilots require Business class or higher for overseas air travel.</p>
+<p>&bull; Lodging. $150 - $250 per night for US domestic hotels, with prices higher outside the US and/or during peak travel times.</p></div>
+  </div>
 
-        <!-- ACCORDION 3 AIRCRAFT EXPENSES -->
-        <div 
-          class="quote-accordion" 
-          style="margin-bottom: 10px;">
-          <button 
-            type="button" 
-            class="quote-accordion-toggle" 
-            id="quote-panel-acexpenses-toggle" 
-            aria-expanded="false" 
-            aria-controls="quote-panel-3">
-            <span class="quote-toggle-label">Aircraft Expenses 
-              <span class="quote-tooltip-parent">(reimbursed)
-                <span class="quote-tooltip-box">"Reimbursed": Cost estimates are provided, but these expenses will vary; items are purchased at actual prices by A.D.S. to be reimbursed following mission end.</span>
-              </span>
-            </span> 
-            <span 
-              class="quote-caret" 
-              hidden>>
-            </span>
-          </button>
-          <div 
-            class="quote-accordion-panel" 
-            id="quote-panel-3" 
-            hidden
-            aria-labelledby="quote-panel-acexpenses-toggle"
-            role="region">
-            <p><b>Every aircraft has a fuel expense. Here are some other common aircraft expenses:</b></p>
-            <p>&bull; Handling/Governmental. Handlers are required for operations in many places in the world, and they charge wide-ranging prices. Governments collect fees for customs, landing fees, ATC, etc.</p>
-            <p>&bull; Ramp/Hangar fees. Ramp fees are usually minor for small aircraft. If a hangar is requested or required, they start at about $100/day for the smallest aircraft.</p>
-            <p>&bull; Ramp services: If an aircraft requires services like lavatory cleaning or crew meals.</p>
-            <p>&bull; Un-planned maintenance. Unfortunately, the shop has the upper hand when naming their price(s).</p>
-            <p>&bull; Fluids. Typically engine oil and less commonly hydraulic fluid.</p></p></div>
-          </div>
+       <!-- ACCORDION 3 AIRCRAFT EXPENSES -->
+            <div class="quote-accordion" style="margin-bottom: 10px;">
+  <button class="quote-accordion-toggle" aria-expanded="false" aria-controls="quote-panel-3">
+    <span class="quote-toggle-label">Aircraft Expenses <span class="quote-tooltip-parent">
+  (reimbursed)
+  <span class="quote-tooltip-box">"Reimbursed": Cost estimates are provided, but these expenses will vary; items are purchased at actual prices by A.D.S. to be reimbursed following mission end.</span>
+</span></span> 
+    <span class="quote-caret" aria-hidden="true">></span>
+  </button>
+  <div class="quote-accordion-panel" id="quote-panel-3" hidden>
+      <p><b>Every aircraft has a fuel expense. Here are some other common aircraft expenses:</b></p>
+
+<p>&bull; Handling/Governmental. Handlers are required for operations in many places in the world, and they charge wide-ranging prices. Governments collect fees for customs, landing fees, ATC, etc.</p>
+<p>&bull; Ramp/Hangar fees. Ramp fees are usually minor for small aircraft. If a hangar is requested or required, they start at about $100/day for the smallest aircraft.</p>
+<p>&bull; Ramp services: If an aircraft requires services like lavatory cleaning or crew meals.</p>
+<p>&bull; Un-planned maintenance. Unfortunately, the shop has the upper hand when naming their price(s).</p>
+<p>&bull; Fluids. Typically engine oil and less commonly hydraulic fluid.</p></p></div>
+  </div>
       
+
         <!-- ACCORDION 4 SUPPORT FEE -->
-        <div class="quote-accordion">
-          <button 
-            type="button" 
-            class="quote-accordion-toggle"
-            id="quote-panel-support-toggle" 
-            aria-expanded="false" 
-            aria-controls="quote-panel-4">
-            <span class="quote-toggle-label">Support & Administration Fee 
-              <span class="quote-tooltip-parent">(contracted)
-                <span class="quote-tooltip-box">"Contracted": Agreed to in advance and not subject to variations</span>
-              </span>
-            </span>
-            <span class="quote-caret" aria-hidden="true">></span>
-          </button>
-          <div 
-            class="quote-accordion-panel" 
-            id="quote-panel-4" 
-            hidden
-            aria-labelledby="quote-panel-support-toggle"
-            role="region">
-            <p><b>I charge a fee which compensates me for three areas:</b></p>
-            <div 
-              class="quote-admin-fee-area" 
-              style="background-color: #cbdcee;">
-              <p class="quote-admin-fee-title">Flight Dispatch</p>
-              <div class="quote-admin-fee-content">      
-                <p>&bull; Flight planning assistance. I augment the flighcrew's flight planning activities and products.</p>
-                <p>&bull; Weather analysis. I monitor weather reporting and forecasts in augmentation of flightcrew weather collection.</p>
-                <p>&bull; Flight release. I supplement the flightcrew's decision-making including go/no-go determination.</p>
-                <p>&bull; Flight following. I monitor flight progress and take appropriate action as warranted.</p>
-                <p>&bull; On-call flighcrew support. I'm available 24 hours a day while ferry flights are in progress.</p>
-              </div>
-            </div>
-            <div 
-              class="quote-admin-fee-area" 
-              style="background-color: #dcf0df;">
-              <p class="quote-admin-fee-title">Crew Travel Support</p>
-              <div class="quote-admin-fee-content">      
-                <p>&bull; I assist flightcrews in obtaining appropriate lodging and meals.</p>
-                <p>&bull; I assist with identifying, locating and booking airline tickets, car rentals, and ride-shares.</p>
-            </div>
-          </div>
-          <div 
-            class="quote-admin-fee-area" 
-            style="background-color: #e9dcf0;">
-            <p class="quote-admin-fee-title">Business-Related</p>
-            <div class="quote-admin-fee-content">      
-              <p>I don't charge a premium on any items, so all my gross income is addressed here:</p>
-              <p>&bull; Overhead</p>
-              <p>&bull; Sales and marketing</p>
-              <p>&bull; Risk management</p>
-              <p>&bull; Time and expertise</p>
-              <p>&bull; Upfront costs, prior to full client payment</p>
-              <p>&bull; Gross profit</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+            <div class="quote-accordion">
+  <button class="quote-accordion-toggle" aria-expanded="false" aria-controls="quote-panel-4">
+    <span class="quote-toggle-label">Support & Administration Fee <span class="quote-tooltip-parent">
+  (contracted)
+  <span class="quote-tooltip-box">"Contracted": Agreed to in advance and not subject to variations</span>
+</span></span>
+    <span class="quote-caret" aria-hidden="true">></span>
+  </button>
+  <div class="quote-accordion-panel" id="quote-panel-4" hidden>
+      <p><b>I charge a fee which compensates me for three areas:</b></p>
+      <div class="quote-admin-fee-area" style="background-color: #cbdcee;">
+        <p class="quote-admin-fee-title">Flight Dispatch</p>
+<div class="quote-admin-fee-content">      
+
+  <p>&bull; Flight planning assistance. I augment the flighcrew's flight planning activities and products.</p>
+<p>&bull; Weather analysis. I monitor weather reporting and forecasts in augmentation of flightcrew weather collection.</p>
+<p>&bull; Flight release. I supplement the flightcrew's decision-making including go/no-go determination.</p>
+<p>&bull; Flight following. I monitor flight progress and take appropriate action as warranted.</p>
+<p>&bull; On-call flighcrew support. I'm available 24 hours a day while ferry flights are in progress.</p>
+
+</div></div>
+
+      <div class="quote-admin-fee-area" style="background-color: #dcf0df;">
+        <p class="quote-admin-fee-title">Crew Travel Support</p>
+<div class="quote-admin-fee-content">      
+
+<p>&bull; I assist flightcrews in obtaining appropriate lodging and meals.</p>
+<p>&bull; I assist with identifying, locating and booking airline tickets, car rentals, and ride-shares.</p>
+
+</div></div>
+
+      <div class="quote-admin-fee-area" style="background-color: #e9dcf0;">
+        <p class="quote-admin-fee-title">Business-Related</p>
+<div class="quote-admin-fee-content">      
+
+<p>I don't charge a premium on any items, so all my gross income is addressed here:</p>
+<p>&bull; Overhead</p>
+<p>&bull; Sales and marketing</p>
+<p>&bull; Risk management</p>
+<p>&bull; Time and expertise</p>
+<p>&bull; Upfront costs, prior to full client payment</p>
+<p>&bull; Gross profit</p>
+
+
+</div></div></div></div></div>
 
 <div class="quote-mob-ferry-costs">
  <p class="quote-mob-expenses-headings"><u>Pilot Pay (contracted)</u></p>
   <p class="mob-std-small" style="text-align:left; margin-top: 3px;">Highly dependent on many factors. Also, there are variations in the mode of billing; pilots can bill by the day, by the flight hour, by the duty hour, or bill a flat fee for the project.</p>
 
   <table style="width: 100%; max-width: 1000px; margin: 0 auto; border-collapse: collapse; border: 1px solid #333; font-size: 1.3rem; background-color: #fcfcfc;">
-    <tbody 
-      id="quote-mob-main-rows"
-      role="region"
-      aria-labelledby=""
-      hidden>
+    <tbody id="quote-mob-main-rows">
     <tr style="text-align: center; background-color: #3f3d3d;">
       <td style="border: 1px solid; color: #ffffff;"><b>Scenario</b></td>
       <td style="border: 1px solid; color: #ffffff"><b>Approximate Pay</b></td>
@@ -986,7 +902,7 @@
       type="button" 
       id="quote-mob-extra-row-btn"
       aria-expanded="false"
-      aria-controls="quote-mob-main-rows"
+      aria-controls="quote-mob-extra-rows"
       data-label-closed="Show More Pay Scenarios"
       data-label-open="Hide Pay Scenarios">
       Show More Pay Scenarios</button>
@@ -1040,34 +956,18 @@
   Show Aircraft Expenses
 </button>
 
-            <div 
-              id="quote-mob-expenses-container"      class="quote-mob-expenses-container"
-              aria-labelledby="quote-mob-expenses-btn"
-              role="region"
-              hidden>
-              <ul style="text-align: left;">
-                <li 
-                  class="mob-std-small" 
-                  style="margin-bottom: 6px;">
-                  <b>Handling/Governmental.</b> Handlers are required for operations in many places in the world, and they charge wide-ranging prices. Governments collect fees for customs, landing fees, ATC, etc.
-                </li>
-                <li 
-                  class="mob-std-small" 
-                  style="margin-bottom: 6px;">
-                  <b>Ramp/Hangar fees.</b> Ramp fees are usually minor for small aircraft. If a hangar is requested or required, they start at about $100/day for the smallest aircraft.
-                </li>
-                <li 
-                  class="mob-std-small" 
-                  style="margin-bottom: 6px;"><b>Ramp services:</b> If an aircraft requires services like lavatory cleaning or crew meals.
-                </li>
-                <li 
-                  class="mob-std-small" 
-                  style="margin-bottom: 6px;">
-                  <b>Un-planned maintenance.</b> Unfortunately, the shop has the upper hand when naming their price(s).
-                </li>
-                <li class="mob-std-small"><b>Fluids.</b> Typically engine oil and less commonly hydraulic fluid.</li>
-              </ul>
-           </div>
+<div id="quote-mob-expenses-container" class="quote-mob-expenses-container">
+  <ul style="text-align: left;">
+    <li class="mob-std-small" style="margin-bottom: 6px;"><b>Handling/Governmental.</b> Handlers are required for operations in many places in the world, and they charge wide-ranging prices. Governments collect fees for customs, landing fees, ATC, etc.</li>
+    <li class="mob-std-small" style="margin-bottom: 6px;"><b>Ramp/Hangar fees.</b> Ramp fees are usually minor for small aircraft. If a hangar is requested or required, they start at about $100/day for the smallest aircraft.</li>
+    <li class="mob-std-small" style="margin-bottom: 6px;"><b>Ramp services:</b> If an aircraft requires services like lavatory cleaning or crew meals.</li>
+    <li class="mob-std-small" style="margin-bottom: 6px;"><b>Un-planned maintenance.</b> Unfortunately, the shop has the upper hand when naming their price(s).</li>
+    <li class="mob-std-small"><b>Fluids.</b> Typically engine oil and less commonly hydraulic fluid.</li>
+  </ul>
+</div>
+
+
+
 
 <div class="mob-quote-admin-wrapper">
   <p class="quote-mob-expenses-headings" style="margin-top: 35px;">
@@ -1084,16 +984,12 @@
   id="quote-mob-dispatch-btn"
   aria-expanded="false"
   aria-controls="quote-mob-dispatch-content"
-  data-label-closed="Show Dispatch Services"
-  data-label-open="Hide Dispatch Services">Show Dispatch Services
+          data-label-closed="Show Dispatch Services"
+        data-label-open="Hide Dispatch Services">
+  Show Dispatch Services
 </button>
 
-    <div 
-      id= "quote-mob-dispatch-content" 
-      class="quote-mob-dispatch-content"
-      role="region"
-      aria-labelledby="quote-mob-dispatch-btn"
-      hidden>
+    <div id= "quote-mob-dispatch-content" class="quote-mob-dispatch-content">
       <p>&bull; Flight planning assistance. I augment the flightcrew's flight planning activities and products.</p>
       <p>&bull; Weather analysis. I monitor weather reporting and forecasts in augmentation of flightcrew weather collection.</p>
       <p>&bull; Flight release. I supplement the flightcrew's decision-making including go/no-go determination.</p>
@@ -1132,18 +1028,13 @@
 
 <div class="quote-decorative-pix">
  <div class="desk-quote-img-wrap">
-  <img src="/assets/quote/1999_amf_slc2.jpg?v=20250908-160320" alt="1999 AMF SLC" style="width: 100%; max-width: 700px; height: auto;"
-  loading="lazy"
-  fetchpriority="low">
+  <img src="/assets/quote/1999_amf_slc2.jpg?v=20250907-192839" alt="1999 AMF SLC" style="width: 100%; max-width: 700px; height: auto;">
   <div class="desk-quote-caption">Ameriflight Beech 99C at Salt Lake City, UT. <br>Single-pilot schlepping 3,000 pounds of UPS boxes.
   </div>
  </div>
 
   <div class="desk-quote-img-wrap">
-<img src="/assets/quote/2002-kaiserair.jpg?v=20250908-160320" alt="2002 KaiserAir" style="width: 100%; max-width: 700px; height: auto; margin: 40px 0 20px 0;"
-  loading="lazy"
-  fetchpriority="low">
-  <div class="desk-quote-caption">First Officer on the Hawker 700<br> for KaiserAir in Oakland, CA.
+<img src="/assets/quote/2002-kaiserair.jpg?v=20250907-192839" alt="2002 KaiserAir" style="width: 100%; max-width: 700px; height: auto; margin: 40px 0 20px 0;"><div class="desk-quote-caption">First Officer on the Hawker 700<br> for KaiserAir in Oakland, CA.
 </div>
 </div>
 
@@ -1156,10 +1047,9 @@
  
 </main>
 
-<script src="/script.js?v=20250908-160320" defer></script>
+<script src="/script.js?v=20250907-192839" defer></script>
 </body>
 </html>
-
 
 
 

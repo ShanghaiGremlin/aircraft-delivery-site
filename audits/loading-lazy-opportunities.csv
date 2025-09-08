@@ -1,0 +1,340 @@
+﻿File,Line,Confidence,Reason,HasWidthHeight,Src,ImgOpenTag,Notes
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\index.html,338,High,missing-loading,FALSE,/assets/bleed-patch.png?v=20250907-192839,"<img src=""/assets/bleed-patch.png?v=20250907-192839"" alt=""patch"" class=""bleed-right-patch"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\index.html,289,High,missing-loading,FALSE,/assets/index-key-200px.jpg?v=20250907-192839,"<img 
+              class=""desk-index-thumb""
+              src=""/assets/index-key-200px.jpg?v=20250907-192839""
+              alt=""Ferry Flights""
+           ",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\index.html,375,High,missing-loading,TRUE,/assets/index-key-200px.jpg?v=20250907-192839,"<img src=""/assets/index-key-200px.jpg?v=20250907-192839"" alt=""Ferry Flights"" class=""mob-index-imgborder"" width=""200"" height=""150"" decoding=""async"">",has width+height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\join-pilot-roster.html,691,High,missing-loading,FALSE,/assets/join-pilot-roster/faq-taxiway.jpg?v=20250907-192839,"<img class=""join-mob-icon""
+    src=""/assets/join-pilot-roster/faq-taxiway.jpg?v=20250907-192839""
+    alt=""mini FAQ taxiway sign"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\join-pilot-roster.html,707,High,missing-loading,FALSE,/assets/join-pilot-roster/faq-taxiway.jpg?v=20250907-192839,"<img 
+                        src=""/assets/join-pilot-roster/faq-taxiway.jpg?v=20250907-192839""
+                        alt=""FAQ made out of taxiway signs"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\join-pilot-roster.html,729,High,missing-loading,FALSE,/assets/join-pilot-roster/faq-taxiway.jpg?v=20250907-192839,"<img 
+                    src=""/assets/join-pilot-roster/faq-taxiway.jpg?v=20250907-192839"" 
+                    alt=""mini FAQ taxiway sign"" 
+               ",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\join-pilot-roster.html,743,High,missing-loading,FALSE,/assets/join-pilot-roster/faq-taxiway.jpg?v=20250907-192839,"<img 
+                    src=""/assets/join-pilot-roster/faq-taxiway.jpg?v=20250907-192839""
+                    alt=""FAQ made out of taxiway signs"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\join-pilot-roster.html,429,High,missing-loading,FALSE,/assets/join-pilot-roster/join-roster-sample.jpg?v=20250907-192839,"<img class=""join-sample-img"" 
+                 src=""/assets/join-pilot-roster/join-roster-sample.jpg?v=20250907-192839"" alt=""Sample Pilot Listing"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,679,High,missing-loading,FALSE,/assets/past-deliveries/blog.jpg?v=20250907-192839,"<img 
+            class=""testimonial-thumb"" 
+            style=""width: 125px; cursor: pointer;"" 
+            src=""/assets/past-deliveries/blog.jpg?v=20250907",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,751,High,missing-loading,FALSE,/assets/past-deliveries/blog.jpg?v=20250907-192839,"<img class=""testimonial-thumb"" 
+               style=""width: 125px; cursor: pointer;"" 
+               src=""/assets/past-deliveries/blog.jpg?v=20250907-192839""",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,770,High,missing-loading,FALSE,/assets/past-deliveries/blog.jpg?v=20250907-192839,"<img class=""testimonial-thumb"" style=""width: 125px; cursor: pointer;"" src=""/assets/past-deliveries/blog.jpg?v=20250907-192839"" data-full=""/assets/past-deliverie",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,808,High,missing-loading,FALSE,/assets/past-deliveries/blog.jpg?v=20250907-192839,"<img class=""testimonial-thumb"" style=""width: 125px; cursor: pointer;"" src=""/assets/past-deliveries/blog.jpg?v=20250907-192839"" data-full=""/assets/past-deliverie",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,834,High,missing-loading,FALSE,/assets/past-deliveries/blog.jpg?v=20250907-192839,"<img class=""testimonial-thumb"" style=""width: 125px; cursor: pointer;"" src=""/assets/past-deliveries/blog.jpg?v=20250907-192839"" data-full=""/assets/past-deliverie",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,849,High,missing-loading,FALSE,/assets/past-deliveries/blog.jpg?v=20250907-192839,"<img class=""testimonial-thumb"" style=""width: 125px; cursor: pointer;"" src=""/assets/past-deliveries/blog.jpg?v=20250907-192839"" data-full=""/assets/past-deliverie",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,512,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839,"<img class=""desk-past-deliv-thumb"" style=""width: 125px; cursor: pointer;"" src=""/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839"" data-full",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,596,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839,"<img class=""testimonial-thumb"" style=""width: 125px; cursor: pointer;"" src=""/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839"" data-full=""/a",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,652,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839,"<img class=""testimonial-thumb"" style=""width: 125px; cursor: pointer;"" src=""/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839"" data-full=""/a",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,792,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839,"<img class=""testimonial-thumb"" style=""width: 125px; cursor: pointer;"" src=""/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839"" data-full=""/a",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,856,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839,"<img class=""testimonial-thumb"" style=""width: 125px; cursor: pointer;"" src=""/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839"" data-full=""/a",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,904,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839,"<img class=""testimonial-thumb"" style=""width: 125px; cursor: pointer;"" src=""/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839"" data-full=""/a",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,919,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839,"<img class=""testimonial-thumb"" style=""width: 125px; cursor: pointer;"" src=""/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839"" data-full=""/a",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,934,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839,"<img class=""testimonial-thumb"" style=""width: 125px; cursor: pointer;"" src=""/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839"" data-full=""/a",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,948,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839,"<img class=""testimonial-thumb"" style=""width: 125px; cursor: pointer;"" src=""/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839"" data-full=""/a",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,1001,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839,"<img class=""testimonial-thumb"" style=""width: 125px; cursor: pointer;"" src=""/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839"" data-full=""/a",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,1016,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839,"<img class=""testimonial-thumb"" style=""width: 125px; cursor: pointer;"" src=""/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839"" data-full=""/a",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,1031,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839,"<img class=""testimonial-thumb"" style=""width: 125px; cursor: pointer;"" src=""/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839"" data-full=""/a",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,1046,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839,"<img class=""testimonial-thumb"" style=""width: 125px; cursor: pointer;"" src=""/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839"" data-full=""/a",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,1061,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839,"<img class=""testimonial-thumb"" style=""width: 125px; cursor: pointer;"" src=""/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839"" data-full=""/a",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,1076,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839,"<img class=""testimonial-thumb"" style=""width: 125px; cursor: pointer;"" src=""/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839"" data-full=""/a",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,1082,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839,"<img class=""testimonial-thumb"" style=""width: 125px; cursor: pointer;"" src=""/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839"" data-full=""/a",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,1107,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839,"<img class=""testimonial-thumb"" style=""width: 125px; cursor: pointer;"" src=""/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839"" data-full=""/a",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,1122,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839,"<img class=""testimonial-thumb"" style=""width: 125px; cursor: pointer;"" src=""/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839"" data-full=""/a",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,1129,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839,"<img class=""testimonial-thumb"" style=""width: 125px; cursor: pointer;"" src=""/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839"" data-full=""/a",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,1163,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839,"<img class=""testimonial-thumb"" style=""width: 125px; cursor: pointer;"" src=""/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839"" data-full=""/a",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,1178,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839,"<img class=""testimonial-thumb"" style=""width: 125px; cursor: pointer;"" src=""/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839"" data-full=""/a",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,1185,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839,"<img class=""testimonial-thumb"" style=""width: 125px; cursor: pointer;"" src=""/assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839"" data-full=""/a",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,1492,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839,"<img class=""mob-past-deliv-testim-thumb"" src=""/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839"" alt=""View Testimonial"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,1844,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839,"<img class=""mob-past-deliv-testim-thumb"" src=""/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839"" alt=""View Testimonial"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,1904,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839,"<img class=""mob-past-deliv-testim-thumb"" src=""/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839"" alt=""View Testimonial"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,2008,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839,"<img class=""mob-past-deliv-testim-thumb"" src=""/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839"" alt=""View Testimonial"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,2104,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839,"<img class=""mob-past-deliv-testim-thumb"" src=""/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839"" alt=""View Testimonial"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,2287,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839,"<img class=""mob-past-deliv-testim-thumb"" src=""/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839"" alt=""View Testimonial"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,2332,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839,"<img class=""mob-past-deliv-testim-thumb"" src=""/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839"" alt=""View Testimonial"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,2579,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839,"<img class=""mob-past-deliv-testim-thumb"" src=""/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839"" alt=""View Testimonial"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,2747,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839,"<img class=""mob-past-deliv-testim-thumb"" src=""/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839"" alt=""View Testimonial"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,2836,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839,"<img class=""mob-past-deliv-testim-thumb"" src=""/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839"" alt=""View Testimonial"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,2881,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839,"<img class=""mob-past-deliv-testim-thumb"" src=""/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839"" alt=""View Testimonial"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,2926,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839,"<img class=""mob-past-deliv-testim-thumb"" src=""/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839"" alt=""View Testimonial"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,3109,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839,"<img class=""mob-past-deliv-testim-thumb"" src=""/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839"" alt=""View Testimonial"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,3154,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839,"<img class=""mob-past-deliv-testim-thumb"" src=""/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839"" alt=""View Testimonial"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,3199,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839,"<img class=""mob-past-deliv-testim-thumb"" src=""/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839"" alt=""View Testimonial"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,3244,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839,"<img class=""mob-past-deliv-testim-thumb"" src=""/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839"" alt=""View Testimonial"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,3290,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839,"<img class=""mob-past-deliv-testim-thumb"" src=""/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839"" alt=""View Testimonial"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,3328,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839,"<img class=""mob-past-deliv-testim-thumb"" src=""/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839"" alt=""View Testimonial"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,3375,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839,"<img class=""mob-past-deliv-testim-thumb"" src=""/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839"" alt=""View Testimonial"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,3468,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839,"<img class=""mob-past-deliv-testim-thumb"" src=""/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839"" alt=""View Testimonial"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,3508,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839,"<img class=""mob-past-deliv-testim-thumb"" src=""/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839"" alt=""View Testimonial"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,3599,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839,"<img class=""mob-past-deliv-testim-thumb"" src=""/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839"" alt=""View Testimonial"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,3689,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839,"<img class=""mob-past-deliv-testim-thumb"" src=""/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839"" alt=""View Testimonial"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,3728,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839,"<img class=""mob-past-deliv-testim-thumb"" src=""/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839"" alt=""View Testimonial"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,3774,High,missing-loading,FALSE,/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839,"<img class=""mob-past-deliv-testim-thumb"" src=""/assets/past-deliveries/testimonials/testimonial.png?v=20250907-192839"" alt=""View Testimonial"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,657,High,missing-loading,FALSE,/assets/pilot-directory/amflag.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/amflag.jpg?v=20250907-192839"" alt=""US Flag"" style=""width: 50px; vertical-align: middle;"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,251,High,missing-loading,FALSE,/assets/pilot-directory/atp.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/atp.jpg?v=20250907-192839"" alt=""ATP"" class=""desk-pilot-dir-pilot-license"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,322,High,missing-loading,FALSE,/assets/pilot-directory/atp.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/atp.jpg?v=20250907-192839"" alt=""ATP"" class=""desk-pilot-dir-pilot-license"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,334,High,missing-loading,FALSE,/assets/pilot-directory/atp.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/atp.jpg?v=20250907-192839"" alt=""ATP"" class=""desk-pilot-dir-pilot-license"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,264,High,missing-loading,FALSE,/assets/pilot-directory/atp-cfi.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/atp-cfi.jpg?v=20250907-192839"" alt=""ATP-CFI"" class=""desk-pilot-dir-atp-cfi"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,279,High,missing-loading,FALSE,/assets/pilot-directory/atp-cfi.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/atp-cfi.jpg?v=20250907-192839"" alt=""ATP-CFI"" class=""desk-pilot-dir-atp-cfi"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,295,High,missing-loading,FALSE,/assets/pilot-directory/atp-cfi.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/atp-cfi.jpg?v=20250907-192839"" alt=""ATP-CFI"" class=""desk-pilot-dir-atp-cfi"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,351,High,missing-loading,FALSE,/assets/pilot-directory/atp-cfi.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/atp-cfi.jpg?v=20250907-192839"" alt=""ATP-CFI"" class=""desk-pilot-dir-atp-cfi"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,376,High,missing-loading,FALSE,/assets/pilot-directory/atp-cfi.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/atp-cfi.jpg?v=20250907-192839"" alt=""ATP-CFI"" class=""desk-pilot-dir-atp-cfi"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,391,High,missing-loading,FALSE,/assets/pilot-directory/atp-cfi.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/atp-cfi.jpg?v=20250907-192839"" alt=""ATP-CFI"" class=""desk-pilot-dir-atp-cfi"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,422,High,missing-loading,FALSE,/assets/pilot-directory/atp-cfi.jpg?v=20250907-192839,"<img 
+              src=""/assets/pilot-directory/atp-cfi.jpg?v=20250907-192839"" alt=""ATP-CFI"" 
+              class=""desk-pilot-dir-atp-cfi"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,658,High,missing-loading,FALSE,/assets/pilot-directory/blue-star-blank.png?v=20250907-192839,"<img src=""/assets/pilot-directory/blue-star-blank.png?v=20250907-192839"" alt=""blue star icon"" style=""width: 50px; vertical-align: middle;"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,611,High,missing-loading,FALSE,/assets/pilot-directory/canada-bar.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/canada-bar.jpg?v=20250907-192839"" alt=""Country Bar"" class=""desk-pilot-dir-country-bar"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,309,High,missing-loading,FALSE,/assets/pilot-directory/cfi.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/cfi.jpg?v=20250907-192839"" alt=""CFI"" class=""desk-pilot-dir-cfi"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,362,High,missing-loading,FALSE,/assets/pilot-directory/cfi.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/cfi.jpg?v=20250907-192839"" alt=""CFI"" class=""desk-pilot-dir-cfi"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,403,High,missing-loading,FALSE,/assets/pilot-directory/cfi.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/cfi.jpg?v=20250907-192839"" alt=""CFI"" class=""desk-pilot-dir-cfi"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,454,High,missing-loading,FALSE,/assets/pilot-directory/cfi.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/cfi.jpg?v=20250907-192839"" alt=""CFI"" class=""desk-pilot-dir-cfi"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,468,High,missing-loading,FALSE,/assets/pilot-directory/cfi.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/cfi.jpg?v=20250907-192839"" alt=""CFI"" class=""desk-pilot-dir-cfi"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,518,High,missing-loading,FALSE,/assets/pilot-directory/cfi.jpg?v=20250907-192839,"<img 
+                src=""/assets/pilot-directory/cfi.jpg?v=20250907-192839"" 
+                alt=""CFI"" 
+                class=""desk-pilot-dir-cfi"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,550,High,missing-loading,FALSE,/assets/pilot-directory/cfi.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/cfi.jpg?v=20250907-192839"" alt=""CFI"" class=""desk-pilot-dir-cfi"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,589,High,missing-loading,FALSE,/assets/pilot-directory/cfi.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/cfi.jpg?v=20250907-192839"" alt=""CFI"" class=""desk-pilot-dir-cfi"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,600,High,missing-loading,FALSE,/assets/pilot-directory/cfi.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/cfi.jpg?v=20250907-192839"" alt=""CFI"" class=""desk-pilot-dir-cfi"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,626,High,missing-loading,FALSE,/assets/pilot-directory/cfi.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/cfi.jpg?v=20250907-192839"" alt=""CFI"" class=""desk-pilot-dir-cfi"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,637,High,missing-loading,FALSE,/assets/pilot-directory/cfi.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/cfi.jpg?v=20250907-192839"" alt=""CFI"" class=""desk-pilot-dir-cfi"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,334,High,missing-loading,FALSE,/assets/pilot-directory/copter-icon.png?v=20250907-192839,"<img src=""/assets/pilot-directory/copter-icon.png?v=20250907-192839"" alt=""Helicopter icon"" class=""desk-pilot-dir-pilot-license"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,492,High,missing-loading,FALSE,/assets/pilot-directory/copter-icon.png?v=20250907-192839,"<img 
+              src=""/assets/pilot-directory/copter-icon.png?v=20250907-192839"" alt=""Helicopter Pilot"" 
+              class=""desk-pilot-dir-cfi"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,250,High,missing-loading,FALSE,/assets/pilot-directory/faa-bar.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/faa-bar.jpg?v=20250907-192839"" alt=""Country Bar"" class=""desk-pilot-dir-country-bar"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,263,High,missing-loading,FALSE,/assets/pilot-directory/faa-bar.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/faa-bar.jpg?v=20250907-192839"" alt=""Country Bar"" class=""desk-pilot-dir-country-bar"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,278,High,missing-loading,FALSE,/assets/pilot-directory/faa-bar.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/faa-bar.jpg?v=20250907-192839"" alt=""Country Bar"" class=""desk-pilot-dir-country-bar"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,294,High,missing-loading,FALSE,/assets/pilot-directory/faa-bar.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/faa-bar.jpg?v=20250907-192839"" alt=""Country Bar"" class=""desk-pilot-dir-country-bar"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,308,High,missing-loading,FALSE,/assets/pilot-directory/faa-bar.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/faa-bar.jpg?v=20250907-192839"" alt=""Country Bar"" class=""desk-pilot-dir-country-bar"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,321,High,missing-loading,FALSE,/assets/pilot-directory/faa-bar.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/faa-bar.jpg?v=20250907-192839"" alt=""Country Bar"" class=""desk-pilot-dir-country-bar"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,333,High,missing-loading,FALSE,/assets/pilot-directory/faa-bar.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/faa-bar.jpg?v=20250907-192839"" alt=""Country Bar"" class=""desk-pilot-dir-country-bar"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,350,High,missing-loading,FALSE,/assets/pilot-directory/faa-bar.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/faa-bar.jpg?v=20250907-192839"" alt=""Country Bar"" class=""desk-pilot-dir-country-bar"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,361,High,missing-loading,FALSE,/assets/pilot-directory/faa-bar.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/faa-bar.jpg?v=20250907-192839"" alt=""Country Bar"" class=""desk-pilot-dir-country-bar"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,375,High,missing-loading,FALSE,/assets/pilot-directory/faa-bar.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/faa-bar.jpg?v=20250907-192839"" alt=""Country Bar"" class=""desk-pilot-dir-country-bar"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,390,High,missing-loading,FALSE,/assets/pilot-directory/faa-bar.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/faa-bar.jpg?v=20250907-192839"" alt=""Country Bar"" class=""desk-pilot-dir-country-bar"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,402,High,missing-loading,FALSE,/assets/pilot-directory/faa-bar.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/faa-bar.jpg?v=20250907-192839"" alt=""Country Bar"" class=""desk-pilot-dir-country-bar"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,418,High,missing-loading,FALSE,/assets/pilot-directory/faa-bar.jpg?v=20250907-192839,"<img 
+          src=""/assets/pilot-directory/faa-bar.jpg?v=20250907-192839"" alt=""Country Bar"" 
+          class=""desk-pilot-dir-country-bar"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,439,High,missing-loading,FALSE,/assets/pilot-directory/faa-bar.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/faa-bar.jpg?v=20250907-192839"" alt=""Country Bar"" class=""desk-pilot-dir-country-bar"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,453,High,missing-loading,FALSE,/assets/pilot-directory/faa-bar.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/faa-bar.jpg?v=20250907-192839"" alt=""Country Bar"" class=""desk-pilot-dir-country-bar"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,467,High,missing-loading,FALSE,/assets/pilot-directory/faa-bar.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/faa-bar.jpg?v=20250907-192839"" alt=""Country Bar"" class=""desk-pilot-dir-country-bar"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,487,High,missing-loading,FALSE,/assets/pilot-directory/faa-bar.jpg?v=20250907-192839,"<img 
+            src=""/assets/pilot-directory/faa-bar.jpg?v=20250907-192839""
+            alt=""Country Bar"" 
+            class=""desk-pilot-dir-country-bar"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,514,High,missing-loading,FALSE,/assets/pilot-directory/faa-bar.jpg?v=20250907-192839,"<img 
+            src=""/assets/pilot-directory/faa-bar.jpg?v=20250907-192839"" alt=""Country Bar"" 
+            class=""desk-pilot-dir-country-bar"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,535,High,missing-loading,FALSE,/assets/pilot-directory/faa-bar.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/faa-bar.jpg?v=20250907-192839"" alt=""Country Bar"" class=""desk-pilot-dir-country-bar"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,549,High,missing-loading,FALSE,/assets/pilot-directory/faa-bar.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/faa-bar.jpg?v=20250907-192839"" alt=""Country Bar"" class=""desk-pilot-dir-country-bar"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,562,High,missing-loading,FALSE,/assets/pilot-directory/faa-bar.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/faa-bar.jpg?v=20250907-192839"" alt=""Country Bar"" class=""desk-pilot-dir-country-bar"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,575,High,missing-loading,FALSE,/assets/pilot-directory/faa-bar.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/faa-bar.jpg?v=20250907-192839"" alt=""Country Bar"" class=""desk-pilot-dir-country-bar"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,588,High,missing-loading,FALSE,/assets/pilot-directory/faa-bar.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/faa-bar.jpg?v=20250907-192839"" alt=""Country Bar"" class=""desk-pilot-dir-country-bar"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,599,High,missing-loading,FALSE,/assets/pilot-directory/faa-bar.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/faa-bar.jpg?v=20250907-192839"" alt=""Country Bar"" class=""desk-pilot-dir-country-bar"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,613,High,missing-loading,FALSE,/assets/pilot-directory/faa-bar.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/faa-bar.jpg?v=20250907-192839"" alt=""Country Bar"" class=""desk-pilot-dir-country-bar"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,625,High,missing-loading,FALSE,/assets/pilot-directory/faa-bar.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/faa-bar.jpg?v=20250907-192839"" alt=""Country Bar"" class=""desk-pilot-dir-country-bar"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,636,High,missing-loading,FALSE,/assets/pilot-directory/faa-bar.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/faa-bar.jpg?v=20250907-192839"" alt=""Country Bar"" class=""desk-pilot-dir-country-bar"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,644,High,missing-loading,FALSE,/assets/pilot-directory/headshots/125-generic-pilot.jpg?v=20250907-192839,"<img src=""/assets/pilot-directory/headshots/125-generic-pilot.jpg?v=20250907-192839"" alt=""Join Us"" class=""desk-pilot-headshot"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,211,High,missing-loading,FALSE,/assets/pilot-directory/typethumbs/citationxbust2.png?v=20250907-192839,"<img class=""desk-pilot-directory-typepix"" 
+               alt=""Cessna Citation"" 
+               src=""/assets/pilot-directory/typethumbs/citationxbust2.png?v=2",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,216,High,missing-loading,FALSE,/assets/pilot-directory/typethumbs/E175.png?v=20250907-192839,"<img class=""desk-pilot-directory-typepix"" 
+               alt=""E175"" 
+               src=""/assets/pilot-directory/typethumbs/E175.png?v=20250907-192839"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,221,High,missing-loading,FALSE,/assets/pilot-directory/typethumbs/KA-350.png?v=20250907-192839,"<img class=""desk-pilot-directory-typepix"" 
+               alt=""KingAir"" 
+               src=""/assets/pilot-directory/typethumbs/KA-350.png?v=20250907-192839"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,226,High,missing-loading,FALSE,/assets/pilot-directory/typethumbs/LR35.png?v=20250907-192839,"<img class=""desk-pilot-directory-typepix"" 
+               alt=""Lear 35"" 
+               src=""/assets/pilot-directory/typethumbs/LR35.png?v=20250907-192839"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,231,High,missing-loading,FALSE,/assets/pilot-directory/typethumbs/metro.png?v=20250907-192839,"<img class=""desk-pilot-directory-typepix"" 
+               alt= ""Metroliner"" 
+               src=""/assets/pilot-directory/typethumbs/metro.png?v=20250907-19283",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\quote.html,1032,High,missing-loading,FALSE,/assets/quote/1999_amf_slc2.jpg?v=20250907-192839,"<img src=""/assets/quote/1999_amf_slc2.jpg?v=20250907-192839"" alt=""1999 AMF SLC"" style=""width: 100%; max-width: 700px; height: auto;"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\quote.html,1038,High,missing-loading,FALSE,/assets/quote/2002-kaiserair.jpg?v=20250907-192839,"<img src=""/assets/quote/2002-kaiserair.jpg?v=20250907-192839"" alt=""2002 KaiserAir"" style=""width: 100%; max-width: 700px; height: auto; margin: 40px 0 20px 0;"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\thank-you.html,339,High,missing-loading,FALSE,/assets/quote/aaron-for-quote.jpg?v=20250907-192839,"<img src=""/assets/quote/aaron-for-quote.jpg?v=20250907-192839"" alt=""Aaron"" style=""height: 160px; width: auto;"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\quote.html,229,High,missing-loading,FALSE,/assets/quote/open-sign-320w.jpg?v=20250907-192839,"<img class=""quote-callme-points-opensign""
+                   src=""/assets/quote/open-sign-320w.jpg?v=20250907-192839""
+                   alt=""open sign"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\thank-you.html,304,High,missing-loading,FALSE,/assets/quote/thumbs-up.png?v=20250907-192839,"<img style=""width: 100px;"" alt=""thumbs up"" src=""/assets/quote/thumbs-up.png?v=20250907-192839"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\quote.html,247,High,missing-loading,FALSE,/assets/quote/voicemail-icon.png?v=20250907-192839,"<img class=""quote-callme-points-vm-chip""
+                 src=""/assets/quote/voicemail-icon.png?v=20250907-192839""
+                   alt=""voicemail-icon"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\index.html,268,High,missing-loading,FALSE,/assets/quote-sign.png?v=20250907-192839,"<img
+      class=""desk-index-cta-img""
+      src=""/assets/quote-sign.png?v=20250907-192839""
+      alt=""Get a fast quote""
+      decoding=""async""
+      fetchp",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\index.html,311,High,missing-loading,FALSE,/assets/services/containerize-no-title-320w.png?v=20250907-192839,"<img 
+              class=""desk-index-thumb""
+              src=""/assets/services/containerize-no-title-320w.png?v=20250907-192839""
+              alt=""Contain",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\index.html,386,High,missing-loading,TRUE,/assets/services/containerize-no-title-320w.png?v=20250907-192839,"<img src=""/assets/services/containerize-no-title-320w.png?v=20250907-192839"" alt=""Container Shipping"" class=""mob-index-imgbg-img"" width=""300"" height=""155"" decod",has width+height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\services.html,284,High,missing-loading,FALSE,/assets/services/logbook-icon.png?v=20250907-192839,"<img src=""/assets/services/logbook-icon.png?v=20250907-192839"" alt=""Logbook Icon"" class=""services-logbook-icon"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,776,High,missing-loading,FALSE,assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839,"<img class=""testimonial-thumb"" style=""width: 125px; cursor: pointer;"" src=""assets/past-deliveries/testimonials/testim-icon.jpg?v=20250907-192839"" data-full=""/as",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\join-pilot-roster.html,632,High,missing-loading,FALSE,assets/side-by-side-logo.png?v=20250907-192839,"<img src=""assets/side-by-side-logo.png?v=20250907-192839""
+                         alt=""Full ADS logo"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\join-pilot-roster.html,667,High,missing-loading,FALSE,assets/side-by-side-logo.png?v=20250907-192839,"<img src=""assets/side-by-side-logo.png?v=20250907-192839""
+                         alt=""Full ADS logo"">",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\about.html,134,Low,missing-loading,TRUE,"data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=","<img
+        src=""data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=""
+        alt=""aria-label-active"" 
+        width=""50""
+        height=""39""
+     ",has width+height; data-uri; near <header>/<nav>
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\about.html,158,Low,missing-loading,TRUE,"data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=","<img
+                      src=""data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=""
+                      alt=""Aircraft Delivery Solutions""
+         ",has width+height; data-uri; near <header>/<nav>
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\about.html,178,High,missing-loading,TRUE,"data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=","<img 
+                      src=""data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=""
+                      alt=""Call""
+                      width=""36",has width+height; data-uri
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\index.html,163,Low,missing-loading,TRUE,"data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=","<img
+        src=""data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=""
+        alt=""aria-label-active"" 
+        width=""50""
+        height=""39""
+     ",has width+height; data-uri; near <header>/<nav>
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\index.html,187,Low,missing-loading,TRUE,"data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=","<img
+                      src=""data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=""
+                      alt=""Aircraft Delivery Solutions""
+         ",has width+height; data-uri; near <header>/<nav>
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\index.html,205,High,missing-loading,TRUE,"data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=","<img 
+                      src=""data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=""
+                      alt=""Call""
+                      width=""36",has width+height; data-uri
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\join-pilot-roster.html,130,Low,missing-loading,TRUE,"data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=","<img
+        src=""data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=""
+        alt=""""
+        aria-hidden=""true"" 
+        width=""50""
+        height=",has width+height; data-uri; near <header>/<nav>
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\join-pilot-roster.html,155,Low,missing-loading,TRUE,"data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=","<img
+                      src=""data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=""
+                      alt=""Aircraft Delivery Solutions""
+         ",has width+height; data-uri; near <header>/<nav>
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\join-pilot-roster.html,175,High,missing-loading,TRUE,"data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=","<img 
+                      src=""data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=""
+                      alt=""Call""
+                      width=""36",has width+height; data-uri
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,126,Low,missing-loading,TRUE,"data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=","<img
+        src=""data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=""
+        alt=""aria-label-active"" 
+        width=""50""
+        height=""39""
+     ",has width+height; data-uri; near <header>/<nav>
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,150,Low,missing-loading,TRUE,"data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=","<img
+                      src=""data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=""
+                      alt=""Aircraft Delivery Solutions""
+         ",has width+height; data-uri; near <header>/<nav>
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,170,High,missing-loading,TRUE,"data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=","<img 
+                      src=""data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=""
+                      alt=""Call""
+                      width=""36",has width+height; data-uri
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,132,Low,missing-loading,TRUE,"data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=","<img
+        src=""data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=""
+        alt=""aria-label-active"" 
+        width=""50""
+        height=""39""
+     ",has width+height; data-uri; near <header>/<nav>
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,156,Low,missing-loading,TRUE,"data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=","<img
+                      src=""data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=""
+                      alt=""Aircraft Delivery Solutions""
+         ",has width+height; data-uri; near <header>/<nav>
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\pilot-directory.html,176,High,missing-loading,TRUE,"data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=","<img 
+                      src=""data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=""
+                      alt=""Call""
+                      width=""36",has width+height; data-uri
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\quote.html,131,Low,missing-loading,TRUE,"data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=","<img
+        src=""data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=""
+        alt=""aria-label-active"" 
+        width=""50""
+        height=""39""
+     ",has width+height; data-uri; near <header>/<nav>
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\quote.html,155,Low,missing-loading,TRUE,"data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=","<img
+                      src=""data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=""
+                      alt=""Aircraft Delivery Solutions""
+         ",has width+height; data-uri; near <header>/<nav>
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\quote.html,175,High,missing-loading,TRUE,"data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=","<img 
+                      src=""data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=""
+                      alt=""Call""
+                      width=""36",has width+height; data-uri
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\services.html,137,Low,missing-loading,TRUE,"data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=","<img
+        src=""data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=""
+        alt=""aria-label-active"" 
+        width=""50""
+        height=""39""
+     ",has width+height; data-uri; near <header>/<nav>
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\services.html,161,Low,missing-loading,TRUE,"data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=","<img
+                      src=""data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=""
+                      alt=""Aircraft Delivery Solutions""
+         ",has width+height; data-uri; near <header>/<nav>
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\services.html,181,High,missing-loading,TRUE,"data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=","<img 
+                      src=""data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=""
+                      alt=""Call""
+                      width=""36",has width+height; data-uri
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\testimonials.html,125,Low,missing-loading,TRUE,"data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=","<img
+        src=""data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=""
+        alt=""aria-label-active"" 
+        width=""50""
+        height=""39""
+     ",has width+height; data-uri; near <header>/<nav>
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\testimonials.html,149,Low,missing-loading,TRUE,"data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=","<img
+                      src=""data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=""
+                      alt=""Aircraft Delivery Solutions""
+         ",has width+height; data-uri; near <header>/<nav>
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\testimonials.html,168,High,missing-loading,TRUE,"data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=","<img 
+                      src=""data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=""
+                      alt=""Call""
+                      width=""36",has width+height; data-uri
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\thank-you.html,128,Low,missing-loading,TRUE,"data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=","<img
+        src=""data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=""
+        alt=""aria-label-active"" 
+        width=""50""
+        height=""39""
+     ",has width+height; data-uri; near <header>/<nav>
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\thank-you.html,152,Low,missing-loading,TRUE,"data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=","<img
+                      src=""data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=""
+                      alt=""Aircraft Delivery Solutions""
+         ",has width+height; data-uri; near <header>/<nav>
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\thank-you.html,172,High,missing-loading,TRUE,"data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=","<img 
+                      src=""data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=""
+                      alt=""Call""
+                      width=""36",has width+height; data-uri
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,3830,High,missing-loading,FALSE,"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==","<img id=""desk-past-deliv-img""
+         src=""data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==""
+         alt="""">",no width/height; data-uri
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\past-deliveries.html,3839,High,missing-loading,FALSE,"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==","<img id=""mob-past-deliv-img""
+         src=""data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==""
+         alt="""">",no width/height; data-uri
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\quote.html,276,High,missing-loading,FALSE,https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg,"<img src=""https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"" 
+                 alt=""WhatsApp""
+                 aria-hidden=""true""
+            ",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\quote.html,310,High,missing-loading,FALSE,https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg,"<img class=""quote-wa-icon""
+             src=""https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg""
+             alt=""Whatsapp icon"" 
+            ",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\thank-you.html,259,High,missing-loading,FALSE,https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg,"<img 
+          src=""https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"" 
+          alt=""WhatsApp""
+          style=""height: 1.3em; vertical-ali",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\thank-you.html,356,High,missing-loading,FALSE,https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg,"<img 
+          src=""https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"" 
+          alt=""WhatsApp""
+          style=""height: 1.3em; vertical-ali",no width/height
+C:\Users\Public\Documents\Web Design\aircraft-delivery-site\about.html,575,High,missing-loading,FALSE,,"<img id=""mob-about-zoom-img"" src="""" alt="""" sizes=""100vw"">",no width/height
