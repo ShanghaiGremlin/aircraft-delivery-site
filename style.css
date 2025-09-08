@@ -48,16 +48,6 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
 }
 
-/* Keep pad neutral so JS height is exact */
-.header-pad {
-  display: block;
-  width: 100%;
-  height: 0;          /* JS will override */
-  margin: 0 !important;
-  padding: 0 !important;
-  border: 0 !important;
-  box-sizing: content-box !important;
-}
 
 /*9/1
 .ul-tall-line-height-1point2rem {
@@ -91,6 +81,10 @@ line-height: 2
   a { text-decoration: underline; }
 }
 
+  .getaquote-button {
+  width: clamp(210px, calc(11.7vw + 166.2px), 400px);
+    height: auto;
+  }
 /* !!! END Global Styles for all screen sizes !!! END */
 
 /* DESKTOP BROAD STYLES */
@@ -232,34 +226,21 @@ html, body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Subtle box shadow */
     letter-spacing: 0.5px; /* Letter spacing */
     text-transform: uppercase; /* Uppercase text */
-    width: fit-content; /* Shrink to fit the content */    
+    width: fit-content; /* Shrink to fit the content */ 
+   
   }
 
   .page-title-brick-centered {
     display: block; /* Ensures block-level behavior */
-    margin: 0 auto; /* Center the element horizontally */
+    margin: 15px auto 0 auto; /* Center the element horizontally */
   }
-
-/* 9/1
-.mobile-main {
-  background-color: #e9eff3;
-}*/
 } 
 
 /* !!! END BROAD MOBILE STYLES !!! END */
 
 /* DESKTOP HEADER */
 
-/* 9/1
-.header-link {
-  position: absolute;
-  display: block;
-  z-index: 10;
-  pointer-events: auto;
-  -webkit-transform: translateZ(0); 
-  transform: translateZ(0);
-  text-decoration: none;
-} */
+
 
 .desk-header {
   background: rgba(238, 246, 255, 0.75);
@@ -358,10 +339,23 @@ html, body {
   height: 48px;
 }
 
-.desk-nav a:hover {
-  border-bottom: 2px solid #0a2940;
+.desk-nav a:hover,
+.desk-nav a:focus-visible {
+  border-bottom-color: currentColor;
 }
 
+.desk-nav a[aria-current="page"] {
+  border-bottom-color: currentColor;
+}
+
+/* Fallback: if :focus-visible isn't supported, use :focus */
+@supports not selector(:focus-visible) {
+  .desk-header a:focus {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+    text-decoration: none;
+  }
+}
 
 /* =========================
    CONFIG A: 1401-1455PX
@@ -386,7 +380,9 @@ html, body {
     width: 130px;             
     line-height: 1.3;
   }
-
+:root { 
+  --header-h: 176px; 
+}
 
   }
    
@@ -416,6 +412,9 @@ html, body {
     line-height: 1.3;
   }
 
+  :root { 
+  --header-h: 176px; 
+}
   }
 
 /* =========================
@@ -434,34 +433,46 @@ html, body {
     white-space: nowrap; 
   } /* still no wrap */
 
-
+  :root { 
+  --header-h: 155px;  
+}
  }
 
 /* =========================
    CONFIG D: 1801px–3300px
    ========================= */
 /*Medium: 3 columns × 2 rows */
-@media screen and (min-width: 1801px) {
+@media (min-width: 1801px) and (max-width: 3300px) {
   .desk-nav {
     grid-template-columns: repeat(3, auto);
     gap: 8px 50px;
  }
 
+ :root { 
+  --header-h: 155px; 
+}
 }
 
- 
-/* =========================
+ /* =========================
    CONFIG E: 3301px+
    ========================= */
 
    /* Wide: 6 columns × 1 row */
-@media screen and (min-width: 3301px) {
+@media (min-width: 3301px) {
   .desk-nav {
     grid-template-columns: repeat(6, auto);
   }
 
-
+  :root { 
+  --header-h: 157px; 
 }
+}
+
+/* Global layout offset from fixed header */
+#main { padding-block-start: var(--header-h); }
+
+/* Ensure in-page anchor jumps clear the fixed header */
+:target { scroll-margin-top: var(--header-h); }
 
 
 /* !!! END DESKTOP HEADER !!! END */
@@ -474,7 +485,7 @@ html, body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 60px;
+  height: var(--header-h);
   background: rgba(222, 228, 244, 0.75);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -555,10 +566,9 @@ html, body {
   touch-action: manipulation;
 }
 
-/* Control the visual size of the icon independently */
 .mobile-header-logo img {
   display: block;
-  height: 50px;            /* your current visual size */
+  height: var(--logo-h);
   width: auto;
 }
 
@@ -613,10 +623,6 @@ html, body {
   flex-direction: column;
 }
 
-.mobile-menu.show {
-  display: flex;
-  animation: slideDown 0.3s ease forwards;
-}
 
 html.menu-open,
 html.menu-open body {
@@ -674,44 +680,31 @@ html.menu-open body {
   padding: 50px 0 20px 0;
  }
 
-.mobile-header-logo img {
-  height: 80px;    
-}
+
 }
 
 /* MOBILE HEADER SIZING */
 
+
+@media (max-width: 1400px) { 
+:root { 
+  --header-h: 90px;
+  --logo-h: 80px;
+}
+
+  .mobile-accordion-toggle-anchor {
+/* HEADER OFFSET FOR ACCORDION SCROLL*/
+    scroll-margin-top: var(--header-h); 
+}
+}
+
 @media (max-width: 750px) {
-.mobile-header {
-  height: 60px;
-}
-}
-
-/*  .header-pad {
-  padding-top: 70px;
-}*/
-
-/*.index-mob-pad  {
-padding-top: 60px
-}
-}*/
-
-/*@media (min-width: 751px) and (max-width: 1400px) {
-.header-pad {
-padding-top: 100px; 
-}
-}*/
-
-@media (min-width: 751px) and (max-width: 1400px) { 
-  .mobile-header {
-   height: 90px;
+:root { 
+  --header-h: 60px;
+  --logo-h: 50px; 
 }
 
-/*.index-mob-pad {
-  padding-top: 90px;
-}*/
 }
-
 /* !!! END === MOBILE HEADER === !!! END*/
 
 /* ++++++ INDEX +++++++++*/
@@ -719,13 +712,10 @@ padding-top: 100px;
 /* DESKTOP INDEX */
 
 /* Base: keep your existing flex row and stretch */
-.desk-index-main-flex { display: flex; align-items: stretch; flex-wrap: nowrap;}
-
-.desk-index-main-flex > .header-pad {
-  flex: 0 0 100%;
-  width: 100%;
-  min-width: 0;
-  order: -1;
+.desk-index-main-flex { 
+  display: flex; 
+  align-items: stretch; 
+  flex-wrap: nowrap;
 }
 
 /* Baseline bleed setup */
@@ -1673,11 +1663,21 @@ width: 100%
   display: none;
 }
 
-#join-mob-way3-panel img,
-#join-mob-way4-panel img {
+#join-mob-way3-panel img {
   width: 100%;
   min-width: 0;
   max-width: 700px;
+  display: block;
+  margin: 0 auto;
+  padding: 15px; 
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+#join-mob-way4-panel img {
+  width: 100%;
+  min-width: 0;
+  max-width: 300px;
   display: block;
   margin: 0 auto;
   padding: 15px; 
@@ -2761,7 +2761,8 @@ text-decoration: underline;
   position: relative;
   height: auto;
   min-height: 100px;
-  width: clamp(600px, 35vw, 750px);
+  width: 100%;
+  max-width: 750px;
   margin: 40px auto 30px auto;
 }
 
@@ -2832,33 +2833,54 @@ text-decoration: underline;
 
 .quote-bottom-row {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
   gap: 30px;
 }
 
-.quote-box {
+.quote-bottom-row-textbox {
   border: 1px solid #ccc;
   border-radius: 15px;
   background-color: #fdfdfd;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.05);
   text-align: center;
-  flex: 1 1 300px;
+  padding: 20px 30px 20px 30px;
+  display: inline-flex;
+  align-items: center;
 }
 
-.quote-box h1 {
-  margin: 4px 0 10px 0;
-  font-size: 1.7rem;
+.quote-bottom-row-textbox .emoji {
+  font-size: 2.6rem;     /* bigger than text */
+  line-height: 1;        /* no extra line gap */
+  display: inline-block; /* allows transforms */
+  vertical-align: -0.05em;/* subtle baseline nudge */
 }
 
-.quote-box h2 {
-  margin: 5px 0 12px 0;
-  font-size: 1.5rem;
+.quote-bottom-row-textbox h2,
+.quote-bottom-row-emailbox h2 {
+  display: flex;
+  justify-content: center; /* center the whole row within the textbox */
+  gap: 1.6rem;             /* replaces &nbsp; spacing */
+  margin: 0;               /* typical for headings in UI rows */
+  font-size: 1.6rem;
+  line-height: 1.2;
+  align-items: center;
 }
-
-.quote-box a {
+bottom-row-textbox a
+.quote-bottom-row-emailbox a {
   display: inline-flex;
   height: 48px;
+}
+
+.quote-bottom-row-emailbox {
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  background-color: #fdfdfd;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  padding: 27px 30px 13px 30px;
+  width: 602px;
 }
 
 :root {
@@ -2928,14 +2950,18 @@ text-decoration: underline;
   transition: transform 0.2s ease;
 }
 
-.quote-column-house {
+.quote-columnhouse {
 display:flex;
 flex-direction: row;
 max-width: 2000px;
-justify-self: center;
-align-items: stretch;
-gap: 0;
-column-gap: 0;
+margin: 50px auto 0 auto;
+}
+
+.quote-columnhouse-heading {
+  margin-top: 10px; 
+  text-align: center; 
+  font-size: 2.5rem; 
+  margin-bottom: 15px;
 }
 
 .quote-divider {
@@ -2953,12 +2979,12 @@ column-gap: 0;
   line-height: 1.6;
 }
 
-.quote-form-col {
+.quote-columnhouse-column {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   box-sizing: border-box;
-  padding: 0 45px;
+  padding: 0 clamp(7px, calc(2.3vw - 1.5px), 30px);
   text-align: center;
 }
 
@@ -2968,10 +2994,6 @@ column-gap: 0;
   opacity: 1;
   font-style: italic;
 }
-/* 9/1
-.quote-fullbleed {
-  background-color: #e2ebf6;
-} */
 
 .quote-legendstyler {
   font-size: 1.3rem;
@@ -2979,41 +3001,9 @@ column-gap: 0;
 
 .quote-main {
   background-color: #e2ebf6; 
-  padding-bottom: 30px;
+  padding: 0 15px 30px 15px;
 }
 
-.quote-phone-wiggle {
-  display: inline-block;
-  animation: wiggle 0.8s ease-in-out;
-  animation-iteration-count: 1;
-}
-
-@keyframes wiggle {
-  0%   { transform: rotate(0deg); }
-  10%  { transform: rotate(-15deg); }
-  20%  { transform: rotate(15deg); }
-  30%  { transform: rotate(-12deg); }
-  40%  { transform: rotate(12deg); }
-  50%  { transform: rotate(-8deg); }
-  60%  { transform: rotate(8deg); }
-  70%  { transform: rotate(-5deg); }
-  80%  { transform: rotate(5deg); }
-  90%  { transform: rotate(-2deg); }
-  100% { transform: rotate(0deg); }
-}
-
-.quote-prices-col {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 45px;
-  box-sizing: border-box;
-  display: flex; 
-  flex-direction: column; 
-  align-items: center;
-}
-
-/* desktop-first */
 .quote-offscreen-field{
   position: absolute !important;
   left: -10000px;
@@ -3149,48 +3139,43 @@ font-size: 1.5rem;
   cursor: help;
   font-size: 1.3rem;
 }
-/* 9/1
-body.quote-page {
-    --quote-tip-x: calc(100vw - 370px); 
-    --quote-tip-y: 790px;        
-}*/
 
 .quote-tooltip-parent:hover .quote-tooltip-box {
   visibility: visible;
   opacity: 1;
 }
 
-.quote-top {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
+/* ========== Quote: Call Me Grid ========== */
+
+section.quote-callme { 
+  margin: 40px auto;
+  border: 3px solid #3532ef;
+  width: clamp(1300px, calc(40vw + 700px), 1500px);
+} 
+
+.quote-callme-grid {
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-areas:
+    "badge    badge    badge"
+    "headshot cta      aux"
+    "headshot points   aux";
+  gap: 24px;
+  align-items: stretch;
+  background-color: #fff;
+  padding: 15px;
 }
 
 .quote-top-badge {
-  font-size: 1.5rem;
+  font-size: clamp(1.4rem, 2vw, 2.5rem);
   font-weight: bold;
   background: gold;
-  padding: 5px 10px;
   border-radius: 4px;
   position: relative;
   overflow: hidden;
   display: inline-block;
-  isolation: isolate;
-  grid-area: left;
-  max-height: 39px;
-}
-
-.quote-top3-aaron {
-  grid-area: right; 
-  justify-self: end; 
-  text-align: right;
-}
-
-.quote-top-center-item {
-grid-area: center; 
-justify-self: center; 
-text-align: center;
+  margin: 0 380px;
+  text-align: center;
 }
 
 /* The moving “light” */
@@ -3217,7 +3202,7 @@ text-align: center;
   transform: translateX(-120%) skewX(-20deg);
 }
 
-/* Only animates when JS adds this class */
+
 .quote-top-badge.is-shimmering::before {
   animation: quote-shimmer-pass 900ms ease-out forwards;
 }
@@ -3229,36 +3214,173 @@ text-align: center;
   100% { transform: translateX(260%)  skewX(-20deg); opacity: 0; }
 }
 
-.quote-top-call-box {
-  position: relative;
-  text-align: center;
-  border: 4px solid #3535f4;
-  border-radius: 15px;
-  padding: 12px 20px;
-  background-color: #fdfdfd;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.05);
-  width: 800px;
-  max-width: 800px;
-  margin: 0 auto;
+.quote-top-badge   { 
+  grid-area: badge; 
 }
 
-.quote-top-call-box ul {
-  padding-left: 3vw;
-  margin-top: 5px;
-  margin-bottom: 0;
-  text-align: left;
-  line-height: 1.6;
-  font-size: 1.6rem;
+.quote-callme-cta     { 
+  grid-area: cta; 
 }
 
-.quote-top-call-box-top3elements {
-  display: grid;
-  grid-template-columns: 25% 50% 25%;
-  grid-template-areas: "left center right"; 
+.quote-callme-headshot{ 
+  grid-area: headshot; 
+  margin: 0;
+}
+
+.quote-callme-points  { 
+  grid-area: points; 
+}
+
+.quote-callme-noai  { 
+  grid-area: aux;
+  display: flex;
+  flex-direction: column;
+}
+
+/* QUOTE DEBUG
+.quote-top-badge,
+.quote-callme-cta,
+.quote-callme-headshot,
+.quote-callme-points,
+.quote-callme-noai,
+.quote-callme-points-vm-points,
+.quote-callme-points-opensign,
+.quote-callme-points-opentimes,
+.quote-callme-points-vm-chip {
+  border: 1px solid black;
+  } */
+
+.quote-callme-cta {
+  display: inline-flex; 
+  align-items: center; 
+  gap: 25px; 
+  justify-content: center;
+}
+
+
+.quote-callme-cta-number {
+  margin: 0;
+  font-size: clamp(1.5rem, 3vw, 3rem);
+  line-height: 1.2;
+}
+.quote-callme-cta-tel {
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor; /* subtle affordance */
+}
+.quote-callme-cta-tel:focus-visible {
+  outline: 3px solid #2a8ad6;
+  outline-offset: 2px;
+}
+
+.quote-phone-wiggle {
+  display: inline-flex;
+  animation: wiggle 0.8s ease-in-out;
+  animation-iteration-count: 1;
+}
+
+.quote-callme-callme-text {
+  font-size: clamp(1.5rem, 3vw, 3rem);
+  font-weight: 600;
+}
+
+#phoneIcon {
+  font-size: clamp(2rem, 3vw, 4rem);
+}
+
+@keyframes wiggle {
+  0%   { transform: rotate(0deg); }
+  10%  { transform: rotate(-15deg); }
+  20%  { transform: rotate(15deg); }
+  30%  { transform: rotate(-12deg); }
+  40%  { transform: rotate(12deg); }
+  50%  { transform: rotate(-8deg); }
+  60%  { transform: rotate(8deg); }
+  70%  { transform: rotate(-5deg); }
+  80%  { transform: rotate(5deg); }
+  90%  { transform: rotate(-2deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quote-callme-cta:hover .quote-phone-wiggle,
+  .quote-callme-cta:focus-within .quote-phone-wiggle { animation: none; }
+}
+
+.quote-callme-points-opensign,
+.quote-callme-points-vm-chip {
+ width: clamp(135px, 9vw, 180px); 
+  height: auto;
+}
+
+.quote-callme-headshot img,
+.quote-callme-noai img {
+  display: block;
   width: 100%;
-  box-sizing: border-box;
-  /* Optional: give the whole box its own stacking context if needed */
-  isolation: isolate;
+  height: auto;
+}
+
+.quote-callme-points-opensign {
+  grid-area: sign;
+}
+
+.quote-callme-points-opentimes {
+  grid-area: times;
+  margin: 0px;
+  padding: 0px;
+}
+
+.quote-callme-points-vm-chip {
+  grid-area: chip;
+}
+
+.quote-callme-points-vm-points {
+  grid-area: vmpoints;
+  margin: 0px;
+  padding: 0px;
+
+}
+
+.quote-callme-points {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-areas:
+    "sign    times"
+    "chip    vmpoints";
+  row-gap: 30px;
+  column-gap: 15px;
+  align-items: center;
+  background-color: #fff;
+  padding: 15px;
+  font-size: clamp(1.5rem, calc(9.6px + 0.96vw), 1.8rem);
+}
+.quote-callme-points-open,
+.quote-callme-points-vm {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* The “button-style” chip around your voicemail icon */
+.quote-callme-points-vm-chip {
+  --vm-bg: #fff;
+  --vm-border: #0a3450; /* adjust to your brand */
+  justify-content: center;
+  background: rgb(200, 198, 198);
+  border: 1px solid var(--vm-border);
+  border-radius: 8px;                  /* square corners per your preference */
+  box-shadow:
+    0 9px 0 rgba(0,0,0,0.04),
+    0 10px 12px rgba(0,0,0,0.12);      /* raised look */
+  line-height: 1;                    /* tight box */
+  user-select: none;
+  transition: box-shadow 160ms ease, transform 160ms ease;
+}
+
+/* Screen-reader utility (local copy) */
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
 }
 
 .quote-decorative-pix {
@@ -3267,7 +3389,6 @@ flex-direction: column;
 align-items: center;
 margin-top: 30px;
 }
-
 
 .desk-quote-caption {
   position: absolute;
@@ -3302,26 +3423,66 @@ margin-top: 30px;
 /* MOBILE 1400 /QUOTE */
 
 @media screen and (max-width: 1400px) {
+  .quote-callme-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "badge"
+      "cta"
+      "headshot"
+      "points"
+      "aux";
+      gap: 15px;
+  }
 
-  .quote-legendstyler {
+.quote-callme-headshot img,
+.quote-callme-noai img {
+width: clamp(175px, calc(7vw + 148px), 250px);
+}
+
+.quote-callme-noai img {
+align-self: center;
+}
+
+section.quote-callme { 
+  width: clamp(340px, calc(84vw + 25px), 1200px);
+} 
+
+.quote-top-badge {
+  margin: 0;
+}
+
+.quote-callme-headshot {
+display: flex;
+justify-content: center;
+}
+
+.quote-callme-points {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "sign"    
+    "times"
+    "chip"
+    "vmpoints";
+  row-gap: 15px;
+}
+
+.quote-callme-points-opensign,
+.quote-callme-points-vm-chip {
+  margin: 0 auto;
+  width: clamp(175px, calc(5vw + 156px), 225px);
+}
+
+.quote-bottom-row-emailbox {
+  padding: 25px 31px 25px 31px;
+}
+
+.quote-legendstyler {
   font-size: 1.3rem;
 }
 
 .quote-decorative-pix {
   display: none;
-}
-.quote-column-house {
-  display: flex;
-  flex-direction: column;
-}
-
-.quote-form-col,
-.quote-prices-col {
-  padding: 0 10px;
-}
-
-.quote-prices-col {
-  border: hidden;
 }
 
  .quote-toggle-label {
@@ -3395,33 +3556,6 @@ width: clamp(200px, 22vw, 500px);
   }
 }
 
-@media (max-width: 800px) {
-.quote-top-call-box-top3elements {
-    /* one column = vertical stack */
-    grid-template-columns: 1fr;
-
-    /* choose the visual order here */
-    grid-template-areas:
-      "left"
-      "center"
-      "right"; /* change order as needed */
-
-    row-gap: 10px;
-  }
-  .quote-top-badge {
-width: 200px;
-justify-self: center;
-}
-
-.quote-top-call-box-top3elements a {
-  justify-self: center;
-}
-
-.quote-top3-aaron {
-  justify-self: center;
-}
-}
-
 @media (min-width: 1001px) {
   #quote-mob-form-toggle-btn,
   #quote-mob-expenses-btn,
@@ -3441,31 +3575,30 @@ justify-self: center;
 }
 
 @media (max-width: 1000px) {
+  body.quote-page #quote-form-section.is-open { 
+    display: block !important; 
+  }
+
   #quote-form-section,
   #quote-mob-expenses-container,
   #quote-mob-dispatch-content,
+  #quote-mob-extra-rows,
   .quote-accordion-group {
     display: none; 
   }
 
 #quote-form-section.is-open,
 #quote-mob-expenses-container.is-open,
-#quote-mob-dispatch-content.is-open { 
+#quote-mob-dispatch-content.is-open,
+.quote-columnhouse { 
   display: block;
-}
-
-#quote-mob-extra-rows { 
-  display: none; 
 }
 
 #quote-mob-extra-rows.is-open { 
   display: table-row-group; 
 }
 
-  .quote-mob-extra-row {
-    display: table-row;
-  }
-
+  .quote-mob-extra-row,
   #quote-mob-extra-rows.is-open .quote-mob-extra-row,
   #quote-mob-extra-rows.is-open .quote-mob-extra-row.quote-mob-hidden {
     display: table-row !important;
@@ -3480,8 +3613,26 @@ width: clamp(150px, 45vw, 400px);
   line-height: 1.6;
   text-align: left;
 }
+
 }
 
+@media (max-width: 500px) {
+  .quote-callme-cta {
+    display: block;
+    text-align: center;
+  }
+
+  .quote-columnhouse-form-col {
+    padding: 0 7px;
+}
+}
+
+@media (max-width: 750px) {
+  .quote-bottom-row-textbox h2,
+  .quote-bottom-row-emailbox h2 {
+  display: block;
+}
+}
 
 /* !!! END INTERMEDIATE SCREEN MOBILE /QUOTE !!! END*/
 
@@ -3593,14 +3744,7 @@ width: clamp(150px, 45vw, 400px);
   text-align: center;
 }
 
-.services-cta-wrap a {
-  display: inline-flex;
-  width: 451px;
-  height: 409px;
-}
-
-.services-left-col,
-.services-right-col{
+.services-column {
   flex: 1 1 clamp(640px, 50%, 2000px);  /* equal growth, min 640px each */
   min-width: 0;                          /* allow text to wrap */
   display: flex;
@@ -3971,12 +4115,6 @@ text-align: left;
     touch-action: manipulation;   /* improves tap responsiveness */
   }
 
-
-  .services-cta-wrap img {
-    max-width: 60%;
-    height: auto;
-  }
-
   .subhead-break::before {
     content: "\A";       /* Unicode line break */
     white-space: pre;    /* Required to interpret \A as a real line break */
@@ -3984,7 +4122,8 @@ text-align: left;
 
   .services-flex-wrapper {
     flex-direction: column;
-    gap: 15px;
+    gap: 50px;
+    align-items: center;
   }
 
   .services-flex-wrapper::before {
@@ -4328,9 +4467,6 @@ background-color: #eeeef5"
 }
 
 
-/* Give the target room under a fixed header so it’s not hidden */
-#main-content { scroll-margin-top: 88px; }
-
 /* Improve keyboard focus visibility sitewide */
 a:focus-visible,
 button:focus-visible,
@@ -4340,16 +4476,6 @@ textarea:focus-visible,
 [role="button"]:focus-visible {
   outline: 3px solid #0a84ff;
   outline-offset: 2px;
-}
-
-/* Mobile layout (≤1400px) */
-@media (max-width: 1399px) {
-  #main-content { scroll-margin-top: 64px; }
-}
-
-/* Phone (≤1000px) */
-@media (max-width: 999px) {
-  /* keep as-is unless your mobile header is shorter */
 }
 
 /* =========================
@@ -4363,14 +4489,6 @@ textarea:focus-visible,
   }
 }
 
-  @media (prefers-reduced-motion: reduce) {
-    [data-ads-desk-header] *,
-    .has-desk-header [data-ads-desk-header] * {
-      animation: none !important;
-      transition: none !important;
-      scroll-behavior: auto !important;
-    }
-  }
 /* Screen-reader only utility */
 .sr-only {
   position: absolute !important;
@@ -4384,3 +4502,9 @@ textarea:focus-visible,
   border: 0 !important;
 }
 
+@media (max-width: 1400px) {
+  .mobile-menu.show {
+  display: flex;
+  animation: slideDown 0.3s ease forwards;
+}
+}

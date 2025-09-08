@@ -3,7 +3,7 @@
 <head>
   <!-- ===== GLOBAL (copy identical on every page) ===== -->
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#002f4b">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -11,16 +11,16 @@
   <meta name="ads-ver" content="?v=20250826-235823">
 
   <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=20250904-101202">
-  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=20250904-101202">
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=20250904-101202">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=20250907-192839">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=20250907-192839">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=20250907-192839">
   <link rel="manifest" href="/site.webmanifest">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
 
-<link rel="preload" href="/style.css?v=20250904-101202" as="style">
-<link rel="stylesheet" href="/style.css?v=20250904-101202">
-<link rel="preload" href="/script.js?v=20250904-101202" as="script">
+<link rel="preload" href="/style.css?v=20250907-192839" as="style">
+<link rel="stylesheet" href="/style.css?v=20250907-192839">
+<link rel="preload" href="/script.js?v=20250907-192839" as="script">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,8 +55,56 @@
 
   <!-- DESKTOP HEADER WRAPPER -->
 <div class="desktop-only">
- <div id="desk-header-placeholder" aria-hidden="true">
- </div>
+<header class="desk-header"
+        id="desk-header"
+        role="banner">
+  <a class="skip-link" 
+    href="#main">Skip to main content
+  </a>
+    <div class="desk-header-inner">
+      <div class="desk-header-left">
+        <nav class="desk-nav" 
+             aria-label="Primary">
+          <a href="/services">Services</a>
+          <a href="/quote">Quote</a>
+          <a class="nav-dir"  
+             href="/pilot-directory">Pilot<wbr> Directory
+          </a>
+          <a class="nav-join" 
+             href="/join-pilot-roster">Join Pilot<wbr> Roster
+          </a>
+          <a href="/about">About</a>
+          <a class="nav-past" 
+             href="/past-deliveries">Past<wbr> Deliveries
+          </a>
+        </nav>
+      </div>
+      <div class="desk-header-center">
+        <a href="/"
+           aria-current="page"
+           aria-label="Home">
+          <picture>
+            <source
+              media="(min-width: 1401px)"
+              type="image/png"
+              srcset="/assets/side-by-side-logo.png?v=20250907-192839">
+            <img
+              class="desk-header-logo"
+              src="data:image/gif;base64,R0lGODlhAQABAAAAACw="
+              width="951"
+              height="179"
+              decoding="async"
+              fetchpriority="high"
+              loading="eager"
+              alt="">
+          </picture>
+        </a>
+      </div>
+      <div class="desk-header-right">
+        <p>+1 (415) 845-8163</p>
+        <a href="mailto:akahn28@gmail.com">akahn28@gmail.com</a>
+      </div>
+</header>
 </div>
 
 <div class="mobile-only">
@@ -75,7 +123,7 @@
     <picture>
       <source 
         media="(max-width: 1400px)" 
-        srcset="/assets/mobile/burger.png?v=20250904-101202">
+        srcset="/assets/mobile/burger.png?v=20250907-192839">
       <img
         src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
         alt="aria-label-active" 
@@ -96,10 +144,10 @@
                   <picture>
                     <source 
                       media="(max-width: 750px)"
-                      srcset="/assets/mobile/mobile-logo-v2.png?v=20250904-101202">
+                      srcset="/assets/mobile/mobile-logo-v2.png?v=20250907-192839">
                     <source 
                       media="(min-width: 751px) and (max-width: 1400px)"
-                      srcset="/assets/mobile/mobile-logo-90.png?v=20250904-101202">
+                      srcset="/assets/mobile/mobile-logo-90.png?v=20250907-192839">
                     <img
                       src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
                       alt="Aircraft Delivery Solutions"
@@ -114,11 +162,12 @@
                 <a
                   href="tel:+14158458163"
                   class="mobile-header-phone"
+                  aria-label="phone icon"
                 >
                   <picture>
                     <source 
                       media="(max-width: 1400px)"
-                      srcset="/assets/mobile/phone.png?v=20250904-101202">
+                      srcset="/assets/mobile/phone.png?v=20250907-192839">
                     <img 
                       src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
                       alt="Call"
@@ -143,12 +192,13 @@
 </div>
 </div>
 
-<main id="main">
+<main id="main"
+      tabindex="-1">
 
 <div class="desktop-only">
 
 <div class="desk-thank-you-main">
-<div class="header-pad"></div>   
+
 <h1 class="page-title-brick">GET A QUOTE</h1>
 
 <table style="width: 100%; border-collapse: collapse; table-layout: fixed;">
@@ -157,7 +207,7 @@
   <div style="display: flex; justify-content: flex-end; align-items: center; gap: 100px;">
     
     <!-- Image -->
-    <img src="/assets/quote/1999-amf.jpg?v=20250904-101202" alt="Beech 99" loading="lazy"
+    <img src="/assets/quote/1999-amf.jpg?v=20250907-192839" alt="Beech 99" loading="lazy"
          style="width: 325px; height: auto; max-width: 100%;" title="Single-pilot in the soup at 12,000' in the Ameriflight Beech 99 flying UPS boxes in Nevada">
 
     <!-- Info Box -->
@@ -225,7 +275,7 @@
     </div>
 
     <!-- Right: Image aligned vertically with boxes -->
-    <img src="/assets/quote/2002-kaiserair.jpg?v=20250904-101202" alt="KaiserAir" loading="lazy"
+    <img src="/assets/quote/2002-kaiserair.jpg?v=20250907-192839" alt="KaiserAir" loading="lazy"
          style="width: 345px; height: auto; display: block;" title="First Officer in the Hawker 700; Oakland, California">
   </div>
 </td>
@@ -234,7 +284,7 @@
 </table>
 
 <div style="margin: 0 auto; text-align: center;">
-<img style="width: 300px;" loading="lazy" thumbs up" src="/assets/quote/thumbs-up.png?v=20250904-101202">
+<img style="width: 300px;" loading="lazy" alt="thumbs up" src="/assets/quote/thumbs-up.png?v=20250907-192839">
 <p style="font-size: 2.5rem; font-weight: 600;">Thank you!</p>
 <p style="font-size: 1.5rem;">I've received your quote request via email and you should hear from me shortly. In the meantime, don't hesitate to call, text or message.</p>
 <p style="font-size: 1.5rem;">- Aaron</p>
@@ -246,14 +296,11 @@
 
 <div class="mob-thank-you-main">
 
-<div class="header-pad"></div>
-
-
 <div class="page-title-brick page-title-brick-centered">GET A QUOTE
 </div>
 
   <div style="margin: 0 auto; text-align: center; padding: 0 15px 0 15px;">
-<img style="width: 100px;" alt="thumbs up" src="/assets/quote/thumbs-up.png?v=20250904-101202">
+<img style="width: 100px;" alt="thumbs up" src="/assets/quote/thumbs-up.png?v=20250907-192839">
 <p style="font-size: 1.7rem; font-weight: 600;">Thank you!</p>
 <p style="font-size: 1.2rem;">I've received your quote request via email and you should hear from me shortly. In the meantime, don't hesitate to call, text or message.</p>
 <p style="font-size: 1.4rem;
@@ -284,8 +331,11 @@
   </div>
   
   <!-- Right: Aaron image -->
-  <a class="quote-top3-aaron" href="/about"> 
-    <img src="/assets/quote/aaron-for-quote.jpg?v=20250904-101202" alt="Aaron" style="height: 160px; width: auto;">
+  <a 
+    class="quote-top3-aaron" 
+    href="/about"
+    aria-label="aaron headshot"> 
+    <img src="/assets/quote/aaron-for-quote.jpg?v=20250907-192839" alt="Aaron" style="height: 160px; width: auto;">
   </a>
   
 </div>
@@ -322,7 +372,7 @@
 
 
 </main>
-<script src="/script.js?v=20250904-101202" defer></script>
+<script src="/script.js?v=20250907-192839" defer></script>
 </body>
 </html>
 

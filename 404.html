@@ -15,7 +15,60 @@
   </style>
 </head>
 <body>
-  <main class="notfound">
+  <header class="desk-header"
+        id="desk-header"
+        role="banner">
+  <a class="skip-link" 
+    href="#main">Skip to main content
+  </a>
+    <div class="desk-header-inner">
+      <div class="desk-header-left">
+        <nav class="desk-nav" 
+             aria-label="Primary">
+          <a href="/services">Services</a>
+          <a href="/quote">Quote</a>
+          <a class="nav-dir"  
+             href="/pilot-directory">Pilot<wbr> Directory
+          </a>
+          <a class="nav-join" 
+             href="/join-pilot-roster">Join Pilot<wbr> Roster
+          </a>
+          <a href="/about">About</a>
+          <a class="nav-past" 
+             href="/past-deliveries">Past<wbr> Deliveries
+          </a>
+        </nav>
+      </div>
+      <div class="desk-header-center">
+        <a href="/"
+           aria-current="page"
+           aria-label="Home">
+          <picture>
+            <source
+              media="(min-width: 1401px)"
+              type="image/png"
+              srcset="/assets/side-by-side-logo.png?v=20250907-192839">
+            <img
+              class="desk-header-logo"
+              src="data:image/gif;base64,R0lGODlhAQABAAAAACw="
+              width="951"
+              height="179"
+              decoding="async"
+              fetchpriority="high"
+              loading="eager"
+              alt="">
+          </picture>
+        </a>
+      </div>
+      <div class="desk-header-right">
+        <p>+1 (415) 845-8163</p>
+        <a href="mailto:akahn28@gmail.com">akahn28@gmail.com</a>
+      </div>
+</header>
+  <main class="notfound"
+        id="main"
+        tabindex="-1">
+
     <h1>We can't find that page.</h1>
     <p>The link may be broken or the page may have moved.</p>
     <p><a href="/">Back to the homepage</a></p>
@@ -78,7 +131,7 @@
   })();
 </script>
 
-<script src="/script.js?v=20250904-101202" defer></script>
+<script src="/script.js?v=20250907-192839" defer></script>
 </body>
 </html>
 

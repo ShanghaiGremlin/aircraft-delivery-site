@@ -3,22 +3,22 @@
 <head>
   <!-- ===== GLOBAL (copy identical on every page) ===== -->
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#002f4b">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="Aircraft Delivery">
   <meta name="ads-ver" content="?v=20250826-235823">
 
-  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=20250904-101202">
-  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=20250904-101202">
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=20250904-101202">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=20250907-192839">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=20250907-192839">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=20250907-192839">
  
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
 
-<link rel="preload" href="/style.css?v=20250904-101202" as="style">
-<link rel="stylesheet" href="/style.css?v=20250904-101202">
-<link rel="preload" href="/script.js?v=20250904-101202" as="script">
+<link rel="preload" href="/style.css?v=20250907-192839" as="style">
+<link rel="stylesheet" href="/style.css?v=20250907-192839">
+<link rel="preload" href="/script.js?v=20250907-192839" as="script">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,8 +53,57 @@
   
   <!-- DESKTOP HEADER WRAPPER -->
 <div class="desktop-only">
- <div id="desk-header-placeholder" aria-hidden="true">
- </div>
+<header class="desk-header"
+        id="desk-header"
+        role="banner">
+  <a class="skip-link" 
+    href="#main">Skip to main content
+  </a>
+    <div class="desk-header-inner">
+      <div class="desk-header-left">
+        <nav class="desk-nav" 
+             aria-label="Primary">
+          <a href="/services">Services</a>
+          <a href="/quote">Quote</a>
+          <a class="nav-dir"  
+             href="/pilot-directory">Pilot<wbr> Directory
+          </a>
+          <a class="nav-join" 
+             href="/join-pilot-roster" 
+             aria-current="page">Join Pilot<wbr> Roster
+          </a>
+          <a href="/about">About</a>
+          <a class="nav-past" 
+             href="/past-deliveries">Past<wbr> Deliveries
+          </a>
+        </nav>
+      </div>
+      <div class="desk-header-center">
+        <a href="/"
+           aria-current="page"
+           aria-label="Home">
+          <picture>
+            <source
+              media="(min-width: 1401px)"
+              type="image/png"
+              srcset="/assets/side-by-side-logo.png?v=20250907-192839">
+            <img
+              class="desk-header-logo"
+              src="data:image/gif;base64,R0lGODlhAQABAAAAACw="
+              width="951"
+              height="179"
+              decoding="async"
+              fetchpriority="high"
+              loading="eager"
+              alt="">
+          </picture>
+        </a>
+      </div>
+      <div class="desk-header-right">
+        <p>+1 (415) 845-8163</p>
+        <a href="mailto:akahn28@gmail.com">akahn28@gmail.com</a>
+      </div>
+</header>
 </div>
 
 <div class="mobile-only">
@@ -76,7 +125,7 @@
     <picture>
       <source 
         media="(max-width: 1400px)" 
-        srcset="/assets/mobile/burger.png?v=20250904-101202">
+        srcset="/assets/mobile/burger.png?v=20250907-192839">
       <img
         src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
         alt=""
@@ -98,10 +147,10 @@
                   <picture>
                     <source 
                       media="(max-width: 750px)"
-                      srcset="/assets/mobile/mobile-logo-v2.png?v=20250904-101202">
+                      srcset="/assets/mobile/mobile-logo-v2.png?v=20250907-192839">
                     <source 
                       media="(min-width: 751px) and (max-width: 1400px)"
-                      srcset="/assets/mobile/mobile-logo-90.png?v=20250904-101202">
+                      srcset="/assets/mobile/mobile-logo-90.png?v=20250907-192839">
                     <img
                       src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
                       alt="Aircraft Delivery Solutions"
@@ -116,11 +165,12 @@
                 <a
                   href="tel:+14158458163"
                   class="mobile-header-phone"
+                  aria-label="phone icon"
                 >
                   <picture>
                     <source 
                       media="(max-width: 1400px)"
-                      srcset="/assets/mobile/phone.png?v=20250904-101202">
+                      srcset="/assets/mobile/phone.png?v=20250907-192839">
                     <img 
                       src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
                       alt="Call"
@@ -147,10 +197,8 @@
 
 <main 
   id="main" 
-  class="join-main">
-
-  <div class="header-pad"></div> 
-
+  class="join-main"
+  tabindex="-1">
   <div class="page-title-brick-wrapper">
     <div class="page-title-brick">
       <h1> JOIN THE 
@@ -378,7 +426,7 @@ Thanks!
             </div>
             
             <img class="join-sample-img" 
-                 src="/assets/join-pilot-roster/join-roster-sample.jpg?v=20250904-101202" alt="Sample Pilot Listing">
+                 src="/assets/join-pilot-roster/join-roster-sample.jpg?v=20250907-192839" alt="Sample Pilot Listing">
           </div>
         </div>
           <div 
@@ -580,15 +628,15 @@ Thanks!
       role="region"
       aria-labelledby="join-mob-way3-toggle"
       hidden>
-      <img src="assets/side-by-side-logo.png?v=20250904-101202"
+      <img src="assets/side-by-side-logo.png?v=20250907-192839"
                          alt="Full ADS logo">
 
                     <p style="font-size: 1.5rem; line-height: 1.6; display: block; justify-self: center;"><u>PILOT REQUIREMENTS</u></p>
-                    <p>For pilots based in the United States: (Pilots based outside the United States will be considered on a case-by-case basis)</p>
-                    <p>1. For fixed-wing pilots, hold a FAA Commercial or Airline Transport Pilot certificate with any Airplane class rating, and an Instrument Airplane rating.</p>
-                    <p>2. For rotary-wing pilots, hold a FAA Commercial or Airline Transport Pilot certificate with Helicopter rating</p>
-                    <p>3. Have logged 500 hours of Pilot-in-Command time, 100 hours of cross-country (defined here as a landing more than 50 nautical miles from the takeoff airport), and 35 hours of night time.</p>
-                    <p>4. Mastery of the English language, including aviation English.</p>
+                    <p>For pilots based in the United States: (Pilots based outside the United States will be considered on a case-by-case basis)</p><br>
+                    <p>1. For fixed-wing pilots, hold a FAA Commercial or Airline Transport Pilot certificate with any Airplane class rating, and an Instrument Airplane rating.</p><br>
+                    <p>2. For rotary-wing pilots, hold a FAA Commercial or Airline Transport Pilot certificate with Helicopter rating</p><br>
+                    <p>3. Have logged 500 hours of Pilot-in-Command time, 100 hours of cross-country (defined here as a landing more than 50 nautical miles from the takeoff airport), and 35 hours of night time.</p><br>
+                    <p>4. Mastery of the English language, including aviation English.</p><br>
                     <p>5. [Not necessary for rostering&mdash;to be completed prior to first assignment] Successful completion of interview and reference check by A.D.S.. Pilots must supply two references. It's my job to examine qualifications, talk about needs and reasons for wanting to ferry aircraft, and ultimately decide if their personality, and technical skill, make them a good fit.</p>
       </div>
 
@@ -615,15 +663,15 @@ Thanks!
                     role="region"
                     aria-labelledby="join-pilot-req"
                     hidden>
-                    <img src="assets/side-by-side-logo.png?v=20250904-101202"
+                    <img src="assets/side-by-side-logo.png?v=20250907-192839"
                          alt="Full ADS logo">
               
                     <p style="font-size: 1.5rem; display: block; justify-self: center;"><u>PILOT REQUIREMENTS</u></p>
-                    <p>For pilots based in the United States: (Pilots based outside the United States will be considered on a case-by-case basis)</p>
-                    <p>1. For fixed-wing pilots, hold a FAA Commercial or Airline Transport Pilot certificate with any Airplane class rating, and an Instrument Airplane rating.</p>
-                    <p>2. For rotary-wing pilots, hold a FAA Commercial or Airline Transport Pilot certificate with Helicopter rating</p>
-                    <p>3. Have logged 500 hours of Pilot-in-Command time, 100 hours of cross-country (defined here as a landing more than 50 nautical miles from the takeoff airport), and 35 hours of night time.</p>
-                    <p>4. Mastery of the English language, including aviation English.</p>
+                    <p>For pilots based in the United States: (Pilots based outside the United States will be considered on a case-by-case basis)</p><br>
+                    <p>1. For fixed-wing pilots, hold a FAA Commercial or Airline Transport Pilot certificate with any Airplane class rating, and an Instrument Airplane rating.</p><br>
+                    <p>2. For rotary-wing pilots, hold a FAA Commercial or Airline Transport Pilot certificate with Helicopter rating</p><br>
+                    <p>3. Have logged 500 hours of Pilot-in-Command time, 100 hours of cross-country (defined here as a landing more than 50 nautical miles from the takeoff airport), and 35 hours of night time.</p><br>
+                    <p>4. Mastery of the English language, including aviation English.</p><br>
                     <p>5. [Not necessary for rostering&mdash;to be completed prior to first assignment] Successful completion of interview and reference check by A.D.S.. Pilots must supply two references. It's my job to examine qualifications, talk about needs and reasons for wanting to ferry aircraft, and ultimately decide if their personality, and technical skill, make them a good fit.</p>
                   </div>
              
@@ -640,7 +688,7 @@ Thanks!
   style="margin-top: 0; margin-bottom: 0;">
   <span class="join-mob-label">Ferry Pilot</span>
   <img class="join-mob-icon"
-    src="/assets/join-pilot-roster/faq-taxiway.jpg?v=20250904-101202"
+    src="/assets/join-pilot-roster/faq-taxiway.jpg?v=20250907-192839"
     alt="mini FAQ taxiway sign">
   <span class="join-caret" aria-hidden="true">▶</span>
 </button>
@@ -656,12 +704,12 @@ Thanks!
                     hidden>
 
                       <img 
-                        src="/assets/join-pilot-roster/faq-taxiway.jpg?v=20250904-101202"
+                        src="/assets/join-pilot-roster/faq-taxiway.jpg?v=20250907-192839"
                         alt="FAQ made out of taxiway signs">
-                       <p><b>Q: How much do you pay?</b> A: Pilots bid on their pay. You can choose from a daily rate, an hourly rate, or a flat fee. I'll advance your information and pay bid to the client. In the event the client counters the bid, I'll come back to you and see if you're still interested. Your pay comes from the client, so essentially they are paying you, not I.</p>
-                  <p><b>Q: Do you take a cut of my pay?</b> A: No. I don't take a cut or percentage of anything.</p>
-                  <p><b>Q: How do you make money?</b> A: I charge the client a Support and Supervision fee which is independent of pilot pay.</p>
-                  <p><b>Q: How am I insured for a flight?</b> A: Clients carry aircraft insurance policies which provide for damage and liability coverage. Pilots are encouraged, but not required, to carry supplemental liability insurance.</p>
+                       <p><b>Q: How much do you pay?</b> A: Pilots bid on their pay. You can choose from a daily rate, an hourly rate, or a flat fee. I'll advance your information and pay bid to the client. In the event the client counters the bid, I'll come back to you and see if you're still interested. Your pay comes from the client, so essentially they are paying you, not I.</p><br>
+                  <p><b>Q: Do you take a cut of my pay?</b> A: No. I don't take a cut or percentage of anything.</p><br>
+                  <p><b>Q: How do you make money?</b> A: I charge the client a Support and Supervision fee which is independent of pilot pay.</p><br>
+                  <p><b>Q: How am I insured for a flight?</b> A: Clients carry aircraft insurance policies which provide for damage and liability coverage. Pilots are encouraged, but not required, to carry supplemental liability insurance.</p><br>
                   <p><b>Q: Am I responsible for any expenses during a ferry mission?</b> A: No. All expenses are reimbursed, except food and drink which are covered by <i>per diem.</i> Personal entertainment (like movie tickets, video rentals, etc.) won't be reimbursed. In the event of uncertainty, check with me before you buy.</p>
       </div>
     </div>
@@ -678,7 +726,7 @@ Thanks!
                   aria-controls="join-faq-panel">
                   <span class="join-toggle-label">Ferry Pilot</span>
                   <img 
-                    src="/assets/join-pilot-roster/faq-taxiway.jpg?v=20250904-101202" 
+                    src="/assets/join-pilot-roster/faq-taxiway.jpg?v=20250907-192839" 
                     alt="mini FAQ taxiway sign" 
                     style="width: 80px; display: block; padding-left: 15px; overflow: visible">
                     <span class="join-caret" aria-hidden="true">▶</span>
@@ -692,7 +740,7 @@ Thanks!
                   aria-labelledby="join-faq"
                   hidden>
                   <img 
-                    src="/assets/join-pilot-roster/faq-taxiway.jpg?v=20250904-101202"
+                    src="/assets/join-pilot-roster/faq-taxiway.jpg?v=20250907-192839"
                     alt="FAQ made out of taxiway signs">
                   <p><b>Q: How much do you pay?</b> A: Pilots bid on their pay. You can choose from a daily rate, an hourly rate, or a flat fee. I'll advance your information and pay bid to the client. In the event the client counters the bid, I'll come back to you and see if you're still interested. Your pay comes from the client, so essentially they are paying you, not I.</p>
                   <p><b>Q: Do you take a cut of my pay?</b> A: No. I don't take a cut or percentage of anything.</p>
@@ -703,6 +751,6 @@ Thanks!
               </div>
             </div>
           </main>
-          <script src="/script.js?v=20250904-101202" defer></script>
+          <script src="/script.js?v=20250907-192839" defer></script>
         </body>
       </html>

@@ -3,22 +3,22 @@
 <head>
   <!-- ===== GLOBAL (copy identical on every page) ===== -->
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#002f4b">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="Aircraft Delivery">
   <meta name="ads-ver" content="?v=20250826-235823">
 
-   <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=20250904-101202">
-  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=20250904-101202">
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=20250904-101202">
+   <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=20250907-192839">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=20250907-192839">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=20250907-192839">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
 
-<link rel="preload" href="/style.css?v=20250904-101202" as="style">
-<link rel="stylesheet" href="/style.css?v=20250904-101202">
-<link rel="preload" href="/script.js?v=20250904-101202" as="script">
+<link rel="preload" href="/style.css?v=20250907-192839" as="style">
+<link rel="stylesheet" href="/style.css?v=20250907-192839">
+<link rel="preload" href="/script.js?v=20250907-192839" as="script">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,8 +54,58 @@
 
   <!-- DESKTOP HEADER WRAPPER -->
 <div class="desktop-only">
- <div id="desk-header-placeholder">
- </div>
+<header class="desk-header"
+        id="desk-header"
+        role="banner">
+  <a class="skip-link" 
+    href="#main">Skip to main content
+  </a>
+    <div class="desk-header-inner">
+      <div class="desk-header-left">
+        <nav class="desk-nav" 
+             aria-label="Primary">
+          <a href="/services"
+          aria-current="page">Services
+          </a>
+          <a href="/quote">Quote</a>
+          <a class="nav-dir"  
+             href="/pilot-directory">Pilot<wbr> Directory
+          </a>
+          <a class="nav-join" 
+             href="/join-pilot-roster">Join Pilot<wbr> Roster
+          </a>
+          <a href="/about">About</a>
+          <a class="nav-past" 
+             href="/past-deliveries">Past<wbr> Deliveries
+          </a>
+        </nav>
+      </div>
+      <div class="desk-header-center">
+        <a href="/"
+           aria-current="page"
+           aria-label="Home">
+          <picture>
+            <source
+              media="(min-width: 1401px)"
+              type="image/png"
+              srcset="/assets/side-by-side-logo.png?v=20250907-192839">
+            <img
+              class="desk-header-logo"
+              src="data:image/gif;base64,R0lGODlhAQABAAAAACw="
+              width="951"
+              height="179"
+              decoding="async"
+              fetchpriority="high"
+              loading="eager"
+              alt="">
+          </picture>
+        </a>
+      </div>
+      <div class="desk-header-right">
+        <p>+1 (415) 845-8163</p>
+        <a href="mailto:akahn28@gmail.com">akahn28@gmail.com</a>
+      </div>
+</header>
 </div>
 
 
@@ -82,7 +132,7 @@
     <picture>
       <source 
         media="(max-width: 1400px)" 
-        srcset="/assets/mobile/burger.png?v=20250904-101202">
+        srcset="/assets/mobile/burger.png?v=20250907-192839">
       <img
         src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
         alt="aria-label-active" 
@@ -103,10 +153,10 @@
                   <picture>
                     <source 
                       media="(max-width: 750px)"
-                      srcset="/assets/mobile/mobile-logo-v2.png?v=20250904-101202">
+                      srcset="/assets/mobile/mobile-logo-v2.png?v=20250907-192839">
                     <source 
                       media="(min-width: 751px) and (max-width: 1400px)"
-                      srcset="/assets/mobile/mobile-logo-90.png?v=20250904-101202">
+                      srcset="/assets/mobile/mobile-logo-90.png?v=20250907-192839">
                     <img
                       src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
                       alt="Aircraft Delivery Solutions"
@@ -121,11 +171,12 @@
                 <a
                   href="tel:+14158458163"
                   class="mobile-header-phone"
+                  aria-label="phone icon"
                 >
                   <picture>
                     <source 
                       media="(max-width: 1400px)"
-                      srcset="/assets/mobile/phone.png?v=20250904-101202">
+                      srcset="/assets/mobile/phone.png?v=20250907-192839">
                     <img 
                       src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
                       alt="Call"
@@ -150,77 +201,76 @@
 </div>
 </div>
 
-<main id="main" class="services-main"> 
-
-<div class="header-pad"></div>
-
-<div class="page-title-brick page-title-brick-centered"><h1>SERVICES</h1></div>
-
-<p class="services-tagline">
-  <i>
-    Led by <a href="/about">a 25-year professional pilot</a> who&rsquo;s flown <a href="/past-deliveries">50 ferry flights.</a>
-  </i>
-</p>
-
-<div class="services-flex-wrapper">
-  <!-- LEFT COLUMN -->
-  <div class="services-left-col">
-    <div class="services-subheading-wrap">
-    <div class="services-subheading">FERRY <span class="subhead-break">FLIGHTS</span>
-    </div>
-    </div>
+<main id="main" 
+      class="services-main"
+      tabindex="-1"> 
+  <div class="page-title-brick page-title-brick-centered"><h1>SERVICES</h1></div>
+  <p class="services-tagline">
+    <i>
+      Led by 
+      <a href="/about">a 25-year professional pilot</a> who&rsquo;s flown 
+      <a href="/past-deliveries">50 ferry flights.</a>
+    </i>
+  </p>
+  <div class="services-flex-wrapper">
+    <div class="services-column">
+      <div class="services-subheading-wrap">
+        <div class="services-subheading">FERRY 
+          <span class="subhead-break">FLIGHTS</span>
+        </div>
+      </div>
 
 
 
 <div id="services-slideshow" class="services-slideshow" title="Slideshow paused. Click to enlarge">
 
   <div class="services-slide is-active">
-    <a href="/assets/services/slide-wick.jpg?v=20250904-101202" target="_blank" rel="noopener noreferrer">
+    <a href="/assets/services/slide-wick.jpg?v=20250907-192839" target="_blank" rel="noopener noreferrer">
       <img
         alt="Wick Scotland"
         width="640" height="684"
         loading="eager" decoding="async"
-        src="/assets/services/slide-wick.jpg?v=20250904-101202">
+        src="/assets/services/slide-wick.jpg?v=20250907-192839">
     </a>
   </div>
 
   <div class="services-slide">
-    <a href="/assets/services/slide-lancair.jpg?v=20250904-101202" target="_blank" rel="noopener noreferrer">
+    <a href="/assets/services/slide-lancair.jpg?v=20250907-192839" target="_blank" rel="noopener noreferrer">
       <img
         alt="Lancair"
         width="640" height="684"
         loading="lazy" fetchpriority="low" decoding="async"
-        src="/assets/services/slide-lancair.jpg?v=20250904-101202">
+        src="/assets/services/slide-lancair.jpg?v=20250907-192839">
     </a>
   </div>
 
   <div class="services-slide">
-    <a href="/assets/services/slide-duchess.jpg?v=20250904-101202" target="_blank" rel="noopener noreferrer">
+    <a href="/assets/services/slide-duchess.jpg?v=20250907-192839" target="_blank" rel="noopener noreferrer">
       <img
         alt="Duchess"
         width="640" height="684"
         loading="lazy" fetchpriority="low" decoding="async"
-        src="/assets/services/slide-duchess.jpg?v=20250904-101202">
+        src="/assets/services/slide-duchess.jpg?v=20250907-192839">
     </a>
   </div>
 
   <div class="services-slide">
-    <a href="/assets/services/slide-pa32.jpg?v=20250904-101202" target="_blank" rel="noopener noreferrer">
+    <a href="/assets/services/slide-pa32.jpg?v=20250907-192839" target="_blank" rel="noopener noreferrer">
       <img
         alt="PA32"
         width="640" height="684"
         loading="lazy" fetchpriority="low" decoding="async"
-        src="/assets/services/slide-pa32.jpg?v=20250904-101202">
+        src="/assets/services/slide-pa32.jpg?v=20250907-192839">
     </a>
   </div>
 
   <div class="services-slide">
-    <a href="/assets/services/slide-c310.jpg?v=20250904-101202" target="_blank" rel="noopener noreferrer">
+    <a href="/assets/services/slide-c310.jpg?v=20250907-192839" target="_blank" rel="noopener noreferrer">
       <img
         alt="C310"
         width="640" height="684"
         loading="lazy" fetchpriority="low" decoding="async"
-        src="/assets/services/slide-c310.jpg?v=20250904-101202">
+        src="/assets/services/slide-c310.jpg?v=20250907-192839">
     </a>
   </div>
 
@@ -230,7 +280,7 @@
 <div class="services-logbook">
 <div class="services-ourlogbook">
     <h3 class="services-logbook-title">
-      Our <img src="/assets/services/logbook-icon.png?v=20250904-101202" alt="Logbook Icon" class="services-logbook-icon">
+      Our <img src="/assets/services/logbook-icon.png?v=20250907-192839" alt="Logbook Icon" class="services-logbook-icon">
     </h3>
 </div>
 
@@ -308,11 +358,11 @@
 
 <!--<div class="services-col-separator"></div>-->
   <!-- RIGHT COLUMN -->
-  <div class="services-right-col">
+  <div class="services-column">
     <div class="services-subheading-wrap">
     <div class="services-subheading">CONTAINER <span class="subhead-break">SHIPPING</span></div></div>
 
-    <img src="/assets/services/containerize-no-title.png?v=20250904-101202" loading="lazy"
+    <img src="/assets/services/containerize-no-title.png?v=20250907-192839" loading="lazy"
          alt="Container Delivery" class="services-container-img">
 
     <p class="services-caption">
@@ -328,18 +378,19 @@
 
 <!-- CTA BUTTON -->
 <div class="services-cta-wrap">
-  <a href="/quote">
+  <a href="/quote"
+     aria-label="Get a quote">
     <img
-      src="/assets/quote-button-transp.png?v=20250904-101202"
+      src="/assets/quote-button-transp.png?v=20250907-192839"
       alt="Get a Fast Quote" loading="lazy"
-      class="services-cta-button">
+      class="getaquote-button">
   </a>
 </div>
 
 
 
 </main>
-<script src="/script.js?v=20250904-101202" defer></script>
+<script src="/script.js?v=20250907-192839" defer></script>
 </body>
 </html>
 

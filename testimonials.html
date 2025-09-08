@@ -3,7 +3,7 @@
 <head>
   <!-- ===== GLOBAL (copy identical on every page) ===== -->
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#002f4b">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -11,16 +11,16 @@
   <meta name="ads-ver" content="?v=20250826-235823">
 
   <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=20250904-101202">
-  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=20250904-101202">
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=20250904-101202">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=20250907-192839">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=20250907-192839">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=20250907-192839">
   <link rel="manifest" href="/site.webmanifest">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
 
-<link rel="preload" href="/style.css?v=20250904-101202" as="style">
-<link rel="stylesheet" href="/style.css?v=20250904-101202">
-<link rel="preload" href="/script.js?v=20250904-101202" as="script">
+<link rel="preload" href="/style.css?v=20250907-192839" as="style">
+<link rel="stylesheet" href="/style.css?v=20250907-192839">
+<link rel="preload" href="/script.js?v=20250907-192839" as="script">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,8 +53,56 @@
 
   <!-- DESKTOP HEADER WRAPPER -->
 <div class="desktop-only">
- <div id="desk-header-placeholder" aria-hidden="true">
- </div>
+<header class="desk-header"
+        id="desk-header"
+        role="banner">
+  <a class="skip-link" 
+    href="#main">Skip to main content
+  </a>
+    <div class="desk-header-inner">
+      <div class="desk-header-left">
+        <nav class="desk-nav" 
+             aria-label="Primary">
+          <a href="/services">Services</a>
+          <a href="/quote">Quote</a>
+          <a class="nav-dir"  
+             href="/pilot-directory">Pilot<wbr> Directory
+          </a>
+          <a class="nav-join" 
+             href="/join-pilot-roster">Join Pilot<wbr> Roster
+          </a>
+          <a href="/about">About</a>
+          <a class="nav-past" 
+             href="/past-deliveries">Past<wbr> Deliveries
+          </a>
+        </nav>
+      </div>
+      <div class="desk-header-center">
+        <a href="/"
+           aria-current="page"
+           aria-label="Home">
+          <picture>
+            <source
+              media="(min-width: 1401px)"
+              type="image/png"
+              srcset="/assets/side-by-side-logo.png?v=20250907-192839">
+            <img
+              class="desk-header-logo"
+              src="data:image/gif;base64,R0lGODlhAQABAAAAACw="
+              width="951"
+              height="179"
+              decoding="async"
+              fetchpriority="high"
+              loading="eager"
+              alt="">
+          </picture>
+        </a>
+      </div>
+      <div class="desk-header-right">
+        <p>+1 (415) 845-8163</p>
+        <a href="mailto:akahn28@gmail.com">akahn28@gmail.com</a>
+      </div>
+</header>
 </div>
 
 <div class="mobile-only">
@@ -72,7 +120,7 @@
     <picture>
       <source 
         media="(max-width: 1400px)" 
-        srcset="/assets/mobile/burger.png?v=20250904-101202">
+        srcset="/assets/mobile/burger.png?v=20250907-192839">
       <img
         src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
         alt="aria-label-active" 
@@ -93,10 +141,10 @@
                   <picture>
                     <source 
                       media="(max-width: 750px)"
-                      srcset="/assets/mobile/mobile-logo-v2.png?v=20250904-101202">
+                      srcset="/assets/mobile/mobile-logo-v2.png?v=20250907-192839">
                     <source 
                       media="(min-width: 751px) and (max-width: 1400px)"
-                      srcset="/assets/mobile/mobile-logo-90.png?v=20250904-101202">
+                      srcset="/assets/mobile/mobile-logo-90.png?v=20250907-192839">
                     <img
                       src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
                       alt="Aircraft Delivery Solutions"
@@ -115,7 +163,7 @@
                   <picture>
                     <source 
                       media="(max-width: 1400px)"
-                      srcset="/assets/mobile/phone.png?v=20250904-101202">
+                      srcset="/assets/mobile/phone.png?v=20250907-192839">
                     <img 
                       src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
                       alt="Call"
@@ -139,33 +187,46 @@
 </div>
 
 
-<main id="main">
+<main id="main"
+      tabindex="-1">
 
-  <div class="desktop-only" style="padding-top: 145px;"> 
-<p style="font-size: 2rem; padding-top: 200px;">Hi. You've accidentally reached a mobile-only page. Please select one of the navigation options in the top-left of the page. </p> 
-</div>
+  <div 
+    class="desktop-only" 
+    style="padding-top: 145px;"> 
+    <p style="font-size: 2rem; padding-top: 200px;">Hi. You've accidentally reached a mobile-only page. Please select one of the navigation options in the top-left of the page. </p> 
+  </div>
 
   <div class="mobile-only">
- 
-    <div class="header-pad"></div>
-  <div class="testimonials-main" style="display: flex; flex-direction: column; align-items: center;">
-<div class="page-title-brick page-title-brick-centered" style="margin-bottom: 15px;"><h1>TESTIMONIALS</h1>
-</div>
+    <div class="testimonials-main" 
+         style="display: flex; flex-direction: column; align-items: center;">
+      <div class="page-title-brick page-title-brick-centered" 
+           style="margin-bottom: 15px;">
+        <h1>TESTIMONIALS</h1>
+      </div>
 
-  <!-- Testimonial 1 -->
-  <section id="testimonial1" class="testimonial-block">
-    <div class="testimonials-label"><i>Aircraft Delivery Solutions</i> Testimonial</div>
-<p style="margin: 0;"><b>Client Name:</b> Paul Carswell</p>
-<p style="margin: 0;"><b>Aircraft Type:</b> Piper PA-28-180</p>
-<p style="margin: 0;"><b>From/To:</b> Marshfield, Massachusetts (KGHG) to Hickory, North Carolina USA (KHKY)</p>
-<p style="margin: 0;"><b>Date:</b> May 2025</p>
-<p style="margin: 0;"><b>Pilot:</b> Justin A.</p>
-<p>"I recently purchased my first aircraft and needed to have it ferried from Massachusetts to North Carolina. I found Aircraft Delivery Solutions through a Google search. I contacted them on Saturday and they contacted me that afternoon. I closed on my purchase a few days later on Thursday and by Tuesday my plane was delivered to me in NC. The communication was outstanding. Aaron was always prompt in replies and offered relevant & useful information along the way. Justin was my pilot and both he and Aaron were easy to work with and shared numerous updates with me on the journey to NC. I cannot express how smooth and easy the process was. I will always use Aircraft Delivery Solutions when I purchase another plane in the future. The process was too easy and no stress whatsoever."</p>
-<p><i>Note: This client offered to provide references to inquiring clients. Aircraft Delivery Solutions will provide contact information on request.</i></p>
-  </section>
+      <!-- Testimonial 1 -->
+      <section id="testimonial1" 
+               class="testimonial-block">
+        <div class="testimonials-label">
+          <i>Aircraft Delivery Solutions</i> Testimonial
+        </div>
+        <p style="margin: 0;">
+          <b>Client Name:</b> Paul Carswell
+        </p>
+        <p style="margin: 0;">
+          <b>Aircraft Type:</b> Piper PA-28-180
+        </p>
+        <p style="margin: 0;">
+          <b>From/To:</b> Marshfield, Massachusetts (KGHG) to Hickory, North Carolina USA (KHKY)</p>
+        <p style="margin: 0;">
+          <b>Date:</b> May 2025</p>
+        <p style="margin: 0;">
+          <b>Pilot:</b> Justin A.</p>
+          <p>"I recently purchased my first aircraft and needed to have it ferried from Massachusetts to North Carolina. I found Aircraft Delivery Solutions through a Google search. I contacted them on Saturday and they contacted me that afternoon. I closed on my purchase a few days later on Thursday and by Tuesday my plane was delivered to me in NC. The communication was outstanding. Aaron was always prompt in replies and offered relevant & useful information along the way. Justin was my pilot and both he and Aaron were easy to work with and shared numerous updates with me on the journey to NC. I cannot express how smooth and easy the process was. I will always use Aircraft Delivery Solutions when I purchase another plane in the future. The process was too easy and no stress whatsoever."</p>
+         <p><i>Note: This client offered to provide references to inquiring clients. Aircraft Delivery Solutions will provide contact information on request.</i></p>
+      </section>
 
-
-  <!-- Testimonial 2 -->
+      <!-- Testimonial 2 -->
   <section id="testimonial2" class="testimonial-block">
     <div class="testimonials-label"><i>FlyIt4U</i> Testimonial</div>
 <p style="margin: 0;"><b>Client Name:</b> Robert Schlotzhauer</p>
@@ -490,7 +551,7 @@
 </div>
 </main>
 
-<script src="/script.js?v=20250904-101202" defer></script>
+<script src="/script.js?v=20250907-192839" defer></script>
 </body>
 </html>
 

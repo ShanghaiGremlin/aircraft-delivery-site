@@ -9,6 +9,18 @@
     error: console.error,
   };
 
+document.addEventListener('DOMContentLoaded', () => {
+  const btn   = document.getElementById('hamburger-icon');
+  const panel = document.getElementById('mobileMenu');
+  if (!btn || !panel) return;
+
+  const open = panel.classList.contains('show');
+  btn.setAttribute('aria-expanded', String(open));
+  panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+  if (open) panel.style.removeProperty('display'); // let CSS handle visible state
+});
+
+
   function record(level, args) {
     try {
       const msg = args.map(a =>
@@ -49,8 +61,7 @@
   const BTN_ID = 'quote-mob-expenses-btn';
   const PANEL_ID = 'quote-mob-expenses-container';
 
-  // Prove we actually wired (check for this line in console after reload)
-  console.log('[expenses] capture handler wired');
+
 
   const resolve = () => {
     const btn = document.getElementById(BTN_ID);
@@ -105,6 +116,121 @@
   }, true);
 })();
 
+
+(() => {
+  const BTN_ID = 'quote-mob-form-toggle-btn';
+  const PANEL_ID = 'quote-form-section';
+
+  const resolve = () => {
+    const btn = document.getElementById(BTN_ID);
+    const panel = document.getElementById(PANEL_ID);
+    return btn && panel ? { btn, panel } : null;
+  };
+
+  // Initialize labels/state once DOM is ready enough
+  document.addEventListener('DOMContentLoaded', () => {
+    const refs = resolve();
+    if (!refs) return;
+    const { btn, panel } = refs;
+    const OPEN_LABEL  = btn.dataset.labelOpen   || 'Hide Quote Form';
+    const CLOSE_LABEL = btn.dataset.labelClosed || 'Show Quote Form';
+    const startsOpen = panel.classList.contains('is-open') && !panel.hasAttribute('hidden');
+    btn.setAttribute('aria-expanded', String(startsOpen));
+    btn.textContent = startsOpen ? OPEN_LABEL : CLOSE_LABEL;
+  });
+
+  // Capture-phase delegate so nothing can swallow or reverse the click
+  document.addEventListener('click', (e) => {
+    const hit = e.target.closest?.(`#${BTN_ID}`);
+    if (!hit) return;
+
+    // Own the event
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation?.();
+
+    const refs = resolve();
+    if (!refs) return;
+    const { btn, panel } = refs;
+
+    const OPEN_LABEL  = btn.dataset.labelOpen   || 'Hide Quote Form';
+    const CLOSE_LABEL = btn.dataset.labelClosed || 'Show Quote Form';
+
+    // Toggle open/closed
+    const next = btn.getAttribute('aria-expanded') !== 'true';
+    btn.setAttribute('aria-expanded', String(next));
+    btn.textContent = next ? OPEN_LABEL : CLOSE_LABEL;
+
+    panel.classList.toggle('is-open', next);
+    panel.toggleAttribute('hidden', !next);
+
+    // If some CSS still forces it hidden, override just for open state
+    if (next && getComputedStyle(panel).display === 'none') {
+      panel.style.setProperty('display', 'block', 'important');
+    }
+    if (!next) {
+      panel.style.removeProperty('display');
+    }
+  }, true);
+})();
+
+
+(() => {
+  const BTN_ID = 'quote-mob-extra-row-btn';
+  const PANEL_ID = 'quote-mob-extra-rows';
+
+  const resolve = () => {
+    const btn = document.getElementById(BTN_ID);
+    const panel = document.getElementById(PANEL_ID);
+    return btn && panel ? { btn, panel } : null;
+  };
+
+  // Initialize labels/state once DOM is ready enough
+  document.addEventListener('DOMContentLoaded', () => {
+    const refs = resolve();
+    if (!refs) return;
+    const { btn, panel } = refs;
+    const OPEN_LABEL  = btn.dataset.labelOpen   || 'Hide Pay Scenarios';
+    const CLOSE_LABEL = btn.dataset.labelClosed || 'Show Pay Scenarios';
+    const startsOpen = panel.classList.contains('is-open') && !panel.hasAttribute('hidden');
+    btn.setAttribute('aria-expanded', String(startsOpen));
+    btn.textContent = startsOpen ? OPEN_LABEL : CLOSE_LABEL;
+  });
+
+  // Capture-phase delegate so nothing can swallow or reverse the click
+  document.addEventListener('click', (e) => {
+    const hit = e.target.closest?.(`#${BTN_ID}`);
+    if (!hit) return;
+
+    // Own the event
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation?.();
+
+    const refs = resolve();
+    if (!refs) return;
+    const { btn, panel } = refs;
+
+    const OPEN_LABEL  = btn.dataset.labelOpen   || 'Hide Pay Scenarios';
+    const CLOSE_LABEL = btn.dataset.labelClosed || 'Show Pay Scenarios';
+
+    // Toggle open/closed
+    const next = btn.getAttribute('aria-expanded') !== 'true';
+    btn.setAttribute('aria-expanded', String(next));
+    btn.textContent = next ? OPEN_LABEL : CLOSE_LABEL;
+
+    panel.classList.toggle('is-open', next);
+    panel.toggleAttribute('hidden', !next);
+
+    // If some CSS still forces it hidden, override just for open state
+    if (next && getComputedStyle(panel).display === 'none') {
+      panel.style.setProperty('display', 'block', 'important');
+    }
+    if (!next) {
+      panel.style.removeProperty('display');
+    }
+  }, true);
+})();
 
 
 
@@ -565,18 +691,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }, true);
 });
 
-
-
-
-
-
-
 // --- Dispatch toggle: hardwired, capture-phase (mirrors Expenses) ---
 (() => {
   const BTN_ID = 'quote-mob-dispatch-btn';
   const PANEL_ID = 'quote-mob-dispatch-content';
 
-  console.log('[dispatch] capture handler wired');
+
 
   const resolve = () => {
     const btn = document.getElementById(BTN_ID);
@@ -750,24 +870,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-document.addEventListener("DOMContentLoaded", () => {
-  const menu = document.getElementById("mobileMenu");
-  const hamburger = document.getElementById("hamburger-icon"); // header button
-  if (!menu || !hamburger) return;
+//document.addEventListener("DOMContentLoaded", () => {
+//  const menu = document.getElementById("mobileMenu");
+//  const hamburger = document.getElementById("hamburger-icon"); // header button
+//  if (!menu || !hamburger) return;
 
   
   // Ensure an internal close button exists (overlay ✕)
-  let closeBtn = document.getElementById("mobileMenuClose");
-  if (!closeBtn) {
-    closeBtn = document.createElement("button");
-    closeBtn.id = "mobileMenuClose";
-    closeBtn.className = "mobile-menu-close";
-    closeBtn.type = "button";
-    closeBtn.setAttribute("aria-label", "Close menu");
-    closeBtn.textContent = "✕";
-    menu.prepend(closeBtn);
-  }
-});
+//  let closeBtn = document.getElementById("mobileMenuClose");
+//  if (!closeBtn) {
+//    closeBtn = document.createElement("button");
+//    closeBtn.id = "mobileMenuClose";
+//    closeBtn.className = "mobile-menu-close";
+//    closeBtn.type = "button";
+//    closeBtn.setAttribute("aria-label", "Close menu");
+//    closeBtn.textContent = "✕";
+//    menu.prepend(closeBtn);
+//  }
+//});
 
 
 
@@ -823,38 +943,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 //Keep hamburger icon in sync with menu state //
-document.addEventListener("DOMContentLoaded", () => {
-  if (window.__adsIconSyncBound) return;
-  window.__adsIconSyncBound = true;
+//document.addEventListener("DOMContentLoaded", () => {
+//  if (window.__adsIconSyncBound) return;
+//  window.__adsIconSyncBound = true;
 
-  const menu = document.getElementById("mobileMenu");
-  const hb = document.getElementById("hamburger-icon");
-  if (!menu || !hb) return;
+//  const menu = document.getElementById("mobileMenu");
+//  const hb = document.getElementById("hamburger-icon");
+//  if (!menu || !hb) return;
 
   // Original burger icon (fallback to current src)
-  const burgerSrc = hb.getAttribute("data-burger-src") || hb.getAttribute("src");
+//  const burgerSrc = hb.getAttribute("data-burger-src") || hb.getAttribute("src");
 
   // Optional open-state icon; set data-x-src=".../close.png" in HTML if you have one
-  let xSrc = hb.getAttribute("data-x-src") || hb.dataset.xSrc || "";
+//  let xSrc = hb.getAttribute("data-x-src") || hb.dataset.xSrc || "";
 
   // If menu is open right now and the icon isn't the burger, learn the X src once
-  if (menu.classList.contains("show") && hb.getAttribute("src") !== burgerSrc && !xSrc) {
-    xSrc = hb.getAttribute("src");
-  }
+//  if (menu.classList.contains("show") && hb.getAttribute("src") !== burgerSrc && !xSrc) {
+  //  xSrc = hb.getAttribute("src");
+//  }
 
-  const syncIcon = () => {
-    const isOpen = menu.classList.contains("show");
-    if (isOpen) {
-      if (xSrc) hb.setAttribute("src", xSrc);
-    } else {
-      hb.setAttribute("src", burgerSrc);
-    }
-  };
+//  const syncIcon = () => {
+//    const isOpen = menu.classList.contains("show");
+//    if (isOpen) {
+//      if (xSrc) hb.setAttribute("src", xSrc);
+//    } else {
+ //     hb.setAttribute("src", burgerSrc);
+//    }
+//  };
 
-  // Initial + on changes
-  syncIcon();
-  new MutationObserver(syncIcon).observe(menu, { attributes: true, attributeFilter: ["class"] });
-});
+  //// Initial + on changes
+ // syncIcon();
+ // new MutationObserver(syncIcon).observe(menu, { attributes: true, //attributeFilter: ["class"] });
+//});
 
 
 //Android-only outline for .mob-index-headline//
@@ -1216,11 +1336,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const href = isLink ? (el.getAttribute("href") || "") : "";
     const cls = el.className || "";
 
-    // Known controls by selector patterns (edit/extend if you add more)
-    if (el.id === "hamburger-icon" || /(?:^|\s)(hamburger|menu-toggle)(?:\s|$)/i.test(cls)) return "Open menu";
-    if (/(?:^|\s)(modal-close|drawer-close|close|icon-close|x-close)(?:\s|$)/i.test(cls)) return "Close";
-    if (/(?:^|\s)(slider-prev|carousel-prev|prev|arrow-left)(?:\s|$)/i.test(cls)) return "Previous slide";
-    if (/(?:^|\s)(slider-next|carousel-next|next|arrow-right)(?:\s|$)/i.test(cls)) return "Next slide";
+   // // Known controls by selector patterns (edit/extend if you add more)
+   // if (el.id === "hamburger-icon" || /(?:^|\s)(hamburger|menu-toggle)(?:\s|$)/i.test(cls)) return "Open menu";
+   // if (/(?:^|\s)(modal-close|drawer-close|close|icon-close|x-close)(?:\s|$)/i.test(cls)) return "Close";
+   // if (/(?:^|\s)(slider-prev|carousel-prev|prev|arrow-left)(?:\s|$)/i.test(cls)) return "Previous slide";
+   // if (/(?:^|\s)(slider-next|carousel-next|next|arrow-right)(?:\s|$)/i.test(cls)) return "Next slide";
 
     // Links with clear intent
     if (href.startsWith("tel:")) return "Call us";
@@ -1263,20 +1383,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
-//Helps screen readers and improves Lighthouse a11y (“Links have a discernible name / current page indicated”).
-document.addEventListener("DOMContentLoaded", () => {
-  const here = (location.pathname.replace(/\/+$/, "") || "/").toLowerCase();
-
-  document.querySelectorAll("nav a[href]").forEach((a) => {
-    try {
-      const url = new URL(a.getAttribute("href"), location.origin);
-      const path = (url.pathname.replace(/\/+$/, "") || "/").toLowerCase();
-      if (path === here) a.setAttribute("aria-current", "page");
-    } catch {/* ignore bad/malformed hrefs */}
-  });
-});
-
 // INCREASE LOADIDNG SPEED OF WEB VITALS
 document.addEventListener("DOMContentLoaded", () => {
   // Load only on the homepage
@@ -1306,249 +1412,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { once: true });
   }
 });
-
-// DESK-HEADER SCRIPT — ROBUST BUILD
-// 01–00 policy (desktop ≥1401px); ES5-safe; singleton; late-start; versioned fetch;
-// timeout; grow-only; dedupe; live height CSS var; robust aria-current; bfcache; observer; custom events.
-(function () {
-  if (window.__ADS_DESK_HEADER_INIT__) return;
-  window.__ADS_DESK_HEADER_INIT__ = true;
-
-  // ---------- config & state ----------
-  var DESK_MIN = 1401; // 01–00: desktop min
-  var mql = window.matchMedia('(min-width:' + DESK_MIN + 'px)');
-  var loaded = false;  // prevents duplicate fetches
-
-  // ---------- helpers ----------
-  // Emit custom events with detail (document + window)
-  function emit(name, detail) {
-    try {
-      var ev;
-      if (typeof window.CustomEvent === 'function') {
-        ev = new CustomEvent(name, { bubbles: true, cancelable: false, detail: detail });
-      } else {
-        ev = document.createEvent('CustomEvent');
-        ev.initCustomEvent(name, true, false, detail);
-      }
-      document.dispatchEvent(ev);
-      try { window.dispatchEvent(ev); } catch (_) {}
-    } catch (_) {}
-  }
-
-  function getAdsVer() {
-    var m = document.querySelector('meta[name="ads-ver"]');
-    return (m && m.content) ? m.content : ''; // e.g., "?v=20250826-1623xx"
-  }
-
-  // Fetch with timeout (no Promise.finally; works w/o AbortController)
-  function fetchWithTimeout(url, ms) {
-    var controller = (typeof AbortController !== 'undefined') ? new AbortController() : null;
-    var signal = controller ? controller.signal : undefined;
-    var tid = setTimeout(function () {
-      try { if (controller && typeof controller.abort === 'function') controller.abort(); } catch (e) {}
-    }, ms);
-    var opts = signal ? { signal: signal } : {};
-    return fetch(url, opts).then(function (res) {
-      clearTimeout(tid);
-      return res;
-    }, function (err) {
-      clearTimeout(tid);
-      throw err;
-    });
-  }
-
-  function haveHeader() {
-    return !!document.querySelector('[data-ads-desk-header]');
-  }
-
-  function dedupeHeaders() {
-    var nodes = document.querySelectorAll('[data-ads-desk-header]');
-    if (nodes.length > 1) {
-      for (var i = 1; i < nodes.length; i++) {
-        var n = nodes[i];
-        if (n && n.parentNode) n.parentNode.removeChild(n);
-      }
-    }
-  }
-
-  // Path normalizer for aria-current
-  function normalizePath(p) {
-    if (!p) p = '/';
-    try { p = new URL(p, location.origin).pathname; } catch (e) {}
-    p = p.split('#')[0].split('?')[0];
-    p = p.toLowerCase();
-    if (/^\/(?:index(?:\.html?|\/)?)?$/.test(p)) p = '/'; // treat index as root
-    if (p.charAt(0) !== '/') p = '/' + p;
-    if (p.length > 1 && p.slice(-1) === '/') p = p.slice(0, -1);
-    return p;
-  }
-  function isHomeLink(href, norm, text) {
-    if (norm === '/') return true;
-    if (!href || href === '#' || href === './') return true;
-    var h = String(href).toLowerCase();
-    if (h === '/' || h === '/index' || h === '/index.html' || h === '/index.htm') return true;
-    if (/^\/#/.test(h) || /^\#/.test(h)) return true; // "/#top" or "#top"
-    if (text && /^home$/i.test(String(text).trim())) return true;
-    return false;
-  }
-  function markActiveLink() {
-    try {
-      var headerRoot = document.querySelector('[data-ads-desk-header]');
-      if (!headerRoot) return;
-
-      var current = normalizePath(location.pathname);
-      var links = headerRoot.querySelectorAll('a[href]');
-      var matches = 0, firstLink = null, homeCand = null;
-
-      for (var i = 0; i < links.length; i++) {
-        var a = links[i];
-        if (!firstLink) firstLink = a;
-
-        var raw = a.getAttribute('href') || '';
-        var linkPath;
-        try { linkPath = new URL(raw, location.origin).pathname; } catch (e) { linkPath = raw; }
-        var norm = normalizePath(linkPath);
-
-        if (isHomeLink(raw, norm, a.textContent)) homeCand = homeCand || a;
-
-        if (norm === current) {
-          a.setAttribute('aria-current', 'page');
-          matches++;
-        } else {
-          a.removeAttribute('aria-current');
-        }
-      }
-
-      if (matches === 0 && current === '/') {
-        if (homeCand) homeCand.setAttribute('aria-current', 'page');
-        else if (firstLink) firstLink.setAttribute('aria-current', 'page');
-      }
-    } catch (e) {}
-  }
-
-  // ---------- core ----------
-  function insertHeader(html) {
-    var ph = document.getElementById('desk-header-placeholder');
-
-    if (ph) {
-      ph.insertAdjacentHTML('afterend', html);
-      var root = ph.nextElementSibling;
-      if (root && root.setAttribute) root.setAttribute('data-ads-desk-header', '');
-      if (ph.remove) ph.remove(); else if (ph.parentNode) ph.parentNode.removeChild(ph);
-    } else {
-      document.body.insertAdjacentHTML('afterbegin', html);
-      var first = document.body.firstElementChild;
-      if (first && first.setAttribute) first.setAttribute('data-ads-desk-header', '');
-    }
-
-    // ensure single instance
-    dedupeHeaders();
-
-    // header element (after dedupe)
-    var hdr = document.querySelector('[data-ads-desk-header]');
-
-    // flag on <html> for CSS/diagnostics
-    try {
-      var htmlEl = document.documentElement;
-      if (htmlEl && !htmlEl.classList.contains('has-desk-header')) {
-        htmlEl.classList.add('has-desk-header');
-      }
-    } catch (e) {}
-
-    // expose live height + broadcast height changes
-    try {
-      var htmlEl2 = document.documentElement;
-
-      // initial measure
-      applyHeaderHeight();
-
-      // keep updated
-      if (typeof ResizeObserver !== 'undefined') {
-        var ro = new ResizeObserver(function () { applyHeaderHeight(); });
-        if (hdr) ro.observe(hdr);
-      } else {
-        window.addEventListener('resize', applyHeaderHeight);
-      }
-    } catch (e2) {}
-
-    // mark active nav link now that header exists
-    markActiveLink();
-
-    // fire the mounted event AFTER insertion + first paint (ensures non-0 height)
-    try {
-      if (hdr) {
-        var sendMounted = function () {
-          var hNow = hdr.getBoundingClientRect ? Math.round(hdr.getBoundingClientRect().height || 0) : (hdr.offsetHeight || 0);
-          emit('ads:desk-header:mounted', { el: hdr, height: hNow });
-        };
-        if (window.requestAnimationFrame) { requestAnimationFrame(sendMounted); }
-        else { setTimeout(sendMounted, 0); }
-      }
-    } catch (e4) {}
-  }
-
-  function mountHeader() {
-    if (loaded || haveHeader() || !mql.matches) return;
-    loaded = true; // lock before fetch to avoid races
-
-    var ver = getAdsVer();                   // e.g., "?v=20250826-162301"
-    var headerUrl = '/desk-header.html' + (ver ? ver : '');
-
-    fetchWithTimeout(headerUrl, 4000).then(function (res) {
-      if (!res.ok) throw new Error('HTTP ' + res.status);
-      return res.text();
-    }).then(function (html) {
-      insertHeader(html);
-    }).catch(function (err) {
-      loaded = false; // allow retry later if it truly failed
-      try { console.warn('desk-header load skipped:', (err && err.message) ? err.message : err); } catch (e) {}
-    });
-  }
-
-  function syncToViewport() {
-    if (mql.matches) {
-      mountHeader();
-    } else {
-      // grow-only; CSS guardrail hides on mobile. No unmount.
-    }
-  }
-
-  function start() {
-    // initial check + listener for crossing up into desktop
-    syncToViewport();
-    function handleChange(e) { if (e.matches) mountHeader(); }
-    if (mql.addEventListener) { mql.addEventListener('change', handleChange); }
-    else if (mql.addListener) { mql.addListener(handleChange); } // legacy Safari
-
-    // bfcache restore + late runs to avoid timing issues
-    window.addEventListener('pageshow', function () {
-      markActiveLink();
-      if (mql.matches && !haveHeader()) mountHeader();
-    });
-    setTimeout(markActiveLink, 0);
-    setTimeout(markActiveLink, 120);
-
-    try {
-      var mo = new MutationObserver(function (muts) {
-        for (var i = 0; i < muts.length; i++) {
-          var rec = muts[i];
-          if (rec.type === 'childList' && rec.addedNodes && rec.addedNodes.length) {
-            markActiveLink();
-            break;
-          }
-        }
-      });
-      mo.observe(document.body, { childList: true, subtree: true });
-    } catch (e) {}
-  }
-
-  // Run now if DOM is already loaded; otherwise wait for DOMContentLoaded
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', start);
-  } else {
-    start();
-  }
-})();
 
 
 
@@ -1723,6 +1586,40 @@ STARTS.forEach(delay => setTimeout(runShimmer, delay));
     panel.hidden = !nowOpen;
     panel.classList.toggle('is-open', nowOpen);
 
+    // Close siblings when opening one (single-open accordion)
+if (nowOpen) {
+const item  = panel.closest('.quote-accordion');   // this is one item
+const scope = (item && item.parentElement) || document; // parent holds all items
+
+  scope.querySelectorAll('.quote-accordion-toggle[aria-expanded="true"]').forEach(otherBtn => {
+    if (otherBtn === btn) return;
+    const otherId = otherBtn.getAttribute('aria-controls');
+    const otherPanel = otherId && document.getElementById(otherId);
+    otherBtn.setAttribute('aria-expanded','false');
+    if (otherPanel) {
+      otherPanel.classList.remove('is-open');
+      otherPanel.setAttribute('aria-hidden','true');
+      otherPanel.setAttribute('hidden','');
+      otherPanel.hidden = true;
+    }
+  });
+}
+
+
+    // ARIA + hidden sync (runs after any other click handlers)
+panel.setAttribute('aria-hidden', String(!nowOpen));
+requestAnimationFrame(function () {
+  if (nowOpen) {
+    panel.hidden = false;              // removes [hidden]
+    panel.removeAttribute('hidden');   // belt & suspenders
+    btn.setAttribute('aria-expanded', 'true');
+  } else {
+    panel.hidden = true;               // adds [hidden]
+    panel.setAttribute('hidden', '');
+    btn.setAttribute('aria-expanded', 'false');
+  }
+});
+
     if (nowOpen) {
       requestAnimationFrame(function () {
         var headerOffset = 165; // your fixed header height
@@ -1814,22 +1711,22 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const burger = document.getElementById("hamburger-icon"); // this is your BUTTON
-  const menu   = document.getElementById("mobileMenu");
-  if (!burger || !menu) return;
+//document.addEventListener("DOMContentLoaded", () => {
+//  const burger = document.getElementById("hamburger-icon"); // this is your BUTTON
+//  const menu   = document.getElementById("mobileMenu");
+//  if (!burger || !menu) return;
 
   // Guard so we don't double-bind if this file runs twice
-  if (window.__adsBurgerToggleBound) return;
-  window.__adsBurgerToggleBound = true;
-
-  burger.addEventListener("click", () => {
-    const open = !menu.classList.contains("show");
-    menu.classList.toggle("show", open);
+//  if (window.__adsBurgerToggleBound) return;
+//  window.__adsBurgerToggleBound = true;
+//
+//  burger.addEventListener("click", () => {
+//    const open = !menu.classList.contains("show");
+//    menu.classList.toggle("show", open);
     // optional (your ARIA observer also does this):
-    burger.setAttribute("aria-expanded", String(open));
-  });
-});
+//    burger.setAttribute("aria-expanded", String(open));
+//  });
+//});
 
 //ARIA SYNC
 document.addEventListener('DOMContentLoaded', () => {
@@ -1896,11 +1793,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // toggle handlers
-  hamburger.addEventListener('click', (e) => {
-    e.preventDefault();
-    syncState(!isOpen());
-  });
+hamburger.addEventListener('click', (e) => {
+  e.preventDefault();
+  const panel = document.getElementById('mobileMenu');
+  if (!panel) return;
+
+  const open = panel.classList.contains('show');
+  const next = !open;
+
+  setTimeout(() => {
+    hamburger.setAttribute('aria-expanded', String(next));
+    panel.classList.toggle('show', next);
+
+    // 👇 Make clicks inside the menu valid when open
+    if (next) {
+      panel.setAttribute('aria-hidden', 'false');
+      panel.removeAttribute('hidden');
+      panel.style.removeProperty('display'); // let CSS show it
+    } else {
+      panel.setAttribute('aria-hidden', 'true'); // safe to mark hidden again
+      // (leave CSS to hide via default rules; no inline style needed)
+    }
+  }, 0);
+});
+
 
   closeBtn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -2444,7 +2360,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ===== BEGIN mob-join-ways =====
 document.addEventListener('DOMContentLoaded', function () {
-  console.log('[mob-join] init');
 
   var container = document.getElementById('mob-join-ways');
   if (!container) return;
@@ -2606,10 +2521,6 @@ document.addEventListener("click", (e) => {
 
   function toggle(meta) { isOpen(meta) ? close(meta) : open(meta); }
 });
-
-
-
-
 
 
 // /join-pilot-roster (MOBILE) — copy/email from non-contiguous <template> bank (class-based)
@@ -2945,178 +2856,86 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  window.ADS = window.ADS || {};
-  if (window.ADS._padSync_v5) return;
-  window.ADS._padSync_v5 = true;
+  const wrap    = document.getElementById('quote-callme-office-now');
+  const timeEl  = document.getElementById('quote-callme-office-time');
+  const dayWrap = document.getElementById('quote-callme-office-daywrap');
+  const dayEl   = document.getElementById('quote-callme-office-day');
+  if (!wrap || !timeEl || !dayWrap || !dayEl) return;
 
-  // Update/trim selectors if yours differ
-  const CANDIDATES = [
-    'header.desk-header',
-    'header.mob-header',
-    'header.mobile-header',
-    '.mobile-header',
-    '.site-header'
+  const OFFICE_OFFSET_HOURS = -7; // fixed UTC-07:00
+  const MS_PER_HR = 3600000, MS_PER_MIN = 60000;
+  const pad2 = n => (n < 10 ? '0' : '') + n;
+  const ymdLocal = d => `${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.getDate())}`;
+  const ymdUTC   = d => `${d.getUTCFullYear()}-${pad2(d.getUTCMonth()+1)}-${pad2(d.getUTCDate())}`;
+
+  function render() {
+    const now = new Date();
+    const office = new Date(Date.now() + OFFICE_OFFSET_HOURS * MS_PER_HR);
+    const hh = pad2(office.getUTCHours());
+    const mm = pad2(office.getUTCMinutes());
+
+    const userToday = ymdLocal(now);
+    const userYest  = ymdLocal(new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1));
+    const userTom   = ymdLocal(new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1));
+    const officeYMD = ymdUTC(office);
+
+    let rel = 'today';
+    if (officeYMD === userYest) rel = 'yesterday';
+    else if (officeYMD === userTom) rel = 'tomorrow';
+
+    timeEl.textContent = `${hh}:${mm}`;
+
+    // Show note only when NOT today
+    if (rel === 'today') {
+      dayWrap.hidden = true;
+    } else {
+      dayEl.textContent = rel;
+      dayWrap.hidden = false;
+    }
+
+    wrap.hidden = false;
+  }
+
+  try {
+    render();
+    setInterval(render, MS_PER_MIN); // keep fresh
+  } catch {}
+});
+
+
+// ACCORDION OPENING SCROLL
+document.addEventListener('DOMContentLoaded', () => {
+  // ADD your toggle button IDs here:
+  const TOGGLE_IDS = [
+    'join-mob-way1-toggle',
+    'join-mob-way2-toggle',
+    'join-mob-way3-toggle',
+    'join-mob-way4-toggle',
+    'quote-mob-form-toggle-btn',
+    'quote-mob-extra-row-btn',
+    'quote-mob-expenses-btn',
+    'quote-mob-dispatch-btn',
   ];
 
-  const getHeaders = () =>
-    CANDIDATES.flatMap(sel => Array.from(document.querySelectorAll(sel)));
+  // Mobile breakpoint per your site policy
+  const isMobile = () => window.innerWidth <= 1400;
 
-  const cs = (el) => getComputedStyle(el);
+  // Attach behavior
+  TOGGLE_IDS.forEach(id => {
+    const btn = document.getElementById(id);
+    if (!btn) return;
 
-  const isRenderable = (el) => {
-    const s = cs(el);
-    if (s.display === 'none' || s.visibility === 'hidden' || s.opacity === '0') return false;
-    const r = el.getBoundingClientRect();
-    return r.width > 0 && r.height > 0;
-  };
+    // ensure the offset class is present (no HTML edits needed)
+    btn.classList.add('mobile-accordion-toggle-anchor');
 
-  // A header should only pad if it's fixed AND actually overlapping the viewport top
-  const shouldPadFor = (el) => {
-    if (!isRenderable(el)) return false;
-    if (cs(el).position !== 'fixed') return false;
-    const r = el.getBoundingClientRect();
-    // In view (touching/overlapping the viewport) & near the top edge
-    const overlapsViewport = r.bottom > 0 && r.top < window.innerHeight;
-    const nearTop = r.top < 100; // allow tiny scroll offsets/transforms
-    return overlapsViewport && nearTop;
-  };
+    btn.addEventListener('click', () => {
+      if (!isMobile()) return;
 
-  const ensurePadAfter = (header) => {
-    let pad = header.nextElementSibling;
-    if (!(pad && pad.classList && pad.classList.contains('header-pad'))) {
-      // Reuse existing pad elsewhere if present
-      pad = document.querySelector('.header-pad') || document.createElement('div');
-      pad.className = 'header-pad';
-      pad.style.width = '100%';
-      pad.style.height = '0px';
-      header.parentNode.insertBefore(pad, header.nextSibling);
-    } else {
-      // Make sure it's not styled by external CSS in ways that affect height math
-      pad.style.margin = '0';
-      pad.style.padding = '0';
-      pad.style.border = '0';
-      pad.style.boxSizing = 'content-box';
-    }
-    return pad;
-  };
-
-  let active = null;
-  let ros = [];
-
-  const pickActiveHeader = () => {
-    const all = getHeaders().filter(isRenderable);
-    // Prefer fixed, visible, near-top headers; fall back to none
-    const fixed = all.filter(shouldPadFor);
-    if (fixed.length) {
-      // Choose the one closest to the top
-      fixed.sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top);
-      return fixed[0];
-    }
-    return null;
-  };
-
-  const sync = () => {
-    const next = pickActiveHeader();
-    if (next !== active) {
-      // (Re)attach ResizeObservers on the new active header
-      ros.forEach(ro => ro.disconnect && ro.disconnect());
-      ros = [];
-      active = next;
-
-      if (active && 'ResizeObserver' in window) {
-        const ro = new ResizeObserver(() => setPad());
-        ro.observe(active);
-        ros.push(ro);
-      }
-    }
-    setPad();
-  };
-
-  const setPad = () => {
-    // Always ensure a pad exists right after whichever header is active (if any)
-    const pad = active ? ensurePadAfter(active) : (document.querySelector('.header-pad') || null);
-    const height = active ? active.offsetHeight : 0;
-    if (pad) pad.style.height = height + 'px';
-  };
-
-  // Initial + after webfonts (font swap can change header height)
-  sync();
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(sync).catch(() => {});
-  }
-
-  // Watch global layout changes that could flip headers or sizes
-  ['resize', 'orientationchange', 'scroll'].forEach(ev => window.addEventListener(ev, sync, { passive: true }));
-  const mo = new MutationObserver(sync);
-  mo.observe(document.documentElement, {
-    childList: true, subtree: true, attributes: true, attributeFilter: ['class', 'style']
+      // Let layout settle (panel may expand) then scroll the TOGGLE under the header
+      requestAnimationFrame(() => {
+        // Use scrollIntoView + scroll-margin-top for the header offset
+        btn.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }, { passive: true });
   });
 });
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  // Guard
-  window.ADS = window.ADS || {};
-  if (window.ADS._deskHeaderRowFix) return;
-  window.ADS._deskHeaderRowFix = true;
-
-  const header = document.querySelector('header.desk-header');
-  if (!header) return;
-
-  const left = header.querySelector('.desk-header-left');
-  const logo = header.querySelector('img.desk-header-logo');
-  const right = header.querySelector('.desk-header-right');
-
-  const isStacked = () => {
-    const H  = header.offsetHeight || 0;
-    const hL = left?.offsetHeight || 0;
-    const hC = logo?.offsetHeight || 0;
-    const hR = right?.offsetHeight || 0;
-    const tallest = Math.max(hL, hC, hR);
-    const sum = hL + hC + hR;
-
-    // Stacked if header is way taller than any child or roughly equals their sum
-    return (innerWidth > 1400) && (H >= 220 || H > tallest + 40 || Math.abs(sum - H) <= 8);
-  };
-
-  const applyRow = () => {
-    // Minimal, non-destructive styles — only when stacked
-    header.style.display = 'flex';
-    header.style.alignItems = 'center';
-    header.style.justifyContent = 'space-between';
-    if (left)  left.style.whiteSpace = 'nowrap';
-    if (right) right.style.whiteSpace = 'nowrap';
-
-    // Keep the logo from ballooning the row
-    if (logo) {
-      logo.style.display = 'block';
-      logo.style.height = 'auto';
-      logo.style.width = 'auto';
-      // cap the logo height; adjust the max if your brand lockup needs more
-      logo.style.maxHeight = '110px';
-    }
-  };
-
-  const maybeFix = () => {
-    // Clear any previous inline styles in case we crossed breakpoints
-    if (innerWidth <= 1400) {
-      header.style.removeProperty('display');
-      header.style.removeProperty('align-items');
-      header.style.removeProperty('justify-content');
-      if (left)  left.style.removeProperty('white-space');
-      if (right) right.style.removeProperty('white-space');
-      if (logo)  logo.style.removeProperty('max-height');
-      return;
-    }
-    if (isStacked()) applyRow();
-  };
-
-  // Run now, on resize, and after fonts load (fonts often change header height)
-  maybeFix();
-  window.addEventListener('resize', maybeFix, { passive: true });
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(maybeFix).catch(() => {});
-  }
-});
-
-
