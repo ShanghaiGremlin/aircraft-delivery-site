@@ -1,15 +1,26 @@
 {
   "name": "devtools",
   "version": "1.0.0",
-  "main": "index.js",
+  "private": true,
+  "description": "",
+  "license": "ISC",
   "scripts": {
+    "start": "node server.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "cheerio": "^1.1.2",
+    "csv-parse": "^6.1.0",
+    "jsdom": "^27.1.0",
+    "netlify-cli": "^23.6.0",
+    "vnu-jar": "^24.10.17"
+  },
   "dependencies": {
-    "netlify-cli": "^22.2.2"
+    "fs-extra": "^11.3.2",
+    "linkedom": "^0.18.12",
+    "xlsx": "^0.18.5"
   }
 }

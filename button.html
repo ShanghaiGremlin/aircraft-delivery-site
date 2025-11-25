@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<style>
+  button-group {
+  display: flex; /* Arrange buttons in a row */
+  gap: 30px; /* Add space between buttons */
+}
+/* Hide the actual radio button */
+input[type="radio"] {
+  display: none;
+}
+/* Style the label which acts as the button */
+input[type="radio"] + .btn {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #c1c1d2;
+  width: 85px;
+  height: 75px;
+  padding: 20px 15px 23px 15px;
+  border-radius: 10px;
+  box-shadow: inset 1px 1px 2.6px white,
+    inset -1px -1px 2.6px rgba(0, 0, 0, 0.2), 2px 2px 4px rgba(0, 0, 0, 0.2),
+    4px 4px 8px rgba(0, 0, 0, 0.14), 6px 6px 12px rgba(0, 0, 0, 0.12),
+    8px 8px 16px rgba(0, 0, 0, 0.1), 10px 10px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(120, 120, 120, 0.1);
+  transition: box-shadow 0.3s ease;
+  user-select: none;
+  cursor: pointer; /* Indicate it's clickable */
+  margin: 0 20px;
+}
+/* Style for the pressed/checked state */
+input[type="radio"]:checked + .btn {
+  box-shadow: inset 0.5px 0.5px 1.4px white,
+    inset -0.5px -0.5px 1.4px rgba(0, 0, 0, 0.1), 1px 1px 2px rgba(0, 0, 0, 0.1),
+    2px 2px 4px rgba(0, 0, 0, 0.12), 4px 4px 8px rgba(0, 0, 0, 0.1),
+    6px 6px 12px rgba(0, 0, 0, 0.08);
+}
+input[type="radio"] + .btn .top {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 33px;
+  text-align: center;
+  width: fit-content;
+}
+input[type="radio"] + .btn .bottom .dot {
+  display: inline-block;
+  width: 75px;
+  height: 35px;
+  border: 1px solid black;
+  background-color: #c1c1d2;
+  transition: 0.3s ease;
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+/* Style for the dot when the button is checked */
+input[type="radio"]:checked + .btn .bottom .dot {
+  background-color: #71bd81;
+  box-shadow: inset 0 0 0 transparent, 0 0 2px #71bd81, 0 0 4px #71bd81;
+}
+
+.flipbook {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: auto;
+    font-family:  sans-serif;
+    color: black;
+}
+
+.paper img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+/* ======== General Styling ======== */
+/* Book */
+.book {
+    margin-top: 12vh;
+    position: relative;
+    width: 300px;
+    height: 370px;
+    transition: transform 0.5s;
+}
+
+.paper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    perspective: 1500px;
+
+}
+
+.front,
+.back {
+    background-color: white;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform-origin: left;
+    transition: transform 0.5s;
+}
+
+.front {
+    z-index: 1;
+    backface-visibility: hidden;
+}
+
+.back {
+    z-index: 0;
+}
+
+.front-content,
+.back-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back-content {
+    transform: rotateY(180deg)
+}
+
+/* Paper flip effect */
+.flipped .front,
+.flipped .back {
+    transform: rotateY(-180deg);
+}
+
+/* Controller Buttons */
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    margin-top: 12vh;
+}
+
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.flipbook button {
+    position: relative;
+    z-index: 5;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    margin: 10px;
+    transition: transform 0.5s;
+}
+
+.flipbook button:focus {
+    outline: none;
+}
+
+.flipbook button i {
+    color: #636363;
+}
+
+.flipbook i {
+    font-size: 50px;
+    color: gray;
+}
+
+/* Style book covers here */
+#f1, #b10 {
+    background-color: #9b7e58e8;
+}
+
+/* style content here */
+
+
+/* Paper stack order */
+#p1 {
+    z-index: 10;
+}
+
+#p2 {
+    z-index: 9;
+}
+
+#p3 {
+    z-index: 8;
+}
+
+#p4 {
+    z-index: 7;
+}
+
+#p5 {
+    z-index: 6;
+}
+
+#p6 {
+    z-index: 5;
+}
+
+#p7 {
+    z-index: 4;
+}
+
+#p8 {
+    z-index: 3;
+}
+
+#p9 {
+    z-index: 2;
+}
+
+#p10 {
+    z-index: 1;
+}
+
+</style>
+
+</head>
+
+<body>
+  <main>
+    <div class="button-group"
+    id="button-group">
+<div class="button-group-size" id="button-group-size">
+  <!-- Button 1  -->
+ <label for="toggle1">
+    <input type="radio" id="toggle1" name="button-group-size" value="0">
+    <div class="btn" style="height: 70px;">
+      <div class="top">Small</div>
+      <div class="bottom">
+        <div class="dot"></div>
+      </div>
+    </div>
+  </label>
+  <!-- Button 2 -->
+ <label for="toggle2">
+    <input type="radio" id="toggle2" name="button-group-size" value="1">
+    <div class="btn" style="height: 70px;">
+      <div class="top">Medium</div>
+      <div class="bottom">
+        <div class="dot"></div>
+      </div>
+    </div>
+  </label>
+  <!-- Button 3 -->
+ <label for="toggle3">
+    <input type="radio" id="toggle3" name="button-group-size" value="2">
+    <div class="btn" style="height: 70px;">
+      <div class="top">Large</div>
+      <div class="bottom">
+        <div class="dot"></div>
+      </div>
+    </div>
+  </label>
+</div>
+
+<div class="button-group-length" id="button-group-length" style="margin-top: 30px;">
+
+ <label for="toggle4">
+    <input type="radio" id="toggle4" name="button-group-length" value="3">
+    <div class="btn">
+      <div class="top">Domestic</div>
+      <div class="bottom">
+        <div class="dot"></div>
+      </div>
+    </div>
+  </label>
+
+ <label for="toggle5">
+    <input type="radio" id="toggle5" name="button-group-length" value="4">
+    <div class="btn" style="padding: 0px 15px 0px 15px; height: 115px"> 
+      <div class="top" style="margin-bottom: 10px;">Inter-national</div>
+      <div class="bottom">
+        <div class="dot"></div>
+      </div>
+    </div>
+  </label>
+
+ <label for="toggle6">
+    <input type="radio" id="toggle6" name="button-group-length" value="5">
+    <div class="btn" style="padding: 0px 15px 0px 15px; height: 115px"> 
+      <div class="top" style="margin-bottom: 10px;">Inter-continental</div>
+      <div class="bottom">
+        <div class="dot"></div>
+      </div>
+    </div>
+  </label>
+</div>
+</div>
+
+<div class="flipbook" id="flipbook">
+        
+        <button id="prev-btn" tabindex="0" aria-label="Previous Page">
+            <i class="arrow left"></i>
+        </button>
+
+
+        <div id="book" class="book">
+            <!-- First Sheet -->
+            <div id="p1" class="paper">
+                <div class="front">
+                    <div id="f1" class="front-content">
+                        <h1>Travel Journal</h1>
+                    </div>
+                </div>
+                <div class="back">
+                    <div id="b1" class="back-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-c182-dom-l-585w.jpg 585w"
+                  sizes="300px"
+                  alt="C182"
+                  width="585"
+                  height="719"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+            </div>
+    
+            <div id="p2" class="paper">
+                <div class="front">
+                    <div id="f2" class="front-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-c182-dom-r-585w.jpg 585w"
+                  sizes="300px"
+                  alt="C182"
+                  width="585"
+                  height="719"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+                <div class="back">
+                    <div id="b2" class="back-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-c182-intl-l-585w.jpg 585w"
+                  sizes="300px"
+                  alt="C182"
+                  width="585"
+                  height="719"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+            </div>
+          <!-- Third Sheet -->
+            <div id="p3" class="paper">
+                <div class="front">
+                    <div id="f3" class="front-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-c182-intl-r-585w.jpg 585w"
+                  sizes="300px"
+                  alt="C182"
+                  width="585"
+                  height="719"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+                <div class="back">
+                    <div id="b3" class="back-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-c182-cont-l-585w.jpg 585w"
+                  sizes="300px"
+                  alt="C182"
+                  width="585"
+                  height="719"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+            </div>
+            <!-- Fourth Sheet -->
+            <div id="p4" class="paper">
+                <div class="front">
+                    <div id="f4" class="front-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-c182-cont-r-585w.jpg 585w"
+                  sizes="300px"
+                  alt="C182"
+                  width="585"
+                  height="719"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+                <div class="back">
+                    <div id="b4" class="back-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-s340-dom-l-650w.jpg 650w"
+                  sizes="300px"
+                  alt="S340"
+                  width="650"
+                  height="800"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+            </div>
+            <!-- Fifth Sheet -->
+            <div id="p5" class="paper">
+                <div class="front">
+                    <div id="f5" class="front-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-s340-dom-r-650w.jpg 650w"
+                  sizes="300px"
+                  alt="S340"
+                  width="650"
+                  height="800"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+                <div class="back">
+                    <div id="b5" class="back-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-s340-intl-l-650w.jpg 650w"
+                  sizes="300px"
+                  alt="S340"
+                  width="650"
+                  height="800"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+            </div>
+               <div id="p6" class="paper">
+                <div class="front">
+                    <div id="f6" class="front-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-s340-intl-r-650w.jpg 650w"
+                  sizes="300px"
+                  alt="S340"
+                  width="650"
+                  height="800"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+            
+                <div class="back">
+                    <div id="b6" class="back-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-s340-cont-l-650w.jpg 650w"
+                  sizes="300px"
+                  alt="S340"
+                  width="650"
+                  height="800"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+             </div>
+                 <div id="p7" class="paper">
+                <div class="front">
+                    <div id="f7" class="front-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-s340-cont-r-650w.jpg 650w"
+                  sizes="300px"
+                  alt="S340"
+                  width="650"
+                  height="800"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+            
+                <div class="back">
+                    <div id="b7" class="back-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-bbj-dom-l-712w.jpg 712w"
+                  sizes="300px"
+                  alt="BBJ"
+                  width="712"
+                  height="875"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+              </div>
+              <div id="p8" class="paper">
+                <div class="front">
+                    <div id="f8" class="front-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-bbj-dom-r-712w.jpg 712w"
+                  sizes="300px"
+                  alt="BBJ"
+                  width="712"
+                  height="875"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+         
+                           <div class="back">
+                    <div id="b8" class="back-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-bbj-intl-l-712w.jpg 712w"
+                  sizes="300px"
+                  alt="BBJ"
+                  width="712"
+                  height="875"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+              </div>
+              <div id="p9" class="paper">
+                <div class="front">
+                    <div id="f9" class="front-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-bbj-intl-r-712w.jpg 712w"
+                  sizes="300px"
+                  alt="BBJ"
+                  width="712"
+                  height="875"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+       
+                           <div class="back">
+                    <div id="b9" class="back-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-bbj-cont-l-713w.jpg 713w"
+                  sizes="300px"
+                  alt="BBJ"
+                  width="713"
+                  height="875"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+              </div>
+              <div id="p10" class="paper">
+                <div class="front">
+                    <div id="f10" class="front-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-bbj-cont-r-713w.jpg 713w"
+                  sizes="300px"
+                  alt="BBJ"
+                  width="712"
+                  height="875"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+
+                           <div class="back">
+                    <div id="b10" class="back-content">
+                    </div>
+                </div>
+      
+              </div>  </div><!-- end of book -->
+
+        <button id="next-btn" tabindex="0" aria-label="Next Page">
+            <i class="arrow right"></i>
+        </button>
+</div>
+
+
+<script>
+
+// References to DOM Elements
+const prevBtn = document.querySelector("#prev-btn");
+const nextBtn = document.querySelector("#next-btn");
+const book = document.querySelector("#book");
+
+const paper1 = document.querySelector("#p1");
+const paper2 = document.querySelector("#p2");
+const paper3 = document.querySelector("#p3");
+const paper4 = document.querySelector("#p4");
+const paper5 = document.querySelector("#p5");
+const paper6 = document.querySelector("#p6");
+const paper7 = document.querySelector("#p7");
+const paper8 = document.querySelector("#p8");
+const paper9 = document.querySelector("#p9");
+const paper10 = document.querySelector("#p10");
+
+// Event Listener
+prevBtn.addEventListener("click", goPrevPage);
+nextBtn.addEventListener("click", goNextPage);
+
+// Business Logic
+let numOfPapers = 10;
+let maxLocation = numOfPapers + 1;
+let currentLocation = 1;
+
+
+function openBook() {
+    book.style.transform = "translateX(50%)";
+    prevBtn.style.transform = "translateX(-180px)";
+    nextBtn.style.transform = "translateX(180px)";
+}
+
+function closeBook(isAtBeginning) {
+    if(isAtBeginning) {
+        book.style.transform = "translateX(0%)";
+    } else {
+        book.style.transform = "translateX(100%)";
+    }
+    
+    prevBtn.style.transform = "translateX(0px)";
+    nextBtn.style.transform = "translateX(0px)";
+}
+
+let isFlipping = false;
+
+function goNextPage() {
+
+
+    if(currentLocation < maxLocation) {
+        switch(currentLocation) {
+            case 1:
+                openBook();
+                paper1.classList.add("flipped");
+                paper1.style.zIndex = 1;
+                break;
+            case 2:
+                paper2.classList.add("flipped");
+                paper2.style.zIndex = 2;
+                break;
+            case 3:
+                paper3.classList.add("flipped");
+                paper3.style.zIndex = 3;
+                break;
+            case 4:
+                paper4.classList.add("flipped");
+                paper4.style.zIndex = 4;
+                break;
+            case 5:
+                paper5.classList.add("flipped");
+                paper5.style.zIndex = 5;
+                break;
+            case 6:
+                paper6.classList.add("flipped");
+                paper6.style.zIndex = 6;
+                break;
+            case 7:
+                paper7.classList.add("flipped");
+                paper7.style.zIndex = 7;
+                break;
+            case 8:
+                paper8.classList.add("flipped");
+                paper8.style.zIndex = 8;
+                break;
+            case 9:
+                paper9.classList.add("flipped");
+                paper9.style.zIndex = 9;
+                break;
+            case 10:
+                paper10.classList.add("flipped");
+                paper10.style.zIndex = 10;
+                closeBook(false);
+                break;
+            default:
+                throw new Error("unknown state");
+        }
+        currentLocation++;
+
+    }
+}
+
+function goPrevPage() {
+
+
+    if(currentLocation > 1) {
+        switch(currentLocation) {
+            case 2:
+                closeBook(true);
+                paper1.classList.remove("flipped");
+                paper1.style.zIndex = 10;
+                break;
+            case 3:
+                paper2.classList.remove("flipped");
+                paper2.style.zIndex = 9;
+                break;
+            case 4:
+                paper3.classList.remove("flipped");
+                paper3.style.zIndex = 8;
+                break;
+            case 5:
+                paper4.classList.remove("flipped");
+                paper4.style.zIndex = 7;
+                break;
+            case 6:
+                paper5.classList.remove("flipped");
+                paper5.style.zIndex = 6;
+                break;
+            case 7:
+                paper6.classList.remove("flipped");
+                paper6.style.zIndex = 5;
+                break;
+            case 8:
+                paper7.classList.remove("flipped");
+                paper7.style.zIndex = 4;
+                break;
+            case 9:
+                paper8.classList.remove("flipped");
+                paper8.style.zIndex = 3;
+                break;
+            case 10:
+                paper9.classList.remove("flipped");
+                paper9.style.zIndex = 2;
+                break;
+            case 11:
+                paper10.classList.remove("flipped");
+                paper10.style.zIndex = 1;
+                openBook();
+                break;
+        
+            default:
+                throw new Error("unknown state");
+        }
+
+        currentLocation--;
+
+        document.addEventListener('keydown', (e) => {
+  // Only care about the arrow keys
+  if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+
+  // Optional: prevent page from scrolling on arrow keys
+  e.preventDefault();
+
+  // If an auto flip (radio-driven) is in progress, ignore manual keys
+  if (typeof isFlipping !== 'undefined' && isFlipping) {
+    console.log('[keyboard] flip in progress; ignoring key press');
+    return;
+  }
+
+  if (e.key === 'ArrowLeft') {
+    // Manual previous page
+    goPrevPage();
+  } else if (e.key === 'ArrowRight') {
+    // Manual next page
+    goNextPage();
+  }
+});
+
+   
+
+    }
+}
+
+</script>
+
+<script>
+
+//------------------------------------------------------------
+// RADIO → (SIZE & LENGTH) → CASE → MOVE FLIPBOOK
+//------------------------------------------------------------
+
+// ------------------------------------------------------------
+// RADIO → (SIZE & LENGTH) → CASE → MOVE FLIPBOOK
+// ------------------------------------------------------------
+
+document.addEventListener('change', (e) => {
+  const radio = e.target;
+
+  if (radio.type !== 'radio') return;
+
+  if (
+    radio.name !== 'button-group-size' &&
+    radio.name !== 'button-group-length'
+  ) {
+    return;
+  }
+
+  console.log(
+    `%c[radio-change] name="${radio.name}" value="${radio.value}" checked=${radio.checked}`,
+    "color: orange; font-weight: bold;"
+  );
+
+  const selectedSizeEl = document.querySelector('input[name="button-group-size"]:checked');
+  const selectedLengthEl = document.querySelector('input[name="button-group-length"]:checked');
+
+  // If either group has nothing selected yet, stop here
+  if (!selectedSizeEl || !selectedLengthEl) {
+    console.log('[radio-read] one or both groups not selected yet');
+    return;
+  }
+
+  const selectedSize = Number(selectedSizeEl.value);
+  const selectedLength = Number(selectedLengthEl.value);
+
+  console.log(
+    `[radio-read] selectedSize = ${selectedSize}, selectedLength = ${selectedLength}`
+  );
+
+  // If value isn't a number, bail (but 0 is allowed!)
+  if (Number.isNaN(selectedSize) || Number.isNaN(selectedLength)) {
+    console.log('[radio-read] one or both values are NaN');
+    return;
+  }
+
+  const targetCase = buttonselectCases(selectedSize, selectedLength);
+
+  console.log(
+    `[case-lookup] size=${selectedSize} length=${selectedLength} → case=${targetCase}`
+  );
+
+  if (!targetCase && targetCase !== 0) return; // allow 0 if you ever use it
+
+  goToCase(targetCase);
+});
+
+
+function buttonselectCases(size, length) {
+  const lookup = {
+    "0-3": 2,
+    "0-4": 3,
+    "0-5": 4,
+    "1-3": 5,
+    "1-4": 6,
+    "1-5": 7,
+    "2-3": 8,
+    "2-4": 9,
+    "2-5": 10
+  };
+
+  return lookup[`${size}-${length}`] ?? null;
+}
+
+// ------------------------------------------------------------
+// MOVE FLIPBOOK TO TARGET CASE + LOG REQUESTED CLICKS
+// ------------------------------------------------------------
+function goToCase(targetCase) {
+  // Don't start a new sequence if we're already flipping
+  if (isFlipping) {
+    console.log('[goToCase] ignoring request; flip already in progress');
+    return;
+  }
+
+  const diff = targetCase - currentLocation;
+  if (diff === 0) {
+    console.log('[goToCase] targetCase matches currentLocation; nothing to do');
+    return;
+  }
+
+  const steps = Math.abs(diff);
+  const goingForward = diff > 0;
+
+  console.log(
+    `[goToCase] currentLocation=${currentLocation}, targetCase=${targetCase}, diff=${diff}, requesting ${steps} ${goingForward ? 'forward' : 'backward'} flips`
+  );
+
+  isFlipping = true;
+
+  carryoutRepeat(diff, () => {
+    if (goingForward) {
+      goNextPage();
+    } else {
+      goPrevPage();
+    }
+  });
+}
+
+
+// ------------------------------------------------------------
+// DUMB LOOP REPEATER (with per-step logging)
+// ------------------------------------------------------------
+function carryoutRepeat(length, callback, delayMs = 300) {
+  if (length === 0) {
+    isFlipping = false;
+    return;
+  }
+
+  function stepDown() {
+    const nextLength = length - 1;
+
+    if (nextLength >= 0) {
+      console.log(`[carryoutRepeat] stepDown length=${length} → next=${nextLength}`);
+
+      callback();            // <-- crucial: fire on *every* decrement
+      length = nextLength;   
+
+      if (nextLength === 0) {
+        console.log('[carryoutRepeat] stepDown complete at 0');
+        isFlipping = false;
+        return;              // <-- stop AFTER firing callback
+      }
+
+      setTimeout(stepDown, delayMs);
+    }
+  }
+
+  function stepUp() {
+    const nextLength = length + 1;
+
+    if (nextLength <= 0) {
+      console.log(`[carryoutRepeat] stepUp length=${length} → next=${nextLength}`);
+
+      callback();            // <-- fire on *every* increment
+      length = nextLength;
+
+      if (nextLength === 0) {
+        console.log('[carryoutRepeat] stepUp complete at 0');
+        isFlipping = false;
+        return;
+      }
+
+      setTimeout(stepUp, delayMs);
+    }
+  }
+
+  if (length > 0) stepDown();
+  else stepUp();
+}
+
+
+
+
+</script>
+
+</main>
+</body>
+</html>
+
+

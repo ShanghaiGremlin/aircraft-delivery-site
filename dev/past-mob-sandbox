@@ -1,0 +1,80 @@
+      <div class="past-mob-folder" role="group" data-key="[KEY]" aria-labelledby="fltnumber-[KEY]">
+              
+
+
+
+                  <button type="button" class="blog-bubble" data-override-id="" data-attr-2="data-override-id" data-col-2="override-id" aria-haspopup="dialog" aria-controls="past-mob-modal-[KEY]" data-modal-target="past-mob-modal-[KEY]" data-open-pane="blog">
+                    <img src="/assets/blank1.jpg" srcset="/assets/icons/icon-blog.jpg 220w" sizes="200px" width="220" height="226" alt="Open blog image" loading="lazy" decoding="async">
+                      <span class="visually-hidden"> — open blog image for flight 
+
+                 
+        
+
+                  <!-- ===== Inline modal (shared for both panes) ===== -->
+                <div id="past-mob-modal-[KEY]" class="past-modal" role="dialog" aria-modal="true" aria-labelledby="testim-mob-title-[KEY]" aria-describedby="past-mob-modal-desc-[KEY]" hidden="">
+
+                  <div class="testim-panel" role="document">
+                    <button type="button" class="testim-close" data-tt-close="" aria-label="Close dialog">×
+                    </button>
+                      
+                    <h3 id="past-mob-modal-title-[KEY]">Past flight dialog</h3>
+
+                    <p id="past-mob-modal-desc-[KEY]" class="visually-hidden">
+                      Modal window. Press Escape to close.
+                    </p>
+                  
+
+                      <!-- ========== Pane: Testimonial (text) ========== -->
+                  <section class="testim-pane is-hidden" data-pane="testimonial" aria-labelledby="testim-mob-title-[KEY]" role="group">
+
+                    <header class="testim-header">
+                      <h4 id="testim-mob-title-[KEY]" class="testim-title" data-col="testim_title"></h4>
+                      <p class="testim-client" data-col="client_name"></p>
+                    </header>
+
+                    <blockquote id="testim-mob-body-[KEY]" class="testim-blockquote" data-col="blockquote"></blockquote>
+
+                    <p id="testim-mob-note-[KEY]" class="testim-note" data-col="testim_note"></p>
+
+                    <button type="button" class="testim-close" data-tt-close="" aria-label="Close testimonial">
+                      ✕
+                    </button>
+                  </section>
+         
+                  <!-- ========== Pane: Blog Image (img) ========== -->
+                  <section class="blog-panel is-hidden" data-pane="blog" aria-labelledby="past-mob-thumb-title-[KEY]" role="group">
+                    
+                    <h4 id="past-mob-thumb-title-[KEY]" class="visually-hidden">Past flight number <span data-col="key"></span> thumbnail</h4>
+
+                    <img class="blog-img" src="/assets/blank1.jpg" data-attr-3="srcset" data-col-3="blog_srcset" data-attr-1="width" data-col-1="blog_w" data-attr-2="height" data-col-2="blog_h" sizes="600px" alt="Blog image" loading="lazy" decoding="async">
+                  </section>
+             
+                     <!-- ========== Pane: Past-Mob Thumb (img) ========== -->
+                  <section class="past-mob-thumb-panel is-hidden" data-pane="thumb" aria-labelledby="past-mob-thumb-title-pane-[KEY]" role="group">
+                    
+                    <h4 id="past-mob-thumb-title-pane[KEY]" class="visually-hidden">Past Flight number <span data-col="key"></span>thumbnail</h4>
+
+                  <figure class="past-desk-figurestyle" id="past-mob-figure-pane-[KEY]-1" tabindex="0">
+                    <img class="past-desk-thumb" src="/assets/blank1.jpg" data-attr="srcset" data-col="fig_1_srcset" srcset="" sizes="600px" data-attr-1="sizes" data-col-1="fig_1_sizes" width="1600" data-attr-2="width" data-col-2="fig_1_width" height="596" data-attr-3="height" data-col-3="fig_1_height" alt="" data-attr-4="alt" data-col-4="fig_1_caption" loading="lazy" decoding="async"> 
+                    <figcaption class="past-thumb-caption" data-col="fig_1_caption">
+                    </figcaption>
+                  </figure>
+
+                 <figure class="past-desk-figurestyle" id="past-mob-figure-pane-[KEY]-2" tabindex="0">
+                    <img class="past-desk-thumb" src="/assets/blank1.jpg" data-attr="srcset" data-col="fig_2_srcset" srcset="" sizes="600px" data-attr-1="sizes" data-col-1="fig_2_sizes" width="1600" data-attr-2="width" data-col-2="fig_2_width" height="596" data-attr-3="height" data-col-3="fig_2_height" alt="" data-attr-4="alt" data-col-4="fig_2_caption" loading="lazy" decoding="async"> 
+                    <figcaption class="past-thumb-caption" data-col="fig_2_caption">
+                    </figcaption>
+                  </figure>
+
+                  <figure class="past-desk-figurestyle" id="past-mob-figure-pane-[KEY]-3" tabindex="0">
+                    <img class="past-desk-thumb" src="/assets/blank1.jpg" data-attr="srcset" data-col="fig_3_srcset" srcset="" sizes="600px" data-attr-1="sizes" data-col-1="fig_3_sizes" width="1600" data-attr-2="width" data-col-2="fig_3_width" height="596" data-attr-3="height" data-col-3="fig_3_height" alt="" data-attr-4="alt" data-col-4="fig_3_caption" loading="lazy" decoding="async"> 
+                    <figcaption class="past-thumb-caption" data-col="fig_3_caption">
+                    </figcaption>
+                  </figure>
+
+                <!-- Backdrop (click to close) -->
+                <button type="button" class="past-modal-backdrop" data-tt-close="" aria-label="Close dialog" tabindex="-1">
+                </button>
+              </section></div>
+            </div>
+          </div>

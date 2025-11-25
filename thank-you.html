@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 <head>
   <!-- ===== GLOBAL (copy identical on every page) ===== -->
   <meta charset="UTF-8">
@@ -18,9 +18,8 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
 
-<link rel="preload" href="/style.css?v=20250908-191739" as="style">
-<link rel="stylesheet" href="/style.css?v=20250908-191739">
-<link rel="preload" href="/script.js?v=20250908-191739" as="script">
+<link rel="preload" href="./css/style.css?v=20250908-191739" as="style">
+<link rel="stylesheet" href="./css/style.css?v=20250908-191739">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,161 +55,235 @@
         href="#main">Skip to main content
       </a>
 
-      <!-- DESKTOP HEADER WRAPPER -->
-
-      <div class="desktop-only">
-        <header class="desk-header"
-                id="desk-header">
-          <a class="skip-link" 
-             href="#main">Skip to main content
-          </a>
-          <div class="desk-header-inner">
-            <div class="desk-header-left">
-              <nav class="desk-nav" 
-                   aria-label="Primary">
-                <a href="/services"
-                   aria-current="page">Services
-                </a>
-                <a href="/quote">Quote</a>
-                <a class="nav-dir"  
-                  href="/pilot-directory">Pilot<wbr> Directory
-                </a>
-                <a class="nav-join" 
-                  href="/join-pilot-roster">Join Pilot<wbr> Roster
-                </a>
-                <a href="/about">About</a>
-                <a class="nav-past" 
-                  href="/past-deliveries">Past<wbr> Deliveries
-                </a>
-              </nav>
-            </div>
-
-            <div class="desk-header-center">
-              <a href="/"
-                aria-current="page"
-                aria-label="Home">
-                <picture>
-                  <source
-                    media="(min-width: 1401px)"
-                    type="image/png"
-                    srcset="/assets/side-by-side-logo.png?v=20250908-191739">
-                  <img
-                    class="desk-header-logo"
-                    src="data:image/gif;base64,R0lGODlhAQABAAAAACw="
-                    width="951"
-                    height="179"
-                    decoding="async"
-                    fetchpriority="high"
-                    loading="eager"
-                    alt="">
-                </picture>
-              </a>
-            </div>
-
-            <div class="desk-header-right">
-              <p>+1 (415) 845-8163</p>
-              <a href="mailto:akahn28@gmail.com">akahn28@gmail.com</a>
-            </div>
-          </div>
-        </header>
-
-      </div>
-
-<!--MOBILE-ONLY DIV-->
-<!--MOBILE-ONLY DIV-->
-<!--MOBILE-ONLY DIV-->
-
-      <div class="mobile-only">
-
-<!--MOBILE-ONLY HEADER-->
-<!--MOBILE-ONLY HEADER-->
-<!--MOBILE-ONLY HEADER-->
-
-        <header class="mobile-header">
-
-          <div class="mobile-header-slot-left">
-            <button
-              id="hamburger-icon"
-              class="mobile-burger-proxy"
-              type="button"
-              aria-label="Open menu"
-              aria-expanded="false"
-              aria-controls="mobileMenu"
-              data-burger-proxy>
-              <picture>
-                <source 
-                  media="(max-width: 1400px)" 
-                  srcset="/assets/mobile/burger.png?v=20250908-191739">
-                <img
-                  src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                  alt="aria-label-active" 
-                  width="50"
-                  height="39"
-                  decoding="async">
-              </picture>
-            </button>
-          </div>
-
-          <div class="mobile-header-slot-center">
-            <a 
-              href="/" 
-              class="mobile-header-logo"                 
-              aria-label="Home">
-              <picture>
-                <source 
-                  media="(max-width: 750px)"
-                  srcset="/assets/mobile/mobile-logo-v2.png?v=20250908-191739">
-                <source 
-                  media="(min-width: 751px) and (max-width: 1400px)"
-                  srcset="/assets/mobile/mobile-logo-90.png?v=20250908-191739">
-                <img
-                  src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                  alt="Aircraft Delivery Solutions"
-                  width="300" 
-                  height="148" 
-                  decoding="async">
-              </picture>
-            </a>
-          </div>
-
-          <div class="mobile-header-slot-right">
-            <a
-              href="tel:+14158458163"
-              class="mobile-header-phone"
-              aria-label="phone icon">
-              <picture>
-                <source 
-                  media="(max-width: 1400px)"
-                  srcset="/assets/mobile/phone.png?v=20250908-191739">
-                <img 
-                  src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                  alt="Call"
-                  width="36" 
-                  height="36"
-                  decoding="async">
-              </picture>
-            </a>
-          </div>
-
-        </header>
-
-        <div 
-          class="mobile-menu" 
-          id="mobileMenu" 
-          hidden 
-          aria-labelledby="hamburger-icon"
-          role="region">
-          <nav class="mobile-nav" 
-               aria-label="Mobile primary">
+     <header class="header"
+            id="desk-header">
+      <div class="header-inner">
+        <div class="header-left">
+          <nav aria-label="Primary">
             <a href="/services">Services</a>
-            <a href="/quote">Get a Quote</a>
+            <a href="/quote">Quote</a>
             <a href="/pilot-directory">Pilot Directory</a>
-            <a href="/join-pilot-roster">Join Pilot Roster</a>
+            <a href="/join-pilot-roster">Join<wbr> Pilot Roster</a>
             <a href="/about">About</a>
             <a href="/past-deliveries">Past Deliveries</a>
           </nav>
+          <button
+            id="burger"
+            class="menu-toggle"
+            type="button"
+            aria-controls="menu-overlay"
+            aria-expanded="false"
+            aria-label="Open menu"
+            data-nav-toggle>
+
+            <img
+              src="/assets/blank1.jpg"
+              srcset="/assets/icons/icon-burger.png?v=20250908-191739 320w"
+              sizes="50px"
+              alt=""
+              aria-hidden="true" 
+              width="50"
+              height="39"
+              decoding="async"
+              loading="eager">
+          </button>
         </div>
+       <div class="header-center">
+        <a href="/"
+          aria-current="page"
+          aria-label="Home">
+          <img 
+            class="header-center-logo"
+            id="desktop-logo"
+            src='/assets/blank1.jpg'
+            srcset='/assets/logos/side-by-side-logo.png 951w'
+            sizes="calc(41.7vw + 16.7px)"
+            width='951'
+            data-w='951'
+            height='179'
+            data-h='179'
+            loading='eager'
+            decoding='async'
+            alt=''>
+          <img 
+            class="header-center-logo" 
+            id="mobile-logo-90"
+            src='/assets/blank1.jpg'
+            srcset='assets/logos/mobile-logo-90.png 300w'
+            sizes='100px'
+            width='300'
+            data-w='300'
+            height='116'
+            data-h='116'
+            loading='eager'
+            decoding='async'
+            alt='Aircraft Delivery Solutions logo'><!--1400 O/R-->
+        </a>
+       </div>
+    
+       <div class="header-right">
+        <div class="header-right-desk">
+          <a href="tel:+14158458163"
+             aria-label="call">
+            <p>+1 (415) 845-8163</p>
+            <img 
+              class="phone-icon-mobile"
+              id="phone-icon"
+              src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+              srcset="/assets/icons/icon-phone.png?v=20250908-191739 320w"
+              sizes="36px"
+              alt=""
+              aria-hidden="true"
+              width="36" 
+              height="36"
+              loading="eager"
+              decoding="async"><!--1400 O/R-->
+          </a>
+          <a href="mailto:akahn28@gmail.com">
+            <p>akahn28@gmail.com</p>
+          </a>
+        </div>
+        <div class="header-right-mob"><!--1400 O/R-->
+          <a href="tel:+14158458163"
+             aria-label="Call">
+            <img 
+              class="phone-icon-mobile"
+              src="/assets/blank1.jpg"
+              srcset="/assets/icons/icon-phone.png?v=20250908-191739 320w"
+              sizes="36px"
+              alt=""
+              aria-hidden="true"
+              width="36" 
+              height="36"
+              loading="eager"
+              decoding="async">
+          </a>
+          <a href="sms:+14158458163"
+             id="icontxtmsg"
+             aria-label="Send a text message">
+           <img 
+              class="phone-icon-mobile"
+              style="margin-right: 15px;"
+              src="/assets/blank1.jpg"
+              srcset="/assets/icons/icon-txt-msg-bubble.png 91w"
+              sizes="36px"
+              alt=""
+              aria-hidden="true"
+              width="91" 
+              height="70"
+              loading="eager"
+              decoding="async">
+            </a>
+          <a href="mailto:akahn28@gmail.com"
+             id="iconemail">
+             <img 
+              class="phone-icon-mobile"
+              src="/assets/blank1.jpg"
+              srcset="/assets/icons/icon-email.png 200w"
+              sizes="36px"
+              alt=""
+              aria-hidden="true"
+              width="200" 
+              height="131"
+              loading="eager"
+              decoding="async">
+            </a>
+        </div>              
+       </div>
       </div>
+
+    </header>
+
+        <div
+          class="menu-overlay is-hidden"
+          id="menu-overlay"
+          data-anim="fade"
+          data-menu
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="menu-title"
+          aria-hidden="true">
+          <div 
+            class="menu-panel-backdrop"
+            id="menu-panel-backdrop" 
+            data-menu-overlay
+            aria-hidden="true">
+          </div>
+          <nav 
+            id="menu-panel"
+            class="menu-panel"
+            aria-label="Primary navigation"
+            aria-hidden="true"
+            inert>
+            <h2 
+              id="menu-title" 
+              class="visually-hidden">Menu
+            </h2>
+            <button
+              class="mob-menupanel-float"
+              aria-label="Close mobile menu">
+              <img
+                src="/assets/blank1.jpg"
+                height="118"
+                width="125"
+                sizes="30px"
+                srcset="/assets/icons/icon-red-x-close.png 125w"
+                aria-lable="Close button"
+                alt=""
+                aria-hidden="false">
+            </button>
+
+            <ul class="menu-list">
+              <li><a href="/services">Services</a></li>
+              <li><a href="/quote">Get a Quote</a></li>
+              <li><a href="/pilot-directory">Pilot Directory</a></li>
+              <li><a href="/join-pilot-roster">Join Pilot Roster</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/past-deliveries">Past Deliveries</a></li>
+            </ul>
+            <button 
+              class="menu-close" 
+              type="button" 
+              data-menu-close 
+              aria-label="Close menu">Close
+            </button>
+            <div style="display: grid; grid-template-columns: auto auto; margin-top: 60px;">
+              <a 
+                href="sms:+14158458163"
+                id="menu-icontxtmsg"
+                style="margin: 0 auto;">
+                <img 
+                  class="phone-icon-mobile"
+                  style="margin-right: 15px;"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/icons/icon-txt-msg-bubble.png 91w"
+                  sizes="36px"
+                  alt=""
+                  aria-hidden="true"
+                  width="91" 
+                  height="70"
+                  loading="eager"
+                  decoding="async">
+              </a>
+              <a 
+                href="mailto:akahn28@gmail.com"
+                id="menu-iconemail"
+                style="margin: 0 auto;">
+                <img 
+                  class="phone-icon-mobile"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/icons/icon-email.png 200w"
+                  sizes="36px"
+                  alt=""
+                  aria-hidden="true"
+                  width="200" 
+                  height="131"
+                  loading="eager"
+                  decoding="async">
+              </a>
+            </div>
+          </nav>
+        </div>
 
 <main id="main"
       tabindex="-1">
@@ -279,8 +352,7 @@
           src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
           alt="WhatsApp"
           style="height: 1.3em; vertical-align: middle;"
-          aria-hidden="true"
-          focusable="false"> WhatsApp
+          aria-hidden="true"> WhatsApp
         </h2>
         <h2 style="margin: 0 0 12px 0;"><b>+1 (415) 845-8163</b></h2>
       </div>
@@ -312,12 +384,12 @@
 </div>
 </div>
 
-<div class="mobile-only">
+        <div class="mobile-only">
 
-<div class="mob-thank-you-main">
+          <div class="mob-thank-you-main">
 
-<div class="page-title-brick page-title-brick-centered">GET A QUOTE
-</div>
+            <div class="page-title-brick page-title-brick-centered">GET A QUOTE
+          </div>
 
   <div style="margin: 0 auto; text-align: center; padding: 0 15px 0 15px;">
 <img style="width: 100px;" alt="thumbs up" src="/assets/quote/thumbs-up.png?v=20250908-191739">
@@ -358,7 +430,7 @@
     <img src="/assets/quote/aaron-for-quote.jpg?v=20250908-191739" alt="Aaron" style="height: 160px; width: auto;">
   </a>
   
-</div>
+<div>
     <ul>
       <li>I typically answer 08:00 &ndash; 20:00 Pacific (UTC -7)</li>
       <li>I answer all phone numbers incl. "Unknown"</li>
@@ -376,23 +448,24 @@
           src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
           alt="WhatsApp"
           style="height: 1.3em; vertical-align: middle;"
-          aria-hidden="true"
-          focusable="false">WhatsApp
+          aria-hidden="true">WhatsApp
       </p>
       <h2><b>+1 (415) 845-8163</b></h2>
     </div>
 
-    <!-- Email Box -->
-    <div class="quote-box">
-      <p>&#x2709;&#xFE0F; Email</p>
-      <h2><a href="mailto:akahn28@gmail.com">akahn28@gmail.com</a></h2>
-    </div>
-  </div>
-</div>
-
-
-</main>
-<script src="/script.js?v=20250908-191739" defer></script>
+                  <!-- Email Box -->
+                  <div class="quote-box">
+                    <p>&#x2709;&#xFE0F; Email</p>
+                    <h2><a href="mailto:akahn28@gmail.com">akahn28@gmail.com</a></h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </main>
+<script type="module" src="/js/main.js"></script>
 </body>
 </html>
 

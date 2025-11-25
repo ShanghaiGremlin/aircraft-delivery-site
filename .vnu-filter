@@ -1,0 +1,3 @@
+(?s).*[\/\\]node_modules[\/\\].*
+(?s).*[\/\\]bak[\/\\].*
+Section lacks heading

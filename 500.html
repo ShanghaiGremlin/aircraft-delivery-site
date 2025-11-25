@@ -1,216 +1,343 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en-US">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Something went wrong with the website for Aircraft Delivery Solutions</title>
-  <meta name="robots" content="noindex, nofollow, noarchive">
-  <style>
-    :root {
-      --bg: #0f172a;    /* deep slate */
-      --fg: #e5e7eb;    /* light gray */
-      --muted: #94a3b8; /* muted */
-      --link: #60a5fa;  /* blue */
-      --btn: #1f2937;   /* dark button */
-      --btn-hover: #374151;
-      --maxw: 720px;
+  <!-- ===== GLOBAL (copy identical on every page) ===== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#002f4b">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Aircraft Delivery">
+  <meta name="ads-ver" content="?v=20250826-235823">
+
+ 
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/icon-192x192.png?v=20250908-191739">
+  <link rel="icon" type="image/png" sizes="512x512" href="/assets/icons/icon-512x512.png?v=20250908-191739">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png?v=20250908-191739">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+<link rel="preload" href="./css/style.css?v=20250908-191739" as="style">
+<link rel="stylesheet" href="./css/style.css?v=20250908-191739">
+
+
+
+<link rel="dns-prefetch" href="//formspree.io">
+<link rel="dns-prefetch" href="//www.googletagmanager.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <!-- ===== PER-PAGE  ===== -->
+  <!-- Basic SEO -->
+  <title>Aircraft Delivery Solutions &mdash; Home</title>
+  <meta name="description" content="Aircraft ferry flights and container shipping worldwide">
+  <link rel="canonical" href="https://aircraft.delivery/">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aircraft.delivery/">
+  <meta property="og:title" content="Aircraft Delivery Solutions">
+  <meta property="og:description" content="Aircraft ferry flights and container shipping worldwide">
+
+  <!-- Prefer absolute URL for images; can keep width/height if you like -->
+  <meta property="og:image" content="https://aircraft.delivery/assets/about/2009-12-24.jpg">
+
+  <!-- Twitter (usually mirrors OG) -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Aircraft Delivery Solutions">
+  <meta name="twitter:description" content="Aircraft ferry flights and container shipping worldwide">
+  <meta name="twitter:image" content="https://aircraft.delivery/assets/about/2009-12-24.jpg">
+
+<!-- Structured data for homepage: Organization + WebSite + WebPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://aircraft.delivery/#org",
+      "name": "Aircraft Delivery Solutions",
+      "url": "https://aircraft.delivery/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://aircraft.delivery/assets/side-by-side-logo.png"
+      },
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "telephone": "+1-415-845-8163",
+        "areaServed": "Worldwide",
+        "availableLanguage": ["en"]
+      }]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://aircraft.delivery/#website",
+      "url": "https://aircraft.delivery/",
+      "name": "Aircraft Delivery Solutions",
+      "alternateName": "ADS",
+      "publisher": { "@id": "https://aircraft.delivery/#org" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://aircraft.delivery/#webpage",
+      "url": "https://aircraft.delivery/",
+      "name": "Aircraft Delivery Solutions — Ferry Flights & Aircraft Container Shipping",
+      "isPartOf": { "@id": "https://aircraft.delivery/#website" },
+      "about": { "@id": "https://aircraft.delivery/#org" },
+      "inLanguage": "en-US"
     }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--fg);
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
-      line-height: 1.5;
-      display: grid;
-      place-items: center;
-      padding: 24px;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    main { width: 100%; max-width: var(--maxw); text-align: center; }
-    h1 { font-size: clamp(1.75rem, 3.5vw, 2.25rem); margin: 0 0 8px 0; }
-    p { margin: 0 0 18px 0; color: var(--muted); }
-    .actions { display: grid; gap: 10px; justify-items: center; margin-top: 10px; }
-    a.button, button.button {
-      display: inline-block; text-decoration: none; color: #fff; background: var(--btn);
-      padding: 10px 16px; border-radius: 6px; border: 0; cursor: pointer; font-size: 1rem;
-    }
-    a.button:hover, button.button:hover { background: var(--btn-hover); }
-    a.link { color: var(--link); }
-    .code {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      background: rgba(255,255,255,0.06);
-      padding: 6px 8px; border-radius: 6px; display: inline-block; color: #fff;
-    }
-    footer { margin-top: 24px; font-size: 0.95rem; color: var(--muted); }
-  </style>
+  ]
+}
+</script>
+
+
 </head>
-<body>
-        <a 
-        class="skip-link" 
-        href="#main">Skip to main content
-      </a>
+
+  <body 
+    data-page="index"
+    style="background-color: #f0eeee; margin: 0;">
+
+    <a 
+      class="skip-link" 
+      href="#main">Skip to main content
+    </a>
 
       <!-- DESKTOP HEADER WRAPPER -->
 
-      <div class="desktop-only">
-        <header class="desk-header"
-                id="desk-header">
-          <a class="skip-link" 
-             href="#main">Skip to main content
-          </a>
-          <div class="desk-header-inner">
-            <div class="desk-header-left">
-              <nav class="desk-nav" 
-                   aria-label="Primary">
-                <a href="/services"
-                   aria-current="page">Services
-                </a>
-                <a href="/quote">Quote</a>
-                <a class="nav-dir"  
-                  href="/pilot-directory">Pilot<wbr> Directory
-                </a>
-                <a class="nav-join" 
-                  href="/join-pilot-roster">Join Pilot<wbr> Roster
-                </a>
-                <a href="/about">About</a>
-                <a class="nav-past" 
-                  href="/past-deliveries">Past<wbr> Deliveries
-                </a>
-              </nav>
-            </div>
-
-            <div class="desk-header-center">
-              <a href="/"
-                aria-current="page"
-                aria-label="Home">
-                <picture>
-                  <source
-                    media="(min-width: 1401px)"
-                    type="image/png"
-                    srcset="/assets/side-by-side-logo.png?v=20250908-191739">
-                  <img
-                    class="desk-header-logo"
-                    src="data:image/gif;base64,R0lGODlhAQABAAAAACw="
-                    width="951"
-                    height="179"
-                    decoding="async"
-                    fetchpriority="high"
-                    loading="eager"
-                    alt="">
-                </picture>
-              </a>
-            </div>
-
-            <div class="desk-header-right">
-              <p>+1 (415) 845-8163</p>
-              <a href="mailto:akahn28@gmail.com">akahn28@gmail.com</a>
-            </div>
-          </div>
-        </header>
-
-      </div>
-
-<!--MOBILE-ONLY DIV-->
-<!--MOBILE-ONLY DIV-->
-<!--MOBILE-ONLY DIV-->
-
-      <div class="mobile-only">
-
-<!--MOBILE-ONLY HEADER-->
-<!--MOBILE-ONLY HEADER-->
-<!--MOBILE-ONLY HEADER-->
-
-        <header class="mobile-header">
-
-          <div class="mobile-header-slot-left">
-            <button
-              id="hamburger-icon"
-              class="mobile-burger-proxy"
-              type="button"
-              aria-label="Open menu"
-              aria-expanded="false"
-              aria-controls="mobileMenu"
-              data-burger-proxy>
-              <picture>
-                <source 
-                  media="(max-width: 1400px)" 
-                  srcset="/assets/mobile/burger.png?v=20250908-191739">
-                <img
-                  src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                  alt="aria-label-active" 
-                  width="50"
-                  height="39"
-                  decoding="async">
-              </picture>
-            </button>
-          </div>
-
-          <div class="mobile-header-slot-center">
-            <a 
-              href="/" 
-              class="mobile-header-logo"                 
-              aria-label="Home">
-              <picture>
-                <source 
-                  media="(max-width: 750px)"
-                  srcset="/assets/mobile/mobile-logo-v2.png?v=20250908-191739">
-                <source 
-                  media="(min-width: 751px) and (max-width: 1400px)"
-                  srcset="/assets/mobile/mobile-logo-90.png?v=20250908-191739">
-                <img
-                  src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                  alt="Aircraft Delivery Solutions"
-                  width="300" 
-                  height="148" 
-                  decoding="async">
-              </picture>
-            </a>
-          </div>
-
-          <div class="mobile-header-slot-right">
-            <a
-              href="tel:+14158458163"
-              class="mobile-header-phone"
-              aria-label="phone icon">
-              <picture>
-                <source 
-                  media="(max-width: 1400px)"
-                  srcset="/assets/mobile/phone.png?v=20250908-191739">
-                <img 
-                  src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                  alt="Call"
-                  width="36" 
-                  height="36"
-                  decoding="async">
-              </picture>
-            </a>
-          </div>
-
-        </header>
-
-        <div 
-          class="mobile-menu" 
-          id="mobileMenu" 
-          hidden 
-          aria-labelledby="hamburger-icon"
-          role="region">
-          <nav class="mobile-nav" 
-               aria-label="Mobile primary">
+     <header class="header"
+            id="desk-header">
+      <div class="header-inner">
+        <div class="header-left">
+          <nav aria-label="Primary">
             <a href="/services">Services</a>
-            <a href="/quote">Get a Quote</a>
+            <a href="/quote">Quote</a>
             <a href="/pilot-directory">Pilot Directory</a>
-            <a href="/join-pilot-roster">Join Pilot Roster</a>
+            <a href="/join-pilot-roster">Join<wbr> Pilot Roster</a>
             <a href="/about">About</a>
             <a href="/past-deliveries">Past Deliveries</a>
           </nav>
+          <button
+            id="burger"
+            class="menu-toggle"
+            type="button"
+            aria-controls="menu-overlay"
+            aria-expanded="false"
+            aria-label="Open menu"
+            data-nav-toggle>
+
+            <img
+              src="/assets/blank1.jpg"
+              srcset="/assets/icons/icon-burger.png?v=20250908-191739 320w"
+              sizes="50px"
+              alt=""
+              aria-hidden="true" 
+              width="50"
+              height="39"
+              decoding="async"
+              loading="eager">
+          </button>
         </div>
+       <div class="header-center">
+        <a href="/"
+          aria-current="page"
+          aria-label="Home">
+          <img 
+            class="header-center-logo"
+            id="desktop-logo"
+            src='/assets/blank1.jpg'
+            srcset='/assets/logos/side-by-side-logo.png 951w'
+            sizes="calc(41.7vw + 16.7px)"
+            width='951'
+            data-w='951'
+            height='179'
+            data-h='179'
+            loading='eager'
+            decoding='async'
+            alt=''>
+          <img 
+            class="header-center-logo" 
+            id="mobile-logo-90"
+            src='/assets/blank1.jpg'
+            srcset='assets/logos/mobile-logo-90.png 300w'
+            sizes='100px'
+            width='300'
+            data-w='300'
+            height='116'
+            data-h='116'
+            loading='eager'
+            decoding='async'
+            alt='Aircraft Delivery Solutions logo'><!--1400 O/R-->
+        </a>
+       </div>
+    
+       <div class="header-right">
+        <div class="header-right-desk">
+          <a href="tel:+14158458163"
+             aria-label="call">
+            <p>+1 (415) 845-8163</p>
+            <img 
+              class="phone-icon-mobile"
+              id="phone-icon"
+              src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+              srcset="/assets/icons/icon-phone.png?v=20250908-191739 320w"
+              sizes="36px"
+              alt=""
+              aria-hidden="true"
+              width="36" 
+              height="36"
+              loading="eager"
+              decoding="async"><!--1400 O/R-->
+          </a>
+          <a href="mailto:akahn28@gmail.com">
+            <p>akahn28@gmail.com</p>
+          </a>
+        </div>
+        <div class="header-right-mob"><!--1400 O/R-->
+          <a href="tel:+14158458163"
+             aria-label="Call">
+            <img 
+              class="phone-icon-mobile"
+              src="/assets/blank1.jpg"
+              srcset="/assets/icons/icon-phone.png?v=20250908-191739 320w"
+              sizes="36px"
+              alt=""
+              aria-hidden="true"
+              width="36" 
+              height="36"
+              loading="eager"
+              decoding="async">
+          </a>
+          <a href="sms:+14158458163"
+             id="icontxtmsg"
+             aria-label="Send a text message">
+           <img 
+              class="phone-icon-mobile"
+              style="margin-right: 15px;"
+              src="/assets/blank1.jpg"
+              srcset="/assets/icons/icon-txt-msg-bubble.png 91w"
+              sizes="36px"
+              alt=""
+              aria-hidden="true"
+              width="91" 
+              height="70"
+              loading="eager"
+              decoding="async">
+            </a>
+          <a href="mailto:akahn28@gmail.com"
+             id="iconemail">
+             <img 
+              class="phone-icon-mobile"
+              src="/assets/blank1.jpg"
+              srcset="/assets/icons/icon-email.png 200w"
+              sizes="36px"
+              alt=""
+              aria-hidden="true"
+              width="200" 
+              height="131"
+              loading="eager"
+              decoding="async">
+            </a>
+        </div>              
+       </div>
       </div>
 
-  <main role="main"
-        id="main"
+    </header>
+
+        <div
+          class="menu-overlay is-hidden"
+          id="menu-overlay"
+          data-anim="fade"
+          data-menu
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="menu-title"
+          aria-hidden="true">
+          <div 
+            class="menu-panel-backdrop"
+            id="menu-panel-backdrop" 
+            data-menu-overlay
+            aria-hidden="true">
+          </div>
+          <nav 
+            id="menu-panel"
+            class="menu-panel"
+            aria-label="Primary navigation"
+            aria-hidden="true"
+            inert>
+            <h2 
+              id="menu-title" 
+              class="visually-hidden">Menu
+            </h2>
+            <button
+              class="mob-menupanel-float"
+              aria-label="Close mobile menu">
+              <img
+                src="/assets/blank1.jpg"
+                height="118"
+                width="125"
+                sizes="30px"
+                srcset="/assets/icons/icon-red-x-close.png 125w"
+                aria-lable="Close button"
+                alt=""
+                aria-hidden="false">
+            </button>
+
+            <ul class="menu-list">
+              <li><a href="/services">Services</a></li>
+              <li><a href="/quote">Get a Quote</a></li>
+              <li><a href="/pilot-directory">Pilot Directory</a></li>
+              <li><a href="/join-pilot-roster">Join Pilot Roster</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/past-deliveries">Past Deliveries</a></li>
+            </ul>
+            <button 
+              class="menu-close" 
+              type="button" 
+              data-menu-close 
+              aria-label="Close menu">Close
+            </button>
+            <div style="display: grid; grid-template-columns: auto auto; margin-top: 60px;">
+              <a 
+                href="sms:+14158458163"
+                id="menu-icontxtmsg"
+                style="margin: 0 auto;">
+                <img 
+                  class="phone-icon-mobile"
+                  style="margin-right: 15px;"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/icons/icon-txt-msg-bubble.png 91w"
+                  sizes="36px"
+                  alt=""
+                  aria-hidden="true"
+                  width="91" 
+                  height="70"
+                  loading="eager"
+                  decoding="async">
+              </a>
+              <a 
+                href="mailto:akahn28@gmail.com"
+                id="menu-iconemail"
+                style="margin: 0 auto;">
+                <img 
+                  class="phone-icon-mobile"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/icons/icon-email.png 200w"
+                  sizes="36px"
+                  alt=""
+                  aria-hidden="true"
+                  width="200" 
+                  height="131"
+                  loading="eager"
+                  decoding="async">
+              </a>
+            </div>
+          </nav>
+        </div>
+
+  <main id="main"
         tabindex="-1">
     <div aria-hidden="true" style="font-size:3.5rem; line-height:1; margin-bottom: 8px;">Sorry</div>
     <h1>We hit a snag</h1>
@@ -279,7 +406,7 @@
   })();
 </script>
 
-<script src="/script.js?v=20250908-191739" defer></script>
+<script type="module" src="/js/main.js"></script>
 
 </body>
 </html>

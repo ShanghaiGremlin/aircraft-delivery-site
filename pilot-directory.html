@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 <head>
   <!-- ===== GLOBAL (copy identical on every page) ===== -->
   <meta charset="UTF-8">
@@ -16,9 +16,8 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
 
-<link rel="preload" href="/style.css?v=20250908-191739" as="style">
-<link rel="stylesheet" href="/style.css?v=20250908-191739">
-<link rel="preload" href="/script.js?v=20250908-191739" as="script">
+<link rel="preload" href="./css/style.css?v=20250908-191739" as="style">
+<link rel="stylesheet" href="./css/style.css?v=20250908-191739">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,6 +47,19 @@
   <meta name="twitter:title" content="Aircraft Delivery Solutions &mdash; Ferry Pilot Directory">
   <meta name="twitter:description" content="Ferry Pilot Directory">
   <meta name="twitter:image" content="https://aircraft.delivery/assets/about/2009-12-24.jpg">
+
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aircraft.delivery/" },
+    { "@type": "ListItem", "position": 2, "name": "Pilot Directory" }
+  ]
+}
+</script>
+
 </head>
 <body>
       <a 
@@ -55,662 +67,4131 @@
         href="#main">Skip to main content
       </a>
 
-      <!-- DESKTOP HEADER WRAPPER -->
-
-      <div class="desktop-only">
-        <header class="desk-header"
-                id="desk-header">
-          <a class="skip-link" 
-             href="#main">Skip to main content
-          </a>
-          <div class="desk-header-inner">
-            <div class="desk-header-left">
-              <nav class="desk-nav" 
-                   aria-label="Primary">
-                <a href="/services"
-                   aria-current="page">Services
-                </a>
-                <a href="/quote">Quote</a>
-                <a class="nav-dir"  
-                  href="/pilot-directory">Pilot<wbr> Directory
-                </a>
-                <a class="nav-join" 
-                  href="/join-pilot-roster">Join Pilot<wbr> Roster
-                </a>
-                <a href="/about">About</a>
-                <a class="nav-past" 
-                  href="/past-deliveries">Past<wbr> Deliveries
-                </a>
-              </nav>
-            </div>
-
-            <div class="desk-header-center">
-              <a href="/"
-                aria-current="page"
-                aria-label="Home">
-                <picture>
-                  <source
-                    media="(min-width: 1401px)"
-                    type="image/png"
-                    srcset="/assets/side-by-side-logo.png?v=20250908-191739">
-                  <img
-                    class="desk-header-logo"
-                    src="data:image/gif;base64,R0lGODlhAQABAAAAACw="
-                    width="951"
-                    height="179"
-                    decoding="async"
-                    fetchpriority="high"
-                    loading="eager"
-                    alt="">
-                </picture>
-              </a>
-            </div>
-
-            <div class="desk-header-right">
-              <p>+1 (415) 845-8163</p>
-              <a href="mailto:akahn28@gmail.com">akahn28@gmail.com</a>
-            </div>
-          </div>
-        </header>
-
-      </div>
-
-<!--MOBILE-ONLY DIV-->
-<!--MOBILE-ONLY DIV-->
-<!--MOBILE-ONLY DIV-->
-
-      <div class="mobile-only">
-
-<!--MOBILE-ONLY HEADER-->
-<!--MOBILE-ONLY HEADER-->
-<!--MOBILE-ONLY HEADER-->
-
-        <header class="mobile-header">
-
-          <div class="mobile-header-slot-left">
-            <button
-              id="hamburger-icon"
-              class="mobile-burger-proxy"
-              type="button"
-              aria-label="Open menu"
-              aria-expanded="false"
-              aria-controls="mobileMenu"
-              data-burger-proxy>
-              <picture>
-                <source 
-                  media="(max-width: 1400px)" 
-                  srcset="/assets/mobile/burger.png?v=20250908-191739">
-                <img
-                  src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                  alt="aria-label-active" 
-                  width="50"
-                  height="39"
-                  decoding="async">
-              </picture>
-            </button>
-          </div>
-
-          <div class="mobile-header-slot-center">
-            <a 
-              href="/" 
-              class="mobile-header-logo"                 
-              aria-label="Home">
-              <picture>
-                <source 
-                  media="(max-width: 750px)"
-                  srcset="/assets/mobile/mobile-logo-v2.png?v=20250908-191739">
-                <source 
-                  media="(min-width: 751px) and (max-width: 1400px)"
-                  srcset="/assets/mobile/mobile-logo-90.png?v=20250908-191739">
-                <img
-                  src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                  alt="Aircraft Delivery Solutions"
-                  width="300" 
-                  height="148" 
-                  decoding="async">
-              </picture>
-            </a>
-          </div>
-
-          <div class="mobile-header-slot-right">
-            <a
-              href="tel:+14158458163"
-              class="mobile-header-phone"
-              aria-label="phone icon">
-              <picture>
-                <source 
-                  media="(max-width: 1400px)"
-                  srcset="/assets/mobile/phone.png?v=20250908-191739">
-                <img 
-                  src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                  alt="Call"
-                  width="36" 
-                  height="36"
-                  decoding="async">
-              </picture>
-            </a>
-          </div>
-
-        </header>
-
-        <div 
-          class="mobile-menu" 
-          id="mobileMenu" 
-          hidden 
-          aria-labelledby="hamburger-icon"
-          role="region">
-          <nav class="mobile-nav" 
-               aria-label="Mobile primary">
+    <header class="header"
+            id="desk-header">
+      <div class="header-inner">
+        <div class="header-left">
+          <nav aria-label="Primary">
             <a href="/services">Services</a>
-            <a href="/quote">Get a Quote</a>
+            <a href="/quote">Quote</a>
             <a href="/pilot-directory">Pilot Directory</a>
-            <a href="/join-pilot-roster">Join Pilot Roster</a>
+            <a href="/join-pilot-roster">Join<wbr> Pilot Roster</a>
             <a href="/about">About</a>
             <a href="/past-deliveries">Past Deliveries</a>
           </nav>
+          <button
+            id="burger"
+            class="menu-toggle"
+            type="button"
+            aria-controls="menu-overlay"
+            aria-expanded="false"
+            aria-label="Open menu"
+            data-nav-toggle>
+
+            <img
+              src="/assets/blank1.jpg"
+              srcset="/assets/icons/icon-burger.png?v=20250908-191739 320w"
+              sizes="50px"
+              alt=""
+              aria-hidden="true" 
+              width="50"
+              height="39"
+              decoding="async"
+              loading="eager">
+          </button>
         </div>
+       <div class="header-center">
+        <a href="/"
+          aria-current="page"
+          aria-label="Home">
+          <img 
+            class="header-center-logo"
+            id="desktop-logo"
+            src='/assets/blank1.jpg'
+            srcset='/assets/logos/side-by-side-logo.png 951w'
+            sizes="calc(41.7vw + 16.7px)"
+            width='951'
+            data-w='951'
+            height='179'
+            data-h='179'
+            loading='eager'
+            decoding='async'
+            alt=''>
+          <img 
+            class="header-center-logo" 
+            id="mobile-logo-90"
+            src='/assets/blank1.jpg'
+            srcset='assets/logos/mobile-logo-90.png 300w'
+            sizes='100px'
+            width='300'
+            data-w='300'
+            height='116'
+            data-h='116'
+            loading='eager'
+            decoding='async'
+            alt='Aircraft Delivery Solutions logo'><!--1400 O/R-->
+        </a>
+       </div>
+    
+       <div class="header-right">
+        <div class="header-right-desk">
+          <a href="tel:+14158458163"
+             aria-label="call">
+            <p>+1 (415) 845-8163</p>
+            <img 
+              class="phone-icon-mobile"
+              id="phone-icon"
+              src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+              srcset="/assets/icons/icon-phone.png?v=20250908-191739 320w"
+              sizes="36px"
+              alt=""
+              aria-hidden="true"
+              width="36" 
+              height="36"
+              loading="eager"
+              decoding="async"><!--1400 O/R-->
+          </a>
+          <a href="mailto:akahn28@gmail.com">
+            <p>akahn28@gmail.com</p>
+          </a>
+        </div>
+        <div class="header-right-mob"><!--1400 O/R-->
+          <a href="tel:+14158458163"
+             aria-label="Call">
+            <img 
+              class="phone-icon-mobile"
+              src="/assets/blank1.jpg"
+              srcset="/assets/icons/icon-phone.png?v=20250908-191739 320w"
+              sizes="36px"
+              alt=""
+              aria-hidden="true"
+              width="36" 
+              height="36"
+              loading="eager"
+              decoding="async">
+          </a>
+          <a href="sms:+14158458163"
+             id="icontxtmsg"
+             aria-label="Send a text message">
+           <img 
+              class="phone-icon-mobile"
+              style="margin-right: 15px;"
+              src="/assets/blank1.jpg"
+              srcset="/assets/icons/icon-txt-msg-bubble.png 91w"
+              sizes="36px"
+              alt=""
+              aria-hidden="true"
+              width="91" 
+              height="70"
+              loading="eager"
+              decoding="async">
+            </a>
+          <a href="mailto:akahn28@gmail.com"
+             id="iconemail">
+             <img 
+              class="phone-icon-mobile"
+              src="/assets/blank1.jpg"
+              srcset="/assets/icons/icon-email.png 200w"
+              sizes="36px"
+              alt=""
+              aria-hidden="true"
+              width="200" 
+              height="131"
+              loading="eager"
+              decoding="async">
+            </a>
+        </div>              
+       </div>
       </div>
 
+    </header>
 
-<main id="main" 
+        <div
+          class="menu-overlay is-hidden"
+          id="menu-overlay"
+          data-anim="fade"
+          data-menu
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="menu-title"
+          aria-hidden="true">
+          <div 
+            class="menu-panel-backdrop"
+            id="menu-panel-backdrop" 
+            data-menu-overlay
+            aria-hidden="true">
+          </div>
+          <nav 
+            id="menu-panel"
+            class="menu-panel"
+            aria-label="Primary navigation"
+            aria-hidden="true"
+            inert>
+            <h2 
+              id="menu-title" 
+              class="visually-hidden">Menu
+            </h2>
+            <button
+              class="mob-menupanel-float"
+              aria-label="Close mobile menu">
+              <img
+                src="/assets/blank1.jpg"
+                height="118"
+                width="125"
+                sizes="30px"
+                srcset="/assets/icons/icon-red-x-close.png 125w"
+                aria-lable="Close button"
+                alt=""
+                aria-hidden="false">
+            </button>
+
+            <ul class="menu-list">
+              <li><a href="/services">Services</a></li>
+              <li><a href="/quote">Get a Quote</a></li>
+              <li><a href="/pilot-directory">Pilot Directory</a></li>
+              <li><a href="/join-pilot-roster">Join Pilot Roster</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/past-deliveries">Past Deliveries</a></li>
+            </ul>
+            <button 
+              class="menu-close" 
+              type="button" 
+              data-menu-close 
+              aria-label="Close menu">Close
+            </button>
+            <div style="display: grid; grid-template-columns: auto auto; margin-top: 60px;">
+              <a 
+                href="sms:+14158458163"
+                id="menu-icontxtmsg"
+                style="margin: 0 auto;">
+                <img 
+                  class="phone-icon-mobile"
+                  style="margin-right: 15px;"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/icons/icon-txt-msg-bubble.png 91w"
+                  sizes="36px"
+                  alt=""
+                  aria-hidden="true"
+                  width="91" 
+                  height="70"
+                  loading="eager"
+                  decoding="async">
+              </a>
+              <a 
+                href="mailto:akahn28@gmail.com"
+                id="menu-iconemail"
+                style="margin: 0 auto;">
+                <img 
+                  class="phone-icon-mobile"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/icons/icon-email.png 200w"
+                  sizes="36px"
+                  alt=""
+                  aria-hidden="true"
+                  width="200" 
+                  height="131"
+                  loading="eager"
+                  decoding="async">
+              </a>
+            </div>
+          </nav>
+        </div>
+
+
+    <main id="main" 
       class="pilot-dir-main"
       tabindex="-1">
-  <div class="page-title-brick page-title-brick-centered"><h1>FERRY PILOT DIRECTORY</h1></div>
-    <div class="pilot-dir-toparea-container">
-      <div class="pilot-dir-crewstatement"><h2>Complete Crews</h2>
-        <p>I have at least 1 (or 2 when required) pilots that have type-ratings in these types:</p>
-      </div>
-      <div class="desk-pilot-directory-typewrapper">
-        <div>
-          <img class="desk-pilot-directory-typepix" 
-               alt="Cessna Citation" 
-               src="/assets/pilot-directory/typethumbs/citationxbust2.png?v=20250908-191739"
+
+      <div class="page-title-brick page-title-brick-centered"><h1>FERRY PILOT DIRECTORY</h1></div>
+
+      <div class="pilot-dir-toparea">
+        <div class="pilot-dir-toparea-crewstatement">
+          <h2 style="font-size: 1.5rem;"><u>Complete Crews</u></h2>
+          <p>I have at least 1 (or 2 when required) pilots that have type-ratings in these types:</p>
+        </div>
+        <div class="typewrapper">
+          <div class="typewrapper-aligner">
+            <img 
+                src="/assets/blank1.jpg"
+                srcset="/assets/images/pilot-dir-citationx.png 200w"
+                sizes="200px"
+                width="200"
+                height="72"
+                alt="Cessna Citation" 
+                loading="eager"
+                fetchpriority="high">
+          </div>
+          <div class="typewrapper-aligner">
+            <img 
+                src="/assets/blank1.jpg"
+                srcset="/assets/images/pilot-dir-E175.png 200w"
+                sizes="200px"
+                width="200"
+                height="81"
+                alt="Embraer 175" 
+                loading="eager"
+                fetchpriority="high">
+          </div>      
+          <div class="typewrapper-aligner">
+            <img 
+               src="/assets/blank1.jpg"
+               srcset="/assets/images/pilot-dir-hondajet.png 200w"
+               sizes="200px"
+               width="200"
+               height="83"
+               alt="Embraer 175" 
                loading="eager"
                fetchpriority="high">
-        </div>
-        <div>
-          <img class="desk-pilot-directory-typepix" 
-               alt="E175" 
-               src="/assets/pilot-directory/typethumbs/E175.png?v=20250908-191739"
-                              loading="eager"
+          </div>
+          <div class="typewrapper-aligner">
+            <img 
+               src="/assets/blank1.jpg"
+               srcset="/assets/images/pilot-dir-ka-350.png 250w"
+               sizes="200px"
+               width="250"
+               height="104"
+               alt="Embraer 175" 
+               loading="eager"
                fetchpriority="high">
-        </div>
-        <div>
-          <img class="desk-pilot-directory-typepix" 
-               alt="KingAir" 
-               src="/assets/pilot-directory/typethumbs/KA-350.png?v=20250908-191739"
-                              loading="eager"
+          </div>
+          <div class="typewrapper-aligner">
+            <img 
+               src="/assets/blank1.jpg"
+               srcset="/assets/images/pilot-dir-lr35.png 200w"
+               sizes="200px"
+               width="211"
+               height="78"
+               alt="Embraer 175" 
+               loading="eager"
                fetchpriority="high">
-        </div>
-        <div>
-          <img class="desk-pilot-directory-typepix" 
-               alt="Lear 35" 
-               src="/assets/pilot-directory/typethumbs/LR35.png?v=20250908-191739"
-                              loading="eager"
+          </div>
+          <div class="typewrapper-aligner">
+            <img 
+               src="/assets/blank1.jpg"
+               srcset="/assets/images/pilot-dir-metro.png 200w"
+               sizes="200px"
+               width="200"
+               height="88"
+               alt="Embraer 175" 
+               loading="eager"
                fetchpriority="high">
+          </div>
         </div>
-        <div>
-          <img class="desk-pilot-directory-typepix" 
-               alt= "Metroliner" 
-               src="/assets/pilot-directory/typethumbs/metro.png?v=20250908-191739"
-                              loading="eager"
-               fetchpriority="high">
+
+        <div class="buttonpocket">
+          <button 
+            id="pilot-ratings-btn-view"
+            aria-label="View pilot type ratings">View <br>Pilot Type Ratings
+          </button>
+          <button 
+            hidden 
+            id="pilot-ratings-btn-close"
+            aria-label="Close pilot type ratings">Close <br>Pilot Type Ratings
+          </button>
+          <a
+            class="pilot-dir-buttons"
+            href="/join-pilot-roster.html"
+            aria-label="Link to Pilot Roster">Join This<br> Pilot Roster
+          </a>
         </div>
+
       </div>
-      <div class="pilot-dir-buttons" 
-           id="pilot-ratings-btn">View Pilot Type Ratings
-      </div>
-      <a href="/join-pilot-roster" 
-         class="pilot-dir-buttons">Join This Pilot Roster
-      </a>
-    </div>
-  </div> 
 
-  <div class="pilot-directory-wrapper">
+      <div 
+        class="pilot-dir-modal"
+        id="pilot-dir-modal" 
+        hidden>
+        <h2 style="text-align: center; font-size: 1.6rem;"><u>Aircraft Delivery Solutions Pilot Type Ratings</u></h2>
+        <ul style="padding-left: 20px; font-size: 1.2rem; line-height: 1.6; text-align: left;">
+          <li><b>BEECHCRAFT:</b> BE300 (King Air 350)</li>
+          <li><b>BOEING:</b> B737, B747-200, B747-400/8, DC-9</li>
+          <li><b>BOMBARDIER:</b> CL-65, DHC-8, LR-JET</li>
+          <li><b>CESSNA:</b> CE-750 (Citation X)</li>
+          <li><b>DASSAULT:</b> FA-20, FA-50 [SIC]</li>
+          <li><b>EMBRAER:</b> EMB-120, EMB-170&ndash;195, EMB-550</li>
+          <li><b>EUROCOPTER:</b> EC225LP (Super Puma Helicopter), EC332L (Super Puma) [SIC], EC332L1 (Super Puma) [SIC], SA330 (Puma) [SIC]</li>
+          <li><b>FAIRCHILD:</b> SA-227</li>
+          <li><b>GULFSTREAM:</b> IAI-1125 (G100), Gulfstream IV [SIC]</li>
+          <li><b>HONDA:</b> HA-420 (HondaJet)</li>
+          <li><b>LOCKHEED:</b> L-300 (C141)</li>
+          <li><b>SIKORSKY:</b> S-70 (UH-60)</li>
+          </ul>
+          <button
+            class="pilot-dir-buttons"
+            style="display: block; margin: 0 auto;"
+            id="pilot-ratings-btn-close-inmenu"
+            aria-label="Close pilot type ratings">Close
+          </button>
+        </div>
 
-  <div class="pilot-tile">
-    <img src="/assets/pilot-directory/headshots/bob-flag.jpg?v=20250908-191739" alt="Bob N." loading="lazy" fetchpriority="low" class="desk-pilot-headshot">
-    <div class="desk-pilot-directory-pilotname">Bob N.</div>
-    <img src="/assets/pilot-directory/faa-bar.jpg?v=20250908-191739" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
-        <img src="/assets/pilot-directory/atp.jpg?v=20250908-191739" alt="ATP" class="desk-pilot-dir-pilot-license">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Airline Transport Pilot certificate</span></span>
+        <div class="pilot-dir-directory">
 
-    <ul class="desk-pilot-directory-pilotbio">
-      <li>Type ratings: L-300 (C141), DC-9, B-747-200, B-747-400/-8</li>
-      <li>Total time: 20,000</li>
-    </ul>
-  </div>
+          <div class="pilot-dir-directory-tile">
 
-  <div class="pilot-tile">
-    <img src="/assets/pilot-directory/headshots/victor-flag.jpg?v=20250908-191739" alt="V.P. M." loading="lazy" fetchpriority="low" class="desk-pilot-headshot">
-    <div class="desk-pilot-directory-pilotname">V.P. M.</div>
+            <img
+              class="pilotheadshot"
+              src="/assets/blank1.jpg"
+              srcset="/assets/images/pilot-dir-bob-flag.jpg 125w"
+              sizes="125px"
+              width="125"
+              height="209"
+              alt="Bob N."
+              loading="eager"
+              fetchpriority="high">
 
-          <img src="/assets/pilot-directory/faa-bar.jpg?v=20250908-191739" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
-        <img src="/assets/pilot-directory/atp-cfi.jpg?v=20250908-191739" alt="ATP-CFI" class="desk-pilot-dir-atp-cfi">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Airline Transport Pilot & Flight Instructor certificates</span></span>
+            <button
+              type="button"
+              class="flagtrig pilotdirtooltip"
+              style="top: 35%;"
+              data-tooltip="United States Armed Forces current member or veteran (see bio)"
+              aria-label="U.S. Armed Forces veteran">
+              <span class="visually-hidden">Veteran</span>
+            </button>
 
-            <ul class="desk-pilot-directory-pilotbio">
+            <div class="firstname">Bob N.</div>
+            <img 
+              class="countrybar"
+              src="/assets/blank1.jpg"
+              srcset="assets/custom-grafx/grafx-pilot-dir-faa-bar.jpg 394w"
+              sizes="125px" 
+              alt="Country Bar"
+              width="394"
+              height="39"
+              loading="lazy" 
+              fetchpriority="low"> 
+
+            <div class="atp-wrap">
+              <!-- Trigger (frame 0 lives as the button image) -->
+              <button type="button" class="atp-trigger" aria-label="Play ATP animation">
+                <img
+                  class="pilotdirtooltip-atp"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp.jpg 126w"
+                  sizes="125px"
+                  alt="ATP"
+                  width="126"
+                  height="46"
+                  loading="lazy"
+                  fetchpriority="low">
+              </button>
+
+              <!-- Frames 1–3 overlay the trigger; start hidden -->
+              <div class="atp-frame" data-frame="1" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp2.png 166w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="atp-frame" data-frame="2" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp3.png 50w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="atp-frame" data-frame="3" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp4.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+            </div>
+
+              <ul class="pilotbio">
+                <li>Type ratings: L-300 (C141), DC-9, B-747-200, B-747-400/-8</li>
+                <li>United States Air Force veteran</li>
+                <li>Total time: 20,000</li>
+              </ul>
+          </div>
+
+          <div class="pilot-dir-directory-tile">
+            <img 
+              class="pilotheadshot"
+              src="/assets/blank1.jpg"
+              srcset="/assets/images/pilot-dir-victor-flag.jpg 125w"
+              sizes="125px" 
+              width="125"
+              height="170"              
+              alt="VP M" 
+              loading="lazy" 
+              fetchpriority="low"> 
+
+            <button
+              type="button"
+              style="top: 28%;"
+              class="flagtrig pilotdirtooltip"
+              data-tooltip="United States Armed Forces current member or veteran (see bio)"
+              aria-label="U.S. Armed Forces veteran">
+              <span class="visually-hidden">Veteran</span>
+            </button>
+
+              <div class="firstname">V.P. M.</div>
+              <img 
+                class="countrybar"
+                src="/assets/blank1.jpg"
+                srcset="assets/custom-grafx/grafx-pilot-dir-faa-bar.jpg 394w"
+                sizes="125px" 
+                alt="Country Bar"
+                width="394"
+                height="39"
+                loading="lazy" 
+                fetchpriority="low"> 
+
+                 <div class="pilot-dir-icon-aligner">
+
+                  <div class="atp-wrap">
+              <!-- Trigger (frame 0 lives as the button image) -->
+              <button type="button" class="atp-trigger" aria-label="Play ATP animation">
+                <img
+                  class="pilotdirtooltip-atp"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp.jpg 126w"
+                  sizes="125px"
+                  alt="ATP"
+                  width="126"
+                  height="46"
+                  loading="lazy"
+                  fetchpriority="low">
+              </button>
+
+              <!-- Frames 1–3 overlay the trigger; start hidden -->
+              <div class="atp-frame" data-frame="1" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp2.png 166w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="atp-frame" data-frame="2" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp3.png 50w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="atp-frame" data-frame="3" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp4.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+            </div>
+
+
+
+                                <div class="cfi-wrap">
+              <!-- Trigger (frame 0 lives as the button image) -->
+              <button type="button" class="cfi-trigger" aria-label="Play CFI animation">
+                <img
+                  class="pilotdirtooltip-cfi"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi.jpg 126w"
+                  sizes="125px"
+                  alt="CFI"
+                  width="126"
+                  height="46"
+                  loading="lazy"
+                  fetchpriority="low">
+              </button>
+
+
+              <div class="cfi-frame" data-frame="1" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi2.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="2" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi3.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="3" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi4.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+          
+                          <div class="cfi-frame" data-frame="4" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi5.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+        
+              <div class="cfi-frame" data-frame="5" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi6.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="6" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi7.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="7" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi8.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="131"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+            </div>
+          </div>
+                <ul class="pilotbio">
       <li>Current Employment: Part 121 E175 Captain</li>
       <li>Type ratings: EMB-170/175/190/195, CL65, EMB-120</li>
+      <li>United States Air Force veteran</li>
       <li>Total time: 13,500</li>
       <li>Language: Fluent in Tagalog</li>
-    </ul>
-  </div>
+                </ul>
+          </div>
 
-  <div class="pilot-tile">
-    <img src="/assets/pilot-directory/headshots/mike-bach.jpg?v=20250908-191739"  loading="lazy" fetchpriority="low" alt="Mike B." class="desk-pilot-headshot">
-    <div class="desk-pilot-directory-pilotname">Mike B.</div>
+          <div class="pilot-dir-directory-tile">
+            <img 
+              class="pilotheadshot"
+              src="/assets/blank1.jpg"
+              srcset="/assets/images/pilot-dir-mike-b.jpg 125w"
+              sizes="125px" 
+              width="125"
+              height="174"
+              alt="Mike B." 
+              loading="lazy" 
+              fetchpriority="low"> 
+
+                          <button
+              type="button"
+              style="top: 28.5%;"
+              class="flagtrig pilotdirtooltip"
+              data-tooltip="United States Armed Forces current member or veteran (see bio)"
+              aria-label="U.S. Armed Forces veteran">
+              <span class="visually-hidden">Veteran</span>
+            </button>
+              <div class="firstname">Mike B.</div>
+              <img 
+                class="countrybar"
+                src="/assets/blank1.jpg"
+                srcset="assets/custom-grafx/grafx-pilot-dir-faa-bar.jpg 394w"
+                sizes="125px" 
+                alt="Country Bar"
+                width="394"
+                height="39"
+                loading="lazy" 
+                fetchpriority="low"> 
+                 <div class="pilot-dir-icon-aligner">
+
+                  <div class="atp-wrap">
+              <!-- Trigger (frame 0 lives as the button image) -->
+              <button type="button" class="atp-trigger" aria-label="Play ATP animation">
+                <img
+                  class="pilotdirtooltip-atp"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp.jpg 126w"
+                  sizes="125px"
+                  alt="ATP"
+                  width="126"
+                  height="46"
+                  loading="lazy"
+                  fetchpriority="low">
+              </button>
+
+              <!-- Frames 1–3 overlay the trigger; start hidden -->
+              <div class="atp-frame" data-frame="1" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp2.png 166w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="atp-frame" data-frame="2" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp3.png 50w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="atp-frame" data-frame="3" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp4.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+            </div>
+
+
+
+                                <div class="cfi-wrap">
+              <!-- Trigger (frame 0 lives as the button image) -->
+              <button type="button" class="cfi-trigger" aria-label="Play CFI animation">
+                <img
+                  class="pilotdirtooltip-cfi"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi.jpg 126w"
+                  sizes="125px"
+                  alt="CFI"
+                  width="126"
+                  height="46"
+                  loading="lazy"
+                  fetchpriority="low">
+              </button>
+
+
+              <div class="cfi-frame" data-frame="1" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi2.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="2" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi3.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="3" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi4.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+          
+                          <div class="cfi-frame" data-frame="4" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi5.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
         
-    <img src="/assets/pilot-directory/faa-bar.jpg?v=20250908-191739" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
-        <img src="/assets/pilot-directory/atp-cfi.jpg?v=20250908-191739" alt="ATP-CFI" class="desk-pilot-dir-atp-cfi">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Airline Transport Pilot & Flight Instructor certificates</span></span>
+              <div class="cfi-frame" data-frame="5" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi6.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
 
-    <ul class="desk-pilot-directory-pilotbio">
+              <div class="cfi-frame" data-frame="6" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi7.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="7" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi8.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="131"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+            </div>
+          </div>
+
+                <ul class="pilotbio">
       <li>Current Employment: Central Africa contract King Air 350 Captain</li>
       <li>Type ratings: BE-300, LR-JET, SA-227</li>
+      <li>United States Air Force & Illinois Air National Guard veteran
       <li>Total time: 9,400</li>
       <li>Language: Functional in German</li>
-      
-    </ul>
-  </div>
+                </ul>
+          </div>
 
-    <div class="pilot-tile">
-    <img src="/assets/pilot-directory/headshots/les-s.jpg?v=20250908-191739" loading="lazy" fetchpriority="low" alt="Les S." class="desk-pilot-headshot">
-    <div class="desk-pilot-directory-pilotname">Les S.</div>
+         <div class="pilot-dir-directory-tile">
+            <img 
+              class="pilotheadshot"
+              src="/assets/blank1.jpg"
+              srcset="/assets/images/pilot-dir-les-s.jpg 125w"
+              sizes="125px" 
+              width="125"
+              height="174"
+              alt="Les S." 
+              loading="lazy" 
+              fetchpriority="low"> 
+              <div class="firstname">Les S.</div>
+              <img 
+                class="countrybar"
+                src="/assets/blank1.jpg"
+                srcset="assets/custom-grafx/grafx-pilot-dir-faa-bar.jpg 394w"
+                sizes="125px" 
+                alt="Country Bar"
+                width="394"
+                height="39"
+                loading="lazy" 
+                fetchpriority="low"> 
+                              <div class="pilot-dir-icon-aligner">
 
-        <img src="/assets/pilot-directory/faa-bar.jpg?v=20250908-191739" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
-        <img src="/assets/pilot-directory/atp-cfi.jpg?v=20250908-191739" alt="ATP-CFI" class="desk-pilot-dir-atp-cfi">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Airline Transport Pilot & Flight Instructor certificates</span></span>
+                  <div class="atp-wrap">
+              <!-- Trigger (frame 0 lives as the button image) -->
+              <button type="button" class="atp-trigger" aria-label="Play ATP animation">
+                <img
+                  class="pilotdirtooltip-atp"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp.jpg 126w"
+                  sizes="125px"
+                  alt="ATP"
+                  width="126"
+                  height="46"
+                  loading="lazy"
+                  fetchpriority="low">
+              </button>
 
-    <ul class="desk-pilot-directory-pilotbio">
+              <!-- Frames 1–3 overlay the trigger; start hidden -->
+              <div class="atp-frame" data-frame="1" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp2.png 166w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="atp-frame" data-frame="2" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp3.png 50w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="atp-frame" data-frame="3" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp4.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+            </div>
+
+
+
+                                <div class="cfi-wrap">
+              <!-- Trigger (frame 0 lives as the button image) -->
+              <button type="button" class="cfi-trigger" aria-label="Play CFI animation">
+                <img
+                  class="pilotdirtooltip-cfi"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi.jpg 126w"
+                  sizes="125px"
+                  alt="CFI"
+                  width="126"
+                  height="46"
+                  loading="lazy"
+                  fetchpriority="low">
+              </button>
+
+
+              <div class="cfi-frame" data-frame="1" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi2.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="2" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi3.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="3" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi4.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+          
+                          <div class="cfi-frame" data-frame="4" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi5.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+        
+              <div class="cfi-frame" data-frame="5" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi6.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="6" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi7.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="7" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi8.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="131"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+            </div>
+          </div>
+                <ul class="pilotbio">
       <li>Current Employment: Air Ambulance Lear 60 Captain</li>
       <li>Type ratings: B-777, HondaJet, LR-60, CE-750 (Citation X), SA-227</li>
       <li>Total time: 6,500</li>
       <li>Language: Functional in Spanish</li>
-    </ul>
-  </div>
+                </ul>
+          </div>
 
-  <div class="pilot-tile">
-    <img src="/assets/pilot-directory/headshots/erick.jpg?v=20250908-191739" alt="Erick G." loading="lazy" fetchpriority="low" class="desk-pilot-headshot">
-    <div class="desk-pilot-directory-pilotname">Erick G.</div>
-          <img src="/assets/pilot-directory/faa-bar.jpg?v=20250908-191739" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
-        <img src="/assets/pilot-directory/cfi.jpg?v=20250908-191739" alt="CFI" class="desk-pilot-dir-cfi">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Flight Instructor certificate</span></span>
-    <ul class="desk-pilot-directory-pilotbio">
+         <div class="pilot-dir-directory-tile">
+            <img 
+              class="pilotheadshot"
+              src="/assets/blank1.jpg"
+              srcset="/assets/images/pilot-dir-erick-g.jpg 125w"
+              sizes="125px" 
+              width="125"
+              height="177"
+              alt="Erick G." 
+              loading="lazy" 
+              fetchpriority="low"> 
+              <div class="firstname">Erick G.</div>
+              <img 
+                class="countrybar"
+                src="/assets/blank1.jpg"
+                srcset="assets/custom-grafx/grafx-pilot-dir-faa-bar.jpg 394w"
+                sizes="125px" 
+                alt="Country Bar"
+                width="394"
+                height="39"
+                loading="lazy" 
+                fetchpriority="low"> 
+            <div class="cfi-wrap">
+              <!-- Trigger (frame 0 lives as the button image) -->
+              <button type="button" class="cfi-trigger" aria-label="Play CFI animation">
+                <img
+                  class="pilotdirtooltip-cfi"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi.jpg 126w"
+                  sizes="125px"
+                  alt="CFI"
+                  width="126"
+                  height="46"
+                  loading="lazy"
+                  fetchpriority="low">
+              </button>
+
+
+              <div class="cfi-frame" data-frame="1" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi2.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="2" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi3.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="3" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi4.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+          
+                          <div class="cfi-frame" data-frame="4" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi5.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+        
+              <div class="cfi-frame" data-frame="5" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi6.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="6" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi7.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="7" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi8.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="131"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+            </div>
+
+                <ul class="pilotbio">
       <li>Pilot Certificate: Commercial Pilot</li>
       <li>Type ratings: LR-JET [SIC]</li>
       <li>Total time: 5,000</li>
       <li>Language: Fluent in Spanish</li>
-    </ul>
-  </div>
+                </ul>
+          </div>
 
-  <div class="pilot-tile">
-  <img src="/assets/pilot-directory/headshots/nick.jpg?v=20250908-191739" alt="Nick M." loading="lazy" fetchpriority="low"  class="desk-pilot-headshot">
-  <div class="desk-pilot-directory-pilotname">Nick M.</div>
-      <img src="/assets/pilot-directory/faa-bar.jpg?v=20250908-191739" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
-        <img src="/assets/pilot-directory/atp.jpg?v=20250908-191739" alt="ATP" class="desk-pilot-dir-pilot-license">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Airline Transport Pilot certificate</span></span>
-  <ul class="desk-pilot-directory-pilotbio">
+         <div class="pilot-dir-directory-tile">
+            <img 
+              class="pilotheadshot"
+              src="/assets/blank1.jpg"
+              srcset="/assets/images/pilot-dir-nick-m.jpg 125w"
+              sizes="125px" 
+              width="125"
+              height="185"
+              alt="Nick M." 
+              loading="lazy" 
+              fetchpriority="low"> 
+              <div class="firstname">Nick M.</div>
+              <img 
+                class="countrybar"
+                src="/assets/blank1.jpg"
+                srcset="assets/custom-grafx/grafx-pilot-dir-faa-bar.jpg 394w"
+                sizes="125px" 
+                alt="Country Bar"
+                width="394"
+                height="39"
+                loading="lazy" 
+                fetchpriority="low"> 
+             <div class="atp-wrap">
+              <!-- Trigger (frame 0 lives as the button image) -->
+              <button type="button" class="atp-trigger" aria-label="Play ATP animation">
+                <img
+                  class="pilotdirtooltip-atp"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp.jpg 126w"
+                  sizes="125px"
+                  alt="ATP"
+                  width="126"
+                  height="46"
+                  loading="lazy"
+                  fetchpriority="low">
+              </button>
+
+              <!-- Frames 1–3 overlay the trigger; start hidden -->
+              <div class="atp-frame" data-frame="1" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp2.png 166w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="atp-frame" data-frame="2" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp3.png 50w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="atp-frame" data-frame="3" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp4.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+            </div>
+               
+
+                <ul class="pilotbio">
     <li>Current Employment: Part 91(K) Fractional EMB-550 (Praetor) First Officer</li>
     <li>Type Ratings: EMB-550 (Praetor), FA-20 (Falcon), FA-50 [SIC], LRJET [SIC]</li>
     <li>Total time: 5,000</li>
-  </ul>
-</div>
+                </ul>
+          </div>
 
-  <div class="pilot-tile">
-  <img src="assets/pilot-directory/headshots/jeremy-flag.jpg?v=20250908-191739" alt="Jeremy R." loading="lazy" fetchpriority="low" class="desk-pilot-headshot">
-  <div class="desk-pilot-directory-pilotname">Jeremy R.</div>
-      <img src="/assets/pilot-directory/faa-bar.jpg?v=20250908-191739" alt="Country Bar" class="desk-pilot-dir-country-bar">
-      <span class="desk-pilot-dir-tooltip-parent"><img src="/assets/pilot-directory/atp.jpg?v=20250908-191739" alt="ATP" class="desk-pilot-dir-pilot-license"><span class="desk-pilot-dir-tooltip-box">F.A.A. Airline Transport Pilot - certificate</span></span><span class="desk-pilot-dir-tooltip-parent"><img src="/assets/pilot-directory/copter-icon.png?v=20250908-191739" alt="Helicopter icon" class="desk-pilot-dir-pilot-license">  <span class="desk-pilot-dir-tooltip-box">Helicopter Pilot</span></span>
+      <div class="pilot-dir-directory-tile">
+            <img 
+              class="pilotheadshot"
+              src="/assets/blank1.jpg"
+              srcset="/assets/images/pilot-dir-jeremy-r-flag.jpg 125w"
+              sizes="125px" 
+              width="125"
+              height="175"
+              alt="Jeremy R." 
+              loading="lazy" 
+              fetchpriority="low"> 
+
+             <button
+              type="button"
+              style="top: 21%;"
+              class="flagtrig pilotdirtooltip"
+              data-tooltip="United States Armed Forces current member or veteran (see bio)"
+              aria-label="U.S. Armed Forces veteran">
+              <span class="visually-hidden">Veteran</span>
+            </button>
+              <div class="firstname">Jeremy R.</div>
+              <img 
+                class="countrybar"
+                src="/assets/blank1.jpg"
+                srcset="assets/custom-grafx/grafx-pilot-dir-faa-bar.jpg 394w"
+                sizes="125px" 
+                alt="Country Bar"
+                width="394"
+                height="39"
+                loading="lazy" 
+                fetchpriority="low"> 
+            <div class="pilot-dir-icon-aligner">
+
+            <div class="atp-wrap">
+              <!-- Trigger (frame 0 lives as the button image) -->
+              <button type="button" class="atp-trigger" aria-label="Play ATP animation">
+                <img
+                  class="pilotdirtooltip-atp"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp.jpg 126w"
+                  sizes="125px"
+                  alt="ATP"
+                  width="126"
+                  height="46"
+                  loading="lazy"
+                  fetchpriority="low">
+              </button>
+
+              <!-- Frames 1–3 overlay the trigger; start hidden -->
+              <div class="atp-frame" data-frame="1" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp2.png 166w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="atp-frame" data-frame="2" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp3.png 50w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="atp-frame" data-frame="3" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp4.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+            </div>
+              <button
+              type="button"
+                class="pilotdirtooltip-heli" 
+                style="border-bottom: none;" 
+                data-tooltip="Helicopter Pilot">
+                      <img 
+                        src="/assets/icons/icon-copter.png?v=20250908-191739" alt="Helicopter icon" 
+                        >  
+          </button>
+              </div>
+       
 
 
-  <ul class="desk-pilot-directory-pilotbio">
+                <ul class="pilotbio">
     <li>Current Employment: Domestic & Overseas Contract EC225LP Super Puma Helicopter Pilot</li>
     <li>Pilot Certificates: Airline Transport Pilot - Rotorcraft Helicopter; Commercial Pilot Airplane Multi-Engine, Instrument
     <li>Type Ratings: EC225LP (Super Puma Helicopter), EC332L (Super Puma Helicopter) [SIC], EC332L1 (Super Puma Helicopter) [SIC], SA330 (Puma Helicopter) [SIC]</li>
     <li>Qualified in Bell 206, 212, 407, 412 Helicopters</li>
     <li>US Army veteran
     <li>Total time: 4,400</li>
-  </ul>
-</div>
+                </ul>
+          </div>
 
-<div class="pilot-tile">
-  <img src="/assets/pilot-directory/headshots/sheldon.jpg?v=20250908-191739" loading="lazy" fetchpriority="low" alt="Sheldon L." class="desk-pilot-headshot">
-  <div class="desk-pilot-directory-pilotname">Sheldon L.</div>
-      <img src="/assets/pilot-directory/faa-bar.jpg?v=20250908-191739" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
-        <img src="/assets/pilot-directory/atp-cfi.jpg?v=20250908-191739" alt="ATP-CFI" class="desk-pilot-dir-atp-cfi">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Airline Transport Pilot & Flight Instructor certificates</span></span>
-  <ul class="desk-pilot-directory-pilotbio">
+         <div class="pilot-dir-directory-tile">
+            <img 
+              class="pilotheadshot"
+              src="/assets/blank1.jpg"
+              srcset="/assets/images/pilot-dir-sheldon-l.jpg 125w"
+              sizes="125px" 
+              width="125"
+              height="174"
+              alt="Sheldon L." 
+              loading="lazy" 
+              fetchpriority="low"> 
+              <div class="firstname">Sheldon L.</div>
+              <img 
+                class="countrybar"
+                src="/assets/blank1.jpg"
+                srcset="assets/custom-grafx/grafx-pilot-dir-faa-bar.jpg 394w"
+                sizes="125px" 
+                alt="Country Bar"
+                width="394"
+                height="39"
+                loading="lazy" 
+                fetchpriority="low"> 
+                 <div class="pilot-dir-icon-aligner">
+
+                  <div class="atp-wrap">
+              <!-- Trigger (frame 0 lives as the button image) -->
+              <button type="button" class="atp-trigger" aria-label="Play ATP animation">
+                <img
+                  class="pilotdirtooltip-atp"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp.jpg 126w"
+                  sizes="125px"
+                  alt="ATP"
+                  width="126"
+                  height="46"
+                  loading="lazy"
+                  fetchpriority="low">
+              </button>
+
+              <!-- Frames 1–3 overlay the trigger; start hidden -->
+              <div class="atp-frame" data-frame="1" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp2.png 166w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="atp-frame" data-frame="2" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp3.png 50w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="atp-frame" data-frame="3" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp4.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+            </div>
+
+
+
+                                <div class="cfi-wrap">
+              <!-- Trigger (frame 0 lives as the button image) -->
+              <button type="button" class="cfi-trigger" aria-label="Play CFI animation">
+                <img
+                  class="pilotdirtooltip-cfi"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi.jpg 126w"
+                  sizes="125px"
+                  alt="CFI"
+                  width="126"
+                  height="46"
+                  loading="lazy"
+                  fetchpriority="low">
+              </button>
+
+
+              <div class="cfi-frame" data-frame="1" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi2.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="2" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi3.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="3" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi4.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+          
+                          <div class="cfi-frame" data-frame="4" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi5.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+        
+              <div class="cfi-frame" data-frame="5" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi6.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="6" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi7.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="7" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi8.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="131"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+            </div>
+          </div>
+
+                <ul class="pilotbio">
     <li>Ratings: Airplane Single Engine Sea</li>
     <li>Total time: 4,000</li>
-  </ul>
-</div>
+                </ul>
+          </div>
 
-<div class="pilot-tile">
-  <img src="/assets/pilot-directory/headshots/Brandon-W.jpg?v=20250908-191739" alt="Brandon W." loading="lazy" fetchpriority="low" class="desk-pilot-headshot">
-  <div class="desk-pilot-directory-pilotname">Brandon W.</div>
-           <img src="/assets/pilot-directory/faa-bar.jpg?v=20250908-191739" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
-        <img src="/assets/pilot-directory/cfi.jpg?v=20250908-191739" alt="CFI" class="desk-pilot-dir-cfi">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Flight Instructor certificate</span></span>
-  <ul class="desk-pilot-directory-pilotbio">
+                   <div class="pilot-dir-directory-tile">
+            <img 
+              class="pilotheadshot"
+              src="/assets/blank1.jpg"
+              srcset="/assets/images/pilot-dir-electra-b.jpg 125w"
+              sizes="125px" 
+              width="125"
+              height="175"
+              alt="Electra B." 
+              loading="lazy" 
+              fetchpriority="low"> 
+              <div class="firstname">Electra B.</div>
+              <img 
+                class="countrybar"
+                src="/assets/blank1.jpg"
+                srcset="assets/custom-grafx/grafx-pilot-dir-faa-bar.jpg 394w"
+                sizes="125px" 
+                alt="Country Bar"
+                width="394"
+                height="39"
+                loading="lazy" 
+                fetchpriority="low"> 
+ 
+
+                <ul class="pilotbio">
+    <li>Current Employment: Aerial Survey (5-hrs single-seat)</li>
+    <li>3,300 hours tailwheel</li>
+    <li>Pilot Certificate: Commercial Pilot</li>
+    <li>Total time: 3,900</li>
+                </ul>
+          </div>
+
+         <div class="pilot-dir-directory-tile">
+            <img 
+              class="pilotheadshot"
+              src="/assets/blank1.jpg"
+              srcset="/assets/images/pilot-dir-brandon-w.jpg 125w"
+              sizes="125px" 
+              width="125"
+              height="177"
+              alt="Brandon W." 
+              loading="lazy" 
+              fetchpriority="low"> 
+
+                           <button
+              type="button"
+              style="top: 25%;"
+              class="flagtrig pilotdirtooltip"
+              data-tooltip="United States Armed Forces current member or veteran (see bio)"
+              aria-label="U.S. Armed Forces veteran">
+              <span class="visually-hidden">Veteran</span>
+            </button>
+
+              <div class="firstname">Brandon W.</div>
+              <img 
+                class="countrybar"
+                src="/assets/blank1.jpg"
+                srcset="assets/custom-grafx/grafx-pilot-dir-faa-bar.jpg 394w"
+                sizes="125px" 
+                alt="Country Bar"
+                width="394"
+                height="39"
+                loading="lazy" 
+                fetchpriority="low"> 
+                         <div class="cfi-wrap">
+              <!-- Trigger (frame 0 lives as the button image) -->
+              <button type="button" class="cfi-trigger" aria-label="Play CFI animation">
+                <img
+                  class="pilotdirtooltip-cfi"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi.jpg 126w"
+                  sizes="125px"
+                  alt="CFI"
+                  width="126"
+                  height="46"
+                  loading="lazy"
+                  fetchpriority="low">
+              </button>
+
+
+              <div class="cfi-frame" data-frame="1" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi2.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="2" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi3.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="3" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi4.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+          
+                          <div class="cfi-frame" data-frame="4" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi5.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+        
+              <div class="cfi-frame" data-frame="5" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi6.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="6" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi7.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="7" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi8.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="131"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+            </div>
+
+                <ul class="pilotbio">
     <li>Current Employment: Part 135 CE-208 Captain, Alaska-based</li>
     <li>Pilot Certificate: Commercial Pilot</li>
     <li>Familiar with Quest Kodiak, DHC Beaver, and Garrett Caravan</li>
     <li>United States Marine veteran</li>
     <li>Total time: 3,600</li>
-  </ul>
-</div>
+                </ul>
+          </div>
 
-<div class="pilot-tile">
-  <img src="/assets/pilot-directory/headshots/wolfie.jpg?v=20250908-191739" loading="lazy" fetchpriority="low"  alt="Wolfe C." class="desk-pilot-headshot">
-  <div class="desk-pilot-directory-pilotname">Wolfe C.</div>
-      <img src="/assets/pilot-directory/faa-bar.jpg?v=20250908-191739" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
-        <img src="/assets/pilot-directory/atp-cfi.jpg?v=20250908-191739" alt="ATP-CFI" class="desk-pilot-dir-atp-cfi">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Airline Transport Pilot & Flight Instructor certificates</span></span>
-  <ul class="desk-pilot-directory-pilotbio">
+         <div class="pilot-dir-directory-tile">
+            <img 
+              class="pilotheadshot"
+              src="/assets/blank1.jpg"
+              srcset="/assets/images/pilot-dir-wolfie.jpg 125w"
+              sizes="125px" 
+              width="125"
+              height="177"
+              alt="Wolfe C." 
+              loading="lazy" 
+              fetchpriority="low"> 
+              <div class="firstname">Wolfe C.</div>
+              <img 
+                class="countrybar"
+                src="/assets/blank1.jpg"
+                srcset="assets/custom-grafx/grafx-pilot-dir-faa-bar.jpg 394w"
+                sizes="125px" 
+                alt="Country Bar"
+                width="394"
+                height="39"
+                loading="lazy" 
+                fetchpriority="low"> 
+                 <div class="pilot-dir-icon-aligner">
+
+                  <div class="atp-wrap">
+              <!-- Trigger (frame 0 lives as the button image) -->
+              <button type="button" class="atp-trigger" aria-label="Play ATP animation">
+                <img
+                  class="pilotdirtooltip-atp"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp.jpg 126w"
+                  sizes="125px"
+                  alt="ATP"
+                  width="126"
+                  height="46"
+                  loading="lazy"
+                  fetchpriority="low">
+              </button>
+
+              <!-- Frames 1–3 overlay the trigger; start hidden -->
+              <div class="atp-frame" data-frame="1" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp2.png 166w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="atp-frame" data-frame="2" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp3.png 50w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="atp-frame" data-frame="3" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp4.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+            </div>
+
+
+
+                                <div class="cfi-wrap">
+              <!-- Trigger (frame 0 lives as the button image) -->
+              <button type="button" class="cfi-trigger" aria-label="Play CFI animation">
+                <img
+                  class="pilotdirtooltip-cfi"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi.jpg 126w"
+                  sizes="125px"
+                  alt="CFI"
+                  width="126"
+                  height="46"
+                  loading="lazy"
+                  fetchpriority="low">
+              </button>
+
+
+              <div class="cfi-frame" data-frame="1" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi2.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="2" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi3.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="3" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi4.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+          
+                          <div class="cfi-frame" data-frame="4" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi5.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+        
+              <div class="cfi-frame" data-frame="5" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi6.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="6" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi7.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="7" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi8.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="131"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+            </div>
+          </div>
+
+                <ul class="pilotbio">
     <li>Current Employment: Part 135 CE-750 First Officer</li>
     <li>Pilot Certificate: Airline Transport Pilot (R): age</li>
     <li>Type ratings: IA-1125 (G100), CE-500, CE-750 (Citation X), Gulfstream IV [SIC]</li>
     <li>Endorsements: Tailwheel</li>
     <li>Total time: 3,400</li>
     <li>Language: Fluent in French</li>
-  </ul>
-</div>
+                </ul>
+          </div>
 
-<div class="pilot-tile">
-  <img src="/assets/pilot-directory/headshots/doug.jpg?v=20250908-191739" alt="Doug C." loading="lazy" fetchpriority="low" class="desk-pilot-headshot">
-  <div class="desk-pilot-directory-pilotname">Doug C.</div>
-      <img src="/assets/pilot-directory/faa-bar.jpg?v=20250908-191739" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
-        <img src="/assets/pilot-directory/atp-cfi.jpg?v=20250908-191739" alt="ATP-CFI" class="desk-pilot-dir-atp-cfi">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Airline Transport Pilot & Flight Instructor certificates</span></span>
-  <ul class="desk-pilot-directory-pilotbio">
+         <div class="pilot-dir-directory-tile">
+            <img 
+              class="pilotheadshot"
+              src="/assets/blank1.jpg"
+              srcset="/assets/images/pilot-dir-doug-c.jpg 125w"
+              sizes="125px" 
+              width="125"
+              height="177"
+              alt="Doug C." 
+              loading="lazy" 
+              fetchpriority="low"> 
+              <div class="firstname">Doug C.</div>
+              <img 
+                class="countrybar"
+                src="/assets/blank1.jpg"
+                srcset="assets/custom-grafx/grafx-pilot-dir-faa-bar.jpg 394w"
+                sizes="125px" 
+                alt="Country Bar"
+                width="394"
+                height="39"
+                loading="lazy" 
+                fetchpriority="low"> 
+                 <div class="pilot-dir-icon-aligner">
+
+                  <div class="atp-wrap">
+              <!-- Trigger (frame 0 lives as the button image) -->
+              <button type="button" class="atp-trigger" aria-label="Play ATP animation">
+                <img
+                  class="pilotdirtooltip-atp"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp.jpg 126w"
+                  sizes="125px"
+                  alt="ATP"
+                  width="126"
+                  height="46"
+                  loading="lazy"
+                  fetchpriority="low">
+              </button>
+
+              <!-- Frames 1–3 overlay the trigger; start hidden -->
+              <div class="atp-frame" data-frame="1" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp2.png 166w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="atp-frame" data-frame="2" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp3.png 50w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="atp-frame" data-frame="3" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp4.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+            </div>
+
+
+
+                                <div class="cfi-wrap">
+              <!-- Trigger (frame 0 lives as the button image) -->
+              <button type="button" class="cfi-trigger" aria-label="Play CFI animation">
+                <img
+                  class="pilotdirtooltip-cfi"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi.jpg 126w"
+                  sizes="125px"
+                  alt="CFI"
+                  width="126"
+                  height="46"
+                  loading="lazy"
+                  fetchpriority="low">
+              </button>
+
+
+              <div class="cfi-frame" data-frame="1" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi2.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="2" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi3.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="3" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi4.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+          
+                          <div class="cfi-frame" data-frame="4" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi5.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+        
+              <div class="cfi-frame" data-frame="5" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi6.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="6" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi7.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="7" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi8.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="131"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+            </div>
+          </div>
+
+                <ul class="pilotbio">
     <li>Current Employment: Flag Carrier Part 121 B737 First Officer</li>
     <li>Type Ratings: B737, DHC-8, EMB-170/175/190/195</li>
     <li>Total time: 4,000</li>
-  </ul>
-</div>
+                </ul>
+          </div>
 
-<div class="pilot-tile">
-  <img src="/assets/pilot-directory/headshots/guneet-s.jpg?v=20250908-191739" alt="Guneet S." fetchpriority="low"  loading="lazy" class="desk-pilot-headshot">
-  <div class="desk-pilot-directory-pilotname">Guneet S.</div>
-      <img src="/assets/pilot-directory/faa-bar.jpg?v=20250908-191739" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
-        <img src="/assets/pilot-directory/cfi.jpg?v=20250908-191739" alt="CFI" class="desk-pilot-dir-cfi">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Flight Instructor certificate</span></span>
-  <ul class="desk-pilot-directory-pilotbio">
+
+
+         <div class="pilot-dir-directory-tile">
+            <img 
+              class="pilotheadshot"
+              src="/assets/blank1.jpg"
+              srcset="/assets/images/pilot-dir-guneet-s.jpg 125w"
+              sizes="125px" 
+              width="125"
+              height="177"
+              alt="Guneet S." 
+              loading="lazy" 
+              fetchpriority="low"> 
+              <div class="firstname">Guneet S.</div>
+              <img 
+                class="countrybar"
+                src="/assets/blank1.jpg"
+                srcset="assets/custom-grafx/grafx-pilot-dir-faa-bar.jpg 394w"
+                sizes="125px" 
+                alt="Country Bar"
+                width="394"
+                height="39"
+                loading="lazy" 
+                fetchpriority="low"> 
+           <div class="cfi-wrap">
+              <!-- Trigger (frame 0 lives as the button image) -->
+              <button type="button" class="cfi-trigger" aria-label="Play CFI animation">
+                <img
+                  class="pilotdirtooltip-cfi"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi.jpg 126w"
+                  sizes="125px"
+                  alt="CFI"
+                  width="126"
+                  height="46"
+                  loading="lazy"
+                  fetchpriority="low">
+              </button>
+
+
+              <div class="cfi-frame" data-frame="1" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi2.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="2" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi3.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="3" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi4.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+          
+                          <div class="cfi-frame" data-frame="4" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi5.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+        
+              <div class="cfi-frame" data-frame="5" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi6.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="6" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi7.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="7" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi8.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="131"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+            </div>
+
+                <ul class="pilotbio">
     <li>Current Employment: Flight Instructor</li>
     <li>Total time: 1,700</li>
     <li>Language: Fluent in Hindi & Punjabi
-  </ul>
-</div>
+                </ul>
+          </div>
 
-      <div class="pilot-tile">
-        <img 
-          src="/assets/pilot-directory/headshots/andrew-e.jpg?v=20250908-191739" alt="Andrew E." 
-          fetchpriority="low"  
-          loading="lazy" 
-          class="desk-pilot-headshot">
-        <div class="desk-pilot-directory-pilotname">Andrew E.</div>
-        <img 
-          src="/assets/pilot-directory/faa-bar.jpg?v=20250908-191739" alt="Country Bar" 
-          class="desk-pilot-dir-country-bar">
-          <span class="desk-pilot-dir-tooltip-parent">
+         <div class="pilot-dir-directory-tile">
             <img 
-              src="/assets/pilot-directory/atp-cfi.jpg?v=20250908-191739" alt="ATP-CFI" 
-              class="desk-pilot-dir-atp-cfi">
-              <span class="desk-pilot-dir-tooltip-box">F.A.A. Airline Transport Pilot & Flight Instructor certificates</span>
-          </span>
-          <ul class="desk-pilot-directory-pilotbio">
+              class="pilotheadshot"
+              src="/assets/blank1.jpg"
+              srcset="/assets/images/pilot-dir-andrew-e.jpg 125w"
+              sizes="125px" 
+              width="125"
+              height="167"
+              alt="Andrew E." 
+              loading="lazy" 
+              fetchpriority="low"> 
+              <div class="firstname">Andrew E.</div>
+              <img 
+                class="countrybar"
+                src="/assets/blank1.jpg"
+                srcset="assets/custom-grafx/grafx-pilot-dir-faa-bar.jpg 394w"
+                sizes="125px" 
+                alt="Country Bar"
+                width="394"
+                height="39"
+                loading="lazy" 
+                fetchpriority="low"> 
+                 <div class="pilot-dir-icon-aligner">
+
+                  <div class="atp-wrap">
+              <!-- Trigger (frame 0 lives as the button image) -->
+              <button type="button" class="atp-trigger" aria-label="Play ATP animation">
+                <img
+                  class="pilotdirtooltip-atp"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp.jpg 126w"
+                  sizes="125px"
+                  alt="ATP"
+                  width="126"
+                  height="46"
+                  loading="lazy"
+                  fetchpriority="low">
+              </button>
+
+              <!-- Frames 1–3 overlay the trigger; start hidden -->
+              <div class="atp-frame" data-frame="1" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp2.png 166w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="atp-frame" data-frame="2" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp3.png 50w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="atp-frame" data-frame="3" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-atp4.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+            </div>
+
+
+
+                                <div class="cfi-wrap">
+              <!-- Trigger (frame 0 lives as the button image) -->
+              <button type="button" class="cfi-trigger" aria-label="Play CFI animation">
+                <img
+                  class="pilotdirtooltip-cfi"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi.jpg 126w"
+                  sizes="125px"
+                  alt="CFI"
+                  width="126"
+                  height="46"
+                  loading="lazy"
+                  fetchpriority="low">
+              </button>
+
+
+              <div class="cfi-frame" data-frame="1" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi2.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="2" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi3.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="3" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi4.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+          
+                          <div class="cfi-frame" data-frame="4" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi5.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+        
+              <div class="cfi-frame" data-frame="5" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi6.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="6" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi7.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="7" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi8.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="131"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+            </div>
+          </div>
+
+                <ul class="pilotbio">
             <li>Current Employment: Part 135 Citation X First Officer</li>
             <li>Type Ratings: CE-750 (Citation X)</li>
             <li>Endorsements: Tailwheel</li>
             <li>Total time: 1,600</li>
-          </ul>
-      </div>
+                </ul>
+          </div>
 
-<div class="pilot-tile">
-  <img src="/assets/pilot-directory/headshots/justin-1.jpg?v=20250908-191739" alt="Justin A." fetchpriority="low"  loading="lazy" class="desk-pilot-headshot">
-  <div class="desk-pilot-directory-pilotname">Justin A.</div>
 
-        <img src="/assets/pilot-directory/faa-bar.jpg?v=20250908-191739" alt="Country Bar" class="desk-pilot-dir-country-bar">
+         <div class="pilot-dir-directory-tile">
+            <img 
+              class="pilotheadshot"
+              src="/assets/blank1.jpg"
+              srcset="/assets/images/pilot-dir-justin-1.jpg 125w"
+              sizes="125px" 
+              width="125"
+              height="160"
+              alt="Justin A." 
+              loading="lazy" 
+              fetchpriority="low"> 
 
-  <ul class="desk-pilot-directory-pilotbio">
+                                        <button
+              type="button"
+              style="top: 21%; height: 90px;"
+              class="flagtrig pilotdirtooltip"
+              data-tooltip="1 completed ferry flight for Aircraft Delivery Solutions"
+              aria-label="1 completed ferry flight for Aircraft Delivery Solutions">
+              <span class="visually-hidden">Has completed flights for company</span>
+            </button>
+
+              <div class="firstname">Justin A.</div>
+              <img 
+                class="countrybar"
+                src="/assets/blank1.jpg"
+                srcset="assets/custom-grafx/grafx-pilot-dir-faa-bar.jpg 394w"
+                sizes="125px" 
+                alt="Country Bar"
+                width="394"
+                height="39"
+                loading="lazy" 
+                fetchpriority="low"> 
+
+
+                <ul class="pilotbio">
     <li>Pilot Certificate: Commercial Pilot</li>
     <li>Dispatcher certificate</li>
     <li>Mooney M20 owner</li>
     <li>27-year airline employee</li>
     <li>Total time: 1,400</li>
-  </ul>
-</div>
+                </ul>
+          </div>
 
-<div class="pilot-tile">
-  <img src="/assets/pilot-directory/headshots/will-k.jpg?v=20250908-191739" alt="Will K." fetchpriority="low"  loading="lazy" class="desk-pilot-headshot">
-  <div class="desk-pilot-directory-pilotname">Will K.</div>
-          <img src="/assets/pilot-directory/faa-bar.jpg?v=20250908-191739" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
-        <img src="/assets/pilot-directory/cfi.jpg?v=20250908-191739" alt="CFI" class="desk-pilot-dir-cfi">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Flight Instructor certificate</span></span>
-  <ul class="desk-pilot-directory-pilotbio">
+
+
+         <div class="pilot-dir-directory-tile">
+            <img 
+              class="pilotheadshot"
+              src="/assets/blank1.jpg"
+              srcset="/assets/images/pilot-dir-will-k.jpg 125w"
+              sizes="125px" 
+              width="125"
+              height="165"
+              alt="Will K." 
+              loading="lazy" 
+              fetchpriority="low"> 
+
+                                         <button
+              type="button"
+              style="top: 27%;"
+              class="flagtrig pilotdirtooltip"
+              data-tooltip="United States Armed Forces current member or veteran (see bio)"
+              aria-label="U.S. Armed Forces veteran">
+              <span class="visually-hidden">Veteran</span>
+            </button>
+
+              <div class="firstname">Will K.</div>
+              <img 
+                class="countrybar"
+                src="/assets/blank1.jpg"
+                srcset="assets/custom-grafx/grafx-pilot-dir-faa-bar.jpg 394w"
+                sizes="125px" 
+                alt="Country Bar"
+                width="394"
+                height="39"
+                loading="lazy" 
+                fetchpriority="low"> 
+                  <div class="cfi-wrap">
+              <!-- Trigger (frame 0 lives as the button image) -->
+              <button type="button" class="cfi-trigger" aria-label="Play CFI animation">
+                <img
+                  class="pilotdirtooltip-cfi"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi.jpg 126w"
+                  sizes="125px"
+                  alt="CFI"
+                  width="126"
+                  height="46"
+                  loading="lazy"
+                  fetchpriority="low">
+              </button>
+
+
+              <div class="cfi-frame" data-frame="1" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi2.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="2" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi3.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="3" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi4.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+          
+                          <div class="cfi-frame" data-frame="4" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi5.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+        
+              <div class="cfi-frame" data-frame="5" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi6.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="6" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi7.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="7" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi8.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="131"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+            </div>
+
+                <ul class="pilotbio">
     <li>Current Employment: Part 141 Flight School Senior Lead Instructor & 141 Check Airman</li>
     <li>Pilot Certificate: Commercial Pilot</li>
     <li>CE-650 SIC (61.55) endorsement</li>
     <li>US Navy veteran</li>
     <li>Total time: 1,200</li>
-  </ul>
-</div>
-<div class="pilot-tile">
-  <img src="/assets/pilot-directory/headshots/don.jpg?v=20250908-191739" alt="Don H." loading="lazy" fetchpriority="low" class="desk-pilot-headshot">
-  <div class="desk-pilot-directory-pilotname">Don H.</div>
+                </ul>
+          </div>
 
-          <img src="/assets/pilot-directory/faa-bar.jpg?v=20250908-191739" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
-        <img src="/assets/pilot-directory/cfi.jpg?v=20250908-191739" alt="CFI" class="desk-pilot-dir-cfi">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Flight Instructor certificate</span></span>
 
-  <ul class="desk-pilot-directory-pilotbio">
+         <div class="pilot-dir-directory-tile">
+            <img 
+              class="pilotheadshot"
+              src="/assets/blank1.jpg"
+              srcset="/assets/images/pilot-dir-don-h.jpg 125w"
+              sizes="125px" 
+              width="125"
+              height="178"
+              alt="Don H." 
+              loading="lazy" 
+              fetchpriority="low"> 
+              <div class="firstname">Don H.</div>
+              <img 
+                class="countrybar"
+                src="/assets/blank1.jpg"
+                srcset="assets/custom-grafx/grafx-pilot-dir-faa-bar.jpg 394w"
+                sizes="125px" 
+                alt="Country Bar"
+                width="394"
+                height="39"
+                loading="lazy" 
+                fetchpriority="low"> 
+                  <div class="cfi-wrap">
+              <!-- Trigger (frame 0 lives as the button image) -->
+              <button type="button" class="cfi-trigger" aria-label="Play CFI animation">
+                <img
+                  class="pilotdirtooltip-cfi"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi.jpg 126w"
+                  sizes="125px"
+                  alt="CFI"
+                  width="126"
+                  height="46"
+                  loading="lazy"
+                  fetchpriority="low">
+              </button>
+
+
+              <div class="cfi-frame" data-frame="1" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi2.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="2" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi3.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="3" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi4.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+          
+                          <div class="cfi-frame" data-frame="4" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi5.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+        
+              <div class="cfi-frame" data-frame="5" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi6.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="6" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi7.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="7" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi8.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="131"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+            </div>
+
+                <ul class="pilotbio">
     <li>Pilot Certificate: Commercial Pilot</li>
     <li>Ratings: Glider, Sport Pilot Glider Instructor Endorsement</li>
     <li>Practicing attorney in California</li>
     <li>Cirrus SR-22 owner</li>
     <li>Total time: 1,200</li>
-  </ul>
-</div>
+                </ul>
+          </div>
 
-        <div class="pilot-tile">
-          <img 
-            src="/assets/pilot-directory/headshots/Harry-y-flag.jpg?v=20250908-191739" 
-            loading="lazy" 
-            fetchpriority="low"  
-            alt="Harry Y." 
-            class="desk-pilot-headshot">
-          <div class="desk-pilot-directory-pilotname">Harry Y.</div>
-          <img 
-            src="/assets/pilot-directory/faa-bar.jpg?v=20250908-191739"
-            alt="Country Bar" 
-            class="desk-pilot-dir-country-bar">
-          <span class="desk-pilot-dir-tooltip-parent">
+         <div class="pilot-dir-directory-tile">
             <img 
-              src="/assets/pilot-directory/copter-icon.png?v=20250908-191739" alt="Helicopter Pilot" 
-              class="desk-pilot-dir-cfi">
-            <span class="desk-pilot-dir-tooltip-box">Helicopter Pilot</span>
-          </span>
-          <ul class="desk-pilot-directory-pilotbio">
+              class="pilotheadshot"
+              src="/assets/blank1.jpg"
+              srcset="/assets/images/pilot-dir-harry-y-flag.jpg 125w"
+              sizes="125px" 
+              width="125"
+              height="177"
+              alt="Harry Y." 
+              loading="lazy" 
+              fetchpriority="low"> 
+
+            <button
+              type="button"
+              style="top: 29%;"
+              class="flagtrig pilotdirtooltip"
+              data-tooltip="United States Armed Forces current member or veteran (see bio)"
+              aria-label="U.S. Armed Forces veteran">
+              <span class="visually-hidden">Veteran</span>
+            </button>
+
+              <div class="firstname">Harry Y.</div>
+              <img 
+                class="countrybar"
+                src="/assets/blank1.jpg"
+                srcset="assets/custom-grafx/grafx-pilot-dir-faa-bar.jpg 394w"
+                sizes="125px" 
+                alt="Country Bar"
+                width="394"
+                height="39"
+                loading="lazy" 
+                fetchpriority="low"> 
+              <button
+              type="button"
+                class="pilotdirtooltip-heli" 
+                style="border-bottom: none; margin: 0 auto;" 
+                data-tooltip="Helicopter Pilot">
+                      <img 
+                        src="/assets/icons/icon-copter.png?v=20250908-191739" alt="Helicopter icon" 
+                        >  
+          </button>
+
+                <ul class="pilotbio">
             <li>Current Employment: Army National Guard UH-60 Aircraft Commander</li>
             <li>Pilot Certificate: Commercial Pilot</li>
             <li>Ratings: Rotorcraft Helicopter; Instrument Helicopter</li>
             <li>Type ratings: S-70 (UH-60 helicopter)</li>
             <li>Total time: 900</li>
-          </ul>
-        </div>
+                </ul>
+          </div>
 
-        <div class="pilot-tile">
-          <img 
-            src="/assets/pilot-directory/headshots/royale-j.jpg?v=20250908-191739" 
-            loading="lazy" 
-            fetchpriority="low"  
-            alt="Royale J." 
-            class="desk-pilot-headshot">
-          <div class="desk-pilot-directory-pilotname">Royale J.</div>
-          <img 
-            src="/assets/pilot-directory/faa-bar.jpg?v=20250908-191739" alt="Country Bar" 
-            class="desk-pilot-dir-country-bar">
-            <span class="desk-pilot-dir-tooltip-parent">
+         <div class="pilot-dir-directory-tile">
+            <img 
+              class="pilotheadshot"
+              src="/assets/blank1.jpg"
+              srcset="/assets/images/pilot-dir-royale-j.jpg 125w"
+              sizes="125px" 
+              width="125"
+              height="175"
+              alt="Royale J." 
+              loading="lazy" 
+              fetchpriority="low"> 
+              <div class="firstname">Royale J.</div>
               <img 
-                src="/assets/pilot-directory/cfi.jpg?v=20250908-191739" 
-                alt="CFI" 
-                class="desk-pilot-dir-cfi">
-                  <span class="desk-pilot-dir-tooltip-box">F.A.A. Flight Instructor certificate</span>
-            </span>
-          <ul class="desk-pilot-directory-pilotbio">
+                class="countrybar"
+                src="/assets/blank1.jpg"
+                srcset="assets/custom-grafx/grafx-pilot-dir-faa-bar.jpg 394w"
+                sizes="125px" 
+                alt="Country Bar"
+                width="394"
+                height="39"
+                loading="lazy" 
+                fetchpriority="low"> 
+                                <div class="cfi-wrap">
+              <!-- Trigger (frame 0 lives as the button image) -->
+              <button type="button" class="cfi-trigger" aria-label="Play CFI animation">
+                <img
+                  class="pilotdirtooltip-cfi"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi.jpg 126w"
+                  sizes="125px"
+                  alt="CFI"
+                  width="126"
+                  height="46"
+                  loading="lazy"
+                  fetchpriority="low">
+              </button>
+
+
+              <div class="cfi-frame" data-frame="1" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi2.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="2" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi3.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="3" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi4.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+          
+                          <div class="cfi-frame" data-frame="4" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi5.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+        
+              <div class="cfi-frame" data-frame="5" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi6.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="6" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi7.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="7" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi8.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="131"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+            </div>
+
+                <ul class="pilotbio">
             <li>Current Employment: Flight Instructor</li>
             <li>Pilot Certificate: Commercial Pilot</li>
             <li>Total time: 900</li>
-          </ul>
-        </div>
+                </ul>
+          </div>
 
-        <div class="pilot-tile">
-  <img src="/assets/pilot-directory/headshots/brian-d.png?v=20250908-191739" alt="Brian D." loading="lazy" fetchpriority="low" class="desk-pilot-headshot">
-  <div class="desk-pilot-directory-pilotname">Brian D.</div>
+         <div class="pilot-dir-directory-tile">
+            <img 
+              class="pilotheadshot"
+              src="/assets/blank1.jpg"
+              srcset="/assets/images/pilot-dir-brian-d.png 125w"
+              sizes="125px" 
+              width="125"
+              height="163"
+              alt="Brian D." 
+              loading="lazy" 
+              fetchpriority="low"> 
+              <div class="firstname">Brian D.</div>
+              <img 
+                class="countrybar"
+                src="/assets/blank1.jpg"
+                srcset="assets/custom-grafx/grafx-pilot-dir-faa-bar.jpg 394w"
+                sizes="125px" 
+                alt="Country Bar"
+                width="394"
+                height="39"
+                loading="lazy" 
+                fetchpriority="low"> 
+ 
 
-          <img src="/assets/pilot-directory/faa-bar.jpg?v=20250908-191739" alt="Country Bar" class="desk-pilot-dir-country-bar">
-
-  <ul class="desk-pilot-directory-pilotbio">
+                <ul class="pilotbio">
     <li>Pilot Certificate: Commercial Pilot</li>
     <li>Ratings: Airplane Single Engine Sea</li>
     <li>Cessna 172 & Avid Flyer owner</li>
-    <li>Total time: 850</li>
-  </ul>
-</div>
+    <li>Total time: 950</li>
+                </ul>
+          </div>
 
-<div class="pilot-tile">
-  <img src="/assets/pilot-directory/headshots/joseph-1.jpg?v=20250908-191739" alt="Joseph W." loading="lazy" fetchpriority="low" class="desk-pilot-headshot">
-  <div class="desk-pilot-directory-pilotname">Joseph W.</div>
+  <div class="pilot-dir-directory-tile">
+            <img 
+              class="pilotheadshot"
+              src="/assets/blank1.jpg"
+              srcset="/assets/images/pilot-dir-joseph-w.jpg 125w"
+              sizes="125px" 
+              width="125"
+              height="175"
+              alt="Joseph W." 
+              loading="lazy" 
+              fetchpriority="low"> 
 
-               <img src="/assets/pilot-directory/faa-bar.jpg?v=20250908-191739" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
-        <img src="/assets/pilot-directory/cfi.jpg?v=20250908-191739" alt="CFI" class="desk-pilot-dir-cfi">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Flight Instructor certificate</span></span>
+                          <button
+              type="button"
+              style="top: 29%; height: 90px;"
+              class="flagtrig pilotdirtooltip"
+              data-tooltip="1 completed ferry flight for Aircraft Delivery Solutions"
+              aria-label="1 completed ferry flight for Aircraft Delivery Solutions">
+              <span class="visually-hidden">Veteran</span>
+            </button>
+              
+              <div class="firstname">Joseph W.</div>
+              <img 
+                class="countrybar"
+                src="/assets/blank1.jpg"
+                srcset="assets/custom-grafx/grafx-pilot-dir-faa-bar.jpg 394w"
+                sizes="125px" 
+                alt="Country Bar"
+                width="394"
+                height="39"
+                loading="lazy" 
+                fetchpriority="low"> 
+                  <div class="cfi-wrap">
+              <!-- Trigger (frame 0 lives as the button image) -->
+              <button type="button" class="cfi-trigger" aria-label="Play CFI animation">
+                <img
+                  class="pilotdirtooltip-cfi"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi.jpg 126w"
+                  sizes="125px"
+                  alt="CFI"
+                  width="126"
+                  height="46"
+                  loading="lazy"
+                  fetchpriority="low">
+              </button>
 
-  <ul class="desk-pilot-directory-pilotbio">
-    <li>Pilot Certificate: Commercial Pilot</li>
+
+              <div class="cfi-frame" data-frame="1" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi2.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="2" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi3.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="3" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi4.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+          
+                          <div class="cfi-frame" data-frame="4" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi5.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+        
+              <div class="cfi-frame" data-frame="5" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi6.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="6" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi7.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="7" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi8.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="131"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+            </div>
+
+                <ul class="pilotbio">
+      <li>Pilot Certificate: Commercial Pilot</li>
     <li>Total time: 600</li>
-  </ul>
-</div>
+                </ul>
+          </div>
 
-<div class="pilot-tile">
-  <img src="/assets/pilot-directory/headshots/mike-m-flag.jpg?v=20250908-191739" loading="lazy" alt="Mike M." fetchpriority="low" class="desk-pilot-headshot">
-  <div class="desk-pilot-directory-pilotname">Mike M.</div>
-
-          <img src="/assets/pilot-directory/faa-bar.jpg?v=20250908-191739" alt="Country Bar" class="desk-pilot-dir-country-bar">
-
-  <ul class="desk-pilot-directory-pilotbio">
+         <div class="pilot-dir-directory-tile">
+            <img 
+              class="pilotheadshot"
+              src="/assets/blank1.jpg"
+              srcset="/assets/images/pilot-dir-mike-m-flag.jpg 125w"
+              sizes="125px" 
+              width="125"
+              height="194"
+              alt="Mike M." 
+              loading="lazy" 
+              fetchpriority="low"> 
+                          <button
+              type="button"
+              style="top: 40%;"
+              class="flagtrig pilotdirtooltip"
+              data-tooltip="United States Armed Forces current member or veteran (see bio)"
+              aria-label="U.S. Armed Forces veteran">
+              <span class="visually-hidden">Veteran</span>
+            </button>
+              <div class="firstname">Mike M.</div>
+              <img 
+                class="countrybar"
+                src="/assets/blank1.jpg"
+                srcset="assets/custom-grafx/grafx-pilot-dir-faa-bar.jpg 394w"
+                sizes="125px" 
+                alt="Country Bar"
+                width="394"
+                height="39"
+                loading="lazy" 
+                fetchpriority="low"> 
+ 
+                <ul class="pilotbio">
     <li>Pilot Certificate: Commercial Pilot</li>
     <li>United States Marine with 12 years' service</li>
     <li>Total time: 600</li>
-  </ul>
-</div>
+                </ul>
+          </div>
 
-<div class="pilot-tile">
-  <img src="/assets/pilot-directory/headshots/corey-s.jpg?v=20250908-191739" loading="lazy" alt="Corey S." fetchpriority="low" class="desk-pilot-headshot">
-  <div class="desk-pilot-directory-pilotname">Corey S.</div>
 
-          <img src="/assets/pilot-directory/faa-bar.jpg?v=20250908-191739" alt="Country Bar" class="desk-pilot-dir-country-bar">
+         <div class="pilot-dir-directory-tile">
+            <img 
+              class="pilotheadshot"
+              src="/assets/blank1.jpg"
+              srcset="/assets/images/pilot-dir-corey-s.jpg 125w"
+              sizes="125px" 
+              width="125"
+              height="175"
+              alt="Corey S." 
+              loading="lazy" 
+              fetchpriority="low"> 
 
-  <ul class="desk-pilot-directory-pilotbio">
+                                        <button
+              type="button"
+              style="top: 35%;"
+              class="flagtrig pilotdirtooltip"
+              data-tooltip="United States Armed Forces current member or veteran (see bio)"
+              aria-label="U.S. Armed Forces veteran">
+              <span class="visually-hidden">Veteran</span>
+            </button>
+              <div class="firstname">Corey S.</div>
+              <img 
+                class="countrybar"
+                src="/assets/blank1.jpg"
+                srcset="assets/custom-grafx/grafx-pilot-dir-faa-bar.jpg 394w"
+                sizes="125px" 
+                alt="Country Bar"
+                width="394"
+                height="39"
+                loading="lazy" 
+                fetchpriority="low"> 
+ 
+
+                <ul class="pilotbio">
     <li>Pilot Certificate: Commercial Pilot</li>
     <li>Beechcraft V35 Bonanza owner
     <li>United States Air Force veteran with 20 years' service</li>
     <li>Total time: 500</li>
-  </ul>
-</div>
+                </ul>
+          </div>
 
-<div class="pilot-tile">
-  <img src="/assets/pilot-directory/headshots/zach-f.jpg?v=20250908-191739" loading="lazy" fetchpriority="low" alt="Zach F" class="desk-pilot-headshot">
-  <div class="desk-pilot-directory-pilotname">Zach F.</div>
-          <img src="/assets/pilot-directory/faa-bar.jpg?v=20250908-191739" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
-        <img src="/assets/pilot-directory/cfi.jpg?v=20250908-191739" alt="CFI" class="desk-pilot-dir-cfi">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Flight Instructor certificate</span></span>
-  <ul class="desk-pilot-directory-pilotbio">
-    <li>Pilot Certificate: Commercial Pilot</li>
-    <li>Total time: 360</li>
-  </ul>
-</div>
+         <div class="pilot-dir-directory-tile">
+            <img 
+              class="pilotheadshot"
+              src="/assets/blank1.jpg"
+              srcset="/assets/images/pilot-dir-zach-f.jpg 125w"
+              sizes="125px" 
+              width="125"
+              height="175"
+              alt="Zach F." 
+              loading="lazy" 
+              fetchpriority="low"> 
+              <div class="firstname">Zach F.</div>
+              <img 
+                class="countrybar"
+                src="/assets/blank1.jpg"
+                srcset="assets/custom-grafx/grafx-pilot-dir-faa-bar.jpg 394w"
+                sizes="125px" 
+                alt="Country Bar"
+                width="394"
+                height="39"
+                loading="lazy" 
+                fetchpriority="low"> 
+ 
+ 
+                  <div class="cfi-wrap">
+              <!-- Trigger (frame 0 lives as the button image) -->
+              <button type="button" class="cfi-trigger" aria-label="Play CFI animation">
+                <img
+                  class="pilotdirtooltip-cfi"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi.jpg 126w"
+                  sizes="125px"
+                  alt="CFI"
+                  width="126"
+                  height="46"
+                  loading="lazy"
+                  fetchpriority="low">
+              </button>
 
-<div class="pilot-tile">
-  <img src="/assets/pilot-directory/headshots/tanya-y.JPG?v=20250908-191739" loading="lazy" alt="Tanya Y." fetchpriority="low"  class="desk-pilot-headshot">
-  <div class="desk-pilot-directory-pilotname">Tanya Y.</div>
-          <img src="/assets/pilot-directory/faa-bar.jpg?v=20250908-191739" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
-        <img src="/assets/pilot-directory/cfi.jpg?v=20250908-191739" alt="CFI" class="desk-pilot-dir-cfi">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Flight Instructor certificate</span></span>
-  <ul class="desk-pilot-directory-pilotbio">
-    <li>Pilot Certificate: Commercial Pilot</li>
+
+              <div class="cfi-frame" data-frame="1" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi2.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="2" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi3.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="3" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi4.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+          
+                          <div class="cfi-frame" data-frame="4" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi5.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+        
+              <div class="cfi-frame" data-frame="5" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi6.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="6" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi7.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="7" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi8.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="131"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+            </div>
+
+                <ul class="pilotbio">
+      <li>Pilot Certificate: Commercial Pilot</li>
+      <li>Total time: 360</li>
+                </ul>
+          </div>
+
+                   <div class="pilot-dir-directory-tile">
+            <img 
+              class="pilotheadshot"
+              src="/assets/blank1.jpg"
+              srcset="/assets/images/pilot-dir-tanya-y.jpg 125w"
+              sizes="125px" 
+              width="125"
+              height="175"
+              alt="Tanya Y." 
+              loading="lazy" 
+              fetchpriority="low"> 
+              <div class="firstname">Tanya Y.</div>
+              <img 
+                class="countrybar"
+                src="/assets/blank1.jpg"
+                srcset="assets/custom-grafx/grafx-pilot-dir-faa-bar.jpg 394w"
+                sizes="125px" 
+                alt="Country Bar"
+                width="394"
+                height="39"
+                loading="lazy" 
+                fetchpriority="low"> 
+ 
+ 
+                  <div class="cfi-wrap">
+              <!-- Trigger (frame 0 lives as the button image) -->
+              <button type="button" class="cfi-trigger" aria-label="Play CFI animation">
+                <img
+                  class="pilotdirtooltip-cfi"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi.jpg 126w"
+                  sizes="125px"
+                  alt="CFI"
+                  width="126"
+                  height="46"
+                  loading="lazy"
+                  fetchpriority="low">
+              </button>
+
+
+              <div class="cfi-frame" data-frame="1" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi2.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="2" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi3.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="3" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi4.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+          
+                          <div class="cfi-frame" data-frame="4" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi5.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+        
+              <div class="cfi-frame" data-frame="5" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi6.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="6" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi7.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="7" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi8.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="131"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+            </div>
+
+                <ul class="pilotbio">
+      <li>Pilot Certificate: Commercial Pilot</li>
     <li>Total time: 450</li>
     <li>Language: Fluent in Hindi</li>
-  </ul>
-</div>
+                </ul>
+          </div>
 
-<div class="pilot-tile">
-  <img src="/assets/pilot-directory/headshots/justin-t.jpg?v=20250908-191739" loading="lazy" alt="Justin T" fetchpriority="low"  class="desk-pilot-headshot">
-  <div class="desk-pilot-directory-pilotname">Justin T.</div>
-          <img src="/assets/pilot-directory/canada-bar.jpg?v=20250908-191739" alt="Country Bar" class="desk-pilot-dir-country-bar">
 
-          <img src="/assets/pilot-directory/faa-bar.jpg?v=20250908-191739" alt="Country Bar" class="desk-pilot-dir-country-bar">
+                   <div class="pilot-dir-directory-tile">
+            <img 
+              class="pilotheadshot"
+              src="/assets/blank1.jpg"
+              srcset="/assets/images/pilot-dir-justin-t.jpg 125w"
+              sizes="125px" 
+              width="125"
+              height="175"
+              alt="Justin T." 
+              loading="lazy" 
+              fetchpriority="low"> 
+              <div class="firstname">Justin T.</div>
+           <img 
+           src="/assets/blank1.jpg"
+           alt="Country Bar" 
+           class="countrybar"
+                           srcset="assets/custom-grafx/grafx-pilot-dir-canada-bar.jpg 394w"
+                sizes="125px"
+                width="394"
+                height="39"
+                loading="lazy" 
+                fetchpriority="low"> 
+              <img 
+                class="countrybar"
+                src="/assets/blank1.jpg"
+                srcset="assets/custom-grafx/grafx-pilot-dir-faa-bar.jpg 394w"
+                sizes="125px" 
+                alt="Country Bar"
+                width="394"
+                height="39"
+                loading="lazy" 
+                fetchpriority="low"> 
+ 
 
-  <ul class="desk-pilot-directory-pilotbio">
+                <ul class="pilotbio">
     <li>Pilot Certificate: Commercial Pilot</li>
     <li>Pilot Certificate: Transport CANADA Commercial Pilot</li>
     <li>Total time: 350</li>
-  </ul>
-</div>
+                </ul>
+          </div>
 
-<div class="pilot-tile">
-  <img src="/assets/pilot-directory/headshots/ben-b.jpg?v=20250908-191739" loading="lazy" alt="Ben B." fetchpriority="low"  class="desk-pilot-headshot">
-  <div class="desk-pilot-directory-pilotname">Ben B.</div>
-          <img src="/assets/pilot-directory/faa-bar.jpg?v=20250908-191739" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
-        <img src="/assets/pilot-directory/cfi.jpg?v=20250908-191739" alt="CFI" class="desk-pilot-dir-cfi">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Flight Instructor certificate</span></span>
-  <ul class="desk-pilot-directory-pilotbio">
+
+      <div class="pilot-dir-directory-tile">
+            <img 
+              class="pilotheadshot"
+              src="/assets/blank1.jpg"
+              srcset="/assets/images/pilot-dir-ben-b.jpg 125w"
+              sizes="125px" 
+              width="125"
+              height="160"
+              alt="Ben B." 
+              loading="lazy" 
+              fetchpriority="low"> 
+              <div class="firstname">Ben B.</div>
+              <img 
+                class="countrybar"
+                src="/assets/blank1.jpg"
+                srcset="assets/custom-grafx/grafx-pilot-dir-faa-bar.jpg 394w"
+                sizes="125px" 
+                alt="Country Bar"
+                width="394"
+                height="39"
+                loading="lazy" 
+                fetchpriority="low"> 
+ 
+ 
+                  <div class="cfi-wrap">
+              <!-- Trigger (frame 0 lives as the button image) -->
+              <button type="button" class="cfi-trigger" aria-label="Play CFI animation">
+                <img
+                  class="pilotdirtooltip-cfi"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi.jpg 126w"
+                  sizes="125px"
+                  alt="CFI"
+                  width="126"
+                  height="46"
+                  loading="lazy"
+                  fetchpriority="low">
+              </button>
+
+
+              <div class="cfi-frame" data-frame="1" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi2.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="2" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi3.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="3" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi4.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+          
+                          <div class="cfi-frame" data-frame="4" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi5.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+        
+              <div class="cfi-frame" data-frame="5" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi6.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="6" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi7.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="7" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi8.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="131"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+            </div>
+
+                <ul class="pilotbio">
     <li>Pilot Certificate: Commercial Pilot</li>
     <li>Total time: 300</li>
-  </ul>
-</div>
+                </ul>
+          </div>
 
-<div class="pilot-tile">
-  <img src="/assets/pilot-directory/headshots/rashid-t.jpg?v=20250908-191739" loading="lazy" alt="Rashid T." fetchpriority="low"  class="desk-pilot-headshot">
-  <div class="desk-pilot-directory-pilotname">Rashid T.</div>
-          <img src="/assets/pilot-directory/faa-bar.jpg?v=20250908-191739" alt="Country Bar" class="desk-pilot-dir-country-bar"><span class="desk-pilot-dir-tooltip-parent">
-        <img src="/assets/pilot-directory/cfi.jpg?v=20250908-191739" alt="CFI" class="desk-pilot-dir-cfi">  <span class="desk-pilot-dir-tooltip-box">F.A.A. Flight Instructor certificate</span></span>
-  <ul class="desk-pilot-directory-pilotbio">
+
+                <div class="pilot-dir-directory-tile">
+            <img 
+              class="pilotheadshot"
+              src="/assets/blank1.jpg"
+              srcset="/assets/images/pilot-dir-rashid-t.jpg 125w"
+              sizes="125px" 
+              width="125"
+              height="175"
+              alt="Rashid T." 
+              loading="lazy" 
+              fetchpriority="low"> 
+              <div class="firstname">Rashid T.</div>
+              <img 
+                class="countrybar"
+                src="/assets/blank1.jpg"
+                srcset="assets/custom-grafx/grafx-pilot-dir-faa-bar.jpg 394w"
+                sizes="125px" 
+                alt="Country Bar"
+                width="394"
+                height="39"
+                loading="lazy" 
+                fetchpriority="low"> 
+ 
+ 
+                  <div class="cfi-wrap">
+              <!-- Trigger (frame 0 lives as the button image) -->
+              <button type="button" class="cfi-trigger" aria-label="Play CFI animation">
+                <img
+                  class="pilotdirtooltip-cfi"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi.jpg 126w"
+                  sizes="125px"
+                  alt="CFI"
+                  width="126"
+                  height="46"
+                  loading="lazy"
+                  fetchpriority="low">
+              </button>
+
+
+              <div class="cfi-frame" data-frame="1" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi2.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="2" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi3.png 185w"
+                  sizes="166px"
+                  alt=""
+                  width="185"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="3" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi4.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+          
+                          <div class="cfi-frame" data-frame="4" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi5.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+        
+              <div class="cfi-frame" data-frame="5" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi6.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="6" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi7.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="148"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+
+              <div class="cfi-frame" data-frame="7" hidden>
+                <img
+                  class="pilot-dir-animation-frame"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-pilot-dir-cfi8.png 198w"
+                  sizes="166px"
+                  alt=""
+                  width="198"
+                  height="131"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+              </div>
+            </div>
+
+                <ul class="pilotbio">
     <li>Pilot Certificate: Commercial Pilot</li>
     <li>Total time: 300</li>
-  </ul>
-</div>
-<div class="pilot-tile">
-  <img src="/assets/pilot-directory/headshots/125-generic-pilot.jpg?v=20250908-191739" alt="Join Us" class="desk-pilot-headshot">
-  <div class="desk-pilot-directory-pilotname">You?</div>
-  <ul class="desk-pilot-directory-pilotbio">
+                </ul>
+          </div>
+
+                   <div class="pilot-dir-directory-tile">
+            <img 
+              class="pilotheadshot"
+              src="/assets/blank1.jpg"
+              srcset="/assets/images/pilot-dir-adaam-a.jpg 125w"
+              sizes="125px" 
+              width="125"
+              height="175"
+              alt="Adaam A." 
+              loading="lazy" 
+              fetchpriority="low"> 
+              <div class="firstname">Adaam A.</div>
+              <img 
+                class="countrybar"
+                src="/assets/blank1.jpg"
+                srcset="assets/custom-grafx/grafx-pilot-dir-faa-bar.jpg 394w"
+                sizes="125px" 
+                alt="Country Bar"
+                width="394"
+                height="39"
+                loading="lazy" 
+                fetchpriority="low"> 
+ 
+
+                <ul class="pilotbio">
+    <li>Pilot Certificate: Commercial Pilot</li>
+    <li>Total time: 300</li>
+                </ul>
+          </div>
+
+<div class="pilot-dir-directory-tile">
+  <img src="/assets/icons/icon-125-generic-pilot.jpg?v=20250908-191739" alt="Join Us" class="pilotheadshot">
+  <div class="firstname">You?</div>
+  <ul class="pilotbio">
     <li>I&rsquo;m always looking to add pilots to my roster.</li>
     <li><a href="/join-pilot-roster">Click here for the Join Pilot Roster page</a>.</li>
     <li>All it takes is a phone call or message to get started.</li>
   </ul>
 </div>
 
-<div class="pilot-tile">
-  <!--<img src="/assets/pilot-directory/blue-star-blank.png?v=20250908-191739" alt="Ferry Flight Star" class="desk-pilot-headshot">-->
-  <div class="desk-pilot-directory-pilotname">Legend</div>
-  <ul class="desk-pilot-directory-pilotbio">
-    <li><img src="/assets/pilot-directory/amflag.jpg?v=20250908-191739" alt="US Flag" style="width: 50px; vertical-align: middle;"> IN PORTRAIT = Current or past U.S. Military service</li>
-    <li><img src="/assets/pilot-directory/blue-star-blank.png?v=20250908-191739" alt="blue star icon" style="width: 50px; vertical-align: middle;"> = # of completed A.D.S. ferry flights</li>
+<div class="pilot-dir-directory-tile">
+  <!--<img src="/assets/pilot-directory/blue-star-blank.png?v=20250908-191739" alt="Ferry Flight Star" class="pilotheadshot">-->
+  <div class="firstname">Legend</div>
+  <ul class="pilotbio">
+    <li><img src="/assets/icons/icon-amflag-150w.jpg" alt="US Flag" style="width: 50px; vertical-align: middle;"> IN PORTRAIT = United States Armed Forces current member or veteran (see bio)</li>
+    <li><img src="/assets/icons/icon-blue-star-blank.png?v=20250908-191739" alt="blue star icon" style="width: 50px; vertical-align: middle;"> = # of completed A.D.S. ferry flights</li>
   </ul>
 </div>
 </div>
-</div>
+        <div class="cfi-explanation pilot-dir-toparea-crewstatement"  id="cfi-explanation" style="border: 1px dashed blue; min-width: 325px;">
+          <h3><u>* Explanation for "Why not 'certified'?</u></h3>
+          <p >1. "C.F.I." is a commonly used abbreviation for "Certified (or Certificated) Flight Instructor". The actual terminology in FAA licensing is just "Flight Instructor" but the abbreviation "F.I." hasn't gained acceptance.</p>
+          <p> 2. There has beeen a need to seperate, in name, flight instructors who have FAA permission to give instruction from those who don't. From 14 CFR part 61 regulations (as of 2025) the term "authorized" is connected to "flight instructor" 13 times; "certificated", 3 times; and "certified", none.</p>
+                        <img 
+style="width: 300px; height: auto;"
+                src="/assets/blank1.jpg"
+                srcset="assets/custom-grafx/grafx-pilot-dir-cfi-cert.jpg 500w"
+                sizes="300px" 
+                alt="Flight Instructor certificate showing terminology"
+                width="500"
+                height="313"
+                loading="lazy" 
+                fetchpriority="low"> 
+        </div>
 
 </main>
-
-<div id="desk-pilot-ratings-modal" class="desk-pilot-dir-modal">
-  <div id="desk-pilot-ratings-modal-body" class="desk-pilot-dir-modal-body">
-   <button type="button" class="desk-modal-close">Close</button>
-  </div>
-</div>
-
-<div id="pilot-dir-shared-pilot-ratings-content" style="display: none;">
-  <h2 style="text-align: center; font-size: 1.6rem;"><u>Aircraft Delivery Solutions Pilot Type Ratings</u></h2>
-  <ul style="padding-left: 20px; font-size: 1.2rem; line-height: 1.6; text-align: left;">
-    <li><b>BEECHCRAFT:</b> BE300 (King Air 350)</li>
-      <li><b>BOEING:</b> B747-200, B747-400/8, DC-9</li>
-      <li><b>BOMBARDIER:</b> CL-65, DHC-8, LR-JET</li>
-      <li><b>CESSNA:</b> CE-750 (Citation X)</li>
-      <li><b>DASSAULT:</b> FA-20, FA-50 [SIC]</li>
-      <li><b>EMBRAER:</b> EMB-120, EMB-170&ndash;195, EMB-550</li>
-      <li><b>EUROCOPTER:</b> EC225LP (Super Puma Helicopter), EC332L (Super Puma) [SIC], EC332L1 (Super Puma) [SIC], SA330 (Puma) [SIC]</li>
-      <li><b>FAIRCHILD:</b> SA-227</li>
-      <li><b>GULFSTREAM:</b> IAI-1125 (G100), Gulfstream IV [SIC]</li>
-      <li><b>LOCKHEED:</b> L-300 (C141)</li>
-      <li><b>SIKORSKY:</b> S-70 (UH-60)</li>
-  </ul>
-</div>
-    
-<script src="/script.js?v=20250908-191739" defer></script>
+   
+<script type="module" src="/js/main.js"></script>
 
 
 </body>

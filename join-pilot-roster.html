@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 <head>
   <!-- ===== GLOBAL (copy identical on every page) ===== -->
   <meta charset="UTF-8">
@@ -16,9 +16,8 @@
  
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
 
-<link rel="preload" href="/style.css?v=20250908-191739" as="style">
-<link rel="stylesheet" href="/style.css?v=20250908-191739">
-<link rel="preload" href="/script.js?v=20250908-191739" as="script">
+<link rel="preload" href="./css/style.css?v=20250908-191739" as="style">
+<link rel="stylesheet" href="./css/style.css?v=20250908-191739">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,6 +45,19 @@
   <meta name="twitter:title" content="Aircraft Delivery Solutions &mdash; Join The Pilot Roster">
   <meta name="twitter:description" content="Join the pilot roster">
   <meta name="twitter:image" content="https://aircraft.delivery/assets/about/2009-12-24.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aircraft.delivery/" },
+    { "@type": "ListItem", "position": 2, "name": "Join Pilot Roster" }
+  ]
+}
+</script>
+
+
 </head>
 <body>
       <a 
@@ -53,730 +65,789 @@
         href="#main">Skip to main content
       </a>
 
-      <!-- DESKTOP HEADER WRAPPER -->
-
-      <div class="desktop-only">
-        <header class="desk-header"
-                id="desk-header">
-          <a class="skip-link" 
-             href="#main">Skip to main content
-          </a>
-          <div class="desk-header-inner">
-            <div class="desk-header-left">
-              <nav class="desk-nav" 
-                   aria-label="Primary">
-                <a href="/services"
-                   aria-current="page">Services
-                </a>
-                <a href="/quote">Quote</a>
-                <a class="nav-dir"  
-                  href="/pilot-directory">Pilot<wbr> Directory
-                </a>
-                <a class="nav-join" 
-                  href="/join-pilot-roster">Join Pilot<wbr> Roster
-                </a>
-                <a href="/about">About</a>
-                <a class="nav-past" 
-                  href="/past-deliveries">Past<wbr> Deliveries
-                </a>
-              </nav>
-            </div>
-
-            <div class="desk-header-center">
-              <a href="/"
-                aria-current="page"
-                aria-label="Home">
-                <picture>
-                  <source
-                    media="(min-width: 1401px)"
-                    type="image/png"
-                    srcset="/assets/side-by-side-logo.png?v=20250908-191739">
-                  <img
-                    class="desk-header-logo"
-                    src="data:image/gif;base64,R0lGODlhAQABAAAAACw="
-                    width="951"
-                    height="179"
-                    decoding="async"
-                    fetchpriority="high"
-                    loading="eager"
-                    alt="">
-                </picture>
-              </a>
-            </div>
-
-            <div class="desk-header-right">
-              <p>+1 (415) 845-8163</p>
-              <a href="mailto:akahn28@gmail.com">akahn28@gmail.com</a>
-            </div>
-          </div>
-        </header>
-
-      </div>
-
-<!--MOBILE-ONLY DIV-->
-<!--MOBILE-ONLY DIV-->
-<!--MOBILE-ONLY DIV-->
-
-      <div class="mobile-only">
-
-<!--MOBILE-ONLY HEADER-->
-<!--MOBILE-ONLY HEADER-->
-<!--MOBILE-ONLY HEADER-->
-
-        <header class="mobile-header">
-
-          <div class="mobile-header-slot-left">
-            <button
-              id="hamburger-icon"
-              class="mobile-burger-proxy"
-              type="button"
-              aria-label="Open menu"
-              aria-expanded="false"
-              aria-controls="mobileMenu"
-              data-burger-proxy>
-              <picture>
-                <source 
-                  media="(max-width: 1400px)" 
-                  srcset="/assets/mobile/burger.png?v=20250908-191739">
-                <img
-                  src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                  alt="aria-label-active" 
-                  width="50"
-                  height="39"
-                  decoding="async">
-              </picture>
-            </button>
-          </div>
-
-          <div class="mobile-header-slot-center">
-            <a 
-              href="/" 
-              class="mobile-header-logo"                 
-              aria-label="Home">
-              <picture>
-                <source 
-                  media="(max-width: 750px)"
-                  srcset="/assets/mobile/mobile-logo-v2.png?v=20250908-191739">
-                <source 
-                  media="(min-width: 751px) and (max-width: 1400px)"
-                  srcset="/assets/mobile/mobile-logo-90.png?v=20250908-191739">
-                <img
-                  src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                  alt="Aircraft Delivery Solutions"
-                  width="300" 
-                  height="148" 
-                  decoding="async">
-              </picture>
-            </a>
-          </div>
-
-          <div class="mobile-header-slot-right">
-            <a
-              href="tel:+14158458163"
-              class="mobile-header-phone"
-              aria-label="phone icon">
-              <picture>
-                <source 
-                  media="(max-width: 1400px)"
-                  srcset="/assets/mobile/phone.png?v=20250908-191739">
-                <img 
-                  src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                  alt="Call"
-                  width="36" 
-                  height="36"
-                  decoding="async">
-              </picture>
-            </a>
-          </div>
-
-        </header>
-
-        <div 
-          class="mobile-menu" 
-          id="mobileMenu" 
-          hidden 
-          aria-labelledby="hamburger-icon"
-          role="region">
-          <nav class="mobile-nav" 
-               aria-label="Mobile primary">
+    <header class="header"
+            id="desk-header">
+      <div class="header-inner">
+        <div class="header-left">
+          <nav aria-label="Primary">
             <a href="/services">Services</a>
-            <a href="/quote">Get a Quote</a>
+            <a href="/quote">Quote</a>
             <a href="/pilot-directory">Pilot Directory</a>
-            <a href="/join-pilot-roster">Join Pilot Roster</a>
+            <a href="/join-pilot-roster">Join<wbr> Pilot Roster</a>
             <a href="/about">About</a>
             <a href="/past-deliveries">Past Deliveries</a>
           </nav>
+          <button
+            id="burger"
+            class="menu-toggle"
+            type="button"
+            aria-controls="menu-overlay"
+            aria-expanded="false"
+            aria-label="Open menu"
+            data-nav-toggle>
+
+            <img
+              src="/assets/blank1.jpg"
+              srcset="/assets/icons/icon-burger.png?v=20250908-191739 320w"
+              sizes="50px"
+              alt=""
+              aria-hidden="true" 
+              width="50"
+              height="39"
+              decoding="async"
+              loading="eager">
+          </button>
         </div>
+       <div class="header-center">
+        <a href="/"
+          aria-current="page"
+          aria-label="Home">
+          <img 
+            class="header-center-logo"
+            id="desktop-logo"
+            src='/assets/blank1.jpg'
+            srcset='/assets/logos/side-by-side-logo.png 951w'
+            sizes="calc(41.7vw + 16.7px)"
+            width='951'
+            data-w='951'
+            height='179'
+            data-h='179'
+            loading='eager'
+            decoding='async'
+            alt=''>
+          <img 
+            class="header-center-logo" 
+            id="mobile-logo-90"
+            src='/assets/blank1.jpg'
+            srcset='assets/logos/mobile-logo-90.png 300w'
+            sizes='100px'
+            width='300'
+            data-w='300'
+            height='116'
+            data-h='116'
+            loading='eager'
+            decoding='async'
+            alt='Aircraft Delivery Solutions logo'><!--1400 O/R-->
+        </a>
+       </div>
+    
+       <div class="header-right">
+        <div class="header-right-desk">
+          <a href="tel:+14158458163"
+             aria-label="call">
+            <p>+1 (415) 845-8163</p>
+            <img 
+              class="phone-icon-mobile"
+              id="phone-icon"
+              src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+              srcset="/assets/icons/icon-phone.png?v=20250908-191739 320w"
+              sizes="36px"
+              alt=""
+              width="36" 
+              height="36"
+              loading="eager"
+              decoding="async"><!--1400 O/R-->
+          </a>
+          <a href="mailto:akahn28@gmail.com">
+            <p>akahn28@gmail.com</p>
+          </a>
+        </div>
+        <div class="header-right-mob"><!--1400 O/R-->
+          <a href="tel:+14158458163"
+             aria-label="Call">
+            <img 
+              class="phone-icon-mobile"
+              src="/assets/blank1.jpg"
+              srcset="/assets/icons/icon-phone.png?v=20250908-191739 320w"
+              sizes="36px"
+              alt=""
+              width="36" 
+              height="36"
+              loading="eager"
+              decoding="async">
+          </a>
+          <a href="sms:+14158458163"
+             id="icontxtmsg"
+             aria-label="Send a text message">
+           <img 
+              class="phone-icon-mobile"
+              style="margin-right: 15px;"
+              src="/assets/blank1.jpg"
+              srcset="/assets/icons/icon-txt-msg-bubble.png 91w"
+              sizes="36px"
+              alt=""
+              width="91" 
+              height="70"
+              loading="eager"
+              decoding="async">
+            </a>
+          <a href="mailto:akahn28@gmail.com"
+             id="iconemail"
+             aria-label="Send an email">
+             <img 
+              class="phone-icon-mobile"
+              src="/assets/blank1.jpg"
+              srcset="/assets/icons/icon-email.png 200w"
+              sizes="36px"
+              alt=""
+              width="200" 
+              height="131"
+              loading="eager"
+              decoding="async">
+            </a>
+        </div>              
+       </div>
       </div>
 
-<main 
-  id="main" 
-  class="join-main"
-  tabindex="-1">
-  <div class="page-title-brick-wrapper">
-    <div class="page-title-brick">
-      <h1> JOIN THE 
-        <span class="subhead-break">PILOT ROSTER</span>
-      </h1>
-    </div>
-  </div>
+    </header>
 
-  <table 
-    class="join-table" 
-    style="margin: 0 auto 30px auto; font-size: 1.4rem; border-collapse: collapse;">
-    <tr>
-      <td colspan="2" style="background-color: black; text-align: center; color: white; font-size: 1.6rem; padding: 5px;">JOIN CHECKLIST</td>
-    </tr>
-    <tr>
-      <td style="background-color: white; border: 1px solid black; border-right: none;padding: 5px 10px;">Adding pilots to the roster</td>
-      <td style="background-color: white; border: 1px solid black; border-left: none;text-align: right; padding: 5px 10px;"><b>ALWAYS</b></td>
-    </tr>
-    <tr>
-      <td style="background-color: rgb(230, 225, 225); border: 1px solid black; border-right: none; padding: 5px 10px;">Get started easily by</td>
-      <td style="background-color: rgb(230, 225, 225); border: 1px solid black; border-left: none; text-align: right; padding: 5px 10px;"><b>CALLING or MESSAGING</b></td>
-    </tr>
-    <tr>
-      <td style="background-color: white; border: 1px solid black; border-right: none; padding: 5px 10px;">Individual ferry missions</td>
-      <td style="background-color: white; border: 1px solid black; border-left: none;text-align: right; padding: 5px 10px;"><b>ASSIGNED TO PILOT CONTRACTORS</b></td>
-    </tr>
-    <tr>
-      <td style="background-color: rgb(230, 225, 225); border: 1px solid black; border-right: none; padding: 5px 10px;">Pilot relationship to A.D.S.</td>
-      <td style="background-color: rgb(230, 225, 225); border: 1px solid black; border-left: none; text-align: right; padding: 5px 10px;"><b>CONTRACTOR ONLY</b></td>
-    </tr>
-    <tr>
-      <td style="background-color: white; border: 1px solid black; border-right: none; padding: 5px 10px;">Commercial or ATP pilots (any Agency)</td>
-      <td style="background-color: white; border: 1px solid black; border-left: none;text-align: right; text-align: right; padding: 5px 10px;"><b>JOIN IN ONE OF TWO WAYS</b></td>
-    </tr>
-  </table>
-
-          <div class="join-top-aligner">
-            <div 
-              class="join-wayisland"
-              id="wayisland1">
-              <div class="join-wayaligner">
-                <div class="join-waynumber">Way #1: "Roster - (Listed)"</div>
-                <!--ACCORDION 1 MOBILE TOGGLE-->          
-                <div class="join-mob-accordion-item">
-                  <button
-                    id="join-mob-way1-toggle"
-                    class="join-accordion-toggle"
-                    aria-expanded="false"
-                    aria-controls="join-mob-way1-panel"
-                    type="button"
-                    style="margin: 0 auto;">
-                      Provide me with your information
-                      <span class="mob-join-caret" aria-hidden="true">▶</span>
-                  </button>
-
-                  <!-- ACCORDION 1 MOBILE PANEL-->
-                   
-                  <div 
-                    id="join-mob-way1-panel" 
-                    class="join-mob-accordion-panel" 
-                    role="region"
-                    aria-labelledby="join-mob-way1-toggle"
-                    hidden>
-                    <p style="font-size: 1.6rem; text-align: center;"> You can use one of these buttons to make answering easier:</p>
-                    <button
-                      id="join-mob-copy-button1"
-                      class="join-mob-copy-button"
-                      type="button"
-                      data-target="#copy-template-text1">
-                        Copy template to clipboard
-                    </button>
-                    <button
-                      id="join-mob-email-button1"
-                      class="join-mob-email-button"
-                      type="button"
-                      data-target="#email-template-text1"
-                      data-subject="Join Pilot Roster — Way #1"
-                      data-to="">
-                        Open in Email
-                    </button>
-     <!-- Visual reference for the user -->
-                    <p>Name:</p><br>
-                    <p>Email:</p><br>
-                    <p>Phone:</p><br>
-                    <p>City of residence:</p><br>
-                    <p>Current pilot employment; company (company name will NOT appear on the website) and PIC or SIC :</p><br>
-                    <p>Pilot certificate country(s), if any other than US:</p><br>
-                    <p>Pilot certificate(s):</p><br>
-                    <p>Pilot ratings including type ratings (please denote if rating is SIC-only):</p><br>
-                    <p>Current Flight Instructor:</p><br>
-                    <p>Total flight time (to the nearest hundred):</p><br>
-                    <p>Current or former member of the military: </p><br>
-                    <p>Speak any other languages besides English. If yes, which and level (fluent, conversational or functional):</p><br>
-                    <p>Airplane(s) owner? If yes, what type(s):</p><br>
-                    <p>Any other information that would enhance your listing.</p>
-
-                  </div>
-          </div>
-                  <template class="join-mob-copy-target" id="copy-template-text1">
-Name:
-
-Email:
-
-Phone:
-
-City of residence:
-
-Current pilot employment:
-
-Pilot certificate country(s), if any other than US:
-
-Pilot certificate(s):
-
-Pilot ratings including type ratings (please denote if rating is SIC-only):
-
-Current Flight Instructor:
-
-Total flight time (to the nearest hundred):
-
-Current or former member of the military:
-
-Speak any other languages besides English. If yes, which and level (fluent, conversational or 
-functional):
-
-Airplane(s) owner? If yes, what type(s):
-
-Any other information that would enhance your listing.</template>
-
-  <template class="join-mob-email-body" id="join-mob-email-body">Hey Aaron;
-
-I'd like to join the pilot roster. Here is my info:
-
-Name:
-Email:
-Phone:
-City of residence:
-Current pilot employment:
-Pilot certificate country(s), if any other than US:
-Pilot certificate(s):
-Pilot ratings including type ratings (please denote if rating is SIC-only):
-Current Flight Instructor:
-Total flight time (to the nearest hundred):
-Current or former member of the military:
-Speak any other languages besides English. If yes, which and level (fluent, conversational or functional):
-Airplane(s) owner? If yes, what type(s):
-Any other information that would enhance your listing:
-
-Thanks!
-</template>
-
-  <!--ACCORDION 1 DESKTOP TOGGLE -->
-                <div data-accordion-group="join-roster">
-                  <button
-                    class="join-accordion-toggle"
-                    id="join-way1-provideinfo"
-                    aria-expanded="false"
-                    aria-controls="join-way1-panel"
-                    type="button">
-                    <span class="join-toggle-label">Provide me with your information</span>
-                    <span class="join-caret" aria-hidden="true">▶</span>
-                  </button>
-
-        <!-- ACCORDION 1 DESKTOP PANEL -->
-
-                  <div
-                    id="join-way1-panel"
-                    class="join-accordion-panel"
-                    role="region"
-                    aria-labelledby="join-way1-provideinfo"
-                    hidden>
-                      <p style="font-size: 1.4rem;">If you're interested in joining and being "Roster - (Listed)" please <b>email akahn28@gmail.com</b> or text <b>+1 (415) 845-8163</b> the following. See the sample listing on this page or
-                      <a href="/pilot-directory">check out the Pilot Directory</a> to see what information would be on the website.
-                      </p>
-                      <div class="join-privacy-note" 
-                           style="margin: 20px 0; border: 2px dashed black; z-index: 2; position: relative; border-top: none; ">
-                        <p style="text-align: center; background-color: #000; color: #ff0; margin: 0 0 6px 0; font-size: 1.3rem;"><u><b>A note on your privacy</b></u>
-                        </p>
-                        <p style="margin: 0; padding: 5px 10px 10px 10px;">I don't share this information with anyone, except for your first name, last initial,
-                        and your pilot details and qualifications. No contact information of yours is on the website. Any other identifying questions below are for my information only.
-                        </p>
-                      </div>
-                      <p><b>Please cut and paste the following:</b></p>
-                            <p>Name:</p>
-                            <p>Email:</p>
-                            <p>Phone:</p>
-                            <p>City of residence:</p>
-                            <p>Current pilot employment; company (company name will NOT appear on the website) and PIC or SIC :</p>
-                            <p>Pilot certificate country(s), if any other than US:</p>
-                            <p>Pilot certificate(s):</p>
-                            <p>Pilot ratings including type ratings (please denote if rating is SIC-only):</p>
-                            <p>Current Flight Instructor:</p>
-                            <p>Total flight time (to the nearest hundred):</p>
-                            <p>Current or former member of the military: </p>
-                            <p>Speak any other languages besides English. If yes, which and level (fluent, conversational or functional):</p>
-                            <p>Airplane(s) owner? If yes, what type(s):</p>
-                            <p>Any other information that would enhance your listing.</p>
-                      </p>
-                  </div>
-                    </div>
-              </div>
-         
-           
-                <!-- WAYISLAND 1 TEXT-->
-
-              <ul class="desk-std-base">
-                <li>Your face, first name and last initial appear on the 
-                   <a href="/pilot-directory">&ldquo;Ferry Pilot Directory"
-                   </a> page of Aircraft.Delivery.
-                </li>
-                  <li>Brief bullet points highlight your pilot qualifications.</li>  
-                  <li>You're available to bid on ferry flights and want to receive notices from A.D.S. about new flight opportunities.</li>
-                  <li>Guidelines:
-                    <ol>
-                      <li>There's no cost to you to become or remain 'Roster - (Listed)'.</li>
-                      <li>Cancel any time, no questions asked.</li>
-                      <li>You have control about the way your listing looks. I will show you a draft listing for your approval prior to it going live.</li>
-                      <li>Update me if anything changes on your listing.</li>
-                    </ol>
-                  </li>
-              </ul>
-              <p style="font-size: 1.3rem; text-align: center;"><b><i>Other reasons you may want to be 'Roster - (Listed)':</i></b></p>
-              <ul class="desk-std-base">
-                <li>You are lending your credibility to A.D.S., and with that increased credibility, A.D.S. will likely get more inquiries. More inquiries likely means more opportunities for you.</li>
-                <li>A prospective client can read your
-                  <a href="/pilot-directory" >listing</a>, and if they see something they connect with, can ask for you by name. For example, I place a US flag on the 
-                  <a href="/pilot-directory"> photos of US military veterans</a> so website visitors that care about that can identify US veterans.</li>  
-              </ul>
-            </div>
-            
-            <img class="join-sample-img" 
-                 src="/assets/join-pilot-roster/join-roster-sample.jpg?v=20250908-191739" alt="Sample Pilot Listing">
-          </div>
-        </div>
+        <div
+          class="menu-overlay is-hidden"
+          id="menu-overlay"
+          data-anim="fade"
+          data-menu
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="menu-title">
           <div 
-            class="join-wayisland" 
-            id="wayisland2">
-            <div class="join-wayaligner">
-              <div class="join-waynumber">Way #2: "Roster - (Private)"</div>
-                 
-              <!--ACCORDION 2 MOBILE TOGGLE-->
-  <div class="join-mob-accordion-item">
-                  <button
-                    id="join-mob-way2-toggle"
-                    class="join-accordion-toggle"
-                    aria-expanded="false"
-                    aria-controls="join-mob-way2-panel"
-                    type="button"
-                    style="margin: 0 auto;">
-                      Provide me with your information
-                      <span class="mob-join-caret" aria-hidden="true">▶</span>
-                  </button>
-                  <!-- ACCORDION 2 MOBILE PANEL-->
-                  <div 
-                    id="join-mob-way2-panel" 
-                    class="join-mob-accordion-panel"
-                    role="region"
-                    aria-labelledby="join-mob-way2-toggle" 
-                    hidden>
-                    <p style="font-size: 1.6rem; text-align: center;"> You use one of these buttons to make answering easier:</p>
-                    <button
-                      id="join-mob-copy-button2"
-                      class="join-mob-copy-button"
-                      type="button"
-                      data-target="#copy-template-text1">
-                        Copy template to clipboard
-                    </button>
-                    <button
-                      id="join-mob-email-button2"
-                      class="join-mob-email-button"
-                      type="button"
-                      data-target="#email-template-text1"
-                      data-subject="Join Pilot Roster — Way #1"
-                      data-to="">
-                        Open in Email
-                    </button>
-     <!-- Visual reference for the user -->
-                    <p>Name:</p><br>
-                    <p>Email:</p><br>
-                    <p>Phone:</p><br>
-                    <p>City of residence:</p><br>
-                    <p>Current pilot employment; company (company name will NOT appear on the website) and PIC or SIC :</p><br>
-                    <p>Pilot certificate country(s), if any other than US:</p><br>
-                    <p>Pilot certificate(s):</p><br>
-                    <p>Pilot ratings including type ratings (please denote if rating is SIC-only):</p><br>
-                    <p>Current Flight Instructor:</p><br>
-                    <p>Total flight time (to the nearest hundred):</p><br>
-                    <p>Current or former member of the military: </p><br>
-                    <p>Speak any other languages besides English. If yes, which and level (fluent, conversational or functional):</p><br>
-                    <p>Airplane(s) owner? If yes, what type(s):</p><br>
-                    <p>Any other information that would enhance your listing.</p>
-
-                  </div>
-  </div>
-    <template id="copy-template-text2">Name:
-Name:
-
-Email:
-
-Phone:
-
-City of residence:
-
-Current pilot employment:
-
-Pilot certificate country(s), if any other than US:
-
-Pilot certificate(s):
-
-Pilot ratings including type ratings (please denote if rating is SIC-only):
-
-Current Flight Instructor:
-
-Total flight time (to the nearest hundred):
-
-Current or former member of the military:
-
-Speak any other languages besides English. If yes, which and level (fluent, conversational or 
-functional):
-
-Airplane(s) owner? If yes, what type(s):
-
-Any other information that would enhance your listing.</template>
-
-  <template id="email-template-text2">Hey Aaron;
-
-I'd like to join the pilot roster. Here is my info:
-
-Name:
-Email:
-Phone:
-City of residence:
-Current pilot employment:
-Pilot certificate country(s), if any other than US:
-Pilot certificate(s):
-Pilot ratings including type ratings (please denote if rating is SIC-only):
-Current Flight Instructor:
-Total flight time (to the nearest hundred):
-Current or former member of the military:
-Speak any other languages besides English. If yes, which and level (fluent, conversational or functional):
-Airplane(s) owner? If yes, what type(s):
-Any other information that would enhance your listing:
-
-Thanks!
-</template>
-
-      <!-- ACCORDION 2 DESKTOP TOGGLE-->
-
-                <div data-accordion-group="join-roster">
-                  <button
-                    class="join-accordion-toggle"
-                    id="join-way2-provideinfo"
-                    aria-expanded="false"
-                    aria-controls="join-way2-panel"
-                    type="button">
-                    <span class="join-toggle-label">Provide me with your information</span>
-                    <span class="join-caret" aria-hidden="true">▶</span>
-                  </button>
-
-   <!-- ACCORDION 2 DESKTOP PANEL-->
-
-                  <div
-                    id="join-way2-panel"
-                    class="join-accordion-panel"
-                    role="region"
-                    aria-labelledby="join-way2-provideinfo"
-                    hidden>
-                    
-                    <p style="font-size: 1.4rem; margin-block-end: 0;"> If you're interested in joining and being "Roster - (Private)" please email <b>akahn28@gmail.com</b> or text
-                    <b>+1 (415) 845-8163</b> the following. <b>All your information will be kept private by me.</b></p>
-                    <br>
-                    <p><b>Please cut and paste the following:</b></p><br>
-                            <p>Name:</p>
-                            <p>Email:</p>
-                            <p>Phone:</p>
-                            <p>City of residence:</p>
-                            <p>Current pilot employment; company (company name will NOT appear on the website) and PIC or SIC :</p>
-                            <p>Pilot certificate country(s), if any other than US:</p>
-                            <p>Pilot certificate(s):</p>
-                            <p>Pilot ratings including type ratings (please denote if rating is SIC-only):</p>
-                            <p>Current Flight Instructor:</p>
-                            <p>Total flight time (to the nearest hundred):</p>
-                            <p>Current or former member of the military: </p>
-                            <p>Speak any other languages besides English. If yes, which and level (fluent, conversational or functional):</p>
-                            <p>Airplane(s) owner? If yes, what type(s):</p>
-                            <p>Any other information that would enhance your utility.</p>
-                        
-              
-                  </div>
-  </div>
-            </div>
-                    <div class="join-wayexplanation" 
-                    style="padding-left: 20px; width: 100%;">
-                    <p style="font-size: 1.2rem; line-height: 1.6;"> You <b><i>don't</i></b> 
-                       <a href="/pilot-directory"
-                          class="linktoosmall-text-fixer-doesntwrap">appear on the website.
-                       </a> You <b><i>are</i></b> available to bid on ferry flights and want to receive notices from A.D.S. about new flight opportunities.
-                    </p>
-                  </div>
-                </div>
-              </div>
+            class="menu-panel-backdrop"
+            id="menu-panel-backdrop" 
+            data-menu-overlay
+            aria-hidden="true">
           </div>
-              <div class="join-bottom-aligner">
-                
+          <nav 
+            id="menu-panel"
+            class="menu-panel"
+            aria-label="Primary navigation"
+            aria-hidden="true"
+            inert>
+            <h2 
+              id="menu-title" 
+              class="visually-hidden">Menu
+            </h2>
+            <button
+              class="mob-menupanel-float"
+              aria-label="Close mobile menu">
+              <img
+                src="/assets/blank1.jpg"
+                height="118"
+                width="125"
+                sizes="30px"
+                srcset="/assets/icons/icon-red-x-close.png 125w"
+                alt="close menu">
+            </button>
 
-         <!-- ACCORDION 3 MOBILE TOGGLE-->         
-                  
-        <div class="join-mob-accordion-item">
-    <h2 class="join-mob-heading">
-      <button
-        class="join-accordion-toggle"
-        id="join-mob-way3-toggle"
-        aria-expanded="false"
-        aria-controls="join-mob-way3-panel"
-        type="button"
-        margin-bottom: 20px;>
+            <ul class="menu-list">
+              <li><a href="/services">Services</a></li>
+              <li><a href="/quote">Get a Quote</a></li>
+              <li><a href="/pilot-directory">Pilot Directory</a></li>
+              <li><a href="/join-pilot-roster">Join Pilot Roster</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/past-deliveries">Past Deliveries</a></li>
+            </ul>
+            <button 
+              class="menu-close" 
+              type="button" 
+              data-menu-close 
+              aria-label="Close menu">Close
+            </button>
+            <div style="display: grid; grid-template-columns: auto auto; margin-top: 60px;">
+              <a 
+                href="sms:+14158458163"
+                id="menu-icontxtmsg-mob"
+                style="margin: 0 auto;"
+                aria-label="send a text">
+                <img 
+                  class="phone-icon-mobile"
+                  style="margin-right: 15px;"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/icons/icon-txt-msg-bubble.png 91w"
+                  sizes="36px"
+                  alt=""
+                  width="91" 
+                  height="70"
+                  loading="eager"
+                  decoding="async">
+              </a>
+              <a 
+                href="mailto:akahn28@gmail.com"
+                id="menu-iconemail-mob"
+                style="margin: 0 auto;"
+                aria-label="send an email">
+                <img 
+                  class="phone-icon-mobile"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/icons/icon-email.png 200w"
+                  sizes="36px"
+                  alt=""
+                  width="200" 
+                  height="131"
+                  loading="eager"
+                  decoding="async">
+              </a>
+            </div>
+          </nav>
+        </div>
 
-
-        <span class="join-mob-label">Aircraft Delivery Solutions Pilot Requirements</span><span class="join-caret" aria-hidden="true">▶</span>
-      </button>
-    </h2>
-      <!-- ACCORDION 3 MOBILE PANEL-->
-
-    <div
-      id="join-mob-way3-panel"
-      class="join-mob-accordion-panel"
-      role="region"
-      aria-labelledby="join-mob-way3-toggle"
-      hidden>
-      <img 
-        src="assets/side-by-side-logo.png?v=20250908-191739"
-        alt="Full ADS logo"
-        loading="lazy"
-        fetchpriority="low">
-
-                    <p style="font-size: 1.5rem; line-height: 1.6; display: block; justify-self: center;"><u>PILOT REQUIREMENTS</u></p>
-                    <p>For pilots based in the United States: (Pilots based outside the United States will be considered on a case-by-case basis)</p><br>
-                    <p>1. For fixed-wing pilots, hold a FAA Commercial or Airline Transport Pilot certificate with any Airplane class rating, and an Instrument Airplane rating.</p><br>
-                    <p>2. For rotary-wing pilots, hold a FAA Commercial or Airline Transport Pilot certificate with Helicopter rating</p><br>
-                    <p>3. Have logged 500 hours of Pilot-in-Command time, 100 hours of cross-country (defined here as a landing more than 50 nautical miles from the takeoff airport), and 35 hours of night time.</p><br>
-                    <p>4. Mastery of the English language, including aviation English.</p><br>
-                    <p>5. [Not necessary for rostering&mdash;to be completed prior to first assignment] Successful completion of interview and reference check by A.D.S.. Pilots must supply two references. It's my job to examine qualifications, talk about needs and reasons for wanting to ferry aircraft, and ultimately decide if their personality, and technical skill, make them a good fit.</p>
+    <main 
+      id="main" 
+      class="join-main"
+      tabindex="-1">
+      <div class="page-title-brick-wrapper">
+        <div class="page-title-brick">
+          <h1> JOIN THE 
+            <span class="subhead-break">PILOT ROSTER</span>
+          </h1>
+        </div>
       </div>
+
+      <section class="join-description">
+
+        <!--RESERVED FOR V3-->
+        <div id="join-table-spacer-left"
+        class="join-thought-q">
+          <!--<button 
+            class="join-thought-q-btn"
+            type="button">
+            <img 
+              src="/assets/blank1.jpg"
+              srcset="/assets/icons/icon-thoughtbubble.png 400w"
+              alt="thought bubble"
+              width="400"
+              height="314"
+              
+              loading="lazy"
+              decoding="async"
+              sizes="200px">
+              <span>"I've never ferried professionally before. I would like to learn more to see if I'm interested"</span>
+          </button>
+      
+          <div class="thought-dropdown"> 
+            <button 
+              class="join-thought-btn" 
+              aria-expanded="false" 
+              aria-controls="thought-dropdown-panel">Learn more
+            </button>
+            <button 
+              class="join-thought-btna is-hidden"  
+              aria-expanded="false" 
+              aria-controls="thought-dropdown-panel">Close this
+            </button>
+
+            <div class="thought-dropdown-panel is-hidden" id="thought-dropdown-panel">
+              <div class="thought-dropdown-content">
+                <p>Lorem ipsum dolor sit amet.</p>
+                <p>More items…</p>
+                <p>Etc…</p>
+              </div>
+            </div>-->
+          </div>
+
+      
+
+        <div>
+          <table class="join-table">
+
+          <tr>
+              <td colspan="2" style="background-color: black; text-align: center; color: white; font-size: 1.6rem; padding: 5px;">JOIN CHECKLIST</td>
+            </tr>
+            <tr>
+              <td style="background-color: white; border: 1px solid black; border-right: none;padding: 5px 10px;">Adding pilots to the roster</td>
+              <td style="background-color: white; border: 1px solid black; border-left: none;text-align: right; padding: 5px 10px;"><b>ALWAYS</b></td>
+            </tr>
+            <tr>
+              <td style="background-color: rgb(230, 225, 225); border: 1px solid black; border-right: none; padding: 5px 10px;">Get started easily by</td>
+              <td style="background-color: rgb(230, 225, 225); border: 1px solid black; border-left: none; text-align: right; padding: 5px 10px;"><b>CALLING or MESSAGING</b></td>
+            </tr>
+            <tr>
+              <td style="background-color: white; border: 1px solid black; border-right: none; padding: 5px 10px;">Individual ferry missions</td>
+              <td style="background-color: white; border: 1px solid black; border-left: none;text-align: right; padding: 5px 10px;"><b>ASSIGNED TO PILOT CONTRACTORS</b></td>
+            </tr>
+            <tr>
+              <td style="background-color: rgb(230, 225, 225); border: 1px solid black; border-right: none; padding: 5px 10px;">Pilot relationship to A.D.S.</td>
+              <td style="background-color: rgb(230, 225, 225); border: 1px solid black; border-left: none; text-align: right; padding: 5px 10px;"><b>CONTRACTOR ONLY</b></td>
+            </tr>
+            <tr>
+              <td style="background-color: white; border: 1px solid black; border-right: none; padding: 5px 10px;">Commercial or ATP pilots (any Agency)</td>
+              <td style="background-color: white; border: 1px solid black; border-left: none;text-align: right; padding: 5px 10px;"><b>CONSIDER JOINING ROSTER</b></td>
+            </tr>
+  
+          </table>
+        </div>
+        <div id="join-table-spacer-right">&nbsp;</div> 
+
+      </section>
+      
+      <section class="youshould-section" style="margin-top: 30px; margin-bottom: 25px;">
+
+        <div class="join-youshould">
+
+          <p>Should you join the Aircraft Delivery Solutions <a href="/pilot-directory">Pilot Roster</a>?</p>
+
+
+          <ul class="youshould"> 
+            <li>Free</li>
+            <li>Cancel anytime; no questions asked</li>  
+            <li>Easy <a href="#join-signup">setup</a>.</li>
+            <li>Zero effort. "Fire and Forget"</li>
+           <li>Zero spam.</li>
+          </ul>
+       
+        </div>
+
+        <div class="join-gets">
+      
+          <div class="youget">
+            <p>What you get:</p>
+            <ul>
+              <li>Invitations to bid on ferry flights, as requests come in</li>
+              <li>Free marketing</li>
+            </ul>
+          </div>
+
+          <div class="iget">
+            <p>What I get:</p>
+            <ul>
+              <li>Ability to serve a diverse client base</li>
+              <li>Access to pilots' personal networks for referrals.</li>
+              <li>Skilled contractors - not employees</li>
+            </ul>
+          </div>
+
+        </div>
+   
+      </section>
+
+      <section id="join-privacy">
+    
+        <div class="join-your-privacy">
+          
+          <img 
+            src="/assets/blank1.jpg"
+            srcset="/assets/icons/icon-padlock.png 400w"
+            alt="padlock icon"
+            width="300"
+            height="401"
+            
+            loading="lazy"
+            decoding="async"
+            sizes="200px">
+          <p>Your Privacy</p>
+          <img 
+            src="/assets/blank1.jpg"
+            srcset="/assets/icons/icon-padlock.png 400w"
+            alt="padlock icon"
+            width="300"
+            height="401"
+            
+            loading="lazy"
+            decoding="async"
+            sizes="200px">
 
         </div>
 
-  <!-- ACCORDION 3 DESKTOP TOGGLE-->
-                  <div data-accordion-group="join-roster">                
-                    <button
-                    class="join-accordion-toggle"
-                    id="join-pilot-req"
-                    aria-expanded="false"
-                    aria-controls="join-pilot-req-panel"
-                    type="button"
-                    style="padding-left: 65px; padding-right: 65px;">
-                    <span class="join-toggle-label">Aircraft Delivery Solutions Pilot Requirements</span>
-                    <span class="join-caret" aria-hidden="true">▶</span>
-                  </button>
+        <div class="join-respect">        
+          
+          <p><u>Is respected here and steps are taken to protect it</u></p>
+    
+          <ul>
+            <li>Group emails are sent to BCC:</li>
+            <li>"On The Website" pilots have no last name or any contact information visible.</li>  
+            <li>"Internal Only" pilots' information is 100% private and protected by me.</li>
+          </ul>
+    
+        </div>
+      
+      </section>
 
-                <!-- ACCORDION 3 DESKTOP PANEL-->
+      <section class="join-requirements" >
+  
+        <div class="join-requirements-button" style="scroll-margin-top: 320px;">
 
-                  <div
-                    id="join-pilot-req-panel"
-                    class="join-accordion-panel"
-                    role="region"
-                    aria-labelledby="join-pilot-req"
-                    hidden>
-                    <img src="assets/side-by-side-logo.png?v=20250908-191739"
-                         alt="Full ADS logo"
-                         loading="lazy"
-                         fetchpriority="low">
+        <button 
+          class="join-requirements-btn join-anchor" 
+          id="pilotreq"
+          type="button">
+          
+          <div id="reqt-cell1">&nbsp;</div><!--spacer div-->
+          <div>
+            <img 
+            src="/assets/blank1.jpg"
+            srcset="/assets/custom-grafx/grafx-pilot-cert-tilted.png 400w"
+            style="width: clamp(75px, calc(7vw + 47.5px), 150px); height: auto;"
+            alt="pilot certificate"
+            width="400"
+            height="262"
+            
+            loading="lazy"
+            decoding="async"
+            sizes="200px">
+          </div>
+          <div>
+            <p style="font-size: clamp(1.2rem, calc(0.62vw + 1.05rem), 1.6rem);">Aircraft Delivery Solutions</p>
+            <p style="font-size: clamp(1.5rem, calc(1.32rem + 0.78vw), 2rem);">Pilot Requirements</p>
+          </div>
+          <div>
+            <img 
+              src="/assets/blank1.jpg"
+              srcset="/assets/custom-grafx/grafx-services-logbook-icon.png 300w"
+              alt="padlock icon"
+              style="width: clamp(75px, calc(7vw + 47.5px), 150px); height: auto;"
+              width="300"
+              height="249"
               
-                    <p style="font-size: 1.5rem; display: block; justify-self: center;"><u>PILOT REQUIREMENTS</u></p>
-                    <p>For pilots based in the United States: (Pilots based outside the United States will be considered on a case-by-case basis)</p><br>
-                    <p>1. For fixed-wing pilots, hold a FAA Commercial or Airline Transport Pilot certificate with any Airplane class rating, and an Instrument Airplane rating.</p><br>
-                    <p>2. For rotary-wing pilots, hold a FAA Commercial or Airline Transport Pilot certificate with Helicopter rating</p><br>
-                    <p>3. Have logged 500 hours of Pilot-in-Command time, 100 hours of cross-country (defined here as a landing more than 50 nautical miles from the takeoff airport), and 35 hours of night time.</p><br>
-                    <p>4. Mastery of the English language, including aviation English.</p><br>
-                    <p>5. [Not necessary for rostering&mdash;to be completed prior to first assignment] Successful completion of interview and reference check by A.D.S.. Pilots must supply two references. It's my job to examine qualifications, talk about needs and reasons for wanting to ferry aircraft, and ultimately decide if their personality, and technical skill, make them a good fit.</p>
-                  </div>
-             
+              loading="lazy"
 
-                <!-- ACCORDION 4 MOBILE TOGGLE-->
-                 <div class="join-mob-accordion-item">   
-                <h3 class="join-mob-heading">
-<button
-  class="join-accordion-toggle"
-  id="join-mob-way4-toggle"
-  aria-expanded="false"
-  aria-controls="join-mob-way4-panel"
-  type="button"
-  style="margin-top: 0; margin-bottom: 0;">
-  <span class="join-mob-label">Ferry Pilot</span>
-  <img class="join-mob-icon"
-       src="/assets/join-pilot-roster/faq-taxiway.jpg?v=20250908-191739"
-       alt="mini FAQ taxiway sign"
-       loading="lazy"
-       fetchpriority="low">
-  <span class="join-caret" aria-hidden="true">▶</span>
-</button>
-</h3>
+              decoding="async"
+              sizes="200px">
+          </div>
+          <div id="req-cell4">&nbsp;</div>
+          <div>
+            <img 
+              src="/assets/blank1.jpg"
+              srcset="/assets/icons/icon-dropdown.png 300w"
+              alt="dropdown icon"
+              style="width: 80px; height: auto;"
+              width="360"
+              height="360"
+              
+              loading="lazy"
+              decoding="async"
+              sizes="80px">
+          </div>
+          <div id="req-cell6">&nbsp;</div>
+        </button>
+        
+        <button 
+          class="join-requirements-btna is-hidden"          
+          type="button">
+          <div id="btna-1">&nbsp;</div><!--spacer div-->
+          <div id="btna-2">&nbsp;</div><!--spacer div-->
+          <div>
+            <p style="font-size: 1.6rem;">Close<br> Pilot Requirements</p>
+          </div>
+          <div id="btna-4">&nbsp;</div><!--spacer div-->
+          <div id="btna-5">&nbsp;</div>
+          <div>
+            <img 
+              src="/assets/blank1.jpg"
+              srcset="/assets/icons/icon-dropdown-up.png 300w"
+              alt="dropdown icon"
+              style="width: 80px; height: auto;"
+              width="360"
+              height="360"
+              
+              loading="lazy"
+              decoding="async"
+              sizes="80px">
+          </div>
+          
+        </button>
+        </div>
 
-       <!-- ACCORDION 4 MOBILE PANEL-->
-       
-                  <div
-                    id="join-mob-way4-panel"
-                    class="join-mob-accordion-panel"
-                    role="region"
-                    aria-labelledby="join-mob-way4-toggle"
-                    hidden>
+        <div class="join-requirements-content is-hidden">
+          <img 
+            src="/assets/blank1.jpg"
+            srcset="/assets/logos/side-by-side-logo.png 951w"
+            alt="company logo"
+            width="951"
+            height="179"
+            
+            loading="lazy"
+            decoding="async"
+            sizes="300px">
+          <p id="contractpilotreq"><u><b>CONTRACT PILOT REQUIREMENTS</b></u></p>
+          <p style="display: flex; justify-content: center;">For pilots based in the United States: (Pilots based outside the United States will be considered on a case-by-case basis)</p><br>
+          <p>1. For&nbsp;fixed-wing pilots, hold a FAA Commercial or Airline Transport Pilot certificate with any Airplane class rating, and an Instrument Airplane rating.</p>
+          <p>2. For rotary-wing pilots, hold a FAA Commercial or Airline Transport Pilot certificate with Helicopter rating</p>
+          <p>3. Have logged:</p>
+          <ul>
+            <li>1000 hours of Pilot-in-Command time;</li>  
+            <li>100 hours of cross-country (defined here as a landing more than 50 nautical miles from the takeoff airport);</li>
+            <li>50 hours of night time</li>
+            <li>50 hours of solo time (may include student pilot flights)</li>
+            <li>3a. (3) May be reduced to 500 hours of Pilot-in-Command time and 25 hour of night time and 25 hours of solo time for pilots holding a current Flight Instructor (any category) certificate</li>
+          </ul>
+          <p>4. Mastery of the English language, including aviation English.</p>
+          <p>5. [Not necessary for rostering&mdash;to be completed prior to first assignment] Successful completion of interview and reference check by A.D.S.. Pilots must supply two references. It's my job to examine qualifications, talk about needs and reasons for wanting to ferry aircraft, and ultimately decide if their personality, and technical skill, make them a good fit.</p>
+          <p>6. As a reminder, A.D.S. contracts with pilots, who are free to come and go as they please. A.D.S. reserves the final decision about whether an individual pilot will be rostered and may do so for any reason (as work is contract-only).</p>
+        </div>
 
-                      <img 
-                        src="/assets/join-pilot-roster/faq-taxiway.jpg?v=20250908-191739"
-                        alt="FAQ made out of taxiway signs"
-                        loading="lazy"
-                        fetchpriority="low">
-                       <p><b>Q: How much do you pay?</b> A: Pilots bid on their pay. You can choose from a daily rate, an hourly rate, or a flat fee. I'll advance your information and pay bid to the client. In the event the client counters the bid, I'll come back to you and see if you're still interested. Your pay comes from the client, so essentially they are paying you, not I.</p><br>
-                  <p><b>Q: Do you take a cut of my pay?</b> A: No. I don't take a cut or percentage of anything.</p><br>
-                  <p><b>Q: How do you make money?</b> A: I charge the client a Support and Supervision fee which is independent of pilot pay.</p><br>
-                  <p><b>Q: How am I insured for a flight?</b> A: Clients carry aircraft insurance policies which provide for damage and liability coverage. Pilots are encouraged, but not required, to carry supplemental liability insurance.</p><br>
-                  <p><b>Q: Am I responsible for any expenses during a ferry mission?</b> A: No. All expenses are reimbursed, except food and drink which are covered by <i>per diem.</i> Personal entertainment (like movie tickets, video rentals, etc.) won't be reimbursed. In the event of uncertainty, check with me before you buy.</p>
-      </div>
-    </div>
-                  </div>
+      </section>
 
+      <section class="join-choose">
+        <img 
+          src="/assets/blank1.jpg"
+          style="width: 100%; height: auto;"
+          srcset="/assets/custom-grafx/grafx-hi-chart.jpg 998w"
+          alt="road sign"
+          width="998"
+          height="233"
+          
+          loading="lazy"
+          decoding="async"
+          sizes="800px">
+      </section>
 
-   <!--ACCORDION 4 DESKTOP TOGGLE-->
-               <div data-accordion-group="join-roster">               
-                 <button
-                  class="join-accordion-toggle"
-                  id="join-faq"
-                  type="button"
-                  aria-expanded="false"
-                  aria-controls="join-faq-panel">
-                  <span class="join-toggle-label">Ferry Pilot</span>
-                  <img 
-                    src="/assets/join-pilot-roster/faq-taxiway.jpg?v=20250908-191739" 
-                    alt="mini FAQ taxiway sign" 
-                    style="width: 80px; display: block; padding-left: 15px; overflow: visible"
-                    loading="lazy"
-                    fetchpriority="low">
-                    <span class="join-caret" aria-hidden="true">▶</span>
-                </button>
+      <section class="join-fors">
 
-                <!--ACCORDION 4 DESKTOP PANEL-->
-                <div
-                  id="join-faq-panel"
-                  class="join-accordion-panel"
-                  role="region"
-                  aria-labelledby="join-faq"
-                  hidden>
-                  <img 
-                    src="/assets/join-pilot-roster/faq-taxiway.jpg?v=20250908-191739"
-                    alt="FAQ made out of taxiway signs"
-                    loading="lazy"
-                    fetchpriority="low">
-                  <p><b>Q: How much do you pay?</b> A: Pilots bid on their pay. You can choose from a daily rate, an hourly rate, or a flat fee. I'll advance your information and pay bid to the client. In the event the client counters the bid, I'll come back to you and see if you're still interested. Your pay comes from the client, so essentially they are paying you, not I.</p>
-                  <p><b>Q: Do you take a cut of my pay?</b> A: No. I don't take a cut or percentage of anything.</p>
-                  <p><b>Q: How do you make money?</b> A: I charge the client a Support and Supervision fee which is independent of pilot pay.</p>
-                  <p><b>Q: How am I insured for a flight?</b> A: Clients carry aircraft insurance policies which provide for damage and liability coverage. Pilots are encouraged, but not required, to carry supplemental liability insurance.</p>
-                  <p><b>Q: Am I responsible for any expenses during a ferry mission?</b> A: No. All expenses are reimbursed, except food and drink which are covered by <i>per diem.</i> Personal entertainment (like movie tickets, video rentals, etc.) won't be reimbursed. In the event of uncertainty, check with me before you buy.</p>
-                </div>
-              </div>
+        <div class="join-foryou">
+          <p><b><u>It's good for you</u></b></p>
+          <ul style="font-size: 1.2rem; line-height: 1.6;">
+            <li>Potential clients can ask for you by name</li>
+            <li>Some potential clients could be attracted by your attributes. For example, I place a <a href="/pilot-directory">small American flag</a> on the profile of U.S. current of former military. Some potential clients might want a member of the military to fly their aircraft.</li>
+            <li>Your listing is proof of professional relationship to potential employers</li>
+          </ul>
+        </div>
+
+        <div id="forme" style="border: 2px solid black; padding: 15px;">
+          <p style="font-size: 1.5rem; margin-bottom: 10px; text-align: center;"><b><u>It's good for me</u></b></p>
+          <p style="font-size: 1.2rem; line-height: 1.6;">You are lending your <b>credibility</b> to the website and therefore the business.</p>
+        </div>
+     
+        <div id="forus" style="border: 2px solid black; padding: 15px;">
+          <p style="font-size: 1.5rem; margin-bottom: 10px; text-align: center;"><b><u>It's good for both of us</u></b></p>
+          <p style="font-size: 1.2rem; line-height: 1.6;">A more <b>credible</b> business will likely attract more potential clients, meaning more potential flights for you and more potential clients for me.</p>
+        </div>
+        
+        <div style="padding: 15px 15px 15px 35px;">
+          <ul style="font-size: 1.2rem; line-height: 1.6;">
+            <li>You're in my pilot network</li>
+            <li>You get the same bid requests as the "On The Website" pilots</li>
+            <li>Your information is private.</li>
+            <li>I respect and support your decision to not appear on the website</li>
+          </ul>
+        </div>
+
+      </section>
+
+      <section class="join-fors-1100">
+        
+        <p style="font-size: 1.9rem; margin: 0 auto;">There are <b>two</b> ways to join. Choose <b>one</b>:</p>
+        <div><p class="join-your-listing">1. "On The Website"</p></div>
+        <div style="display: flex; flex-direction: column;">
+          <div class="join-foryou">
+            <p><b><u>It's good for you</u></b></p>
+            <ul style="font-size: 1.2rem; line-height: 1.6;">
+              <li>Potential clients can ask for you by name</li>
+              <li>Some potential clients could be attracted by your attributes. For example, I place a <a href="/pilot-directory">small American flag</a> on the profile of U.S. current of former military. Some potential clients might want a member of the military to fly their aircraft.</li>
+              <li>Your listing is proof of professional relationship to potential employers</li>
+            </ul>
+          </div>
+
+          <div id="forme-1100" style="border: 2px solid black; padding: 15px;">
+            <p style="font-size: 1.5rem; margin-bottom: 10px; text-align: center;"><b><u>It's good for me</u></b></p>
+            <p style="font-size: 1.2rem; line-height: 1.6;">You are lending your <b>credibility</b> to the website and therefore the business.</p>
+          </div>
+     
+          <div id="forus-1100" style="border: 2px solid black; padding: 15px;">
+            <p style="font-size: 1.5rem; margin-bottom: 10px; text-align: center;"><b><u>It's good for both of us</u></b></p>
+            <p style="font-size: 1.2rem; line-height: 1.6;">A more <b>credible</b> business will likely attract more potential clients, meaning more potential flights for you and more potential clients for me.</p>
+          </div>
+        <div><p class="join-your-listing">2. "Internal Only"</p></div>
+        <div>
+          <ul style="font-size: 1.2rem; line-height: 1.6;">
+            <li>You're in my pilot network</li>
+            <li>You get the same bid requests as the "On The Website" pilots</li>
+            <li>Your information is private.</li>
+            <li>I respect and support your decision to not appear on the website</li>
+          </ul>
+        </div>
+        </div>
+
+      </section>
+      <section id="otw" class="join-anchor">
+               
+        <div class="join-otw">
+          <p class="join-your-listing">Your "On The Website" listing</p>
+          <div class="join-listing-divider">
+            <div class="join-listing-left">
+              <p style="display: flex; justify-content: center; font-size: 1.5rem;"><b><u>If you decide to be "On The Website" here are the necessary steps:</u></b></p>
+              <p><i>You have full control over the way your listing looks.</i></p>
+              <p>1. Please look at the <a href="/pilot-directory">Pilot Directory</a> and see what it might be like to be have a profile there.</p>
+              <p>*NEW* 2. (Optional) I will host one PDF document of your choice. It is probably your resume' but it can be anything you want website readers to see when they examine your listing. Send it to me via email.</p> 
+              <p>3. Provide (via email or text) a portrait.</p>
+              <p>4. <a href="#join-provide">Add your data to a template</a> with the information I'll need [SKIP if already done].</p>
+              <p>5. I will build a draft profile.</p>
+              <p>6. I will send it to you via email or text.</p>
+              <p>7. Look it over and make sure it is acceptable to you. If not, tell me what needs to be changed, and I will change it then re-submit it to you.</p>
+              <p>8. If it does look okay, let me know and I'll post it. (It may not get posted immediately because I don't update the website daily; but rest assured you are on the Roster and will start to get notifications when they come in.)</p>
             </div>
-          </main>
-          <script src="/script.js?v=20250908-191739" defer></script>
-        </body>
-      </html>
+  
+
+
+        <div style="margin: 25px auto 0px auto;"> 
+          <img 
+            src="/assets/blank1.jpg"
+            srcset="/assets/custom-grafx/grafx-join-sample.jpg 290w"
+            alt="sample pilot listing"
+            width="290"
+            height="674"
+            
+            loading="lazy"
+            decoding="async"
+            sizes="250px"
+            style="position: relative;">
+        </div>
+        </div>
+        </div>
+        
+
+      </section>
+
+      <section id="join-signup" class="join-anchor join-signup">
+
+        <div class="join-signup-uls">
+          <img 
+            src="/assets/blank1.jpg"
+            srcset="/assets/custom-grafx/grafx-trafficlight.png 150w"
+            alt="traffic light"
+            width="150"
+            height="307"
+            
+            loading="lazy"
+            decoding="async"
+            sizes="75px">
+        </div>
+
+        <div class="join-ready" style="font-size: 1.2rem;">
+          <p class="join-ready-p">Ready to sign up?</p>
+          <ul style="line-height: 1.6;">
+            <li>Read the <a href="#pilotreq">Pilot Requirements</a> to ensure you meet them.</li>
+            <li><a href="#join-provide">Provide me with your information</a>.</li>
+            <li>If you've decided to be "On The Website" <a href="#otw">get instructions</a> about that specifically. Otherwise, skip this step</li>
+            <li>I'll respond ASAP to let you know I've received your info.</li>
+          </ul>
+          <p style="display: flex; justify-content: center;">That's it! Easy-peezy.</p>
+        </div>
+        <div id="ready3">&nbsp;</div><!--spacer column-->
+      </section>
+  
+      <section id="join-provide" class="join-anchor">
+
+        <div class="join-provide-info">Provide me with your information</div>
+
+        <div class="join-provide-buttons"> 
+      
+          <button 
+            id="join-copy-button"
+            class="join-thought-btn"
+            style="width: fit-content; height: fit-content;"
+            type="button">Copy template to clipboard
+          </button>
+      
+          <p id="copied"></p>
+
+          <button
+            id="emailLink"
+            class="join-thought-btn"
+            style="width: fit-content; height: fit-content;"
+            type="button">Open in Email
+          </button>
+ 
+        </div>
+
+        <p>Name:</p>
+        <p>Email:</p>
+        <p>Phone:</p>
+        <p>City of residence: [Why I ask: So I can see how close you live to the route of flight. If you address is necessary for insurance, etc. I will use the address found on faa.gov for your pilot certificate (FAA certificate holders)]</p>
+        <p>Current pilot employment; company (for On The Website pilots, company name will NOT appear on the website) and PIC or SIC :</p>
+        <p>Pilot certificate country(s), if any other than US:</p>
+        <p>Pilot certificate(s):</p>
+        <p>Pilot ratings including type ratings (please denote if rating is SIC-only):</p>
+        <p>Current Flight Instructor:</p>
+        <p>Total flight time (to the nearest hundred):</p>
+        <p>Current or former member of the military: </p>
+        <p>Speak any other languages besides English. If yes, which and level (fluent, conversational or functional):</p>
+        <p>Airplane(s) owner? If yes, what type(s):</p>
+        <p>Any other information that would enhance your listing.</p>
+ 
+        
+      </section>
+
+      <section class="join-faq">
+        <div>
+          <img 
+              src="/assets/blank1.jpg"
+              srcset="/assets/custom-grafx/grafx-join-faq-taxiway.jpg 460w"
+              alt="a FAQ graphic made out of taxiway signs"
+              width="460"
+              height="176"
+              
+              loading="lazy"
+              decoding="async"
+              sizes="400px"
+              style="display: grid; height: 100px; width: auto; margin: 30px auto;">
+        </div>
+        <div style="text-align: left; font-size: 1.2rem; line-height: 1.6;">
+          <p><b>Q: How much do you pay?</b> A: Pilots bid on their pay. You can choose from a daily rate, an hourly rate, or a flat fee. I'll advance your information and pay bid to the client. In the event the client counters the bid, I'll come back to you and see if you're still interested. Your pay originates from the client, via contract. The client pays me and I pay you; no cut taken.</p><br>
+          <p><b>Q: Do you take a cut of my pay?</b> A: No. I don't take a cut or percentage of anything.</p><br>
+          <p><b>Q: How do you make money?</b> A: I charge the client a Cost of Professional Services and Operations which is independent of pilot pay.</p><br>
+          <p><b>Q: How am I insured for a flight?</b> A: Clients carry aircraft insurance policies which provide for damage and liability coverage. Pilots are encouraged, but not required, to carry supplemental liability insurance.</p><br>
+          <p><b>Q: Am I responsible for any expenses during a ferry mission?</b> A: No. All expenses are reimbursed, except food and drink which are covered by <i>per diem.</i> Personal entertainment (like movie tickets, video rentals, etc.) won't be reimbursed. In the event of uncertainty, check with me before you buy.</p>
+        </div>
+
+      </section>
+
+
+      <div id="copy-template-text" style="display:none">
+
+      Name:<br><br>
+
+      Email:<br><br>
+
+      Phone:<br><br>
+
+      City of residence:<br><br>
+
+      Current pilot employment:<br><br>
+
+      Pilot certificate country(s), if any other than US:<br><br>
+
+      Pilot certificate(s):<br><br>
+
+      Pilot ratings including type ratings (please denote if rating is SIC-only):<br><br>
+
+      Current Flight Instructor:<br><br>
+
+      Total flight time (to the nearest hundred):<br><br>
+
+      Current or former member of the military:<br><br>
+
+      Speak any other languages besides English. If yes, which and level (fluent, conversational or 
+      functional):<br><br>
+
+      Airplane(s) owner? If yes, what type(s):<br><br>
+
+      Any other information that would enhance your listing.<br><br>
+
+      </div>
+
+      <div id="join-email-body" style="display: none;">
+      Hey Aaron;
+
+      I'd like to join the pilot roster. Here is my info:
+
+      Name:
+      Email:
+      Phone:
+      City of residence:
+      Current pilot employment:
+      Pilot certificate country(s), if any other than US:
+      Pilot certificate(s):
+      Pilot ratings including type ratings (please denote if rating is SIC-only):
+      Current Flight Instructor:
+      Total flight time (to the nearest hundred):
+      Current or former member of the military:
+      Speak any other languages besides English. If yes, which and level (fluent, conversational or functional):
+      Airplane(s) owner? If yes, what type(s):
+      Any other information that would enhance your listing:
+
+      Thanks!
+      </div>
+
+    </main>
+    <script type="module" src="/js/main.js"></script>
+  </body>
+</html>
+

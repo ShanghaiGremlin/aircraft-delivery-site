@@ -1,0 +1,13 @@
+# Thumbnails @ 640px (this is your “farm” equivalent)
+# /images/width/640/<slug>.<ext> → /.netlify/images?url=/assets/past-deliveries/<slug>.<ext>&w=640&q=75
+/images/full/:name.:ext   /.netlify/images?url=/assets/past-deliveries/:name.:ext&w=1600&q=80  200
+
+
+/images/width/:w/:name.:ext   /.netlify/images?url=/assets/past-deliveries/:name.:ext&w=:w&q=75  200
+
+# “Full” @ 1600px
+/images/full/:name.:ext       /.netlify/images?url=/assets/past-deliveries/:name.:ext&w=1600&q=80  200
+
+/images/320/:name.:ext    /.netlify/images?url=/assets/past-deliveries/:name.:ext&w=320&q=75   200
+/images/640/:name.:ext    /.netlify/images?url=/assets/past-deliveries/:name.:ext&w=640&q=75   200
+/images/1280/:name.:ext   /.netlify/images?url=/assets/past-deliveries/:name.:ext&w=1280&q=75  200

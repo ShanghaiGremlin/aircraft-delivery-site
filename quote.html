@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 <head>
   <!-- ===== GLOBAL (copy identical on every page) ===== -->
   <meta charset="UTF-8">
@@ -16,9 +16,8 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
 
-<link rel="preload" href="/style.css?v=20250908-191739" as="style">
-<link rel="stylesheet" href="/style.css?v=20250908-191739">
-<link rel="preload" href="/script.js?v=20250908-191739" as="script">
+<link rel="preload" href="./css/style.css?v=20250908-191739" as="style">
+<link rel="stylesheet" href="./css/style.css?v=20250908-191739">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,6 +47,20 @@
   <meta name="twitter:title" content="Aircraft Delivery Solutions &mdash; Get A Quote">
   <meta name="twitter:description" content="Get A Delivery Quote">
   <meta name="twitter:image" content="https://aircraft.delivery/assets/about/2009-12-24.jpg">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aircraft.delivery/" },
+    { "@type": "ListItem", "position": 2, "name": "Quote" }
+  ]
+}
+</script>
+
+
 </head>
 <body class="quote-page">
       <a 
@@ -55,162 +68,235 @@
         href="#main">Skip to main content
       </a>
 
-      <!-- DESKTOP HEADER WRAPPER -->
-
-      <div class="desktop-only">
-        <header class="desk-header"
-                id="desk-header">
-          <a class="skip-link" 
-             href="#main">Skip to main content
-          </a>
-          <div class="desk-header-inner">
-            <div class="desk-header-left">
-              <nav class="desk-nav" 
-                   aria-label="Primary">
-                <a href="/services"
-                   aria-current="page">Services
-                </a>
-                <a href="/quote">Quote</a>
-                <a class="nav-dir"  
-                  href="/pilot-directory">Pilot<wbr> Directory
-                </a>
-                <a class="nav-join" 
-                  href="/join-pilot-roster">Join Pilot<wbr> Roster
-                </a>
-                <a href="/about">About</a>
-                <a class="nav-past" 
-                  href="/past-deliveries">Past<wbr> Deliveries
-                </a>
-              </nav>
-            </div>
-
-            <div class="desk-header-center">
-              <a href="/"
-                aria-current="page"
-                aria-label="Home">
-                <picture>
-                  <source
-                    media="(min-width: 1401px)"
-                    type="image/png"
-                    srcset="/assets/side-by-side-logo.png?v=20250908-191739">
-                  <img
-                    class="desk-header-logo"
-                    src="data:image/gif;base64,R0lGODlhAQABAAAAACw="
-                    width="951"
-                    height="179"
-                    decoding="async"
-                    fetchpriority="high"
-                    loading="eager"
-                    alt="">
-                </picture>
-              </a>
-            </div>
-
-            <div class="desk-header-right">
-              <p>+1 (415) 845-8163</p>
-              <a href="mailto:akahn28@gmail.com">akahn28@gmail.com</a>
-            </div>
-          </div>
-        </header>
-
-      </div>
-
-<!--MOBILE-ONLY DIV-->
-<!--MOBILE-ONLY DIV-->
-<!--MOBILE-ONLY DIV-->
-
-      <div class="mobile-only">
-
-<!--MOBILE-ONLY HEADER-->
-<!--MOBILE-ONLY HEADER-->
-<!--MOBILE-ONLY HEADER-->
-
-        <header class="mobile-header">
-
-          <div class="mobile-header-slot-left">
-            <button
-              id="hamburger-icon"
-              class="mobile-burger-proxy"
-              type="button"
-              aria-label="Open menu"
-              aria-expanded="false"
-              aria-controls="mobileMenu"
-              data-burger-proxy>
-              <picture>
-                <source 
-                  media="(max-width: 1400px)" 
-                  srcset="/assets/mobile/burger.png?v=20250908-191739">
-                <img
-                  src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                  alt="aria-label-active" 
-                  width="50"
-                  height="39"
-                  decoding="async">
-              </picture>
-            </button>
-          </div>
-
-          <div class="mobile-header-slot-center">
-            <a 
-              href="/" 
-              class="mobile-header-logo"                 
-              aria-label="Home">
-              <picture>
-                <source 
-                  media="(max-width: 750px)"
-                  srcset="/assets/mobile/mobile-logo-v2.png?v=20250908-191739">
-                <source 
-                  media="(min-width: 751px) and (max-width: 1400px)"
-                  srcset="/assets/mobile/mobile-logo-90.png?v=20250908-191739">
-                <img
-                  src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                  alt="Aircraft Delivery Solutions"
-                  width="300" 
-                  height="148" 
-                  decoding="async">
-              </picture>
-            </a>
-          </div>
-
-          <div class="mobile-header-slot-right">
-            <a
-              href="tel:+14158458163"
-              class="mobile-header-phone"
-              aria-label="phone icon">
-              <picture>
-                <source 
-                  media="(max-width: 1400px)"
-                  srcset="/assets/mobile/phone.png?v=20250908-191739">
-                <img 
-                  src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                  alt="Call"
-                  width="36" 
-                  height="36"
-                  decoding="async">
-              </picture>
-            </a>
-          </div>
-
-        </header>
-
-        <div 
-          class="mobile-menu" 
-          id="mobileMenu" 
-          hidden 
-          aria-labelledby="hamburger-icon"
-          role="region">
-          <nav class="mobile-nav" 
-               aria-label="Mobile primary">
+    <header class="header"
+            id="desk-header">
+      <div class="header-inner">
+        <div class="header-left">
+          <nav aria-label="Primary">
             <a href="/services">Services</a>
-            <a href="/quote">Get a Quote</a>
+            <a href="/quote">Quote</a>
             <a href="/pilot-directory">Pilot Directory</a>
-            <a href="/join-pilot-roster">Join Pilot Roster</a>
+            <a href="/join-pilot-roster">Join<wbr> Pilot Roster</a>
             <a href="/about">About</a>
             <a href="/past-deliveries">Past Deliveries</a>
           </nav>
+          <button
+            id="burger"
+            class="menu-toggle"
+            type="button"
+            aria-controls="menu-overlay"
+            aria-expanded="false"
+            aria-label="Open menu"
+            data-nav-toggle>
+
+            <img
+              src="/assets/blank1.jpg"
+              srcset="/assets/icons/icon-burger.png?v=20250908-191739 320w"
+              sizes="50px"
+              alt=""
+              aria-hidden="true" 
+              width="50"
+              height="39"
+              decoding="async"
+              loading="eager">
+          </button>
         </div>
+       <div class="header-center">
+        <a href="/"
+          aria-current="page"
+          aria-label="Home">
+          <img 
+            class="header-center-logo"
+            id="desktop-logo"
+            src='/assets/blank1.jpg'
+            srcset='/assets/logos/side-by-side-logo.png 951w'
+            sizes="calc(41.7vw + 16.7px)"
+            width='951'
+            data-w='951'
+            height='179'
+            data-h='179'
+            loading='eager'
+            decoding='async'
+            alt=''>
+          <img 
+            class="header-center-logo" 
+            id="mobile-logo-90"
+            src='/assets/blank1.jpg'
+            srcset='assets/logos/mobile-logo-90.png 300w'
+            sizes='100px'
+            width='300'
+            data-w='300'
+            height='116'
+            data-h='116'
+            loading='eager'
+            decoding='async'
+            alt='Aircraft Delivery Solutions logo'><!--1400 O/R-->
+        </a>
+       </div>
+    
+       <div class="header-right">
+        <div class="header-right-desk">
+          <a href="tel:+14158458163"
+             aria-label="call">
+            <p>+1 (415) 845-8163</p>
+            <img 
+              class="phone-icon-mobile"
+              id="phone-icon"
+              src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+              srcset="/assets/icons/icon-phone.png?v=20250908-191739 320w"
+              sizes="36px"
+              alt=""
+              aria-hidden="true"
+              width="36" 
+              height="36"
+              loading="eager"
+              decoding="async"><!--1400 O/R-->
+          </a>
+          <a href="mailto:akahn28@gmail.com">
+            <p>akahn28@gmail.com</p>
+          </a>
+        </div>
+        <div class="header-right-mob"><!--1400 O/R-->
+          <a href="tel:+14158458163"
+             aria-label="Call">
+            <img 
+              class="phone-icon-mobile"
+              src="/assets/blank1.jpg"
+              srcset="/assets/icons/icon-phone.png?v=20250908-191739 320w"
+              sizes="36px"
+              alt=""
+              aria-hidden="true"
+              width="36" 
+              height="36"
+              loading="eager"
+              decoding="async">
+          </a>
+          <a href="sms:+14158458163"
+             id="icontxtmsg"
+             aria-label="Send a text message">
+           <img 
+              class="phone-icon-mobile"
+              style="margin-right: 15px;"
+              src="/assets/blank1.jpg"
+              srcset="/assets/icons/icon-txt-msg-bubble.png 91w"
+              sizes="36px"
+              alt=""
+              aria-hidden="true"
+              width="91" 
+              height="70"
+              loading="eager"
+              decoding="async">
+            </a>
+          <a href="mailto:akahn28@gmail.com"
+             id="iconemail">
+             <img 
+              class="phone-icon-mobile"
+              src="/assets/blank1.jpg"
+              srcset="/assets/icons/icon-email.png 200w"
+              sizes="36px"
+              alt=""
+              aria-hidden="true"
+              width="200" 
+              height="131"
+              loading="eager"
+              decoding="async">
+            </a>
+        </div>              
+       </div>
       </div>
 
+    </header>
+
+        <div
+          class="menu-overlay is-hidden"
+          id="menu-overlay"
+          data-anim="fade"
+          data-menu
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="menu-title"
+          aria-hidden="true">
+          <div 
+            class="menu-panel-backdrop"
+            id="menu-panel-backdrop" 
+            data-menu-overlay
+            aria-hidden="true">
+          </div>
+          <nav 
+            id="menu-panel"
+            class="menu-panel"
+            aria-label="Primary navigation"
+            aria-hidden="true"
+            inert>
+            <h2 
+              id="menu-title" 
+              class="visually-hidden">Menu
+            </h2>
+            <button
+              class="mob-menupanel-float"
+              aria-label="Close mobile menu">
+              <img
+                src="/assets/blank1.jpg"
+                height="118"
+                width="125"
+                sizes="30px"
+                srcset="/assets/icons/icon-red-x-close.png 125w"
+                aria-lable="Close button"
+                alt=""
+                aria-hidden="false">
+            </button>
+
+            <ul class="menu-list">
+              <li><a href="/services">Services</a></li>
+              <li><a href="/quote">Get a Quote</a></li>
+              <li><a href="/pilot-directory">Pilot Directory</a></li>
+              <li><a href="/join-pilot-roster">Join Pilot Roster</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/past-deliveries">Past Deliveries</a></li>
+            </ul>
+            <button 
+              class="menu-close" 
+              type="button" 
+              data-menu-close 
+              aria-label="Close menu">Close
+            </button>
+            <div style="display: grid; grid-template-columns: auto auto; margin-top: 60px;">
+              <a 
+                href="sms:+14158458163"
+                id="menu-icontxtmsg"
+                style="margin: 0 auto;">
+                <img 
+                  class="phone-icon-mobile"
+                  style="margin-right: 15px;"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/icons/icon-txt-msg-bubble.png 91w"
+                  sizes="36px"
+                  alt=""
+                  aria-hidden="true"
+                  width="91" 
+                  height="70"
+                  loading="eager"
+                  decoding="async">
+              </a>
+              <a 
+                href="mailto:akahn28@gmail.com"
+                id="menu-iconemail"
+                style="margin: 0 auto;">
+                <img 
+                  class="phone-icon-mobile"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/icons/icon-email.png 200w"
+                  sizes="36px"
+                  alt=""
+                  aria-hidden="true"
+                  width="200" 
+                  height="131"
+                  loading="eager"
+                  decoding="async">
+              </a>
+            </div>
+          </nav>
+        </div>
       <main id="main" 
             class="quote-main"
             tabindex="-1">
@@ -223,10 +309,7 @@
             
             <div class="quote-callme-grid">
       
-              <!--BADGE-->
-              <span class="quote-top-badge">Fastest Way!</span>
-
-              <!--CTA-->     
+            <!--CTA-->     
               <div class="quote-callme-cta">
                 <span class="quote-phone-wiggle" 
                       id="phoneIcon">&#x1F4DE;
@@ -243,7 +326,7 @@
               <!-- POINTS -->
               <div class="quote-callme-points">
                 <img class="quote-callme-points-opensign"
-                      src="/assets/quote/open-sign-320w.jpg?v=20250908-191739"
+                      src="/assets/custom-grafx/grafx-quote-open-sign-320w.jpg"
                       alt="open sign"
                       loading="eager"
                       fetchpriority="high">
@@ -251,17 +334,15 @@
                   <li>I typically answer 08:00 &ndash; 20:00 <i>Pacific</i> [UTC -7] daily.</li>
                   <li class="quote-callme-office-now"
                       id="quote-callme-office-now"  
-                      hidden>The current time at my office is
+                      >The current time at my office is
                       <strong><span id="quote-callme-office-time"></span></strong>
                       <span 
-                        id="quote-callme-office-daywrap" 
-                        hidden>
-                        (<span id="quote-callme-office-day"></span>)
-                      </span>.  
+                        id="quote-callme-office-daywrap">
+                        (<span id="quote-callme-office-day"></span>)</span>.  
                   </li>            
                 </ul>  
                 <img class="quote-callme-points-vm-chip"
-                      src="/assets/quote/voicemail-icon.png?v=20250908-191739"
+                      src="/assets/icons/icon-voicemail.png"
                       alt="voicemail-icon"
                       loading="eager"
                       fetchpriority="high">
@@ -274,8 +355,8 @@
               <!--HEADSHOT -->
               <figure class="quote-callme-headshot">
               <img 
-                src="/assets/quote/aaron-for-quote.jpg?v=20250908-191739" 
-                alt="Aaron Kahn � Aircraft Delivery Solutions" 
+                src="/assets/images/quote-aaron-for-quote.jpg"
+                alt="Aaron Kahn   Aircraft Delivery Solutions" 
                 decoding="async" 
                 loading="eager"
                 fetchpriority="high">
@@ -283,7 +364,7 @@
 
               <!-- NOAI -->
               <div class="quote-callme-noai">
-                <img src="/assets/quote/no-ai-320w.png?v=20250908-191739" 
+                <img src="/assets/custom-grafx/grafx-quote-no-ai-320w.png"
                   alt="No AI" 
                   decoding="async" 
                   loading="eager"
@@ -310,11 +391,11 @@
           <section class="quote-bottom-row">
 
             <!-- Text / WhatsApp Box -->
-            <div class="quote-bottom-row-textbox">
+            <div class="quote-bottom-row-textbox" style="width: 660px;">
               <h2 class="quote-contact-row">
                 <span>
                   <a 
-                    style="height: 48px; width: auto;"
+                    style="height: 48px; width: auto; display: block;"
                     class="quote-link" 
                     href="sms:+14158458163">
                       <span 
@@ -342,12 +423,11 @@
 
             <!-- Email Box -->
 
-            <div class="quote-bottom-row-emailbox">
+            <div class="quote-bottom-row-emailbox" style="width: 660px;">
               <h2 class="quote-contact-row">
                 <a href="mailto:akahn28@gmail.com">
                   <span>&#x2709;&#xFE0F; Email</span>
                     <b>akahn28@gmail.com</b>
-                  </span>
                 </a>
               </h2>
             </div>
@@ -356,9 +436,9 @@
 
           <div class="quote-columnhouse">
 
-            <div class="quote-columnhouse-column">
+            <div class="quote-columnhouse-column ">
 
-              <p class="quote-columnhouse-heading">
+              <p class="quote-columnhouse-heading" style="display: block;"">
                 <u><b>Quote Request Form</b></u><br>
                 <i>Completely Optional!</i>
               </p>
@@ -368,7 +448,7 @@
               </div>
  
               <button 
-                id="quote-mob-form-toggle-btn"
+                id="quote-mob-form-toggle-open-btn"
                 class="quote-mob-toggle-btn"
                 style="margin-bottom: 20px;"
                 type="button"
@@ -376,6 +456,16 @@
                 data-label-closed="Show Quote Request Form"
                 data-label-open="Hide Quote Request Form"
                 aria-controls="quote-form-section">Show Quote Request Form
+              </button>
+               <button 
+                id="quote-mob-form-toggle-close-btn"
+                class="quote-mob-toggle-btn"
+                style="margin-bottom: 20px;"
+                type="button"
+                aria-expanded="false"
+                data-label-closed="Show Quote Request Form"
+                data-label-open="Hide Quote Request Form"
+                aria-controls="quote-form-section">Hide Quote Request Form
               </button>
          
               <div 
@@ -759,526 +849,2057 @@
 
 
 
-  <!-- New: the 10px center divider -->
-    <div class="quote-divider" aria-hidden="true"></div>
+   <!-- New: the 10px center divider -->
+        <div class="quote-divider" aria-hidden="true"></div>
 
-    <div class="quote-columnhouse-column">
+        <div class="quote-columnhouse-column">
 
-      <p class="quote-columnhouse-heading"><u><b>Prices</b></u></p>
-      <div class="quote-subbox">
-        <p> &bull; Answers common questions</p>
-        <p> &bull; Orients you to what your proposed project might cost</p>
-       </div>
-    
-      <h2 style="text-align:center; font-size: 2.1rem; margin-top: 40px;"><b>Ferry Flights</b></h2><br>
+<section class="estimate-machine">
+                     
+  <div class="button-panel"
+    id="button-group">
+      <div class="dymo23">
+  <p><span></span>SELECT<span></span>AN<span></span>AIRCRAFT<span></span>SIZE<span></span></p>
+</div>
+<div class="button-group-size" id="button-group-size">
 
-      <div class="quote-accordion-group">
-
-        <!-- ACCORDION 1 PILOT PAY -->
-        <div class="quote-accordion" 
-             style="margin-bottom: 10px;">
-          <button 
-            id="quote-panel-pay-toggle"
-            type="button" 
-            class="quote-accordion-toggle" 
-            aria-expanded="false" 
-            aria-controls="quote-panel-1">
-            <span class="quote-toggle-label">Pilot Pay 
-              <span class="quote-tooltip-parent">(contracted)
-                <span class="quote-tooltip-box">"Contracted": Agreed to in advance and not subject to variations</span>
-              </span>
-            </span>
-            <span 
-              class="quote-caret" 
-              aria-hidden="true">>
-            </span>
-          </button>
-
-          <div 
-            class="quote-accordion-panel" 
-            id="quote-panel-1"
-            role="region"
-            aria-labelledby="quote-panel-pay-toggle" 
-            hidden>
-            <p><b>Highly dependent on many factors. Also, there are variations in the mode of billing; pilots can bill by the day, by the flight hour, by the duty hour, or bill a flat fee for the project.</b></p>
-
-            <table style="width: 100%; border-collapse: collapse; border: 1px solid #333; font-size: 1.125rem; background-color: #fcfcfc; max-width: 900px; margin: 0 auto;">
-              <tr>
-                <td style="border: 1px solid #333; border-right: 1px solid white; text-align: center; background-color: #382d4b; color:#ffffff;"><b>Scenario</b></td>
-                <td style="border: 1px solid #333; text-align: center; background-color: #382d4b; color: #ffffff;"><b>Pay</b></td>
-              </tr>
-              <tr>
-                <td style="border: 1px solid #333;">Domestic ferry of a small trainer aircraft</td>
-                <td style="border: 1px solid #333;">$400 - $600 daily rate</td>
-              </tr>
-              <tr>
-                <td style="border: 1px solid #333;">A light turboprop such as a King Air 90</td>
-                <td style="border: 1px solid #333;">$700 - $1,000 daily rate</td>
-              </tr>
-              <tr>
-                <td style="border: 1px solid #333;">Any turbojet</td>
-                <td style="border: 1px solid #333;">$1,200 - $2,500 daily rate</td>
-              </tr>
-              <tr>
-                <td style="border: 1px solid #333;">Helicopters</td>
-                <td style="border: 1px solid #333;">$700 and up daily rate</td>
-              </tr>
-              <tr>
-                <td style="border: 1px solid #333;">Co-pilot Pay 
-                  <span style="font-size: 0.875rem;">(when required or requested)</span>
-                </td>
-                <td style="border: 1px solid #333;">About 60% of Pilot-In-Command Pay</td>
-              </tr>
-              <tr>
-                <td style="border: 1px solid #333;"><i>Domestic U.S. per diem</i></td>
-                <td style="border: 1px solid #333;"><i>$75 per day (higher outside U.S.)</i></td>
-              </tr>
-            </table>
-          </div>
-        </div>
-
-        <!-- ACCORDION 2 PILOT EXPENSES -->
-        <div 
-          class="quote-accordion" 
-          style="margin-bottom: 10px;">
-          <button 
-            id="quote-panel-expenses-toggle"
-            type="button" 
-            class="quote-accordion-toggle" 
-            aria-expanded="false" 
-            aria-controls="quote-panel-pilot-expenses">
-            <span class="quote-toggle-label">Pilot Expenses 
-              <span class="quote-tooltip-parent">(reimbursed)
-                <span class="quote-tooltip-box">"Reimbursed": Cost estimates are provided, but these expenses will vary; items are purchased at actual prices by A.D.S.to be reimbursed following mission end.</span>
-              </span>
-            </span> 
-            <span 
-              class="quote-caret" 
-              aria-hidden="true">>
-            </span>
-          </button>
-          <div 
-            class="quote-accordion-panel" 
-            id="quote-panel-pilot-expenses" 
-            hidden
-            role="region"
-            aria-labelledby="quote-panel-expenses-toggle">
-            <p><b>There are usual expenses related to what it costs to have pilot(s) on duty away from their home:</b></p>
-            <p>&bull; Travel. Will almost always include last-minute airline travel. Often includes taxi/Uber. Sometimes involves rental car(s). Some pilots require Business class or higher for overseas air travel.</p>
-            <p>&bull; Lodging. $150 - $250 per night for US domestic hotels, with prices higher outside the US and/or during peak travel times.</p>
-          </div>
-        </div>
-
-        <!-- ACCORDION 3 AIRCRAFT EXPENSES -->
-        <div 
-          class="quote-accordion" 
-          style="margin-bottom: 10px;">
-          <button 
-            type="button" 
-            class="quote-accordion-toggle" 
-            id="quote-panel-acexpenses-toggle" 
-            aria-expanded="false" 
-            aria-controls="quote-panel-3">
-            <span class="quote-toggle-label">Aircraft Expenses 
-              <span class="quote-tooltip-parent">(reimbursed)
-                <span class="quote-tooltip-box">"Reimbursed": Cost estimates are provided, but these expenses will vary; items are purchased at actual prices by A.D.S. to be reimbursed following mission end.</span>
-              </span>
-            </span> 
-            <span 
-              class="quote-caret" 
-              hidden>>
-            </span>
-          </button>
-          <div 
-            class="quote-accordion-panel" 
-            id="quote-panel-3" 
-            hidden
-            aria-labelledby="quote-panel-acexpenses-toggle"
-            role="region">
-            <p><b>Every aircraft has a fuel expense. Here are some other common aircraft expenses:</b></p>
-            <p>&bull; Handling/Governmental. Handlers are required for operations in many places in the world, and they charge wide-ranging prices. Governments collect fees for customs, landing fees, ATC, etc.</p>
-            <p>&bull; Ramp/Hangar fees. Ramp fees are usually minor for small aircraft. If a hangar is requested or required, they start at about $100/day for the smallest aircraft.</p>
-            <p>&bull; Ramp services: If an aircraft requires services like lavatory cleaning or crew meals.</p>
-            <p>&bull; Un-planned maintenance. Unfortunately, the shop has the upper hand when naming their price(s).</p>
-            <p>&bull; Fluids. Typically engine oil and less commonly hydraulic fluid.</p></div>
-          </div>
-      
-        <!-- ACCORDION 4 SUPPORT FEE -->
-        <div class="quote-accordion">
-          <button 
-            type="button" 
-            class="quote-accordion-toggle"
-            id="quote-panel-support-toggle" 
-            aria-expanded="false" 
-            aria-controls="quote-panel-4">
-            <span class="quote-toggle-label">Support & Administration Fee 
-              <span class="quote-tooltip-parent">(contracted)
-                <span class="quote-tooltip-box">"Contracted": Agreed to in advance and not subject to variations</span>
-              </span>
-            </span>
-            <span class="quote-caret" aria-hidden="true">></span>
-          </button>
-          <div 
-            class="quote-accordion-panel" 
-            id="quote-panel-4" 
-            hidden
-            aria-labelledby="quote-panel-support-toggle"
-            role="region">
-            <p><b>I charge a fee which compensates me for three areas:</b></p>
-            <div 
-              class="quote-admin-fee-area" 
-              style="background-color: #cbdcee;">
-              <p class="quote-admin-fee-title">Flight Dispatch</p>
-              <div class="quote-admin-fee-content">      
-                <p>&bull; Flight planning assistance. I augment the flighcrew's flight planning activities and products.</p>
-                <p>&bull; Weather analysis. I monitor weather reporting and forecasts in augmentation of flightcrew weather collection.</p>
-                <p>&bull; Flight release. I supplement the flightcrew's decision-making including go/no-go determination.</p>
-                <p>&bull; Flight following. I monitor flight progress and take appropriate action as warranted.</p>
-                <p>&bull; On-call flighcrew support. I'm available 24 hours a day while ferry flights are in progress.</p>
-              </div>
-            </div>
-            <div 
-              class="quote-admin-fee-area" 
-              style="background-color: #dcf0df;">
-              <p class="quote-admin-fee-title">Crew Travel Support</p>
-              <div class="quote-admin-fee-content">      
-                <p>&bull; I assist flightcrews in obtaining appropriate lodging and meals.</p>
-                <p>&bull; I assist with identifying, locating and booking airline tickets, car rentals, and ride-shares.</p>
-            </div>
-          </div>
-          <div 
-            class="quote-admin-fee-area" 
-            style="background-color: #e9dcf0;">
-            <p class="quote-admin-fee-title">Business-Related</p>
-            <div class="quote-admin-fee-content">      
-              <p>I don't charge a premium on any items, so all my gross income is addressed here:</p>
-              <p>&bull; Overhead</p>
-              <p>&bull; Sales and marketing</p>
-              <p>&bull; Risk management</p>
-              <p>&bull; Time and expertise</p>
-              <p>&bull; Upfront costs, prior to full client payment</p>
-              <p>&bull; Gross profit</p>
-            </div>
-          </div>
-        </div>
+  <!-- Button 1  -->
+ <label for="toggle1">
+    <input type="radio" id="toggle1" name="button-group-size" value="0">
+    <div class="btn">
+<div class="dymo23">
+  <p style="margin: 0;">SMALL</p>
+</div>
+      <div class="bottom">
+        <div class="dot"></div>
       </div>
     </div>
+  </label>
+  <!-- Button 2 -->
+ <label for="toggle2">
+    <input type="radio" id="toggle2" name="button-group-size" value="1">
+    <div class="btn">
+<div class="dymo23">
+  <p style="margin: 0;">MEDIUM</p>
+</div>
+      <div class="bottom">
+        <div class="dot"></div>
+      </div>
+    </div>
+  </label>
+  <!-- Button 3 -->
+ <label for="toggle3">
+    <input type="radio" id="toggle3" name="button-group-size" value="2">
+    <div class="btn">
+<div class="dymo23">
+  <p style="margin: 0;">LARGE</p>
+</div>
+      <div class="bottom">
+        <div class="dot"></div>
+      </div>
+    </div>
+  </label>
+</div>
 
-<div class="quote-mob-ferry-costs">
- <p class="quote-mob-expenses-headings"><u>Pilot Pay (contracted)</u></p>
-  <p class="mob-std-small" style="text-align:left; margin-top: 3px;">Highly dependent on many factors. Also, there are variations in the mode of billing; pilots can bill by the day, by the flight hour, by the duty hour, or bill a flat fee for the project.</p>
+<div class="button-group-length" id="button-group-length" style="margin-top: 30px;">
 
-  <table style="width: 100%; max-width: 1000px; margin: 0 auto; border-collapse: collapse; border: 1px solid #333; font-size: 1.3rem; background-color: #fcfcfc;">
-    <tbody 
-      id="quote-mob-main-rows"
-      hidden>
-    <tr style="text-align: center; background-color: #3f3d3d;">
-      <td style="border: 1px solid; color: #ffffff;"><b>Scenario</b></td>
-      <td style="border: 1px solid; color: #ffffff"><b>Approximate Pay</b></td>
-    </tr>
-    <tr style="font-size: 1.2rem;">
-      <td style="border: 1px solid #333;">Domestic ferry of a small trainer aircraft</td>
-      <td style="border: 1px solid #333;">$400 - $600 daily rate</td>
-    </tr>
-
-  <tr class="quote-mob-extra-row">
-    <td colspan="2" style="text-align: center; padding: 10px;">
-      <button 
-      class="quote-mob-toggle-btn" 
-      type="button" 
-      id="quote-mob-extra-row-btn"
-      aria-expanded="false"
-      aria-controls="quote-mob-main-rows"
-      data-label-closed="Show More Pay Scenarios"
-      data-label-open="Hide Pay Scenarios">
-      Show More Pay Scenarios</button>
-    </td>
-  </tr>
-    </tbody>
-
-  <tbody id="quote-mob-extra-rows">
-    <tr class="quote-mob-extra-row quote-mob-hidden" style="font-size: 1.2rem;">
-      <td style="border: 1px solid #333;">A light turboprop such as a King Air 90</td>
-      <td style="border: 1px solid #333;">$700 - $1,000 daily rate</td>
-    </tr>
-    <tr class="quote-mob-extra-row quote-mob-hidden" style="font-size: 1.2rem;">
-      <td style="border: 1px solid #333;">Any turbojet</td>
-      <td style="border: 1px solid #333;">$1,200 - $2,500 daily rate</td>
-    </tr>
-    <tr class="quote-mob-extra-row quote-mob-hidden" style="font-size: 1.2rem;">
-      <td style="border: 1px solid #333;">Helicopters</td>
-      <td style="border: 1px solid #333;">$700 and up daily rate</td>
-    </tr>
-    <tr class="quote-mob-extra-row quote-mob-hidden" style="font-size: 1.2rem;">
-      <td style="border: 1px solid #333;">Co-pilot Pay (when required or requested)</td>
-      <td style="border: 1px solid #333;">60% of Pilot-In-Command Pay</td>
-    </tr>
-    <tr class="quote-mob-extra-row quote-mob-hidden" style="font-size: 1.2rem;">
-      <td style="border: 1px solid #333;"><i>Domestic U.S. per diem</i></td>
-      <td style="border: 1px solid #333;"><i>$75 per day (higher outside U.S.)</i></td>
-    </tr>
-  </tbody>
-  </table>
-
-  <p class="quote-mob-expenses-headings" style="margin-top: 35px;"><u>Pilot Expenses (reimbursed)</u></p>
-<p class="mob-std-small" style="margin-top: 3px; text-align: left;">There are usual expenses related to what it costs to have pilot(s) on duty away from their home:</p>
-<ul style="text-align: left;">
-  <li class="mob-std-small" style="margin-bottom: 6px;"><b>Travel:</b> Will almost always include last-minute airline travel. Often includes taxi/Uber. Sometimes involves rental car(s). Some pilots require Business class or higher for overseas air travel.</li>
-  <li class="mob-std-small"><b>Lodging:</b> $150 to $250 per night for US domestic hotels, with prices higher outside the US and/or during peak travel times.</li>
-</ul>
-
-            <div class="quote-mob-expenses-wrapper">
-              <p 
-                class="quote-mob-expenses-headings" 
-                style="margin-top: 35px;">
-                <u>Aircraft Expenses (reimbursed)</u>
-              </p>
-<p class="mob-std-small" style="margin-top: 3px; text-align: left;">Every aircraft has a fuel expense. Here are some other common aircraft expenses:</p>
-
-<button 
-  class="quote-mob-toggle-btn"
-  type="button"
-  id="quote-mob-expenses-btn"
-  aria-expanded="false"
-  aria-controls="quote-mob-expenses-container"
-          data-label-closed="Show Aircraft Expenses"
-        data-label-open="Hide Aircraft Expenses">
-  Show Aircraft Expenses
-</button>
-
-            <div 
-              id="quote-mob-expenses-container"      class="quote-mob-expenses-container"
-              aria-labelledby="quote-mob-expenses-btn"
-              role="region"
-              hidden>
-              <ul style="text-align: left;">
-                <li 
-                  class="mob-std-small" 
-                  style="margin-bottom: 6px;">
-                  <b>Handling/Governmental.</b> Handlers are required for operations in many places in the world, and they charge wide-ranging prices. Governments collect fees for customs, landing fees, ATC, etc.
-                </li>
-                <li 
-                  class="mob-std-small" 
-                  style="margin-bottom: 6px;">
-                  <b>Ramp/Hangar fees.</b> Ramp fees are usually minor for small aircraft. If a hangar is requested or required, they start at about $100/day for the smallest aircraft.
-                </li>
-                <li 
-                  class="mob-std-small" 
-                  style="margin-bottom: 6px;"><b>Ramp services:</b> If an aircraft requires services like lavatory cleaning or crew meals.
-                </li>
-                <li 
-                  class="mob-std-small" 
-                  style="margin-bottom: 6px;">
-                  <b>Un-planned maintenance.</b> Unfortunately, the shop has the upper hand when naming their price(s).
-                </li>
-                <li class="mob-std-small"><b>Fluids.</b> Typically engine oil and less commonly hydraulic fluid.</li>
-              </ul>
-           </div>
-
-<div class="mob-quote-admin-wrapper">
-  <p class="quote-mob-expenses-headings" style="margin-top: 35px;">
-    <u>Support & Administration Fee (contracted)</u>
-  </p>
-  <p class="mob-std-small"><b>I charge a fee which compensates me for three areas:</b></p>
-
-  <div class="quote-admin-fee-area" style="background-color: #cbdcee;">
-    <p class="quote-admin-fee-title">Flight Dispatch</p>
-
-<button 
-  class="quote-mob-toggle-btn"
-  type="button"
-  id="quote-mob-dispatch-btn"
-  aria-expanded="false"
-  aria-controls="quote-mob-dispatch-content"
-  data-label-closed="Show Dispatch Services"
-  data-label-open="Hide Dispatch Services">Show Dispatch Services
-</button>
-
-    <div 
-      id= "quote-mob-dispatch-content" 
-      class="quote-mob-dispatch-content"
-      role="region"
-      aria-labelledby="quote-mob-dispatch-btn"
-      hidden>
-      <p>&bull; Flight planning assistance. I augment the flightcrew's flight planning activities and products.</p>
-      <p>&bull; Weather analysis. I monitor weather reporting and forecasts in augmentation of flightcrew weather collection.</p>
-      <p>&bull; Flight release. I supplement the flightcrew's decision-making including go/no-go determination.</p>
-      <p>&bull; Flight following. I monitor flight progress and take appropriate action as warranted.</p>
-      <p>&bull; On-call flightcrew support. I'm available 24 hours a day while ferry flights are in progress.</p>
+<label for="toggle4">
+  <input type="radio" id="toggle4" name="button-group-length" value="3">
+  <div class="btn">
+<div class="dymo23">
+  <p style="margin: 0;">DOMESTIC</p>
+</div>
+    <div class="bottom">
+      <div class="dot"></div>
     </div>
   </div>
+</label>
+
+<label for="toggle5">
+  <input type="radio" id="toggle5" name="button-group-length" value="4">
+  <div class="btn">
+<div class="dymo23" style="width: 72px;">
+  <p style="margin: 0;"><span></span>INTER-<span></span></p>
+  <p style="margin: 0;"><span></span><span></span>NAT'L<span></span></p>
 </div>
-
-
-      <div class="quote-admin-fee-area" style="background-color: #dcf0df;">
-        <p class="quote-admin-fee-title">Crew Travel Support</p>
-<div class="quote-admin-fee-content">      
-
-<p>&bull; I assist flightcrews in obtaining appropriate lodging and meals.</p>
-<p>&bull; I assist with identifying, locating and booking airline tickets, car rentals, and ride-shares.</p>
-
-</div></div>
-
-      <div class="quote-admin-fee-area" style="background-color: #e9dcf0;">
-        <p class="quote-admin-fee-title">Business-Related</p>
-<div class="quote-admin-fee-content">      
-
-<p>I don't charge a premium on any items, so all my gross income is addressed here:</p>
-<p>&bull; Overhead</p>
-<p>&bull; Sales and marketing</p>
-<p>&bull; Risk management</p>
-<p>&bull; Time and expertise</p>
-<p>&bull; Upfront costs, prior to full client payment</p>
-<p>&bull; Gross profit</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="quote-decorative-pix">
- <div class="desk-quote-img-wrap">
-  <img src="/assets/quote/1999_amf_slc2.jpg?v=20250908-191739" alt="1999 AMF SLC" style="width: 100%; max-width: 700px; height: auto;"
-  loading="lazy"
-  fetchpriority="low">
-  <div class="desk-quote-caption">Ameriflight Beech 99C at Salt Lake City, UT. <br>Single-pilot schlepping 3,000 pounds of UPS boxes.
+    <div class="bottom">
+      <div class="dot"></div>
+    </div>
   </div>
+</label>
+
+<label for="toggle6">
+  <input type="radio" id="toggle6" name="button-group-length" value="5">
+  <div class="btn">
+<div class="dymo23">
+  <p style="margin: 0;"><span></span>INTER-<span></span></p>
+  <p style="margin: 0;"><span></span>CONT'L<span></span></p>
+</div>
+    <div class="bottom">
+      <div class="dot"></div>
+    </div>
+  </div>
+</label>
+  <div class="screw-top-right"></div>
+  <div class="screw-bottom-right"></div>
+
+</div>
+      <div class="dymo23">
+  <p><span></span>SELECT<span></span>A<span></span>ROUTE<span></span>LENGTH<span></span></p>
+</div>
+                    
  </div>
+                    
+<div class="flipbook" id="flipbook">
 
-  <div class="desk-quote-img-wrap">
-<img src="/assets/quote/2002-kaiserair.jpg?v=20250908-191739" alt="2002 KaiserAir" style="width: 100%; max-width: 700px; height: auto; margin: 40px 0 20px 0;"
-  loading="lazy"
-  fetchpriority="low">
-  <div class="desk-quote-caption">First Officer on the Hawker 700<br> for KaiserAir in Oakland, CA.
-</div>
-</div>
+        <button id="prev-btn" tabindex="0" aria-label="Previous Page">
+            <i class="arrow left"></i>
+        </button>
 
-</div>
 
-</div>
-</div>
+        <div id="book" class="book">
+            <!-- First Sheet -->
+          <div id="p1" class="paper">
+            <div class="front">
+              <div id="f1" class="front-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-quote-estimatebook-300w.png 300w"
+                  sizes="300px"
+                  alt="quotebook cover"
+                  width="300"
+                  height="370"
+                  loading="eager"
+                  fetchpriority="high"
+                  aria-hidden="false">
+                <div class="swipegif is-hidden">
+                  <img style="width: 100%; height: auto;" 
+                    src="/assets/blank1.jpg"
+                    srcset="assets/icons/icon-slide-animated.gif 283w"
+                    sizes="100px"
+                    alt="animated swipe icon"
+                    width="283"
+                    height="246"
+                    loading="lazy"
+                    fetchpriority="low"
+                    aria-hidden="false">
+                </div>
+              </div>
+            </div>
+  
+          <div class="back">
+            <div id="b1" class="back-content">
 
-</main>
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-c182-dom-l-585w.jpg 585w"
+                  sizes="300px"
+                  alt="C182"
+                  width="585"
+                  height="719"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
 
-<script src="/script.js?v=20250908-191739" defer></script>
+            </div>
+          </div>
+            </div>
+    
+            <div id="p2" class="paper">
+                <div class="front">
+                    <div id="f2" class="front-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-c182-dom-r-585w.jpg 585w"
+                  sizes="300px"
+                  alt="C182"
+                  width="585"
+                  height="719"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+                <div class="back">
+                    <div id="b2" class="back-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-c182-intl-l-585w.jpg 585w"
+                  sizes="300px"
+                  alt="C182"
+                  width="585"
+                  height="719"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+            </div>
+          <!-- Third Sheet -->
+            <div id="p3" class="paper">
+                <div class="front">
+                    <div id="f3" class="front-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-c182-intl-r-585w.jpg 585w"
+                  sizes="300px"
+                  alt="C182"
+                  width="585"
+                  height="719"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+                <div class="back">
+                    <div id="b3" class="back-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-c182-cont-l-585w.jpg 585w"
+                  sizes="300px"
+                  alt="C182"
+                  width="585"
+                  height="719"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+            </div>
+            <!-- Fourth Sheet -->
+            <div id="p4" class="paper">
+                <div class="front">
+                    <div id="f4" class="front-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-c182-cont-r-585w.jpg 585w"
+                  sizes="300px"
+                  alt="C182"
+                  width="585"
+                  height="719"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+                <div class="back">
+                    <div id="b4" class="back-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-s340-dom-l-650w.jpg 650w"
+                  sizes="300px"
+                  alt="S340"
+                  width="650"
+                  height="800"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+            </div>
+            <!-- Fifth Sheet -->
+            <div id="p5" class="paper">
+                <div class="front">
+                    <div id="f5" class="front-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-s340-dom-r-650w.jpg 650w"
+                  sizes="300px"
+                  alt="S340"
+                  width="650"
+                  height="800"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+                <div class="back">
+                    <div id="b5" class="back-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-s340-intl-l-650w.jpg 650w"
+                  sizes="300px"
+                  alt="S340"
+                  width="650"
+                  height="800"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+            </div>
+               <div id="p6" class="paper">
+                <div class="front">
+                    <div id="f6" class="front-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-s340-intl-r-650w.jpg 650w"
+                  sizes="300px"
+                  alt="S340"
+                  width="650"
+                  height="800"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+            
+                <div class="back">
+                    <div id="b6" class="back-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-s340-cont-l-650w.jpg 650w"
+                  sizes="300px"
+                  alt="S340"
+                  width="650"
+                  height="800"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+             </div>
+                 <div id="p7" class="paper">
+                <div class="front">
+                    <div id="f7" class="front-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-s340-cont-r-650w.jpg 650w"
+                  sizes="300px"
+                  alt="S340"
+                  width="650"
+                  height="800"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+            
+                <div class="back">
+                    <div id="b7" class="back-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-bbj-dom-l-712w.jpg 712w"
+                  sizes="300px"
+                  alt="BBJ"
+                  width="712"
+                  height="875"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+              </div>
+              <div id="p8" class="paper">
+                <div class="front">
+                    <div id="f8" class="front-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-bbj-dom-r-712w.jpg 712w"
+                  sizes="300px"
+                  alt="BBJ"
+                  width="712"
+                  height="875"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+         
+                           <div class="back">
+                    <div id="b8" class="back-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-bbj-intl-l-712w.jpg 712w"
+                  sizes="300px"
+                  alt="BBJ"
+                  width="712"
+                  height="875"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+              </div>
+              <div id="p9" class="paper">
+                <div class="front">
+                    <div id="f9" class="front-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-bbj-intl-r-712w.jpg 712w"
+                  sizes="300px"
+                  alt="BBJ"
+                  width="712"
+                  height="875"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+       
+                           <div class="back">
+                    <div id="b9" class="back-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-bbj-cont-l-713w.jpg 713w"
+                  sizes="300px"
+                  alt="BBJ"
+                  width="713"
+                  height="875"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+              </div>
+              <div id="p10" class="paper">
+                <div class="front">
+                    <div id="f10" class="front-content">
+                <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/images/quote-bbj-cont-r-713w.jpg 713w"
+                  sizes="300px"
+                  alt="BBJ"
+                  width="712"
+                  height="875"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="true">
+                    </div>
+                </div>
+
+                           <div class="back">
+                    <div id="b10" class="back-content">
+                                      <img
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/custom-grafx/grafx-quote-estimatebook-back-300w.png 300w"
+                  sizes="300px"
+                  alt="Book back cover"
+                  width="300"
+                  height="370"
+                  loading="lazy"
+                  fetchpriority="low"
+                  aria-hidden="false">
+                    </div>
+                </div>
+      
+              </div>  </div><!-- end of book -->
+
+        <button id="next-btn" tabindex="0" aria-label="Next Page">
+            <i class="arrow right"></i>
+        </button>
+</div>
+              <div class="button-panel" id="go-panel">
+
+                <div class="button-group-size" id="go-button">
+
+                  <label for="go-input">
+                    <input type="radio" id="go-input" name="button-view-estimates" value="0">
+                    <div class="btn">
+                      <div class="bottom">
+                        <div class="dotwords">VIEW<br>COST<br>ESTIMATES</div>
+                      </div>
+                    </div>
+                  </label>
+<div class="swipegif-anchor"></div>
+                </div>
+                <div class="screw-top-right"></div>
+                <div class="screw-bottom-right"></div>
+              </div>
+                </section>
+
+            </div>
+   
+          </div>
+                  
+        </main>
+
+
+      <div 
+        id="quote-modal-root" 
+        data-quote-modal-root 
+        hidden>
+      </div>
+
+
+        <template id="tmpl-quote-modal-desktop-2">
+  <div 
+    class="quote-modal-backdrop is-hidden"
+    aria-modal="true" 
+    aria-describedby="quote-modal-2"
+    hidden 
+    tabindex="-1">
+
+    <div class="quote-modal">
+
+      <button class="close-modal">X</button>
+
+      <p style="font-size: 2rem;"><b><u>Typical Cost Estimator</u></b></p>
+      <p style="font-size: 1.6rem;">
+        <b>Size of Aircraft:</b> Small&nbsp;&nbsp;&nbsp;
+        <b>Length of Flight:</b> Domestic
+      </p>
+
+      <table style="font-size: 1.2rem; width: 1000px; text-align: left; margin: 0 auto;">
+
+        <tr><td style="width: 850px"></td><td style="width: 150px;"></td></tr>
+
+        <tr class="quote-modal-sectionheader">
+          <td style="border-right-color: #323232;">&nbsp;Pilot Pay</td>
+          <td style="text-align: right; border-left-color: #323232;">$1,500&nbsp;</td>
+        </tr>
+        <tr><td>Contract will select one of the following modes, per pilot:</td><td>&nbsp;</td></tr>
+        <tr><td>Per Day: $500; Per Hours: $100; Per Duty Hour: $75</td><td>&nbsp;</td></tr>
+        <tr><td>Example scenario: One pilot for three days, at Per Day mode</td><td>&nbsp;</td></tr>
+
+        <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+        <tr class="quote-modal-sectionheader"><td>&nbsp;Pilot Expenses</td><td style="text-align: right;">$2,600&nbsp;</td></tr>
+        <tr><td>Airline travel</td><td style="text-align: right;">$1,000</td></tr>
+        <tr><td>Taxi, Ride-Share, and Rental Car</td><td style="text-align: right;">$500</td></tr>
+        <tr><td>Hotel estimated at $200/night/person</td><td style="text-align: right;">$800</td></tr>
+        <tr><td>Domestic per-diem (meals and incidentals): $75/day/person</td><td style="text-align: right;">$300</td></tr>
+
+        <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+        <tr class="quote-modal-sectionheader"><td>&nbsp;Aircraft Expenses</td><td style="text-align: right;">$3,900&nbsp;</td></tr>
+        <tr><td>Fuel&nbsp;&nbsp;&nbsp;Example scenario: Cessna 182 operated for 20 hours: 300 gallons at $7/gal</td><td style="text-align: right;">$2,100</td></tr>
+        <tr><td>Handling/Governmental&nbsp;&nbsp;&nbsp;Light handling required for any flight with portion(s) outside the U.S. or Canada. Governments collect fees for landing fees, ATC, etc.</td><td style="text-align: right;">$1,000</td></tr>
+        <tr><td>Ramp (Apron) Fees&nbsp;&nbsp;&nbsp;Parking, landing, security, overnight</td><td style="text-align: right;">$800</td></tr>
+
+        <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+        <tr class="quote-modal-sectionheader"><td>&nbsp;Cost of Professional Services & Operations</td><td style="text-align: right;">$2,000&nbsp;</td></tr>
+        <tr><td>Professional Services: Gross profit, risk, insurance, office, sales, marketing. contracting, customer service, accounting</td><td style="text-align: right;">$1,000</td></tr>
+        <tr><td>Operations: Flight planning, expertise, weather analysis, flight release, Flight following, on-call flightcrew support (24-hour), crew travel support</td><td style="text-align: right;">$1,000</td></tr>
+
+        <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+        <tr><td>Notes:</td></tr>
+
+        <tr>
+          <td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;1. Pilot Pay and Cost of Professional Services & Operations are <b>contracted</b> (amounts will only vary if contract conditions for variance are met.)</td>
+          <td style="text-align: right;">Total Cost Estimate</td>
+        </tr>
+
+        <tr>
+          <td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;2. Pilot and Aircraft Expenses are <b>reimbursables</b> (actual amounts vary due to local conditions and specific circumstances)</td>
+          <td style="text-align: right;" class="quote-modal-sectionheader">$10,000&nbsp;</td>
+        </tr>
+
+      </table>
+    </div>
+  </div>
+</template>
+
+
+       <!--<div 
+          class="quote-modal-backdrop is-hidden"
+          id="quote-modal-3" 
+          aria-modal="true" 
+          aria-describedby="quote-modal-3" 
+          hidden 
+          tabindex="-1">
+          <div class="quote-modal">
+            <button class="close-modal">X</button>
+          
+            <p style="font-size: 2rem;"><b><u>Typical Cost Estimator</u></b></p>
+            <p style="font-size: 1.6rem;"><b>Size of Aircraft:</b> Small&nbsp;&nbsp;&nbsp;<b>Length of Flight:</b> International</p>   
+
+            <table style="font-size: 1.2rem; width: 1000px; text-align: left; margin: 0 auto;" >
+              
+                <tr> 
+                 <td style="width: 850px"></td><td style="width: 150px; "></td></tr>
+              
+            <tr class="quote-modal-sectionheader"><td style="border-right-color: #323232;">&nbsp;Pilot Pay</td><td style="text-align: right; border-left-color: #323232;">$4,500&nbsp;</td></tr>
+            <tr><td>Contract will select one of the following modes, per pilot:</td><td>&nbsp;</td></tr>
+            <tr><td> Per Day: $1500; Per Flight Hour: $250; Per Duty Hour: $150</td><td>&nbsp;</td></tr>
+            <tr><td>Example scenario: One pilot for three days, at Per Day mode</td><td>&nbsp;</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Pilot Expenses</td><td style="text-align: right;">$5,000&nbsp;</td></tr>
+            <tr><td>Airline travel</td><td style="text-align: right;">$3,000</td></tr>
+            <tr><td>Taxi, Ride-Share, and Rental Car</td><td style="text-align: right;">$500</td></tr>
+            <tr><td>Hotel estimated at $200/night/person</td><td style="text-align: right;">$1,000</td></tr>
+            <tr><td>International per-diem (meals and incidentals): $100/day/person</td><td style="text-align: right;">$500</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Aircraft Expenses</td><td style="text-align: right;">$11,200&nbsp;</td></tr>
+            <tr><td>Fuel&nbsp;&nbsp;&nbsp;Example scenario: Cessna 182 operated for 20 hours: 300 gallons at $8/gal</td><td style="text-align: right;">$2,400</td></tr>
+            <tr><td>Handling/Governmental&nbsp;&nbsp;&nbsp;Handlers are required for international operations. Governments collect fees for customs, landing fees, ATC, etc.</td><td style="text-align: right;">$7,500</td></tr>
+            <tr><td>Ramp (Apron) Fees&nbsp;&nbsp;&nbsp;Parking, landing, security, overnight</td><td style="text-align: right;">$1,300</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Cost of Professional Services & Operations</td><td style="text-align: right;">$6,000&nbsp;</td></tr>
+            <tr><td>Professional Services: Gross profit, risk, insurance, office, sales, marketing. contracting, customer service, accounting</td><td style="text-align: right;">$2,000</td></tr>
+            <tr><td>Operations: Flight planning assistance, expertise, weather analysis, flight release, flight following, on-call flightcrew support (24-hour), crew travel support</td><td style="text-align: right;">$4,000</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+            <tr><td>Notes:</td></tr>
+
+            <tr style="padding-right: 30px;"><td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;1. Pilot Pay and Cost of Professional Services & Operations are <b>contracted</b> (amounts will only vary if contract conditions for variance are met.)</td><td style="text-align: right;">Total Cost Estimate</td></tr>
+            <tr><td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;2. Pilot and Aircraft Expenses are <b>reimbursables</b> (actual amounts will vary due to local conditions and specific circumstances)</td><td style="text-align: right;"" class="quote-modal-sectionheader">$26,700&nbsp;</td></tr>
+             </table>
+          </div>
+        </div>
+
+        <div 
+          class="quote-modal-backdrop is-hidden"
+          id="quote-modal-4" 
+          aria-modal="true" 
+          aria-describedby="quote-modal-4" 
+          hidden 
+          tabindex="-1">
+          <div class="quote-modal">
+            <button class="close-modal">X</button>
+          
+            <p style="font-size: 2rem;"><b><u>Typical Cost Estimator</u></b></p>
+            <p style="font-size: 1.6rem;"><b>Size of Aircraft:</b> Small&nbsp;&nbsp;&nbsp;<b>Length of Flight:</b> Inter-continental</p>   
+
+            <table style="font-size: 1.2rem; width: 1000px; text-align: left; margin: 0 auto;" >
+              
+                <tr> 
+                 <td style="width: 850px"></td><td style="width: 150px; "></td></tr>
+              
+            <tr class="quote-modal-sectionheader"><td style="border-right-color: #323232;">&nbsp;Pilot Pay</td><td style="text-align: right; border-left-color: #323232;">$10,500&nbsp;</td></tr>
+            <tr><td>Contract will select one of the following modes, per pilot:</td><td>&nbsp;</td></tr>
+            <tr><td> Per Day: $1500; Per Flight Hour: $250; Per Duty Hour: $150</td><td>&nbsp;</td></tr>
+            <tr><td>Example scenario: One pilot for seven days, at Per Day mode</td><td>&nbsp;</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Pilot Expenses</td><td style="text-align: right;">$8,500&nbsp;</td></tr>
+            <tr><td>Airline travel</td><td style="text-align: right;">$5,000</td></tr>
+            <tr><td>Taxi, Ride-Share, and Rental Car</td><td style="text-align: right;">$700</td></tr>
+            <tr><td>Hotel estimated at $300/night/person</td><td style="text-align: right;">$2,100</td></tr>
+            <tr><td>International per-diem (meals and incidentals): $100/day/person</td><td style="text-align: right;">$700</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Aircraft Expenses</td><td style="text-align: right;">$23,500&nbsp;</td></tr>
+            <tr><td>Fuel&nbsp;&nbsp;&nbsp;Example scenario: Cessna 182 operated for 40 hours: 600 gallons at $10/gal</td><td style="text-align: right;">$6,000</td></tr>
+            <tr><td>Handling/Governmental&nbsp;&nbsp;&nbsp;Handlers are required for international operations. Governments collect fees for customs, landing fees, ATC, etc.</td><td style="text-align: right;">$15,000</td></tr>
+            <tr><td>Ramp (Apron) Fees&nbsp;&nbsp;&nbsp;Parking, landing, security, overnight</td><td style="text-align: right;">$2,500</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Cost of Professional Services & Operations</td><td style="text-align: right;">$10,000&nbsp;</td></tr>
+            <tr><td>Professional Services: Gross profit, risk, insurance, office, sales, marketing. contracting, customer service, accounting</td><td style="text-align: right;">$3,000</td></tr>
+            <tr><td>Operations: Flight planning assistance, expertise, weather analysis, flight release, flight following, on-call flightcrew support (24-hour), crew travel support</td><td style="text-align: right;">$7,000</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+            <tr><td>Notes:</td></tr>
+
+            <tr style="padding-right: 30px;"><td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;1. Pilot Pay and Cost of Professional Services & Operations are <b>contracted</b> (amounts will only vary if contract conditions for variance are met.)</td><td style="text-align: right;">Total Cost Estimate</td></tr>
+            <tr><td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;2. Pilot and Aircraft Expenses are <b>reimbursables</b> (actual amounts will vary due to local conditions and specific circumstances)</td><td style="text-align: right;"" class="quote-modal-sectionheader">$52,500&nbsp;</td></tr>
+             </table>
+          </div>
+        </div>
+
+
+        <div 
+          class="quote-modal-backdrop is-hidden"
+          id="quote-modal-5" 
+          aria-modal="true" 
+          aria-describedby="quote-modal-5" 
+          hidden 
+          tabindex="-1">
+          <div class="quote-modal">
+            <button class="close-modal">X</button>
+          
+            <p style="font-size: 2rem;"><b><u>Typical Cost Estimator</u></b></p>
+            <p style="font-size: 1.6rem;"><b>Size of Aircraft:</b> Medium&nbsp;&nbsp;&nbsp;<b>Length of Flight:</b> Domestic</p>   
+
+            <table style="font-size: 1.2rem; width: 1000px; text-align: left; margin: 0 auto;" >
+              
+                <tr> 
+                 <td style="width: 850px"></td><td style="width: 150px; "></td></tr>
+              
+            <tr class="quote-modal-sectionheader"><td style="border-right-color: #323232;">&nbsp;Pilot Pay</td><td style="text-align: right; border-left-color: #323232;">$4,000&nbsp;</td></tr>
+            <tr><td>Contract will select one of the following modes, per pilot:</td><td>&nbsp;</td></tr>
+            <tr><td> Per Day: $2000; Per Flight Hour: $350; Per Duty Hour: $200</td><td>&nbsp;</td></tr>
+            <tr><td>Example scenario: Two pilots for one day, at Per Day mode</td><td>&nbsp;</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Pilot Expenses</td><td style="text-align: right;">$4,400&nbsp;</td></tr>
+            <tr><td>Airline travel</td><td style="text-align: right;">$3,000</td></tr>
+            <tr><td>Taxi, Ride-Share, and Rental Car</td><td style="text-align: right;">$200</td></tr>
+            <tr><td>Hotel estimated at $200/night/person</td><td style="text-align: right;">$800</td></tr>
+            <tr><td>International per-diem (meals and incidentals): $100/day/person</td><td style="text-align: right;">$400</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Aircraft Expenses</td><td style="text-align: right;">$18,200&nbsp;</td></tr>
+            <tr><td>Fuel&nbsp;&nbsp;&nbsp;Example scenario: Saab 340 operated for 6 hours: 1,600 gallons at $7/gal</td><td style="text-align: right;">$11,200</td></tr>
+            <tr><td>Handling/Governmental&nbsp;&nbsp;&nbsp;Light handling is required for turboprop aircraft. Governments collect fees for landing fees, ATC, etc.</td><td style="text-align: right;">$5,000</td></tr>
+            <tr><td>Ramp (Apron) Fees&nbsp;&nbsp;&nbsp;Parking, landing, security, overnight</td><td style="text-align: right;">$2,000</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Cost of Professional Services & Operations</td><td style="text-align: right;">$5,000&nbsp;</td></tr>
+            <tr><td>Professional Services: Gross profit, risk, insurance, office, sales, marketing. contracting, customer service, accounting</td><td style="text-align: right;">$2,000</td></tr>
+            <tr><td>Operations: Flight planning assistance, expertise, weather analysis, flight release, flight following, on-call flightcrew support (24-hour), crew travel support</td><td style="text-align: right;">$3,000</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+            <tr><td>Notes:</td></tr>
+
+            <tr style="padding-right: 30px;"><td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;1. Pilot Pay and Cost of Professional Services & Operations are <b>contracted</b> (amounts will only vary if contract conditions for variance are met.)</td><td style="text-align: right;">Total Cost Estimate</td></tr>
+            <tr><td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;2. Pilot and Aircraft Expenses are <b>reimbursables</b> (actual amounts will vary due to local conditions and specific circumstances)</td><td style="text-align: right;"" class="quote-modal-sectionheader">$31,600&nbsp;</td></tr>
+             </table>
+          </div>
+        </div>
+
+
+        <div 
+          class="quote-modal-backdrop is-hidden"
+          id="quote-modal-6" 
+          aria-modal="true" 
+          aria-describedby="quote-modal-6" 
+          hidden 
+          tabindex="-1">
+          <div class="quote-modal">
+            <button class="close-modal">X</button>
+          
+            <p style="font-size: 2rem;"><b><u>Typical Cost Estimator</u></b></p>
+            <p style="font-size: 1.6rem;"><b>Size of Aircraft:</b> Medium&nbsp;&nbsp;&nbsp;<b>Length of Flight:</b> International</p>   
+
+            <table style="font-size: 1.2rem; width: 1000px; text-align: left; margin: 0 auto;" >
+              
+                <tr> 
+                 <td style="width: 850px"></td><td style="width: 150px; "></td></tr>
+              
+            <tr class="quote-modal-sectionheader"><td style="border-right-color: #323232;">&nbsp;Pilot Pay</td><td style="text-align: right; border-left-color: #323232;">$8,000&nbsp;</td></tr>
+            <tr><td>Contract will select one of the following modes, per pilot:</td><td>&nbsp;</td></tr>
+            <tr><td> Per Day: $2000; Per Flight Hour: $350; Per Duty Hour: $200</td><td>&nbsp;</td></tr>
+            <tr><td>Example scenario: Two pilots for two days, at Per Day mode</td><td>&nbsp;</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Pilot Expenses</td><td style="text-align: right;">$14,000&nbsp;</td></tr>
+            <tr><td>Airline travel</td><td style="text-align: right;">$5,000</td></tr>
+            <tr><td>Taxi, Ride-Share, and Rental Car</td><td style="text-align: right;">$300</td></tr>
+            <tr><td>Hotel estimated at $300/night/person</td><td style="text-align: right;">$1,800</td></tr>
+            <tr><td>International per-diem (meals and incidentals): $100/day/person</td><td style="text-align: right;">$600</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Aircraft Expenses</td><td style="text-align: right;">$38,600&nbsp;</td></tr>
+            <tr><td>Fuel&nbsp;&nbsp;&nbsp;Example scenario: Saab 340 operated for 12 hours: 3,200 gallons at $8/gal</td><td style="text-align: right;">$25,600</td></tr>
+            <tr><td>Handling/Governmental&nbsp;&nbsp;&nbsp;Handlers are required for international operations. Governments collect fees for customs, landing fees, ATC, etc.</td><td style="text-align: right;">$10,000</td></tr>
+            <tr><td>Ramp (Apron) Fees&nbsp;&nbsp;&nbsp;Parking, landing, security, overnight</td><td style="text-align: right;">$3,000</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Cost of Professional Services & Operations</td><td style="text-align: right;">$6,500&nbsp;</td></tr>
+            <tr><td>Professional Services: Gross profit, risk, insurance, office, sales, marketing. contracting, customer service, accounting</td><td style="text-align: right;">$2,500</td></tr>
+            <tr><td>Operations: Flight planning assistance, expertise, weather analysis, flight release, flight following, on-call flightcrew support (24-hour), crew travel support</td><td style="text-align: right;">$4,000</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+            <tr><td>Notes:</td></tr>
+
+            <tr style="padding-right: 30px;"><td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;1. Pilot Pay and Cost of Professional Services & Operations are <b>contracted</b> (amounts will only vary if contract conditions for variance are met.)</td><td style="text-align: right;">Total Cost Estimate</td></tr>
+            <tr><td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;2. Pilot and Aircraft Expenses are <b>reimbursables</b> (actual amounts will vary due to local conditions and specific circumstances)</td><td style="text-align: right;"" class="quote-modal-sectionheader">$67,100&nbsp;</td></tr>
+             </table>
+          </div></div>
+
+        <div 
+          class="quote-modal-backdrop is-hidden"
+          id="quote-modal-7" 
+          aria-modal="true" 
+          aria-describedby="quote-modal-7" 
+          hidden 
+          tabindex="-1">
+          <div class="quote-modal">
+            <button class="close-modal">X</button>
+          
+            <p style="font-size: 2rem;"><b><u>Typical Cost Estimator</u></b></p>
+            <p style="font-size: 1.6rem;"><b>Size of Aircraft:</b> Medium&nbsp;&nbsp;&nbsp;<b>Length of Flight:</b> Inter-continental</p>   
+
+            <table style="font-size: 1.2rem; width: 1000px; text-align: left; margin: 0 auto;" >
+              
+                <tr> 
+                 <td style="width: 850px"></td><td style="width: 150px; "></td></tr>
+              
+            <tr class="quote-modal-sectionheader"><td style="border-right-color: #323232;">&nbsp;Pilot Pay</td><td style="text-align: right; border-left-color: #323232;">$18,000&nbsp;</td></tr>
+            <tr><td>Contract will select one of the following modes, per pilot:</td><td>&nbsp;</td></tr>
+            <tr><td> Per Day: $2000; Per Flight Hour: $350; Per Duty Hour: $200</td><td>&nbsp;</td></tr>
+            <tr><td>Example scenario: Three pilots for three days, at Per Day mode</td><td>&nbsp;</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Pilot Expenses</td><td style="text-align: right;">$14,000&nbsp;</td></tr>
+            <tr><td>Airline travel</td><td style="text-align: right;">$7,500</td></tr>
+            <tr><td>Taxi, Ride-Share, and Rental Car</td><td style="text-align: right;">$500</td></tr>
+            <tr><td>Hotel estimated at $300/night/person</td><td style="text-align: right;">$4,500</td></tr>
+            <tr><td>International per-diem (meals and incidentals): $100/day/person</td><td style="text-align: right;">$1,500</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Aircraft Expenses</td><td style="text-align: right;">$73,600&nbsp;</td></tr>
+            <tr><td>Fuel&nbsp;&nbsp;&nbsp;Example scenario: Saab 340 operated for 25 hours: 6,700 gallons at $8/gal</td><td style="text-align: right;">$53,600</td></tr>
+            <tr><td>Handling/Governmental&nbsp;&nbsp;&nbsp;Handlers are required for international operations. Governments collect fees for customs, landing fees, ATC, etc.</td><td style="text-align: right;">$15,000</td></tr>
+            <tr><td>Ramp (Apron) Fees&nbsp;&nbsp;&nbsp;Parking, landing, security, overnight</td><td style="text-align: right;">$5,000</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Cost of Professional Services & Operations</td><td style="text-align: right;">$10,000&nbsp;</td></tr>
+            <tr><td>Professional Services: Gross profit, risk, insurance, office, sales, marketing. contracting, customer service, accounting</td><td style="text-align: right;">$3,000</td></tr>
+            <tr><td>Operations: Flight planning assistance, expertise, weather analysis, flight release, flight following, on-call flightcrew support (24-hour), crew travel support</td><td style="text-align: right;">$7,000</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+            <tr><td>Notes:</td></tr>
+
+            <tr style="padding-right: 30px;"><td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;1. Pilot Pay and Cost of Professional Services & Operations are <b>contracted</b> (amounts will only vary if contract conditions for variance are met.)</td><td style="text-align: right;">Total Cost Estimate</td></tr>
+            <tr><td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;2. Pilot and Aircraft Expenses are <b>reimbursables</b> (actual amounts will vary due to local conditions and specific circumstances)</td><td style="text-align: right;"" class="quote-modal-sectionheader">$115,600&nbsp;</td></tr>
+             </table>
+          </div></div>
+
+
+        <div 
+          class="quote-modal-backdrop is-hidden"
+          id="quote-modal-8" 
+          aria-modal="true" 
+          aria-describedby="quote-modal-8" 
+          hidden 
+          tabindex="-1">
+          <div class="quote-modal">
+            <button class="close-modal">X</button>
+          
+            <p style="font-size: 2rem;"><b><u>Typical Cost Estimator</u></b></p>
+            <p style="font-size: 1.6rem;"><b>Size of Aircraft:</b> Large&nbsp;&nbsp;&nbsp;<b>Length of Flight:</b> Domestic</p>   
+
+            <table style="font-size: 1.2rem; width: 1000px; text-align: left; margin: 0 auto;" >
+              
+                <tr> 
+                 <td style="width: 850px"></td><td style="width: 150px; "></td></tr>
+              
+            <tr class="quote-modal-sectionheader"><td style="border-right-color: #323232;">&nbsp;Pilot Pay</td><td style="text-align: right; border-left-color: #323232;">$6,000&nbsp;</td></tr>
+            <tr><td>Contract will select one of the following modes, per pilot:</td><td>&nbsp;</td></tr>
+            <tr><td> Per Day: $3000; Per Flight Hour: $400; Per Duty Hour: $250</td><td>&nbsp;</td></tr>
+            <tr><td>Example scenario: Two pilots for one day at Per Day mode</td><td>&nbsp;</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Pilot Expenses</td><td style="text-align: right;">$6,600&nbsp;</td></tr>
+            <tr><td>Airline travel (Large aircraft pilots must travel business-class)</td><td style="text-align: right;">$5,000</td></tr>
+            <tr><td>Taxi, Ride-Share, and Rental Car</td><td style="text-align: right;">$300</td></tr>
+            <tr><td>Hotel estimated at $200/night/person</td><td style="text-align: right;">$800</td></tr>
+            <tr><td>Domestic per-diem (meals and incidentals): $75/day/person</td><td style="text-align: right;">$500</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Aircraft Expenses</td><td style="text-align: right;">$23,500&nbsp;</td></tr>
+            <tr><td>Fuel&nbsp;&nbsp;&nbsp;Example scenario: Boeing 737 operated for 3 hours: 2,500 gallons at $7/gal</td><td style="text-align: right;">$17,500</td></tr>
+            <tr><td>Handling/Governmental&nbsp;&nbsp;&nbsp;Light handling is necessary for turbine aircraft domestically. Governments collect fees for landing fees, ATC, etc.</td><td style="text-align: right;">$4,000</td></tr>
+            <tr><td>Ramp (Apron) Fees&nbsp;&nbsp;&nbsp;Parking, landing, security, overnight</td><td style="text-align: right;">$2,000</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Cost of Professional Services & Operations</td><td style="text-align: right;">$5,000&nbsp;</td></tr>
+            <tr><td>Professional Services: Gross profit, risk, insurance, office, sales, marketing. contracting, customer service, accounting</td><td style="text-align: right;">$2,000</td></tr>
+            <tr><td>Operations: Flight planning assistance, expertise, weather analysis, flight release, flight following, on-call flightcrew support (24-hour), crew travel support</td><td style="text-align: right;">$3,000</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+            <tr><td>Notes:</td></tr>
+
+            <tr style="padding-right: 30px;"><td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;1. Pilot Pay and Cost of Professional Services & Operations are <b>contracted</b> (amounts will only vary if contract conditions for variance are met.)</td><td style="text-align: right;">Total Cost Estimate</td></tr>
+            <tr><td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;2. Pilot and Aircraft Expenses are <b>reimbursables</b> (actual amounts will vary due to local conditions and specific circumstances)</td><td style="text-align: right;"" class="quote-modal-sectionheader">$41,100&nbsp;</td></tr>
+             </table>
+      </div></div>
+
+        <div 
+          class="quote-modal-backdrop is-hidden"
+          id="quote-modal-9" 
+          aria-modal="true" 
+          aria-describedby="quote-modal-9" 
+          hidden 
+          tabindex="-1">
+          <div class="quote-modal">
+            <button class="close-modal">X</button>
+          
+            <p style="font-size: 2rem;"><b><u>Typical Cost Estimator</u></b></p>
+            <p style="font-size: 1.6rem;"><b>Size of Aircraft:</b> Large&nbsp;&nbsp;&nbsp;<b>Length of Flight:</b> International</p>   
+
+            <table style="font-size: 1.2rem; width: 1000px; text-align: left; margin: 0 auto;" >
+              
+                <tr> 
+                 <td style="width: 850px"></td><td style="width: 150px; "></td></tr>
+              
+            <tr class="quote-modal-sectionheader"><td style="border-right-color: #323232;">&nbsp;Pilot Pay</td><td style="text-align: right; border-left-color: #323232;">$12,000&nbsp;</td></tr>
+            <tr><td>Contract will select one of the following modes, per pilot:</td><td>&nbsp;</td></tr>
+            <tr><td> Per Day: $3000; Per Flight Hour: $400; Per Duty Hour: $250</td><td>&nbsp;</td></tr>
+            <tr><td>Example scenario: Two pilots for two days at Per Day mode</td><td>&nbsp;</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Pilot Expenses</td><td style="text-align: right;">$9,700&nbsp;</td></tr>
+            <tr><td>Airline travel (Large aircraft pilots must travel business-class)</td><td style="text-align: right;">$7,000</td></tr>
+            <tr><td>Taxi, Ride-Share, and Rental Car</td><td style="text-align: right;">$300</td></tr>
+            <tr><td>Hotel estimated at $300/night/person</td><td style="text-align: right;">$1,800</td></tr>
+            <tr><td>International per-diem (meals and incidentals): $100/day/person</td><td style="text-align: right;">$600</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Aircraft Expenses</td><td style="text-align: right;">$56,000&nbsp;</td></tr>
+            <tr><td>Fuel&nbsp;&nbsp;&nbsp;Example scenario: Boeing 737 operated for 6 hours: 5,000 gallons at $8/gal</td><td style="text-align: right;">$40,000</td></tr>
+            <tr><td>Handling/Governmental&nbsp;&nbsp;&nbsp;Handlers are required for international operations. Governments collect fees for customs, landing fees, ATC, etc.</td><td style="text-align: right;">$10,000</td></tr>
+            <tr><td>Ramp (Apron) Fees&nbsp;&nbsp;&nbsp;Parking, landing, security, overnight</td><td style="text-align: right;">$6,000</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Cost of Professional Services & Operations</td><td style="text-align: right;">$6,500&nbsp;</td></tr>
+            <tr><td>Professional Services: Gross profit, risk, insurance, office, sales, marketing. contracting, customer service, accounting</td><td style="text-align: right;">$2,500</td></tr>
+            <tr><td>Operations: Flight planning assistance, expertise, weather analysis, flight release, flight following, on-call flightcrew support (24-hour), crew travel support</td><td style="text-align: right;">$4,000</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+            <tr><td>Notes:</td></tr>
+
+            <tr style="padding-right: 30px;"><td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;1. Pilot Pay and Cost of Professional Services & Operations are <b>contracted</b> (amounts will only vary if contract conditions for variance are met.)</td><td style="text-align: right;">Total Cost Estimate</td></tr>
+            <tr><td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;2. Pilot and Aircraft Expenses are <b>reimbursables</b> (actual amounts will vary due to local conditions and specific circumstances)</td><td style="text-align: right;"" class="quote-modal-sectionheader">$84,200&nbsp;</td></tr>
+             </table>
+      </div></div>
+
+        <div 
+          class="quote-modal-backdrop is-hidden"
+          id="quote-modal-10" 
+          aria-modal="true" 
+          aria-describedby="quote-modal-10" 
+          hidden 
+          tabindex="-1">
+          <div class="quote-modal">
+            <button class="close-modal">X</button>
+          
+            <p style="font-size: 2rem;"><b><u>Typical Cost Estimator</u></b></p>
+            <p style="font-size: 1.6rem;"><b>Size of Aircraft:</b> Large&nbsp;&nbsp;&nbsp;<b>Length of Flight:</b> Inter-continental</p>   
+
+            <table style="font-size: 1.2rem; width: 1000px; text-align: left; margin: 0 auto;" >
+              
+                <tr> 
+                 <td style="width: 850px"></td><td style="width: 150px; "></td></tr>
+              
+            <tr class="quote-modal-sectionheader"><td style="border-right-color: #323232;">&nbsp;Pilot Pay</td><td style="text-align: right; border-left-color: #323232;">$27,000&nbsp;</td></tr>
+            <tr><td>Contract will select one of the following modes, per pilot:</td><td>&nbsp;</td></tr>
+            <tr><td> Per Day: $3000; Per Flight Hour: $400; Per Duty Hour: $250</td><td>&nbsp;</td></tr>
+            <tr><td>Example scenario: Three pilots for three days, at Per Day mode</td><td>&nbsp;</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Pilot Expenses</td><td style="text-align: right;">$21,500&nbsp;</td></tr>
+            <tr><td>Airline travel (Large aircraft pilots must travel business-class)</td><td style="text-align: right;">$15,000</td></tr>
+            <tr><td>Taxi, Ride-Share, and Rental Car</td><td style="text-align: right;">$500</td></tr>
+            <tr><td>Hotel estimated at $300/night/person</td><td style="text-align: right;">$4,500</td></tr>
+            <tr><td>International per-diem (meals and incidentals): $100/day/person</td><td style="text-align: right;">$1,500</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Aircraft Expenses</td><td style="text-align: right;">$138,000&nbsp;</td></tr>
+            <tr><td>Fuel&nbsp;&nbsp;&nbsp;Example scenario: Boeing 737 operated for 15 hours: 13,000 gallons at $8/gal</td><td style="text-align: right;">$104,000</td></tr>
+            <tr><td>Handling/Governmental&nbsp;&nbsp;&nbsp;Handlers are required for international operations. Governments collect fees for customs, landing fees, ATC, etc.</td><td style="text-align: right;">$25,000</td></tr>
+            <tr><td>Ramp (Apron) Fees&nbsp;&nbsp;&nbsp;Parking, landing, security, overnight</td><td style="text-align: right;">$9,000</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Cost of Professional Services & Operations</td><td style="text-align: right;">$10,000&nbsp;</td></tr>
+            <tr><td>Professional Services: Gross profit, risk, insurance, office, sales, marketing. contracting, customer service, accounting</td><td style="text-align: right;">$3,000</td></tr>
+            <tr><td>Operations: Flight planning assistance, expertise, weather analysis, flight release, flight following, on-call flightcrew support (24-hour), crew travel support</td><td style="text-align: right;">$7,000</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+            <tr><td>Notes:</td></tr>
+
+            <tr style="padding-right: 30px;"><td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;1. Pilot Pay and Cost of Professional Services & Operations are <b>contracted</b> (amounts will only vary if contract conditions for variance are met.)</td><td style="text-align: right;">Total Cost Estimate</td></tr>
+            <tr><td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;2. Pilot and Aircraft Expenses are <b>reimbursables</b> (actual amounts will vary due to local conditions and specific circumstances)</td><td style="text-align: right;"" class="quote-modal-sectionheader">$196,500&nbsp;</td></tr>
+             </table>
+          </div></div>-->
+
+                        <template id="tmpl-quote-modal-mobile-2">
+  <div 
+    class="quote800-pdf-btn is-hidden"
+    aria-modal="true" 
+    aria-describedby="quote-modal-2-mobile" 
+    tabindex="-1"
+    hidden
+    data-link="/assets/pdfs/small-dom.pdf">
+
+    <h2 style="font-size: clamp(0px, 7vw, 60px); font-weight: 600;">Typical Cost Estimator</h2>
+    <p style="font-size: clamp(0px, 4vw, 42px)">For</p>
+    <h3 style="font-size: clamp(0px, 6vw, 52px); font-weight: 600;">Small Aircraft</h3>
+    <p style="font-size: clamp(0px, 4vw, 42px)">on</p>
+    <h3 style="font-size: clamp(0px, 6vw, 52px); font-weight: 600;">Domestic Routes</h3>
+    <p>&nbsp;</p>
+    <p style="font-size: clamp(0px, 5vw, 47px)">Tap to open</p>
+
+    <button
+      type="button"
+      style="border: none; position: relative;"
+      aria-expanded="false"
+      aria-label="view this pdf"
+      id="small-dom">
+      <img 
+        src="/assets/blank1.jpg"
+        srcset="/assets/icons/icon-pdflogo-212w.png 212w"
+        alt="PDF logo"
+        width="212"
+        height="250"
+        role="button"
+        tabindex="0"
+        loading="lazy"
+        fetchpriority="low" 
+        decoding="async"
+        sizes="150px">
+    </button>
+
+  </div>
+</template>
+
+<template id="tmpl-quote-modal-desktop-3">
+<div 
+          class="quote-modal-backdrop is-hidden" 
+          aria-modal="true" 
+          aria-describedby="quote-modal-3" 
+          hidden 
+          tabindex="-1">
+          <div class="quote-modal">
+            <button class="close-modal">X</button>
+          
+            <p style="font-size: 2rem;"><b><u>Typical Cost Estimator</u></b></p>
+            <p style="font-size: 1.6rem;"><b>Size of Aircraft:</b> Small&nbsp;&nbsp;&nbsp;<b>Length of Flight:</b> International</p>   
+
+            <table style="font-size: 1.2rem; width: 1000px; text-align: left; margin: 0 auto;" >
+              
+                <tr> 
+                 <td style="width: 850px"></td><td style="width: 150px; "></td></tr>
+              
+            <tr class="quote-modal-sectionheader"><td style="border-right-color: #323232;">&nbsp;Pilot Pay</td><td style="text-align: right; border-left-color: #323232;">$4,500&nbsp;</td></tr>
+            <tr><td>Contract will select one of the following modes, per pilot:</td><td>&nbsp;</td></tr>
+            <tr><td> Per Day: $1500; Per Flight Hour: $250; Per Duty Hour: $150</td><td>&nbsp;</td></tr>
+            <tr><td>Example scenario: One pilot for three days, at Per Day mode</td><td>&nbsp;</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Pilot Expenses</td><td style="text-align: right;">$5,000&nbsp;</td></tr>
+            <tr><td>Airline travel</td><td style="text-align: right;">$3,000</td></tr>
+            <tr><td>Taxi, Ride-Share, and Rental Car</td><td style="text-align: right;">$500</td></tr>
+            <tr><td>Hotel estimated at $200/night/person</td><td style="text-align: right;">$1,000</td></tr>
+            <tr><td>International per-diem (meals and incidentals): $100/day/person</td><td style="text-align: right;">$500</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Aircraft Expenses</td><td style="text-align: right;">$11,200&nbsp;</td></tr>
+            <tr><td>Fuel&nbsp;&nbsp;&nbsp;Example scenario: Cessna 182 operated for 20 hours: 300 gallons at $8/gal</td><td style="text-align: right;">$2,400</td></tr>
+            <tr><td>Handling/Governmental&nbsp;&nbsp;&nbsp;Handlers are required for international operations. Governments collect fees for customs, landing fees, ATC, etc.</td><td style="text-align: right;">$7,500</td></tr>
+            <tr><td>Ramp (Apron) Fees&nbsp;&nbsp;&nbsp;Parking, landing, security, overnight</td><td style="text-align: right;">$1,300</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Cost of Professional Services & Operations</td><td style="text-align: right;">$6,000&nbsp;</td></tr>
+            <tr><td>Professional Services: Gross profit, risk, insurance, office, sales, marketing. contracting, customer service, accounting</td><td style="text-align: right;">$2,000</td></tr>
+            <tr><td>Operations: Flight planning assistance, expertise, weather analysis, flight release, flight following, on-call flightcrew support (24-hour), crew travel support</td><td style="text-align: right;">$4,000</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+            <tr><td>Notes:</td></tr>
+
+            <tr style="padding-right: 30px;"><td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;1. Pilot Pay and Cost of Professional Services & Operations are <b>contracted</b> (amounts will only vary if contract conditions for variance are met.)</td><td style="text-align: right;">Total Cost Estimate</td></tr>
+            <tr><td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;2. Pilot and Aircraft Expenses are <b>reimbursables</b> (actual amounts will vary due to local conditions and specific circumstances)</td><td style="text-align: right;"" class="quote-modal-sectionheader">$26,700&nbsp;</td></tr>
+             </table>
+          </div>
+        </div>
+</template>
+
+
+<template id="tmpl-quote-modal-mobile-3">
+<div 
+                class="quote800-pdf-btn is-hidden" 
+                aria-modal="true" 
+                aria-describedby="quote-modal-3-mobile" 
+                tabindex="-1"
+                hidden
+                data-link="/assets/pdfs/small-intl.pdf">
+
+                <h2 style="font-size: 7vw; font-weight: 600;">Typical Cost Estimator</h2>
+                <p style="font-size: 4vw;">For</p>
+                <h3 style="font-size: 6vw; font-weight: 600;">Small Aircraft</h3>
+                <p style="font-size: 4vw;">on</p>
+                <h3 style="font-size: 6vw; font-weight: 600;">International Routes</h3>
+                <p>&nbsp;</p>
+                <p style="font-size: 5vw;">Tap to open</p>
+                <button
+                  type="button"
+                  style="border: none;"
+                  aria-expanded="false"
+                  aria-label="Download this pdf"
+                  id="small-intl">
+                  <img 
+                    src="/assets/blank1.jpg"
+                    srcset="/assets/icons/icon-pdflogo-212w.png 212w"
+                    alt="PDF logo"
+                    width="212"
+                    height="250"
+                    role="button"
+                    tabindex="0"
+                    loading="lazy"
+                    fetchpriority="low" 
+                    decoding="async"
+                    sizes="150px">
+                </button>
+              </div>
+</template>
+
+
+<template id="tmpl-quote-modal-desktop-4">
+<div 
+          class="quote-modal-backdrop is-hidden" 
+          aria-modal="true" 
+          aria-describedby="quote-modal-4" 
+          hidden 
+          tabindex="-1">
+          <div class="quote-modal">
+            <button class="close-modal">X</button>
+          
+            <p style="font-size: 2rem;"><b><u>Typical Cost Estimator</u></b></p>
+            <p style="font-size: 1.6rem;"><b>Size of Aircraft:</b> Small&nbsp;&nbsp;&nbsp;<b>Length of Flight:</b> Inter-continental</p>   
+
+            <table style="font-size: 1.2rem; width: 1000px; text-align: left; margin: 0 auto;" >
+              
+                <tr> 
+                 <td style="width: 850px"></td><td style="width: 150px; "></td></tr>
+              
+            <tr class="quote-modal-sectionheader"><td style="border-right-color: #323232;">&nbsp;Pilot Pay</td><td style="text-align: right; border-left-color: #323232;">$10,500&nbsp;</td></tr>
+            <tr><td>Contract will select one of the following modes, per pilot:</td><td>&nbsp;</td></tr>
+            <tr><td> Per Day: $1500; Per Flight Hour: $250; Per Duty Hour: $150</td><td>&nbsp;</td></tr>
+            <tr><td>Example scenario: One pilot for seven days, at Per Day mode</td><td>&nbsp;</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Pilot Expenses</td><td style="text-align: right;">$8,500&nbsp;</td></tr>
+            <tr><td>Airline travel</td><td style="text-align: right;">$5,000</td></tr>
+            <tr><td>Taxi, Ride-Share, and Rental Car</td><td style="text-align: right;">$700</td></tr>
+            <tr><td>Hotel estimated at $300/night/person</td><td style="text-align: right;">$2,100</td></tr>
+            <tr><td>International per-diem (meals and incidentals): $100/day/person</td><td style="text-align: right;">$700</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Aircraft Expenses</td><td style="text-align: right;">$23,500&nbsp;</td></tr>
+            <tr><td>Fuel&nbsp;&nbsp;&nbsp;Example scenario: Cessna 182 operated for 40 hours: 600 gallons at $10/gal</td><td style="text-align: right;">$6,000</td></tr>
+            <tr><td>Handling/Governmental&nbsp;&nbsp;&nbsp;Handlers are required for international operations. Governments collect fees for customs, landing fees, ATC, etc.</td><td style="text-align: right;">$15,000</td></tr>
+            <tr><td>Ramp (Apron) Fees&nbsp;&nbsp;&nbsp;Parking, landing, security, overnight</td><td style="text-align: right;">$2,500</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Cost of Professional Services & Operations</td><td style="text-align: right;">$10,000&nbsp;</td></tr>
+            <tr><td>Professional Services: Gross profit, risk, insurance, office, sales, marketing. contracting, customer service, accounting</td><td style="text-align: right;">$3,000</td></tr>
+            <tr><td>Operations: Flight planning assistance, expertise, weather analysis, flight release, flight following, on-call flightcrew support (24-hour), crew travel support</td><td style="text-align: right;">$7,000</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+            <tr><td>Notes:</td></tr>
+
+            <tr style="padding-right: 30px;"><td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;1. Pilot Pay and Cost of Professional Services & Operations are <b>contracted</b> (amounts will only vary if contract conditions for variance are met.)</td><td style="text-align: right;">Total Cost Estimate</td></tr>
+            <tr><td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;2. Pilot and Aircraft Expenses are <b>reimbursables</b> (actual amounts will vary due to local conditions and specific circumstances)</td><td style="text-align: right;"" class="quote-modal-sectionheader">$52,500&nbsp;</td></tr>
+             </table>
+          </div>
+        </div>
+</template>
+
+
+<template id="tmpl-quote-modal-mobile-4">
+<div 
+                class="quote800-pdf-btn is-hidden" 
+                aria-modal="true" 
+                aria-describedby="quote-modal-4-mobile" 
+                tabindex="-1"
+                hidden
+                data-link="/assets/pdfs/small-cont.pdf">
+
+                <h2 style="font-size: 7vw; font-weight: 600;">Typical Cost Estimator</h2>
+                <p style="font-size: 4vw;">For</p>
+                <h3 style="font-size: 6vw; font-weight: 600;">Small Aircraft</h3>
+                <p style="font-size: 4vw;">on</p>
+                <h3 style="font-size: 6vw; font-weight: 600;">Inter-Continental Routes</h3>
+                <p>&nbsp;</p>
+                <p style="font-size: 5vw;">Tap to open</p>
+                <button
+                  type="button"
+                  style="border: none;"
+                  aria-expanded="false"
+                  aria-label="Dowload this pdf"
+                  id="small-cont">
+                  <img 
+                    src="/assets/blank1.jpg"
+                    srcset="/assets/icons/icon-pdflogo-212w.png 212w"
+                    alt="PDF logo"
+                    width="212"
+                    height="250"
+                    role="button"
+                    tabindex="0"
+                    loading="lazy"
+                    fetchpriority="low" 
+                    decoding="async"
+                    sizes="150px">
+                </button>
+              </div>
+</template>
+
+
+<template id="tmpl-quote-modal-desktop-5">
+<div 
+          class="quote-modal-backdrop is-hidden" 
+          aria-modal="true" 
+          aria-describedby="quote-modal-5" 
+          hidden 
+          tabindex="-1">
+          <div class="quote-modal">
+            <button class="close-modal">X</button>
+          
+            <p style="font-size: 2rem;"><b><u>Typical Cost Estimator</u></b></p>
+            <p style="font-size: 1.6rem;"><b>Size of Aircraft:</b> Medium&nbsp;&nbsp;&nbsp;<b>Length of Flight:</b> Domestic</p>   
+
+            <table style="font-size: 1.2rem; width: 1000px; text-align: left; margin: 0 auto;" >
+              
+                <tr> 
+                 <td style="width: 850px"></td><td style="width: 150px; "></td></tr>
+              
+            <tr class="quote-modal-sectionheader"><td style="border-right-color: #323232;">&nbsp;Pilot Pay</td><td style="text-align: right; border-left-color: #323232;">$4,000&nbsp;</td></tr>
+            <tr><td>Contract will select one of the following modes, per pilot:</td><td>&nbsp;</td></tr>
+            <tr><td> Per Day: $2000; Per Flight Hour: $350; Per Duty Hour: $200</td><td>&nbsp;</td></tr>
+            <tr><td>Example scenario: Two pilots for one day, at Per Day mode</td><td>&nbsp;</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Pilot Expenses</td><td style="text-align: right;">$4,400&nbsp;</td></tr>
+            <tr><td>Airline travel</td><td style="text-align: right;">$3,000</td></tr>
+            <tr><td>Taxi, Ride-Share, and Rental Car</td><td style="text-align: right;">$200</td></tr>
+            <tr><td>Hotel estimated at $200/night/person</td><td style="text-align: right;">$800</td></tr>
+            <tr><td>International per-diem (meals and incidentals): $100/day/person</td><td style="text-align: right;">$400</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Aircraft Expenses</td><td style="text-align: right;">$18,200&nbsp;</td></tr>
+            <tr><td>Fuel&nbsp;&nbsp;&nbsp;Example scenario: Saab 340 operated for 6 hours: 1,600 gallons at $7/gal</td><td style="text-align: right;">$11,200</td></tr>
+            <tr><td>Handling/Governmental&nbsp;&nbsp;&nbsp;Light handling is required for turboprop aircraft. Governments collect fees for landing fees, ATC, etc.</td><td style="text-align: right;">$5,000</td></tr>
+            <tr><td>Ramp (Apron) Fees&nbsp;&nbsp;&nbsp;Parking, landing, security, overnight</td><td style="text-align: right;">$2,000</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Cost of Professional Services & Operations</td><td style="text-align: right;">$5,000&nbsp;</td></tr>
+            <tr><td>Professional Services: Gross profit, risk, insurance, office, sales, marketing. contracting, customer service, accounting</td><td style="text-align: right;">$2,000</td></tr>
+            <tr><td>Operations: Flight planning assistance, expertise, weather analysis, flight release, flight following, on-call flightcrew support (24-hour), crew travel support</td><td style="text-align: right;">$3,000</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+            <tr><td>Notes:</td></tr>
+
+            <tr style="padding-right: 30px;"><td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;1. Pilot Pay and Cost of Professional Services & Operations are <b>contracted</b> (amounts will only vary if contract conditions for variance are met.)</td><td style="text-align: right;">Total Cost Estimate</td></tr>
+            <tr><td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;2. Pilot and Aircraft Expenses are <b>reimbursables</b> (actual amounts will vary due to local conditions and specific circumstances)</td><td style="text-align: right;"" class="quote-modal-sectionheader">$31,600&nbsp;</td></tr>
+             </table>
+          </div>
+        </div>
+</template>
+
+
+<template id="tmpl-quote-modal-mobile-5">
+<div 
+                class="quote800-pdf-btn is-hidden" 
+                aria-modal="true" 
+                aria-describedby="quote-modal-5-mobile" 
+                tabindex="-1"
+                hidden
+                data-link="/assets/pdfs/med-dom.pdf">
+
+                <h2 style="font-size: 7vw; font-weight: 600;">Typical Cost Estimator</h2>
+                <p style="font-size: 4vw;">For</p>
+                <h3 style="font-size: 6vw; font-weight: 600;">Medium Aircraft</h3>
+                <p style="font-size: 4vw;">on</p>
+                <h3 style="font-size: 6vw; font-weight: 600;">Domestic Routes</h3>
+                <p>&nbsp;</p>
+                <p style="font-size: 5vw;">Tap to open</p>
+                <button
+                  type="button"
+                  style="border: none;"
+                  aria-expanded="false"
+                  aria-label="Dowload this pdf"
+                  id="med-dom">
+                  <img 
+                    src="/assets/blank1.jpg"
+                    srcset="/assets/icons/icon-pdflogo-212w.png 212w"
+                    alt="PDF logo"
+                    width="212"
+                    height="250"
+                    role="button"
+                    tabindex="0"
+                    loading="lazy"
+                    fetchpriority="low" 
+                    decoding="async"
+                    sizes="150px">
+                </button>
+              </div>
+</template>
+
+
+<template id="tmpl-quote-modal-desktop-6">
+<div 
+          class="quote-modal-backdrop is-hidden" 
+          aria-modal="true" 
+          aria-describedby="quote-modal-6" 
+          hidden 
+          tabindex="-1">
+          <div class="quote-modal">
+            <button class="close-modal">X</button>
+          
+            <p style="font-size: 2rem;"><b><u>Typical Cost Estimator</u></b></p>
+            <p style="font-size: 1.6rem;"><b>Size of Aircraft:</b> Medium&nbsp;&nbsp;&nbsp;<b>Length of Flight:</b> International</p>   
+
+            <table style="font-size: 1.2rem; width: 1000px; text-align: left; margin: 0 auto;" >
+              
+                <tr> 
+                 <td style="width: 850px"></td><td style="width: 150px; "></td></tr>
+              
+            <tr class="quote-modal-sectionheader"><td style="border-right-color: #323232;">&nbsp;Pilot Pay</td><td style="text-align: right; border-left-color: #323232;">$8,000&nbsp;</td></tr>
+            <tr><td>Contract will select one of the following modes, per pilot:</td><td>&nbsp;</td></tr>
+            <tr><td> Per Day: $2000; Per Flight Hour: $350; Per Duty Hour: $200</td><td>&nbsp;</td></tr>
+            <tr><td>Example scenario: Two pilots for two days, at Per Day mode</td><td>&nbsp;</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Pilot Expenses</td><td style="text-align: right;">$14,000&nbsp;</td></tr>
+            <tr><td>Airline travel</td><td style="text-align: right;">$5,000</td></tr>
+            <tr><td>Taxi, Ride-Share, and Rental Car</td><td style="text-align: right;">$300</td></tr>
+            <tr><td>Hotel estimated at $300/night/person</td><td style="text-align: right;">$1,800</td></tr>
+            <tr><td>International per-diem (meals and incidentals): $100/day/person</td><td style="text-align: right;">$600</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Aircraft Expenses</td><td style="text-align: right;">$38,600&nbsp;</td></tr>
+            <tr><td>Fuel&nbsp;&nbsp;&nbsp;Example scenario: Saab 340 operated for 12 hours: 3,200 gallons at $8/gal</td><td style="text-align: right;">$25,600</td></tr>
+            <tr><td>Handling/Governmental&nbsp;&nbsp;&nbsp;Handlers are required for international operations. Governments collect fees for customs, landing fees, ATC, etc.</td><td style="text-align: right;">$10,000</td></tr>
+            <tr><td>Ramp (Apron) Fees&nbsp;&nbsp;&nbsp;Parking, landing, security, overnight</td><td style="text-align: right;">$3,000</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Cost of Professional Services & Operations</td><td style="text-align: right;">$6,500&nbsp;</td></tr>
+            <tr><td>Professional Services: Gross profit, risk, insurance, office, sales, marketing. contracting, customer service, accounting</td><td style="text-align: right;">$2,500</td></tr>
+            <tr><td>Operations: Flight planning assistance, expertise, weather analysis, flight release, flight following, on-call flightcrew support (24-hour), crew travel support</td><td style="text-align: right;">$4,000</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+            <tr><td>Notes:</td></tr>
+
+            <tr style="padding-right: 30px;"><td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;1. Pilot Pay and Cost of Professional Services & Operations are <b>contracted</b> (amounts will only vary if contract conditions for variance are met.)</td><td style="text-align: right;">Total Cost Estimate</td></tr>
+            <tr><td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;2. Pilot and Aircraft Expenses are <b>reimbursables</b> (actual amounts will vary due to local conditions and specific circumstances)</td><td style="text-align: right;"" class="quote-modal-sectionheader">$67,100&nbsp;</td></tr>
+             </table>
+          </div></div>
+</template>
+
+
+<template id="tmpl-quote-modal-mobile-6">
+<div 
+                class="quote800-pdf-btn is-hidden" 
+                aria-modal="true" 
+                aria-describedby="quote-modal-6-mobile" 
+                tabindex="-1"
+                hidden
+                data-link="/assets/pdfs/med-intl.pdf">
+
+                <h2 style="font-size: 7vw; font-weight: 600;">Typical Cost Estimator</h2>
+                <p style="font-size: 4vw;">For</p>
+                <h3 style="font-size: 6vw; font-weight: 600;">Medium Aircraft</h3>
+                <p style="font-size: 4vw;">on</p>
+                <h3 style="font-size: 6vw; font-weight: 600;">International Routes</h3>
+                <p>&nbsp;</p>
+                <p style="font-size: 5vw;">Tap to open</p>
+                <button
+                  type="button"
+                  style="border: none;"
+                  aria-expanded="false"
+                  aria-label="Dowload this pdf"
+                  id="med-intl">
+                  <img 
+                    src="/assets/blank1.jpg"
+                    srcset="/assets/icons/icon-pdflogo-212w.png 212w"
+                    alt="PDF logo"
+                    width="212"
+                    height="250"
+                    role="button"
+                    tabindex="0"
+                    loading="lazy"
+                    fetchpriority="low" 
+                    decoding="async"
+                    sizes="150px">
+                </button>
+              </div>
+</template>
+
+
+<template id="tmpl-quote-modal-desktop-7">
+<div 
+          class="quote-modal-backdrop is-hidden" 
+          aria-modal="true" 
+          aria-describedby="quote-modal-7" 
+          hidden 
+          tabindex="-1">
+          <div class="quote-modal">
+            <button class="close-modal">X</button>
+          
+            <p style="font-size: 2rem;"><b><u>Typical Cost Estimator</u></b></p>
+            <p style="font-size: 1.6rem;"><b>Size of Aircraft:</b> Medium&nbsp;&nbsp;&nbsp;<b>Length of Flight:</b> Inter-continental</p>   
+
+            <table style="font-size: 1.2rem; width: 1000px; text-align: left; margin: 0 auto;" >
+              
+                <tr> 
+                 <td style="width: 850px"></td><td style="width: 150px; "></td></tr>
+              
+            <tr class="quote-modal-sectionheader"><td style="border-right-color: #323232;">&nbsp;Pilot Pay</td><td style="text-align: right; border-left-color: #323232;">$18,000&nbsp;</td></tr>
+            <tr><td>Contract will select one of the following modes, per pilot:</td><td>&nbsp;</td></tr>
+            <tr><td> Per Day: $2000; Per Flight Hour: $350; Per Duty Hour: $200</td><td>&nbsp;</td></tr>
+            <tr><td>Example scenario: Three pilots for three days, at Per Day mode</td><td>&nbsp;</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Pilot Expenses</td><td style="text-align: right;">$14,000&nbsp;</td></tr>
+            <tr><td>Airline travel</td><td style="text-align: right;">$7,500</td></tr>
+            <tr><td>Taxi, Ride-Share, and Rental Car</td><td style="text-align: right;">$500</td></tr>
+            <tr><td>Hotel estimated at $300/night/person</td><td style="text-align: right;">$4,500</td></tr>
+            <tr><td>International per-diem (meals and incidentals): $100/day/person</td><td style="text-align: right;">$1,500</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Aircraft Expenses</td><td style="text-align: right;">$73,600&nbsp;</td></tr>
+            <tr><td>Fuel&nbsp;&nbsp;&nbsp;Example scenario: Saab 340 operated for 25 hours: 6,700 gallons at $8/gal</td><td style="text-align: right;">$53,600</td></tr>
+            <tr><td>Handling/Governmental&nbsp;&nbsp;&nbsp;Handlers are required for international operations. Governments collect fees for customs, landing fees, ATC, etc.</td><td style="text-align: right;">$15,000</td></tr>
+            <tr><td>Ramp (Apron) Fees&nbsp;&nbsp;&nbsp;Parking, landing, security, overnight</td><td style="text-align: right;">$5,000</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Cost of Professional Services & Operations</td><td style="text-align: right;">$10,000&nbsp;</td></tr>
+            <tr><td>Professional Services: Gross profit, risk, insurance, office, sales, marketing. contracting, customer service, accounting</td><td style="text-align: right;">$3,000</td></tr>
+            <tr><td>Operations: Flight planning assistance, expertise, weather analysis, flight release, flight following, on-call flightcrew support (24-hour), crew travel support</td><td style="text-align: right;">$7,000</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+            <tr><td>Notes:</td></tr>
+
+            <tr style="padding-right: 30px;"><td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;1. Pilot Pay and Cost of Professional Services & Operations are <b>contracted</b> (amounts will only vary if contract conditions for variance are met.)</td><td style="text-align: right;">Total Cost Estimate</td></tr>
+            <tr><td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;2. Pilot and Aircraft Expenses are <b>reimbursables</b> (actual amounts will vary due to local conditions and specific circumstances)</td><td style="text-align: right;"" class="quote-modal-sectionheader">$115,600&nbsp;</td></tr>
+             </table>
+          </div></div>
+</template>
+
+
+<template id="tmpl-quote-modal-mobile-7">
+<div 
+                class="quote800-pdf-btn is-hidden" 
+                aria-modal="true" 
+                aria-describedby="quote-modal-7-mobile" 
+                tabindex="-1"
+                hidden
+                data-link="/assets/pdfs/med-cont.pdf">
+
+                <h2 style="font-size: 7vw; font-weight: 600;">Typical Cost Estimator</h2>
+                <p style="font-size: 4vw;">For</p>
+                <h3 style="font-size: 6vw; font-weight: 600;">Medium Aircraft</h3>
+                <p style="font-size: 4vw;">on</p>
+                <h3 style="font-size: 6vw; font-weight: 600;">Inter-Continental Routes</h3>
+                <p>&nbsp;</p>
+                <p style="font-size: 5vw;">Tap to open</p>
+                <button
+                  type="button"
+                  style="border: none;"
+                  aria-expanded="false"
+                  aria-label="Dowload this pdf"
+                  id="med-cont">
+                  <img 
+                    src="/assets/blank1.jpg"
+                    srcset="/assets/icons/icon-pdflogo-212w.png 212w"
+                    alt="PDF logo"
+                    width="212"
+                    height="250"
+                    role="button"
+                    tabindex="0"
+                    loading="lazy"
+                    fetchpriority="low" 
+                    decoding="async"
+                    sizes="150px">
+                </button>
+              </div>
+</template>
+
+
+<template id="tmpl-quote-modal-desktop-8">
+<div 
+          class="quote-modal-backdrop is-hidden" 
+          aria-modal="true" 
+          aria-describedby="quote-modal-8" 
+          hidden 
+          tabindex="-1">
+          <div class="quote-modal">
+            <button class="close-modal">X</button>
+          
+            <p style="font-size: 2rem;"><b><u>Typical Cost Estimator</u></b></p>
+            <p style="font-size: 1.6rem;"><b>Size of Aircraft:</b> Large&nbsp;&nbsp;&nbsp;<b>Length of Flight:</b> Domestic</p>   
+
+            <table style="font-size: 1.2rem; width: 1000px; text-align: left; margin: 0 auto;" >
+              
+                <tr> 
+                 <td style="width: 850px"></td><td style="width: 150px; "></td></tr>
+              
+            <tr class="quote-modal-sectionheader"><td style="border-right-color: #323232;">&nbsp;Pilot Pay</td><td style="text-align: right; border-left-color: #323232;">$6,000&nbsp;</td></tr>
+            <tr><td>Contract will select one of the following modes, per pilot:</td><td>&nbsp;</td></tr>
+            <tr><td> Per Day: $3000; Per Flight Hour: $400; Per Duty Hour: $250</td><td>&nbsp;</td></tr>
+            <tr><td>Example scenario: Two pilots for one day at Per Day mode</td><td>&nbsp;</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Pilot Expenses</td><td style="text-align: right;">$6,600&nbsp;</td></tr>
+            <tr><td>Airline travel (Large aircraft pilots must travel business-class)</td><td style="text-align: right;">$5,000</td></tr>
+            <tr><td>Taxi, Ride-Share, and Rental Car</td><td style="text-align: right;">$300</td></tr>
+            <tr><td>Hotel estimated at $200/night/person</td><td style="text-align: right;">$800</td></tr>
+            <tr><td>Domestic per-diem (meals and incidentals): $75/day/person</td><td style="text-align: right;">$500</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Aircraft Expenses</td><td style="text-align: right;">$23,500&nbsp;</td></tr>
+            <tr><td>Fuel&nbsp;&nbsp;&nbsp;Example scenario: Boeing 737 operated for 3 hours: 2,500 gallons at $7/gal</td><td style="text-align: right;">$17,500</td></tr>
+            <tr><td>Handling/Governmental&nbsp;&nbsp;&nbsp;Light handling is necessary for turbine aircraft domestically. Governments collect fees for landing fees, ATC, etc.</td><td style="text-align: right;">$4,000</td></tr>
+            <tr><td>Ramp (Apron) Fees&nbsp;&nbsp;&nbsp;Parking, landing, security, overnight</td><td style="text-align: right;">$2,000</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Cost of Professional Services & Operations</td><td style="text-align: right;">$5,000&nbsp;</td></tr>
+            <tr><td>Professional Services: Gross profit, risk, insurance, office, sales, marketing. contracting, customer service, accounting</td><td style="text-align: right;">$2,000</td></tr>
+            <tr><td>Operations: Flight planning assistance, expertise, weather analysis, flight release, flight following, on-call flightcrew support (24-hour), crew travel support</td><td style="text-align: right;">$3,000</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+            <tr><td>Notes:</td></tr>
+
+            <tr style="padding-right: 30px;"><td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;1. Pilot Pay and Cost of Professional Services & Operations are <b>contracted</b> (amounts will only vary if contract conditions for variance are met.)</td><td style="text-align: right;">Total Cost Estimate</td></tr>
+            <tr><td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;2. Pilot and Aircraft Expenses are <b>reimbursables</b> (actual amounts will vary due to local conditions and specific circumstances)</td><td style="text-align: right;"" class="quote-modal-sectionheader">$41,100&nbsp;</td></tr>
+             </table>
+      </div></div>
+</template>
+
+
+<template id="tmpl-quote-modal-mobile-8">
+<div 
+                class="quote800-pdf-btn is-hidden" 
+                aria-modal="true" 
+                aria-describedby="quote-modal-8-mobile" 
+                tabindex="-1"
+                hidden
+                data-link="/assets/pdfs/large-dom.pdf">
+
+                <h2 style="font-size: 7vw; font-weight: 600;">Typical Cost Estimator</h2>
+                <p style="font-size: 4vw;">For</p>
+                <h3 style="font-size: 6vw; font-weight: 600;">Large Aircraft</h3>
+                <p style="font-size: 4vw;">on</p>
+                <h3 style="font-size: 6vw; font-weight: 600;">Domestic Routes</h3>
+                <p>&nbsp;</p>
+                <p style="font-size: 5vw;">Tap to open</p>
+                <button
+                  type="button"
+                  style="border: none;"
+                  aria-expanded="false"
+                  aria-label="Dowload this pdf"
+                  id="large-dom">
+                  <img 
+                    src="/assets/blank1.jpg"
+                    srcset="/assets/icons/icon-pdflogo-212w.png 212w"
+                    alt="PDF logo"
+                    width="212"
+                    height="250"
+                    role="button"
+                    tabindex="0"
+                    loading="lazy"
+                    fetchpriority="low" 
+                    decoding="async"
+                    sizes="150px">
+                </button>
+              </div>
+</template>
+
+
+<template id="tmpl-quote-modal-desktop-9">
+<div 
+          class="quote-modal-backdrop is-hidden" 
+          aria-modal="true" 
+          aria-describedby="quote-modal-9" 
+          hidden 
+          tabindex="-1">
+          <div class="quote-modal">
+            <button class="close-modal">X</button>
+          
+            <p style="font-size: 2rem;"><b><u>Typical Cost Estimator</u></b></p>
+            <p style="font-size: 1.6rem;"><b>Size of Aircraft:</b> Large&nbsp;&nbsp;&nbsp;<b>Length of Flight:</b> International</p>   
+
+            <table style="font-size: 1.2rem; width: 1000px; text-align: left; margin: 0 auto;" >
+              
+                <tr> 
+                 <td style="width: 850px"></td><td style="width: 150px; "></td></tr>
+              
+            <tr class="quote-modal-sectionheader"><td style="border-right-color: #323232;">&nbsp;Pilot Pay</td><td style="text-align: right; border-left-color: #323232;">$12,000&nbsp;</td></tr>
+            <tr><td>Contract will select one of the following modes, per pilot:</td><td>&nbsp;</td></tr>
+            <tr><td> Per Day: $3000; Per Flight Hour: $400; Per Duty Hour: $250</td><td>&nbsp;</td></tr>
+            <tr><td>Example scenario: Two pilots for two days at Per Day mode</td><td>&nbsp;</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Pilot Expenses</td><td style="text-align: right;">$9,700&nbsp;</td></tr>
+            <tr><td>Airline travel (Large aircraft pilots must travel business-class)</td><td style="text-align: right;">$7,000</td></tr>
+            <tr><td>Taxi, Ride-Share, and Rental Car</td><td style="text-align: right;">$300</td></tr>
+            <tr><td>Hotel estimated at $300/night/person</td><td style="text-align: right;">$1,800</td></tr>
+            <tr><td>International per-diem (meals and incidentals): $100/day/person</td><td style="text-align: right;">$600</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Aircraft Expenses</td><td style="text-align: right;">$56,000&nbsp;</td></tr>
+            <tr><td>Fuel&nbsp;&nbsp;&nbsp;Example scenario: Boeing 737 operated for 6 hours: 5,000 gallons at $8/gal</td><td style="text-align: right;">$40,000</td></tr>
+            <tr><td>Handling/Governmental&nbsp;&nbsp;&nbsp;Handlers are required for international operations. Governments collect fees for customs, landing fees, ATC, etc.</td><td style="text-align: right;">$10,000</td></tr>
+            <tr><td>Ramp (Apron) Fees&nbsp;&nbsp;&nbsp;Parking, landing, security, overnight</td><td style="text-align: right;">$6,000</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Cost of Professional Services & Operations</td><td style="text-align: right;">$6,500&nbsp;</td></tr>
+            <tr><td>Professional Services: Gross profit, risk, insurance, office, sales, marketing. contracting, customer service, accounting</td><td style="text-align: right;">$2,500</td></tr>
+            <tr><td>Operations: Flight planning assistance, expertise, weather analysis, flight release, flight following, on-call flightcrew support (24-hour), crew travel support</td><td style="text-align: right;">$4,000</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+            <tr><td>Notes:</td></tr>
+
+            <tr style="padding-right: 30px;"><td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;1. Pilot Pay and Cost of Professional Services & Operations are <b>contracted</b> (amounts will only vary if contract conditions for variance are met.)</td><td style="text-align: right;">Total Cost Estimate</td></tr>
+            <tr><td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;2. Pilot and Aircraft Expenses are <b>reimbursables</b> (actual amounts will vary due to local conditions and specific circumstances)</td><td style="text-align: right;"" class="quote-modal-sectionheader">$84,200&nbsp;</td></tr>
+             </table>
+      </div></div>
+</template>
+
+
+<template id="tmpl-quote-modal-mobile-9">
+<div 
+                class="quote800-pdf-btn is-hidden" 
+                aria-modal="true" 
+                aria-describedby="quote-modal-9-mobile" 
+                tabindex="-1"
+                hidden
+                data-link="/assets/pdfs/large-intl.pdf">
+
+                <h2 style="font-size: 7vw; font-weight: 600;">Typical Cost Estimator</h2>
+                <p style="font-size: 4vw;">For</p>
+                <h3 style="font-size: 6vw; font-weight: 600;">Large Aircraft</h3>
+                <p style="font-size: 4vw;">on</p>
+                <h3 style="font-size: 6vw; font-weight: 600;">International Routes</h3>
+                <p>&nbsp;</p>
+                <p style="font-size: 5vw;">Tap to open</p>
+                <button
+                  type="button"
+                  style="border: none;"
+                  aria-expanded="false"
+                  aria-label="Dowload this pdf"
+                  id="large-intl">
+                  <img 
+                    src="/assets/blank1.jpg"
+                    srcset="/assets/icons/icon-pdflogo-212w.png 212w"
+                    alt="PDF logo"
+                    width="212"
+                    height="250"
+                    role="button"
+                    tabindex="0"
+                    loading="lazy"
+                    fetchpriority="low" 
+                    decoding="async"
+                    sizes="150px">
+                </button>
+              </div>
+</template>
+
+
+<template id="tmpl-quote-modal-desktop-10">
+<div 
+          class="quote-modal-backdrop is-hidden" 
+          aria-modal="true" 
+          aria-describedby="quote-modal-10" 
+          hidden 
+          tabindex="-1">
+          <div class="quote-modal">
+            <button class="close-modal">X</button>
+          
+            <p style="font-size: 2rem;"><b><u>Typical Cost Estimator</u></b></p>
+            <p style="font-size: 1.6rem;"><b>Size of Aircraft:</b> Large&nbsp;&nbsp;&nbsp;<b>Length of Flight:</b> Inter-continental</p>   
+
+            <table style="font-size: 1.2rem; width: 1000px; text-align: left; margin: 0 auto;" >
+              
+                <tr> 
+                 <td style="width: 850px"></td><td style="width: 150px; "></td></tr>
+              
+            <tr class="quote-modal-sectionheader"><td style="border-right-color: #323232;">&nbsp;Pilot Pay</td><td style="text-align: right; border-left-color: #323232;">$27,000&nbsp;</td></tr>
+            <tr><td>Contract will select one of the following modes, per pilot:</td><td>&nbsp;</td></tr>
+            <tr><td> Per Day: $3000; Per Flight Hour: $400; Per Duty Hour: $250</td><td>&nbsp;</td></tr>
+            <tr><td>Example scenario: Three pilots for three days, at Per Day mode</td><td>&nbsp;</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Pilot Expenses</td><td style="text-align: right;">$21,500&nbsp;</td></tr>
+            <tr><td>Airline travel (Large aircraft pilots must travel business-class)</td><td style="text-align: right;">$15,000</td></tr>
+            <tr><td>Taxi, Ride-Share, and Rental Car</td><td style="text-align: right;">$500</td></tr>
+            <tr><td>Hotel estimated at $300/night/person</td><td style="text-align: right;">$4,500</td></tr>
+            <tr><td>International per-diem (meals and incidentals): $100/day/person</td><td style="text-align: right;">$1,500</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Aircraft Expenses</td><td style="text-align: right;">$138,000&nbsp;</td></tr>
+            <tr><td>Fuel&nbsp;&nbsp;&nbsp;Example scenario: Boeing 737 operated for 15 hours: 13,000 gallons at $8/gal</td><td style="text-align: right;">$104,000</td></tr>
+            <tr><td>Handling/Governmental&nbsp;&nbsp;&nbsp;Handlers are required for international operations. Governments collect fees for customs, landing fees, ATC, etc.</td><td style="text-align: right;">$25,000</td></tr>
+            <tr><td>Ramp (Apron) Fees&nbsp;&nbsp;&nbsp;Parking, landing, security, overnight</td><td style="text-align: right;">$9,000</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+
+            <tr class="quote-modal-sectionheader"><td>&nbsp;Cost of Professional Services & Operations</td><td style="text-align: right;">$10,000&nbsp;</td></tr>
+            <tr><td>Professional Services: Gross profit, risk, insurance, office, sales, marketing. contracting, customer service, accounting</td><td style="text-align: right;">$3,000</td></tr>
+            <tr><td>Operations: Flight planning assistance, expertise, weather analysis, flight release, flight following, on-call flightcrew support (24-hour), crew travel support</td><td style="text-align: right;">$7,000</td></tr>
+
+            <tr style="height: 20px;"><td colspan="2"></td></tr>
+            <tr><td>Notes:</td></tr>
+
+            <tr style="padding-right: 30px;"><td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;1. Pilot Pay and Cost of Professional Services & Operations are <b>contracted</b> (amounts will only vary if contract conditions for variance are met.)</td><td style="text-align: right;">Total Cost Estimate</td></tr>
+            <tr><td style="padding-right: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;2. Pilot and Aircraft Expenses are <b>reimbursables</b> (actual amounts will vary due to local conditions and specific circumstances)</td><td style="text-align: right;"" class="quote-modal-sectionheader">$196,500&nbsp;</td></tr>
+             </table>
+          </div></div>
+</template>
+
+
+<template id="tmpl-quote-modal-mobile-10">
+<div 
+                class="quote800-pdf-btn is-hidden" 
+                aria-modal="true" 
+                aria-describedby="quote-modal-10-mobile" 
+                tabindex="-1"
+                data-link="/assets/pdfs/large-cont.pdf">
+
+                <h2 style="font-size: clamp(0px, 7vw, 60px); font-weight: 600;">Typical Cost Estimator</h2>
+                <p style="font-size: 4vw;">For</p>
+                <h3 style="font-size: clamp(0px, 6vw, 52px); font-weight: 600;">Large Aircraft</h3>
+                <p style="font-size: 4vw;">on</p>
+                <h3 style="font-size: clamp(0px, 6vw, 52px); font-weight: 600;">Inter-Continental Routes</h3>
+                <p>&nbsp;</p>
+                <p style="font-size: clamp(0px, 5vw, 43px);">Tap to open</p>
+                <button
+                  type="button"
+                  style="border: none;"
+                  aria-expanded="false"
+                  aria-label="Dowload this pdf"
+                  id="large-cont">
+                  <img 
+                    src="/assets/blank1.jpg"
+                    srcset="/assets/icons/icon-pdflogo-212w.png 212w"
+                    alt="PDF logo"
+                    width="212"
+                    height="250"
+                    role="button"
+                    tabindex="0"
+                    loading="lazy"
+                    fetchpriority="low" 
+                    decoding="async"
+                    sizes="150px">
+                </button>
+              </div>
+</template>
+
+
+<!--legacy
+              <div 
+                class="quote800-pdf-btn is-hidden"
+                id="quote-modal-3-mobile" 
+                aria-modal="true" 
+                aria-describedby="quote-modal-3-mobile" 
+                tabindex="-1"
+                hidden
+                data-link="/assets/pdfs/small-intl.pdf">
+
+                <h2 style="font-size: 7vw; font-weight: 600;">Typical Cost Estimator</h2>
+                <p style="font-size: 4vw;">For</p>
+                <h3 style="font-size: 6vw; font-weight: 600;">Small Aircraft</h3>
+                <p style="font-size: 4vw;">on</p>
+                <h3 style="font-size: 6vw; font-weight: 600;">International Routes</h3>
+                <p>&nbsp;</p>
+                <p style="font-size: 5vw;">Tap to open</p>
+                <button
+                  type="button"
+                  style="border: none;"
+                  aria-expanded="false"
+                  aria-label="Dowload this pdf"
+                  id="small-intl">
+                  <img 
+                    src="/assets/blank1.jpg"
+                    srcset="/assets/icons/icon-pdflogo-212w.png 212w"
+                    alt="PDF logo"
+                    width="212"
+                    height="250"
+                    role="button"
+                    tabindex="0"
+                    loading="lazy"
+                    fetchpriority="low" 
+                    decoding="async"
+                    sizes="150px">
+                </button>
+              </div>
+
+                            <div 
+                class="quote800-pdf-btn is-hidden"
+                id="quote-modal-4-mobile" 
+                aria-modal="true" 
+                aria-describedby="quote-modal-4-mobile" 
+                tabindex="-1"
+                hidden
+                data-link="/assets/pdfs/small-cont.pdf">
+
+                <h2 style="font-size: 7vw; font-weight: 600;">Typical Cost Estimator</h2>
+                <p style="font-size: 4vw;">For</p>
+                <h3 style="font-size: 6vw; font-weight: 600;">Small Aircraft</h3>
+                <p style="font-size: 4vw;">on</p>
+                <h3 style="font-size: 6vw; font-weight: 600;">Inter-Continental Routes</h3>
+                <p>&nbsp;</p>
+                <p style="font-size: 5vw;">Tap to open</p>
+                <button
+                  type="button"
+                  style="border: none;"
+                  aria-expanded="false"
+                  aria-label="Dowload this pdf"
+                  id="small-cont">
+                  <img 
+                    src="/assets/blank1.jpg"
+                    srcset="/assets/icons/icon-pdflogo-212w.png 212w"
+                    alt="PDF logo"
+                    width="212"
+                    height="250"
+                    role="button"
+                    tabindex="0"
+                    loading="lazy"
+                    fetchpriority="low" 
+                    decoding="async"
+                    sizes="150px">
+                </button>
+              </div>
+
+                           <div 
+                class="quote800-pdf-btn is-hidden"
+                id="quote-modal-5-mobile" 
+                aria-modal="true" 
+                aria-describedby="quote-modal-5-mobile" 
+                tabindex="-1"
+                hidden
+                data-link="/assets/pdfs/med-dom.pdf">
+
+                <h2 style="font-size: 7vw; font-weight: 600;">Typical Cost Estimator</h2>
+                <p style="font-size: 4vw;">For</p>
+                <h3 style="font-size: 6vw; font-weight: 600;">Medium Aircraft</h3>
+                <p style="font-size: 4vw;">on</p>
+                <h3 style="font-size: 6vw; font-weight: 600;">Domestic Routes</h3>
+                <p>&nbsp;</p>
+                <p style="font-size: 5vw;">Tap to open</p>
+                <button
+                  type="button"
+                  style="border: none;"
+                  aria-expanded="false"
+                  aria-label="Dowload this pdf"
+                  id="med-dom">
+                  <img 
+                    src="/assets/blank1.jpg"
+                    srcset="/assets/icons/icon-pdflogo-212w.png 212w"
+                    alt="PDF logo"
+                    width="212"
+                    height="250"
+                    role="button"
+                    tabindex="0"
+                    loading="lazy"
+                    fetchpriority="low" 
+                    decoding="async"
+                    sizes="150px">
+                </button>
+              </div>
+
+              <div 
+                class="quote800-pdf-btn is-hidden"
+                id="quote-modal-6-mobile" 
+                aria-modal="true" 
+                aria-describedby="quote-modal-6-mobile" 
+                tabindex="-1"
+                hidden
+                data-link="/assets/pdfs/med-intl.pdf">
+
+                <h2 style="font-size: 7vw; font-weight: 600;">Typical Cost Estimator</h2>
+                <p style="font-size: 4vw;">For</p>
+                <h3 style="font-size: 6vw; font-weight: 600;">Medium Aircraft</h3>
+                <p style="font-size: 4vw;">on</p>
+                <h3 style="font-size: 6vw; font-weight: 600;">International Routes</h3>
+                <p>&nbsp;</p>
+                <p style="font-size: 5vw;">Tap to open</p>
+                <button
+                  type="button"
+                  style="border: none;"
+                  aria-expanded="false"
+                  aria-label="Dowload this pdf"
+                  id="med-intl">
+                  <img 
+                    src="/assets/blank1.jpg"
+                    srcset="/assets/icons/icon-pdflogo-212w.png 212w"
+                    alt="PDF logo"
+                    width="212"
+                    height="250"
+                    role="button"
+                    tabindex="0"
+                    loading="lazy"
+                    fetchpriority="low" 
+                    decoding="async"
+                    sizes="150px">
+                </button>
+              </div>
+
+                            <div 
+                class="quote800-pdf-btn is-hidden"
+                id="quote-modal-7-mobile" 
+                aria-modal="true" 
+                aria-describedby="quote-modal-7-mobile" 
+                tabindex="-1"
+                hidden
+                data-link="/assets/pdfs/med-cont.pdf">
+
+                <h2 style="font-size: 7vw; font-weight: 600;">Typical Cost Estimator</h2>
+                <p style="font-size: 4vw;">For</p>
+                <h3 style="font-size: 6vw; font-weight: 600;">Medium Aircraft</h3>
+                <p style="font-size: 4vw;">on</p>
+                <h3 style="font-size: 6vw; font-weight: 600;">Inter-Continental Routes</h3>
+                <p>&nbsp;</p>
+                <p style="font-size: 5vw;">Tap to open</p>
+                <button
+                  type="button"
+                  style="border: none;"
+                  aria-expanded="false"
+                  aria-label="Dowload this pdf"
+                  id="med-cont">
+                  <img 
+                    src="/assets/blank1.jpg"
+                    srcset="/assets/icons/icon-pdflogo-212w.png 212w"
+                    alt="PDF logo"
+                    width="212"
+                    height="250"
+                    role="button"
+                    tabindex="0"
+                    loading="lazy"
+                    fetchpriority="low" 
+                    decoding="async"
+                    sizes="150px">
+                </button>
+              </div>
+
+
+                <div 
+                class="quote800-pdf-btn is-hidden"
+                id="quote-modal-8-mobile" 
+                aria-modal="true" 
+                aria-describedby="quote-modal-8-mobile" 
+                tabindex="-1"
+                hidden
+                data-link="/assets/pdfs/large-dom.pdf">
+
+                <h2 style="font-size: 7vw; font-weight: 600;">Typical Cost Estimator</h2>
+                <p style="font-size: 4vw;">For</p>
+                <h3 style="font-size: 6vw; font-weight: 600;">Large Aircraft</h3>
+                <p style="font-size: 4vw;">on</p>
+                <h3 style="font-size: 6vw; font-weight: 600;">Domestic Routes</h3>
+                <p>&nbsp;</p>
+                <p style="font-size: 5vw;">Tap to open</p>
+                <button
+                  type="button"
+                  style="border: none;"
+                  aria-expanded="false"
+                  aria-label="Dowload this pdf"
+                  id="large-dom">
+                  <img 
+                    src="/assets/blank1.jpg"
+                    srcset="/assets/icons/icon-pdflogo-212w.png 212w"
+                    alt="PDF logo"
+                    width="212"
+                    height="250"
+                    role="button"
+                    tabindex="0"
+                    loading="lazy"
+                    fetchpriority="low" 
+                    decoding="async"
+                    sizes="150px">
+                </button>
+              </div>
+
+              <div 
+                class="quote800-pdf-btn is-hidden"
+                id="quote-modal-9-mobile" 
+                aria-modal="true" 
+                aria-describedby="quote-modal-9-mobile" 
+                tabindex="-1"
+                hidden
+                data-link="/assets/pdfs/large-intl.pdf">
+
+                <h2 style="font-size: 7vw; font-weight: 600;">Typical Cost Estimator</h2>
+                <p style="font-size: 4vw;">For</p>
+                <h3 style="font-size: 6vw; font-weight: 600;">Large Aircraft</h3>
+                <p style="font-size: 4vw;">on</p>
+                <h3 style="font-size: 6vw; font-weight: 600;">International Routes</h3>
+                <p>&nbsp;</p>
+                <p style="font-size: 5vw;">Tap to open</p>
+                <button
+                  type="button"
+                  style="border: none;"
+                  aria-expanded="false"
+                  aria-label="Dowload this pdf"
+                  id="large-intl">
+                  <img 
+                    src="/assets/blank1.jpg"
+                    srcset="/assets/icons/icon-pdflogo-212w.png 212w"
+                    alt="PDF logo"
+                    width="212"
+                    height="250"
+                    role="button"
+                    tabindex="0"
+                    loading="lazy"
+                    fetchpriority="low" 
+                    decoding="async"
+                    sizes="150px">
+                </button>
+              </div>
+
+                            <div 
+                class="quote800-pdf-btn is-hidden"
+                id="quote-modal-10-mobile" 
+                aria-modal="true" 
+                aria-describedby="quote-modal-10-mobile" 
+                tabindex="-1"
+                data-link="/assets/pdfs/large-cont.pdf">
+
+                <h2 style="font-size: clamp(0px, 7vw, 60px); font-weight: 600;">Typical Cost Estimator</h2>
+                <p style="font-size: 4vw;">For</p>
+                <h3 style="font-size: clamp(0px, 6vw, 52px); font-weight: 600;">Large Aircraft</h3>
+                <p style="font-size: 4vw;">on</p>
+                <h3 style="font-size: clamp(0px, 6vw, 52px); font-weight: 600;">Inter-Continental Routes</h3>
+                <p>&nbsp;</p>
+                <p style="font-size: clamp(0px, 5vw, 43px);">Tap to open</p>
+                <button
+                  type="button"
+                  style="border: none;"
+                  aria-expanded="false"
+                  aria-label="Dowload this pdf"
+                  id="large-cont">
+                  <img 
+                    src="/assets/blank1.jpg"
+                    srcset="/assets/icons/icon-pdflogo-212w.png 212w"
+                    alt="PDF logo"
+                    width="212"
+                    height="250"
+                    role="button"
+                    tabindex="0"
+                    loading="lazy"
+                    fetchpriority="low" 
+                    decoding="async"
+                    sizes="150px">
+                </button>
+              </div>-->
+
+
+<script type="module" src="/js/main.js?v=20251115-3"></script>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

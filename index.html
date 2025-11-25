@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
   <!-- ===== GLOBAL (copy identical on every page) ===== -->
   <meta charset="UTF-8">
@@ -10,18 +10,18 @@
   <meta name="apple-mobile-web-app-title" content="Aircraft Delivery">
   <meta name="ads-ver" content="?v=20250826-235823">
 
+ 
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/icon-192x192.png?v=20250908-191739">
+  <link rel="icon" type="image/png" sizes="512x512" href="/assets/icons/icon-512x512.png?v=20250908-191739">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png?v=20250908-191739">
 
-  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192x192.png?v=20250908-191739">
-  <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png?v=20250908-191739">
-  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=20250908-191739">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 
-<link rel="preload" href="/style.css?v=20250908-191739" as="style">
-<link rel="stylesheet" href="/style.css?v=20250908-191739">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="./css/style.css?v=20250908-191739" as="style">
+<link rel="stylesheet" href="./css/style.css?v=20250908-191739">
 
 <link rel="dns-prefetch" href="//formspree.io">
 <link rel="dns-prefetch" href="//www.googletagmanager.com">
@@ -47,6 +47,7 @@
   <meta name="twitter:description" content="Aircraft ferry flights and container shipping worldwide">
   <meta name="twitter:image" content="https://aircraft.delivery/assets/about/2009-12-24.jpg">
 
+<!-- Structured data for homepage: Organization + WebSite + WebPage -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -56,394 +57,472 @@
       "@id": "https://aircraft.delivery/#org",
       "name": "Aircraft Delivery Solutions",
       "url": "https://aircraft.delivery/",
-      "logo": "https://aircraft.delivery/assets/side-by-side-logo.png",
-      "email": "akahn28@gmail.com"",
-      "areaServed": "Worldwide",
-      "sameAs": []
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://aircraft.delivery/assets/side-by-side-logo.png"
+      },
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "telephone": "+1-415-845-8163",
+        "areaServed": "Worldwide",
+        "availableLanguage": ["en"]
+      }]
     },
     {
       "@type": "WebSite",
       "@id": "https://aircraft.delivery/#website",
       "url": "https://aircraft.delivery/",
       "name": "Aircraft Delivery Solutions",
-      "inLanguage": "en",
-      "publisher": { "@id": "https://aircraft.delivery/#org" }
+      "alternateName": "ADS",
+      "publisher": { "@id": "https://aircraft.delivery/#org" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://aircraft.delivery/#webpage",
+      "url": "https://aircraft.delivery/",
+      "name": "Aircraft Delivery Solutions — Ferry Flights & Aircraft Container Shipping",
+      "isPartOf": { "@id": "https://aircraft.delivery/#website" },
+      "about": { "@id": "https://aircraft.delivery/#org" },
+      "inLanguage": "en-US"
     }
   ]
 }
 </script>
 
+
 </head>
 
-<body>
+  <body 
+    data-page="index"
+    style="background-color: #f0eeee; margin: 0;">
 
-      <a 
-        class="skip-link" 
-        href="#main">Skip to main content
-      </a>
+    <a 
+      class="skip-link" 
+      href="#main">Skip to main content
+    </a>
 
-      <!-- DESKTOP HEADER WRAPPER -->
-
-      <div class="desktop-only">
-        <header class="desk-header"
-                id="desk-header">
-          <a class="skip-link" 
-             href="#main">Skip to main content
-          </a>
-          <div class="desk-header-inner">
-            <div class="desk-header-left">
-              <nav class="desk-nav" 
-                   aria-label="Primary">
-                <a href="/services"
-                   aria-current="page">Services
-                </a>
-                <a href="/quote">Quote</a>
-                <a class="nav-dir"  
-                  href="/pilot-directory">Pilot<wbr> Directory
-                </a>
-                <a class="nav-join" 
-                  href="/join-pilot-roster">Join Pilot<wbr> Roster
-                </a>
-                <a href="/about">About</a>
-                <a class="nav-past" 
-                  href="/past-deliveries">Past<wbr> Deliveries
-                </a>
-              </nav>
-            </div>
-
-            <div class="desk-header-center">
-              <a href="/"
-                aria-current="page"
-                aria-label="Home">
-                <picture>
-                  <source
-                    media="(min-width: 1401px)"
-                    type="image/png"
-                    srcset="/assets/side-by-side-logo.png?v=20250908-191739">
-                  <img
-                    class="desk-header-logo"
-                    src="data:image/gif;base64,R0lGODlhAQABAAAAACw="
-                    width="951"
-                    height="179"
-                    decoding="async"
-                    fetchpriority="high"
-                    loading="eager"
-                    alt="">
-                </picture>
-              </a>
-            </div>
-
-            <div class="desk-header-right">
-              <p>+1 (415) 845-8163</p>
-              <a href="mailto:akahn28@gmail.com">akahn28@gmail.com</a>
-            </div>
-          </div>
-        </header>
-
-      </div>
-
-<!--MOBILE-ONLY DIV-->
-<!--MOBILE-ONLY DIV-->
-<!--MOBILE-ONLY DIV-->
-
-      <div class="mobile-only">
-
-<!--MOBILE-ONLY HEADER-->
-<!--MOBILE-ONLY HEADER-->
-<!--MOBILE-ONLY HEADER-->
-
-        <header class="mobile-header">
-
-          <div class="mobile-header-slot-left">
-            <button
-              id="hamburger-icon"
-              class="mobile-burger-proxy"
-              type="button"
-              aria-label="Open menu"
-              aria-expanded="false"
-              aria-controls="mobileMenu"
-              data-burger-proxy>
-              <picture>
-                <source 
-                  media="(max-width: 1400px)" 
-                  srcset="/assets/mobile/burger.png?v=20250908-191739">
-                <img
-                  src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                  alt="aria-label-active" 
-                  width="50"
-                  height="39"
-                  decoding="async">
-              </picture>
-            </button>
-          </div>
-
-          <div class="mobile-header-slot-center">
-            <a 
-              href="/" 
-              class="mobile-header-logo"                 
-              aria-label="Home">
-              <picture>
-                <source 
-                  media="(max-width: 750px)"
-                  srcset="/assets/mobile/mobile-logo-v2.png?v=20250908-191739">
-                <source 
-                  media="(min-width: 751px) and (max-width: 1400px)"
-                  srcset="/assets/mobile/mobile-logo-90.png?v=20250908-191739">
-                <img
-                  src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                  alt="Aircraft Delivery Solutions"
-                  width="300" 
-                  height="148" 
-                  decoding="async">
-              </picture>
-            </a>
-          </div>
-
-          <div class="mobile-header-slot-right">
-            <a
-              href="tel:+14158458163"
-              class="mobile-header-phone"
-              aria-label="phone icon">
-              <picture>
-                <source 
-                  media="(max-width: 1400px)"
-                  srcset="/assets/mobile/phone.png?v=20250908-191739">
-                <img 
-                  src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                  alt="Call"
-                  width="36" 
-                  height="36"
-                  decoding="async">
-              </picture>
-            </a>
-          </div>
-
-        </header>
-
-        <div 
-          class="mobile-menu" 
-          id="mobileMenu" 
-          hidden 
-          aria-labelledby="hamburger-icon"
-          role="region">
-          <nav class="mobile-nav" 
-               aria-label="Mobile primary">
+    <header class="header"
+            id="desk-header">
+      <div class="header-inner">
+        <div class="header-left">
+          <nav aria-label="Primary">
             <a href="/services">Services</a>
-            <a href="/quote">Get a Quote</a>
+            <a href="/quote">Quote</a>
             <a href="/pilot-directory">Pilot Directory</a>
-            <a href="/join-pilot-roster">Join Pilot Roster</a>
+            <a href="/join-pilot-roster">Join<wbr> Pilot Roster</a>
             <a href="/about">About</a>
             <a href="/past-deliveries">Past Deliveries</a>
           </nav>
+          <button
+            id="burger"
+            class="menu-toggle"
+            type="button"
+            aria-controls="menu-overlay"
+            aria-expanded="false"
+            aria-label="Open menu"
+            data-nav-toggle>
+
+            <img
+              src="/assets/blank1.jpg"
+              srcset="/assets/icons/icon-burger.png?v=20250908-191739 320w"
+              sizes="50px"
+              alt=""
+              aria-hidden="true" 
+              width="50"
+              height="39"
+              decoding="async"
+              loading="eager">
+          </button>
         </div>
+       <div class="header-center">
+        <a href="/"
+          aria-current="page"
+          aria-label="Home">
+          <img 
+            class="header-center-logo"
+            id="desktop-logo"
+            src='/assets/blank1.jpg'
+            srcset='/assets/logos/side-by-side-logo.png 951w'
+            sizes="calc(41.7vw + 16.7px)"
+            width='951'
+            data-w='951'
+            height='179'
+            data-h='179'
+            loading='eager'
+            decoding='async'
+            alt=''>
+          <img 
+            class="header-center-logo" 
+            id="mobile-logo-90"
+            src='/assets/blank1.jpg'
+            srcset='assets/logos/mobile-logo-90.png 300w'
+            sizes='100px'
+            width='300'
+            data-w='300'
+            height='116'
+            data-h='116'
+            loading='eager'
+            decoding='async'
+            alt='Aircraft Delivery Solutions logo'><!--1400 O/R-->
+        </a>
+       </div>
+    
+       <div class="header-right">
+        <div class="header-right-desk">
+          <a href="tel:+14158458163"
+             aria-label="call">
+            <p>+1 (415) 845-8163</p>
+            <img 
+              class="phone-icon-mobile"
+              id="phone-icon"
+              src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+              srcset="/assets/icons/icon-phone.png?v=20250908-191739 320w"
+              sizes="36px"
+              alt=""
+              aria-hidden="true"
+              width="36" 
+              height="36"
+              loading="eager"
+              decoding="async"><!--1400 O/R-->
+          </a>
+          <a href="mailto:akahn28@gmail.com">
+            <p>akahn28@gmail.com</p>
+          </a>
+        </div>
+        <div class="header-right-mob"><!--1400 O/R-->
+          <a href="tel:+14158458163"
+             aria-label="Call">
+            <img 
+              class="phone-icon-mobile"
+              src="/assets/blank1.jpg"
+              srcset="/assets/icons/icon-phone.png?v=20250908-191739 320w"
+              sizes="36px"
+              alt=""
+              aria-hidden="true"
+              width="36" 
+              height="36"
+              loading="eager"
+              decoding="async">
+          </a>
+          <a href="sms:+14158458163"
+             id="icontxtmsg"
+             aria-label="Send a text message">
+           <img 
+              class="phone-icon-mobile"
+              style="margin-right: 15px;"
+              src="/assets/blank1.jpg"
+              srcset="/assets/icons/icon-txt-msg-bubble.png 91w"
+              sizes="36px"
+              alt=""
+              aria-hidden="true"
+              width="91" 
+              height="70"
+              loading="eager"
+              decoding="async">
+            </a>
+          <a href="mailto:akahn28@gmail.com"
+             id="iconemail">
+             <img 
+              class="phone-icon-mobile"
+              src="/assets/blank1.jpg"
+              srcset="/assets/icons/icon-email.png 200w"
+              sizes="36px"
+              alt=""
+              aria-hidden="true"
+              width="200" 
+              height="131"
+              loading="eager"
+              decoding="async">
+            </a>
+        </div>              
+       </div>
       </div>
 
-    <main id="main"
-          tabindex="-1">
-  
-  <!--DESKTOP-ONLY DIV-->
-  <!--DESKTOP-ONLY DIV-->
-  <!--DESKTOP-ONLY DIV-->
+    </header>
 
-<div class="desktop-only">
-
-  <!-- FLEX ROW: left | core | right -->
-  <div class="desk-index-main-flex">
-    <div class="main-bleed-left"></div>
-
-    <div class="main-content-core">
-      <!-- HERO WRAPPER (must contain the services overlay) -->
-      <div class="desk-hero-image-wrapper">
-        <picture>
-          <source srcset="/assets/matte8.jpg?v=20250908-191739" media="(min-width: 1401px)">
-          <img
-            class="desk-hero-matte"
-            src="data:image/gif;base64,R0lGODlhAQABAAAAACw="
-            alt="Home page background"
-            width="1365" height="656"
-            loading="eager"
-            decoding="async" fetchpriority="high"
-            style="display:block;width:100%;height:auto;"
-          >
-        </picture>
-
-<a class="desk-index-cta" href="/quote" aria-label="Get a fast quote">
-
-  <picture>
-    <!-- Prevent loading on mobile/tablet: serve a 1x1 transparent source there -->
-    <source
-      media="(max-width: 1400px)"
-      srcset="/assets/blank1.png?v=20250908-191739"
-      type="image/gif">
-    <img
-      class="desk-index-cta-img"
-      src="/assets/quote-sign.png?v=20250908-191739"
-      alt="Get a fast quote"
-      decoding="async"
-      fetchpriority="high"
-      loading="eager">
-  </picture>
-</a>
-
-    <div class="desk-hero-tagline-wrap">
-      <h1 class="desk-hero-tagline">We bring aircraft<br> to their new homes</h1>
-    </div>
-    <div class="desk-index-services">
-
-      <section class="desk-index-services-inner" aria-label="Our Services">
-
-        <article class="desk-index-service">
-          <a 
-            class="desk-index-thumbwrap"
-            href="/services">
-            <img 
-              class="desk-index-thumb"
-              loading="eager"
-              fetchpriority="high"
-              src="/assets/index-key-200px.jpg?v=20250908-191739"
-              alt="Ferry Flights"
-              style="display: block; width: clamp(150px, calc(-45px + 13vw), 215px);">
-          </a>
-          <div class="desk-index-content">
-            <h2 class="desk-index-title">
-              <a 
-                style="text-decoration: none; color: inherit;"
-                href="/services">FERRY FLIGHTS
-              </a>
-            </h2>
-            <p class="desk-index-description">Nearly any aircraft. To nearly every destination.</p>
+        <div
+          class="menu-overlay is-hidden"
+          id="menu-overlay"
+          data-anim="fade"
+          data-menu
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="menu-title"
+          aria-hidden="true">
+          <div 
+            class="menu-panel-backdrop"
+            id="menu-panel-backdrop" 
+            data-menu-overlay
+            aria-hidden="true">
           </div>
-        </article>
-
-        <article class="desk-index-service">
-          <a 
-            class="desk-index-thumbwrap"
-            href="/services">
-            <img 
-              class="desk-index-thumb"
-              loading="eager"
-              fetchpriority="high"
-              src="/assets/services/containerize-no-title-320w.png?v=20250908-191739"
-              alt="Container Shipping">
-          </a>
-          <div class="desk-index-content">
-            <h2 class="desk-index-title">
-              <a style="text-decoration: none; color: inherit;" 
-                 href="/services">CONTAINER SHIPPING
-              </a>
+          <nav 
+            id="menu-panel"
+            class="menu-panel"
+            aria-label="Primary navigation"
+            aria-hidden="true"
+            inert>
+            <h2 
+              id="menu-title" 
+              class="visually-hidden">Menu
             </h2>
-            <p class="desk-index-description">For light aircraft: safe &amp; low-cost.</p>
-          </div>
-        </article>
-
-      </section>
-
-    </div>
-  </div>
-
-    
-      <div class="desktop-bottom-bleed"></div>
-      <!-- rest of /index content... -->
-    </div>
-
-    <!-- Right bleed inside the flex row -->
-    <div class="main-bleed-right">
-      <img src="/assets/bleed-patch.png?v=20250908-191739" alt="patch" class="bleed-right-patch">
-    </div>
-  </div>
-</div>
-
-    <!-- DIVIDER BETWEEN DESKTOP AND MOBILE DIVS -->
-         <!-- DIVIDER BETWEEN DESKTOP AND MOBILE DIVS -->
-              <!-- DIVIDER BETWEEN DESKTOP AND MOBILE DIVS -->
-
-
-      <div class="mobile-only">
-
-        <div class="index-mob-main">
-  
-          <picture class="index-mob-pad">
-            <source 
-              srcset="/assets/mobile/mob-index-mobilehero-320w.jpg?v=20250908-191739 320w, /assets/mobile/mob-index-mobilehero-640w.jpg?v=20250908-191739 640w, /assets/mobile/mob-index-mobilehero-640w@2x.jpg?v=20250908-191739 1280w"
-              sizes="(max-width: 480px) 320px, (max-width: 768px) 640px, 100vw"
-              media="(max-width: 1400px)">
-                <img
-                  src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                  alt="Hero"
-                  width="1245" 
-                  height="598"
-                  decoding="async" 
-                  fetchpriority="high"
-                  style="display:block; width:100%; height:auto;">
-          </picture>
-
-          <a 
-            href="/services" 
-            class="mob-index-service-link">
-            <div 
-              class="mob-index-service" 
-              style="padding-bottom: 10px;">
+            <button
+              class="mob-menupanel-float"
+              aria-label="Close mobile menu">
               <img
-                src="/assets/index-key-200px.jpg?v=20250908-191739" 
-                alt="Ferry Flights" 
-                class="mob-index-imgborder" 
-                width="200" 
-                height="150" 
-                decoding="async"
-                loading="eager"
-                fetchpriority="high">
-              <div class="mob-index-service-text">
-                <div class="mob-index-headline">FERRY FLIGHTS</div>
-                <div class="mob-index-description">Nearly any aircraft.
-                  <br>To nearly every destination.
-                </div>
-              </div>
-           </div>
-          </a>
-          <a 
-            href="/services" 
-            class="mob-index-service-link">
-            <div class="mob-index-service">
-              <div class="mob-index-imgbg-wrap">
+                src="/assets/blank1.jpg"
+                height="118"
+                width="125"
+                sizes="30px"
+                srcset="/assets/icons/icon-red-x-close.png 125w"
+                aria-lable="Close button"
+                alt=""
+                aria-hidden="false">
+            </button>
+
+            <ul class="menu-list">
+              <li><a href="/services">Services</a></li>
+              <li><a href="/quote">Get a Quote</a></li>
+              <li><a href="/pilot-directory">Pilot Directory</a></li>
+              <li><a href="/join-pilot-roster">Join Pilot Roster</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/past-deliveries">Past Deliveries</a></li>
+            </ul>
+            <button 
+              class="menu-close" 
+              type="button" 
+              data-menu-close 
+              aria-label="Close menu">Close
+            </button>
+            <div style="display: grid; grid-template-columns: auto auto; margin-top: 60px;">
+              <a 
+                href="sms:+14158458163"
+                id="menu-icontxtmsg"
+                style="margin: 0 auto;">
                 <img 
-                  src="/assets/services/containerize-no-title-320w.png?v=20250908-191739" alt="Container Shipping" 
-                  class="mob-index-imgbg-img" 
-                  width="300" 
-                  height="155" 
-                  decoding="async"
+                  class="phone-icon-mobile"
+                  style="margin-right: 15px;"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/icons/icon-txt-msg-bubble.png 91w"
+                  sizes="36px"
+                  alt=""
+                  aria-hidden="true"
+                  width="91" 
+                  height="70"
                   loading="eager"
-                  fetchpriority="high">
-              </div>
-              <div class="mob-index-service-text">
-                <div class="mob-index-headline">CONTAINER SHIPPING</div>
-                <div class="mob-index-description">Safe & low-cost for light aircraft</div>
+                  decoding="async">
+              </a>
+              <a 
+                href="mailto:akahn28@gmail.com"
+                id="menu-iconemail"
+                style="margin: 0 auto;">
+                <img 
+                  class="phone-icon-mobile"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/icons/icon-email.png 200w"
+                  sizes="36px"
+                  alt=""
+                  aria-hidden="true"
+                  width="200" 
+                  height="131"
+                  loading="eager"
+                  decoding="async">
+              </a>
+            </div>
+          </nav>
+        </div>
+
+    <main id="main" class="main-index" tabindex="-1">
+
+    <div class="index-matte">
+      <div class="index-matte-bleedcontrol">
+        <div class="bleedleft"></div>
+
+        <div class="matteinner">
+          <div class="matteinner-aboveplane">
+            <h1>We bring aircraft<br>
+            <span>to their new homes</span>
+            </h1>
+          </div>
+
+          <a class="matteinner-quotesign"
+             href="/quote">
+             <img
+                src="/assets/blank1.jpg"
+                srcset="/assets/custom-grafx/grafx-quote-sign.png 409w"
+                sizes="200px"
+                width="409"
+                data-w="409"
+                height="270"
+                data-h="270"
+                loading="lazy"
+                decoding="async"
+                alt="Get a Quote">
+          </a>
+         
+          <div class="matteinner-lowerdisplayarea">
+            <p id="box1line">to their new homes</p>
+            <p id="box2line">to their<br>
+                            new homes
+            </p>
+            <div class="matteinner-lowerdisplayarea-grid">
+              <a 
+                class="servicethumb"
+                href="/services"
+                aria-label="Company Services">
+                <img 
+                  loading="eager"
+                  fetchpriority="high"
+                  src="/assets/blank1.jpg"
+                  srcset="
+                  /assets/images/index-key-320w.jpg 200w,
+                  /assets/images/index-key-640w.jpg 320w,
+                  /assets/images/index-key-1024w.jpg 640w"
+                  sizes="175px"
+                  width="976"
+                  height="810"
+                  alt="Ferry Flights">
+              </a>
+              <div
+                class="servicesdescription"
+                aria-labelledby="h2-ff">
+                <h2 
+                  id="h2-ff">
+                  <a 
+                    style="text-decoration: none; color: inherit;"
+                    href="/services">FERRY FLIGHTS
+                  </a>
+                </h2>
+                <p class="index-description">Nearly any aircraft. To nearly every destination.</p>
+              </div>  
+              <a 
+                class="servicethumb"
+                href="/services">
+                <img 
+                  loading="eager"
+                  fetchpriority="high"
+                  src="/assets/blank1.jpg"
+                  srcset="
+                  /assets/images/index-containerize-320w.png 320w,
+                  /assets/images/index-containerize-640w.png 640w, 
+                  /assets/images/index-containerize-1321w.png 1321w"
+                  sizes="158px"
+                  height="451"
+                  width="409"
+                  alt="Container Shipping">
+              </a>
+              <div 
+                class="servicesdescription"
+                aria-labelledby="h2-cs">
+                <h2 id="h2-cs">
+                  <a style="text-decoration: none; color: inherit;"
+                      href="/services">CONTAINER SHIPPING
+                  </a>
+                </h2>
+                <p>For light aircraft: safe &amp; low-cost.</p>
+                </div>     
               </div>
             </div>
-          </a>
-
-          <!-- Quote Button -->
-
-          <a 
-            style="text-align: center;" 
-            href="/quote">
-            <img src="/assets/quote-button-transp.png?v=20250908-191739"
-                 srcset="/assets/quote-button-transp-320w.png?v=20250908-191739 320w, /assets/quote-button-transp-640w.png?v=20250908-191739 640w"
-                 sizes="(max-width: 480px) 320px, (max-width: 768px) 640px"
-                 loading="lazy"
-                 alt="Get a Fast Quote"
-                 class="getaquote-button"
-                 width="300" 
-                 height="272"
-                 fetchpriority="low"
-                 decoding="async">
-          </a>
+          </div>
+          <div class="bleedright">
+            <img 
+              src="/assets/custom-grafx/grafx-index-bleed-patch.png?v=20250908-191739" 
+              alt=""
+              aria-hidden="true" 
+              class="bleedright-patch">
+          </div>     
         </div>
+        <div class="bleedbottom"></div>
       </div>
 
-    </main>
 
-<script src="/script.js?v=20250908-191739" defer></script>
+      <div class="index-thelovebelow">
+          <div class="index-thelovebelow-clone">
+            <div 
+              class="matteinner-lowerdisplayarea-grid"
+              id="gridclone"
+              aria-labelledby="h2-ferryf">
+              <a 
+                class="servicethumb"
+                href="/services">
+                <img 
+                  loading="eager"
+
+                  fetchpriority="high"
+                  src="/assets/blank1.jpg"
+                  srcset="
+                    /assets/images/index-key-320w.jpg 200w,
+                    /assets/images/index-key-640w.jpg 320w,
+                    /assets/images/index-key-1024w.jpg 640w"
+                  sizes="240px"
+                  height="976"
+                  width="810"
+                  alt="Container Shipping">
+              </a>
+              <div class="servicesdescription"
+                  aria-labelledby="h2-ferryf">
+                <h2 id="h2-ferryf">
+                  <a 
+                    style="text-decoration: none; color: inherit;"
+                    href="/services">FERRY FLIGHTS
+                  </a>
+                </h2>
+                <p>Nearly&nbsp;any&nbsp;aircraft.<wbr>To&nbsp;nearly&nbsp;every&nbsp;destination.</p>
+              </div>  
+              <a 
+                class="servicethumb"
+                id="lowercontthumb"
+                href="/services">
+                <img 
+                  loading="lazy"
+                  fetchpriority="low"
+                  src="/assets/blank1.jpg"
+                  srcset="
+                    /assets/images/index-containerize-320w.png 320w,
+                    /assets/images/index-containerize-640w.png 640w, 
+                    /assets/images/index-containerize-1321w.png 1321w"
+                  sizes="240px"
+                  height="336"
+                  width="615"
+                  alt="Container Shipping">
+              </a>
+                <div class="servicesdescription"
+                  aria-labelledby="h2-cs2">
+                  <h2 id="h2-cs2">
+                    <a style="text-decoration: none; color: inherit;" 
+                        href="/services">CONTAINER SHIPPING
+                    </a>
+                  </h2>
+                  <p>For&nbsp;light&nbsp;aircraft:<wbr> safe&nbsp;&amp;&nbsp;low&#8209;cost.</p>
+                </div>     
+              </div>
+            </div>
+          </div>
+          
+          <a class="index-quotesign"
+              id="narrow-quotesign"
+              href="/quote">
+            <img
+              src="/assets/blank1.jpg"
+              class="quote-sign"
+              srcset="/assets/custom-grafx/grafx-quote-sign.png 320w"
+              sizes="200px"
+              width="409"
+              data-w="409"
+              height="270"
+              data-h="270"
+              loading="lazy"
+              decoding="async"
+              alt="Get a quote">
+          </a>
+
+      </main>
+
+      <script type="module" src="/js/main.js"></script>
+
+
+
 
   </body>
-
 </html>

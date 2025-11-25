@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-  <html lang="en">
+  <html lang="en-us">
     <head>
     <!-- ===== GLOBAL (copy identical on every page) ===== -->
     <meta charset="UTF-8">
@@ -16,9 +16,8 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
 
-    <link rel="preload" href="/style.css?v=20250908-191739" as="style">
-    <link rel="stylesheet" href="/style.css?v=20250908-191739">
-    <link rel="preload" href="/script.js?v=20250908-191739" as="script">
+<link rel="preload" href="./css/style.css?v=20250908-191739" as="style">
+<link rel="stylesheet" href="./css/style.css?v=20250908-191739">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,6 +47,84 @@
       <meta name="twitter:title" content="Aircraft Delivery Solutions &mdash; Services">
       <meta name="twitter:description" content="Services">
       <meta name="twitter:image" content="https://aircraft.delivery/assets/about/2009-12-24.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aircraft.delivery/" },
+    { "@type": "ListItem", "position": 2, "name": "Services" }
+  ]
+}
+</script>
+
+<!-- /services — WebPage + Service(2) + ItemList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://aircraft.delivery/services#webpage",
+      "url": "https://aircraft.delivery/services",
+      "name": "Aircraft Delivery Services — Ferry Flights & Container Shipping",
+      "isPartOf": { "@id": "https://aircraft.delivery/#website" },
+      "about": { "@id": "https://aircraft.delivery/#org" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://aircraft.delivery/services#ferry-flights",
+      "name": "Ferry Flights",
+      "serviceType": "Aircraft ferry flight service",
+      "description": "I manage a <b>professional, supervised</b> flight operation. I personally oversee every mission as Director of Operations. Experienced, vetted flightcrew. No need to source your own pilots. Real-time monitoring of flight progress, weather, and enroute issues. Proactive operational support to catch and correct issues early. Same level of care whether you're moving a light piston or a transport-category aircraft.",
+      "provider": { "@id": "https://aircraft.delivery/#org" },
+      "areaServed": "Worldwide",
+      "availableChannel": [
+        {
+          "@type": "ServiceChannel",
+          "servicePhone": {
+            "@type": "ContactPoint",
+            "telephone": "+1-415-845-8163",
+            "contactType": "sales"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://aircraft.delivery/services#container-shipping",
+      "name": "Container Shipping",
+      "serviceType": "Aircraft containerization and ocean freight",
+      "description": "For light aircraft. A low-cost and very safe alternative to a risky and lengthy ferry flight. I determine that it is for the mission, or the client requests a container quote. I select cities to be used, considering cost, availability, etc. The method of moving the aircraft from its present location to the container-izer is determined. Ideally, the aircraft is airworthy and can be flown; if not it will need to be trucked to the container-izer. Upon client request I can add other services such as ground transportation in the destination country, and re-assembly.",
+      "provider": { "@id": "https://aircraft.delivery/#org" },
+      "areaServed": "Worldwide",
+      "availableChannel": [
+        {
+          "@type": "ServiceChannel",
+          "servicePhone": {
+            "@type": "ContactPoint",
+            "telephone": "+1-415-845-8163",
+            "contactType": "sales"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://aircraft.delivery/services#list",
+      "name": "Aircraft Delivery Services",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "url": "https://aircraft.delivery/services#ferry-flights" },
+        { "@type": "ListItem", "position": 2, "url": "https://aircraft.delivery/services#container-shipping" }
+      ]
+    }
+  ]
+}
+</script>
+
+
     </head>
     
     <body>
@@ -57,468 +134,465 @@
         href="#main">Skip to main content
       </a>
 
-      <!-- DESKTOP HEADER WRAPPER -->
-
-      <div class="desktop-only">
-        <header class="desk-header"
-                id="desk-header">
-          <a class="skip-link" 
-             href="#main">Skip to main content
-          </a>
-          <div class="desk-header-inner">
-            <div class="desk-header-left">
-              <nav class="desk-nav" 
-                   aria-label="Primary">
-                <a href="/services"
-                   aria-current="page">Services
-                </a>
-                <a href="/quote">Quote</a>
-                <a class="nav-dir"  
-                  href="/pilot-directory">Pilot<wbr> Directory
-                </a>
-                <a class="nav-join" 
-                  href="/join-pilot-roster">Join Pilot<wbr> Roster
-                </a>
-                <a href="/about">About</a>
-                <a class="nav-past" 
-                  href="/past-deliveries">Past<wbr> Deliveries
-                </a>
-              </nav>
-            </div>
-
-            <div class="desk-header-center">
-              <a href="/"
-                aria-current="page"
-                aria-label="Home">
-                <picture>
-                  <source
-                    media="(min-width: 1401px)"
-                    type="image/png"
-                    srcset="/assets/side-by-side-logo.png?v=20250908-191739">
-                  <img
-                    class="desk-header-logo"
-                    src="data:image/gif;base64,R0lGODlhAQABAAAAACw="
-                    width="951"
-                    height="179"
-                    decoding="async"
-                    fetchpriority="high"
-                    loading="eager"
-                    alt="">
-                </picture>
-              </a>
-            </div>
-
-            <div class="desk-header-right">
-              <p>+1 (415) 845-8163</p>
-              <a href="mailto:akahn28@gmail.com">akahn28@gmail.com</a>
-            </div>
-          </div>
-        </header>
-
-      </div>
-
-<!--MOBILE-ONLY DIV-->
-<!--MOBILE-ONLY DIV-->
-<!--MOBILE-ONLY DIV-->
-
-      <div class="mobile-only">
-
-<!--MOBILE-ONLY HEADER-->
-<!--MOBILE-ONLY HEADER-->
-<!--MOBILE-ONLY HEADER-->
-
-        <header class="mobile-header">
-
-          <div class="mobile-header-slot-left">
-            <button
-              id="hamburger-icon"
-              class="mobile-burger-proxy"
-              type="button"
-              aria-label="Open menu"
-              aria-expanded="false"
-              aria-controls="mobileMenu"
-              data-burger-proxy>
-              <picture>
-                <source 
-                  media="(max-width: 1400px)" 
-                  srcset="/assets/mobile/burger.png?v=20250908-191739">
-                <img
-                  src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                  alt="aria-label-active" 
-                  width="50"
-                  height="39"
-                  decoding="async">
-              </picture>
-            </button>
-          </div>
-
-          <div class="mobile-header-slot-center">
-            <a 
-              href="/" 
-              class="mobile-header-logo"                 
-              aria-label="Home">
-              <picture>
-                <source 
-                  media="(max-width: 750px)"
-                  srcset="/assets/mobile/mobile-logo-v2.png?v=20250908-191739">
-                <source 
-                  media="(min-width: 751px) and (max-width: 1400px)"
-                  srcset="/assets/mobile/mobile-logo-90.png?v=20250908-191739">
-                <img
-                  src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                  alt="Aircraft Delivery Solutions"
-                  width="300" 
-                  height="148" 
-                  decoding="async">
-              </picture>
-            </a>
-          </div>
-
-          <div class="mobile-header-slot-right">
-            <a
-              href="tel:+14158458163"
-              class="mobile-header-phone"
-              aria-label="phone icon">
-              <picture>
-                <source 
-                  media="(max-width: 1400px)"
-                  srcset="/assets/mobile/phone.png?v=20250908-191739">
-                <img 
-                  src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                  alt="Call"
-                  width="36" 
-                  height="36"
-                  decoding="async">
-              </picture>
-            </a>
-          </div>
-
-        </header>
-
-        <div 
-          class="mobile-menu" 
-          id="mobileMenu" 
-          hidden 
-          aria-labelledby="hamburger-icon"
-          role="region">
-          <nav class="mobile-nav" 
-               aria-label="Mobile primary">
+     <header class="header"
+            id="desk-header">
+      <div class="header-inner">
+        <div class="header-left">
+          <nav aria-label="Primary">
             <a href="/services">Services</a>
-            <a href="/quote">Get a Quote</a>
+            <a href="/quote">Quote</a>
             <a href="/pilot-directory">Pilot Directory</a>
-            <a href="/join-pilot-roster">Join Pilot Roster</a>
+            <a href="/join-pilot-roster">Join<wbr> Pilot Roster</a>
             <a href="/about">About</a>
             <a href="/past-deliveries">Past Deliveries</a>
           </nav>
+          <button
+            id="burger"
+            class="menu-toggle"
+            type="button"
+            aria-controls="menu-overlay"
+            aria-expanded="false"
+            aria-label="Open menu"
+            data-nav-toggle>
+
+            <img
+              src="/assets/blank1.jpg"
+              srcset="/assets/icons/icon-burger.png?v=20250908-191739 320w"
+              sizes="50px"
+              alt=""
+              aria-hidden="true" 
+              width="50"
+              height="39"
+              decoding="async"
+              loading="eager">
+          </button>
         </div>
-      </div>
-
-        <main id="main" 
-              class="services-main"
-              tabindex="-1"> 
-  
-          <div class="page-title-brick page-title-brick-centered"><h1>SERVICES</h1></div>
-            <p class="services-tagline">
-              <i>Led by 
-                <a href="/about">a 25-year professional pilot</a> who&rsquo;s flown 
-                <a href="/past-deliveries">50 ferry flights.</a>
-              </i>
-            </p>
-            
-  <div class="services-flex-wrapper">
-    <div class="services-column">
-      <div class="services-subheading-wrap">
-        <div class="services-subheading">FERRY 
-          <span class="subhead-break">FLIGHTS</span>
-        </div>
-      </div>
-
-
-
-<div id="services-slideshow" class="services-slideshow" title="Slideshow paused. Click to enlarge">
-
-  <div class="services-slide is-active">
-    <a href="/assets/services/slide-wick.jpg?v=20250908-191739" target="_blank" rel="noopener noreferrer">
-      <img
-        alt="Wick Scotland"
-        width="640" height="684"
-        loading="eager" decoding="async"
-        src="/assets/services/slide-wick.jpg?v=20250908-191739">
-    </a>
-  </div>
-
-  <div class="services-slide">
-    <a href="/assets/services/slide-lancair.jpg?v=20250908-191739" target="_blank" rel="noopener noreferrer">
-      <img
-        alt="Lancair"
-        width="640" height="684"
-        loading="lazy" fetchpriority="low" decoding="async"
-        src="/assets/services/slide-lancair.jpg?v=20250908-191739">
-    </a>
-  </div>
-
-  <div class="services-slide">
-    <a href="/assets/services/slide-duchess.jpg?v=20250908-191739" target="_blank" rel="noopener noreferrer">
-      <img
-        alt="Duchess"
-        width="640" height="684"
-        loading="lazy" fetchpriority="low" decoding="async"
-        src="/assets/services/slide-duchess.jpg?v=20250908-191739">
-    </a>
-  </div>
-
-  <div class="services-slide">
-    <a href="/assets/services/slide-pa32.jpg?v=20250908-191739" target="_blank" rel="noopener noreferrer">
-      <img
-        alt="PA32"
-        width="640" height="684"
-        loading="lazy" fetchpriority="low" decoding="async"
-        src="/assets/services/slide-pa32.jpg?v=20250908-191739">
-    </a>
-  </div>
-
-  <div class="services-slide">
-    <a href="/assets/services/slide-c310.jpg?v=20250908-191739" target="_blank" rel="noopener noreferrer">
-      <img
-        alt="C310"
-        width="640" height="684"
-        loading="lazy" fetchpriority="low" decoding="async"
-        src="/assets/services/slide-c310.jpg?v=20250908-191739">
-    </a>
-  </div>
-
-</div>
-
-  
-<div class="services-logbook">
-<div class="services-ourlogbook">
-    <h2 class="services-logbook-title">
-      Our <img src="/assets/services/logbook-icon.png?v=20250908-191739" alt="Logbook Icon" class="services-logbook-icon">
-    </h2>
-</div>
-
-
-<div class="services-logbook-table">
-  <div class="services-logbook-row">
-    <div class="services-logbook-cell">Ferry Flts</div>
-    <div class="services-logbook-cell">Naut. Mi.</div>
-    <div class="services-logbook-cell">Different a/c types</div>
-  </div>
-  <div class="services-logbook-row">
-    <div class="services-logbook-cell stat-value"><a href="/past-deliveries">52</a></div>
-    <div class="services-logbook-cell stat-value">64,000</div>
-    <div class="services-logbook-cell stat-value">
-      <span class="services-tooltip-parent">22
-        <span class="services-tooltip-box">        
-        AA1C<br>
-        BE19 BE24 BE33 BE35 BE76<br>
-        C150 C152 C172 C177 C182 C206 C210 C310<br>
-        EuroFox<br>
-        Lancair4<br>
-        LibertyXL2<br>
-        M20<br>
-        PA22 PA28 PA32 PA38</span>
-      </span>
-    </div>
-  </div>
-</div>
-
-
-<table class="mob-logbook">
-  <tr>
-    <td>FERRY FLTS</td>
-    <td style="padding-top: 0;"><a style="height: 60px; width: 60px; display: inline-block; padding-top: 20px;"
-           href="/past-deliveries">52
+       <div class="header-center">
+        <a href="/"
+          aria-current="page"
+          aria-label="Home">
+          <img 
+            class="header-center-logo"
+            id="desktop-logo"
+            src='/assets/blank1.jpg'
+            srcset='/assets/logos/side-by-side-logo.png 951w'
+            sizes="calc(41.7vw + 16.7px)"
+            width='951'
+            data-w='951'
+            height='179'
+            data-h='179'
+            loading='eager'
+            decoding='async'
+            alt=''>
+          <img 
+            class="header-center-logo" 
+            id="mobile-logo-90"
+            src='/assets/blank1.jpg'
+            srcset='assets/logos/mobile-logo-90.png 300w'
+            sizes='100px'
+            width='300'
+            data-w='300'
+            height='116'
+            data-h='116'
+            loading='eager'
+            decoding='async'
+            alt='Aircraft Delivery Solutions logo'><!--1400 O/R-->
         </a>
-    </td>
-  </tr>
-  <tr>
-    <td>NAUT. MI.</td>
-    <td>64,000</td>
-  </tr>
-  <tr>
-    <td>
-      DIFFERENT A/C TYPES
-    </td>
-    <td><div class="mob-tooltip-parent">22<div class="mob-tooltip-box">AA1C<br>
-          BE19 BE24 BE33 BE35 BE76<br>
-          C150 C152 C172 C177 C182 C206 C210 C310<br>
-          EuroFox<br>
-          Lancair4<br>
-          LibertyXL2<br>
-          M20<br>
-          PA22 PA28 PA32 PA38
-       </div></div></td>
-  </tr>
-</table>
-</div>
+       </div>
+    
+       <div class="header-right">
+        <div class="header-right-desk">
+          <a href="tel:+14158458163"
+             aria-label="call">
+            <p>+1 (415) 845-8163</p>
+            <img 
+              class="phone-icon-mobile"
+              id="phone-icon"
+              src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+              srcset="/assets/icons/icon-phone.png?v=20250908-191739 320w"
+              sizes="36px"
+              alt=""
+              aria-hidden="true"
+              width="36" 
+              height="36"
+              loading="eager"
+              decoding="async"><!--1400 O/R-->
+          </a>
+          <a href="mailto:akahn28@gmail.com">
+            <p>akahn28@gmail.com</p>
+          </a>
+        </div>
+        <div class="header-right-mob"><!--1400 O/R-->
+          <a href="tel:+14158458163"
+             aria-label="Call">
+            <img 
+              class="phone-icon-mobile"
+              src="/assets/blank1.jpg"
+              srcset="/assets/icons/icon-phone.png?v=20250908-191739 320w"
+              sizes="36px"
+              alt=""
+              aria-hidden="true"
+              width="36" 
+              height="36"
+              loading="eager"
+              decoding="async">
+          </a>
+          <a href="sms:+14158458163"
+             id="icontxtmsg"
+             aria-label="Send a text message">
+           <img 
+              class="phone-icon-mobile"
+              style="margin-right: 15px;"
+              src="/assets/blank1.jpg"
+              srcset="/assets/icons/icon-txt-msg-bubble.png 91w"
+              sizes="36px"
+              alt=""
+              aria-hidden="true"
+              width="91" 
+              height="70"
+              loading="eager"
+              decoding="async">
+            </a>
+          <a href="mailto:akahn28@gmail.com"
+             id="iconemail">
+             <img 
+              class="phone-icon-mobile"
+              src="/assets/blank1.jpg"
+              srcset="/assets/icons/icon-email.png 200w"
+              sizes="36px"
+              alt=""
+              aria-hidden="true"
+              width="200" 
+              height="131"
+              loading="eager"
+              decoding="async">
+            </a>
+        </div>              
+       </div>
+      </div>
 
-<div class="service-description">
-    <p class="services-caption">
-      I manage a <b>professional, supervised</b> flight operation:
-    </p>
+    </header>
 
-    <ul class="services-bullets">
-      <li><b>I personally oversee every mission</b> as Director of Operations</li>
-      <li><b>Experienced, vetted flightcrew</b> &mdash; no need to source your own pilots</li>
-      <li><b>Real-time monitoring</b> of flight progress, weather, and enroute issues</li>
-      <li><b>Proactive operational support</b> to catch and correct issues early</li>
-      <li><b>Same level of care</b> whether you&rsquo;re moving a light piston or a transport-category aircraft</li>
-    </ul>
-  </div>
-  </div>
+        <div
+          class="menu-overlay is-hidden"
+          id="menu-overlay"
+          data-anim="fade"
+          data-menu
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="menu-title"
+          aria-hidden="true">
+          <div 
+            class="menu-panel-backdrop"
+            id="menu-panel-backdrop" 
+            data-menu-overlay
+            aria-hidden="true">
+          </div>
+          <nav 
+            id="menu-panel"
+            class="menu-panel"
+            aria-label="Primary navigation"
+            aria-hidden="true"
+            inert>
+            <h2 
+              id="menu-title" 
+              class="visually-hidden">Menu
+            </h2>
+            <button
+              class="mob-menupanel-float"
+              aria-label="Close mobile menu">
+              <img
+                src="/assets/blank1.jpg"
+                height="118"
+                width="125"
+                sizes="30px"
+                srcset="/assets/icons/icon-red-x-close.png 125w"
+                aria-lable="Close button"
+                alt=""
+                aria-hidden="false">
+            </button>
+
+            <ul class="menu-list">
+              <li><a href="/services">Services</a></li>
+              <li><a href="/quote">Get a Quote</a></li>
+              <li><a href="/pilot-directory">Pilot Directory</a></li>
+              <li><a href="/join-pilot-roster">Join Pilot Roster</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/past-deliveries">Past Deliveries</a></li>
+            </ul>
+            <button 
+              class="menu-close" 
+              type="button" 
+              data-menu-close 
+              aria-label="Close menu">Close
+            </button>
+            <div style="display: grid; grid-template-columns: auto auto; margin-top: 60px;">
+              <a 
+                href="sms:+14158458163"
+                id="menu-icontxtmsg"
+                style="margin: 0 auto;">
+                <img 
+                  class="phone-icon-mobile"
+                  style="margin-right: 15px;"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/icons/icon-txt-msg-bubble.png 91w"
+                  sizes="36px"
+                  alt=""
+                  aria-hidden="true"
+                  width="91" 
+                  height="70"
+                  loading="eager"
+                  decoding="async">
+              </a>
+              <a 
+                href="mailto:akahn28@gmail.com"
+                id="menu-iconemail"
+                style="margin: 0 auto;">
+                <img 
+                  class="phone-icon-mobile"
+                  src="/assets/blank1.jpg"
+                  srcset="/assets/icons/icon-email.png 200w"
+                  sizes="36px"
+                  alt=""
+                  aria-hidden="true"
+                  width="200" 
+                  height="131"
+                  loading="eager"
+                  decoding="async">
+              </a>
+            </div>
+          </nav>
+        </div>
+
+    <main id="main" 
+          class="services-main"
+          tabindex="-1"> 
+      <div class="page-title-brick page-title-brick-centered"><h1>SERVICES</h1></div>
+      <p class="services-tagline"><i>Led by <a href="/about">a 25-year professional pilot</a> who&rsquo;s flown <a href="/past-deliveries">50 ferry flights.</a></i></p>
+            
+      <div class="services-flex-wrapper">
+
+        <div class="ferry-column"
+             style="position: relative;">
+
+          <div class="services-subheading-wrap"><div class="services-subheading">FERRY <span class="subhead-break">FLIGHTS</span></div></div>
+        
+          <div id="services-slideshow" 
+               class="services-slideshow"> 
+              
+            <div class="services-slide is-faded">
+              <img 
+                src="/assets/blank1.jpg" 
+                srcset="/assets/images/slide-wick.jpg 640w" 
+                sizes="600px" 
+                width="640" 
+                height="680" 
+                alt="Wick Scotland" 
+                loading="lazy" 
+                decoding="async">
+            </div>
+
+            <div class="services-slide is-faded">
+              <img 
+                src="/assets/blank1.jpg" 
+                srcset="/assets/images/slide-c310.jpg 640w" 
+                sizes="640px" 
+                width="640" 
+                height="684" 
+                alt="N466P after delivery in Sacramento, California"
+                loading="lazy" 
+                decoding="async">
+            </div>
+
+            <div class="services-slide is-faded">
+              <img 
+                src="/assets/blank1.jpg" 
+                srcset="/assets/images/slide-pa32.jpg 640w"
+                sizes="640px" 
+                width="640" 
+                height="684" 
+                alt="A mentored delivery"
+                loading="lazy" 
+                decoding="async">
+            </div>
+
+            <div class="services-slide is-faded">
+              <img 
+                src="/assets/blank1.jpg" 
+                srcset="/assets/images/slide-lancair.jpg 640w"
+                sizes="640px" 
+                width="640" 
+                height="684" 
+                alt="Lancair"
+                loading="lazy" 
+                decoding="async">
+            </div>
+
+            <div class="services-slide is-faded">
+              <img 
+                src="/assets/blank1.jpg" 
+                srcset="/assets/images/slide-duchess.jpg 640w"
+                sizes="640px" 
+                width="640" 
+                height="684" 
+                alt="Duchess"
+                loading="lazy" 
+                decoding="async">
+            </div>
+          </div>
+  
+          <div class="services-logbook">
+
+            <div class="services-ourlogbook">
+              <h2 class="services-logbook-title">Our 
+                <img 
+                  src="/assets/custom-grafx/grafx-services-logbook-icon.png" 
+                  alt="Logbook Icon" 
+                  class="services-logbook-icon">
+              </h2>
+            </div>
+
+
+            <div class="services-logbook-table">
+
+              <div class="services-logbook-row">
+                <div class="services-logbook-cell">Ferry Flts</div>
+                <div class="services-logbook-cell">Naut. Mi.</div>
+                <div class="services-logbook-cell">Different a/c types</div>
+              </div>
+              <div class="services-logbook-row">
+                <div class="services-logbook-cell stat-value"><a href="/past-deliveries">52</a></div>
+                <div class="services-logbook-cell stat-value">64,000</div>
+                <div class="services-logbook-cell stat-value">
+                  <span class="services-tooltip"
+                    data-tooltip="
+                      AA1C&#10;
+                      BE19 BE24 BE33 BE35 BE76&#10;
+                      C150 C152 C172 C177 C182 C206 C210 C310&#10;
+                      EuroFox&#10;
+                      Lancair4&#10;
+                      LibertyXL2&#10;
+                      M20&#10;
+                      PA22 PA28 PA32 PA38"
+                      tabindex="0">22
+                    </span>
+                  </span>
+                </div>
+              </div>
+
+            </div>
+
+            <table class="mob-logbook">
+
+              <tr>
+                <td>FERRY FLTS</td>
+                <td style="padding-top: 0;"><a style="height: 60px; width: 60px; display: inline-block; padding-top: 20px;"
+                    href="/past-deliveries">52</a>
+                </td>
+              </tr>
+
+              <tr>
+                <td>NAUT. MI.</td>
+                <td>64,000</td>
+              </tr>
+              <tr>
+                <td>
+                  DIFFERENT A/C TYPES
+                </td>
+                <td>
+                  <div class="mob-tooltip-parent">22
+                      <div class="mob-tooltip-box">
+                        AA1C<br>
+                        BE19 BE24 BE33 BE35 BE76<br>
+                        C150 C152 C172 C177 C182 C206 C210 C310<br>
+                        EuroFox<br>
+                        Lancair4<br>
+                        LibertyXL2<br>
+                        M20<br>
+                        PA22 PA28 PA32 PA38
+                      </div>
+                    </div>
+                  </td>
+              </tr>
+            </table>
+
+          </div>
+
+          <div class="service-description">
+              <p class="services-caption">
+                I manage a <b>professional, supervised</b> flight operation:
+              </p>
+
+              <ul class="services-bullets">
+                <li><b>I personally oversee every mission</b> as Director of Operations</li>
+                <li><b>Experienced, vetted flightcrew</b> &mdash; no need to source your own pilots</li>
+                <li><b>Real-time monitoring</b> of flight progress, weather, and enroute issues</li>
+                <li><b>Proactive operational support</b> to catch and correct issues early</li>
+                <li><b>Same level of care</b> whether you&rsquo;re moving a light piston or a transport-category aircraft</li>
+              </ul>
+          </div>
+        </div>
+
+        <div class="container-column">
+          <div class="services-subheading-wrap">
+            <div class="services-subheading">CONTAINER <span class="subhead-break">SHIPPING</span></div>
+          </div>
+
+          <img 
+            loading="eager"
+            fetchpriority="high"
+            src="/assets/blank1.jpg"
+            srcset="
+            /assets/images/index-containerize-320w.png 320w,
+            /assets/images/index-containerize-640w.png 640w, 
+            /assets/images/index-containerize-1321w.png 1321w"
+            sizes="600px"
+            height="451"
+            width="409"
+            alt="Container Shipping">
+
+          <p class="services-caption">For light aircraft. A <b>low-cost</b> and <b>very safe</b> alternative when the ferry flight routing is risky and lengthy.</p>
+          
+          <div class="services-mob-container-explain">
+          
+            <p><b>Is container transport optimal?</b> &ndash; I determine that it is for the mission, and/or the client requests a container quote.</p>
+            <p><b>Port identification</b> &ndash; I select cities to be used, considering cost, availability, etc.</p>
+            <p><b>Fly or truck</b> &ndash; The method of moving the aircraft from its present location to the container-izer is determined. Ideally, the aircraft is airworthy and can be flown; if not it will need to be trucked to the container-izer.</p>
+            <p><b>Services after port arrival</b> &ndash; Typically, my mission ends with delivery at the destination port. However, upon client request I can add other services such as ground transportation in the destination country, and re-assembly.</p>
+          
+          </div>
+        </div>
+        
+      </div>
+    
+
+      <!-- CTA BUTTON -->
+      <div style="position: relative; width: clamp(0px, 100%, 600px); margin: 0 auto;">
+        <a class="services-cta" href="/quote" >
+          <img
+            src="/assets/blank1.jpg"
+            srcset="/assets/custom-grafx/grafx-quote-sign.png 409w"
+            sizes="200px"
+            width="409"
+            height="270"
+            loading="lazy"
+            decoding="async"
+            alt="Get a Quote">
+        </a>
+          <img id="services-clickme"
+            src="/assets/blank1.jpg"
+            srcset="/assets/icons/icon-clickhere.png"
+            sizes="65px"
+            width="100"
+            height="100"
+            loading="lazy"
+            decoding="async"
+            alt="pointer finger">
+      </div>
  
+    </main>
 
-<!--<div class="services-col-separator"></div>-->
-  <!-- RIGHT COLUMN -->
-  <div class="services-column">
-    <div class="services-subheading-wrap">
-    <div class="services-subheading">CONTAINER <span class="subhead-break">SHIPPING</span></div></div>
+    <script type="module" src="/js/main.js"></script>
 
-    <img src="/assets/services/containerize-no-title.png?v=20250908-191739" loading="eager"
-         alt="Container Delivery" class="services-container-img"
-  fetchpriority="high">
-
-    <p class="services-caption">
-      For light aircraft. A low-cost and very safe alternative to a risky and lengthy ferry flight.
-    </p>
-    <div class="services-mob-container-explain">
-      <p><b>Is container transport optimal?</b> &ndash; I determine that it is for the mission, and/or the client requests a container quote.</p>
-      <p><b>Port identification</b> &ndash; I select cities to be used, considering cost, availability, etc.</p>
-      <p><b>Fly or truck</b> &ndash; The method of moving the aircraft from its present location to the container-izer is determined. Ideally, the aircraft is airworthy and can be flown; if not it will need to be trucked to the container-izer.</p>
-      <p><b>Services after port arrival</b> &ndash; Typically, my mission ends with delivery at the destination port. However, upon client request I can add other services such as ground transportation in the destination country, and re-assembly.</p>
-  </div></div>
-</div>
-
-<!-- CTA BUTTON -->
-<div class="services-cta-wrap">
-  <a href="/quote"
-     aria-label="Get a quote">
-    <img
-      src="/assets/quote-button-transp.png?v=20250908-191739"
-      alt="Get a Fast Quote" loading="lazy"
-      class="getaquote-button">
-  </a>
-</div>
-
-
-
-</main>
-<script src="/script.js?v=20250908-191739" defer></script>
-</body>
+  </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
